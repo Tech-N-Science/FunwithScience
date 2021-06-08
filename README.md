@@ -4,6 +4,6 @@ This project is a Physics calculator where the user just needs to enter the valu
 
 <p align="center">
   <img src="https://zephyrnet.com/wp-content/uploads/2020/07/watch-as-albert-einstein-explains-his-famous-formula-emcc2b2.jpg" width="25%">
-  <img src="![Screenshot (280)](https://user-images.githubusercontent.com/60662775/121134911-9608d700-c851-11eb-8ad0-1b503afb5249.png)" width="25%">     
+  <img src="https://previews.123rf.com/images/smuki/smuki1404/smuki140400068/27904366-illustration-of-physics-pattern-as-vector-seamless-background.jpg" width="25%">     
 </p>
 
