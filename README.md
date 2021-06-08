@@ -3,8 +3,13 @@
 
 Are you bored solving the questions using the tough physics formulas?? 😩
 Are you bored with the long calculations?? 😩
-Then here is a solution to your problems.
+Then here is a solution to your problems. 😃
 This project is a Physics calculator where the user just needs to enter the values and the project calculates the result using the formula.
+
+
+It really is that easy!
+
+And the best part of all? **FunwithPysics is open source!** 🤩
 
 <p align="center">
   <img src="https://zephyrnet.com/wp-content/uploads/2020/07/watch-as-albert-einstein-explains-his-famous-formula-emcc2b2.jpg" width="50%">
