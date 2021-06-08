@@ -136,7 +136,7 @@ If you have any doubts please let us know in the comments.
 
   
   <p align="center">
-  <a href="https://github.com/Ayush7614"><img src="https://avatars.githubusercontent.com/u/60662775?v=4" width="20%" /></a> 
+  <a href="https://github.com/Ayush7614"><img src="https://avatars.githubusercontent.com/u/60662775?v=4" width="16%" /></a> 
 
   <p align="center">
   <a target="_blank"href="https://www.linkedin.com/in/amit-mishra-28122a193/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
