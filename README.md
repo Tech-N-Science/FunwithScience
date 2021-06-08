@@ -134,8 +134,9 @@ If you have any doubts please let us know in the comments.
 
 **The Project Maintainer👨‍🏫:**
 
-
-https://avatars.githubusercontent.com/u/60662775?v=4
+<p align="center">
+<img src="https://avatars.githubusercontent.com/u/60662775?v=4" width="25%">
+  </p>
 <a href="https://github.com/Amit366">
 <h5 align="center"><b>Amit Kumar Mishra</b></a>
 
