@@ -128,6 +128,24 @@ git push -u origin <your_branch_name>
 Congratulations🎉, you have made a PR to the FunwithPhysics.
 Wait for your submission to be accepted and your PR to be merged by a maintainer.
 
+# How to run the webpage on your local system
+
+1. Go to the `funwithpysics` directory.
+```
+cd funwithpysics
+```
+
+2. Write the command.
+```
+yarn build
+```
+
+3. Then write :
+```
+serve -s build
+```
+
+
 If you have any doubts please let us know in the comments.
 
 ---
