@@ -137,14 +137,8 @@ cd funwithpysics
 
 2. Write the command.
 ```
-yarn build
+yarn start
 ```
-
-3. Then write :
-```
-serve -s build
-```
-
 
 If you have any doubts please let us know in the comments.
 
