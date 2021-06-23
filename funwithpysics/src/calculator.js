@@ -1,9 +1,5 @@
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-function App() {
-  function Force(){
+function Force(){
     var a = parseInt(document.getElementById("mass").value);
     var b = parseInt(document.getElementById("acce").value);
     var F = a*b;
@@ -12,12 +8,4 @@ function App() {
     temp += "Force = "+F;
     re.innerHTML = temp;
 
-   } 
-  return (
-    <>
-    
-    </>
-  );
 }
-
-export default App;
