@@ -161,5 +161,12 @@ If you have any doubts please let us know in the comments.
   <a href="https://www.instagram.com/alipun2002/"><img src="https://img.shields.io/badge/instagram-%23D14836.svg?&style=for-the-badge&logo=instagram&logoColor=pink" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
+## 🌟 Contributors
+
+Thanks to these wonderful peoples ✨✨:
+
+<a href="https://github.com/Amit366/FunwithPhysics/graphs/contributors">
+<img src="https://contributors-img.web.app/image?repo=Amit366/FunwithPhysics" />
+</a>
 
 
