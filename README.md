@@ -149,17 +149,20 @@ If you have any doubts please let us know in the comments.
 ---
 
 
-**The Project Maintainer👨‍🏫:**
+<h1 align=center> Project Admin ❤️ </h1>
 
   
   <p align="center">
-  <a href="https://github.com/Ayush7614"><img src="https://avatars.githubusercontent.com/u/60662775?v=4" width="16%" /></a> 
+  <a href="https://github.com/Amit366"><img src="https://avatars.githubusercontent.com/u/60662775?v=4" width="16%" /></a> 
 
   <p align="center">
   <a target="_blank"href="https://www.linkedin.com/in/amit-mishra-28122a193/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="mamit7503@gmail.com?subject=Hello%20Harsh,%20From%20Github"><img src="https://img.shields.io/badge/gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://www.instagram.com/alipun2002/"><img src="https://img.shields.io/badge/instagram-%23D14836.svg?&style=for-the-badge&logo=instagram&logoColor=pink" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
+
+
+## Project Maintainers 😃
 
 ## 🌟 Contributors
 
@@ -168,5 +171,4 @@ Thanks to these wonderful peoples ✨✨:
 <a href="https://github.com/Amit366/FunwithPhysics/graphs/contributors">
 <img src="https://contributors-img.web.app/image?repo=Amit366/FunwithPhysics" />
 </a>
-
 
