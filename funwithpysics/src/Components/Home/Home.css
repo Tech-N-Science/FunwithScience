@@ -219,3 +219,27 @@ h2 {
   -moz-box-shadow: inset -70px 0px 77px 11px rgba(0, 0, 0, 0.74);
   box-shadow: inset -70px 0px 77px 11px rgba(0, 0, 0, 0.74);
 }
+
+/*Back to top button */
+/* .gotopbtn {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: rgb(3, 31, 90);
+  bottom: 40px;
+  right: 50px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  border-radius: 50%;
+}
+
+.fas {
+  text-decoration: none;
+  color: white;
+}
+.fas:hover {
+  color: white;
+} */
