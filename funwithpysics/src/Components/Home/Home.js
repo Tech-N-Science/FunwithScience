@@ -119,7 +119,7 @@ const Home = () => {
 			</div>
 		</div>
 		{/* <!-- Back to top button --> */}
-    		{/* <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a> */}
+    		<a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
         </>
     )
 }

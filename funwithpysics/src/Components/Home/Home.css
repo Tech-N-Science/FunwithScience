@@ -221,7 +221,7 @@ h2 {
 }
 
 /*Back to top button */
-/* .gotopbtn {
+.gotopbtn {
   position: fixed;
   width: 50px;
   height: 50px;
@@ -242,4 +242,4 @@ h2 {
 }
 .fas:hover {
   color: white;
-} */
+}
