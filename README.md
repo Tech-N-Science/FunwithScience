@@ -173,7 +173,12 @@ If you have any doubts please let us know in the comments.
 
 Thanks to these wonderful peoples ✨✨:
 
-<a href="https://github.com/Amit366/FunwithPhysics/graphs/contributors">
-<img src="https://contributors-img.web.app/image?repo=Amit366/FunwithPhysics" />
-</a>
-
+<table>
+	<tr>
+		 <td>
+  <a href="https://github.com/Amit366/FunwithPhysics/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Amit366/FunwithPhysics" />
+  </a>
+		</td>
+	</tr>
+</table>
