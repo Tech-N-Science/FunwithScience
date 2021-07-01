@@ -65,8 +65,8 @@ h2 {
   color: #000;
 }
 .services .icon {
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   background: rgba(0, 0, 0, 0.04);
   display: table;
   text-align: center;
@@ -85,7 +85,7 @@ h2 {
     margin: 0 auto 30px auto;
   }
 }
-.services .icon i {
+/* .services .icon i {
   display: table-cell;
   vertical-align: middle;
   font-size: 40px;
@@ -102,6 +102,17 @@ h2 {
 .services:hover .icon i,
 .services:focus .icon i {
   color: #fff;
+} */
+
+
+.services .icon img {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+.services .icon img:hover {
+  transform: scale(1.1);
 }
 
 .fh5co-counters {

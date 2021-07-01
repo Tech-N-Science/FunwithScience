@@ -1,5 +1,13 @@
 import React from 'react'
 import '../Home/Home.css'
+import classicalMechanics from "../../Images/Classical_Mechanics.jpg"
+import thermodynamics from "../../Images/Thermodynamics.jpg"
+import electromagnetism from "../../Images/electromagnetism.jpg"
+import relativity from "../../Images/relativity.jpg"
+import atomic from "../../Images/atomic_physics.jpg"
+import nuclear from "../../Images/nuclear.jpg"
+import photonics from "../../Images/photonics.jpg"
+import statistical from "../../Images/statistical.jpg"
 
 const Home = () => {
     return (
@@ -22,7 +30,8 @@ const Home = () => {
 					<div className="col-md-3 col-sm-6 text-center animate-box">
 						<div className="services">
 							<span className="icon">
-								<i className="icon-shop"></i>
+								{/* <i className="icon-shop"></i> */}
+								<img src={classicalMechanics} />
 							</span>
 							<div className="desc">
 								<h3><a href="#">Classical mechanics</a></h3>
@@ -34,7 +43,8 @@ const Home = () => {
 					<div className="col-md-3 col-sm-6 text-center animate-box">
 						<div className="services">
 							<span className="icon">
-								<i className="icon-heart4"></i>
+								{/* <i className="icon-heart4"></i> */}
+								<img src={thermodynamics} />
 							</span>
 							<div className="desc">
 								<h3><a href="#">Thermodynamics</a></h3>
@@ -46,7 +56,8 @@ const Home = () => {
 					<div className="col-md-3 col-sm-6 text-center animate-box">
 						<div className="services">
 							<span className="icon">
-								<i className="icon-banknote"></i>
+								{/* <i className="icon-banknote"></i> */}
+								<img src={electromagnetism} />
 							</span>
 							<div className="desc">
 								<h3><a href="#">Electromagnetism</a></h3>
@@ -58,7 +69,8 @@ const Home = () => {
 					<div className="col-md-3 col-sm-6 text-center animate-box">
 						<div className="services">
 							<span className="icon">
-								<i className="icon-lab2"></i>
+								{/* <i className="icon-lab2"></i> */}
+								<img src={relativity} />
 							</span>
 							<div className="desc">
 								<h3><a href="#">Relativity</a></h3>
@@ -70,7 +82,8 @@ const Home = () => {
 					<div className="col-md-3 col-sm-6 text-center animate-box">
 						<div className="services">
 							<span className="icon">
-								<i className="icon-photo"></i>
+								{/* <i className="icon-photo"></i> */}
+								<img src={atomic} />
 							</span>
 							<div className="desc">
 								<h3><a href="#">Atomic physics</a></h3>
@@ -82,7 +95,8 @@ const Home = () => {
 					<div className="col-md-3 col-sm-6 text-center animate-box">
 						<div className="services">
 							<span className="icon">
-								<i className="icon-home-outline"></i>
+								{/* <i className="icon-home-outline"></i> */}
+								<img src={nuclear} />
 							</span>
 							<div className="desc">
 								<h3><a href="#">Nuclear Physics</a></h3>
@@ -94,7 +108,8 @@ const Home = () => {
 					<div className="col-md-3 col-sm-6 text-center animate-box">
 						<div className="services">
 							<span className="icon">
-								<i className="icon-bubble3"></i>
+								{/* <i className="icon-bubble3"></i> */}
+								<img src={photonics} />
 							</span>
 							<div className="desc">
 								<h3><a href="#">Photonics</a></h3>
@@ -106,7 +121,8 @@ const Home = () => {
 					<div className="col-md-3 col-sm-6 text-center animate-box">
 						<div className="services">
 							<span className="icon">
-								<i className="icon-world"></i>
+								{/* <i className="icon-world"></i> */}
+								<img src={statistical} />
 							</span>
 							<div className="desc">
 								<h3><a href="#">Statistical Mechanics</a></h3>
