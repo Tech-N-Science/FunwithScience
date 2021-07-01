@@ -22,16 +22,7 @@ const Navbar = () => {
                 <NavLink to='/faq' className="nav-item">
                     <a className="nav-link" >FAQ</a>
                 </NavLink>  
-                <NavLink to = 'calculator' class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="menu" data-bs-toggle="dropdown" >
-                    Calculator
-                </a>
-                <ul class="dropdown-menu" >
-                    <li><a class="dropdown-item" aria-labelledby="dLabel" href="#"></a></li>
-                    <li><a class="dropdown-item" href="#"></a></li>
-                    <li><a class="dropdown-item" href="#"></a></li>
-                </ul>
-                </NavLink>       
+                     
                 </ul>
             </div>
         </nav> 
