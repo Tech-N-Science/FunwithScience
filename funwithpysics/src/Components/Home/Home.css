@@ -67,7 +67,8 @@ h2 {
 .services .icon {
   width: 150px;
   height: 150px;
-  background: rgba(0, 0, 0, 0.04);
+  /* background: rgba(0, 0, 0, 0.04); */
+  border: 5px solid grey;
   display: table;
   text-align: center;
   margin: 0 auto;
@@ -112,7 +113,11 @@ h2 {
 }
 
 .services .icon img:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
+}
+
+.services .icon:hover {
+  border: 5px solid crimson
 }
 
 .fh5co-counters {
