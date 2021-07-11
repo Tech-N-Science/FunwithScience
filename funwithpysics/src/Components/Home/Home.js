@@ -6,13 +6,12 @@ const Home = () => {
         <>
         {/* ----Banner---- */}
         <div className="banner">
-            <img src=''/>
-            <br/><br/><br/><br/>
-            <h2 className="col-md-8 col-sm-6 mt-5 mx-5 my- auto pt-5">Physics is about questioning, studying, probing nature. You probe, and, if you're lucky, you get strange clues.
+            
+            <h2 className="banner_text col-md-8 col-sm-8 auto pt-5">Physics is about questioning, studying, probing nature. You probe, and, if you're lucky, you get strange clues.
             <br/>So, keep Exploring Physics.</h2>
-            <div className="banner_button col-md-10 ml-lg-2 my-auto">
-                <button type="button" class="btn btn-light m-5 col-md-1">Explore</button>
-                <button type="button" class="btn btn-light col-md-1">Learn</button>
+            <div className="banner_button">
+                <button type="button" class="btn btn-light">Explore</button>
+                <button type="button" class="btn btn-light">Learn</button>
             </div>            
         </div>
         {/* ----Features---- */}

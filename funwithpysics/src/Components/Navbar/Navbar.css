@@ -1,0 +1,42 @@
+.fa-book{
+    color:#0a0a0a;
+    margin-right: 10px;
+    margin-left: 50px;
+}
+
+.fa-book:hover{
+    color:#0a0a0a;
+}
+
+.nav-item:hover{
+    text-decoration: none;
+}
+
+.navbar{
+    margin-bottom: 10px;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand{
+    padding: 0px;
+    font-size: 30px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .fa-book{
+        display: none;
+        margin-left: 10px;
+    }
+    .navbar-brand{
+        margin-left: 10px;
+    }
+}
+
+

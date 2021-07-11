@@ -48,6 +48,50 @@ h2 {
   }
 }
 
+.banner{
+  padding-left: 5vw;
+  padding-top: 30vh;
+}
+
+.banner_text{
+  margin-bottom: 30px;
+}
+
+.banner_button *{
+  margin-left: 20px;
+  width: 120px;
+}
+
+@media (max-width: 600px){
+  .banner{
+    padding-top: 25vh;
+  }
+  
+  .banner h2{
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner{
+    padding-top: 27vh;
+  }
+  
+  .banner h2{
+    font-size: 30px;
+  }
+}
+
+@media (max-height: 500px) {
+  .banner{
+    padding-top: 0vh;
+  }
+  
+  .banner h2{
+    font-size: 20px;
+  }
+}
+
 .services {
   width: 95%;
   margin: 0 auto;

@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
         </section>
 
-        <div class="text-center p-4 bg-dark">
+        <div class="text-center p-4 bg-dark text-white">
             © 2021 | Copyright@
             <a class="text-reset fw-bold" href="/"> Fun With Physics</a>
         </div>
