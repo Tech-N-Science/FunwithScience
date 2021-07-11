@@ -35,8 +35,7 @@ const Home = () => {
 							</span>
 							<div className="desc">
 								<h3><a href="#">Classical mechanics</a></h3>
-								<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem
-									provident. Odit ab aliquam dolor eius.</p>
+								<p>Classical mechanics is a physical theory describing the motion of macroscopic objects, from projectiles to parts of machinery, and astronomical objects.</p>
 							</div>
 						</div>
 					</div>
@@ -48,21 +47,7 @@ const Home = () => {
 							</span>
 							<div className="desc">
 								<h3><a href="#">Thermodynamics</a></h3>
-								<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem
-									provident. Odit ab aliquam dolor eius.</p>
-							</div>
-						</div>
-					</div>
-					<div className="col-md-3 col-sm-6 text-center animate-box">
-						<div className="services">
-							<span className="icon">
-								{/* <i className="icon-banknote"></i> */}
-								<img src={electromagnetism} />
-							</span>
-							<div className="desc">
-								<h3><a href="#">Electromagnetism</a></h3>
-								<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem
-									provident. Odit ab aliquam dolor eius.</p>
+								<p>Thermodynamics is the branch of physics that deals with the relationships between heat and other forms of energy.</p>
 							</div>
 						</div>
 					</div>
@@ -74,8 +59,19 @@ const Home = () => {
 							</span>
 							<div className="desc">
 								<h3><a href="#">Relativity</a></h3>
-								<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem
-									provident. Odit ab aliquam dolor eius.</p>
+								<p>Relativity is the notion that the laws of physics are the same everywhere, be it on Earth or in a far off corner of the universe.</p>
+							</div>
+						</div>
+					</div>
+					<div className="col-md-3 col-sm-6 text-center animate-box">
+						<div className="services">
+							<span className="icon">
+								{/* <i className="icon-banknote"></i> */}
+								<img src={electromagnetism} />
+							</span>
+							<div className="desc">
+								<h3><a href="#">Electromagnetism</a></h3>
+								<p>Electromagnetism is a branch of physics involving the study of the electromagnetic force, a type of physical interaction between electrically charged particles. </p>
 							</div>
 						</div>
 					</div>
@@ -87,8 +83,7 @@ const Home = () => {
 							</span>
 							<div className="desc">
 								<h3><a href="#">Atomic physics</a></h3>
-								<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem
-									provident. Odit ab aliquam dolor eius.</p>
+								<p>Atomic physics is the scientific study of the structure of the atom, its energy states, and its interactions with other particles and with electric and magnetic fields.</p>
 							</div>
 						</div>
 					</div>
@@ -100,8 +95,7 @@ const Home = () => {
 							</span>
 							<div className="desc">
 								<h3><a href="#">Nuclear Physics</a></h3>
-								<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem
-									provident. Odit ab aliquam dolor eius.</p>
+								<p>Nuclear physics is the study of the protons and neutrons at the centre of an atom and the interactions that hold them together in a space.</p>
 							</div>
 						</div>
 					</div>
@@ -113,8 +107,7 @@ const Home = () => {
 							</span>
 							<div className="desc">
 								<h3><a href="#">Photonics</a></h3>
-								<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem
-									provident. Odit ab aliquam dolor eius.</p>
+								<p>Photonics is the physical science of light waves. It deals with the science behind the generation, detection and manipulation of light.</p>
 							</div>
 						</div>
 					</div>
@@ -126,8 +119,7 @@ const Home = () => {
 							</span>
 							<div className="desc">
 								<h3><a href="#">Statistical Mechanics</a></h3>
-								<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem
-									provident. Odit ab aliquam dolor eius.</p>
+								<p>Statistical mechanics is a mathematical framework that applies statistical methods and probability theory to large assemblies of microscopic entities.</p>
 							</div>
 						</div>
 					</div>
