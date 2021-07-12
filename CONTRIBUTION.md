@@ -157,7 +157,6 @@ git push -u origin <your_branch_name>
 >
 > - Make sure to refer the respective issue in the respective PR using phrases like `Resolves #issue_number` or `Closes #issue_number`.  Here's an example to raise a PR:
 
- Fixes #640
 
 # Work Done:
 
