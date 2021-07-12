@@ -250,6 +250,7 @@ h2 {
   color: white;
   font-size: 22px;
   border-radius: 50%;
+  z-index: 99;
 }
 
 .fas {
