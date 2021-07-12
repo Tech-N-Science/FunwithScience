@@ -171,7 +171,7 @@ If you have any doubts, please let us know in the comments.
 
 ## 🌟 Contributors:
 
-A big thanks to these wonderful people ✨✨:
+Thanks to these wonderful people ✨✨:
 
 <table>
 	<tr>
