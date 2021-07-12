@@ -8,9 +8,9 @@ const Navbar = () => {
          <nav className="navbar navbar-expand-lg navbar-light bg-light pt-3">
             <NavLink to='/' className="nav-item ">
                 <p className="navbar-brand">
-                    <i class="fas fa-book"></i>
-                    {/* <i class="fas fa-book"></i> */}
-                    {/* <i class="fas fa-book"></i>  */}
+                    <i className="fas fa-book"></i>
+                    {/* <i className="fas fa-book"></i> */}
+                    {/* <i className="fas fa-book"></i>  */}
                     Fun With Physics
                 </p>
             </NavLink>

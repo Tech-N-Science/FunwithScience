@@ -90,6 +90,32 @@ h2 {
   .banner h2{
     font-size: 20px;
   }
+
+}
+
+@media (max-width: 290px) {
+  .banner{
+    padding-top: 25vh;
+    height: calc(100vh - 50px);
+  }
+  
+  .banner h2{
+    font-size: 20px;
+  }
+
+  .banner_button *{
+    margin-bottom: 20px;
+  }
+
+  .gotopbtn{
+    left: calc(80vw - 10px);
+    top: calc(90vh - 10px);
+  }
+
+  #fh5co-course-categories{
+    margin: 0px;
+    padding: 0px;
+  }
 }
 
 .services {
