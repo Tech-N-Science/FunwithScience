@@ -20,10 +20,12 @@ const Home = () => {
             <br/>So, keep Exploring Physics.</h2>
             <div className="banner_button col-md-10 ml-lg-2 my-auto">
                 <button type="button" class="btn btn-light m-5 col-md-1">Explore</button>
-                <button type="button" class="btn btn-light col-md-1">Learn</button>
+                <button type="button" class="btn btn-light col-md-1"><a href="#learn">Learn</a></button>
             </div>            
         </div>
         {/* ----Features---- */}
+		<h3 className="learn-header" id="learn">Learn</h3>
+		<hr />
 		<div id="fh5co-course-categories" className="m-5 p-5">
 			<div className="container">
 				<div className="row">
