@@ -39,7 +39,7 @@
     }
 }
 
-@media (max-width: 290px) {
+@media (max-width: 320px) {
     .fa-book{
         display: none;
     }

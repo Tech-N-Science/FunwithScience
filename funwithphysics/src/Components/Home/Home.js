@@ -23,7 +23,9 @@ const Home = () => {
             </div>            
         </div>
         {/* ----Features---- */}
-		<div id="fh5co-course-categories" className="mt-5">
+		<h3 className="learn-header" id="learn">Learn</h3>
+		<hr />
+		<div id="fh5co-course-categories" className="mt-5 p-5">
 			<div className="container">
 				<div className="row">
 					<div className="col-md-3 col-sm-6 col-xs-12 text-center animate-box">
