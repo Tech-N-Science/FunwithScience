@@ -2,14 +2,14 @@
 
 
 Are you bored solving the questions using the tough physics formulas?? 😩
-Are you bored with the long calculations?? 😩
+Are you bored of long calculations?? 😩
 Then here is a solution to your problems. 😃
 This project is a Physics calculator where the user just needs to enter the values and the project calculates the result using the formula.
 
 
 It really is that easy!
 
-And the best part of all? **FunwithPysics is open source!** 🤩
+And the best part of it? **FunwithPhysics is open source!** 🤩
 
 <p align="center">
   <img src="https://zephyrnet.com/wp-content/uploads/2020/07/watch-as-albert-einstein-explains-his-famous-formula-emcc2b2.jpg" width="50%">
@@ -25,7 +25,7 @@ And the best part of all? **FunwithPysics is open source!** 🤩
 ![GitHub Repo stars](https://img.shields.io/github/stars/Amit366/FunwithPhysics?style=social)
 
 
-### How it differs from other problem-solving projects?
+### How does it differ from other problem-solving projects?
 
 - No Server-side Interactions
 - Speed
@@ -41,7 +41,7 @@ And the best part of all? **FunwithPysics is open source!** 🤩
 
 # How to Contribute
 
-If you think that you can add a new feature or want to fix a bug. We invite you to contribute to FunwithPhysics and make this project better. To start contributing, follow the below instructions:
+If you think that you can add a new feature or want to fix a bug, we invite you to contribute to FunwithPhysics and make this project better. To start contributing, follow the below instructions:
 
 1. Create a folder at your desire location (usually at your desktop).
 
@@ -121,7 +121,7 @@ git push -u origin <your_branch_name>
 
 16. To create a pull request, click on `compare and pull requests`.
 
-17. Add appropriate title and description to your PR explaining your changes.
+17. Add an appropriate title and description to your PR explaining your changes.
 
 18. Click on `Create pull request`.
 
@@ -140,7 +140,7 @@ cd funwithpysics
 yarn start
 ```
 
-If you have any doubts please let us know in the comments.
+If you have any doubts, please let us know in the comments.
 
 ---
 
@@ -169,9 +169,9 @@ If you have any doubts please let us know in the comments.
 
 ## Project Maintainers 😃
 
-## 🌟 Contributors
+## 🌟 Contributors:
 
-Thanks to these wonderful peoples ✨✨:
+Thanks to these wonderful people ✨✨:
 
 <table>
 	<tr>
