@@ -19,7 +19,7 @@ const Home = () => {
             <br/>So, keep Exploring Physics.</h2>
             <div className="banner_button">
                 <button type="button" className="btn btn-light">Explore</button>
-                <button type="button" className="btn btn-light">Learn</button>
+                <button type="button" className="btn btn-light"><a href="#learn">Learn</a></button>
             </div>            
         </div>
         {/* ----Features---- */}
