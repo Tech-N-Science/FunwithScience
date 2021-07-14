@@ -185,9 +185,11 @@ h2 {
     width: 150px;
 }
 
-.services .icon img:hover {
-    /* transform: scale(1.1); */
+
+/*.services .icon img:hover {
+    /* transform: scale(1.1);
 }
+ */
 
 .services .icon:hover {
     border: 5px solid crimson;
