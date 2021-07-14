@@ -1,5 +1,4 @@
 /*---Banner---*/
-
 .banner {
     background-repeat: no-repeat;
     background-size: contain;
@@ -11,6 +10,7 @@
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Benne&display=swap");
+
 h2 {
     color: white;
     font-family: "Benne", serif;
@@ -19,7 +19,6 @@ h2 {
 .banner_button {
     padding: 5px;
 }
-
 
 /*---Feature Section---*/
 
@@ -39,6 +38,7 @@ h2 {
 }
 
 @media screen and (max-width: 768px) {
+
     #fh5co-course-categories,
     #fh5co-counter,
     #fh5co-course,
@@ -51,6 +51,76 @@ h2 {
     #fh5co-contact,
     #fh5co-footer {
         padding: 3em 0;
+    }
+}
+
+.banner {
+    padding-left: 5vw;
+    padding-top: 30vh;
+}
+
+.banner_text {
+    margin-bottom: 30px;
+}
+
+.banner_button * {
+    margin-left: 20px;
+    width: 120px;
+}
+
+@media (max-width: 600px) {
+    .banner {
+        padding-top: 25vh;
+    }
+
+    .banner h2 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        padding-top: 27vh;
+    }
+
+    .banner h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-height: 500px) {
+    .banner {
+        padding-top: 0vh;
+    }
+
+    .banner h2 {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 320px) {
+    .banner {
+        padding-top: 25vh;
+        height: calc(100vh - 50px);
+    }
+
+    .banner h2 {
+        font-size: 20px;
+    }
+
+    .banner_button * {
+        margin-bottom: 20px;
+    }
+
+    .gotopbtn {
+        left: calc(80vw - 10px);
+        top: calc(90vh - 10px);
+    }
+
+    #fh5co-course-categories {
+        margin: 0px;
+        padding: 0px;
     }
 }
 
@@ -97,7 +167,6 @@ h2 {
     }
 }
 
-
 /* .services .icon i {
   display: table-cell;
   vertical-align: middle;
@@ -128,7 +197,7 @@ h2 {
 }
 
 .services .icon:hover {
-    border: 5px solid crimson
+    border: 5px solid crimson;
 }
 
 .fh5co-counters {
@@ -195,6 +264,7 @@ h2 {
 }
 
 @media screen and (max-width: 768px) {
+
     .course .desc,
     .course .course-img {
         width: 100%;
@@ -263,9 +333,7 @@ h2 {
     box-shadow: inset -70px 0px 77px 11px rgba(0, 0, 0, 0.74);
 }
 
-
 /*Back to top button */
-
 .gotopbtn {
     position: fixed;
     width: 50px;
@@ -279,7 +347,6 @@ h2 {
     color: white;
     font-size: 22px;
     border-radius: 50%;
-    z-index: 99;
 }
 
 .fas {

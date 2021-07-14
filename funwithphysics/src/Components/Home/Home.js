@@ -14,22 +14,21 @@ const Home = () => {
         <>
         {/* ----Banner---- */}
         <div className="banner">
-            <img src=''/>
-            <br/><br/><br/><br/>
-            <h2 className="col-md-8 col-sm-6 mt-5 mx-5 my- auto pt-5">Physics is about questioning, studying, probing nature. You probe, and, if you're lucky, you get strange clues.
+            
+            <h2 className="banner_text col-md-8 col-sm-8 auto pt-5">Physics is about questioning, studying, probing nature. You probe, and, if you're lucky, you get strange clues.
             <br/>So, keep Exploring Physics.</h2>
-            <div className="banner_button col-md-10 ml-lg-2 my-auto">
-                <button type="button" class="btn btn-light m-5 col-md-1">Explore</button>
-                <button type="button" class="btn btn-light col-md-1"><a href="#learn">Learn</a></button>
+            <div className="banner_button">
+                <button type="button" className="btn btn-light">Explore</button>
+                <button type="button" className="btn btn-light">Learn</button>
             </div>            
         </div>
         {/* ----Features---- */}
 		<h3 className="learn-header" id="learn">Learn</h3>
 		<hr />
-		<div id="fh5co-course-categories" className="m-5 p-5">
+		<div id="fh5co-course-categories" className="mt-5 p-5">
 			<div className="container">
 				<div className="row">
-					<div className="col-md-3 col-sm-6 text-center animate-box">
+					<div className="col-md-3 col-sm-6 col-xs-12 text-center animate-box">
 						<div className="services">
 							<span className="icon">
 								{/* <i className="icon-shop"></i> */}
@@ -129,7 +128,7 @@ const Home = () => {
 			</div>
 		</div>
 		{/* <!-- Back to top button --> */}
-    		<a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+    		<a className="gotopbtn" href="#"> <i className="fas fa-arrow-up"></i> </a>
         </>
     )
 }
