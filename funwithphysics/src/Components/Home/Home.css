@@ -1,3 +1,12 @@
+::-webkit-scrollbar
+{
+  width: 15px;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#8066c5, #866ad3);
+  border-radius: 40px;
+}
+
 /*---Banner---*/
 
 .banner {
