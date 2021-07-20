@@ -2,7 +2,8 @@ import Home from "./Components/Home/Home";
 import {Switch , Route, Redirect} from "react-router-dom";
 import './index.css';
 import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer"
+import Footer from "./Components/Footer/Footer";
+import Faq from "./Components/FAQ/Faq";
 import React from 'react'
 
 const App = () => {
@@ -13,7 +14,6 @@ const App = () => {
           <Route exact path="/" component={Home}/>
           <Route exact path="/about" component={Home}/>
           <Route exact path="/contact" component={Home}/>
-          <Route exact path="/faq" component={Home}/>
           <Redirect to="/" />
       </Switch>
      <Footer/>      

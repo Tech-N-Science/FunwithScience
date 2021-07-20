@@ -7,14 +7,14 @@ import relativity from "../../Images/relativity.jpg"
 import atomic from "../../Images/atomic_physics.jpg"
 import nuclear from "../../Images/nuclear.jpg"
 import photonics from "../../Images/photonics.jpg"
-import statistical from "../../Images/statistical.jpg"
+import statistical from "../../Images/statistical.jpg";
+
 
 const Home = () => {
     return (
         <>
         {/* ----Banner---- */}
         <div className="banner">
-            
             <h2 className="banner_text col-md-8 col-sm-8 auto pt-5">Physics is about questioning, studying, probing nature. You probe, and, if you're lucky, you get strange clues.
             <br/>So, keep Exploring Physics.</h2>
             <div className="banner_button">
