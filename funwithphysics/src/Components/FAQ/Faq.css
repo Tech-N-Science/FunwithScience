@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*
+.popup {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background: url("../../Images/bg1.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+*/
+.popup{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:whitesmoke;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup_inner{
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    max-width: 100%;
+    background-color: transparent;
+}
+.popup_inner .close_btn{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+.h1tag{
+    color:  #fff;
+    font-size: 40px;
+    font-weight: bolder;
+}
+button {
+    padding: 10px 20px;
+    background-color: #272727;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
