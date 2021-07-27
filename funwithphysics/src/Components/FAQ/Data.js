@@ -1,6 +1,6 @@
 export const Data = [
   {
-    question: 'what is this website for??',
+    question: 'What is this website for??',
     answer: 'This website is to make your physics easy. Just enter the values into the formula and you will get the answer with the procedure.',
     key: "0"
   },

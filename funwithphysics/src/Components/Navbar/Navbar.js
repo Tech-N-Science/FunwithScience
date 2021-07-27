@@ -143,17 +143,17 @@ const Navbar = () => {
                                     {
                                         Data.map((item, index) => {
                                             return <>
-                                                <Card>
+                                                <Card key={item.key}>
                                                     <Card.Header>
                                                         <CustomToggle eventKey={item.key}>
                                                             <div onClick={() => toggle(index)} key={index} style={{ display: "flex", justifyContent: "space-between" }}>
-                                                                <h1 style={{ display: 'inline' }}>{item.question}</h1>
+                                                                <h3 style={{ display: 'inline' }}>{item.question}</h3>
                                                                 <span>{clicked === index ? <FiMinus /> : <FiPlus />}</span>
                                                             </div>
                                                         </CustomToggle>
                                                     </Card.Header>
                                                     <Accordion.Collapse eventKey={item.key}>
-                                                        <Card.Body>{item.answer}</Card.Body>
+                                                        <Card.Body><p style={{ fontSize: "19px" }}>{item.answer}</p></Card.Body>
                                                     </Accordion.Collapse>
                                                 </Card>
                                             </>
