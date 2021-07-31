@@ -18,9 +18,6 @@ const Topics = [
         topic: "Parallelogram of Force",
     },
     {
-        topic: "Circular Motion",
-    },
-    {
         topic: "Rotational Speed",
     },
     {

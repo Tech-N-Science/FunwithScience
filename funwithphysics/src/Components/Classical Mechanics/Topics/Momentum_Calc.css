@@ -1,0 +1,54 @@
+.momentumCalc__main{
+    margin: 0em;
+    padding: 3em;
+    display: grid;
+    grid-template-areas: 
+    " image image image image"
+    " header . details details"
+    "formula-text . formula . "
+    "process process calc calc";
+    row-gap: 3em;
+    column-gap: 2em;
+}
+
+.momentumCalc__image{
+    grid-area: image;
+    justify-self: center;
+}
+
+.momentumCalc__image img{
+    width: 40em;
+    object-fit: contain;
+    box-sizing: border-box;
+    border-radius: 1em;
+    border: black;
+
+}
+
+.momentumCalc__header{
+    grid-area: header;
+    align-self: center;
+}
+
+.momentumCalc__details{
+    grid-area: details;
+}
+
+.momentumCalc__formula-text{
+    grid-area: formula-text;
+}
+
+.momentumCalc__formula{
+    grid-area: formula;
+}
+
+.momentumCalc__calc{
+    grid-area: calc;
+}
+.momentumCalc__calc hr{
+    width: auto;
+}
+
+.momentumCalc__process{
+    grid-area: process;
+}

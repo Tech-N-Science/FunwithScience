@@ -19,9 +19,9 @@ export default function ClassicalMechanics() {
                                 <Card.Body>
                                     <Card.Title>{data.topic}</Card.Title>
                                     {
-                                        data.image === undefined ? <Card.Text> Will be <span style={{ fontWeight: "bold", color: "#19165b" }}>available</span> soon...</Card.Text> : null
+                                        data.image === undefined ? <Card.Text> Will be <span style={{ fontWeight: "bold", color: "#19165b" }}>available</span> soon...</Card.Text> : <Card.Text>{" "}</Card.Text>
                                     }
-                                    <Button variant="secondary">Open {data.topic}</Button>
+                                    <Button href="/classicalmechanics/calc/momentum" variant="outline-dark">Open {data.topic}</Button>
                                 </Card.Body>
                             </Card>
                         </>
