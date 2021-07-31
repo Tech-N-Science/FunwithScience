@@ -1,11 +1,13 @@
+import momentum from '../../Images/Classical_mechanics/momentum.jpg';
+
+export {
+    momentum
+}
+
 const Topics = [
     {
-        topic: "Kinetic Energy",
-    },
-    {
         topic: "Momentum",
-        // image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGF0YXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        image: "../../Images/bg1.jpg",
+        image: momentum,
         details: `Momentum, product of the mass of a particle and its velocity. Momentum is a vector quantity; i.e., it has both magnitude and direction. Isaac Newton’s second law of motion states that the time rate of change of momentum is equal to the force acting on the particle. See Newton’s laws of motion.
 
         From Newton’s second law it follows that, if a constant force acts on a particle for a given time, the product of force and the time interval (the impulse) is equal to the change in the momentum. Conversely, the momentum of a particle is a measure of the time required for a constant force to bring it to rest.`,
@@ -35,18 +37,6 @@ const Topics = [
     },
     {
         topic: "Moment of Inertia",
-    },
-    {
-        topic: "Parallel Axes Rule",
-    },
-    {
-        topic: "Perpendicular Axes Rule",
-    },
-    {
-        topic: "Stretch Rule",
-    },
-    {
-        topic: "Euler's Disk",
     },
     {
         topic: "Elastic Potential Energy",

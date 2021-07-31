@@ -1,7 +1,8 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 import './classicalMechanics.css'
-import Topics from "./topics_data";
+import Topics, { momentum } from "./topics_data";
+import bg from '../../Images/bg1.jpg'
 
 export default function ClassicalMechanics() {
     return (
@@ -14,9 +15,12 @@ export default function ClassicalMechanics() {
                     Topics.map(data =>
                         <>
                             <Card key={data.topic} style={{ width: '18rem' }}>
-                                <Card.Img style={{ height: '15rem', objectFit: "cover" }} variant="top" src={data.image === undefined ? "https://images.unsplash.com/photo-1525207106105-b340f7384b30?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fHBoeXNpY3N8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" : data.image} />
+                                <Card.Img alt={data.topic} style={{ height: '15rem', objectFit: "cover" }} variant="top" src={data.image === undefined ? bg : data.image} />
                                 <Card.Body>
                                     <Card.Title>{data.topic}</Card.Title>
+                                    {
+                                        data.image === undefined ? <Card.Text> Will be <span style={{ fontWeight: "bold", color: "#19165b" }}>available</span> soon...</Card.Text> : null
+                                    }
                                     <Button variant="secondary">Open {data.topic}</Button>
                                 </Card.Body>
                             </Card>

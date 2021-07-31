@@ -5,7 +5,6 @@
 
 .mech__main{
     display: grid;
-    width: 100%;
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: auto;
     grid-template-areas: 
