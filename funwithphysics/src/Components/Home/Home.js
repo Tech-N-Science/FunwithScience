@@ -8,7 +8,7 @@ import atomic from "../../Images/atomic_physics.jpg"
 import nuclear from "../../Images/nuclear.jpg"
 import photonics from "../../Images/photonics.jpg"
 import statistical from "../../Images/statistical.jpg";
-import { Link } from 'react-router-dom'
+import Footer from '../Footer/Footer'
 
 
 const Home = () => {
@@ -30,7 +30,7 @@ const Home = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-md-3 col-sm-6 col-xs-12 text-center animate-box">
-							<Link style={{ color: "black", textDecoration: "none" }} to="/classicalmechanics" className="services">
+							<a style={{ color: "black", textDecoration: "none" }} href="/classicalmechanics" className="services">
 								<span className="icon">
 									{/* <i className="icon-shop"></i> */}
 									<img src={classicalMechanics} />
@@ -39,7 +39,7 @@ const Home = () => {
 									<h3><a href="#">Classical mechanics</a></h3>
 									<p>Classical mechanics is a physical theory describing the motion of macroscopic objects, from projectiles to parts of machinery, and astronomical objects.</p>
 								</div>
-							</Link>
+							</a>
 						</div>
 						<div className="col-md-3 col-sm-6 text-center animate-box">
 							<div className="services">
@@ -128,6 +128,7 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
+			<Footer />
 			{/* <!-- Back to top button --> */}
 			<a className="gotopbtn" href="#"> <i className="fas fa-arrow-up"></i> </a>
 		</>

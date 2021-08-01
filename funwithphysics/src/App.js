@@ -2,7 +2,6 @@ import Home from "./Components/Home/Home";
 import { Switch, Route, Redirect } from "react-router-dom";
 import './index.css';
 import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer";
 import React from 'react'
 import ClassicalMechanics from './Components/Classical Mechanics/ClassicalMechanics'
 import Momentum_Calc from './Components/Classical Mechanics/Topics/Momentum_Calc'
@@ -19,7 +18,6 @@ const App = () => {
         <Route exact path="/classicalmechanics/calc/momentum" component={Momentum_Calc} />
         <Redirect to="/" />
       </Switch>
-      <Footer />
     </>
   )
 }

@@ -3,10 +3,11 @@
     padding: 3em;
     display: grid;
     grid-template-areas: 
-    " image image image image"
-    " header . details details"
-    "formula-text . formula . "
-    "process process calc calc";
+    "header header header header"
+    " image image details details "
+    "formula-text . . . "
+    "formula formula formula formula"
+    "process calc calc calc";
     row-gap: 3em;
     column-gap: 2em;
 }
@@ -22,6 +23,7 @@
     box-sizing: border-box;
     border-radius: 1em;
     border: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 
@@ -32,14 +34,18 @@
 
 .momentumCalc__details{
     grid-area: details;
+    align-self: center;
 }
 
 .momentumCalc__formula-text{
     grid-area: formula-text;
+    margin-top: 1em;
 }
 
 .momentumCalc__formula{
     grid-area: formula;
+    justify-self: center;
+    font-family: cursive;
 }
 
 .momentumCalc__calc{

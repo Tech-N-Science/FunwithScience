@@ -17,11 +17,16 @@ export default function ClassicalMechanics() {
                             <Card key={data.topic} style={{ width: '18rem' }}>
                                 <Card.Img alt={data.topic} style={{ height: '15rem', objectFit: "cover" }} variant="top" src={data.image === undefined ? bg : data.image} />
                                 <Card.Body>
-                                    <Card.Title>{data.topic}</Card.Title>
                                     {
-                                        data.image === undefined ? <Card.Text> Will be <span style={{ fontWeight: "bold", color: "#19165b" }}>available</span> soon...</Card.Text> : <Card.Text>{" "}</Card.Text>
+                                        data.details === undefined ?
+                                            <Button disabled="true" href="/classicalmechanics/calc/momentum" variant="outline-dark"> {data.topic}</Button> :
+                                            <Button href="/classicalmechanics/calc/momentum" variant="outline-dark"> {data.topic}</Button>
                                     }
-                                    <Button href="/classicalmechanics/calc/momentum" variant="outline-dark">Open {data.topic}</Button>
+                                    <div style={{ padding: "0.3em" }}>
+                                        {
+                                            data.image === undefined ? <Card.Text> Will be <span style={{ fontWeight: "bold", color: "#19165b" }}>available</span> soon...</Card.Text> : <Card.Text>{" "}</Card.Text>
+                                        }
+                                    </div>
                                 </Card.Body>
                             </Card>
                         </>

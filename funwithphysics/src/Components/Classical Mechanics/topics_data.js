@@ -8,11 +8,12 @@ const Topics = [
     {
         topic: "Momentum",
         image: momentum,
-        details: `Momentum, product of the mass of a particle and its velocity. Momentum is a vector quantity; i.e., it has both magnitude and direction. Isaac Newton’s second law of motion states that the time rate of change of momentum is equal to the force acting on the particle. See Newton’s laws of motion.
+        details: `Momentum is a vector quantity, defined as the product of the mass of a particle and its velocity. From Isaac Newton’s second law of motion we can see that the rate of change of momentum is equal to the force acting on the particle.
+        
 
-        From Newton’s second law it follows that, if a constant force acts on a particle for a given time, the product of force and the time interval (the impulse) is equal to the change in the momentum. Conversely, the momentum of a particle is a measure of the time required for a constant force to bring it to rest.`,
+        From Newton’s second law it follows that, if a constant force acts on a particle for a given time, the product of force and the time interval is equal to the change in the momentum. Conversely, the momentum of a particle is a measurement of the time, required for a constant force to bring it to rest.`,
         formula: "p = mv",
-        process: "In symbols, linear momentum p is defined to be p = mv, where m is the mass of the system and v is its velocity. The SI unit for momentum is kg · m/s. Newton's second law of motion in terms of momentum states that the net external force equals the change in momentum of a system divided by the time over which it changes."
+        process: "Here, the linear momentum is defined by p, m is the mass of the system and v is its velocity. We can calculate the momentum (p) by multiplying Mass of the particle (m) with the velocity of the particle (v). The SI unit for momentum is kg · m/s."
     },
     {
         topic: "Parallelogram of Force",

@@ -18,13 +18,7 @@ const Calculator = () => {
     }
     return <>
         <Form>
-            <Form.Group className="mb-3" controlId="momentum">
-                <Form.Label>Momentum (P)</Form.Label>
-                <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " kg.m/s"} />
-                <Form.Text className="text-muted">
-                    Enter Mass & Velocity to Calculate the Momentum.
-                </Form.Text>
-            </Form.Group>
+
             <Form.Group className="mb-3" controlId="mass">
                 <Form.Label>Mass (M)</Form.Label>
                 <Form.Control onChange={(e) => setMass(e.target.value)} type="number" placeholder="Enter Mass in SI unit" />
@@ -32,6 +26,13 @@ const Calculator = () => {
             <Form.Group className="mb-3" controlId="velocity">
                 <Form.Label>Velocity (V)</Form.Label>
                 <Form.Control onChange={(e) => setVel(e.target.value)} type="number" placeholder="Enter Velocity in SI unit" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="momentum">
+                <Form.Label>Momentum (P)</Form.Label>
+                <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " kg.m/s"} />
+                <Form.Text className="text-muted">
+                    Enter Mass & Velocity to Calculate the Momentum.
+                </Form.Text>
             </Form.Group>
 
             <Button variant="primary" onClick={handleClick}>
@@ -44,11 +45,11 @@ const Calculator = () => {
 function Momentum_Calc() {
     return (
         <div className="momentumCalc__main">
-            <div className="momentumCalc__image">
-                <img src={details.image} rounded />
-            </div>
             <div className="momentumCalc__header">
                 <h1>{details.topic}:</h1>
+            </div>
+            <div className="momentumCalc__image">
+                <img src={details.image} rounded />
             </div>
             <div className="momentumCalc__details">
                 <p>{details.details}</p>
