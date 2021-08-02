@@ -24,7 +24,7 @@ const Home = () => {
 			</div>
 			{/* ----Features---- */}
 			<h3 className="learn-header" id="learn">Learn</h3>
-			<hr />
+			<hr className="learn-underline"></hr>
 			<div id="fh5co-course-categories" className="mt-5 p-5">
 				<div className="container">
 					<div className="row">

@@ -1,11 +1,12 @@
-::-webkit-scrollbar
-{
-  width: 15px;
+::-webkit-scrollbar {
+    width: 15px;
 }
-::-webkit-scrollbar-thumb{
-  background: linear-gradient(#8066c5, #866ad3);
-  border-radius: 40px;
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#2c2b30, #dbd3f0);
+    border-radius: 40px;
 }
+
 
 /*---Banner---*/
 
@@ -371,8 +372,9 @@ h2 {
     font-size: 40px;
 }
 
-hr {
+.learn-underline {
     width: 10%;
     border: 1px dashed red;
     border-radius: 20px;
+    margin-left: 685px;
 }

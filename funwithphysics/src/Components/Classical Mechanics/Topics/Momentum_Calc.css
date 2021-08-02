@@ -1,60 +1,57 @@
-.momentumCalc__main{
+.momentumCalc__main {
     margin: 0em;
     padding: 3em;
     display: grid;
-    grid-template-areas: 
-    "header header header header"
-    " image image details details "
-    "formula-text . . . "
-    "formula formula formula formula"
-    "process calc calc calc";
+    grid-template-areas: "header header header header" " image image details details " "formula-text . . . " "formula formula formula formula" "process calc calc calc";
     row-gap: 3em;
     column-gap: 2em;
 }
 
-.momentumCalc__image{
+.momentumCalc__image {
     grid-area: image;
     justify-self: center;
 }
 
-.momentumCalc__image img{
-    width: 40em;
+.momentumCalc__image img {
+    width: 30em;
     object-fit: contain;
     box-sizing: border-box;
     border-radius: 1em;
     border: black;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
-.momentumCalc__header{
+.momentumCalc__header {
     grid-area: header;
     align-self: center;
 }
 
-.momentumCalc__details{
+.momentumCalc__details {
     grid-area: details;
     align-self: center;
+    font-size: 20px;
 }
 
-.momentumCalc__formula-text{
+.momentumCalc__formula-text {
     grid-area: formula-text;
     margin-top: 1em;
 }
 
-.momentumCalc__formula{
+.momentumCalc__formula {
     grid-area: formula;
-    justify-self: center;
     font-family: cursive;
 }
 
-.momentumCalc__calc{
+.momentumCalc__calc {
     grid-area: calc;
-}
-.momentumCalc__calc hr{
-    width: auto;
+    margin-top: -70px;
 }
 
-.momentumCalc__process{
+.momentumCalc__calc hr {
+    width: auto;
+    border: 1px dashed red;
+}
+
+.momentumCalc__process {
     grid-area: process;
 }
