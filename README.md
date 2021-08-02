@@ -137,6 +137,11 @@ cd funwithpysics
 
 2. Write the command.
 ```
+npm install react-scripts --save
+```
+
+3. Write the command.
+```
 yarn start
 ```
 
