@@ -16,7 +16,7 @@ const Calculator = () => {
         setResult(res)
         // alert(`${res}  ${mass} ${vel}`)
     }
-    return <>
+    return <React.Fragment>
         <Form>
 
             <Form.Group className="mb-3" controlId="mass">
@@ -39,7 +39,7 @@ const Calculator = () => {
                 Calculate
             </Button>
         </Form>
-    </>
+    </React.Fragment>
 }
 
 function Momentum_Calc() {

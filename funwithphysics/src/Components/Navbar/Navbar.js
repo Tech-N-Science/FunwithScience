@@ -6,7 +6,8 @@ import { Data } from "../FAQ/Data";
 import styled from 'styled-components';
 import { IconContext } from 'react-icons';
 import { FiPlus, FiMinus, FiCornerLeftDown } from 'react-icons/fi';
-import { Accordion, Card, useAccordionButton } from 'react-bootstrap';
+import { Accordion, Card } from 'react-bootstrap';
+// import { useAccordionButton } from 'react-bootstrap/AccordionButton';
 
 // const AccordionSection = styled.div`
 //   display: flex;
@@ -61,23 +62,6 @@ import { Accordion, Card, useAccordionButton } from 'react-bootstrap';
 //   }
 // `;
 
-function CustomToggle({ children, eventKey }) {
-    const decoratedOnClick = useAccordionButton(eventKey, () =>
-        console.log(eventKey),
-    );
-
-    return (
-        <h1
-            type="button"
-            style={{ backgroundColor: '' }}
-            onClick={decoratedOnClick}
-        >
-            {children}
-        </h1>
-    );
-}
-
-
 const Navbar = () => {
 
     // const [buttonpopup, setButtonpopup] = useState(false);
@@ -93,7 +77,7 @@ const Navbar = () => {
     };
 
     return (
-        <>
+        <React.Fragment>
             <nav className="navbar navbar-expand-lg navbar-light bg-light pt-3">
                 <NavLink to='/' className="nav-item ">
                     <p className="navbar-brand">
@@ -142,21 +126,21 @@ const Navbar = () => {
                                 <Accordion>
                                     {
                                         Data.map((item, index) => {
-                                            return <>
+                                            return <React.Fragment>
                                                 <Card key={item.key}>
-                                                    <Card.Header>
-                                                        <CustomToggle eventKey={item.key}>
-                                                            <div onClick={() => toggle(index)} key={index} style={{ display: "flex", justifyContent: "space-between" }}>
+                                                    <Accordion.Toggle style={{ border: "none" }} eventKey={item.key}>
+                                                        <Card.Header>
+                                                            <div onClick={() => toggle(index)} key={index} style={{ border: "none", display: "flex", justifyContent: "space-between" }}>
                                                                 <h3 style={{ display: 'inline' }}>{item.question}</h3>
                                                                 <span>{clicked === index ? <FiMinus /> : <FiPlus />}</span>
                                                             </div>
-                                                        </CustomToggle>
-                                                    </Card.Header>
+                                                        </Card.Header>
+                                                    </Accordion.Toggle>
                                                     <Accordion.Collapse eventKey={item.key}>
                                                         <Card.Body><p style={{ fontSize: "19px" }}>{item.answer}</p></Card.Body>
                                                     </Accordion.Collapse>
                                                 </Card>
-                                            </>
+                                            </React.Fragment>
                                         })
                                     }
                                 </Accordion>
@@ -199,7 +183,7 @@ const Navbar = () => {
 
             </Popup> */}
 
-        </>
+        </React.Fragment>
     )
 }
 export default Navbar

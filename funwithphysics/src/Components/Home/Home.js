@@ -13,7 +13,7 @@ import Footer from '../Footer/Footer'
 
 const Home = () => {
 	return (
-		<>
+		<React.Fragment>
 			{/* ----Banner---- */}
 			<div className="banner">
 				<h2 className="banner_text col-md-8 col-sm-8 auto pt-5">Physics is about questioning, studying, probing nature. You probe, and, if you're lucky, you get strange clues.
@@ -131,7 +131,7 @@ const Home = () => {
 			<Footer />
 			{/* <!-- Back to top button --> */}
 			<a className="gotopbtn" href="#"> <i className="fas fa-arrow-up"></i> </a>
-		</>
+		</React.Fragment>
 	)
 }
 

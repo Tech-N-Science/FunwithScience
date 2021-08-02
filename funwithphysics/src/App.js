@@ -8,7 +8,7 @@ import Momentum_Calc from './Components/Classical Mechanics/Topics/Momentum_Calc
 
 const App = () => {
   return (
-    <>
+    <React.Fragment>
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
@@ -18,7 +18,7 @@ const App = () => {
         <Route exact path="/classicalmechanics/calc/momentum" component={Momentum_Calc} />
         <Redirect to="/" />
       </Switch>
-    </>
+    </React.Fragment>
   )
 }
 

@@ -13,7 +13,7 @@ export default function ClassicalMechanics() {
             <div className="mech__topics-card">
                 {
                     Topics.map(data =>
-                        <>
+                        <React.Fragment>
                             <Card key={data.topic} style={{ width: '18rem' }}>
                                 <Card.Img alt={data.topic} style={{ height: '15rem', objectFit: "cover" }} variant="top" src={data.image === undefined ? bg : data.image} />
                                 <Card.Body>
@@ -29,7 +29,7 @@ export default function ClassicalMechanics() {
                                     </div>
                                 </Card.Body>
                             </Card>
-                        </>
+                        </React.Fragment>
                     )
                 }
             </div>
