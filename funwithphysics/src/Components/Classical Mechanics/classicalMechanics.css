@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+} /* normalizing  */
+
+.mech__main{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    " . header . "
+    " . topics .";
+}
+
+.mech__header{
+    grid-area: "header";
+    grid-column-start: 1;
+    grid-column-end: span col2-start;
+    grid-row-start: auto;
+    align-self: stretch;
+    justify-self: center;
+    margin-top: 1em;
+}
+.mech__topics-card{
+    padding: 3em;
+    grid-area: "topics";
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2em;
+    row-gap: 2em;
+}
