@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import './Momentum_Calc.css'
-import Topics, { momentum } from '../topics_data'
+import Topics from '../topics_data'
 import { Form, Button } from 'react-bootstrap'
 
-const topic = Topics.filter(data => data.topic == "Momentum")
+const topic = Topics.filter(data => data.topic === "Momentum")
 const details = topic[0]
 
 const Calculator = () => {
@@ -49,7 +49,7 @@ function Momentum_Calc() {
                 <h1>{details.topic}:</h1>
             </div>
             <div className="momentumCalc__image">
-                <img src={details.image} rounded />
+                <img src={details.image} rounded="true" alt={details.topic} />
             </div>
             <div className="momentumCalc__details">
                 <p>{details.details}</p>

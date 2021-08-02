@@ -12,6 +12,16 @@
     " . topics .";
 }
 
+@media only screen and (max-width:1038px) {
+    .mech__main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        " header . . "
+        " . topics .";
+    }
+}
 .mech__header{
     grid-area: "header";
     grid-column-start: 1;

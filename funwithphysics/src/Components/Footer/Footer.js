@@ -87,7 +87,7 @@ const Footer = () => {
                 <div className="main-content">
                     <div className="left box">
                         <div className="footer-logo">
-                            <img src="" />
+                            <img alt="" src="" />
                         </div>
                         <h2>Address</h2>
                         <div className="content">
@@ -111,14 +111,14 @@ const Footer = () => {
                         <div className="content">
                             <div className="center">
                                 <div className="icons">
-                                    <li><a href="#"><span className="fab fa-facebook-f"></span></a></li>
-                                    <li><a href="#"><span
+                                    <li><a href="/"><span className="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="/"><span
                                         className="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span
+                                    <li><a href="/"><span
                                         className="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span
+                                    <li><a href="/"><span
                                         className="fab fa-linkedin-in"></span></a></li>
-                                    <li><a href="#"><span
+                                    <li><a href="/"><span
                                         className="fab fa-github"></span></a>
                                     </li>
                                 </div>
@@ -128,15 +128,15 @@ const Footer = () => {
                         <div className="content"></div>
                         <div className="center-bottom">
                             <div>
-                                <a href="#"><span className="fas fa-user"></span></a>
+                                <a href="/"><span className="fas fa-user"></span></a>
                                 <span className="text">About Us</span>
                             </div>
                             <div className="contact">
-                                <a href="#"><span className="fas fa-comments"></span></a>
+                                <a href="/"><span className="fas fa-comments"></span></a>
                                 <span className="text">Contact</span>
                             </div>
                             <div>
-                                <a href="#"><span className="fas fa-users"></span></a>
+                                <a href="/"><span className="fas fa-users"></span></a>
                                 <span className="text">FAQs</span>
                             </div>
                         </div>
@@ -169,7 +169,7 @@ const Footer = () => {
                 <div className="bottom">
                     <center>
                         <span className="credit"><a
-                            href="#">Fun With Physics</a> | </span>
+                            href="/">Fun With Physics</a> | </span>
                         <span className="far fa-copyright"></span><span> 2021 All rights reserved.</span>
                     </center>
                 </div>

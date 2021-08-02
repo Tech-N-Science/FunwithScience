@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 import './classicalMechanics.css'
-import Topics, { momentum } from "./topics_data";
+import Topics from "./topics_data";
 import bg from '../../Images/bg1.jpg'
 
 export default function ClassicalMechanics() {
@@ -13,7 +13,7 @@ export default function ClassicalMechanics() {
             <div className="mech__topics-card">
                 {
                     Topics.map(data =>
-                        <React.Fragment>
+                        <React.Fragment key={data.topic}>
                             <Card key={data.topic} style={{ width: '18rem' }}>
                                 <Card.Img alt={data.topic} style={{ height: '15rem', objectFit: "cover" }} variant="top" src={data.image === undefined ? bg : data.image} />
                                 <Card.Body>
