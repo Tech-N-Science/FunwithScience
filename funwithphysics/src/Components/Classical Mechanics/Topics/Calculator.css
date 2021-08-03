@@ -1,0 +1,72 @@
+.Calculator__main {
+    margin: 0em;
+    padding: 3em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "header header" 
+    "image details " 
+    "formula-text . " 
+    "formula formula " 
+    " . . "
+    " . . "
+    "process calc ";
+    row-gap: 3em;
+    
+}
+
+.Calculator__image {
+    grid-area: image;
+}
+
+.Calculator__image img {
+    width: 30em;
+    height: 20em;
+    object-fit: cover;
+    box-sizing: border-box;
+    border-radius: 1em;
+    border: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.Calculator__header {
+    grid-area: header;
+    align-self: center;
+}
+
+.Calculator__details {
+    grid-area: details;
+    align-self: center;
+    justify-self: start;
+    word-wrap: break-word;
+    padding: 1em;
+    font-size: 20px;
+    width: 30em;
+}
+
+.Calculator__formula-text {
+    grid-area: formula-text;
+    margin-top: 1em;
+}
+
+.Calculator__formula {
+    grid-area: formula;
+    font-family: cursive;
+    justify-self: center;
+}
+
+.Calculator__calc {
+    grid-area: calc;
+    margin-top: -70px;
+}
+
+.Calculator__calc hr {
+    width: auto;
+    border: 1px dashed red;
+}
+
+.Calculator__process {
+    grid-area: process;
+    word-wrap: break-word;
+    width: 37.5em;
+}

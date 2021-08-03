@@ -4,7 +4,7 @@ import './index.css';
 import Navbar from "./Components/Navbar/Navbar";
 import React from 'react'
 import ClassicalMechanics from './Components/Classical Mechanics/ClassicalMechanics'
-import Momentum_Calc from './Components/Classical Mechanics/Topics/Momentum_Calc'
+import Calculator from './Components/Classical Mechanics/Topics/Calculator'
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
         <Route exact path="/about" component={Home} />
         <Route exact path="/contact" component={Home} />
         <Route exact path="/classicalmechanics" component={ClassicalMechanics} />
-        <Route exact path="/classicalmechanics/calc/momentum" component={Momentum_Calc} />
+        <Route exact path="/classicalmechanics/calc/:topic" component={Calculator} />
         <Redirect to="/" />
       </Switch>
     </React.Fragment>
