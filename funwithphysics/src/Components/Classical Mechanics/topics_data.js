@@ -25,7 +25,7 @@ const Topics = [
         details: `Friction is a force that resists the sliding or rolling of one solid object over another.
         Surface of an object is microscopically irreguler, thats why, when any two objects in contact try to be in motion relatively with the another one, a force apears at their contact point resisting the motion, this force is opposite to the direction of motion.`,
         formula: "F = μN",
-        process: `F, is the frictional force, N is the normal force ; this normal force is calculated by multiplying mass (m), the gravitational acceleration (g) and the cosine of the angle by which the surface is inclined to (θ). 
+        process: `F, is the frictional force, N is the normal force. The the friction is calculated by F = μN.
         
         μ is the coefficient of friction, when the two objects are in relative motion, we call it coefficient of kinetic friction and when they are static, it is called the static friction coefficient.`
     },
