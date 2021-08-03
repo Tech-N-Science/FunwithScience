@@ -19,8 +19,8 @@ export default function ClassicalMechanics() {
                                 <Card.Body>
                                     {
                                         data.details === undefined ?
-                                            <Button disabled="true" href="/classicalmechanics/calc/momentum" variant="outline-dark"> {data.topic}</Button> :
-                                            <Button href="/classicalmechanics/calc/momentum" variant="outline-dark"> {data.topic}</Button>
+                                            <Button disabled={true} href={`/classicalmechanics/calc/${data.topic}`} variant="outline-dark"> {data.topic}</Button> :
+                                            <Button href={`/classicalmechanics/calc/${data.topic}`} variant="outline-dark"> {data.topic}</Button>
                                     }
                                     <div style={{ padding: "0.3em" }}>
                                         {
