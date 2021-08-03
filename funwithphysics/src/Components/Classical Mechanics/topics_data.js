@@ -16,31 +16,31 @@ const Topics = [
         process: "Here, the linear momentum is defined by p, m is the mass of the system and v is its velocity. We can calculate the momentum (p) by multiplying Mass of the particle (m) with the velocity of the particle (v). The SI unit for momentum is kg · m/s."
     },
     {
-        topic: "Parallelogram of Force",
+        topic: "Force",
     },
     {
-        topic: "Rotational Speed",
+        topic: "Friction",
     },
     {
-        topic: "Angular Speed",
+        topic: "Collision",
     },
     {
-        topic: "Angular Momentum",
+        topic: "Circular Motion",
     },
     {
         topic: "Torque",
     },
     {
-        topic: "Angular Acceleration",
+        topic: "Error Measurments",
     },
     {
-        topic: "Moment of Inertia",
+        topic: "Gravitation",
     },
     {
-        topic: "Elastic Potential Energy",
+        topic: "Work Power Energy",
     },
     {
-        topic: "Mechanical Equilibrium",
+        topic: "Kinematics",
     }
 ]
 
