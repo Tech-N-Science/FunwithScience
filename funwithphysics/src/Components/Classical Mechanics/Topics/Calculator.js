@@ -94,6 +94,46 @@ function Calculator({ match }) {
         </React.Fragment>
     }
 
+    // Gravitation Calculator
+    function CalculatorGravitation() {
+        const [result, setResult] = useState(null)
+        const [mass_A, setMassA] = useState(null)
+        const [mass_B, setMassB] = useState(null)
+        const [distance, setDistance] = useState(null)
+
+        const handleClick = () => {
+            let res = ( 6.67 * mass_A * mass_B ) / ( distance * distance );
+            setResult(res)
+        }
+        return <React.Fragment>
+            <Form>
+
+                <Form.Group className="mb-3" controlId="mass_A">
+                    <Form.Label>Mass A (m)</Form.Label>
+                    <Form.Control onChange={(e) => setMassA(e.target.value)} type="number" placeholder="Enter Mass of body A in SI unit" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="mass_B">
+                    <Form.Label>Mass B (M)</Form.Label>
+                    <Form.Control onChange={(e) => setMassB(e.target.value)} type="number" placeholder="Enter Mass of body B in SI unit" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="distance">
+                    <Form.Label>Distance (D)</Form.Label>
+                    <Form.Control onChange={(e) => setDistance(e.target.value)} type="number" placeholder="Enter Distance in SI unit" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="Gravitational_Force">
+                    <Form.Label>Gravitational Force (F)</Form.Label>
+                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " x 10 ^ -11 Newton"} />
+                    <Form.Text className="text-muted">
+                        Enter masses & distance to Calculate the Gravitational Force .
+                    </Form.Text>
+                </Form.Group>
+
+                <Button variant="primary" onClick={handleClick}>
+                    Calculate
+                </Button>
+            </Form>
+        </React.Fragment>
+    }
 
     // Adding Calculators together
     
@@ -106,6 +146,9 @@ function Calculator({ match }) {
                 break;
             case "Friction":
                 currentCall = CalculatorFriction();
+                break;
+            case "Gravitation":
+                currentCall = CalculatorGravitation();
                 break;
             default:
                 break;
