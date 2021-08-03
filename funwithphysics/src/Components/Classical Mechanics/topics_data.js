@@ -23,7 +23,7 @@ const Topics = [
         topic: "Friction",
         image: friction,
         details: `Friction is a force that resists the sliding or rolling of one solid object over another.
-        Surface of an object is microscopically irreguler, thats why, when any two object in contact try be in motion relatively with the another one, a force apears in their contact point resisting the motion, this is force is opposite to the direction of motion.`,
+        Surface of an object is microscopically irreguler, thats why, when any two objects in contact try to be in motion relatively with the another one, a force apears at their contact point resisting the motion, this force is opposite to the direction of motion.`,
         formula: "F = μN",
         process: `F, is the frictional force, N is the normal force ; this normal force is calculated by multiplying mass (m), the gravitational acceleration (g) and the cosine of the angle by which the surface is inclined to (θ). 
         

@@ -41,6 +41,10 @@ function Calculator({ match }) {
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>
+                &nbsp;&nbsp;&nbsp;
+                <Button variant="dark" type="reset">
+                    Reset
+                </Button>
             </Form>
         </React.Fragment>
     }
@@ -48,8 +52,7 @@ function Calculator({ match }) {
     // Friction Calculator
     function CalculatorFriction() {
         const [result, setResult] = useState(null)
-        const [mass, setMass] = useState(null)
-        const [theta, setTheta] = useState(null)
+        const [force, setForce] = useState(null)
         const [coeff, setCoeff] = useState(null)
 
         function Cos(Deg) {
@@ -57,26 +60,24 @@ function Calculator({ match }) {
         }
 
         const handleClick = () => {
-            let res = mass * 9.8 * Cos(theta) * coeff;
+            let res = force * coeff;
             setResult(res)
         }
+       
         return <React.Fragment>
             <Form>
 
-                <Form.Group className="mb-3" controlId="mass">
-                    <Form.Label>Mass (M)</Form.Label>
-                    <Form.Control onChange={(e) => setMass(e.target.value)} type="number" placeholder="Enter Mass in SI unit" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="theta">
-                    <Form.Label> Inclination Angle (θ)</Form.Label>
-                    <Form.Control onChange={(e) => setTheta(e.target.value)} type="number" placeholder="Enter Inclination Angle in degrees" />
+               
+                <Form.Group className="mb-3" controlId="force">
+                    <Form.Label> Force applied (N)</Form.Label>
+                    <Form.Control onChange={(e) => setForce(e.target.value)} type="number" placeholder="Enter Force applied" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="coeff">
                     <Form.Label> coefficient of Friction (μ)</Form.Label>
                     <Form.Control onChange={(e) => setCoeff(e.target.value)} type="number" placeholder="Enter coefficient of Friction (μ)" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="momentum">
-                    <Form.Label>Frictional Force (P)</Form.Label>
+                    <Form.Label>Frictional Force (F)</Form.Label>
                     <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " N"} />
                     <Form.Text className="text-muted">
                         Enter the above values to Calculate.
@@ -85,6 +86,9 @@ function Calculator({ match }) {
 
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
+                </Button>&nbsp;&nbsp;&nbsp;
+                <Button variant="dark" type="reset">
+                    Reset
                 </Button>
             </Form>
         </React.Fragment>
@@ -92,6 +96,7 @@ function Calculator({ match }) {
 
 
     // Adding Calculators together
+    
 
     function calC(key) {
         let currentCall;

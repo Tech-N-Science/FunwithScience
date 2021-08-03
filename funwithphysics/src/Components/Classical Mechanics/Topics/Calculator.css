@@ -4,15 +4,8 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "header header" 
-    "image details " 
-    "formula-text . " 
-    "formula formula " 
-    " . . "
-    " . . "
-    "process calc ";
+    grid-template-areas: "header header" "image details " "formula-text . " "formula formula " " . . " " . . " "process calc ";
     row-gap: 3em;
-    
 }
 
 .Calculator__image {
@@ -52,12 +45,11 @@
 .Calculator__formula {
     grid-area: formula;
     font-family: cursive;
-    justify-self: center;
 }
 
 .Calculator__calc {
     grid-area: calc;
-    margin-top: -70px;
+    margin-top: -180px;
 }
 
 .Calculator__calc hr {
@@ -69,4 +61,5 @@
     grid-area: process;
     word-wrap: break-word;
     width: 37.5em;
+    margin-top: -100px;
 }
