@@ -31,7 +31,7 @@ const Topics = [
         topic: "Torque",
     },
     {
-        topic: "Error Measurments",
+        topic: "Error Measurements",
     },
     {
         topic: "Gravitation",
