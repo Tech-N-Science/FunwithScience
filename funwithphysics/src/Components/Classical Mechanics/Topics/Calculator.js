@@ -131,6 +131,10 @@ function Calculator({ match }) {
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>
+                &nbsp;&nbsp;&nbsp;
+                <Button variant="dark" type="reset">
+                    Reset
+                </Button>
             </Form>
         </React.Fragment>
     }
