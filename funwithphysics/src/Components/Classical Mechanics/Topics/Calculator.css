@@ -59,7 +59,7 @@
 
 .Calculator__calc {
     grid-area: calc;
-    margin-top: -180px;
+    margin-top: -400px;
 }
 
 .Calculator__calc hr {
