@@ -16,13 +16,22 @@ And the best part of it? **FunwithPhysics is open source!** 🤩
   
 </p>
 
+<div align="center">
 
-![contributors](https://img.shields.io/github/contributors/Amit366/FunwithPhysics)
-![Issues](https://img.shields.io/github/issues/Amit366/FunwithPhysics)
-![Pull Requests](https://img.shields.io/github/issues-pr/Amit366/FunwithPhysics)
-[![Maintenance](https://img.shields.io/maintenance/yes/2021?color=green&logo=github)](https://github.com/Amit366/FunwithPhysics)
-![GitHub forks](https://img.shields.io/github/forks/Amit366/FunwithPhysics?style=social) 
-![GitHub Repo stars](https://img.shields.io/github/stars/Amit366/FunwithPhysics?style=social)
+<a href="https://github.com/Amit366/FunwithPhysics"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103"></a>
+<a href="https://github.com/Amit366/FunwithPhysics"><img src="https://img.shields.io/badge/Built%20by-developers%20%3C%2F%3E-0059b3"></a>
+<a href="https://github.com/Amit366/FunwithPhysics"><img src="https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=yellow"></a>
+<a href="https://github.com/Amit366/"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg?v=103"></a>
+<a href="https://github.com/Amit366/FunwithPhysics/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?v=103"></a>
+
+<a href="https://github.com/Amit366/FunwithPhysics/graphs/contributors"><img src="https://img.shields.io/github/contributors/Amit366/FunwithPhysics?color=brightgreen"></a>
+<a href="https://github.com/Amit366/FunwithPhysics/stargazers"><img src="https://img.shields.io/github/stars/Amit366/FunwithPhysics?color=0059b3"></a>
+<a href="https://github.com/Amit366/FunwithPhysics/network/members"><img src="https://img.shields.io/github/forks/Amit366/FunwithPhysics?color=yellow"></a>
+<a href="https://github.com/Amit366/FunwithPhysics/issues"><img src="https://img.shields.io/github/issues/Amit366/FunwithPhysics?color=0059b3"></a>
+<a href="https://github.com/Amit366/FunwithPhysics/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed-raw/Amit366/FunwithPhysics?color=yellow"></a>
+<a href="https://github.com/Amit366/FunwithPhysics/pulls"><img src="https://img.shields.io/github/issues-pr/Amit366/FunwithPhysics?color=brightgreen"></a>
+<a href="https://github.com/Amit366/FunwithPhysics/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/Amit366/FunwithPhysics?color=0059b3"></a> 
+</div>
 
 
 ### How does it differ from other problem-solving projects?
