@@ -1,23 +1,24 @@
 import Home from "./Components/Home/Home";
-import {Switch , Route, Redirect} from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import './index.css';
 import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer"
 import React from 'react'
+import ClassicalMechanics from './Components/Classical Mechanics/ClassicalMechanics'
+import Calculator from './Components/Classical Mechanics/Topics/Calculator'
 
 const App = () => {
   return (
-    <>
-      <Navbar/>
+    <React.Fragment>
+      <Navbar />
       <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/about" component={Home}/>
-          <Route exact path="/contact" component={Home}/>
-          <Route exact path="/faq" component={Home}/>
-          <Redirect to="/" />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={Home} />
+        <Route exact path="/contact" component={Home} />
+        <Route exact path="/classicalmechanics" component={ClassicalMechanics} />
+        <Route exact path="/classicalmechanics/calc/:topic" component={Calculator} />
+        <Redirect to="/" />
       </Switch>
-     <Footer/>      
-    </>
+    </React.Fragment>
   )
 }
 
@@ -35,13 +36,13 @@ const App = () => {
 
 //   return (
 //   <div className="App">
-   
+
 //      <header className="App-header">
-       
+
 //         <p>
 //           Fun With Physics
 //         </p>
-     
+
 //     <div classNameName = "wrapper">
 //       <h3 styles={{fontStyle: 'Montserrat'}}>Calculating Force using mass and acceleration</h3>
 //       <br/>
@@ -60,7 +61,7 @@ const App = () => {
 
 //     </header> 
 //   </div>
-    
+
 //   );
 // }
 

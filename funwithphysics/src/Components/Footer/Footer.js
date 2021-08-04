@@ -3,18 +3,18 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <>
-        
-        {/* <footer class="text-center text-lg-start bg-light pt-2">
-        <section class="">
-            <div class="container text-center text-md-start mt-4">
+        <React.Fragment>
+
+            {/* <footer className="text-center text-lg-start bg-light pt-2">
+        <section className="">
+            <div className="container text-center text-md-start mt-4">
             
-            <div class="row mt-3">
+            <div className="row mt-3">
                
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-3">
+                <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-3">
                 
-                <h6 class="text-uppercase fw-bold mb-4">
-                    <i class=""></i>Fun With Physics
+                <h6 className="text-uppercase fw-bold mb-4">
+                    <i className=""></i>Fun With Physics
                 </h6>
                 <p>
                     Here you can use rows and columns to organize your footer content. Lorem ipsum
@@ -23,51 +23,51 @@ const Footer = () => {
                 </div>            
 
                
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 
-                <h6 class="text-uppercase fw-bold mb-4">
+                <h6 className="text-uppercase fw-bold mb-4">
                     Products
                 </h6>
                 <p>
-                    <a href="#!" class="text-reset">Angular</a>
+                    <a href="#!" className="text-reset">Angular</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">React</a>
+                    <a href="#!" className="text-reset">React</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">Vue</a>
+                    <a href="#!" className="text-reset">Vue</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">Laravel</a>
+                    <a href="#!" className="text-reset">Laravel</a>
                 </p>
                 </div>
                
 
                
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 
-                <h6 class="text-uppercase fw-bold mb-4">
+                <h6 className="text-uppercase fw-bold mb-4">
                     Useful links
                 </h6>
                 <p>
-                    <a href="#!" class="text-reset">Pricing</a>
+                    <a href="#!" className="text-reset">Pricing</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">Settings</a>
+                    <a href="#!" className="text-reset">Settings</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">Orders</a>
+                    <a href="#!" className="text-reset">Orders</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-reset">Help</a>
+                    <a href="#!" className="text-reset">Help</a>
                 </p>
                 </div>
                
 
                
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 
-                <h6 class="text-uppercase fw-bold mb-4">
+                <h6 className="text-uppercase fw-bold mb-4">
                     Contact
                 </h6>
                 </div>
@@ -77,104 +77,104 @@ const Footer = () => {
             </div>
         </section>
 
-        <div class="text-center p-4 bg-dark">
+        <div className="text-center p-4 bg-dark">
             © 2021 | Copyright@
-            <a class="text-reset fw-bold" href="/"> Fun With Physics</a>
+            <a className="text-reset fw-bold" href="/"> Fun With Physics</a>
         </div>
         </footer> */}
 
-        <footer>
-            <div class="main-content">
-                <div class="left box">
-                    <div class="footer-logo">
-                        <img src=""/>
+            <footer>
+                <div className="main-content">
+                    <div className="left box">
+                        <div className="footer-logo">
+                            <img alt="" src="" />
+                        </div>
+                        <h2>Address</h2>
+                        <div className="content">
+                            <div className="place">
+                                <span className="fas fa-map-marker-alt"></span>
+                                <span className="text">India</span>
+                            </div>
+                            <div className="phone">
+                                <span className="fas fa-phone"></span>
+                                <span className="text">+91 1234567890</span>
+                            </div>
+                            <div className="email">
+                                <a href="mailto:example123@gmail.com"><span className="fas fa-envelope"></span></a>
+                                <span className="text">example123@gmail.com</span>
+                            </div>
+                        </div>
                     </div>
-                    <h2>Address</h2>
-                    <div class="content">
-                        <div class="place">
-                            <span class="fas fa-map-marker-alt"></span>
-                            <span class="text">India</span>
+
+                    <div className="center box">
+                        <h2>Connect with Us</h2>
+                        <div className="content">
+                            <div className="center">
+                                <div className="icons">
+                                    <li><a href="/"><span className="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="/"><span
+                                        className="fab fa-twitter"></span></a></li>
+                                    <li><a href="/"><span
+                                        className="fab fa-instagram"></span></a></li>
+                                    <li><a href="/"><span
+                                        className="fab fa-linkedin-in"></span></a></li>
+                                    <li><a href="/"><span
+                                        className="fab fa-github"></span></a>
+                                    </li>
+                                </div>
+                            </div>
                         </div>
-                        <div class="phone">
-                            <span class="fas fa-phone"></span>
-                            <span class="text">+91 1234567890</span>
+                        <h2 className="additional">Additional Links</h2>
+                        <div className="content"></div>
+                        <div className="center-bottom">
+                            <div>
+                                <a href="/"><span className="fas fa-user"></span></a>
+                                <span className="text">About Us</span>
+                            </div>
+                            <div className="contact">
+                                <a href="/"><span className="fas fa-comments"></span></a>
+                                <span className="text">Contact</span>
+                            </div>
+                            <div>
+                                <a href="/"><span className="fas fa-users"></span></a>
+                                <span className="text">FAQs</span>
+                            </div>
                         </div>
-                        <div class="email">
-                            <a href="mailto:example123@gmail.com"><span class="fas fa-envelope"></span></a>
-                            <span class="text">example123@gmail.com</span>
+                    </div>
+
+                    <div className="right box">
+                        <h2>Contact us</h2>
+                        <div className="content">
+                            <form action="#">
+                                <div className="name">
+                                    <div className="text">Name *</div>
+                                    <input type="text" placeholder="Enter your Name" />
+                                </div>
+                                <div className="email">
+                                    <div className="text">Email *</div>
+                                    <input type="email" placeholder="Enter your Email-id" required />
+                                </div>
+                                <div className="msg">
+                                    <div className="text">Message *</div>
+                                    <textarea className="msg" rows="2" cols="25" placeholder="Enter your message!" required></textarea>
+                                </div>
+                                <div className="btn">
+                                    <button type="submit">Send</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
 
-                <div class="center box">
-                    <h2>Connect with Us</h2>
-                    <div class="content">
-                        <div class="center">
-                            <div class="icons">
-                                <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                <li><a href="#"><span
-                                    class="fab fa-twitter"></span></a></li>
-                                <li><a href="#"><span
-                                    class="fab fa-instagram"></span></a></li>
-                                <li><a href="#"><span
-                                    class="fab fa-linkedin-in"></span></a></li>
-                                <li><a href="#"><span
-                                    class="fab fa-github"></span></a>
-                                </li>
-                            </div>
-                        </div>
-                    </div>
-                    <h2 class="additional">Additional Links</h2>
-                    <div class="content"></div>
-                    <div class="center-bottom">
-                        <div>
-                            <a href="#"><span class="fas fa-user"></span></a>
-                            <span class="text">About Us</span>
-                        </div>
-                        <div class="contact">
-                            <a href="#"><span class="fas fa-comments"></span></a>
-                            <span class="text">Contact</span>
-                        </div>
-                        <div>
-                            <a href="#"><span class="fas fa-users"></span></a>
-                            <span class="text">FAQs</span>
-                        </div>
-                    </div>
+                <div className="bottom">
+                    <center>
+                        <span className="credit"><a
+                            href="/">Fun With Physics</a> | </span>
+                        <span className="far fa-copyright"></span><span> 2021 All rights reserved.</span>
+                    </center>
                 </div>
-
-                <div class="right box">
-                    <h2>Contact us</h2>
-                    <div class="content">
-                        <form action="#">
-                            <div class="name">
-                                <div class="text">Name *</div>
-                                <input type="text" placeholder="Enter your Name" />
-                            </div>
-                            <div class="email">
-                                <div class="text">Email *</div>
-                                <input type="email" placeholder="Enter your Email-id" required/>
-                            </div>
-                            <div class="msg">
-                                <div class="text">Message *</div>
-                                <textarea class="msg" rows="2" cols="25" placeholder="Enter your message!" required></textarea>
-                            </div>
-                            <div class="btn">
-                                <button type="submit">Send</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bottom">
-                <center>
-                <span class="credit"><a
-                    href="#">Fun With Physics</a> | </span>
-                    <span class="far fa-copyright"></span><span> 2021 All rights reserved.</span>
-                </center>
-            </div>
-        </footer>
-        </>
+            </footer>
+        </React.Fragment>
     )
 }
 

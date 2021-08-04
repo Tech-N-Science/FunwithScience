@@ -1,3 +1,13 @@
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#2c2b30, #dbd3f0);
+    border-radius: 40px;
+}
+
+
 /*---Banner---*/
 
 .banner {
@@ -51,6 +61,68 @@ h2 {
     #fh5co-contact,
     #fh5co-footer {
         padding: 3em 0;
+    }
+}
+
+.banner {
+    padding-left: 5vw;
+    padding-top: 30vh;
+}
+
+.banner_text {
+    margin-bottom: 30px;
+}
+
+.banner_button * {
+    margin-left: 20px;
+    width: 120px;
+}
+
+@media (max-width: 600px) {
+    .banner {
+        padding-top: 25vh;
+    }
+    .banner h2 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        padding-top: 27vh;
+    }
+    .banner h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-height: 500px) {
+    .banner {
+        padding-top: 0vh;
+    }
+    .banner h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    .banner {
+        padding-top: 25vh;
+        height: calc(100vh - 50px);
+    }
+    .banner h2 {
+        font-size: 20px;
+    }
+    .banner_button * {
+        margin-bottom: 20px;
+    }
+    .gotopbtn {
+        left: calc(80vw - 10px);
+        top: calc(90vh - 10px);
+    }
+    #fh5co-course-categories {
+        margin: 0px;
+        padding: 0px;
     }
 }
 
@@ -123,12 +195,14 @@ h2 {
     width: 150px;
 }
 
-.services .icon img:hover {
-    /* transform: scale(1.1); */
+
+/*.services .icon img:hover {
+    /* transform: scale(1.1);
 }
+ */
 
 .services .icon:hover {
-    border: 5px solid crimson
+    border: 5px solid crimson;
 }
 
 .fh5co-counters {
@@ -298,8 +372,9 @@ h2 {
     font-size: 40px;
 }
 
-hr {
+.learn-underline {
     width: 10%;
     border: 1px dashed red;
     border-radius: 20px;
+    margin-left: 685px;
 }
