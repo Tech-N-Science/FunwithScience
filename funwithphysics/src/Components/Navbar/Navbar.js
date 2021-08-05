@@ -5,6 +5,7 @@ import { Data } from "../FAQ/Data";
 import { IconContext } from 'react-icons';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import { Accordion, Card } from 'react-bootstrap';
+import logo from '../../Images/Logo/logo.png';
 
 const Navbar = () => {
 
@@ -23,7 +24,7 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg navbar-light bg-light pt-3">
                 <NavLink to='/' className="nav-item ">
                     <p className="navbar-brand">
-                        <i className="fas fa-book"></i>
+                        <img src={logo} alt="logo" height="10%" width="10%" />&ensp;
                         Fun With Physics
                     </p>
                 </NavLink>

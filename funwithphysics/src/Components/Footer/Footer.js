@@ -1,5 +1,7 @@
+
 import React from 'react'
 import './Footer.css'
+import logo from '../../Images/Logo/logo.png';
 
 const Footer = () => {
     return (
@@ -87,7 +89,7 @@ const Footer = () => {
                 <div className="main-content">
                     <div className="left box">
                         <div className="footer-logo">
-                            <img alt="" src="" />
+                            <img src={logo} alt="logo" />
                         </div>
                         <h2>Address</h2>
                         <div className="content">
