@@ -49,6 +49,48 @@ function Calculator({ match }) {
         </React.Fragment>
     }
 
+    // Force Calculator
+    function CalculatorForce() {
+        const [result, setResult] = useState(null)
+        const [mass, setMass] = useState(null)
+        const [acceleration, setAcce] = useState(null)
+
+        const handleClick = () => {
+            let res = mass * acceleration;
+            setResult(res)
+        }
+       
+        return <React.Fragment>
+            <Form>
+
+               
+                <Form.Group className="mb-3" controlId="mass">
+                    <Form.Label> Mass (in Kg)</Form.Label>
+                    <Form.Control onChange={(e) => setMass(e.target.value)} type="number" placeholder="Enter mass of an object in kilograms" />
+                </Form.Group>
+                    <Form.Label> Acceleration (in m/s²)</Form.Label>
+                <Form.Group className="mb-3" controlId="acceleration">
+                    <Form.Control onChange={(e) => setAcce(e.target.value)} type="number" placeholder="Enter acceleration in metre per second square [m/s²]" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="momentum">
+                    <Form.Label>Force (F)</Form.Label>
+                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " N or Kg.m.s² "} />
+                    <Form.Text className="text-muted">
+                        Enter the above values to Calculate.
+                    </Form.Text>
+                </Form.Group>
+
+                <Button variant="primary" onClick={handleClick}>
+                    Calculate
+                </Button>&nbsp;&nbsp;&nbsp;
+                <Button variant="dark" type="reset">
+                    Reset
+                </Button>
+            </Form>
+        </React.Fragment>
+    }
+
+
     // Friction Calculator
     function CalculatorFriction() {
         const [result, setResult] = useState(null)
@@ -148,6 +190,9 @@ function Calculator({ match }) {
             case "Momentum":
                 currentCall = CalculatorMomentum();
                 break;
+            case "Force":
+                currentCall = CalculatorForce();
+                break;
             case "Friction":
                 currentCall = CalculatorFriction();
                 break;
@@ -187,6 +232,14 @@ function Calculator({ match }) {
             <div className="Calculator__process">
                 <h3> Process</h3>
                 <p>{details.process}</p>
+            </div>
+            <div className="Calculator__siunit">
+                <h3> S.I. Unit : {details.siunit}</h3>
+                <p></p>
+            </div>
+            <div className="Calculator__dimension">
+                <h3> Dimension : {details.dimension}</h3>
+                <p></p>
             </div>
         </div>
     )

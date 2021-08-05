@@ -46,10 +46,20 @@
     grid-area: formula;
     font-family: cursive;
 }
+.Calculator__dimension {
+    grid-area: formula;
+    font-family: cursive;
+    margin-top: 110px;
+}
+.Calculator__siunit {
+    grid-area: formula;
+    font-family: cursive;
+    margin-top: 70px;
+}
 
 .Calculator__calc {
     grid-area: calc;
-    margin-top: -180px;
+    margin-top: -400px;
 }
 
 .Calculator__calc hr {
