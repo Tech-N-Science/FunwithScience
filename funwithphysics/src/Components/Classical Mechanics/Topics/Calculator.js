@@ -123,7 +123,7 @@ function Calculator({ match }) {
                     <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " N"} />
                     <Form.Text className="text-muted">
                         Enter the above values to Calculate.
-                    </Form.Text>
+                    </Form.Text>                    
                 </Form.Group>
 
                 <Button variant="primary" onClick={handleClick}>

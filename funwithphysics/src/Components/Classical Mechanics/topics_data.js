@@ -65,7 +65,7 @@ const Topics = [
     
     },
     {
-        topic: "Force",
+        topic: "Frictional Force on Inclined Plane",
     },
     {
         topic: "Collision",
@@ -80,7 +80,7 @@ const Topics = [
         topic: "Error Measurements",
     },
     {
-        topic: "Gravitation",
+        topic: "",
     },
     {
         topic: "Work Power Energy",
