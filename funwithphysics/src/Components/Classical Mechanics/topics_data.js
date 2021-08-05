@@ -1,7 +1,8 @@
 import momentum from '../../Images/Classical_mechanics/momentum.jpg';
 import friction from '../../Images/Classical_mechanics/friction.jpg';
 import gravitation from '../../Images/Classical_mechanics/gravitation.jpg';
-import force from '../../Images/Classical_mechanics/force.jpg'
+import force from '../../Images/Classical_mechanics/force.jpg';
+import torque from '../../Images/Classical_mechanics/torque.jpg'
 
 export {
     momentum,
@@ -63,6 +64,17 @@ const Topics = [
         siunit: "G = Nm²/Kg²",
         dimension: "G = M^-1 L^3 T^-2"
     
+    },
+    {
+        topic: "Torque",
+        image: torque,
+        details: `Torque is the measure of the force that can cause an object to rotate about an axis. Force is what causes an object to accelerate in linear kinematics. Similarly, torque is what causes an angular acceleration. Hence, torque can be defined as the rotational equivalent of linear force. The point where the object rotates is called the axis of rotation. In physics, torque is simply the tendency of a force to turn or twist. Different terminologies such as moment or moment of force are interchangeably used to describe torque.`,
+        formula: "T = F.r. sinθ",
+        process: `A simple way to calculate the magnitude of the torque is to first determine the lever arm and then multiply it times the applied force.
+
+        Now, from the above observation, we conclude that torque produced depends on the magnitude of the force and the perpendicular distance between the point about which torque is calculated and the point of application of force.`,
+        siunit: "N.m",
+        dimension: "ML²/T²"
     },
     {
         topic: "Frictional Force on Inclined Plane",
