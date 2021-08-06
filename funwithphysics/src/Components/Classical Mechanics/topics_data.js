@@ -75,8 +75,8 @@ const Topics = [
         details: "Any measurement that you make is just an approximation, 100% accuracy is not possible. If you measure the same object two different times, the two measurements may not be exactly the same.  The difference between the two measurements is called a variation in the measurements. This variation introduces an unwanted but unavoidable uncertainty in our measurement. This uncertainty is called the Errors in measurement. This ‘error’ should not be confused with a ‘mistake’. Error, unlike mistake, does not mean that you got the wrong answer. It just means you didn’t get as close to the true value as possible. The errors in measurement are a mathematical way to show the uncertainty in the measurement.  It is the difference between the result of the measurement and the true value of what you were measuring. Absolute , Relative and Percentage error are three types of error with which every experimental scientist should be familiar.",
 
         formula: ["E (Abs) = | X (measured) - X (actual) | ", <br/>,
-                  "E(Rel) = E (Abs) / X (actual) & ",
-                  "E(Per) = E (Rel) * 100 % "],
+                  "E(Rel) = E(Abs) / X(actual) & ",
+                  "E(Per) = E(Rel) * 100% "],
         process: "Absolute error in measurement refers to the actual amount of error in the measurement. The absolute error of the measurement shows how large the error actually is. \
                   Relative error represents the ratio of the absolute error of the measurement to the accepted measurement. This way we can determine the magnitude of the absolute error in terms of the actual size of the measurement. \
                   Errors in measurement may also be expressed in terms of percentage. This is similar to relative error except that the error here is converted to a percent value. The percentage error is found by multiplying the relative error by 100%.",
