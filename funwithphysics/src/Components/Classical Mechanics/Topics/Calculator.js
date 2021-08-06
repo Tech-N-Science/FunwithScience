@@ -299,13 +299,11 @@ function Calculator({ match }) {
             case "Gravitation":
                 currentCall = CalculatorGravitation();
                 break;
-
             case "Error Measurements":
-            currentCall = CalculatorErrorMeasurement();
-
+                currentCall = CalculatorErrorMeasurement();
+                break;
             case "Torque":
                 currentCall = CalculatorTorque();
-
                 break;
             default:
                 break;
