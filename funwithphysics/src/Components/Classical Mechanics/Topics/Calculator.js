@@ -237,7 +237,6 @@ function Calculator({ match }) {
 
     // Adding Calculators together
     
-
     function calC(key) {
         let currentCall;
         switch (key) {
