@@ -42,7 +42,7 @@ function Calculator({ match }) {
                     Calculate
                 </Button>
                 &nbsp;&nbsp;&nbsp;
-                <Button variant="dark" type="reset">
+                <Button variant="dark" onClick={() => setResult(null)} type="reset">
                     Reset
                 </Button>
             </Form>
@@ -83,7 +83,7 @@ function Calculator({ match }) {
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="dark" type="reset">
+                <Button variant="dark" onClick={() => setResult(null)} type="reset">
                     Reset
                 </Button>
             </Form>
@@ -129,7 +129,7 @@ function Calculator({ match }) {
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="dark" type="reset">
+                <Button variant="dark" onClick={() => setResult(null)} type="reset">
                     Reset
                 </Button>
             </Form>
@@ -174,7 +174,7 @@ function Calculator({ match }) {
                     Calculate
                 </Button>
                 &nbsp;&nbsp;&nbsp;
-                <Button variant="dark" type="reset" >
+                <Button variant="dark" onClick={() => setResult(null)} type="reset" >
                     Reset
                 </Button>
             </Form>
@@ -228,7 +228,7 @@ function Calculator({ match }) {
                     Calculate
                 </Button>
                 &nbsp;&nbsp;&nbsp;
-                <Button variant="dark" type="reset">
+                <Button variant="dark" onClick={() => {setResultAbs(null); setResultPer(null); setResultRel(null); }} type="reset">
                     Reset
                 </Button>
             </Form>
@@ -274,7 +274,7 @@ function Calculator({ match }) {
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="dark" type="reset">
+                <Button variant="dark" onClick={() => setResult(null)} type="reset">
                     Reset
                 </Button>
             </Form>
