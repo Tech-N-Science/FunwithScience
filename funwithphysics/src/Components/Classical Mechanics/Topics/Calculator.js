@@ -235,6 +235,53 @@ function Calculator({ match }) {
         </React.Fragment>
     }
 
+    //Torque Calculator
+    function CalculatorTorque() {
+        const [result, setResult] = useState(null)
+        const [force, setForce] = useState(null)
+        const [distance, setDist] = useState(null)
+        const [angle, setAngle] = useState(null)
+
+        const handleClick = () => {
+            let res = force * distance * Math.sin(angle*Math.PI/180);;
+            setResult(res)
+        }
+       
+        return <React.Fragment>
+            <Form>
+
+               
+                <Form.Group className="mb-3" controlId="force">
+                    <Form.Label> Force (in Newton)</Form.Label>
+                    <Form.Control onChange={(e) => setForce(e.target.value)} type="number" placeholder="Enter force applied" />
+                </Form.Group>
+                    <Form.Label> Distance (in meter)</Form.Label>
+                <Form.Group className="mb-3" controlId="distance">
+                    <Form.Control onChange={(e) => setDist(e.target.value)} type="number" placeholder="Enter distance covered" />
+                </Form.Group>
+                <Form.Label> Angle (in degree)</Form.Label>
+                <Form.Group className="mb-3" controlId="angle">
+                    <Form.Control onChange={(e) => setAngle(e.target.value)} type="number" placeholder="Enter angle (sin θ)" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="torque">
+                    <Form.Label>Force (F)</Form.Label>
+                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " N.m "} />
+                    <Form.Text className="text-muted">
+                        Enter the above values to Calculate.
+                    </Form.Text>
+                </Form.Group>
+
+                <Button variant="primary" onClick={handleClick}>
+                    Calculate
+                </Button>&nbsp;&nbsp;&nbsp;
+                <Button variant="dark" type="reset">
+                    Reset
+                </Button>
+            </Form>
+        </React.Fragment>
+    }
+
+
     // Adding Calculators together
     
     function calC(key) {
@@ -252,8 +299,13 @@ function Calculator({ match }) {
             case "Gravitation":
                 currentCall = CalculatorGravitation();
                 break;
+
             case "Error Measurements":
             currentCall = CalculatorErrorMeasurement();
+
+            case "Torque":
+                currentCall = CalculatorTorque();
+
                 break;
             default:
                 break;
