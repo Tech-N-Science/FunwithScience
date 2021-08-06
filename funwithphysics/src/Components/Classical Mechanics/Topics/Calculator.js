@@ -174,60 +174,6 @@ function Calculator({ match }) {
                     Calculate
                 </Button>
                 &nbsp;&nbsp;&nbsp;
-                <Button variant="dark" type="reset" >
-                    Reset
-                </Button>
-            </Form>
-        </React.Fragment>
-    }
-
-    // Error Measurement Calculator
-    function CalculatorErrorMeasurement() {
-        const [absolute, setResultAbs] = useState(null)
-        const [relative, setResultRel] = useState(null)
-        const [percentage, setResultPer] = useState(null)
-        const [x_measured, setXM] = useState(null)
-        const [x_actual, setXA] = useState(null)
-
-        const handleClick = () => {
-            let res_abs = Math.abs(x_measured - x_actual) ;
-            let res_rel = res_abs / x_actual ;
-            let res_per = res_rel * 100 ;
-            setResultAbs(res_abs);
-            setResultRel(res_rel);
-            setResultPer(res_per);
-        }
-        return <React.Fragment>
-            <Form>
-
-                <Form.Group className="mb-3" controlId="x_measured">
-                    <Form.Label>X Measured (XM)</Form.Label>
-                    <Form.Control onChange={(e) => setXM(e.target.value)} type="number" placeholder="Enter Measured Value" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="x_actual">
-                    <Form.Label>X Actual (XA)</Form.Label>
-                    <Form.Control onChange={(e) => setXA(e.target.value)} type="number" placeholder="Enter Actual Value" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="absolute">
-                    <Form.Label>Absolute Error (EA)</Form.Label>
-                    <Form.Control readOnly type="number" placeholder={absolute === null ? "Result" : absolute} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="relative">
-                    <Form.Label>Relative Error (ER)</Form.Label>
-                    <Form.Control readOnly type="number" placeholder={relative === null ? "Result" : relative} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="percentage">
-                    <Form.Label>Percentage Error (ER)</Form.Label>
-                    <Form.Control readOnly type="number" placeholder={percentage === null ? "Result" : percentage} />
-                    <Form.Text className="text-muted">
-                        Enter measured and actual values to calculate result .
-                    </Form.Text>
-                </Form.Group>
-
-                <Button variant="primary" onClick={handleClick}>
-                    Calculate
-                </Button>
-                &nbsp;&nbsp;&nbsp;
                 <Button variant="dark" type="reset">
                     Reset
                 </Button>
@@ -252,9 +198,6 @@ function Calculator({ match }) {
                 break;
             case "Gravitation":
                 currentCall = CalculatorGravitation();
-                break;
-            case "Error Measurements":
-            currentCall = CalculatorErrorMeasurement();
                 break;
             default:
                 break;
