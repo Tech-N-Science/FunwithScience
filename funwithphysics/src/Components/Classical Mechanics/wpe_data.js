@@ -24,7 +24,7 @@ const Topics = [
         formula: "P = W/t",
         process: "As discussed power is the rate of doing work. Therefore, it can be calculated by dividing work done by time. ",
         siunit: "watt",
-        dimension: "ML/T²"
+        dimension: "M L^2 T^-3"
     }
 ]
 
