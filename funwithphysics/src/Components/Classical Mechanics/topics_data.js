@@ -96,7 +96,7 @@ const Topics = [
         dimension: "ML²/T²"
     },
     {
-        topic: "work_power_energy",
+        topic: "Work Power Energy",
         image: work_power_energy,
         details:"...."
     },

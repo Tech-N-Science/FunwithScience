@@ -30,7 +30,7 @@ function Dalculator({ match }) {
                     <Form.Label> Force (in Newtons)</Form.Label>
                     <Form.Control onChange={(e) => setForce(e.target.value)} type="number" placeholder="Enter Force applied to an object in newtons" />
                 </Form.Group>
-                    <Form.Label> Displacement (in m/s²)</Form.Label>
+                    <Form.Label> Displacement (in m)</Form.Label>
                 <Form.Group className="mb-3" controlId="displacement">
                     <Form.Control onChange={(e) => setDisp(e.target.value)} type="number" placeholder="Enter displacement in metre" />
                 </Form.Group>
@@ -77,7 +77,7 @@ function Dalculator({ match }) {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="power">
                     <Form.Label>Power (P)</Form.Label>
-                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " w "} />
+                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " W "} />
                     <Form.Text className="text-muted">
                         Enter the above values to Calculate.
                     </Form.Text>

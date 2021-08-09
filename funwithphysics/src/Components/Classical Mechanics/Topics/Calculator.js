@@ -313,7 +313,7 @@ function Calculator({ match }) {
         return currentCall;
     }
 
-    if(details.topic==="work_power_energy"){
+    if(details.topic==="Work Power Energy"){
         return(
             <div className="mech__main">
             <div className="mech__header">
