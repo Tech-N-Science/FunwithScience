@@ -16,6 +16,7 @@ const App = () => {
         <Route exact path="/contact" component={Home} />
         <Route exact path="/classicalmechanics" component={ClassicalMechanics} />
         <Route exact path="/classicalmechanics/calc/:topic" component={Calculator} />
+        <Route exact path="/classicalmechanics/calc/:topic/:topic" component={WPECalculator} />
         <Redirect to="/" />
       </Switch>
     </React.Fragment>
