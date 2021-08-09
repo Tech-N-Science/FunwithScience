@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import './Calculator.css'
 import Topics from '../topics_data'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Card, Button } from 'react-bootstrap'
+import '../classicalMechanics.css'
+import WPE_list from "../wpe_data";
 
 function Calculator({ match }) {
     const page = Topics.filter(data => (data.topic) === (match.params.topic))
@@ -311,7 +313,33 @@ function Calculator({ match }) {
         return currentCall;
     }
 
+    if(details.topic==="work_power_energy"){
+        return(
+            <div className="mech__main">
+            <div className="mech__header">
+                <h1>Work Power Energy</h1>
+            </div>
+            <div className="mech__topics-card">
+                {
+                    WPE_list.map(data =>
+                        <React.Fragment key={data.topic}>
+                            <a href={`/classicalmechanics/calc/work_power_energy/${data.topic}`} style={{textDecoration:"none"}}>
+                            <Card className="a" key={data.topic} style={{ width: '18rem' }} style={{color:'black',textAlign:'center',fontSize:"20px"}}>
+                                <Card.Body > 
+                                    <div> {data.topic}</div>
+                                </Card.Body>
+                            </Card>
+                            </a>
+                        </React.Fragment>
+                    )
+                }
+            </div>
+        </div >
+        )
+    }
+    else{
     return (
+        
         <div className="Calculator__main">
             <div className="Calculator__header">
                 <h1>{details.topic}:</h1>
@@ -349,6 +377,7 @@ function Calculator({ match }) {
             </div>
         </div>
     )
+            }
 }
 
 export default Calculator

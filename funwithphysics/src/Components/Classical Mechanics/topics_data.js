@@ -2,10 +2,9 @@ import momentum from '../../Images/Classical_mechanics/momentum.jpg';
 import friction from '../../Images/Classical_mechanics/friction.jpg';
 import gravitation from '../../Images/Classical_mechanics/gravitation.jpg';
 import force from '../../Images/Classical_mechanics/force.jpg';
-
 import error_measurement from '../../Images/Classical_mechanics/error.jpg';
-
 import torque from '../../Images/Classical_mechanics/torque.jpg'
+import work_power_energy from '../../Images/Classical_mechanics/wpe.jpg'
 
 
 export {
@@ -13,7 +12,9 @@ export {
     force,
     friction,
     gravitation,
-    error_measurement
+    torque,
+    error_measurement,
+    work_power_energy
 }
 
 const Topics = [
@@ -95,7 +96,9 @@ const Topics = [
         dimension: "ML²/T²"
     },
     {
-        topic: "Frictional Force on Inclined Plane",
+        topic: "work_power_energy",
+        image: work_power_energy,
+        details:"...."
     },
     {
         topic: "Collision",
