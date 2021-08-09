@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import './Calculator.css'
-//import { Form, Button } from 'react-bootstrap'
 import { Form, Card, Button } from 'react-bootstrap'
 import '../classicalMechanics.css'
 import WPE_list from "../wpe_data";
 
-function Dalculator({ match }) {
+function WPECalculator({ match }) {
     const page = WPE_list.filter(data => (data.topic) === (match.params.topic))
     const details = page[0]
     console.log(page)
@@ -153,4 +152,4 @@ function Dalculator({ match }) {
 }
 
 
-export default Dalculator
+export default WPECalculator
