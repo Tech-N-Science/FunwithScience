@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import React from 'react'
 import ClassicalMechanics from './Components/Classical Mechanics/ClassicalMechanics'
 import Calculator from './Components/Classical Mechanics/Topics/Calculator'
+import WPECalculator from './Components/Classical Mechanics/Topics/wpe_Calculator'
 
 const App = () => {
   return (
