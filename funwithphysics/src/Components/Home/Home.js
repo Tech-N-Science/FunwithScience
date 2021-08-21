@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Home/Home.css'
+import {Link} from "react-router-dom"
 import classicalMechanics from "../../Images/Classical_Mechanics.jpg"
 import thermodynamics from "../../Images/Thermodynamics.jpg"
 import electromagnetism from "../../Images/electromagnetism.jpg"
@@ -20,6 +21,7 @@ const Home = () => {
 				<div className="banner_button">
 					<button type="button" className="btn btn-light">Explore</button>
 					<button type="button" className="btn btn-light"><a href="#learn">Learn</a></button>
+					{/*<Link to="learn" className="btn btn-light"><a href="#learn">Learn</a></Link>*/}
 				</div>
 			</div>
 			{/* ----Features---- */}

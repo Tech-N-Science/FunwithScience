@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Calculator.css'
-import { Form, Card, Button } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 import '../classicalMechanics.css'
 import WPE_list from "../wpe_data";
 
