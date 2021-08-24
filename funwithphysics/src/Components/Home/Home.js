@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Home/Home.css'
 import {Link} from "react-router-dom"
+import { Button } from 'react-bootstrap'
 import classicalMechanics from "../../Images/Classical_Mechanics.jpg"
 import thermodynamics from "../../Images/Thermodynamics.jpg"
 import electromagnetism from "../../Images/electromagnetism.jpg"
@@ -20,8 +21,7 @@ const Home = () => {
 					<br />So, keep Exploring Physics.</h2>
 				<div className="banner_button">
 					<button type="button" className="btn btn-light">Explore</button>
-					<button type="button" className="btn btn-light"><a href="#learn">Learn</a></button>
-					{/*<Link to="learn" className="btn btn-light"><a href="#learn">Learn</a></Link>*/}
+					<Button href="#learn" className="btn btn-light"> Learn</Button>
 				</div>
 			</div>
 			{/* ----Features---- */}
@@ -31,7 +31,7 @@ const Home = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-md-3 col-sm-6 col-xs-12 text-center animate-box">
-							<a style={{ color: "black" }} href="/classicalmechanics" className="services">
+							<Link style={{ color: "black" }} to="/classicalmechanics" className="services">
 								<span className="icon">
 									{/* <i className="icon-shop"></i> */}
 									<img alt="classicalMechanics" src={classicalMechanics} />
@@ -39,20 +39,22 @@ const Home = () => {
 								<div className="desc">
 									<h3>Classical mechanics</h3>
 								</div>
-							</a>
+							</Link>
 							<p>Classical mechanics is a physical theory describing the motion of macroscopic objects, from projectiles to parts of machinery, and astronomical objects.</p>
 						</div>
-						<div className="col-md-3 col-sm-6 text-center animate-box">
-							<div className="services">
+						
+						<div className="col-md-3 col-sm-6 col-xs-12 text-center animate-box">
+							<Link style={{ color: "black" }} to="/classicalmechanics" className="services">
 								<span className="icon">
 									{/* <i className="icon-heart4"></i> */}
 									<img alt="thermodynamics" src={thermodynamics} />
 								</span>
 								<div className="desc">
-									<h3><a href="/">Thermodynamics</a></h3>
-									<p>Thermodynamics is the branch of physics that deals with the relationships between heat and other forms of energy.</p>
+									<h3>Thermodynamics</h3>
+									
 								</div>
-							</div>
+							</Link>
+							<p>Thermodynamics is the branch of physics that deals with the relationships between heat and other forms of energy.</p>
 						</div>
 						<div className="col-md-3 col-sm-6 text-center animate-box">
 							<div className="services">
