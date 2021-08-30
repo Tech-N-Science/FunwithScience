@@ -31,7 +31,7 @@ const Home = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col-md-3 col-sm-6 col-xs-12 text-center animate-box">
-							<Link style={{ color: "black" }} to="/classicalmechanics" className="services">
+							<a style={{ color: "black" }} href="/classicalmechanics" className="services">
 								<span className="icon">
 									{/* <i className="icon-shop"></i> */}
 									<img alt="classicalMechanics" src={classicalMechanics} />
@@ -39,12 +39,12 @@ const Home = () => {
 								<div className="desc">
 									<h3>Classical mechanics</h3>
 								</div>
-							</Link>
+							</a>
 							<p>Classical mechanics is a physical theory describing the motion of macroscopic objects, from projectiles to parts of machinery, and astronomical objects.</p>
 						</div>
 						
 						<div className="col-md-3 col-sm-6 col-xs-12 text-center animate-box">
-							<Link style={{ color: "black" }} to="/classicalmechanics" className="services">
+							<a style={{ color: "black" }} href="/classicalmechanics" className="services">
 								<span className="icon">
 									{/* <i className="icon-heart4"></i> */}
 									<img alt="thermodynamics" src={thermodynamics} />
@@ -53,7 +53,7 @@ const Home = () => {
 									<h3>Thermodynamics</h3>
 									
 								</div>
-							</Link>
+							</a>
 							<p>Thermodynamics is the branch of physics that deals with the relationships between heat and other forms of energy.</p>
 						</div>
 						<div className="col-md-3 col-sm-6 text-center animate-box">

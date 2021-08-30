@@ -78,9 +78,9 @@ const Topics = [
         formula: ["E (Abs) = | X (measured) - X (actual) | ", <br/>,
                   "E(Rel) = E(Abs) / X(actual) & ",
                   "E(Per) = E(Rel) * 100% "],
-        process: "Absolute error in measurement refers to the actual amount of error in the measurement. The absolute error of the measurement shows how large the error actually is. \
-                  Relative error represents the ratio of the absolute error of the measurement to the accepted measurement. This way we can determine the magnitude of the absolute error in terms of the actual size of the measurement. \
-                  Errors in measurement may also be expressed in terms of percentage. This is similar to relative error except that the error here is converted to a percent value. The percentage error is found by multiplying the relative error by 100%.",
+        process: "Absolute error in measurement refers to the actual amount of error in the measurement. "+
+                  "The absolute error of the measurement shows how large the error actually is. Relative error represents the ratio of the absolute error of the measurement to the accepted measurement. "+
+                  "This way we can determine the magnitude of the absolute error in terms of the actual size of the measurement. Errors in measurement may also be expressed in terms of percentage. This is similar to relative error except that the error here is converted to a percent value. The percentage error is found by multiplying the relative error by 100%.",
         siunit: "NA",
         dimension: "NA"
     },

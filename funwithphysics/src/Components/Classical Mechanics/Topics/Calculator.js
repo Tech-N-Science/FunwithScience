@@ -99,10 +99,6 @@ function Calculator({ match }) {
         const [force, setForce] = useState(null)
         const [coeff, setCoeff] = useState(null)
 
-        function Cos(Deg) {
-            return Math.cos(Deg * Math.PI / 180);
-        }
-
         const handleClick = () => {
             let res = force * coeff;
             setResult(res)
