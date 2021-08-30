@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Home/Home.css'
-import {Link} from "react-router-dom"
 import { Button } from 'react-bootstrap'
 import classicalMechanics from "../../Images/Classical_Mechanics.jpg"
 import thermodynamics from "../../Images/Thermodynamics.jpg"
