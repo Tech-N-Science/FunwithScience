@@ -1,36 +1,3 @@
-::-webkit-scrollbar {
-    width: 15px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(#2c2b30, #dbd3f0);
-    border-radius: 40px;
-}
-
-
-/*---Banner---*/
-
-.banner {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background: url("../../Images/bg1.jpg") no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Benne&display=swap");
-h2 {
-    color: white;
-    font-family: "Benne", serif;
-}
-
-.banner_button {
-    padding: 5px;
-}
-
-
 /*---Feature Section---*/
 
 #fh5co-course-categories,
@@ -337,34 +304,6 @@ h2 {
     box-shadow: inset -70px 0px 77px 11px rgba(0, 0, 0, 0.74);
 }
 
-
-/*Back to top button */
-
-.gotopbtn {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    background: rgb(3, 31, 90);
-    bottom: 40px;
-    right: 50px;
-    text-decoration: none;
-    text-align: center;
-    line-height: 50px;
-    color: white;
-    font-size: 22px;
-    border-radius: 50%;
-    z-index: 99;
-}
-
-.fas {
-    text-decoration: none;
-    color: white;
-}
-
-.fas:hover {
-    color: white;
-}
-
 .learn-header {
     text-align: center;
     padding: 5px;
@@ -377,21 +316,4 @@ h2 {
     border: 1px dashed red;
     border-radius: 20px;
     margin-left: 685px;
-}
-
-.Physics-link {
-    text-align: center;
-    justify-content: center;
-    margin-left: 700px;
-    border: 2px solid red;
-    color: white;
-    background-color: red;
-    padding: 10px;
-    transition: background-color .3s ease;
-}
-
-.Physics-link:hover {
-    text-decoration: none;
-    color: white;
-    background-color: rgb(124, 63, 63);
 }
