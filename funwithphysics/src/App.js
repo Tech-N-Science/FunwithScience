@@ -6,7 +6,7 @@ import React from 'react'
 import ClassicalMechanics from './Components/Classical Mechanics/ClassicalMechanics'
 import Calculator from './Components/Classical Mechanics/Topics/Calculator'
 import WPECalculator from './Components/Classical Mechanics/Topics/wpe_Calculator'
-import main_topic from './Components/Main_topic/main_topic'
+import physics_topic from './Components/Physics_topic/physics_topic'
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
         <Route exact path="/about" component={Home} />
         <Route exact path="/contact" component={Home} />
         <Route exact path="/classicalmechanics" component={ClassicalMechanics} />
-        <Route exact path="/physics" component={main_topic} />
+        <Route exact path="/physics" component={physics_topic} />
         <Route exact path="/classicalmechanics/calc/:topic" component={Calculator} />
         <Route exact path="/classicalmechanics/calc/:topic/:topic" component={WPECalculator} />
         <Redirect to="/" />
