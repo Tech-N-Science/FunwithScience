@@ -92,6 +92,8 @@ function WPECalculator({ match }) {
         </React.Fragment>
     }
 
+    
+
 
     // Adding Calculators together
     

@@ -4,6 +4,7 @@ import Topics from '../topics_data'
 import { Form, Card, Button } from 'react-bootstrap'
 import '../classicalMechanics.css'
 import WPE_list from "../wpe_data";
+import Gravitation_list from "../gravitation_data";
 
 function Calculator({ match }) {
     const page = Topics.filter(data => (data.topic) === (match.params.topic))
@@ -135,7 +136,7 @@ function Calculator({ match }) {
     }
 
     // Gravitation Calculator
-    function CalculatorGravitation() {
+    /*function CalculatorGravitation() {
         const [result, setResult] = useState(null)
         const [mass_A, setMassA] = useState(null)
         const [mass_B, setMassB] = useState(null)
@@ -177,7 +178,7 @@ function Calculator({ match }) {
                 </Button>
             </Form>
         </React.Fragment>
-    }
+    }*/
 
     // Error Measurement Calculator
     function CalculatorErrorMeasurement() {
@@ -294,9 +295,7 @@ function Calculator({ match }) {
             case "Friction":
                 currentCall = CalculatorFriction();
                 break;
-            case "Gravitation":
-                currentCall = CalculatorGravitation();
-                break;
+            
             case "Error Measurements":
                 currentCall = CalculatorErrorMeasurement();
                 break;
@@ -308,7 +307,8 @@ function Calculator({ match }) {
         }
         return currentCall;
     }
-
+     
+    //Work Power Energy
     if(details.topic==="Work Power Energy"){
         return(
             <div className="mech__main">
@@ -320,6 +320,32 @@ function Calculator({ match }) {
                     WPE_list.map(data =>
                         <React.Fragment key={data.topic}>
                             <a href={`/classicalmechanics/calc/work_power_energy/${data.topic}`} style={{textDecoration:"none"}}>
+                            <Card className="a" key={data.topic} style={{ width: '18rem' }} style={{color:'black',textAlign:'center',fontSize:"20px"}}>
+                                <Card.Body > 
+                                    <div> {data.topic}</div>
+                                </Card.Body>
+                            </Card>
+                            </a>
+                        </React.Fragment>
+                    )
+                }
+            </div>
+        </div >
+        )
+    }
+    
+    //Gravitation
+    else if(details.topic==="Gravitation"){
+        return(
+            <div className="mech__main">
+            <div className="mech__header">
+                <h1>Gravitation</h1>
+            </div>
+            <div className="mech__topics-card">
+                {
+                    Gravitation_list.map(data =>
+                        <React.Fragment key={data.topic}>
+                            <a href={`/classicalmechanics/calc/gravitation/${data.topic}`} style={{textDecoration:"none"}}>
                             <Card className="a" key={data.topic} style={{ width: '18rem' }} style={{color:'black',textAlign:'center',fontSize:"20px"}}>
                                 <Card.Body > 
                                     <div> {data.topic}</div>
