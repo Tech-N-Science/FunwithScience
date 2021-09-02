@@ -17,8 +17,9 @@ const Home = () => {
 				</div>
 			</div>
 			<div>
-			  <h3 className="learn-header" id="learn">Learn</h3><br/><br/>
-			  <Link className="Physics-link" to="/physics" variant="outline-dark">Physics Calculator</Link>
+			  <h3 className="learn-header" id="learn">Learn</h3>
+			  <center><hr className="learn-underline"/></center><br/><br/>
+			 <center> <Link className="Physics-link" to="/physics" variant="outline-dark">Physics Calculator</Link></center>
 			</div>
 			<br/><br/><br/>
 			<Footer />

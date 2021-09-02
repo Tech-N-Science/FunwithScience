@@ -372,17 +372,7 @@ h2 {
     font-size: 40px;
 }
 
-.learn-underline {
-    width: 10%;
-    border: 1px dashed red;
-    border-radius: 20px;
-    margin-left: 685px;
-}
-
 .Physics-link {
-    text-align: center;
-    justify-content: center;
-    margin-left: 700px;
     border: 2px solid red;
     color: white;
     background-color: red;
@@ -394,4 +384,9 @@ h2 {
     text-decoration: none;
     color: white;
     background-color: rgb(124, 63, 63);
+}
+
+.learn-underline {
+    width: 10%;
+    border: .2px solid red;
 }
