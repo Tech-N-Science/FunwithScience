@@ -24,8 +24,7 @@ jobs:
 
         respondableId: ${{ github.event.pull_request.node_id }}
 
-        response: "Thank you @${{ github.event.pull_request.user.login }} for taking out your valuable time in order to contribute to our project. Looking forward for more such amazing contributions :).
-       Please fill this form https://docs.google.com/forms/d/e/1FAIpQLSechAFsQtArBOd7YR1OUJGlexwShD7uPW68YtUJpSCbaZh1gg/viewform "
+        response: "Thank you @${{ github.event.pull_request.user.login }} for taking out your valuable time in order to contribute to our project. Looking forward for more such amazing contributions :)."
 
         author: ${{ github.event.pull_request.user.login }}
 
