@@ -165,7 +165,7 @@ If you have any doubts, please let us know in the comments.
 
 <p align="center">
 <a href="https://devincept.tech/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
-<a href="https://hacktoberfest.digitalocean.com/"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.shahednasser.com%2Fhow-to-participate-in-hacktoberfest-2021%2F&psig=AOvVaw3mrvq7Be9bBR76i_BF-KwG&ust=1632208215982000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCND5q8__jPMCFQAAAAAdAAAAABAD" width="35%"</a>
+<a href="https://hacktoberfest.digitalocean.com/"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.shahednasser.com%2Fhow-to-participate-in-hacktoberfest-2021%2F&psig=AOvVaw3mrvq7Be9bBR76i_BF-KwG&ust=1632208215982000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCND5q8__jPMCFQAAAAAdAAAAABAD" </a>
 </p>
 
 ---
