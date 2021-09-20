@@ -165,7 +165,7 @@ If you have any doubts, please let us know in the comments.
 
 <p align="center">
 <a href="https://devincept.tech/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
-
+<a><img src="![hacktoberfest](https://user-images.githubusercontent.com/60662775/133967206-5de1f702-4358-414f-a64d-83cdd92b0d4f.png)" width="35%"</a>
 </p>
 
 ---
