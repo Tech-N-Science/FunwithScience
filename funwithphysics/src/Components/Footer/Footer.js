@@ -151,7 +151,7 @@ const Footer = () => {
                 <span className="text">About Us</span>
               </div>
               <div className="contact">
-                <a href="/">
+                <a href="#contactUs">
                   <span className="fas fa-comments"></span>
                 </a>
                 <span className="text">Contact</span>
