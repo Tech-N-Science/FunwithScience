@@ -164,8 +164,8 @@ If you have any doubts, please let us know in the comments.
 ## Open Source Programs we have been associated with:
 
 <p align="center">
-<a href="https://devincept.tech/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
-<a href="https://devincept.tech/" >![Hacktoberfest 2021](hacktober.jpg)</a>
+<a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
+<a href="https://hacktoberfest.digitalocean.com/" >![Hacktoberfest 2021](hacktober.jpg)</a>
 
 </p>
 
