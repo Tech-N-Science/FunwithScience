@@ -1,12 +1,12 @@
 import work from '../../Images/Classical_mechanics/work_power_energy/work.jpg';
 import power from '../../Images/Classical_mechanics/work_power_energy/power.jpg';
+import GRAVITATIONAL_DATA from './gravitation_data'
 
 
 
 export {
     work,
     power
-    
 }
 
 const Topics = [
@@ -27,7 +27,8 @@ const Topics = [
         process: "As discussed power is the rate of doing work. Therefore, it can be calculated by dividing work done by time. ",
         siunit: "watt",
         dimension: "M L^2 T^-3"
-    }
+    },
+    ...GRAVITATIONAL_DATA
     
 ]
 
