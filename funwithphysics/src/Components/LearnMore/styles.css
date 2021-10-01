@@ -1,6 +1,7 @@
 .learn-more {
   background-color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 70px 40px 100px;
   width: 100%;
@@ -28,10 +29,10 @@
   box-shadow: -3px -3px 7px #e6e6e673, 3px 3px 5px #e6e6e673;
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 250px;
   justify-content: space-between;
   margin-bottom: 10px;
-  padding: 25px 30px;
+  padding: 50px 30px 25px;
   position: relative;
   transition: background-color .3s ease;
   width: 250px;
@@ -47,10 +48,10 @@
 }
 
 .learn-more ul a {
-  background-color: #98d9d5;
-  border: 1px solid #88cec9;
+  background-color: cyan;
+  border: 2px solid cyan;
   border-radius: 50%;
-  color: #488c87;
+  color: #2c3e50;
   height: 40px;
   padding: 7px;
   text-align: center;
@@ -58,18 +59,42 @@
   width: 40px;
 }
 
-.learn-more ul li:hover a {
-  color: #2c3e50;
+.learn-more ul li a:hover {
+  background-color: white;
+  border-color: cyan;
 }
 
-.learn-more ul li.math a {
-  background-color: #6da8d6;
-  border: 1px solid #5d96c3;
-  color: #3c5771;
+.learn-more ul li.science a {
+  background-color: #2c3e50;
+  border-color: #2c3e50;
+  color: white;
+}
+
+.learn-more ul li.science a:hover {
+  background-color: white;
+  border-color: #2c3e50;
+  color: #2c3e50;
 }
 
 .learn-more ul p {
   margin: 0;
+}
+
+.learn-more ul .topic {
+  left: 0;
+  padding: 3px 10px;
+  position: absolute;
+  top: 0;
+}
+
+.learn-more ul .computer-topic {
+  background: cyan;
+  color: #2c3e50;
+}
+
+.learn-more ul .science-topic {
+  background-color: #2c3e50;
+  color: white;
 }
 
 @media screen and (max-width: 992px) {

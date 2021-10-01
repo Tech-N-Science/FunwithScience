@@ -12,26 +12,36 @@ export function LearnMore () {
         <ul>
           <li>
             <p>Networking</p>
+            <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon"/>
             <a href="/">+</a>
           </li>
           <li>
             <p>DBMS</p>
+            <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon"/>
             <a href="/">+</a>
           </li>
           <li>
             <p>Computational Physics</p>
+            <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon"/>
             <a href="/">+</a>
           </li>
-          <li class="math">
+        </ul>
+      </article>
+
+      <article>
+        <ul>
+          <li class="science">
             <p>Maths</p>
+            <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon"/>
             <a href="/">+</a>
           </li>
-          <li class="math">
+          <li class="science">
             <p>Physics</p>
+            <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon"/>
             <a href="/">+</a>
           </li>
