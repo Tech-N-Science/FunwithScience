@@ -8,7 +8,7 @@ import './styles.css'
 export function LearnMore () {
   return (
     <section className="learn-more">
-      <article>
+      <article className="list-computer">
         <ul>
           <li>
             <p>Networking</p>
@@ -31,15 +31,15 @@ export function LearnMore () {
         </ul>
       </article>
 
-      <article>
+      <article className="list-science">
         <ul>
-          <li class="science">
+          <li className="science">
             <p>Maths</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon"/>
             <a href="/">+</a>
           </li>
-          <li class="science">
+          <li className="science">
             <p>Physics</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon"/>
