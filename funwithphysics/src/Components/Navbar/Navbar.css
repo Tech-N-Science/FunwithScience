@@ -35,7 +35,11 @@
         margin-left: 10px;
     }
     .navbar-brand{
-        margin-left: 10px;
+        font-size: 22px;
+    }
+    .navbar-brand img{
+        height: 41px;
+        width: 41px;
     }
 }
 
@@ -50,6 +54,10 @@
     
     .navbar-brand{
         font-size: 20px;
+    }
+    .navbar-brand img{
+        width: 32px;
+        height: 32px;
     }
 }
 
