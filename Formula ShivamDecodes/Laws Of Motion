@@ -1,0 +1,49 @@
+class formula{
+  //New Formulas For Physics
+  /***
+   Basic Physics Formulas	Concept	Formula
+Average Speed Formula	It is used to calculate the average speed (S) of a moving body for the distance covered (D) as well as the time duration (T).	S = dt
+Acceleration Formula	Acceleration refers to the rate of change in velocity to the change in time. It is denoted by symbol a.	a =v-ut
+Density Formula 	This formula depicts the denseness of material in a specific given area.	P=mV
+Power Formula	The capacity to perform an activity is known as Energy. On the other hand, energy spent in carrying out an activity (work) for a particular period of time is termed as Power.	P=Wt
+Newton’s Second Law
+Using the formula, the force can be expressed by the product of mass and acceleration of the body.	F = ma
+Weight Formula
+The formula measures the force with which an object falls due to gravity.	W=mg
+Pressure Formula	Pressure refers to the amount of force applied per unit area of the object.	P=FA
+Ohm’s Law Formula
+Ohm’s law states that the current passing through a conductor material is directly proportional to the potential difference between two endpoints of the conductor.	V= I × R
+Kinetic Energy Formula	Kinetic energy is the energy that is possessed by a body due to its state of motion.	E = 12mv²
+Frequency Formula
+Frequency refers to the revolutions completed per second or as the number of wave cycles.	F =vλ
+Pendulum Formula	This equation calculates how long the pendulum takes swing back and forth in seconds	T = 2π√Lg
+Fahrenheit Formula	This is a conversion formula for a temperature. 	F = (95× °C) + 32
+Work Formula	The work formula measures the multiplication of magnitude of displacement d and the component of the force. 	W = F × d × cosθ
+Torque Formula	Torque is rotational force or turning effect. It measures the magnitude of 	T = F × r × sinθ
+Displacement Formula	Refers to the change in the object’s position from its initial place to its final position.	D = Xf–Xi = ΔX
+Mass Formula	This formula represents the relationship between force and mass. Here, F = force, m = mass, and a = acceleration.	F = ma or m = F/m
+
+SI Units
+Questions regarding the SI unit are frequently asked in many engineering exams. Here are the key pointers you must remember under SI units along with the basic physics formulas mentioned above. SI units as a concept are given less importance but they hold a very significant presence in questions papers of various exams. Following are some of the important SI you must remember and apply in your basic physics formulas.
+
+Name of the Quantity	SI Unit 	Name of the Unit 
+Mass                  	Kilogram       	Kg
+Time                   	Second       	s
+Length                	Metre          	m 
+Temperature         	Kelvin      	K
+Electric Current 	    Ampere       	A
+Luminous 	            Candela       	Cd
+Amount of Substance 	Mole 	        Mole
+Electric Resistance 	Ohm            	Ω
+Power               	Watt           	W
+Wavelength of Light 	Angstrom       	Å
+Magnetic Induction   	Gauss	        Gs
+Electric Charge  	    Coulomb        	C
+Atmospheric Pressure 	Bar	            bar
+Energy 	                Joule	        J
+Magnetic Flux	        Maxwell 	    Mx
+Pressure             	Pascal	        Pa
+Force 	                Newton 	        N
+
+***/
+}
