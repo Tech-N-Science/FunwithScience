@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classicalMechanics from "../../Images/Classical_Mechanics.jpg"
 import thermodynamics from "../../Images/Thermodynamics.jpg"
 import electromagnetism from "../../Images/electromagnetism.jpg"
@@ -7,10 +7,14 @@ import atomic from "../../Images/atomic_physics.jpg"
 import nuclear from "../../Images/nuclear.jpg"
 import photonics from "../../Images/photonics.jpg"
 import statistical from "../../Images/statistical.jpg";
-import './physics_topic.css'
+import './styles.css'
 
 
-function physics_topic() {
+function PhysicsTopic() {
+		useEffect(() => {
+			window.scrollTo(0, 0);
+		}, [])
+
     return (
         <div>
             <h3 className="learn-header" id="learn">Physics calculator</h3>
@@ -121,4 +125,4 @@ function physics_topic() {
     )
 }
 
-export default physics_topic
+export default PhysicsTopic
