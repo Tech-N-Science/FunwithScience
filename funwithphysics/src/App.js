@@ -20,8 +20,8 @@ const App = () => {
         <Route exact path="/classicalmechanics" component={ClassicalMechanics} />
         <Route exact path="/physics" component={physics_topic} />
         <Route exact path="/classicalmechanics/calc/:topic" component={Calculator} />
-        <Route exact path="/classicalmechanics/calc/gravitation/:topic" component={GravitationCalculator} />
         <Route exact path="/classicalmechanics/calc/:topic/:topic" component={WPECalculator} />
+        <Route exact path="/classicalmechanics/calc/:topic/:topic" component={GravitationCalculator} />
         <Redirect to="/" />
       </Switch>
     </React.Fragment>
