@@ -2,6 +2,7 @@ import React from 'react'
 import '../Home/Home.css'
 import { Button } from 'react-bootstrap'
 import Footer from '../Footer/Footer'
+import { LearnMore } from '../LearnMore'
 import {Link} from 'react-router-dom'
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
 			 <center> <Link className="Physics-link" to="/physics" variant="outline-dark">Physics Calculator</Link></center>
 			</div>
 			<br/><br/><br/>
+			<LearnMore />
 			<Footer />
 			{/* <!-- Back to top button --> */}
 			<a className="gotopbtn" href="/"> <i className="fas fa-arrow-up"></i> </a>
