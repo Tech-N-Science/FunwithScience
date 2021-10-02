@@ -1,12 +1,9 @@
 import work from '../../Images/Classical_mechanics/work_power_energy/work.jpg';
 import power from '../../Images/Classical_mechanics/work_power_energy/power.jpg';
 
-
-
 export {
     work,
     power
-    
 }
 
 const Topics = [
@@ -28,7 +25,6 @@ const Topics = [
         siunit: "watt",
         dimension: "M L^2 T^-3"
     }
-    
 ]
 
 export default Topics
