@@ -18,6 +18,14 @@ const Navbar = () => {
     setClicked(index);
   };
 
+
+  const scrollToBottom = ()=>{
+    window.scrollTo({
+      top: document.documentElement.scrollHeight, 
+      behavior: 'smooth'
+    });
+  }
+
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-lg navbar-light bg-light pt-3">
@@ -46,7 +54,7 @@ const Navbar = () => {
             <NavLink to="/about" className="nav-item">
               <span className="nav-link">About</span>
             </NavLink>
-            <NavLink to="/contact" className="nav-item" id="contactUs">
+            <NavLink to="/contact" className="nav-item" id="contactUs" onClick={scrollToBottom} >
               <span className="nav-link">Contact</span>
             </NavLink>
             <NavLink
