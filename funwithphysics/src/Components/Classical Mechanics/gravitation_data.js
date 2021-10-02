@@ -1,4 +1,4 @@
-import gravitation from '../../Images/Classical_mechanics/gravitation.jpg';
+import gravitation from '../../Images/Classical_mechanics/gravitational-force.png';
 
 export {
     gravitation
