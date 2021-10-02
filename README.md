@@ -14,6 +14,8 @@ And the best part of it? **FunwithPhysics is open source!** 🤩
 
 **The website is live and can be visited on https://myfunwithphysics.web.app/**
 
+Also join the discord channel for discussion for the issues: **https://discord.gg/Xva6xh3V**
+
 <p align="center">
   <img src="https://zephyrnet.com/wp-content/uploads/2020/07/watch-as-albert-einstein-explains-his-famous-formula-emcc2b2.jpg" width="50%">
   
