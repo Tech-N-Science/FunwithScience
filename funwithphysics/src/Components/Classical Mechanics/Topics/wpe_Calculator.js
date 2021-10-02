@@ -7,6 +7,8 @@ import WPE_list from "../wpe_data";
 function WPECalculator({ match }) {
     const page = WPE_list.filter(data => (data.topic) === (match.params.topic))
     const details = page[0]
+    console.log(page)
+    console.log(details.formula)
 
     // Work Calculator
     function CalculatorWork() {

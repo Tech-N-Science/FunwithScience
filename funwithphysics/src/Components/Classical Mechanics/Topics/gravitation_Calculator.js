@@ -61,7 +61,7 @@ function GravitationCalculator({ match }) {
       function calCu_gravi(key) {
         let currentCall;
         switch (key) {
-            case "Gravitational Force":
+            case "GravitationalForce":
                     currentCall = CalculatorGravitationalForce();
                     break;
             default:
