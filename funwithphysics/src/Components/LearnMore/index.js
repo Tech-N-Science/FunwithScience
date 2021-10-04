@@ -37,13 +37,25 @@ export function LearnMore () {
             <p>Maths</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon"/>
-            <a href="/">+</a>
+            <div class="dropdown">
+              <a className="plus" href="/">+</a>
+              <div class="dropdown-content">
+                <a href="/">Calculator</a>
+                <a href="/">Questions</a>
+              </div>
+            </div>
           </li>
           <li className="science">
             <p>Physics</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon"/>
-            <a href="/">+</a>
+            <div class="dropdown">
+              <a className="plus" href="/">+</a>
+              <div class="dropdown-content">
+                <a href="/physics">Calculator</a>
+                <a href="/">Questions</a>
+              </div>
+            </div>
           </li>
         </ul>
       </article>

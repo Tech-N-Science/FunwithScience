@@ -372,20 +372,6 @@ h2 {
     font-size: 40px;
 }
 
-.Physics-link {
-    border: 2px solid red;
-    color: white;
-    background-color: red;
-    padding: 10px;
-    transition: background-color .3s ease;
-}
-
-.Physics-link:hover {
-    text-decoration: none;
-    color: white;
-    background-color: rgb(124, 63, 63);
-}
-
 .learn-underline {
     width: 10%;
     border: .2px solid red;
