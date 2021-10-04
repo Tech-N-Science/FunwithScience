@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 70px 40px 100px;
+  padding: 10px 40px 100px;
   width: 100%;
 }
 
@@ -47,7 +47,7 @@
   background-color: transparent;
 }
 
-.learn-more ul a {
+.learn-more .list-computer ul a {
   background-color: cyan;
   border: 2px solid cyan;
   border-radius: 50%;
@@ -59,18 +59,24 @@
   width: 40px;
 }
 
-.learn-more ul li a:hover {
+.learn-more .list-computer ul li a:hover {
   background-color: white;
   border-color: cyan;
 }
 
-.learn-more ul li.science a {
+.learn-more ul li.science .dropdown .plus {
   background-color: #2c3e50;
-  border-color: #2c3e50;
+  border: 2px solid #2c3e50;
   color: white;
+  border-radius: 50%;
+  height: 40px;
+  padding: 7px;
+  text-align: center;
+  text-decoration: none;
+  width: 40px;
 }
 
-.learn-more ul li.science a:hover {
+.learn-more ul li.science .dropdown:hover .plus {
   background-color: white;
   border-color: #2c3e50;
   color: #2c3e50;
@@ -114,3 +120,27 @@
     justify-content: center;
   }
 }
+
+.learn-more ul li.science .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.learn-more ul li.science .dropdown .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.learn-more ul li.science .dropdown .dropdown-content a:hover {
+  color: white;
+  background-color: #2c3e50;
+}
+
+.learn-more ul li.science .dropdown:hover .dropdown-content {display: block;}
