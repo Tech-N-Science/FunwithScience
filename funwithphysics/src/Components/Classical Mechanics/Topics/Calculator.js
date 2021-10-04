@@ -407,13 +407,13 @@ function Calculator({ match }) {
                     {
                         WPE_list.map(data =>
                             <React.Fragment key={data.topic}>
-                                <a href={`/classicalmechanics/calc/work_power_energy/${data.topic}`} style={{ textDecoration: "none" }}>
+                                <link href={`/classicalmechanics/calc/work_power_energy/${data.topic}`} style={{ textDecoration: "none" }}>
                                     <Card className="a" key={data.topic} style={{ width: '18rem', color: 'black', textAlign: 'center', fontSize: "20px" }}>
                                         <Card.Body >
                                             <div> {data.topic}</div>
                                         </Card.Body>
                                     </Card>
-                                </a>
+                                </link>
                             </React.Fragment>
                         )
                     }

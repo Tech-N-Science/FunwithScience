@@ -14,19 +14,19 @@ export function LearnMore () {
             <p>Networking</p>
             <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon"/>
-            <a href="/">+</a>
+            <link href="/">+</link>
           </li>
           <li>
             <p>DBMS</p>
             <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon"/>
-            <a href="/">+</a>
+            <link href="/">+</link>
           </li>
           <li>
             <p>Computational Physics</p>
             <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon"/>
-            <a href="/">+</a>
+            <link href="/">+</link>
           </li>
         </ul>
       </article>
@@ -38,10 +38,10 @@ export function LearnMore () {
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon"/>
             <div class="dropdown">
-              <a className="plus" href="/">+</a>
+              <link className="plus" href="/">+</link>
               <div class="dropdown-content">
-                <a href="/">Calculator</a>
-                <a href="/">Questions</a>
+                <link href="/">Calculator</link>
+                <link href="/">Questions</link>
               </div>
             </div>
           </li>
@@ -50,10 +50,10 @@ export function LearnMore () {
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon"/>
             <div class="dropdown">
-              <a className="plus" href="/">+</a>
+              <link className="plus" href="/">+</link>
               <div class="dropdown-content">
-                <a href="/physics">Calculator</a>
-                <a href="/">Questions</a>
+                <link href="/physics">Calculator</link>
+                <link href="/">Questions</link>
               </div>
             </div>
           </li>

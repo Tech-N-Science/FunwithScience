@@ -22,9 +22,9 @@ const Footer = () => {
                 <span className="text">+91 1234567890</span>
               </div>
               <div className="email">
-                <a href="mailto:example123@gmail.com">
+                <link href="mailto:example123@gmail.com">
                   <span className="fas fa-envelope"></span>
-                </a>
+                </link>
                 <span className="text">example123@gmail.com</span>
               </div>
             </div>
@@ -36,29 +36,29 @@ const Footer = () => {
               <div className="center">
                 <div className="icons">
                   <li>
-                    <a href="/">
+                    <link href="/">
                       <span className="fab fa-facebook-f"></span>
-                    </a>
+                    </link>
                   </li>
                   <li>
-                    <a href="/">
+                    <link href="/">
                       <span className="fab fa-twitter"></span>
-                    </a>
+                    </link>
                   </li>
                   <li>
-                    <a href="/">
+                    <link href="/">
                       <span className="fab fa-instagram"></span>
-                    </a>
+                    </link>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/in/amit-kumar-mishra-28122a193">
+                    <link href="https://www.linkedin.com/in/amit-kumar-mishra-28122a193">
                       <span className="fab fa-linkedin-in"></span>
-                    </a>
+                    </link>
                   </li>
                   <li>
-                    <a href="https://github.com/Amit366">
+                    <link href="https://github.com/Amit366">
                       <span className="fab fa-github"></span>
-                    </a>
+                    </link>
                   </li>
                 </div>
               </div>
@@ -67,21 +67,21 @@ const Footer = () => {
             <div className="content"></div>
             <div className="center-bottom">
               <div>
-                <a href="/">
+                <link href="/">
                   <span className="fas fa-user"></span>
-                </a>
+                </link>
                 <span className="text">About Us</span>
               </div>
               <div className="contact">
-                <a href="#contactUs">
+                <link href="#contactUs">
                   <span className="fas fa-comments"></span>
-                </a>
+                </link>
                 <span className="text">Contact</span>
               </div>
               <div>
-                <a href="/" data-toggle="modal" data-target="#exampleModal">
+                <link href="/" data-toggle="modal" data-target="#exampleModal">
                   <span className="fas fa-users"></span>
-                </a>
+                </link>
                 <span className="text">FAQs</span>
               </div>
             </div>
@@ -124,7 +124,7 @@ const Footer = () => {
         <div className="bottom">
           <center>
             <span className="credit">
-              <a href="/">Fun With Physics</a> |{" "}
+              <link href="/">Fun With Physics</link> |{" "}
             </span>
             <span className="far fa-copyright"></span>
             <span> 2021 All rights reserved.</span>
