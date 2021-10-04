@@ -3,6 +3,7 @@ import '../Home/Home.css'
 import { Button } from 'react-bootstrap'
 import Footer from '../Footer/Footer'
 import { LearnMore } from '../LearnMore'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
 	return (
@@ -23,7 +24,7 @@ const Home = () => {
 			<LearnMore />
 			<Footer />
 			{/* <!-- Back to top button --> */}
-			<a className="gotopbtn" href="/"> <i className="fas fa-arrow-up"></i> </a>
+			<Link className="gotopbtn" to="/"> <i className="fas fa-arrow-up"></i> </Link>
 		</React.Fragment>
 	)
 }

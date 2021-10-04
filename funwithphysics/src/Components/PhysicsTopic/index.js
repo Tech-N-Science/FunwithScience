@@ -54,7 +54,7 @@ function PhysicsTopic() {
 									<img alt="relativity" src={relativity} />
 								</span>
 								<div className="desc">
-									<h3><a href="/">Relativity</a></h3>
+									<h3><Link to="/">Relativity</Link></h3>
 									<p>Relativity is the notion that the laws of physics are the same everywhere, be it on Earth or in a far off corner of the universe.</p>
 								</div>
 							</div>
