@@ -23,7 +23,7 @@ const Home = () => {
 			<LearnMore />
 			<Footer />
 			{/* <!-- Back to top button --> */}
-			<a className="gotopbtn" href="/"> <i className="fas fa-arrow-up"></i> </a>
+			<Link className="gotopbtn" to="/" <i className="fas fa-arrow-up"></i> >
 		</React.Fragment>
 	)
 }
