@@ -195,23 +195,10 @@ If you have any doubts, please let us know in the comments.
 
 ## Project Maintainers 😃
 
-## 🌟 Contributors:
-
-Thanks to these wonderful people ✨✨:
-
-<table>
-	<tr>
-		 <td>
-  <a href="https://github.com/Amit366/FunwithPhysics/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Amit366/FunwithPhysics" />
-  </a>
-		</td>
-	</tr>
-</table>
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people :
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
