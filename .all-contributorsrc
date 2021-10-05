@@ -22,6 +22,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "Umesh-01",
+      "name": "Umesh Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/83420185?v=4",
+      "profile": "https://www.linkedin.com/in/umeshsingh19/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
