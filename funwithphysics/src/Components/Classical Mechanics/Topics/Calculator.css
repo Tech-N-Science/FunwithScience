@@ -6,13 +6,13 @@
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "header header" "image details " "formula-text . " "formula formula " " . . " " . . " "process calc ";
     row-gap: 3em;
-}
-
-.Calculator__image {
+  }
+  
+  .Calculator__image {
     grid-area: image;
-}
-
-.Calculator__image img {
+  }
+  
+  .Calculator__image img {
     width: 30em;
     height: 20em;
     object-fit: cover;
@@ -20,14 +20,14 @@
     border-radius: 1em;
     border: black;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.Calculator__header {
+  }
+  
+  .Calculator__header {
     grid-area: header;
     align-self: center;
-}
-
-.Calculator__details {
+  }
+  
+  .Calculator__details {
     grid-area: details;
     align-self: center;
     justify-self: start;
@@ -35,41 +35,119 @@
     padding: 1em;
     font-size: 20px;
     width: 30em;
-}
-
-.Calculator__formula-text {
+  }
+  
+  .Calculator__formula-text {
     grid-area: formula-text;
     margin-top: 1em;
-}
-
-.Calculator__formula {
+  }
+  
+  .Calculator__formula {
     grid-area: formula;
     font-family: cursive;
-}
-.Calculator__dimension {
+  }
+  .Calculator__dimension {
     grid-area: formula;
     font-family: cursive;
     margin-top: 110px;
-}
-.Calculator__siunit {
+  }
+  .Calculator__siunit {
     grid-area: formula;
     font-family: cursive;
     margin-top: 70px;
-}
-
-.Calculator__calc {
+  }
+  
+  .Calculator__calc {
     grid-area: calc;
     margin-top: -400px;
-}
-
-.Calculator__calc hr {
+  }
+  
+  .Calculator__calc hr {
     width: auto;
     border: 1px dashed red;
-}
-
-.Calculator__process {
+  }
+  
+  .Calculator__process {
     grid-area: process;
     word-wrap: break-word;
     width: 37.5em;
     margin-top: -100px;
-}
+  }
+  @media only screen and (max-width: 768px) {
+    .Calculator__main {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "header header"
+        "image image"
+        "details details"
+        "formula-text formula-text "
+        "formula formula "
+        ".. .."
+        ".. .."
+        "process process "
+        ".. .."
+        ".. .."
+        ".. .."
+        ".. .."
+        ".. .."
+        ".. .."
+        ".. .."
+        ".. .."
+        ".. .."
+        "calc calc";
+  
+      row-gap: 3em;
+    }
+    .Calculator__image img {
+      margin: auto;
+      display: block;
+    }
+    .Calculator__header,
+    .Calculator__details,
+    .Calculator__formula-text,
+    .Calculator__formula,
+    .Calculator__calc h3,
+    .Calculator__process,
+    .Calculator__siunit,
+    .Calculator__dimension {
+      text-align: center;
+      max-width: 100%;
+    }
+  
+    .Calculator__formula h3,
+    .Calculator__siunit h3,
+    .Calculator__dimension h3 {
+      margin-left: -20px;
+    }
+  
+    /* .Calculator__details p {
+        padding-left: 10px;
+        padding-right: 20px;
+      } */
+  
+    /* .Calculator__calc input {
+        max-width: 99%;
+      } */
+  }
+  
+  @media only screen and (max-width: 668px) {
+    .Calculator__header,
+    .Calculator__details,
+    .Calculator__formula-text,
+    .Calculator__formula,
+    .Calculator__calc h3,
+    .Calculator__process,
+    .Calculator__siunit,
+    .Calculator__dimension,
+    .Calculator__image {
+      max-width: 93%;
+    }
+  
+    .Calculator__calc hr {
+      max-width: 92%;
+    }
+  
+    .Calculator__calc form {
+      padding-right: 40px;
+    }
+  }
