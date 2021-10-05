@@ -1,6 +1,6 @@
 # FunwithPhysics
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -207,6 +207,7 @@ Thanks goes to these wonderful people :
   <tr>
     <td align="center"><a href="https://laisfrigerio.com.br/"><img src="https://avatars.githubusercontent.com/u/20709086?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lais Frigério</b></sub></a><br /><a href="#design-laisfrigerio" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/aakankshabhende"><img src="https://avatars.githubusercontent.com/u/63249668?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aakanksha Bhende</b></sub></a><br /><a href="#design-aakankshabhende" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/techabhi08"><img src="https://avatars.githubusercontent.com/u/75834097?v=4?s=100" width="100px;" alt=""/><br /><sub><b>techabhi08</b></sub></a><br /><a href="#design-techabhi08" title="Design">🎨</a></td>
   </tr>
 </table>
 
