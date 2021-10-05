@@ -210,6 +210,7 @@ Thanks goes to these wonderful people :
     <td align="center"><a href="https://github.com/Swastik1710"><img src="https://avatars.githubusercontent.com/u/71871571?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Swastik Raj Singh</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Swastik1710" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/william-monroy"><img src="https://avatars.githubusercontent.com/u/58092741?v=4?s=100" width="100px;" alt=""/><br /><sub><b>William Frank Monroy Mamani</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=william-monroy" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/swathi-469"><img src="https://avatars.githubusercontent.com/u/61613945?v=4" width="100px;" alt=""/><br /><sub><b>Swathi A</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=swathi-469" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/manasb15"><img src="https://avatars.githubusercontent.com/u/85739184?v=4" width="100px;" alt=""/><br /><sub><b>Manas Buchade</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=manasb15" title="Code">🐛</a></td>
 
   </tr>
 </table>
