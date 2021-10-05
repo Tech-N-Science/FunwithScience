@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "laisfrigerio",
+      "name": "Lais Frigério",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20709086?v=4",
+      "profile": "https://laisfrigerio.com.br/",
+      "contributions": [
+        "design"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "FunwithPhysics",
+  "projectOwner": "Amit366",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
