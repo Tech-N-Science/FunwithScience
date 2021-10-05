@@ -1,6 +1,6 @@
 # FunwithPhysics
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
@@ -207,11 +207,8 @@ Thanks goes to these wonderful people :
   <tr>
     <td align="center"><a href="https://laisfrigerio.com.br/"><img src="https://avatars.githubusercontent.com/u/20709086?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lais Frigério</b></sub></a><br /><a href="#design-laisfrigerio" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/aakankshabhende"><img src="https://avatars.githubusercontent.com/u/63249668?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aakanksha Bhende</b></sub></a><br /><a href="#design-aakankshabhende" title="Design">🎨</a></td>
-
-    <td align="center"><a href="https://github.com/william-monroy"><img src="https://avatars.githubusercontent.com/u/58092741?v=4?s=100" width="100px;" alt=""/><br /><sub><b>William Frank Monroy Mamani</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=william-monroy" title="Code">💻</a></td>
-
     <td align="center"><a href="https://github.com/Swastik1710"><img src="https://avatars.githubusercontent.com/u/71871571?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Swastik Raj Singh</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Swastik1710" title="Code">💻</a></td>
-
+    <td align="center"><a href="https://github.com/william-monroy"><img src="https://avatars.githubusercontent.com/u/58092741?v=4?s=100" width="100px;" alt=""/><br /><sub><b>William Frank Monroy Mamani</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=william-monroy" title="Code">💻</a></td>
   </tr>
 </table>
 
