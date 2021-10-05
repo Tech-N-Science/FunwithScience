@@ -213,6 +213,8 @@ Thanks goes to these wonderful people :
     <td align="center"><a href="https://github.com/manasb15"><img src="https://avatars.githubusercontent.com/u/85739184?v=4" width="100px;" alt=""/><br /><sub><b>Manas Buchade</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=manasb15" title="Code">🐛</a></td>
 
   </tr>
+	<td align="center"><a href="https://github.com/kumarishalini6"><img src="https://avatars.githubusercontent.com/u/69043944?v=4" width="100px;" alt=""/><br /><sub><b>Kumari Shalini</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=kumarishalini6" title="Code">🐛</a></td>
+ </tr>
 </table>
 
 <!-- markdownlint-restore -->
