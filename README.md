@@ -14,6 +14,8 @@ And the best part of it? **FunwithPhysics is open source!** 🤩
 
 **The website is live and can be visited on https://myfunwithphysics.web.app/**
 
+Also join the discord channel for discussion for the issues: **https://discord.gg/Xva6xh3V**
+
 <p align="center">
   <img src="https://zephyrnet.com/wp-content/uploads/2020/07/watch-as-albert-einstein-explains-his-famous-formula-emcc2b2.jpg" width="50%">
   
@@ -163,11 +165,14 @@ If you have any doubts, please let us know in the comments.
 
 ## Open Source Programs we have been associated with:
 
-<p align="center">
-<a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
-
-
-</p>
+<table>
+    <tr>
+	<td>
+	<a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
+	<a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" width="35%"/></a>
+	</td>
+    </tr>
+</table>
 
 ---
 

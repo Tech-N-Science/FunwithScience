@@ -6,6 +6,8 @@ import error_measurement from "../../Images/Classical_mechanics/error.jpg";
 import torque from "../../Images/Classical_mechanics/torque.jpg";
 import work_power_energy from "../../Images/Classical_mechanics/wpe.jpg";
 import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
+import collision from "../../Images/Classical_mechanics/collision.jpg";
+import moment_of_inertia from "../../Images/Classical_mechanics/moment of inertia/momentOfInertia.jpg";
 
 export {
   momentum,
@@ -15,6 +17,8 @@ export {
   torque,
   error_measurement,
   work_power_energy,
+  moment_of_inertia,
+  kinematics,
 };
 
 const Topics = [
@@ -103,6 +107,32 @@ const Topics = [
   },
   {
     topic: "Collision",
+    image: collision,
+    details: [
+      "Collision is known as the sudden but short interaction of two or more than two bodies to exert a mutual influence, usually by exchanging energy. For example, two biliard balls, a hammer and a nail etc. ",
+      <br />,
+      <br />,
+      "There are three types of collision, Perfectly elastic, Partially elastic and Perfectly inelastic.",
+      <br />,
+
+      "In perfectly elastic collision, two bodies bounces off without any loss in kinetic energy or momentum, for example: a hard cricket ball hitting a hard surface. ",
+      <br />,
+
+      "In partially elastic collision kinetic energy is not conserved but momentum is, for example: a soft tennis ball hitting a hard surface.",
+
+      " And in perfectly inelastic collision, the bodies stick together and moves at a common speed, as the momentum is conserved but kinetic energy is lost, for example: when a ball of clay is dropped.",
+    ],
+
+    formula: "m1u1 + m2u2 = m1v1 + m2v2",
+    process:
+      "Use the first object's mass(m1), initial velocity(u1), final velocity(v1) and second object's mass(m1), initial velocity(u2) to find out the unknown velocity of the second object(v2).",
+    siunit: "m/s",
+    dimension: "L/S",
+  },
+  {
+    topic: "Moment of Inertia",
+    image: moment_of_inertia,
+    details: "...",
   },
   {
     topic: "Circular Motion",
@@ -121,6 +151,7 @@ const Topics = [
     process: `In kinematics there are three 3 fundamental equations of motion as mentioned above. Each equation consists of different physical quantities and can be used to determine the missing value if all other values are already known. Some scenarios may need the utilzation of more than one equations. These can be used to solve real life problems like vehicular motion, projectile motion, falling motion and can also be used to derive more complex equation often used in higher Physics.`,
     siunit: "m , m/s , s , m/s²",
     dimension: "M , M/T , T , M/T²",
+
   },
 ];
 

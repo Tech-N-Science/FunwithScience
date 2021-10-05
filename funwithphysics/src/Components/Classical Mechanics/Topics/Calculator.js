@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import "./Calculator.css";
 import Topics from "../topics_data";
-import { Form, Card, Button } from "react-bootstrap";
+import { Form, Card, Button, Row, Col } from "react-bootstrap";
 import "../classicalMechanics.css";
 import WPE_list from "../wpe_data";
 import Gravitation_list from "../gravitation_data";
-// import Parser from 'html-react-parser';
+import MOI_list from "../moi_data";
 
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
   // console.log(page);
   // console.log(details.formula);
+
 
   // Momentum Calculator
   function CalculatorMomentum() {
@@ -362,58 +363,6 @@ function Calculator({ match }) {
     );
   }
 
-  // Kinematics Calculator
-
-  //     return (
-  //       <React.Fragment>
-  //         <Form>
-  //           <Form.Group className="mb-4" controlId="velocity">
-  //             <Form.Label> Velocity (in m/s)</Form.Label>
-  //             <Form.Control
-  //               onChange={(e) => setVelocity(e.target.value)}
-  //               type="number"
-  //               placeholder="Enter velocity"
-  //             />
-  //           </Form.Group>
-  //           <Form.Group className="mb-4" controlId="acceleration">
-  //             <Form.Label> Acceleration (in m/s^2)</Form.Label>
-  //             <Form.Control
-  //               onChange={(e) => setAcceleration(e.target.value)}
-  //               type="number"
-  //               placeholder="Enter acceleration"
-  //             />
-  //           </Form.Group>
-  //           <Form.Group className="mb-4" controlId="time">
-  //             <Form.Label> Time (in s)</Form.Label>
-  //             <Form.Control
-  //               onChange={(e) => setTime(e.target.value)}
-  //               type="number"
-  //               placeholder="Enter time"
-  //             />
-  //           </Form.Group>
-
-  //           <Form.Group className="mb-4" controlId="kinematics">
-  //             <Form.Label>Kinematics (in m)</Form.Label>
-  //             <Form.Control
-  //               readOnly
-  //               type="number"
-  //               placeholder={result === null ? "Result" : result + " m "}
-  //             />
-  //             <Form.Text className="text-muted">
-  //               Enter the above values to Calculate.
-  //             </Form.Text>
-  //           </Form.Group>
-  //           <Button variant="primary" onClick={handleClick}>
-  //             Calculate
-  //           </Button>
-  //           &nbsp;&nbsp;&nbsp;
-  //           <Button variant="dark" onClick={() => setResult(null)} type="reset">
-  //             Reset
-  //           </Button>
-  //         </Form>
-  //       </React.Fragment>
-  //     );
-  //   }
   function CalculatorKinematics() {
     const [result, setResult] = useState(null);
     const [ivelocity, setiVelocity] = useState(null);
@@ -557,7 +506,121 @@ function Calculator({ match }) {
     );
   }
 
-  //
+
+  //Collision Calculator
+  function CalculatorCollision() {
+    const [massOne, setMassOne] = useState(null);
+    const [massTwo, setMassTwo] = useState(null);
+    const [initialVelOne, setInitialVelOne] = useState(null);
+    const [initialVelTwo, setInitialVelTwo] = useState(null);
+    const [finalVelOne, setFinalVelOne] = useState(null);
+    const [finalVelTwo, setFinalVelTwo] = useState(null);
+
+    const handleSubmit = () => {
+      let result =
+        (massOne * initialVelOne +
+          massTwo * initialVelTwo -
+          massOne * finalVelOne) /
+        massTwo;
+      setFinalVelTwo(result);
+    };
+    const handleReset = () => {
+      setMassOne(null);
+      setMassTwo(null);
+      setInitialVelOne(null);
+      setInitialVelTwo(null);
+      setFinalVelOne(null);
+      setFinalVelTwo(null);
+    };
+
+    return (
+      <>
+        <Form>
+          {/* Mass  */}
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Label> Mass One (m1) </Form.Label>
+                <Form.Control
+                  onChange={(e) => setMassOne(e.target.value)}
+                  type="number"
+                  placeholder="Enter mass of the first object"
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group>
+                <Form.Label> Mass Two (m2) </Form.Label>
+                <Form.Control
+                  onChange={(e) => setMassTwo(e.target.value)}
+                  type="number"
+                  placeholder="Enter mass of the second object"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          {/* Initial Velocity */}
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Label> Initial Velocity One (u1) </Form.Label>
+                <Form.Control
+                  onChange={(e) => setInitialVelOne(e.target.value)}
+                  type="number"
+                  placeholder="Enter Initial Velocity of the first object"
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group>
+                <Form.Label> Initial Velocity Two (u2) </Form.Label>
+                <Form.Control
+                  onChange={(e) => setInitialVelTwo(e.target.value)}
+                  type="number"
+                  placeholder="Enter Initial Velocity of the second object"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          {/* Final Velocity */}
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Label> Final Velocity One (v1) </Form.Label>
+                <Form.Control
+                  onChange={(e) => setFinalVelOne(e.target.value)}
+                  type="number"
+                  placeholder="Enter Final Velocity of the first object"
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group>
+                <Form.Label> Final Velocity Two (v2) </Form.Label>
+                <Form.Control
+                  disabled="true"
+                  type="number"
+                  placeholder={
+                    finalVelTwo === null
+                      ? "The Final Velocity of the second object"
+                      : finalVelTwo
+                  }
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          {/* Submit Btn */}
+          <Button variant="primary" onClick={handleSubmit}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={handleReset} type="reset">
+            Reset
+          </Button>
+        </Form>
+      </>
+    );
+  }
 
   // Adding Calculators together
 
@@ -583,6 +646,9 @@ function Calculator({ match }) {
       case "Kinematics":
         currentCall = CalculatorKinematics();
         break;
+      case "Collision":
+        currentCall = CalculatorCollision();
+        break;
       default:
         break;
     }
@@ -590,7 +656,112 @@ function Calculator({ match }) {
   }
 
   //Work Power Energy
-  if (details.topic === "Work Power Energy") {
+  if (details.topic === "Work Power Energy"){
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Work Power Energy</h1>
+        </div>
+        <div className="mech__topics-card">
+          {WPE_list.map((data) => (
+            <React.Fragment key={data.topic}>
+              <a
+                href={`/classicalmechanics/calc/work_power_energy/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </a>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  //Gravitation
+  else if (details.topic === "Gravitation") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Gravitation</h1>
+        </div>
+        <div className="mech__topics-card">
+          {Gravitation_list.map((data) => (
+            <React.Fragment key={data.topic}>
+              <a
+                href={`/classicalmechanics/calc/gravitation/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </a>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  } else {
+    return (
+=======
+  if (details.topic === "Moment of Inertia") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Moment of Inertia</h1>
+        </div>
+        <div className="mech__topics-card">
+          {MOI_list.map((data) => (
+            <React.Fragment key={data.topic}>
+              <a
+                href={`/classicalmechanics/calc/moment_of_inertia/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </a>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  } else if (details.topic === "Work Power Energy") {
     return (
       <div className="mech__main">
         <div className="mech__header">

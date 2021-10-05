@@ -2,7 +2,7 @@ import React from 'react'
 import '../Home/Home.css'
 import { Button } from 'react-bootstrap'
 import Footer from '../Footer/Footer'
-import {Link} from 'react-router-dom'
+import { LearnMore } from '../LearnMore'
 
 const Home = () => {
 	return (
@@ -18,10 +18,9 @@ const Home = () => {
 			</div>
 			<div>
 			  <h3 className="learn-header" id="learn">Learn</h3>
-			  <center><hr className="learn-underline"/></center><br/><br/>
-			 <center> <Link className="Physics-link" to="/physics" variant="outline-dark">Physics Calculator</Link></center>
+			  <center><hr className="learn-underline"/></center>
 			</div>
-			<br/><br/><br/>
+			<LearnMore />
 			<Footer />
 			{/* <!-- Back to top button --> */}
 			<a className="gotopbtn" href="/"> <i className="fas fa-arrow-up"></i> </a>
