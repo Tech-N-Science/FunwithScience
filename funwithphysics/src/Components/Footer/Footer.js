@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import logo from "../../Images/Logo/logo.png";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -22,9 +23,9 @@ const Footer = () => {
                 <span className="text">+91 1234567890</span>
               </div>
               <div className="email">
-                <a href="mailto:example123@gmail.com">
+                <Link to={{ pathname: "mailto:example123@gmail.com"}} target="_blank">
                   <span className="fas fa-envelope"></span>
-                </a>
+                </Link>
                 <span className="text">example123@gmail.com</span>
               </div>
             </div>
@@ -36,29 +37,29 @@ const Footer = () => {
               <div className="center">
                 <div className="icons">
                   <li>
-                    <a href="/">
+                    <Link to="/">
                       <span className="fab fa-facebook-f"></span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/">
+                    <Link to="/">
                       <span className="fab fa-twitter"></span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/">
+                    <Link to="/">
                       <span className="fab fa-instagram"></span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/in/amit-kumar-mishra-28122a193">
+                    <Link to={{ pathname: "https://www.linkedin.com/in/amit-kumar-mishra-28122a193"}} target="_blank">
                       <span className="fab fa-linkedin-in"></span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="https://github.com/Amit366">
+                    <Link to={"https://github.com/Amit366"} target="_blank">
                       <span className="fab fa-github"></span>
-                    </a>
+                    </Link>
                   </li>
                 </div>
               </div>
@@ -67,21 +68,21 @@ const Footer = () => {
             <div className="content"></div>
             <div className="center-bottom">
               <div>
-                <a href="/">
+                <Link to="/">
                   <span className="fas fa-user"></span>
-                </a>
+                </Link>
                 <span className="text">About Us</span>
               </div>
               <div className="contact">
-                <a href="#contactUs">
+                <Link to="#contactUs">
                   <span className="fas fa-comments"></span>
-                </a>
+                </Link>
                 <span className="text">Contact</span>
               </div>
               <div>
-                <a href="/" data-toggle="modal" data-target="#exampleModal">
+                <Link to="/" data-toggle="modal" data-target="#exampleModal">
                   <span className="fas fa-users"></span>
-                </a>
+                </Link>
                 <span className="text">FAQs</span>
               </div>
             </div>
@@ -124,7 +125,7 @@ const Footer = () => {
         <div className="bottom">
           <center>
             <span className="credit">
-              <a href="/">Fun With Physics</a> |{" "}
+              <Link to="/">Fun With Physics</Link> |{" "}
             </span>
             <span className="far fa-copyright"></span>
             <span> 2021 All rights reserved.</span>
