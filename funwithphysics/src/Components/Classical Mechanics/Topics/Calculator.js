@@ -486,26 +486,35 @@ function Calculator({ match }) {
     const [choice, setChoice] = useState("displacement");
     function handleChange(e) {
       console.log(e.target.value);
+      setResult(null);
+      setiVelocity(null);
+      setfVelocity(null);
+      setAcceleration(null);
+      setTime(null);
+      setDisplacement(null);
       setChoice(e.target.value);
       choiceData();
     }
     const calcResult = () => {
       let res;
       if (choice === "displacement") {
-        res = ivelocity * time + (1 / 2) * acceleration * time * time;
+        res = ivelocity * Math.abs(time)+ (1 / 2) * acceleration * Math.abs(time) * Math.abs(time);
       } else if (choice === "velocity_fin") {
-        res = ivelocity + acceleration * time;
+        res = parseFloat(ivelocity) + parseFloat(acceleration * Math.abs(time)) ;
       } else if (choice === "velocity_ini") {
-        res = fvelocity - acceleration * time;
+        res = parseFloat(fvelocity) - parseFloat(acceleration * Math.abs(time));
       } else if (choice === "acceleration") {
         res = (fvelocity ** 2 - ivelocity ** 2) / (2 * displacement);
       } else if (choice === "time") {
-        res = (fvelocity - ivelocity) / acceleration;
+        res = Math.abs((fvelocity - ivelocity) / acceleration);
       }
       // console.log(res);
       // console.log(time, ivelocity, fvelocity, acceleration, displacement);
       setResult(res);
     };
+    function reset() {
+      setResult(null);
+    }
     const choiceData = () => {
       if (choice === "displacement")
         return {
@@ -514,6 +523,7 @@ function Calculator({ match }) {
           quantities: ["Initial Velocity", "Time", "Acceleration"],
           subunits: ["m/s", "s", "m/s²"],
           setters: [setiVelocity, setTime, setAcceleration],
+          getters: [ivelocity, time, acceleration],
         };
       else if (choice === "time")
         return {
@@ -522,6 +532,7 @@ function Calculator({ match }) {
           quantities: ["Initial Velocity", "Final Velocity", "Acceleration"],
           subunits: ["m/s", "m/s", "m/s²"],
           setters: [setiVelocity, setfVelocity, setAcceleration],
+          getters: [ivelocity, fvelocity, acceleration],
         };
       else if (choice === "acceleration")
         return {
@@ -530,6 +541,7 @@ function Calculator({ match }) {
           quantities: ["Initial Velocity", "Final Velocity", "Displacement"],
           subunits: ["m/s", "m/s", "m"],
           setters: [setiVelocity, setfVelocity, setDisplacement],
+          getters: [ivelocity, fvelocity, displacement],
         };
       else if (choice === "velocity_ini")
         return {
@@ -538,6 +550,7 @@ function Calculator({ match }) {
           quantities: ["Final Velocity", "Time", "Acceleration"],
           subunits: ["m/s", "s", "m/s²"],
           setters: [setfVelocity, setTime, setAcceleration],
+          getters: [fvelocity, time, acceleration],
         };
       else if (choice === "velocity_fin")
         return {
@@ -546,6 +559,7 @@ function Calculator({ match }) {
           quantities: ["Initial Velocity", "Time", "Acceleration"],
           subunits: ["m/s", "s", "m/s²"],
           setters: [setiVelocity, setTime, setAcceleration],
+          getters: [ivelocity, time, acceleration],
         };
     };
     return (
@@ -577,6 +591,7 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[0](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[0]}
+              value={choiceData().getters[0]===null?'':choiceData().getters[0]}
             />
           </Form.Group>
 
@@ -586,6 +601,7 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[1](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[1]}
+              value={choiceData().getters[1]===null?'':choiceData().getters[1]}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -594,6 +610,7 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[2](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[2]}
+              value={choiceData().getters[2]===null?'':choiceData().getters[2]}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -612,7 +629,7 @@ function Calculator({ match }) {
           Calculate
         </Button>
         &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => setResult(null)} type="reset">
+        <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
       </>
