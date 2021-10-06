@@ -1,11 +1,22 @@
 .Calculator__main {
-  margin: 0em;
+  margin: auto;
   padding: 3em;
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "header header" "image details " "formula-text . " "formula formula " " . . " " . . " "process calc ";
   row-gap: 3em;
+  max-width: 1200px !important;
+}
+
+.Calculator__header,
+.Calculator__details,
+.Calculator__formula-text,
+.Calculator__formula,
+.Calculator__calc,
+.Calculator__process,
+.Calculator__siunit,
+.Calculator__dimension {
+  width: 100% !important;
 }
 
 .Calculator__image {
@@ -13,8 +24,8 @@
 }
 
 .Calculator__image img {
-  width: 30em;
-  height: 20em;
+  width: 90%;
+  min-height: 100%;
   object-fit: cover;
   box-sizing: border-box;
   border-radius: 1em;
@@ -72,8 +83,10 @@
   word-wrap: break-word;
   width: 37.5em;
   margin-top: -100px;
+  padding-right: 20px;
 }
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 992px) {
   .Calculator__main {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -119,15 +132,6 @@
   .Calculator__dimension h3 {
     margin-left: -20px;
   }
-
-  /* .Calculator__details p {
-      padding-left: 10px;
-      padding-right: 20px;
-    } */
-
-  /* .Calculator__calc input {
-      max-width: 99%;
-    } */
 }
 
 @media only screen and (max-width: 668px) {
@@ -140,14 +144,36 @@
   .Calculator__siunit,
   .Calculator__dimension,
   .Calculator__image {
-    max-width: 93%;
+    max-width: 100%;
+  }
+
+  .Calculator__main {
+    padding: 1.5rem;
   }
 
   .Calculator__calc hr {
-    max-width: 92%;
+    max-width: 100%;
+  }
+
+  .Calculator__details,
+  .Calculator__process p {
+    text-align: justify;
+  }
+
+  .Calculator__process {
+    padding: 1rem;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .Calculator__calc hr {
+    width: 90%;
+    margin: 20px auto 0px auto;
   }
 
   .Calculator__calc form {
-    padding-right: 40px;
+    padding: 1rem;
   }
 }
