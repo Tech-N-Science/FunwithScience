@@ -1,4 +1,7 @@
 # FunwithPhysics
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
 Are you bored solving the questions using the tough physics formulas?? 😩
@@ -165,11 +168,14 @@ If you have any doubts, please let us know in the comments.
 
 ## Open Source Programs we have been associated with:
 
-<p align="center">
-<a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
-
-
-</p>
+<table>
+    <tr>
+	<td>
+	<a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
+	<a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" width="35%"/></a>
+	</td>
+    </tr>
+</table>
 
 ---
 
@@ -189,16 +195,45 @@ If you have any doubts, please let us know in the comments.
 
 ## Project Maintainers 😃
 
-## 🌟 Contributors:
 
-Thanks to these wonderful people ✨✨:
+## Contributors ✨
 
+Thanks goes to these wonderful people :
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
-	<tr>
-		 <td>
-  <a href="https://github.com/Amit366/FunwithPhysics/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Amit366/FunwithPhysics" />
-  </a>
-		</td>
-	</tr>
+  <tr>
+    <td align="center"><a href="https://laisfrigerio.com.br/"><img src="https://avatars.githubusercontent.com/u/20709086?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lais Frigério</b></sub></a><br /><a href="#design-laisfrigerio" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/aakankshabhende"><img src="https://avatars.githubusercontent.com/u/63249668?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aakanksha Bhende</b></sub></a><br /><a href="#design-aakankshabhende" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/Swastik1710"><img src="https://avatars.githubusercontent.com/u/71871571?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Swastik Raj Singh</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Swastik1710" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/william-monroy"><img src="https://avatars.githubusercontent.com/u/58092741?v=4?s=100" width="100px;" alt=""/><br /><sub><b>William Frank Monroy Mamani</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=william-monroy" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/swathi-469"><img src="https://avatars.githubusercontent.com/u/61613945?v=4" width="100px;" alt=""/><br /><sub><b>Swathi A</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=swathi-469" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/manasb15"><img src="https://avatars.githubusercontent.com/u/85739184?v=4" width="100px;" alt=""/><br /><sub><b>Manas Buchade</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=manasb15" title="Code">🐛</a></td>
+
+  </tr>
+	<td align="center"><a href="https://github.com/kumarishalini6"><img src="https://avatars.githubusercontent.com/u/69043944?v=4" width="100px;" alt=""/><br /><sub><b>Kumari Shalini</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=kumarishalini6" title="Code">💻</a></td>
+	<td align="center"><a href="https://github.com/techabhi08"><img src="https://avatars.githubusercontent.com/u/75834097?v=4" width="100px;" alt=""/><br /><sub><b>techabhi08</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=techabhi08" title="Code">🎨</a></td>
+	<td align="center"><a href="https://github.com/ashish-patwal"><img src="https://avatars.githubusercontent.com/u/63491234?v=4" width="100px;" alt=""/><br /><sub><b>Lucifer</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=ashish-patwal" title="Code">💻</a></td>
+	<td align="center"><a href="https://github.com/Hiteshsukhwani29"><img src="https://avatars.githubusercontent.com/u/55627571?v=4" width="100px;" alt=""/><br /><sub><b>Hitesh Sukhwani</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Hiteshsukhwani29" title="Code">💻</a></td>
+	<td align="center"><a href="https://github.com/Umesh-01"><img src="https://avatars.githubusercontent.com/u/83420185?v=4" width="100px;" alt=""/><br /><sub><b>Umesh Singh</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Umesh-01" title="Code">🐛</a></td>
+	<td align="center"><a href="https://github.com/nayabatir1"><img src="https://avatars.githubusercontent.com/u/91016903?v=4" width="100px;" alt=""/><br /><sub><b>Atir Nayab</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=nayabatir1" title="Code">💻</a></td>
+ </tr>
+       <td align="center"><a href="https://github.com/kunalkumar007"><img src="https://avatars.githubusercontent.com/u/55233386?v=4" width="100px;" alt=""/><br /><sub><b>Kunal Kumar</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=kunalkumar007" title="Code">🐛</a></td>
+       <td align="center"><a href="https://github.com/Brkgng"><img src="https://avatars.githubusercontent.com/u/39705775?v=4" width="100px;" alt=""/><br /><sub><b>Berker Güngör</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Brkgng" title="Code">🎨</a></td>
+        <td align="center"><a href="https://github.com/KarishmaVanwari"><img src="https://avatars.githubusercontent.com/u/78212650?v=4" width="100px;" alt=""/><br /><sub><b>KarishmaVanwari</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=KarishmaVanwari" title="Code">🐛</a></td>
+	<td align="center"><a href="https://github.com/Aniket-508"><img src="https://avatars.githubusercontent.com/u/71957423?v=4" width="100px;" alt=""/><br /><sub><b>Aniket Pawar</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Aniket-508" title="Code">💻</a></td>
+	<td align="center"><a href="https://github.com/OmGole"><img src="https://avatars.githubusercontent.com/u/90026187?v=4" width="100px;" alt=""/><br /><sub><b>OmGole</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=OmGole" title="Code">🎨</a></td>
+	<td align="center"><a href="https://github.com/akashsahu006"><img src="https://avatars.githubusercontent.com/u/82517683?v=4" width="100px;" alt=""/><br /><sub><b>Akash Sahu</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=akashsahu006" title="Code">💻</a></td>
+ </tr>
+        <td align="center"><a href="https://github.com/Shoray2002"><img src="https://avatars.githubusercontent.com/u/76423272?v=4" width="100px;" alt=""/><br /><sub><b>Shoray Singhal</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Shoray2002" title="Code">💻</a></td>
+ </tr>
 </table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
