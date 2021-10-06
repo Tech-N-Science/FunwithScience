@@ -507,7 +507,7 @@ function Calculator({ match }) {
     return currentCall;
   }
 
-  //Work Power Energy
+  //Moment of inertia
   if (details.topic === "Moment of Inertia") {
     return (
       <div className="mech__main">
@@ -541,7 +541,10 @@ function Calculator({ match }) {
         </div>
       </div>
     );
-  } else if (details.topic === "Work Power Energy") {
+  } 
+
+  // Work power energy
+  else if (details.topic === "Work Power Energy") {
     return (
       <div className="mech__main">
         <div className="mech__header">
