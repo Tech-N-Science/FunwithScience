@@ -6,6 +6,8 @@ import "../classicalMechanics.css";
 import WPE_list from "../wpe_data";
 import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
+import fluid_list from "../fluidmechanics_data";
+
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
@@ -741,6 +743,42 @@ function Calculator({ match }) {
     );
   }
 
+  // Fluid Mechanics
+  else if (details.topic === "Fluid Mechanics") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Fluid Mechanics</h1>
+        </div>
+        <div className="mech__topics-card">
+          {fluid_list.map((data) => (
+            <React.Fragment key={data.topic}>
+              <a
+                href={`/classicalmechanics/calc/fluid_mechanics/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </a>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  
   //Gravitation
   else if (details.topic === "Gravitation") {
     return (

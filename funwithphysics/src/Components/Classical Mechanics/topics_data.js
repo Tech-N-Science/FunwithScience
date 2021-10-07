@@ -8,6 +8,7 @@ import work_power_energy from "../../Images/Classical_mechanics/wpe.jpg";
 import collision from "../../Images/Classical_mechanics/collision.jpg";
 import moment_of_inertia from "../../Images/Classical_mechanics/moment of inertia/momentOfInertia.jpg";
 import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
+import fluid_mechanics from "../../Images/Classical_mechanics/fluidmechanics/fluid_mechanics.jpg";
 
 export {
   momentum,
@@ -19,7 +20,8 @@ export {
   work_power_energy,
   moment_of_inertia,
   collision,
-  kinematics
+  kinematics,
+  fluid_mechanics
 };
 
 const Topics = [
@@ -152,6 +154,11 @@ const Topics = [
     process: `In kinematics there are three 3 fundamental equations of motion as mentioned above. Each equation consists of different physical quantities and can be used to determine the missing value if all other values are already known. Some scenarios may need the utilzation of more than one equations. These can be used to solve real life problems like vehicular motion, projectile motion, falling motion and can also be used to derive more complex equation often used in higher Physics.Time is always taken as absolute ie. +tive`,
     siunit: "m , m/s , s , m/s²",
     dimension: "M , M/T , T , M/T²",
+  },
+  {
+    topic: "Fluid Mechanics",
+    image: fluid_mechanics,
+    details: "...",
   },
 ];
 
