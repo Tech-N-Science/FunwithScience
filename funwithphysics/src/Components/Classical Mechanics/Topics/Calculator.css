@@ -36,16 +36,22 @@
 .Calculator__header {
   grid-area: header;
   align-self: center;
+  text-align: center;
+  font-size: 1.8em;
+  color: #E84545;
+  font-weight: 900;
 }
+
 
 .Calculator__details {
   grid-area: details;
   align-self: center;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
   justify-self: start;
-  word-wrap: break-word;
-  padding: 1em;
-  font-size: 20px;
-  width: 30em;
+  padding-top: 0.8em;
+  /* width: 30em; */
 }
 
 .Calculator__formula-text {
@@ -71,11 +77,19 @@
 .Calculator__calc {
   grid-area: calc;
   margin-top: -400px;
+  z-index: 100;
 }
 
 .Calculator__calc hr {
   width: auto;
   border: 1px dashed red;
+}
+.Calculator__calc h3{
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #E84545;
+text-align: center;
+
 }
 
 .Calculator__process {
@@ -83,7 +97,8 @@
   word-wrap: break-word;
   width: 37.5em;
   margin-top: -100px;
-  padding-right: 20px;
+  font-size: 1.2rem;
+  padding-right: 2vh;
 }
 
 @media only screen and (max-width: 992px) {

@@ -779,7 +779,7 @@ function Calculator({ match }) {
     return (
       <div className="Calculator__main">
         <div className="Calculator__header">
-          <h1>{details.topic}:</h1>
+          <h1>{details.topic}</h1>
         </div>
         <div className="Calculator__image">
           <img src={details.image} rounded="true" alt={details.topic} />
