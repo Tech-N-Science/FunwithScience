@@ -5,9 +5,9 @@ import force from "../../Images/Classical_mechanics/force.jpg";
 import error_measurement from "../../Images/Classical_mechanics/error.jpg";
 import torque from "../../Images/Classical_mechanics/torque.jpg";
 import work_power_energy from "../../Images/Classical_mechanics/wpe.jpg";
-import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
 import collision from "../../Images/Classical_mechanics/collision.jpg";
 import moment_of_inertia from "../../Images/Classical_mechanics/moment of inertia/momentOfInertia.jpg";
+import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
 
 export {
   momentum,
@@ -18,7 +18,8 @@ export {
   error_measurement,
   work_power_energy,
   moment_of_inertia,
-  kinematics,
+  collision,
+  kinematics
 };
 
 const Topics = [
@@ -148,10 +149,9 @@ const Topics = [
     image: kinematics,
     details: `Kinematics is a subfield of physics, developed in classical mechanics, that describes the motion of points, bodies (objects), and systems of bodies (groups of objects) without considering the forces that cause them to move.Kinematics, as a field of study, is often referred to as the "geometry of motion" and is occasionally seen as a branch of mathematics.A kinematics problem begins by describing the geometry of the system and declaring the initial conditions of any known values of position, velocity and/or acceleration of points within the system. Then, using arguments from geometry, the position, velocity and acceleration of any unknown parts of the system can be determined. The study of how forces act on bodies falls within kinetics, not kinematics.`,
     formula: ["v=v₀​+a.t & Δx=v​₀.t+1/2.​a.t² & (v)²=(v₀)²​+2.a.Δx"],
-    process: `In kinematics there are three 3 fundamental equations of motion as mentioned above. Each equation consists of different physical quantities and can be used to determine the missing value if all other values are already known. Some scenarios may need the utilzation of more than one equations. These can be used to solve real life problems like vehicular motion, projectile motion, falling motion and can also be used to derive more complex equation often used in higher Physics.`,
+    process: `In kinematics there are three 3 fundamental equations of motion as mentioned above. Each equation consists of different physical quantities and can be used to determine the missing value if all other values are already known. Some scenarios may need the utilzation of more than one equations. These can be used to solve real life problems like vehicular motion, projectile motion, falling motion and can also be used to derive more complex equation often used in higher Physics.Time is always taken as absolute ie. +tive`,
     siunit: "m , m/s , s , m/s²",
     dimension: "M , M/T , T , M/T²",
-
   },
 ];
 

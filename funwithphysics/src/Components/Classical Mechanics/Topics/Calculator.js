@@ -14,7 +14,6 @@ function Calculator({ match }) {
   // console.log(page);
   // console.log(details.formula);
 
-
   // Momentum Calculator
   function CalculatorMomentum() {
     const [result, setResult] = useState(null);
@@ -180,7 +179,8 @@ function Calculator({ match }) {
         const [result, setResult] = useState(null)
         const [mass_A, setMassA] = useState(null)
         const [mass_B, setMassB] = useState(null)
-        const [displacement, setDistance] = useState(null)
+        const [distance, setDistance] = useState(null)
+
         const handleClick = () => {
             let res = ( 6.67 * mass_A * mass_B ) / ( distance * distance );
             setResult(res)
@@ -361,150 +361,6 @@ function Calculator({ match }) {
     );
   }
 
-  function CalculatorKinematics() {
-    const [result, setResult] = useState(null);
-    const [ivelocity, setiVelocity] = useState(null);
-    const [fvelocity, setfVelocity] = useState(null);
-    const [acceleration, setAcceleration] = useState(null);
-    const [time, setTime] = useState(null);
-    const [displacement, setDisplacement] = useState(null);
-    const [choice, setChoice] = useState("displacement");
-    function handleChange(e) {
-      console.log(e.target.value);
-      setChoice(e.target.value);
-      choiceData();
-    }
-    const calcResult = () => {
-      let res;
-      if (choice === "displacement") {
-        res = ivelocity * time + (1 / 2) * acceleration * time * time;
-      } else if (choice === "velocity_fin") {
-        res = ivelocity + acceleration * time;
-      } else if (choice === "velocity_ini") {
-        res = fvelocity - acceleration * time;
-      } else if (choice === "acceleration") {
-        res = (fvelocity ** 2 - ivelocity ** 2) / (2 * displacement);
-      } else if (choice === "time") {
-        res = (fvelocity - ivelocity) / acceleration;
-      }
-      // console.log(res);
-      // console.log(time, ivelocity, fvelocity, acceleration, displacement);
-      setResult(res);
-    };
-    const choiceData = () => {
-      if (choice === "displacement")
-        return {
-          name: "Displacement",
-          mainunit: "m",
-          quantities: ["Initial Velocity", "Time", "Acceleration"],
-          subunits: ["m/s", "s", "m/s²"],
-          setters: [setiVelocity, setTime, setAcceleration],
-        };
-      else if (choice === "time")
-        return {
-          name: "Time Interval",
-          mainunit: "s",
-          quantities: ["Initial Velocity", "Final Velocity", "Acceleration"],
-          subunits: ["m/s", "m/s", "m/s²"],
-          setters: [setiVelocity, setfVelocity, setAcceleration],
-        };
-      else if (choice === "acceleration")
-        return {
-          name: "Acceleration",
-          mainunit: "m/s²",
-          quantities: ["Initial Velocity", "Final Velocity", "Displacement"],
-          subunits: ["m/s", "m/s", "m"],
-          setters: [setiVelocity, setfVelocity, setDisplacement],
-        };
-      else if (choice === "velocity_ini")
-        return {
-          name: "Initial Velocity",
-          mainunit: "m/s",
-          quantities: ["Final Velocity", "Time", "Acceleration"],
-          subunits: ["m/s", "s", "m/s²"],
-          setters: [setfVelocity, setTime, setAcceleration],
-        };
-      else if (choice === "velocity_fin")
-        return {
-          name: "Final Velocity",
-          mainunit: "m/s",
-          quantities: ["Initial Velocity", "Time", "Acceleration"],
-          subunits: ["m/s", "s", "m/s²"],
-          setters: [setiVelocity, setTime, setAcceleration],
-        };
-    };
-    return (
-      <>
-        <Form>
-          {/* dropdown */}
-          <Form.Group className="mb-4" controlId="choice">
-            <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
-              <option value="displacement">∆x : Displacement</option>
-              <option value="time">t : Time interval</option>
-              <option value="velocity_ini">v₀​ : Initial velocity</option>
-              <option value="velocity_fin">v : Final velocity</option>
-              <option value="acceleration">a : Constant Acceleration</option>
-            </Form.Control>
-          </Form.Group>
-          <Form.Group className="mb-4" controlId="text">
-            <Form.Text className="text">
-              <strong>
-                {" "}
-                To find the {choiceData().name}, Enter the following values
-              </strong>
-              <br />
-            </Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>{choiceData().quantities[0]}</Form.Label>
-            <Form.Control
-              onChange={(e) => choiceData().setters[0](e.target.value)}
-              type="number"
-              placeholder={"Enter in " + choiceData().subunits[0]}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-4">
-            <Form.Label>{choiceData().quantities[1]}</Form.Label>
-            <Form.Control
-              onChange={(e) => choiceData().setters[1](e.target.value)}
-              type="number"
-              placeholder={"Enter in " + choiceData().subunits[1]}
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>{choiceData().quantities[2]}</Form.Label>
-            <Form.Control
-              onChange={(e) => choiceData().setters[2](e.target.value)}
-              type="number"
-              placeholder={"Enter in " + choiceData().subunits[2]}
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Control
-              readOnly
-              type="number"
-              placeholder={
-                result === null
-                  ? "Result"
-                  : result + " " + choiceData().mainunit
-              }
-            />
-          </Form.Group>
-        </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => setResult(null)} type="reset">
-          Reset
-        </Button>
-      </>
-    );
-  }
-
-
   //Collision Calculator
   function CalculatorCollision() {
     const [massOne, setMassOne] = useState(null);
@@ -620,6 +476,166 @@ function Calculator({ match }) {
     );
   }
 
+  function CalculatorKinematics() {
+    const [result, setResult] = useState(null);
+    const [ivelocity, setiVelocity] = useState(null);
+    const [fvelocity, setfVelocity] = useState(null);
+    const [acceleration, setAcceleration] = useState(null);
+    const [time, setTime] = useState(null);
+    const [displacement, setDisplacement] = useState(null);
+    const [choice, setChoice] = useState("displacement");
+    function handleChange(e) {
+      console.log(e.target.value);
+      setResult(null);
+      setiVelocity(null);
+      setfVelocity(null);
+      setAcceleration(null);
+      setTime(null);
+      setDisplacement(null);
+      setChoice(e.target.value);
+      choiceData();
+    }
+    const calcResult = () => {
+      let res;
+      if (choice === "displacement") {
+        res = ivelocity * Math.abs(time)+ (1 / 2) * acceleration * Math.abs(time) * Math.abs(time);
+      } else if (choice === "velocity_fin") {
+        res = parseFloat(ivelocity) + parseFloat(acceleration * Math.abs(time)) ;
+      } else if (choice === "velocity_ini") {
+        res = parseFloat(fvelocity) - parseFloat(acceleration * Math.abs(time));
+      } else if (choice === "acceleration") {
+        res = (fvelocity ** 2 - ivelocity ** 2) / (2 * displacement);
+      } else if (choice === "time") {
+        res = Math.abs((fvelocity - ivelocity) / acceleration);
+      }
+      // console.log(res);
+      // console.log(time, ivelocity, fvelocity, acceleration, displacement);
+      setResult(res);
+    };
+    function reset() {
+      setResult(null);
+    }
+    const choiceData = () => {
+      if (choice === "displacement")
+        return {
+          name: "Displacement",
+          mainunit: "m",
+          quantities: ["Initial Velocity", "Time", "Acceleration"],
+          subunits: ["m/s", "s", "m/s²"],
+          setters: [setiVelocity, setTime, setAcceleration],
+          getters: [ivelocity, time, acceleration],
+        };
+      else if (choice === "time")
+        return {
+          name: "Time Interval",
+          mainunit: "s",
+          quantities: ["Initial Velocity", "Final Velocity", "Acceleration"],
+          subunits: ["m/s", "m/s", "m/s²"],
+          setters: [setiVelocity, setfVelocity, setAcceleration],
+          getters: [ivelocity, fvelocity, acceleration],
+        };
+      else if (choice === "acceleration")
+        return {
+          name: "Acceleration",
+          mainunit: "m/s²",
+          quantities: ["Initial Velocity", "Final Velocity", "Displacement"],
+          subunits: ["m/s", "m/s", "m"],
+          setters: [setiVelocity, setfVelocity, setDisplacement],
+          getters: [ivelocity, fvelocity, displacement],
+        };
+      else if (choice === "velocity_ini")
+        return {
+          name: "Initial Velocity",
+          mainunit: "m/s",
+          quantities: ["Final Velocity", "Time", "Acceleration"],
+          subunits: ["m/s", "s", "m/s²"],
+          setters: [setfVelocity, setTime, setAcceleration],
+          getters: [fvelocity, time, acceleration],
+        };
+      else if (choice === "velocity_fin")
+        return {
+          name: "Final Velocity",
+          mainunit: "m/s",
+          quantities: ["Initial Velocity", "Time", "Acceleration"],
+          subunits: ["m/s", "s", "m/s²"],
+          setters: [setiVelocity, setTime, setAcceleration],
+          getters: [ivelocity, time, acceleration],
+        };
+    };
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+              <option value="displacement">∆x : Displacement</option>
+              <option value="time">t : Time interval</option>
+              <option value="velocity_ini">v₀​ : Initial velocity</option>
+              <option value="velocity_fin">v : Final velocity</option>
+              <option value="acceleration">a : Constant Acceleration</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0]}
+              value={choiceData().getters[0]===null?'':choiceData().getters[0]}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[1]}
+              value={choiceData().getters[1]===null?'':choiceData().getters[1]}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[2]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[2](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[2]}
+              value={choiceData().getters[2]===null?'':choiceData().getters[2]}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  }
+
   // Adding Calculators together
 
   function calC(key) {
@@ -641,11 +657,11 @@ function Calculator({ match }) {
       case "Torque":
         currentCall = CalculatorTorque();
         break;
-      case "Kinematics":
-        currentCall = CalculatorKinematics();
-        break;
       case "Collision":
         currentCall = CalculatorCollision();
+        break;
+      case "Kinematics":
+        currentCall = CalculatorKinematics();
         break;
       default:
         break;
@@ -653,79 +669,7 @@ function Calculator({ match }) {
     return currentCall;
   }
 
-  //Work Power Energy
-  if (details.topic === "Work Power Energy"){
-    return (
-      <div className="mech__main">
-        <div className="mech__header">
-          <h1>Work Power Energy</h1>
-        </div>
-        <div className="mech__topics-card">
-          {WPE_list.map((data) => (
-            <React.Fragment key={data.topic}>
-              <Link
-                to={`/classicalmechanics/calc/work_power_energy/${data.topic}`}
-                style={{ textDecoration: "none" }}
-              >
-                <Card
-                  className="a"
-                  key={data.topic}
-                  style={{
-                    width: "18rem",
-                    color: "black",
-                    textAlign: "center",
-                    fontSize: "20px",
-                  }}
-                >
-                  <Card.Body>
-                    <div> {data.topic}</div>
-                  </Card.Body>
-                </Card>
-              </Link>
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  //Gravitation
-  else if (details.topic === "Gravitation") {
-    return (
-      <div className="mech__main">
-        <div className="mech__header">
-          <h1>Gravitation</h1>
-        </div>
-        <div className="mech__topics-card">
-          {Gravitation_list.map((data) => (
-            <React.Fragment key={data.topic}>
-              <Link
-                to={`/classicalmechanics/calc/gravitation/${data.topic}`}
-                style={{ textDecoration: "none" }}
-              >
-                <Card
-                  className="a"
-                  key={data.topic}
-                  style={{
-                    width: "18rem",
-                    color: "black",
-                    textAlign: "center",
-                    fontSize: "20px",
-                  }}
-                >
-                  <Card.Body>
-                    <div> {data.topic}</div>
-                  </Card.Body>
-                </Card>
-              </Link>
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
-    );
-  } else {
-    return (
-=======
+  //Moment of inertia
   if (details.topic === "Moment of Inertia") {
     return (
       <div className="mech__main">
@@ -759,7 +703,10 @@ function Calculator({ match }) {
         </div>
       </div>
     );
-  } else if (details.topic === "Work Power Energy") {
+  }
+
+  // Work power energy
+  else if (details.topic === "Work Power Energy") {
     return (
       <div className="mech__main">
         <div className="mech__header">
@@ -832,7 +779,7 @@ function Calculator({ match }) {
     return (
       <div className="Calculator__main">
         <div className="Calculator__header">
-          <h1>{details.topic}:</h1>
+          <h1>{details.topic}</h1>
         </div>
         <div className="Calculator__image">
           <img src={details.image} rounded="true" alt={details.topic} />

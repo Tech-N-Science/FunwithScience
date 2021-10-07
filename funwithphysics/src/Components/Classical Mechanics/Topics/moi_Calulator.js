@@ -47,7 +47,7 @@ function MOICalculator({ match }) {
               type="number"
               placeholder="Enter mass of the object in kilogram"
             />
-            <Form.Label> Radius (in m)</Form.Label>
+            
           </Form.Group>
           <Form.Group className="mb-3" controlId="displacement">
             <Form.Label> Radius (in m)</Form.Label>
