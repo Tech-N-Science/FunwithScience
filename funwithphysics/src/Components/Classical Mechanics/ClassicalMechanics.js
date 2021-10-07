@@ -14,7 +14,7 @@ export default function ClassicalMechanics() {
                 {
                     Topics.map(data =>
                         <React.Fragment key={data.topic}>
-                            <Card key={data.topic} style={{ width: '18rem' }}>
+                            <Card key={data.topic} style={{ width:'18rem' }}>
                                 <Card.Img alt={data.topic} style={{ height: '15rem', objectFit: "cover" }} variant="top" src={data.image === undefined ? bg : data.image} />
                                 <Card.Body>
                                     {
