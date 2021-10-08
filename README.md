@@ -228,6 +228,9 @@ Thanks goes to these wonderful people :
 	<td align="center"><a href="https://github.com/akashsahu006"><img src="https://avatars.githubusercontent.com/u/82517683?v=4" width="100px;" alt=""/><br /><sub><b>Akash Sahu</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=akashsahu006" title="Code">💻</a></td>
  </tr>
         <td align="center"><a href="https://github.com/Shoray2002"><img src="https://avatars.githubusercontent.com/u/76423272?v=4" width="100px;" alt=""/><br /><sub><b>Shoray Singhal</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Shoray2002" title="Code">💻</a></td>
+	<td align="center"><a href="https://github.com/souravseal99"><img src="https://avatars.githubusercontent.com/u/69809086?v=4" width="100px;" alt=""/><br /><sub><b>Sourav Seal </b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=souravseal99" title="Code">💻</a></td>
+	<td align="center"><a href="https://github.com/glebkema"><img src="https://avatars.githubusercontent.com/u/3881568?v=4" width="100px;" alt=""/><br /><sub><b>Gleb Kemarsky</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=glebkema" title="Code">💻</a></td>
+	<td align="center"><a href="https://github.com/rayanepimentel"><img src="https://avatars.githubusercontent.com/u/37915359?v=4" width="100px;" alt=""/><br /><sub><b>Rayane Pimentel</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=rayanepimentel" title="Code">💻</a></td>
  </tr>
 </table>
 

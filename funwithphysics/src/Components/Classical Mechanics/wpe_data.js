@@ -1,12 +1,13 @@
 import work from '../../Images/Classical_mechanics/work_power_energy/work.jpg';
 import power from '../../Images/Classical_mechanics/work_power_energy/power.jpg';
+import energy from '../../Images/Classical_mechanics/work_power_energy/Energy.jpg';
 
 
 
 export {
     work,
-    power
-    
+    power,
+    energy
 }
 
 const Topics = [
@@ -27,8 +28,27 @@ const Topics = [
         process: "As discussed power is the rate of doing work. Therefore, it can be calculated by dividing work done by time. ",
         siunit: "watt",
         dimension: "M L^2 T^-3"
+    },
+    {
+        topic: "Energy",
+        image: energy,
+        details: [
+            `In simple words, Energy is known as the capacity of doing work, it could exist in various forms, like heat energy, kinetic energy, thermal energy, electrical energy, gravitational energy, electromagnetic energy etc.`, <br />,
+            "All these forms of Energy, are categories as Kinetic energy and Potential Energy."
+        ],
+        formula: [
+            "K.E = 1/2 x m x v^2", <span > &nbsp; &nbsp; </span>,
+            "P.E = m x g x h",
+        ],
+        process: [
+            "To summerize in a single line,", <br />, <b>Energy = Power x Time</b >, <br />,
+            "here, K.E is kinetic energy, P.E is potential energy, 'm' is mass, 'v' is velocity and 'h' is height"
+        ],
+        siunit: "joule",
+        dimension: "M L^2 T^-2"
     }
-    
+
+
 ]
 
 export default Topics

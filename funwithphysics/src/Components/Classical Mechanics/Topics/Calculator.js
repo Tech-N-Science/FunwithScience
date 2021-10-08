@@ -6,6 +6,7 @@ import "../classicalMechanics.css";
 import WPE_list from "../wpe_data";
 import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
+import { Link } from 'react-router-dom';
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
@@ -679,8 +680,8 @@ function Calculator({ match }) {
         <div className="mech__topics-card">
           {MOI_list.map((data) => (
             <React.Fragment key={data.topic}>
-              <a
-                href={`/classicalmechanics/calc/moment_of_inertia/${data.topic}`}
+              <Link
+                to={`/classicalmechanics/calc/moment_of_inertia/${data.topic}`}
                 style={{ textDecoration: "none" }}
               >
                 <Card
@@ -697,7 +698,7 @@ function Calculator({ match }) {
                     <div> {data.topic}</div>
                   </Card.Body>
                 </Card>
-              </a>
+              </Link>
             </React.Fragment>
           ))}
         </div>
@@ -715,8 +716,8 @@ function Calculator({ match }) {
         <div className="mech__topics-card">
           {WPE_list.map((data) => (
             <React.Fragment key={data.topic}>
-              <a
-                href={`/classicalmechanics/calc/work_power_energy/${data.topic}`}
+              <Link
+                to={`/classicalmechanics/calc/work_power_energy/${data.topic}`}
                 style={{ textDecoration: "none" }}
               >
                 <Card
@@ -733,7 +734,7 @@ function Calculator({ match }) {
                     <div> {data.topic}</div>
                   </Card.Body>
                 </Card>
-              </a>
+              </Link>
             </React.Fragment>
           ))}
         </div>
@@ -751,8 +752,8 @@ function Calculator({ match }) {
         <div className="mech__topics-card">
           {Gravitation_list.map((data) => (
             <React.Fragment key={data.topic}>
-              <a
-                href={`/classicalmechanics/calc/gravitation/${data.topic}`}
+              <Link
+                to={`/classicalmechanics/calc/gravitation/${data.topic}`}
                 style={{ textDecoration: "none" }}
               >
                 <Card
@@ -769,7 +770,7 @@ function Calculator({ match }) {
                     <div> {data.topic}</div>
                   </Card.Body>
                 </Card>
-              </a>
+              </Link>
             </React.Fragment>
           ))}
         </div>
@@ -779,7 +780,7 @@ function Calculator({ match }) {
     return (
       <div className="Calculator__main">
         <div className="Calculator__header">
-          <h1>{details.topic}:</h1>
+          <h1>{details.topic}</h1>
         </div>
         <div className="Calculator__image">
           <img src={details.image} rounded="true" alt={details.topic} />
