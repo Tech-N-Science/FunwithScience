@@ -73,3 +73,19 @@
     justify-self: center;
   }
 }
+
+a {
+  text-decoration: none;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+
+  display: inline-block;
+}
+
+.btn {
+  border: 1px solid ;
+}

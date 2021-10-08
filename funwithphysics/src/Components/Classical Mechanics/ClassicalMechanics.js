@@ -1,8 +1,9 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import './classicalMechanics.css'
-import Topics from "./topics_data";
+import Topics from "./topics_data"
 import bg from '../../Images/bg1.jpg'
+import { Link } from "react-router-dom"
 
 export default function ClassicalMechanics() {
     return (
@@ -19,8 +20,9 @@ export default function ClassicalMechanics() {
                                 <Card.Body>
                                     {
                                         data.details === undefined ?
-                                            <Button disabled={true} href={`/classicalmechanics/calc/${data.topic}`} variant="outline-dark"> {data.topic}</Button> :
-                                            <Button href={`/classicalmechanics/calc/${data.topic}`} variant="outline-dark"> {data.topic}</Button>
+                                            <Link className="btn" disabled={true} to={`/classicalmechanics/calc/${data.topic}`} variant="outline-dark"> {data.topic}</Link> :
+                                            <Link className="btn" to={`/classicalmechanics/calc/${data.topic}`} variant="outline-dark"> {data.topic}</Link>
+                                            
                                     }
                                     <div style={{ padding: "0.3em" }}>
                                         {

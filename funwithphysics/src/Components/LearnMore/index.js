@@ -2,7 +2,7 @@ import React from "react";
 import blackboardSvg from "../../Images/blackboard-svg.svg";
 import computerSvg from "../../Images/computer-svg.svg";
 import addCircleSvg from "../../Images/add-circle.svg";
-
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 export function LearnMore() {
@@ -14,19 +14,19 @@ export function LearnMore() {
             <p>Networking</p>
             <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon" />
-            <a href="/">+</a>
+            <Link to="/">+</Link>
           </li>
           <li>
             <p>DBMS</p>
             <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon" />
-            <a href="/">+</a>
+            <Link to="/">+</Link>
           </li>
           <li>
             <p>Computational Physics</p>
             <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon" />
-            <a href="/">+</a>
+            <Link to="/">+</Link>
           </li>
         </ul>
       </article>
@@ -38,16 +38,16 @@ export function LearnMore() {
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
             <div class="dropdown">
-              <a className="plus" href="/" >
+              <Link className="plus" to="/" >
                 <img
                   src={addCircleSvg}
                   className="lower-plus"
                   alt="AddCircle"
                 />
-              </a>
+              </Link>
               <div class="dropdown-content">
-                <a href="/">Calculator</a>
-                <a href="/">Questions</a>
+                <Link to="/">Calculator</Link>
+                <Link to="/">Questions</Link>
               </div>
             </div>
           </li>
@@ -56,16 +56,16 @@ export function LearnMore() {
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
             <div class="dropdown">
-              <a className="plus" href="/">
+              <Link className="plus" to="/">
                 <img
                   src={addCircleSvg}
                   className="lower-plus"
                   alt="AddCircle"
                 />
-              </a>
+              </Link>
               <div class="dropdown-content">
-                <a href="/physics">Calculator</a>
-                <a href="/">Questions</a>
+                <Link to="/physics">Calculator</Link>
+                <Link to="/">Questions</Link>
               </div>
             </div>
           </li>
