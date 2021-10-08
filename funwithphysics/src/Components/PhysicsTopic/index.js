@@ -10,22 +10,7 @@ import photonics from "../../Images/photonics.jpg"
 import statistical from "../../Images/statistical.jpg";
 import './styles.css'
 
-function PhysicsTopicItem(props) {
-	return (
-		<div className="col-xs-12 col-sm-6 col-md-3 text-center animate-box">
-			<Link style={{ color: "black" }} to={props.link} className="services">
-				<span className="icon">
-					{/* <i className={props.icon}></i> */}
-					<img alt={props.name} src={props.image} />
-				</span>
-				<div className="desc">
-					<h3>{props.name}</h3>
-				</div>
-			</Link>
-			{props.children}
-		</div>
-	)
-}
+
 
 
 function PhysicsTopicItem(props) {
