@@ -9,6 +9,7 @@ import WPECalculator from "./Components/Classical Mechanics/Topics/wpe_Calculato
 import GravitationCalculator from "./Components/Classical Mechanics/Topics/gravitation_Calculator";
 import PhysicsTopic from "./Components/PhysicsTopic";
 import MOICalculator from "./Components/Classical Mechanics/Topics/moi_Calulator";
+import Quiz from "./Components/Quiz/Quiz";
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
           path="/classicalmechanics/calc/:topic/:topic"
           component={WPECalculator}
         />
+        <Route exact path="/quiz" component={Quiz} />
         <Redirect to="/" />
       </Switch>
     </React.Fragment>
