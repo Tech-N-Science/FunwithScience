@@ -4,6 +4,7 @@ import Topics from "../topics_data";
 import { Form, Card, Button, Row, Col } from "react-bootstrap";
 import "../classicalMechanics.css";
 import WPE_list from "../wpe_data";
+import shm_list from "../shm_data";
 import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
 import { Link } from 'react-router-dom';
@@ -499,9 +500,9 @@ function Calculator({ match }) {
     const calcResult = () => {
       let res;
       if (choice === "displacement") {
-        res = ivelocity * Math.abs(time)+ (1 / 2) * acceleration * Math.abs(time) * Math.abs(time);
+        res = ivelocity * Math.abs(time) + (1 / 2) * acceleration * Math.abs(time) * Math.abs(time);
       } else if (choice === "velocity_fin") {
-        res = parseFloat(ivelocity) + parseFloat(acceleration * Math.abs(time)) ;
+        res = parseFloat(ivelocity) + parseFloat(acceleration * Math.abs(time));
       } else if (choice === "velocity_ini") {
         res = parseFloat(fvelocity) - parseFloat(acceleration * Math.abs(time));
       } else if (choice === "acceleration") {
@@ -592,7 +593,7 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[0](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[0]}
-              value={choiceData().getters[0]===null?'':choiceData().getters[0]}
+              value={choiceData().getters[0] === null ? '' : choiceData().getters[0]}
             />
           </Form.Group>
 
@@ -602,7 +603,7 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[1](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[1]}
-              value={choiceData().getters[1]===null?'':choiceData().getters[1]}
+              value={choiceData().getters[1] === null ? '' : choiceData().getters[1]}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -611,7 +612,7 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[2](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[2]}
-              value={choiceData().getters[2]===null?'':choiceData().getters[2]}
+              value={choiceData().getters[2] === null ? '' : choiceData().getters[2]}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -741,7 +742,41 @@ function Calculator({ match }) {
       </div>
     );
   }
-
+  // Simple Harmonic Motion
+  else if (details.topic === "Simple Harmonic Motion") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Simple Harmonic Motion</h1>
+        </div>
+        <div className="mech__topics-card">
+          {shm_list.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Link
+                to={`/classicalmechanics/calc/shm/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  }
   //Gravitation
   else if (details.topic === "Gravitation") {
     return (

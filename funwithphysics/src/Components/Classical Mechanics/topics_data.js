@@ -8,6 +8,8 @@ import work_power_energy from "../../Images/Classical_mechanics/wpe.jpg";
 import collision from "../../Images/Classical_mechanics/collision.jpg";
 import moment_of_inertia from "../../Images/Classical_mechanics/moment of inertia/momentOfInertia.jpg";
 import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
+import shm from "../../Images/Classical_mechanics/shm.jpg";
+
 
 export {
   momentum,
@@ -142,7 +144,9 @@ const Topics = [
     topic: "Torque",
   },
   {
-    topic: "Work Power Energy",
+    topic: "Simple Harmonic Motion",
+    image: shm,
+    details: "....",
   },
   {
     topic: "Kinematics",
