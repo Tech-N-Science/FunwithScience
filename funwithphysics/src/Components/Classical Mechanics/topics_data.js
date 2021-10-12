@@ -8,6 +8,7 @@ import work_power_energy from "../../Images/Classical_mechanics/wpe.jpg";
 import collision from "../../Images/Classical_mechanics/collision.jpg";
 import moment_of_inertia from "../../Images/Classical_mechanics/moment of inertia/momentOfInertia.jpg";
 import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
+import fluid_mechanics from "../../Images/Classical_mechanics/fluidmechanics/fluid_mechanics.jpg";
 
 export {
   momentum,
@@ -19,7 +20,8 @@ export {
   work_power_energy,
   moment_of_inertia,
   collision,
-  kinematics
+  kinematics,
+  fluid_mechanics
 };
 
 const Topics = [
@@ -139,10 +141,9 @@ const Topics = [
     topic: "Circular Motion",
   },
   {
-    topic: "Torque",
-  },
-  {
-    topic: "Work Power Energy",
+    topic: "Fluid Mechanics",
+    image: fluid_mechanics,
+    details: "...",
   },
   {
     topic: "Kinematics",
