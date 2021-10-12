@@ -349,6 +349,7 @@ h2 {
     right: 30px;
     text-decoration: none;
     text-align: center;
+    justify-content: center;
     line-height: 50px;
     color: white;
     font-size: 22px;
