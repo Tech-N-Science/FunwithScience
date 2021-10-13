@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import './Calculator.css'
-import { Form, Button, Col, Row } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 import "../classicalMechanics.css";
-import WPE_list from "../wpe_data";
+import shm_list from "../shm_data";
 
 function shm_Calculator({ match }) {
-    const page = WPE_list.filter(data => (data.topic) === (match.params.topic))
+    const page = shm_list.filter(data => (data.topic) === (match.params.topic))
     const details = page[0]
-    console.log(page)
-    console.log(details.formula)
+    // console.log(page)
+    // console.log(details.formula)
 
-    // Work Calculator
-    function CalculatorWork() {
+    // Wave Calculator
+    function CalculatorWave() {
         const [result, setResult] = useState(null)
         const [force, setForce] = useState(null)
         const [displacement, setDisp] = useState(null)
@@ -23,8 +23,6 @@ function shm_Calculator({ match }) {
 
         return <React.Fragment>
             <Form>
-
-
                 <Form.Group className="mb-3" controlId="force">
                     <Form.Label> Force (in Newtons)</Form.Label>
                     <Form.Control onChange={(e) => setForce(e.target.value)} type="number" placeholder="Enter Force applied to an object in newtons" />
@@ -51,8 +49,8 @@ function shm_Calculator({ match }) {
         </React.Fragment>
     }
 
-    // Power Calculator
-    function CalculatorPower() {
+    // Oscillation Calculator
+    function CalculatorOscillation() {
         const [result, setResult] = useState(null)
         const [workdone, setworkdone] = useState(null)
         const [time, settime] = useState(null)
@@ -64,8 +62,6 @@ function shm_Calculator({ match }) {
 
         return <React.Fragment>
             <Form>
-
-
                 <Form.Group className="mb-3" controlId="workdone">
                     <Form.Label> Work Done (in Joules)</Form.Label>
                     <Form.Control onChange={(e) => setworkdone(e.target.value)} type="number" placeholder="Enter work done in joules" />
@@ -92,132 +88,16 @@ function shm_Calculator({ match }) {
         </React.Fragment>
     }
 
-    //Energy Calculator 
-    function CalculatorEnergy() {
-        const [kinetic, setKinetic] = useState(null);
-        const [potential, setPotential] = useState(null);
-        const [massKE, setMassKE] = useState(null);
-        const [massPE, setMassPE] = useState(null);
-        const [vel, setVel] = useState(null);
-        const [height, setHeight] = useState(null);
-        const [g, setG] = useState(9.8);
-        function handleSubmit() {
-            if (massPE !== null) {
-                if (g === null) setG(9.8);
-                let pe = massPE * g * height;
-                setPotential(pe);
-            } // Calculating Potential Energy
-            if (massKE !== null) {
-                let ke = massKE * Math.pow(vel, 2) * 0.5;
-                setKinetic(ke);
-            } // Calculating Kinetic Energy
-            console.log(g);
-            console.log(massPE);
-            console.log(height);
-        }
-        function handleReset() {
-            setKinetic(null);
-            setPotential(null);
-            setG(9.8);
-        }
-        return <React.Fragment>
-            <Form>
-                {/* Title */}
-                <Row>
-                    <Col>
-                        <center>
-                            <h4>
-                                Kinetic Energy
-                            </h4>
-                        </center>
-                    </Col>
-                    <Col>
-                        <center>
-                            <h4>
-                                Potential Energy
-                            </h4>
-                        </center>
-                    </Col>
-                </Row>
-
-                <Row>
-                    <Col>
-                        <Form.Group controlId="massKE">
-                            <Form.Label>Mass(m)</Form.Label>
-                            <Form.Control onChange={(e) => setMassKE(e.target.value)} type="number" placeholder="Enter the mass" />
-                        </Form.Group>
-                    </Col>
-                    <Col>
-                        <Form.Group controlId="massPE">
-                            <Form.Label>Mass(m)</Form.Label>
-                            <Form.Control onChange={(e) => setMassPE(e.target.value)} type="number" placeholder="Enter the mass" />
-                        </Form.Group>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Form.Group controlId="velocity">
-                            <Form.Label>Velocity(v)</Form.Label>
-                            <Form.Control onChange={(e) => setVel(e.target.value)} type="number" placeholder="Enter the velocity" />
-                        </Form.Group>
-                    </Col>
-                    <Col>
-                        <Form.Group controlId="height">
-                            <Form.Label>Height(h)</Form.Label>
-                            <Form.Control onChange={(e) => setHeight(e.target.value)} type="number" placeholder="Enter the height" />
-                        </Form.Group>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                    </Col>
-                    <Col>
-                        <Form.Group controlId="g">
-                            <Form.Label>Gravitational Acceleration(g)</Form.Label>
-                            <Form.Control onChange={(e) => setG(e.target.value)} type="number" placeholder={g === 9.8 ? "9.8 m/s^2" : " "} />
-                        </Form.Group>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Form.Group controlId="kinetic">
-                            <Form.Label>Kinetic Energy(KE)</Form.Label>
-                            <Form.Control readOnly onChange={(e) => setKinetic(e.target.value)} type="number" placeholder={kinetic === null ? " " : kinetic} />
-                        </Form.Group>
-                    </Col>
-                    <Col>
-                        <Form.Group controlId="potential">
-                            <Form.Label>Potential Energy(PE)</Form.Label>
-                            <Form.Control readOnly onChange={(e) => setPotential(e.target.value)} type="number" placeholder={potential === null ? " " : potential} />
-                        </Form.Group>
-                    </Col>
-                </Row>
-
-                <Button variant="primary" onClick={handleSubmit}>
-                    Calculate
-                </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="dark" onClick={handleReset} type="reset">
-                    Reset
-                </Button>
-            </Form>
-        </React.Fragment>
-    }
-
-
-
     // Adding Calculators together
 
     function calC(key) {
         let currentCall;
         switch (key) {
-            case "Work":
-                currentCall = CalculatorWork();
+            case "Waves":
+                currentCall = CalculatorWave();
                 break;
-            case "Power":
-                currentCall = CalculatorPower();
-                break;
-            case "Energy":
-                currentCall = CalculatorEnergy();
+            case "Oscillation":
+                currentCall = CalculatorOscillation();
                 break;
             default:
                 break;

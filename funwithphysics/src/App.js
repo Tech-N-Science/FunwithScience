@@ -9,6 +9,7 @@ import WPECalculator from "./Components/Classical Mechanics/Topics/wpe_Calculato
 import GravitationCalculator from "./Components/Classical Mechanics/Topics/gravitation_Calculator";
 import PhysicsTopic from "./Components/PhysicsTopic";
 import MOICalculator from "./Components/Classical Mechanics/Topics/moi_Calulator";
+import shm_Calculator from "./Components/Classical Mechanics/Topics/shm_Calculator";
 
 const App = () => {
   return (
@@ -38,6 +39,11 @@ const App = () => {
           exact
           path="/classicalmechanics/calc/moment_of_inertia/:topic"
           component={MOICalculator}
+        />
+        <Route
+          exact
+          path="/classicalmechanics/calc/shm/:topic"
+          component={shm_Calculator}
         />
         <Route
           exact
