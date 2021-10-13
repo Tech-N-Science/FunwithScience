@@ -10,6 +10,7 @@ import moment_of_inertia from "../../Images/Classical_mechanics/moment of inerti
 import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
 import shm from "../../Images/Classical_mechanics/shm.jpg";
 
+import fluid_mechanics from "../../Images/Classical_mechanics/fluidmechanics/fluid_mechanics.jpg";
 
 export {
   momentum,
@@ -21,7 +22,8 @@ export {
   work_power_energy,
   moment_of_inertia,
   collision,
-  kinematics
+  kinematics,
+  fluid_mechanics
 };
 
 const Topics = [
@@ -141,7 +143,9 @@ const Topics = [
     topic: "Circular Motion",
   },
   {
-    topic: "Torque",
+    topic: "Fluid Mechanics",
+    image: fluid_mechanics,
+    details: "...",
   },
   {
     topic: "Simple Harmonic Motion",

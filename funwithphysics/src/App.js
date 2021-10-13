@@ -11,6 +11,11 @@ import PhysicsTopic from "./Components/PhysicsTopic";
 import MOICalculator from "./Components/Classical Mechanics/Topics/moi_Calulator";
 import shm_Calculator from "./Components/Classical Mechanics/Topics/shm_Calculator";
 
+import Quiz from "./Components/Quiz/Quiz";
+
+import FluidCalculator from "./Components/Classical Mechanics/Topics/fluidmechanics_Calculator";
+
+
 const App = () => {
   return (
     <React.Fragment>
@@ -47,9 +52,18 @@ const App = () => {
         />
         <Route
           exact
-          path="/classicalmechanics/calc/:topic/:topic"
+          path="/classicalmechanics/calc/work_power_energy/:topic"
           component={WPECalculator}
         />
+
+        <Route exact path="/quiz" component={Quiz} />
+
+        <Route
+          exact
+          path="/classicalmechanics/calc/fluid_mechanics/:topic"
+          component={FluidCalculator}
+        />
+
         <Redirect to="/" />
       </Switch>
     </React.Fragment>

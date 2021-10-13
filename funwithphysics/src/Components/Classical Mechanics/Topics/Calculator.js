@@ -7,6 +7,7 @@ import WPE_list from "../wpe_data";
 import shm_list from "../shm_data";
 import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
+import fluid_list from "../fluidmechanics_data";
 import { Link } from 'react-router-dom';
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -754,6 +755,41 @@ function Calculator({ match }) {
             <React.Fragment key={data.topic}>
               <Link
                 to={`/classicalmechanics/calc/shm/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  else if (details.topic === "Fluid Mechanics") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Fluid Mechanics</h1>
+        </div>
+        <div className="mech__topics-card">
+          {fluid_list.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Link
+                to={`/classicalmechanics/calc/fluid_mechanics/${data.topic}`}
                 style={{ textDecoration: "none" }}
               >
                 <Card

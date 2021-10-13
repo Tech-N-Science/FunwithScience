@@ -38,7 +38,7 @@ export function LearnMore() {
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
             <div class="dropdown">
-              <Link className="plus" to="/" >
+              <Link className="plus" to="/">
                 <img
                   src={addCircleSvg}
                   className="lower-plus"
@@ -66,6 +66,7 @@ export function LearnMore() {
               <div class="dropdown-content">
                 <Link to="/physics">Calculator</Link>
                 <Link to="/">Questions</Link>
+                <Link to="/quiz">Quiz</Link>
               </div>
             </div>
           </li>
