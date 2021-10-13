@@ -9,7 +9,7 @@ import WPECalculator from "./Components/Classical Mechanics/Topics/wpe_Calculato
 import GravitationCalculator from "./Components/Classical Mechanics/Topics/gravitation_Calculator";
 import PhysicsTopic from "./Components/PhysicsTopic";
 import MOICalculator from "./Components/Classical Mechanics/Topics/moi_Calulator";
-import shm_Calculator from "./Components/Classical Mechanics/Topics/shm_Calculator";
+// import shm_Calculator from "./Components/Classical Mechanics/Topics/shm_Calculator";
 import Thermodynamics from './Components/Thermodynamics/Thermodynamics'
 
 const App = () => {
@@ -49,11 +49,11 @@ const App = () => {
           path="/classicalmechanics/calc/:topic/:topic"
           component={WPECalculator}
         />
-        <Route
+        {/* <Route
           exact
           path="/classicalmechanics/calc/:topic/:topic"
           component={shm_Calculator}
-        />
+        /> */}
         <Redirect to="/" />
       </Switch>
     </React.Fragment>
