@@ -23,9 +23,13 @@ const Home = () => {
 			<LearnMore />
 			<Footer />
 			{/* <!-- Back to top button --> */}
-			<a className="gotopbtn" href="/"> <i className="fas fa-arrow-up"></i> </a>
+			<button className="gotopbtn" onClick={scroll}> <i className="fas fa-arrow-up"></i> </button>
 		</React.Fragment>
 	)
+}
+
+const scroll = () => {
+	window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 export default Home
