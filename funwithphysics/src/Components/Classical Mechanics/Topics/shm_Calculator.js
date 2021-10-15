@@ -7,38 +7,147 @@ import shm_list from "../shm_data";
 function shm_Calculator({ match }) {
     const page = shm_list.filter(data => (data.topic) === (match.params.topic))
     const details = page[0]
-    // console.log(page)
-    // console.log(details.formula)
 
     // Wave Calculator
     function CalculatorWave() {
         const [result, setResult] = useState(null)
-        const [force, setForce] = useState(null)
-        const [displacement, setDisp] = useState(null)
+        const [wave_length, setWave_length] = useState(null)
+        const [velocity, setVelocity] = useState(null)
+        const [freq, setFreq] = useState(null)
+        const [choice, setChoice] = useState("wave length")
+        // l = v/f
+        const choice_data = () => {
+            if (choice === "wave length")
+                return {
+                    name: "wave length",
+                    mainunit: "m",
+                    quantities: ["Wave Velocity", "Frequency"],
+                    subunits: ["m/s", "Hz"],
+                    setters: [setVelocity, setFreq],
+                    getters: [velocity, freq],
+                };
+            else if (choice === "frequency")
+                return {
+                    name: "frequency",
+                    mainunit: "Hz",
+                    quantities: ["Wave Length", "Wave Velocity"],
+                    subunits: ["m", "m/s"],
+                    setters: [setWave_length, setVelocity],
+                    getters: [wave_length, velocity],
+                };
+            else if (choice === "time period")
+                return {
+                    name: "time period",
+                    mainunit: "s",
+                    quantities: ["Frequency"],
+                    subunits: ["Hz"],
+                    setters: [setFreq],
+                    getters: [freq],
+                };
+            else if (choice === "velocity")
+                return {
+                    name: "Initial Velocity",
+                    mainunit: "m/s",
+                    quantities: ["Wave Length", "Frequency"],
+                    subunits: ["m", "Hz"],
+                    setters: [setWave_length, setFreq],
+                    getters: [wave_length, freq],
+                };
+            else if (choice === "energy")
+                return {
+                    name: "Energy",
+                    mainunit: "Joule",
+                    quantities: ["Frequency"],
+                    subunits: ["Hz"],
+                    setters: [setFreq],
+                    getters: [freq],
+                };
+        };
+
 
         const handleClick = () => {
-            let res = force * displacement;
+            let res;
+            switch (choice) {
+                case "wave length":
+                    res = velocity / freq;
+                    break;
+                case "frequency":
+                    res = velocity / wave_length;
+                    break;
+                case "time period":
+                    res = 1 / freq;
+                    break;
+                case "velocity":
+                    res = wave_length * freq;
+                    break;
+                case "energy":
+                    res = 6.62607015 * Math.pow(10, -34) * freq;
+                    break;
+                default:
+                    break;
+            }
             setResult(res)
+            // console.log(velocity + " " + freq + " " + res)
         }
+
 
         return <React.Fragment>
             <Form>
-                <Form.Group className="mb-3" controlId="force">
-                    <Form.Label> Force (in Newtons)</Form.Label>
-                    <Form.Control onChange={(e) => setForce(e.target.value)} type="number" placeholder="Enter Force applied to an object in newtons" />
-                </Form.Group>
-                <Form.Label> Displacement (in m)</Form.Label>
-                <Form.Group className="mb-3" controlId="displacement">
-                    <Form.Control onChange={(e) => setDisp(e.target.value)} type="number" placeholder="Enter displacement in metre" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="work">
-                    <Form.Label>Work Done (W)</Form.Label>
-                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " Joules "} />
-                    <Form.Text className="text-muted">
-                        Enter the above values to Calculate.
-                    </Form.Text>
+                {/* dropdown */}
+                <Form.Group className="mb-4" controlId="choice">
+                    <Form.Label>Select the type of calculation</Form.Label>
+                    <Form.Control as="select" onChange={(e) => setChoice(e.target.value)}>
+                        <option value="wave length">λ : wave length</option>
+                        <option value="frequency">f : frequency </option>
+                        <option value="velocity">v : wave velocity</option>
+                        <option value="energy"> e: energy </option>
+                        <option value="time period">t: time period</option>
+                    </Form.Control>
                 </Form.Group>
 
+                {/* Inputs */}
+                <Form.Group className="mb-4" controlId="text">
+                    <Form.Text className="text">
+                        <strong>
+                            {" "}
+                            To find the {choice_data().name}, Enter the following values
+                        </strong>
+                        <br />
+                    </Form.Text>
+                </Form.Group>
+                <Form.Group className="mb-4">
+                    <Form.Label>{choice_data().quantities[0]}</Form.Label>
+                    <Form.Control
+                        onChange={(e) => choice_data().setters[0](e.target.value)}
+                        type="number"
+                        placeholder={"Enter in " + choice_data().subunits[0]}
+                        value={choice_data().getters[0] === null ? '' : choice_data().getters[0]}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-4">
+                    <Form.Label>{choice_data().quantities[1]}</Form.Label>
+                    <Form.Control
+                        onChange={(e) => choice_data().setters[1](e.target.value)}
+                        type="number"
+                        placeholder={choice_data().getters[1] !== null ? '' : "Enter in " + choice_data().subunits[1]}
+                        value={choice_data().getters[1] === null ? '' : choice_data().getters[1]}
+                        disable={choice_data().getters[1] !== null ? true : false}
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-4">
+                    <Form.Control
+                        readOnly
+                        type="number"
+                        placeholder={
+                            result === null
+                                ? "Result"
+                                : result + " " + choice_data().mainunit
+                        }
+                    />
+                </Form.Group>
+
+                {/* Buttons */}
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>&nbsp;&nbsp;&nbsp;
