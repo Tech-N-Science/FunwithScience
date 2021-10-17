@@ -7,7 +7,7 @@ import WPE_list from "../wpe_data";
 import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
 import fluid_list from "../fluidmechanics_data";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
@@ -477,7 +477,7 @@ function Calculator({ match }) {
       </>
     );
   }
-
+  // Kinematics Calculator
   function CalculatorKinematics() {
     const [result, setResult] = useState(null);
     const [ivelocity, setiVelocity] = useState(null);
@@ -500,9 +500,11 @@ function Calculator({ match }) {
     const calcResult = () => {
       let res;
       if (choice === "displacement") {
-        res = ivelocity * Math.abs(time)+ (1 / 2) * acceleration * Math.abs(time) * Math.abs(time);
+        res =
+          ivelocity * Math.abs(time) +
+          (1 / 2) * acceleration * Math.abs(time) * Math.abs(time);
       } else if (choice === "velocity_fin") {
-        res = parseFloat(ivelocity) + parseFloat(acceleration * Math.abs(time)) ;
+        res = parseFloat(ivelocity) + parseFloat(acceleration * Math.abs(time));
       } else if (choice === "velocity_ini") {
         res = parseFloat(fvelocity) - parseFloat(acceleration * Math.abs(time));
       } else if (choice === "acceleration") {
@@ -593,7 +595,9 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[0](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[0]}
-              value={choiceData().getters[0]===null?'':choiceData().getters[0]}
+              value={
+                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+              }
             />
           </Form.Group>
 
@@ -603,7 +607,9 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[1](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[1]}
-              value={choiceData().getters[1]===null?'':choiceData().getters[1]}
+              value={
+                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+              }
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -612,7 +618,170 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[2](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[2]}
-              value={choiceData().getters[2]===null?'':choiceData().getters[2]}
+              value={
+                choiceData().getters[2] === null ? "" : choiceData().getters[2]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  }
+  //Circular Motion Calculator
+  function CalculatorCircularMotion() {
+    const [result, setResult] = useState(null);
+    const [radius, setRadius] = useState(null);
+    const [time, setTime] = useState(null);
+    const [pi, setPi] = useState(Math.PI);
+    const [velocity, setVelocity] = useState(null);
+    const [choice, setChoice] = useState("circumference");
+    function handleChange(e) {
+      console.log(e.target.value);
+      setResult(null);
+      setRadius(null);
+      setTime(null);
+      setVelocity(null);
+      setChoice(e.target.value);
+      choiceData();
+    }
+    const calcResult = () => {
+      let res;
+      if (choice === "circumference") res = 2 * Math.PI * radius;
+      else if (choice === "velocity") {
+        res = parseFloat(2 * Math.PI * radius) / parseFloat(time);
+      } else if (choice === "time")
+        res = parseFloat(2 * Math.PI * radius) / parseFloat(velocity);
+      else if (choice === "rad") {
+        let x = ((2 * Math.PI) / time) ** 2;
+        res = x * radius;
+      } else if (choice === "omega") {
+        res = (2 * Math.PI) / time;
+      }
+
+      setResult(res);
+    };
+    function reset() {
+      setResult(null);
+    }
+    const choiceData = () => {
+      if (choice === "circumference")
+        return {
+          name: "Circumference",
+          mainunit: "m",
+          quantities: ["Radius", "Pi"],
+          subunits: ["m", "NaN"],
+          setters: [setRadius, setPi],
+          getters: [radius, pi],
+          disable: true,
+        };
+      else if (choice === "velocity") {
+        return {
+          name: "Velocity",
+          mainunit: "m/s",
+          quantities: ["Radius", "Time"],
+          subunits: ["m", "s"],
+          setters: [setRadius, setTime],
+          getters: [radius, time],
+        };
+      } else if (choice === "time") {
+        return {
+          name: "Time",
+          mainunit: "s",
+          quantities: ["Radius", "Velocity"],
+          subunits: ["m", "m/s"],
+          setters: [setRadius, setVelocity],
+          getters: [radius, velocity],
+        };
+      } else if (choice === "rad") {
+        return {
+          name: "Radial Acceleration",
+          mainunit: "m",
+          quantities: ["Radius", "Time"],
+          subunits: ["m", "s"],
+          setters: [setRadius, setTime],
+          getters: [radius, time],
+        };
+      } else if (choice === "omega") {
+        return {
+          name: "Angular Velocity",
+          mainunit: "rad/s",
+          quantities: ["Time", "Pi"],
+          subunits: ["s", "NaN"],
+          setters: [setTime, setPi],
+          getters: [time, pi],
+          disable: true,
+        };
+      }
+    };
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+              <option value="circumference">
+                C : Circumference of Circular Path
+              </option>
+              <option value="velocity">V : Velocity of Rotation</option>
+              <option value="time">T : Time Period of Rotation</option>
+              <option value="rad">aᵣₐ : Radial Acceleration </option>
+              <option value="omega">ω : Angular Velocity </option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0]}
+              value={
+                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+              }
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={
+                choiceData().subunits[1] === "NaN"
+                  ? "No Unit"
+                  : "Enter in " + choiceData().subunits[1]
+              }
+              value={
+                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+              }
+              disabled={choiceData().disable}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -664,6 +833,9 @@ function Calculator({ match }) {
         break;
       case "Kinematics":
         currentCall = CalculatorKinematics();
+        break;
+      case "Circular Motion":
+        currentCall = CalculatorCircularMotion();
         break;
       default:
         break;
@@ -741,9 +913,7 @@ function Calculator({ match }) {
         </div>
       </div>
     );
-  }
-
-  else if (details.topic === "Fluid Mechanics") {
+  } else if (details.topic === "Fluid Mechanics") {
     return (
       <div className="mech__main">
         <div className="mech__header">
@@ -752,7 +922,7 @@ function Calculator({ match }) {
         <div className="mech__topics-card">
           {fluid_list.map((data) => (
             <React.Fragment key={data.topic}>
-            <Link
+              <Link
                 to={`/classicalmechanics/calc/fluid_mechanics/${data.topic}`}
                 style={{ textDecoration: "none" }}
               >
