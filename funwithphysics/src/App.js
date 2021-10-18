@@ -11,7 +11,6 @@ import WPECalculator from "./Components/Classical Mechanics/Topics/wpe_Calculato
 import GravitationCalculator from "./Components/Classical Mechanics/Topics/gravitation_Calculator";
 import PhysicsTopic from "./Components/PhysicsTopic";
 import MOICalculator from "./Components/Classical Mechanics/Topics/moi_Calulator";
-import Thermodynamics from './Components/Thermodynamics/Thermodynamics'
 
 import Quiz from "./Components/Quiz/Quiz";
 
@@ -70,15 +69,10 @@ const App = () => {
           path="/classicalmechanics/calc/fluid_mechanics/:topic"
           component={FluidCalculator}
         />
-        <Route
-          exact
-          path="/thermodynamics"
-          component={Thermodynamics}
-        />
 
         <Redirect to="/" />
-      </Switch >
-    </React.Fragment >
+      </Switch>
+    </React.Fragment>
   );
 };
 
