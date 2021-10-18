@@ -1,7 +1,7 @@
 import ktg from "../../Images/Thermodynamics/KTG.png";
 
 export { ktg };
-var linebreak='\n'
+
 const Topics = [
   { 
     topic: "Kinetic Theory of Gases",
