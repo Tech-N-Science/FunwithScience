@@ -11,7 +11,7 @@ import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
 import shm from "../../Images/Classical_mechanics/shm.jpg";
 
 import fluid_mechanics from "../../Images/Classical_mechanics/fluidmechanics/fluid_mechanics.jpg";
-
+import circular_motion from "../../Images/Classical_mechanics/circular_motion.png";
 export {
   momentum,
   force,
@@ -23,7 +23,8 @@ export {
   moment_of_inertia,
   collision,
   kinematics,
-  fluid_mechanics
+  fluid_mechanics,
+  circular_motion
 };
 
 const Topics = [
@@ -141,6 +142,12 @@ const Topics = [
   },
   {
     topic: "Circular Motion",
+    image: circular_motion,
+    details: "Uniform circular motion means that the magnitude of the velocity will always be constant. But the direction of the velocity will change at a constant rate from every point. It means that the path of the object will form a circle. And the object will complete the repeated trips around the path in the same amount of time every time.",
+    formula: "v=( 2.π.r )/T  & ω=v/r & aᵣₐ=( 4.π².r )/T",
+    process: "For an object to move along a curved circular path, the direction of its velocity must change. It is because at each point on the circular path tangent will give the direction. A change in velocity will cause the acceleration which will not be in the same direction as the velocity. Therefore for an object to move along a circular path, there must be an acceleration that will always be perpendicular to the velocity.",
+    siunit: "m , m/s , s , m/s² , rad/s",
+    dimension: "M , M/T , T , M/T² , 1/T²",
   },
   {
     topic: "Fluid Mechanics",
