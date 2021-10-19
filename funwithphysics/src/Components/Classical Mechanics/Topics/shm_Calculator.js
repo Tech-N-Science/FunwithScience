@@ -15,7 +15,14 @@ function shm_Calculator({ match }) {
         const [velocity, setVelocity] = useState(null)
         const [freq, setFreq] = useState(null)
         const [choice, setChoice] = useState("wave length")
-        // l = v/f
+
+        const handle_reset = () => {
+            setResult(null);
+            setWave_length(null);
+            setVelocity(null);
+            setFreq(null);
+        }
+
         const choice_data = () => {
             if (choice === "wave length")
                 return {
@@ -87,7 +94,6 @@ function shm_Calculator({ match }) {
                     break;
             }
             setResult(res)
-            // console.log(velocity + " " + freq + " " + res)
         }
 
 
@@ -131,8 +137,9 @@ function shm_Calculator({ match }) {
                         type="number"
                         placeholder={choice_data().getters[1] !== null ? '' : "Enter in " + choice_data().subunits[1]}
                         value={choice_data().getters[1] === null ? '' : choice_data().getters[1]}
-                        disable={choice_data().getters[1] !== null ? true : false}
+                        readOnly={choice_data().getters[1] === undefined ? true : false}
                     />
+                    {console.log(choice_data().getters[1])}
                 </Form.Group>
 
                 <Form.Group className="mb-4">
@@ -151,49 +158,175 @@ function shm_Calculator({ match }) {
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="dark" onClick={() => setResult(null)} type="reset">
+                <Button variant="dark" onClick={handle_reset} type="reset">
                     Reset
                 </Button>
             </Form>
         </React.Fragment>
     }
 
+
+
+
     // Oscillation Calculator
     function CalculatorOscillation() {
+        const [choiceOsc, setChoiceOsc] = useState("shm")
         const [result, setResult] = useState(null)
-        const [workdone, setworkdone] = useState(null)
-        const [time, settime] = useState(null)
+
+        const [omega, setOmega] = useState(null)
+        const [time, setTime] = useState(null)
+        const [phi, setPhi] = useState(null)
+        const [amplitude, setAmplitude] = useState(null)
+        const [length, setLength] = useState(null)
+        const [mass, setMass] = useState(null)
+        const [springConst, setSpringConst] = useState(null)
 
         const handleClick = () => {
-            let res = workdone * time;
+            let res;
+            const pi = 3.14;
+            const g = 9.8;
+            switch (choiceOsc) {
+                case "shm":
+                    res = amplitude * Math.sin(omega * time + phi)
+                    break;
+                case "pendulum":
+                    res = 2 * pi * Math.sqrt(length / g);
+                    break;
+                case "spring-mass":
+                    res = 2 * pi * Math.sqrt(mass / springConst);;
+                    break;
+                default:
+                    res = null;
+                    break;
+            }
             setResult(res)
         }
 
+        const handle_reset = () => {
+            setResult(null);
+            setOmega(null);
+            setTime(null);
+            setPhi(null);
+            setAmplitude(null);
+            setLength(null);
+            setMass(null);
+            setSpringConst(null);
+            // setChoiceOsc("shm");
+        }
+
+        const choice_data = () => {
+            if (choiceOsc === "shm")
+                return {
+                    name: "General Eqn: SHM",
+                    mainunit: "m",
+                    quantities: ["Amplitude", "Angular velocity(ω)", "Time", "Initial Phase(Φ)"],
+                    subunits: ["m/s", "rad s^-1", "s", "rad"],
+                    setters: [setAmplitude, setOmega, setTime, setPhi],
+                    getters: [amplitude, omega, time, phi],
+                };
+            else if (choiceOsc === "pendulum")
+                return {
+                    name: "Simple Pendulum",
+                    mainunit: "sec",
+                    quantities: ["Length of the pendulum"],
+                    subunits: ["m"],
+                    setters: [setLength],
+                    getters: [length],
+                };
+            else if (choiceOsc === "spring-mass")
+                return {
+                    name: "Spring-Mass System",
+                    mainunit: "sec",
+                    quantities: ["Mass", "Spring Constant"],
+                    subunits: ["Hz", "N/m"],
+                    setters: [setMass, setSpringConst],
+                    getters: [mass, springConst],
+                };
+        };
+
         return <React.Fragment>
             <Form>
-                <Form.Group className="mb-3" controlId="workdone">
-                    <Form.Label> Work Done (in Joules)</Form.Label>
-                    <Form.Control onChange={(e) => setworkdone(e.target.value)} type="number" placeholder="Enter work done in joules" />
+                {/* dropdown */}
+                <Form.Group className="mb-4" controlId="choice">
+                    <Form.Label>Select the type of calculation</Form.Label>
+                    <Form.Control as="select" onChange={(e) => setChoiceOsc(e.target.value)}>
+                        <option value="shm">General Equation: SHM</option>
+                        <option value="pendulum">Simple Pendulum </option>
+                        <option value="spring-mass">Spring-Mass system</option>
+                    </Form.Control>
                 </Form.Group>
-                <Form.Label> Time Taken (in sec)</Form.Label>
-                <Form.Group className="mb-3" controlId="time">
-                    <Form.Control onChange={(e) => settime(e.target.value)} type="number" placeholder="Enter time taken in seconds" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="power">
-                    <Form.Label>Power (P)</Form.Label>
-                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " W "} />
-                    <Form.Text className="text-muted">
-                        Enter the above values to Calculate.
+
+                {/* Inputs */}
+                <Form.Group className="mb-4" controlId="text">
+                    <Form.Text className="text">
+                        <strong>
+                            {" "}
+                            To find the {choice_data().name}, Enter the following values
+                        </strong>
+                        <br />
                     </Form.Text>
                 </Form.Group>
 
-                <Button variant="primary" onClick={handleClick}>
-                    Calculate
-                </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="dark" onClick={() => setResult(null)} type="reset">
-                    Reset
-                </Button>
+                <Form.Group className="mb-4">
+                    <Form.Label>{choice_data().quantities[0]}</Form.Label>
+                    <Form.Control
+                        onChange={(e) => choice_data().setters[0](e.target.value)}
+                        type="number"
+                        placeholder={"Enter in " + choice_data().subunits[0]}
+                        value={choice_data().getters[0] === null ? '' : choice_data().getters[0]}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-4">
+                    <Form.Label>{choice_data().quantities[1]}</Form.Label>
+                    <Form.Control
+                        onChange={(e) => choice_data().setters[1](e.target.value)}
+                        type="number"
+                        placeholder={choice_data().getters[1] !== null ? '' : "Enter in " + choice_data().subunits[1]}
+                        value={choice_data().getters[1] === null ? '' : choice_data().getters[1]}
+                        readOnly={choice_data().getters[1] === undefined ? true : false}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-4">
+                    <Form.Label>{choice_data().quantities[2]}</Form.Label>
+                    <Form.Control
+                        onChange={(e) => choice_data().setters[2](e.target.value)}
+                        type="number"
+                        placeholder={choice_data().getters[2] !== null ? '' : "Enter in " + choice_data().subunits[2]}
+                        value={choice_data().getters[2] === null ? '' : choice_data().getters[2]}
+                        readOnly={choice_data().getters[2] === undefined ? true : false}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-4">
+                    <Form.Label>{choice_data().quantities[3]}</Form.Label>
+                    <Form.Control
+                        onChange={(e) => choice_data().setters[3](e.target.value)}
+                        type="number"
+                        placeholder={choice_data().getters[3] !== null ? '' : "Enter in " + choice_data().subunits[3]}
+                        value={choice_data().getters[3] === null ? '' : choice_data().getters[3]}
+                        readOnly={choice_data().getters[3] === undefined ? true : false}
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-4">
+                    <Form.Control
+                        readOnly
+                        type="number"
+                        placeholder={
+                            result === null
+                                ? "Result"
+                                : result + " " + choice_data().mainunit
+                        }
+                    />
+                </Form.Group>
+
             </Form>
+            {/* Buttons */}
+            <Button variant="primary" onClick={handleClick}>
+                Calculate
+            </Button>&nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={handle_reset} type="reset">
+                Reset
+            </Button>
         </React.Fragment>
     }
 
