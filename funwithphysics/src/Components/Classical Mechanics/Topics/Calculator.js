@@ -4,6 +4,7 @@ import Topics from "../topics_data";
 import { Form, Card, Button, Row, Col } from "react-bootstrap";
 import "../classicalMechanics.css";
 import WPE_list from "../wpe_data";
+import shm_list from "../shm_data";
 import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
 import fluid_list from "../fluidmechanics_data";
@@ -913,7 +914,44 @@ function Calculator({ match }) {
         </div>
       </div>
     );
-  } else if (details.topic === "Fluid Mechanics") {
+  }
+  // Simple Harmonic Motion
+  else if (details.topic === "Simple Harmonic Motion") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Simple Harmonic Motion</h1>
+        </div>
+        <div className="mech__topics-card">
+          {shm_list.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Link
+                to={`/classicalmechanics/calc/shm/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  // Fluid Mechanics 
+  else if (details.topic === "Fluid Mechanics") {
     return (
       <div className="mech__main">
         <div className="mech__header">
@@ -947,7 +985,6 @@ function Calculator({ match }) {
       </div>
     );
   }
-
   //Gravitation
   else if (details.topic === "Gravitation") {
     return (

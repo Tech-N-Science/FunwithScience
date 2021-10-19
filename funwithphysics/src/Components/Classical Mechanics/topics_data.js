@@ -8,6 +8,8 @@ import work_power_energy from "../../Images/Classical_mechanics/wpe.jpg";
 import collision from "../../Images/Classical_mechanics/collision.jpg";
 import moment_of_inertia from "../../Images/Classical_mechanics/moment of inertia/momentOfInertia.jpg";
 import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
+import shm from "../../Images/Classical_mechanics/shm.jpg";
+
 import fluid_mechanics from "../../Images/Classical_mechanics/fluidmechanics/fluid_mechanics.jpg";
 import circular_motion from "../../Images/Classical_mechanics/circular_motion.png";
 export {
@@ -151,6 +153,11 @@ const Topics = [
     topic: "Fluid Mechanics",
     image: fluid_mechanics,
     details: "...",
+  },
+  {
+    topic: "Simple Harmonic Motion",
+    image: shm,
+    details: "....",
   },
   {
     topic: "Kinematics",
