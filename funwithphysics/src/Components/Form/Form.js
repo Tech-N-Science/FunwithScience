@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Toast } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
-import "./Form.css";
+
 
 function Form() {
 	const [inputs, setInputs] = useState({});
