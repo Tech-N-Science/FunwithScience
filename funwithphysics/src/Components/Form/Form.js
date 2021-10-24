@@ -1,9 +1,12 @@
 
 import { useState } from "react";
-
+import { Toast } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
+import "./Form.css";
 
 function Form() {
 	const [inputs, setInputs] = useState({});
+	const [show, setShow] = useState(false);
 
 	const handleChange = (event) => {
 		const name = event.target.name;
@@ -57,8 +60,13 @@ function Form() {
 					onChange={handleChange}
 				/>
 			</div>
+			<Col xs={10}>
+				<Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
+				<Toast.Body>Message sent successfully</Toast.Body>
+				</Toast>
+			</Col>
 			<div className="btn">
-				<button type="submit">Send</button>
+				<button type="submit" onClick={() => setShow(true)}>Send</button>
 			</div>
 		</form>
 	)
