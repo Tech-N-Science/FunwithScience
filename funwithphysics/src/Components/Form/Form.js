@@ -7,7 +7,7 @@ import { Col } from 'react-bootstrap';
 function Form() {
 	const [inputs, setInputs] = useState({});
 	const [show, setShow] = useState(false);
-	
+	const sendEmail = process.env.REACT_APP_SEND_EMAIL;
 
 	const handleChange = (event) => {
 		const name = event.target.name;
@@ -21,7 +21,23 @@ function Form() {
 		
 		if(inputs !== "") {
 			setInputs("");
-			setShow(true)
+			setShow(true);
+
+			fetch(`https://formsubmit.co/ajax/${sendEmail}`, {
+				method: "POST",
+				headers: { 
+					'Content-Type': 'application/json',
+					'Accept': 'application/json'
+				},
+				body: JSON.stringify({
+					name: inputs.name,
+					email: inputs.email,
+					message: inputs.message
+				})
+			})
+			.then(response => response.json())
+			.then(data => console.log(data))
+			.catch(error => console.log(error));
 		};
 		
 	}
@@ -32,11 +48,11 @@ function Form() {
 				<div className="text">Name *</div>
 				<input
 					type="text"
-					name="username"
+					name="name"
 					minLength="3"
 					placeholder="Enter your Name"
 					required
-					value={inputs.username || ""}
+					value={inputs.name || ""}
 					onChange={handleChange}
 				/>
 			</div>
