@@ -9,6 +9,7 @@ import collision from "../../Images/Classical_mechanics/collision.jpg";
 import moment_of_inertia from "../../Images/Classical_mechanics/moment of inertia/momentOfInertia.jpg";
 import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
 import shm from "../../Images/Classical_mechanics/shm.jpg";
+import stress_strain from "../../Images/Classical_mechanics/stress_strain.jpg";
 
 import fluid_mechanics from "../../Images/Classical_mechanics/fluidmechanics/fluid_mechanics.jpg";
 import circular_motion from "../../Images/Classical_mechanics/circular_motion.png";
@@ -24,7 +25,8 @@ export {
   collision,
   kinematics,
   fluid_mechanics,
-  circular_motion
+  circular_motion,
+  stress_strain
 };
 
 const Topics = [
@@ -170,7 +172,7 @@ const Topics = [
   },
   {
     topic: "Stress and Strain",
-    Image: null,
+    image: stress_strain,
     details: [
       <h3>Stress</h3>,
       "In classical mechanics, Stress is a known as a physical quantity that expresses the amount of force, which is experienced by the nearby particles. Stress is calculated as force per unit area",
