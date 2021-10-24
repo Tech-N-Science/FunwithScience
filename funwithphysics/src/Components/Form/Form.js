@@ -7,6 +7,7 @@ import { Col } from 'react-bootstrap';
 function Form() {
 	const [inputs, setInputs] = useState({});
 	const [show, setShow] = useState(false);
+	
 
 	const handleChange = (event) => {
 		const name = event.target.name;
@@ -14,11 +15,15 @@ function Form() {
 		setInputs(values => ({ ...values, [name]: value }))
 	}
 
+	
 	const handleSubmit = (event) => {
 		event.preventDefault();
-
-		console.log(inputs);
-		setInputs("")
+		
+		if(inputs !== "") {
+			setInputs("");
+			setShow(true)
+		};
+		
 	}
 
 	return (
@@ -66,10 +71,17 @@ function Form() {
 				</Toast>
 			</Col>
 			<div className="btn">
-				<button type="submit" onClick={() => setShow(true)}>Send</button>
+				<button type="submit">Send</button>
 			</div>
 		</form>
 	)
 }
 
 export default Form;
+
+/*
+
+      title="support@example.com" />
+      title="support@example.com" />
+        
+*/
