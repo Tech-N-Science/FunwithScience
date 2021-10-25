@@ -42,10 +42,10 @@ function PhysicsTopic() {
 				<div className="container">
 					<div className="row">
 					<PhysicsTopicItem name="Classical mechanics" link="/classicalmechanics" icon="icon-shop" image={classicalMechanics}>
-							<p>Classical mechanics is a physical theory describing the motion of macroscopic objects, from projectiles to parts of machinery, and astronomical objects.</p>
+							<p>Classical mechanics is a theory describing the motion of macroscopic objects, projectile motions of parts of machinery and astronomical objects and also rotatory motion of machines. </p>
 							</PhysicsTopicItem>
 					<PhysicsTopicItem name="Thermodynamics" link="/thermodynamics" icon="icon-heart4" image={thermodynamics}>
-							<p>Thermodynamics is the branch of physics that deals with the relationships between heat and other forms of energy.</p>
+							<p>Thermodynamics is the branch of physics that deals with the transfer of heat and energy from one body to another.</p>
 							</PhysicsTopicItem>
 						<PhysicsTopicItem name="Relativity" link="/relativity" icon="icon-lab2" image={relativity}>
 							<p>Relativity is the notion that the laws of physics are the same everywhere, be it on Earth or in a far off corner of the universe.</p>
