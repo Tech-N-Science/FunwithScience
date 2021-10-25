@@ -808,6 +808,130 @@ function Calculator({ match }) {
     );
   }
 
+  //Stress and Strain
+  function Stress_Strain_calc() {
+    const [result, setResult] = useState(null);
+    const [options, setOptions] = useState("stress");
+    const [force, setForce] = useState(null)
+    const [area, setArea] = useState(null)
+    const [delX, setDelX] = useState(null)
+    const [x, setX] = useState(null)
+
+    function handleChange(e) {
+      console.log(e.target.value);
+      setOptions(e.target.value);
+    }
+    const calcResult = () => {
+      let res;
+      if (options === "stress")
+        res = force / area;
+      else if (options === "strain")
+        res = delX / x;
+
+      setResult(res);
+    };
+
+    function reset() {
+      setResult(null);
+      setForce(null);
+      setArea(null);
+      setDelX(null);
+      setX(null);
+    }
+    const choiceData = () => {
+      if (options === "stress")
+        return {
+          name: "Stress",
+          mainunit: "Pascal(Pa)",
+          quantities: ["Force", "Area"],
+          subunits: ["F", "M^2"],
+          setters: [setForce, setArea],
+          getters: [force, area],
+        };
+      else if (options === "strain") {
+        return {
+          name: "Strain",
+          mainunit: " ",
+          quantities: ["Delta X", "X"],
+          subunits: ["m or m^2 or m^3", "m or m^2 or m^3"],
+          setters: [setDelX, setX],
+          getters: [delX, x],
+        };
+      }
+    };
+
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+              <option value="stress">Stress</option>
+              <option value="strain">Strain</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0]}
+              value={
+                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+              }
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={
+                choiceData().subunits[1] === "NaN"
+                  ? "No Unit"
+                  : "Enter in " + choiceData().subunits[1]
+              }
+              value={
+                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+              }
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  }
+
   // Adding Calculators together
 
   function calC(key) {
@@ -837,6 +961,9 @@ function Calculator({ match }) {
         break;
       case "Circular Motion":
         currentCall = CalculatorCircularMotion();
+        break;
+      case "Stress and Strain":
+        currentCall = Stress_Strain_calc();
         break;
       default:
         break;
