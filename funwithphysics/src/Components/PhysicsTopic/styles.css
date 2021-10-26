@@ -92,7 +92,9 @@
         padding: 0px;
     }
 }
-
+#credit{
+    font-size: 8px;
+}
 .services {
     width: 95%;
     margin: 0 auto;
