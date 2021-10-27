@@ -51,6 +51,7 @@ function PhysicsTopic() {
   							</PhysicsTopicItem>
 						<PhysicsTopicItem name="Relativity" link="/relativity" icon="icon-lab2" image={relativity}>
 							<p>Relativity is the notion that the laws of physics are the same everywhere, be it on Earth or in a far off corner of the universe.</p>
+						    <p id="credit">Image by <a href="https://pixabay.com/users/stux-12364/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4129246">Thanks for your Like • donations welcome</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4129246">Pixabay</a></p>
 						</PhysicsTopicItem>
 						<PhysicsTopicItem name="Electromagnetism" link="/electromagnetism" icon="icon-banknote" image={electromagnetism}>
 							<p>Electromagnetism is a branch of physics involving the study of the electromagnetic force, a type of physical interaction between electrically charged particles. </p>
@@ -62,6 +63,7 @@ function PhysicsTopic() {
 						</PhysicsTopicItem>
 						<PhysicsTopicItem name="Nuclear Physics" link="/nuclear" icon="icon-home-outline" image={nuclear}>
 							<p>Nuclear physics is the study of the protons and neutrons at the centre of an atom and the interactions that hold them together in a space.</p>
+						    <p id="credit">Image by <a href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1222511">Gerd Altmann</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1222511">Pixabay</a></p>
 						</PhysicsTopicItem>
 						<PhysicsTopicItem name="Photonics" link="/photonics" icon="icon-bubble3" image={photonics}>
 							<p>Photonics is the physical science of light waves. It deals with the science behind the generation, detection and manipulation of light.</p>
