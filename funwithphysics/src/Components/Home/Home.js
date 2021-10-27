@@ -9,6 +9,7 @@ const Home = () => {
 		<React.Fragment>
 			{/* ----Banner---- */}
 			<div className="banner">
+				<p id="credit">Image by <a href="https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1149733">Free-Photos</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1149733">Pixabay</a></p>
 				<h2 className="banner_text col-md-8 col-sm-8 auto pt-5">Physics is about questioning, studying, probing nature. You probe, and, if you're lucky, you get strange clues.
 					<br />So, keep Exploring Physics.</h2>
 				<div className="banner_button">
