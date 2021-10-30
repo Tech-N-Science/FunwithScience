@@ -226,6 +226,7 @@ function Calculator({ match }) {
       </div>
       <div className="Calculator__details">
         <p>{details.details}</p>
+        For more Information visit <a href="https://en.wikipedia.org/wiki/Kinetic_theory_of_gases" target="_blank" rel="noreferrer">Wikipedia</a>
       </div>
       <div className="Calculator__formula-text">
         <h3>Working Formula:</h3>
