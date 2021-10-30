@@ -20,7 +20,7 @@ import FluidCalculator from "./Components/Classical Mechanics/Topics/fluidmechan
 
 const App = () => {
   return (
-    <React.Fragment>
+    <>
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
@@ -78,7 +78,7 @@ const App = () => {
 
         <Redirect to="/" />
       </Switch>
-    </React.Fragment>
+    </>
   );
 };
 

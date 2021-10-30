@@ -9,6 +9,8 @@ import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
 import fluid_list from "../fluidmechanics_data";
 import { Link } from "react-router-dom";
+
+
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
@@ -26,7 +28,7 @@ function Calculator({ match }) {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <React.Fragments>
         <Form>
           <Form.Group className="mb-3" controlId="mass">
             <Form.Label>Mass (M)</Form.Label>
@@ -63,7 +65,7 @@ function Calculator({ match }) {
             Reset
           </Button>
         </Form>
-      </React.Fragment>
+      </React.Fragments>
     );
   }
 
@@ -79,7 +81,7 @@ function Calculator({ match }) {
     };
 
     return (
-      <React.Fragment>
+      <React.Fragments>
         <Form>
           <Form.Group className="mb-3" controlId="mass">
             <Form.Label> Mass (in Kg)</Form.Label>
@@ -118,7 +120,7 @@ function Calculator({ match }) {
             Reset
           </Button>
         </Form>
-      </React.Fragment>
+      </React.Fragments>
     );
   }
 
@@ -134,7 +136,7 @@ function Calculator({ match }) {
     };
 
     return (
-      <React.Fragment>
+      <React.Fragments>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Force applied (N)</Form.Label>
@@ -171,7 +173,7 @@ function Calculator({ match }) {
             Reset
           </Button>
         </Form>
-      </React.Fragment>
+      </React.Fragments>
     );
   }
 
@@ -186,7 +188,7 @@ function Calculator({ match }) {
             let res = ( 6.67 * mass_A * mass_B ) / ( distance * distance );
             setResult(res)
         }
-        return <React.Fragment>
+        return <React.Fragments>
             <Form>
 
                 <Form.Group className="mb-3" controlId="mass_A">
@@ -217,7 +219,7 @@ function Calculator({ match }) {
                     Reset
                 </Button>
             </Form>
-        </React.Fragment>
+        </React.Fragments>
     }*/
 
   // Error Measurement Calculator
@@ -237,7 +239,7 @@ function Calculator({ match }) {
       setResultPer(res_per);
     };
     return (
-      <React.Fragment>
+      <React.Fragments>
         <Form>
           <Form.Group className="mb-3" controlId="x_measured">
             <Form.Label>X Measured (XM)</Form.Label>
@@ -298,7 +300,7 @@ function Calculator({ match }) {
             Reset
           </Button>
         </Form>
-      </React.Fragment>
+      </React.Fragments>
     );
   }
 
@@ -315,7 +317,7 @@ function Calculator({ match }) {
     };
 
     return (
-      <React.Fragment>
+      <React.Fragments>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Force (in Newton)</Form.Label>
@@ -360,7 +362,7 @@ function Calculator({ match }) {
             Reset
           </Button>
         </Form>
-      </React.Fragment>
+      </React.Fragments>
     );
   }
 
@@ -391,7 +393,7 @@ function Calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragments>
         <Form>
           {/* Mass  */}
           <Row>
@@ -475,7 +477,7 @@ function Calculator({ match }) {
             Reset
           </Button>
         </Form>
-      </>
+      </React.Fragments>
     );
   }
   // Kinematics Calculator
@@ -568,7 +570,7 @@ function Calculator({ match }) {
         };
     };
     return (
-      <>
+      <React.Fragments>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -643,7 +645,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragments>
     );
   }
   //Circular Motion Calculator
@@ -733,7 +735,7 @@ function Calculator({ match }) {
       }
     };
     return (
-      <>
+      <React.Fragments>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -804,7 +806,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragments>
     );
   }
 
@@ -861,7 +863,7 @@ function Calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragments>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -928,7 +930,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragments>
     );
   }
 
@@ -980,7 +982,7 @@ function Calculator({ match }) {
         </div>
         <div className="mech__topics-card">
           {MOI_list.map((data) => (
-            <React.Fragment key={data.topic}>
+            <React.Fragments key={data.topic}>
               <Link
                 to={`/classicalmechanics/calc/moment_of_inertia/${data.topic}`}
                 style={{ textDecoration: "none" }}
@@ -1000,9 +1002,8 @@ function Calculator({ match }) {
                   </Card.Body>
                 </Card>
               </Link>
-            </React.Fragment>
-          ))}
-        </div>
+            </React.Fragments>))}
+            </div>
       </div>
     );
   }
@@ -1016,7 +1017,7 @@ function Calculator({ match }) {
         </div>
         <div className="mech__topics-card">
           {WPE_list.map((data) => (
-            <React.Fragment key={data.topic}>
+            <React.Fragments key={data.topic}>
               <Link
                 to={`/classicalmechanics/calc/work_power_energy/${data.topic}`}
                 style={{ textDecoration: "none" }}
@@ -1036,7 +1037,7 @@ function Calculator({ match }) {
                   </Card.Body>
                 </Card>
               </Link>
-            </React.Fragment>
+            </React.Fragments>
           ))}
         </div>
       </div>
@@ -1051,7 +1052,7 @@ function Calculator({ match }) {
         </div>
         <div className="mech__topics-card">
           {shm_list.map((data) => (
-            <React.Fragment key={data.topic}>
+            <React.Fragments key={data.topic}>
               <Link
                 to={`/classicalmechanics/calc/shm/${data.topic}`}
                 style={{ textDecoration: "none" }}
@@ -1071,7 +1072,7 @@ function Calculator({ match }) {
                   </Card.Body>
                 </Card>
               </Link>
-            </React.Fragment>
+            </React.Fragments>
           ))}
         </div>
       </div>
@@ -1086,7 +1087,7 @@ function Calculator({ match }) {
         </div>
         <div className="mech__topics-card">
           {fluid_list.map((data) => (
-            <React.Fragment key={data.topic}>
+            <React.Fragments key={data.topic}>
               <Link
                 to={`/classicalmechanics/calc/fluid_mechanics/${data.topic}`}
                 style={{ textDecoration: "none" }}
@@ -1106,7 +1107,7 @@ function Calculator({ match }) {
                   </Card.Body>
                 </Card>
               </Link>
-            </React.Fragment>
+            </React.Fragments>
           ))}
         </div>
       </div>
@@ -1121,7 +1122,7 @@ function Calculator({ match }) {
         </div>
         <div className="mech__topics-card">
           {Gravitation_list.map((data) => (
-            <React.Fragment key={data.topic}>
+            <React.Fragments key={data.topic}>
               <Link
                 to={`/classicalmechanics/calc/gravitation/${data.topic}`}
                 style={{ textDecoration: "none" }}
@@ -1141,7 +1142,7 @@ function Calculator({ match }) {
                   </Card.Body>
                 </Card>
               </Link>
-            </React.Fragment>
+            </React.Fragments>
           ))}
         </div>
       </div>
@@ -1152,7 +1153,7 @@ function Calculator({ match }) {
         <div className="Calculator__header">
           <h1>{details.topic}</h1>
         </div>
-        
+
         <div className="Calculator__details">
           <p>{details.details}</p>
         </div>

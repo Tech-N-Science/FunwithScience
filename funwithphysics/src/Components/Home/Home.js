@@ -6,7 +6,7 @@ import { LearnMore } from '../LearnMore'
 
 const Home = () => {
 	return (
-		<React.Fragment>
+		<>
 			{/* ----Banner---- */}
 			<div className="banner">
 				<p id="credit">Image by <a href="https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1149733">Free-Photos</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1149733">Pixabay</a></p>
@@ -25,7 +25,7 @@ const Home = () => {
 			<Footer />
 			{/* <!-- Back to top button --> */}
 			<button className="gotopbtn" onClick={scroll}> <i className="fas fa-arrow-up"></i> </button>
-		</React.Fragment>
+		</>
 	)
 }
 
