@@ -5,8 +5,10 @@ import Navbar from "./Components/Navbar/Navbar";
 import React from "react";
 import ClassicalMechanics from "./Components/Classical Mechanics/ClassicalMechanics";
 import Thermodynamics from "./Components/Thermodynamics/Thermodynamics";
+import electromagnetism from "./Components/electromagnetism/electromagnetism"
 import CalcClassic from "./Components/Classical Mechanics/Topics/Calculator";
 import CalcThermo from "./Components/Thermodynamics/Topics/Calculator";
+import CalcElectro from "./Components/electromagnetism/topics/calculator";
 import WPECalculator from "./Components/Classical Mechanics/Topics/wpe_Calculator";
 import GravitationCalculator from "./Components/Classical Mechanics/Topics/gravitation_Calculator";
 import PhysicsTopic from "./Components/PhysicsTopic";
@@ -35,6 +37,16 @@ const App = () => {
           exact
           path="/thermodynamics"
           component={Thermodynamics}
+        />
+        {/* <Route
+          exact
+          path="/electromagnetism"
+          component={electromagnetism}
+        /> */}
+        <Route
+          exact
+          path="/electromagnetism/calculator"
+          component={CalcElectro}
         />
         <Route exact path="/physics" component={PhysicsTopic} />
         <Route

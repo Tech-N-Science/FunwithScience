@@ -35,18 +35,18 @@ function PhysicsTopic() {
 		window.scrollTo(0, 0);
 	}, [])
 
-    return (
-        <div>
-            <h3 className="learn-header" id="learn">Physics calculator</h3>
-            <div id="fh5co-course-categories" className="mt-5 p-5">
+	return (
+		<div>
+			<h3 className="learn-header" id="learn">Physics calculator</h3>
+			<div id="fh5co-course-categories" className="mt-5 p-5">
 				<div className="container">
 					<div className="row">
-					<PhysicsTopicItem name="Classical mechanics" link="/classicalmechanics" icon="icon-shop" image={classicalMechanics}>
+						<PhysicsTopicItem name="Classical mechanics" link="/classicalmechanics" icon="icon-shop" image={classicalMechanics}>
 							<p>Classical mechanics is a physical theory describing the motion of macroscopic objects, from projectiles to parts of machinery, and astronomical objects.</p>
-							</PhysicsTopicItem>
-					<PhysicsTopicItem name="Thermodynamics" link="/thermodynamics" icon="icon-heart4" image={thermodynamics}>
+						</PhysicsTopicItem>
+						<PhysicsTopicItem name="Thermodynamics" link="/thermodynamics" icon="icon-heart4" image={thermodynamics}>
 							<p>Thermodynamics is the branch of physics that deals with the relationships between heat and other forms of energy.</p>
-							</PhysicsTopicItem>
+						</PhysicsTopicItem>
 						<PhysicsTopicItem name="Relativity" link="/relativity" icon="icon-lab2" image={relativity}>
 							<p>Relativity is the notion that the laws of physics are the same everywhere, be it on Earth or in a far off corner of the universe.</p>
 						</PhysicsTopicItem>
@@ -68,7 +68,7 @@ function PhysicsTopic() {
 					</div>
 				</div>
 			</div>
-        </div>
-    )
+		</div>
+	)
 }
 export default PhysicsTopic

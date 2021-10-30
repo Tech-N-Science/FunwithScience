@@ -114,14 +114,14 @@ function Calculator({ match }) {
     const calcResult = () => {
       let res;
       // setGasCon(8.3145);
-      if (choice === "ke") res = 1.5*gasCon * moles * temperature;
-      else if (choice === "rms") res = (parseFloat(3* gasCon * temperature) / molarMass)**0.5;
-      else if (choice === "av") res = (parseFloat(8*gasCon* temperature) /parseFloat( Math.PI* molarMass))**0.5;
-      else if (choice === "mp") res = (parseFloat(2*gasCon * temperature) / molarMass)**0.5;
+      if (choice === "ke") res = 1.5 * gasCon * moles * temperature;
+      else if (choice === "rms") res = (parseFloat(3 * gasCon * temperature) / molarMass) ** 0.5;
+      else if (choice === "av") res = (parseFloat(8 * gasCon * temperature) / parseFloat(Math.PI * molarMass)) ** 0.5;
+      else if (choice === "mp") res = (parseFloat(2 * gasCon * temperature) / molarMass) ** 0.5;
       else if (choice === "p") res = 8.3145 * moles * temperature / volume;
       else if (choice === "v") res = 8.3145 * moles * temperature / pressure;
-      else if (choice === "t") res = parseFloat(pressure*volume)/parseFloat(moles*8.3145);
-      else if (choice === "u") res = freedom*moles*8.3145*temperature/2;
+      else if (choice === "t") res = parseFloat(pressure * volume) / parseFloat(moles * 8.3145);
+      else if (choice === "u") res = freedom * moles * 8.3145 * temperature / 2;
       setResult(res);
     };
     function reset() {
@@ -160,7 +160,7 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[0](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[0]}
-              value={choiceData().getters[0]===null?'':choiceData().getters[0]}
+              value={choiceData().getters[0] === null ? '' : choiceData().getters[0]}
             />
           </Form.Group>
 
@@ -170,7 +170,7 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[1](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[1]}
-              value={choiceData().getters[1]===null?'':choiceData().getters[1]}
+              value={choiceData().getters[1] === null ? '' : choiceData().getters[1]}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -179,7 +179,7 @@ function Calculator({ match }) {
               onChange={(e) => choiceData().setters[2](e.target.value)}
               type="number"
               placeholder={"Enter in " + choiceData().subunits[2]}
-              value={choiceData().getters[2]===null?'':choiceData().getters[2]}
+              value={choiceData().getters[2] === null ? '' : choiceData().getters[2]}
             />
           </Form.Group>
           <Form.Group className="mb-4">
