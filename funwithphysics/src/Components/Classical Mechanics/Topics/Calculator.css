@@ -19,19 +19,6 @@
     width: 100% !important;
 }*/
 
-.Calculator__image {
-    grid-area: image;
-}
-
-.Calculator__image img {
-    width: 30em;
-    height: 20em;
-    object-fit: cover;
-    box-sizing: border-box;
-    border-radius: 1em;
-    border: black;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
 .Calculator__header {
     grid-area: header;
@@ -109,10 +96,7 @@
         grid-template-areas: "header header" "image image" "details details" "formula-text formula-text " "formula formula " ".. .." ".. .." "process process " ".. .." ".. .." ".. .." ".. .." ".. .." ".. .." ".. .." ".. .." ".. .." "calc calc";
         row-gap: 3em;
     }
-    .Calculator__image img {
-        margin: auto;
-        display: block;
-    }
+    
     .Calculator__header,
     .Calculator__details,
     .Calculator__formula-text,
@@ -139,8 +123,8 @@
     .Calculator__calc h3,
     .Calculator__process,
     .Calculator__siunit,
-    .Calculator__dimension,
-    .Calculator__image {
+    .Calculator__dimension{
+     
         max-width: 100%;
     }
     .Calculator__main {
