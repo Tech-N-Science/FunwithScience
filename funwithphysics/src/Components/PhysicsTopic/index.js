@@ -50,7 +50,7 @@ function PhysicsTopic() {
 							 <p id="credit">  Photo by <a href="https://unsplash.com/@vivianeokubo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Viviane Okubo</a> on <a href="https://unsplash.com/s/photos/heat-transfer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
   							</PhysicsTopicItem>
 						<PhysicsTopicItem name="Relativity" link="/relativity" icon="icon-lab2" image={relativity}>
-							<p>Relativity is the notion that the laws of physics are the same everywhere, be it on Earth or in a far off corner of the universe. For more Information visit <a href="https://en.wikipedia.org/wiki/Theory_of_relativity" target="_blank" rel="noreferrer">Wikipedia</a></p>
+							<p>Relativity is the notion that the laws of physics are the same everywhere, be it on Earth or in a far off corner of the universe.
 						    <p id="credit">Image by <a href="https://pixabay.com/users/stux-12364/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4129246">Thanks for your Like • donations welcome</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4129246">Pixabay</a></p>
 						</PhysicsTopicItem>
 						<PhysicsTopicItem name="Electromagnetism" link="/electromagnetism" icon="icon-banknote" image={electromagnetism}>
