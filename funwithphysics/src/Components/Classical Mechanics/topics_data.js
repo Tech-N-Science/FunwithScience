@@ -36,7 +36,7 @@ const Topics = [
     details: `Momentum is a vector quantity, defined as the product of the mass of a particle and its velocity. From Isaac Newton’s second law of motion we can see that the rate of change of momentum is equal to the force acting on the particle.
         
 
-        From Newton’s second law it follows that, if a constant force acts on a particle for a given time, the product of force and the time interval is equal to the change in the momentum. Conversely, the momentum of a particle is a measurement of the time, required for a constant force to bring it to rest.`,
+        From Newton’s second law it follows that, if a constant force acts on a particle for a given time, the product of force and the time interval is equal to the change in the momentum. Conversely, the momentum of a particle is a measurement of the time, required for a constant force to bring it to rest. For more information visit ${<a href="https://en.wikipedia.org/wiki/Momentum" target="_blank" rel="noreferrer">Wikipedia</a>}`,
     formula: "p = mv",
     process:
       "Here, the linear momentum is defined by p, m is the mass of the system and v is its velocity. We can calculate the momentum (p) by multiplying Mass of the particle (m) with the velocity of the particle (v).",
@@ -55,6 +55,7 @@ const Topics = [
         It can accelerate the speed of a moving body.
         It can also change the direction of a moving body along with its shape and size.
 
+        For more information visit ${<a href="https://en.wikipedia.org/wiki/Force" target="_blank" rel="noreferrer">Wikipedia</a>}
         `,
     formula: "f = ma",
     process: `The force (F) required to move an object of mass (m) with an acceleration (a) is given by the formula F = m x a. So, force = mass multiplied by acceleration.`,
@@ -65,7 +66,9 @@ const Topics = [
     topic: "Friction",
     image: friction,
     details: `Friction is a force that resists the sliding or rolling of one solid object over another.
-        Surface of an object is microscopically irreguler, thats why, when any two objects in contact try to be in motion relatively with the another one, a force apears at their contact point resisting the motion, this force is opposite to the direction of motion.`,
+        Surface of an object is microscopically irreguler, thats why, when any two objects in contact try to be in motion relatively with the another one, a force apears at their contact point resisting the motion, this force is opposite to the direction of motion.
+        For more information visit ${<a href="https://en.wikipedia.org/wiki/Friction" target="_blank" rel="noreferrer">Wikipedia</a>}
+        `,
     formula: "F = μN",
     process: `F, is the frictional force, N is the normal force. The the friction is calculated by F = μN.
         
@@ -82,7 +85,7 @@ const Topics = [
     topic: "Error Measurements",
     image: error_measurement,
     details:
-      "Any measurement that you make is just an approximation, 100% accuracy is not possible. If you measure the same object two different times, the two measurements may not be exactly the same.  The difference between the two measurements is called a variation in the measurements. This variation introduces an unwanted but unavoidable uncertainty in our measurement. This uncertainty is called the Errors in measurement. This ‘error’ should not be confused with a ‘mistake’. Error, unlike mistake, does not mean that you got the wrong answer. It just means you didn’t get as close to the true value as possible. The errors in measurement are a mathematical way to show the uncertainty in the measurement.  It is the difference between the result of the measurement and the true value of what you were measuring. Absolute , Relative and Percentage error are three types of error with which every experimental scientist should be familiar.",
+      `Any measurement that you make is just an approximation, 100% accuracy is not possible. If you measure the same object two different times, the two measurements may not be exactly the same.  The difference between the two measurements is called a variation in the measurements. This variation introduces an unwanted but unavoidable uncertainty in our measurement. This uncertainty is called the Errors in measurement. This ‘error’ should not be confused with a ‘mistake’. Error, unlike mistake, does not mean that you got the wrong answer. It just means you didn’t get as close to the true value as possible. The errors in measurement are a mathematical way to show the uncertainty in the measurement.  It is the difference between the result of the measurement and the true value of what you were measuring. Absolute , Relative and Percentage error are three types of error with which every experimental scientist should be familiar.`,
 
     formula: [
       "E (Abs) = | X (measured) - X (actual) | ",
@@ -100,7 +103,7 @@ const Topics = [
   {
     topic: "Torque",
     image: torque,
-    details: `Torque is the measure of the force that can cause an object to rotate about an axis. Force is what causes an object to accelerate in linear kinematics. Similarly, torque is what causes an angular acceleration. Hence, torque can be defined as the rotational equivalent of linear force. The point where the object rotates is called the axis of rotation. In physics, torque is simply the tendency of a force to turn or twist. Different terminologies such as moment or moment of force are interchangeably used to describe torque.`,
+    details: `Torque is the measure of the force that can cause an object to rotate about an axis. Force is what causes an object to accelerate in linear kinematics. Similarly, torque is what causes an angular acceleration. Hence, torque can be defined as the rotational equivalent of linear force. The point where the object rotates is called the axis of rotation. In physics, torque is simply the tendency of a force to turn or twist. Different terminologies such as moment or moment of force are interchangeably used to describe torque.   For more information visit ${<a href="https://en.wikipedia.org/wiki/Torque" target="_blank" rel="noreferrer">Wikipedia</a>}`,
     formula: "T = F.r. sinθ",
     process: `A simple way to calculate the magnitude of the torque is to first determine the lever arm and then multiply it times the applied force.
 
@@ -129,6 +132,7 @@ const Topics = [
       "In partially elastic collision kinetic energy is not conserved but momentum is, for example: a soft tennis ball hitting a hard surface.",
 
       " And in perfectly inelastic collision, the bodies stick together and moves at a common speed, as the momentum is conserved but kinetic energy is lost, for example: when a ball of clay is dropped.",
+      ` For more information visit ${<a href="https://en.wikipedia.org/wiki/Collision" target="_blank" rel="noreferrer">Wikipedia</a>}`
     ],
 
     formula: "m1u1 + m2u2 = m1v1 + m2v2",
@@ -145,7 +149,7 @@ const Topics = [
   {
     topic: "Circular Motion",
     image: circular_motion,
-    details: "Uniform circular motion means that the magnitude of the velocity will always be constant. But the direction of the velocity will change at a constant rate from every point. It means that the path of the object will form a circle. And the object will complete the repeated trips around the path in the same amount of time every time.",
+    details: `Uniform circular motion means that the magnitude of the velocity will always be constant. But the direction of the velocity will change at a constant rate from every point. It means that the path of the object will form a circle. And the object will complete the repeated trips around the path in the same amount of time every time. For more information visit ${<a href="https://en.wikipedia.org/wiki/Circular_motion" target="_blank" rel="noreferrer">Wikipedia</a>}`,
     formula: "v=( 2.π.r )/T  & ω=v/r & aᵣₐ=( 4.π².r )/T",
     process: "For an object to move along a curved circular path, the direction of its velocity must change. It is because at each point on the circular path tangent will give the direction. A change in velocity will cause the acceleration which will not be in the same direction as the velocity. Therefore for an object to move along a circular path, there must be an acceleration that will always be perpendicular to the velocity.",
     siunit: "m , m/s , s , m/s² , rad/s",
@@ -164,7 +168,7 @@ const Topics = [
   {
     topic: "Kinematics",
     image: kinematics,
-    details: `Kinematics is a subfield of physics, developed in classical mechanics, that describes the motion of points, bodies (objects), and systems of bodies (groups of objects) without considering the forces that cause them to move.Kinematics, as a field of study, is often referred to as the "geometry of motion" and is occasionally seen as a branch of mathematics.A kinematics problem begins by describing the geometry of the system and declaring the initial conditions of any known values of position, velocity and/or acceleration of points within the system. Then, using arguments from geometry, the position, velocity and acceleration of any unknown parts of the system can be determined. The study of how forces act on bodies falls within kinetics, not kinematics.`,
+    details: `Kinematics is a subfield of physics, developed in classical mechanics, that describes the motion of points, bodies (objects), and systems of bodies (groups of objects) without considering the forces that cause them to move.Kinematics, as a field of study, is often referred to as the "geometry of motion" and is occasionally seen as a branch of mathematics.A kinematics problem begins by describing the geometry of the system and declaring the initial conditions of any known values of position, velocity and/or acceleration of points within the system. Then, using arguments from geometry, the position, velocity and acceleration of any unknown parts of the system can be determined. The study of how forces act on bodies falls within kinetics, not kinematics. For more information visit ${<a href="https://en.wikipedia.org/wiki/Kinematics" target="_blank" rel="noreferrer">Wikipedia</a>} `,
     formula: ["v=v₀​+a.t & Δx=v​₀.t+1/2.​a.t² & (v)²=(v₀)²​+2.a.Δx"],
     process: `In kinematics there are three 3 fundamental equations of motion as mentioned above. Each equation consists of different physical quantities and can be used to determine the missing value if all other values are already known. Some scenarios may need the utilzation of more than one equations. These can be used to solve real life problems like vehicular motion, projectile motion, falling motion and can also be used to derive more complex equation often used in higher Physics.Time is always taken as absolute ie. +tive`,
     siunit: "m , m/s , s , m/s²",
@@ -175,10 +179,10 @@ const Topics = [
     image: stress_strain,
     details: [
       <h3>Stress</h3>,
-      "In classical mechanics, Stress is a known as a physical quantity that expresses the amount of force, which is experienced by the nearby particles. Stress is calculated as force per unit area",
+      `In classical mechanics, Stress is a known as a physical quantity that expresses the amount of force, which is experienced by the nearby particles. Stress is calculated as force per unit area For more information visit ${<a href="https://en.wikipedia.org/wiki/Stress_(physics)" target="_blank" rel="noreferrer">Wikipedia</a>}`,
       <br />,
       <h3>Strain</h3>,
-      "Strain is known as the measurement of the deformation of a body, it's the ratio of the deformed dimension and the initial dimension. "
+      `Strain is known as the measurement of the deformation of a body, it's the ratio of the deformed dimension and the initial dimension. For more information visit ${<a href="https://en.wikipedia.org/wiki/Strain_(physics)" target="_blank" rel="noreferrer">Wikipedia</a>}`
     ],
     formula: "σ = F/A || Strain = ΔX/X",
     siunit: "Stress- N/m^2 (Pa) , Strain- no unit",

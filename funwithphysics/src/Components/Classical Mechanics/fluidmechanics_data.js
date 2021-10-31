@@ -20,7 +20,7 @@ const Topics = [
     {
         topic: "Density",
         image: density,
-        details: `Density is the measurement of how tightly a material is packed together.`,
+        details: `Density is the measurement of how tightly a material is packed together. For more information visit ${<a href="https://en.wikipedia.org/wiki/Density" target="_blank" rel="noreferrer">Wikipedia</a>}`,
         formula: "ρ = m/V",
         process: "Iron, platinum, and lead are examples of dense materials. Materials that are dense are most likely to ‘feel’ heavy or hard. The opposite of dense is sparse and a few examples of sparse material are glass, bamboo, aluminium, and styrofoam. In general, liquids are less dense than solids and gases are less dense than liquids. This is due to the fact that solids have densely packed particles, liquids are materials where particles can slide around one another, and gases have particles that are free to move all over the place.",
         siunit: "kg m^-3",
@@ -29,7 +29,7 @@ const Topics = [
     {
         topic: "Pressure",
         image: pressure,
-        details: `Pressure is defined as the force applied perpendicular to the surface of an object per unit area over which that force is distributed.`,
+        details: `Pressure is defined as the force applied perpendicular to the surface of an object per unit area over which that force is distributed. For more information visit ${<a href="https://en.wikipedia.org/wiki/Pressure" target="_blank" rel="noreferrer">Wikipedia</a>}`,
         formula: "P = F/A",
         process: "A knife distributes the force over its entire cutting edge. Sharper the edge, higher the pressure, and consequently the cutting with a sharp knife is easy. In a blunt knife, the force is distributed over its blunt surface with a larger surface area. Therefore, we need to put more force in order to cut.",
         siunit: "pascal",
@@ -38,7 +38,7 @@ const Topics = [
     {
         topic: "Volume flow rate",
         image: volumeflowrate,
-        details: `Volume flow rate is the quantity of fluid flowing in the specified time.`,
+        details: `Volume flow rate is the quantity of fluid flowing in the specified time. For more information visit ${<a href="https://en.wikipedia.org/wiki/Volumetric_flow_rate" target="_blank" rel="noreferrer">Wikipedia</a>}`,
         formula: "Q = AV",
         process: "Accurate flow rate measurement using an appropriate flowmeter is paramount to ensuring fluid control industrial processes run smoothly, safely and cost-effectively.",
         siunit: "m^3/s",
@@ -56,7 +56,7 @@ const Topics = [
     {
         topic: "Viscosity",
         image: viscosity,
-        details: `Viscosity is a measure of a fluid’s resistance to flow.`,
+        details: `Viscosity is a measure of a fluid’s resistance to flow. For more information visit ${<a href="https://en.wikipedia.org/wiki/Viscosity" target="_blank" rel="noreferrer">Wikipedia</a>}`,
         formula: "μ = Fy/Au",
         process: "When we take a drop of water and honey on a slanting plane, the water reaches down the plane first than honey because of it low viscosity.",
         siunit: "pascal-second",
@@ -74,7 +74,7 @@ const Topics = [
     {
         topic: "Bernoulli's equation",
         image: bernoulliequation,
-        details: `Bernoulli's equation states that the total mechanical energy of the flowing fluid, comprising the energy associated with fluid pressure, the gravitational potential energy of elevation, and the kinetic energy of fluid motion, remains constant.`,
+        details: `Bernoulli's equation states that the total mechanical energy of the flowing fluid, comprising the energy associated with fluid pressure, the gravitational potential energy of elevation, and the kinetic energy of fluid motion, remains constant. For more information visit ${<a href="https://en.wikipedia.org/wiki/Bernoulli's_principle" target="_blank" rel="noreferrer">Wikipedia</a>}`,
         formula: "P1 + 1/2ρV1^2 + ρgh1 = P2 + 1/2ρV2^2 + ρgh2",
         process: "It is applied to various measuring devices such as Venturi meter, Nozzle meter, Orifice meter, Pitot tube,etc.",
         siunit: "pascal, m/s, m, kg m^-3, m/s^2",
