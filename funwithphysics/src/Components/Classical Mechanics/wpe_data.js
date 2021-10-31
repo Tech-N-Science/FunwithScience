@@ -18,8 +18,7 @@ const Topics = [
         formula: "Work = Force × Displacement = F × d",
         process: "When we kick a football, we are exerting an external force called F and due to this force (kick), the ball moves to a certain distance. This disposition of ball from position A to B is known as displacement (d). This work is said to be done and can be calculated as W = F × d ",
         siunit: "Joule or Newton-Meter",
-        dimension: "ML²/T²",
-        wikilink:"https://en.wikipedia.org/wiki/Work_(physics)"
+        dimension: "ML²/T²"
     },
     {
         topic: "Power",
