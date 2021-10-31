@@ -10,8 +10,7 @@ const Topics = [
 
     According to this theory, the gas molecule is composed of a huge number of tiny molecules compared to the distances between them. The kinetic theory of gases is necessary for clarifying the process of trapping particles by the diffusion mechanism.`,
     formula: "P.V=n.R.T",
-    process:
-      "The Kinetic theory of gases is based on the Universal Gas Equation and all quantities related to it are derived from this. The required values can be easily found by punching in the other values in the equation and this calculator can very easily do that.",
+    process: "The Kinetic theory of gases is based on the Universal Gas Equation and all quantities related to it are derived from this. The required values can be easily found by punching in the other values in the equation and this calculator can very easily do that.",
     siunit: "N/m² , m³ , mol , J/K.mol , K  ",
     dimension: "M/L.T², M³, Mol, M.L²/T².K",
   },
