@@ -19,11 +19,24 @@
     width: 100% !important;
 }*/
 
-.Calculator__image {
+
+/* .Calculator__image {
     grid-area: image;
+} */
+
+.mybtn {
+    width: 30%;
 }
 
-.Calculator__image img {
+
+/* .but-sec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+} */
+
+
+/* .Calculator__image img {
     width: 30em;
     height: 20em;
     object-fit: cover;
@@ -31,7 +44,7 @@
     border-radius: 1em;
     border: black;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 
 .Calculator__header {
     grid-area: header;

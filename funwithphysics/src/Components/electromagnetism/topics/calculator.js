@@ -7,6 +7,9 @@ function Calculator() {
   const page = Topics.filter((data) => data.topic);
   const details = page[0];
 
+  // const [elefield, setElefield] = useState(false);
+  // const [potential, setPotential] = useState(false);
+
   //required variables for calculation
   //point
   //force,charge
@@ -187,123 +190,127 @@ function Calculator() {
       setResult(null);
     }
 
-    //electric field potential
-    const [presult, setpresult] = useState(null);
-    const [pcharge, setpcharge] = useState(null);
-    const [pradius, setpradius] = useState(null);
-    const [pR, setpR] = useState(null);
-    const [pk, setpk] = useState(null);
-    const [psigma, setpsigma] = useState(null);
-    const [pdist, setpdist] = useState(null);
-    // const [pie, setppie] = useState(null);
-    const [pchoice, setpchoice] = useState("ppc");
+    // //electric field potential
+    // const [presult, setpresult] = useState(null);
+    // const [pcharge, setpcharge] = useState(null);
+    // const [pradius, setpradius] = useState(null);
+    // const [pR, setpR] = useState(null);
+    // const [pk, setpk] = useState(null);
+    // const [psigma, setpsigma] = useState(null);
+    // const [pdist, setpdist] = useState(null);
+    // // const [pie, setppie] = useState(null);
+    // const [pchoice, setpchoice] = useState("ppc");
 
-    function handlepchange(e) {
-      setpresult(null);
-      setpcharge(null);
-      setpradius(null);
-      setpdist(null);
-      setpk(9 * Math.pow(10, 9));
-      seteps(8.854 * Math.pow(10, -12));
-      // setppie(3.414);
-      setpsigma(null);
-      setpR(null);
-      setpchoice(e.target.value);
-      choicepdata();
-    }
+    // function handlepchange(e) {
+    //   setpresult(null);
+    //   setpcharge(null);
+    //   setpradius(null);
+    //   setpdist(null);
+    //   setpk(9 * Math.pow(10, 9));
+    //   seteps(8.854 * Math.pow(10, -12));
+    //   // setppie(3.414);
+    //   setpsigma(null);
+    //   setpR(null);
+    //   setpchoice(e.target.value);
+    //   choicepdata();
+    // }
 
-    const choicepdata = () => {
-      if (pchoice === "ppc")
-        return {
-          name: "electric potential of point charge",
-          mainunit: "N/C",
-          quantities: [
-            "Charge",
-            "radius",
-          ],
-          subunits: ["columbs", "cm"],
-          setters: [setpcharge, setpradius],
-          getters: [pcharge, pradius],
+    // const choicepdata = () => {
+    //   if (pchoice === "ppc")
+    //     return {
+    //       name: "electric potential of point charge",
+    //       mainunit: "N/C",
+    //       quantities: [
+    //         "Charge",
+    //         "radius",
+    //       ],
+    //       subunits: ["columbs", "cm"],
+    //       setters: [setpcharge, setpradius],
+    //       getters: [pcharge, pradius],
 
-        };
-      else if (pchoice === "prc")
-        return {
-          name: "electric potential of ring charge",
-          mainunit: "N/C",
-          quantities: [
-            "Charge",
-            "dist",
-            "radius",
-          ],
-          subunits: ["columbs", "cm", "cm"],
-          setters: [setpcharge, setpdist, setpradius],
-          getters: [pcharge, pdist, pradius],
+    //     };
+    //   else if (pchoice === "prc")
+    //     return {
+    //       name: "electric potential of ring charge",
+    //       mainunit: "N/C",
+    //       quantities: [
+    //         "Charge",
+    //         "dist",
+    //         "radius",
+    //       ],
+    //       subunits: ["columbs", "cm", "cm"],
+    //       setters: [setpcharge, setpdist, setpradius],
+    //       getters: [pcharge, pdist, pradius],
 
-        };
-      else if (pchoice === "pos")
-        return {
-          name: "electric potential of point charge",
-          mainunit: "N/C",
-          quantities: [
-            "Charge",
-            "radius",
-          ],
-          subunits: ["columbs", "cm"],
-          setters: [setpcharge, setpradius],
-          getters: [pcharge, pradius],
+    //     };
+    //   else if (pchoice === "pos")
+    //     return {
+    //       name: "electric potential of point charge",
+    //       mainunit: "N/C",
+    //       quantities: [
+    //         "Charge",
+    //         "radius",
+    //       ],
+    //       subunits: ["columbs", "cm"],
+    //       setters: [setpcharge, setpradius],
+    //       getters: [pcharge, pradius],
 
-        };
-      else if (pchoice === "pis")
-        return {
-          name: "electric potential of point charge",
-          mainunit: "N/C",
-          quantities: [
-            "Charge",
-            "outer radius",
-            "radius",
+    //     };
+    //   else if (pchoice === "pis")
+    //     return {
+    //       name: "electric potential of point charge",
+    //       mainunit: "N/C",
+    //       quantities: [
+    //         "Charge",
+    //         "outer radius",
+    //         "radius",
 
-          ],
-          subunits: ["columbs", "cm", "cm"],
-          setters: [setpcharge, setpR, setpradius],
-          getters: [pcharge, pR, pradius],
+    //       ],
+    //       subunits: ["columbs", "cm", "cm"],
+    //       setters: [setpcharge, setpR, setpradius],
+    //       getters: [pcharge, pR, pradius],
 
-        };
-      else if (pchoice === "pd")
-        return {
-          name: "electric potential of point charge",
-          mainunit: "N/C",
-          quantities: [
-            "surface charge density",
-            "distance",
-            "radius",
-          ],
-          subunits: ["digits", "cm", "cm"],
-          setters: [setpsigma, setpdist, setpR],
-          getters: [psigma, pdist, pR],
+    //     };
+    //   else if (pchoice === "pd")
+    //     return {
+    //       name: "electric potential of point charge",
+    //       mainunit: "N/C",
+    //       quantities: [
+    //         "surface charge density",
+    //         "distance",
+    //         "radius",
+    //       ],
+    //       subunits: ["digits", "cm", "cm"],
+    //       setters: [setpsigma, setpdist, setpR],
+    //       getters: [psigma, pdist, pR],
 
-        };
-    }
-    const calcpResult = () => {
-      let res;
-      if (pchoice === "ppc") res = ((parseFloat(pk * pcharge / pradius)) ** 0.5).toFixed(4);
-      else if (pchoice === "prc") res = ((pk * pcharge) / Math.pow(((pradius * pradius) + (pR * pR)), 0.5)).toFixed(4);
-      else if (pchoice === "pd") res = ((psigma / (2 * eps)) * ((Math.pow(((pdist * pdist) + (pR * pR)), 0.5)) - pdist)).toFixed(8);
-      else if (pchoice === "pos") res = (pk * pcharge / (pradius)).toFixed(4);
-      else if (pchoice === "pis") res = ((pk * pcharge) * (((3 * pR * pR) - (pradius * pradius)) / 2)).toFixed(4);
-      // console.log(psigma / 2 * eps);
-      // console.log((psigma / (2 * eps)) * (Math.pow(((pdist * pdist) + (pR * pR)), 0.5)) - pdist);
-      // console.log(res);
-      // console.log(4 * pie * eps * Math.pow((radius * radius + dist * dist), 1.5));
-      setpresult(res);
-      return res;
-    }
-    function preset() {
-      setpresult(null);
-    }
+    //     };
+    // }
+    // const calcpResult = () => {
+    //   let res;
+    //   if (pchoice === "ppc") res = ((parseFloat(pk * pcharge / pradius)) ** 0.5).toFixed(4);
+    //   else if (pchoice === "prc") res = ((pk * pcharge) / Math.pow(((pradius * pradius) + (pR * pR)), 0.5)).toFixed(4);
+    //   else if (pchoice === "pd") res = ((psigma / (2 * eps)) * ((Math.pow(((pdist * pdist) + (pR * pR)), 0.5)) - pdist)).toFixed(8);
+    //   else if (pchoice === "pos") res = (pk * pcharge / (pradius)).toFixed(4);
+    //   else if (pchoice === "pis") res = ((pk * pcharge) * (((3 * pR * pR) - (pradius * pradius)) / 2)).toFixed(4);
+    //   // console.log(psigma / 2 * eps);
+    //   // console.log((psigma / (2 * eps)) * (Math.pow(((pdist * pdist) + (pR * pR)), 0.5)) - pdist);
+    //   // console.log(res);
+    //   // console.log(4 * pie * eps * Math.pow((radius * radius + dist * dist), 1.5));
+    //   setpresult(res);
+    //   return res;
+    // }
+    // function preset() {
+    //   setpresult(null);
+    // }
 
     return (
       <div>
-        <Form>
+        {/* <div className="but-sec">
+          <Button className="btn btn-primary mybtn" >electric field</Button>
+          <Button className="btn btn-secondary mybtn" >electric potential</Button>
+        </div> */}
+        <Form className="form">
           <Form.Group>
             <Form.Label>Select electric field calculation of objects</Form.Label>
             <Form.Control as="select" onChange={(e) => handleChange(e)}>
@@ -361,69 +368,14 @@ function Calculator() {
           </Button>
         </Form >
 
-        //electric potential
-        <Form className="form">
-          <Form.Group>
-            <Form.Label>Select electric field calculation of objects</Form.Label>
-            <Form.Control as="select" onChange={(e) => handlepchange(e)}>
-              <option value="ppc">point charge</option>
-              <option value="prc">ring charge</option>
-              <option value="pos">outside sphere</option>
-              <option value="pis">inside sphere</option>
-              <option value="pd">disc </option>
-            </Form.Control>
-          </Form.Group>
-          <Form.Group className="mb-4" controlId="text">
-            <Form.Text className="text">
-              <strong>
-                {" "}
-                To find the {choicepdata().name}, Enter the following values
-              </strong>
-              <br />
-            </Form.Text>
-          </Form.Group>
-          {
-            choicepdata().quantities.map((item, i) => {
-              return (
-                <Form.Group className="mb-4">
-                  <Form.Label className="">{choicepdata().quantities[i]}</Form.Label>
-                  <Form.Control
-                    onChange={(e) => choicepdata().setters[i](e.target.value)}
-                    type="number"
-                    placeholder={"Enter in " + choicepdata().subunits[i]}
-                    value={choicepdata().getters[i] === null ? '' : choicepdata().getters[i]}
-                  />
-                </Form.Group>)
-            })
-          }
-
-          <Form.Group>
-            <Form.Control
-              readOnly
-              type="number"
-              placeholder={
-                reset === null ? "result" : presult + " " + choicepdata().mainunit
-              }>
-
-            </Form.Control>
-
-          </Form.Group>
-          <Button variant="primary" onClick={calcpResult}>
-            Calculate
-          </Button>
-          & nbsp;& nbsp;& nbsp;
-          <Button variant="dark" type="reset" onClick={() => preset()}>
-            Reset
-          </Button>
-        </Form >
-      </div>
+      </div >
     )
 
   }
   function calC(key) {
     let currentCall;
     switch (key) {
-      case "Electric field and potential":
+      case "Electric field":
         currentCall = CalculatorKTG();
         break;
       default:
@@ -436,9 +388,6 @@ function Calculator() {
       <div className="Calculator__header">
         <h1>{details.topic}</h1>
       </div>
-      <div className="Calculator__image">
-        <img src="" alt="" srcset="" />
-      </div>
       <div className="Calculator__details">
         <p>{details.details}</p>
       </div>
@@ -450,11 +399,11 @@ function Calculator() {
         <p></p>
       </div>
       <div className="Calculator__siunit">
-        <h3>{details.si_units}</h3>
-        <p></p>
+        <h3>S.I.Units:{details.si_units}</h3>
+
       </div>
       <div className="Calculator__dimension">
-        <h3>{details.dimensions}</h3>
+        <h3>dimension:{details.dimensions}</h3>
       </div>
       <div className="Calculator__calc">
         <h3>calculation</h3>
