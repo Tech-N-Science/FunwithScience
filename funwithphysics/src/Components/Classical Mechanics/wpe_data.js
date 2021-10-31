@@ -27,7 +27,7 @@ const Topics = [
         formula: "P = W/t",
         process: "As discussed power is the rate of doing work. Therefore, it can be calculated by dividing work done by time. ",
         siunit: "watt",
-        dimension: "M L^2 T^-3"
+        dimension: "M L² T⁻³"
     },
     {
         topic: "Energy",
@@ -37,7 +37,7 @@ const Topics = [
             "All these forms of Energy, are categories as Kinetic energy and Potential Energy."
         ],
         formula: [
-            "K.E = 1/2 x m x v^2", <span > &nbsp; &nbsp; </span>,
+            "K.E = 1/2 x m x v²", <span > &nbsp; &nbsp; </span>,
             "P.E = m x g x h",
         ],
         process: [
@@ -45,7 +45,7 @@ const Topics = [
             "here, K.E is kinetic energy, P.E is potential energy, 'm' is mass, 'v' is velocity and 'h' is height"
         ],
         siunit: "joule",
-        dimension: "M L^2 T^-2"
+        dimension: "M L² T⁻²"
     }
 
 

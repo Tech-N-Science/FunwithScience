@@ -9,6 +9,7 @@ import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
 import fluid_list from "../fluidmechanics_data";
 import { Link } from "react-router-dom";
+
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
@@ -342,7 +343,7 @@ function Calculator({ match }) {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="torque">
-            <Form.Label>Force (F)</Form.Label>
+            <Form.Label>Torque (T)</Form.Label>
             <Form.Control
               readOnly
               type="number"

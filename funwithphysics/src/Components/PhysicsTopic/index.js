@@ -42,11 +42,11 @@ function PhysicsTopic() {
 				<div className="container">
 					<div className="row">
 					<PhysicsTopicItem name="Classical mechanics" link="/classicalmechanics" icon="icon-shop" image={classicalMechanics} >
-							<p>Classical mechanics is a theory describing the motion of macroscopic objects, projectile motions of parts of machinery and astronomical objects and also rotatory motion of machines. </p>
+							<p>Classical mechanics is a theory that describes the motion of macroscopic objects, projectile motions of machinery parts and astronomical objects, and machine rotatory motion. </p>
 							<p id="credit">Photo by <a href="https://unsplash.com/@gabriele_macera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Gab</a> on <a href="https://unsplash.com/s/photos/engine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
 							</PhysicsTopicItem>
 					<PhysicsTopicItem name="Thermodynamics" link="/thermodynamics" icon="icon-heart4" image={thermodynamics}>
-							<p>Thermodynamics is the branch of physics that deals with the transfer of heat and energy from one body to another.</p>
+							<p>Thermodynamics is the study of the transfer of heat and energy from one body to another.</p>
 							 <p id="credit">  Photo by <a href="https://unsplash.com/@vivianeokubo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Viviane Okubo</a> on <a href="https://unsplash.com/s/photos/heat-transfer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
   							</PhysicsTopicItem>
 						<PhysicsTopicItem name="Relativity" link="/relativity" icon="icon-lab2" image={relativity}>
