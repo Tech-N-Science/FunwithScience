@@ -5,6 +5,7 @@ import { Form, Card, Button, Row, Col } from "react-bootstrap";
 import "../classicalMechanics.css";
 import WPE_list from "../wpe_data";
 import shm_list from "../shm_data";
+import rotation_list from "../rotation_data";
 import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
 import fluid_list from "../fluidmechanics_data";
@@ -1043,6 +1044,45 @@ function Calculator({ match }) {
       </div>
     );
   }
+
+
+  // Rotational Dynamics
+  else if(details.topic === "Rotational Dynamics"){
+     return(
+      <div className="mech__main">
+      <div className="mech__header">
+        <h1>Rotational Dynamics</h1>
+      </div>
+      <div className="mech__topics-card">
+        {rotation_list.map((data) => (
+          <React.Fragment key={data.topic}>
+            <Link
+              to={`/classicalmechanics/calc/rotation/${data.topic}`}
+              style={{ textDecoration: "none" }}
+            >
+              <Card
+                className="a"
+                key={data.topic}
+                style={{
+                  width: "18rem",
+                  color: "black",
+                  textAlign: "center",
+                  fontSize: "20px",
+                }}
+              >
+                <Card.Body>
+                  <div> {data.topic}</div>
+                </Card.Body>
+              </Card>
+            </Link>
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+     );
+  }
+
+
   // Simple Harmonic Motion
   else if (details.topic === "Simple Harmonic Motion") {
     return (

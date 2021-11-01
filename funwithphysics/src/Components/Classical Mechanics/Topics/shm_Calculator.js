@@ -353,9 +353,6 @@ function shm_Calculator({ match }) {
             <div className="Calculator__header">
                 <h1>{details.topic}:</h1>
             </div>
-            <div className="Calculator__image">
-                <img src={details.image} rounded="true" alt={details.topic} />
-            </div>
             <div className="Calculator__details">
                 <p>{details.details}</p>
             </div>

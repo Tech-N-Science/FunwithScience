@@ -25,7 +25,7 @@ export default function Thermodynamics() {
                                     }
                                     <div style={{ padding: "0.3em" }}>
                                         {
-                                            data.image === undefined ? <Card.Text> Will be <span style={{ fontWeight: "bold", color: "#19165b" }}>available</span> soon...</Card.Text> : <Card.Text>{" "}</Card.Text>
+                                            data.details === undefined ? <Card.Text> Will be <span style={{ fontWeight: "bold", color: "#19165b" }}>available</span> soon...</Card.Text> : <Card.Text>{" "}</Card.Text>
                                         }
                                     </div>
                                 </Card.Body>

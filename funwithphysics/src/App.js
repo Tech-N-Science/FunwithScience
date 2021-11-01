@@ -12,9 +12,8 @@ import GravitationCalculator from "./Components/Classical Mechanics/Topics/gravi
 import PhysicsTopic from "./Components/PhysicsTopic";
 import MOICalculator from "./Components/Classical Mechanics/Topics/moi_Calulator";
 import shm_Calculator from "./Components/Classical Mechanics/Topics/shm_Calculator";
-
+import rotation_Calculator from "./Components/Classical Mechanics/Topics/rotation_Calculator";
 import Quiz from "./Components/Quiz/Quiz";
-
 import FluidCalculator from "./Components/Classical Mechanics/Topics/fluidmechanics_Calculator";
 
 
@@ -66,6 +65,11 @@ const App = () => {
           exact
           path="/classicalmechanics/calc/work_power_energy/:topic"
           component={WPECalculator}
+        />
+        <Route
+          exact
+          path="/classicalmechanics/calc/rotation/:topic"
+          component={rotation_Calculator}
         />
 
         <Route exact path="/quiz" component={Quiz} />

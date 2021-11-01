@@ -17,7 +17,7 @@ const Topics = [
         details: `Work is said to be done when a body or object moves with the application of external force. We can define work as an activity involving a movement and force in the direction of the force. For example, a force of 20 newtons (N) pushing an object 3 meters in the same direction of the force will do 60 joules (J) of work.`,
         formula: "Work = Force × Displacement = F × d",
         process: "When we kick a football, we are exerting an external force called F and due to this force (kick), the ball moves to a certain distance. This disposition of ball from position A to B is known as displacement (d). This work is said to be done and can be calculated as W = F × d ",
-        siunit: "Joule or Newton-Meter",
+        siunit: "Joule",
         dimension: "ML²/T²"
     },
     {

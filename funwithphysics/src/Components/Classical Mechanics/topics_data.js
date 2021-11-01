@@ -180,11 +180,14 @@ const Topics = [
       <h3>Strain</h3>,
       "Strain is known as the measurement of the deformation of a body, it's the ratio of the deformed dimension and the initial dimension. "
     ],
-    formula: "σ = F/A || Strain = ΔX/X",
+    formula: [" Stress(σ) = F/A",<br/>,  "Strain = ΔX/X"],
     siunit: "Stress- N/m² (Pa) , Strain- no unit",
     dimension: "F/A, dimensionless",
     process: "Stress is measured by the force which is applied per unit area, it's denoted with sigma (σ). The strain is a ratio of the original dimensions and the deformed dimensions, as it's a ratio it's dimensionless and has no unit."
-  }
+  },
+  {topic: "Rotational Dynamics",
+  details: "....",
+}
 ];
 
 export default Topics;
