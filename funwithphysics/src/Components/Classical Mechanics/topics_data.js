@@ -1,4 +1,4 @@
-import momentum from "../../Images/Classical_mechanics/momentum.jpg";
+
 import friction from "../../Images/Classical_mechanics/friction.jpg";
 import gravitation from "../../Images/Classical_mechanics/gravitation.jpg";
 import force from "../../Images/Classical_mechanics/force.jpg";
@@ -14,7 +14,7 @@ import stress_strain from "../../Images/Classical_mechanics/stress_strain.jpg";
 import fluid_mechanics from "../../Images/Classical_mechanics/fluidmechanics/fluid_mechanics.jpg";
 import circular_motion from "../../Images/Classical_mechanics/circular_motion.png";
 export {
-  momentum,
+  
   force,
   friction,
   gravitation,
@@ -32,7 +32,7 @@ export {
 const Topics = [
   {
     topic: "Momentum",
-    image: momentum,
+    
     details: `Momentum is a vector quantity, defined as the product of the mass of a particle and its velocity. From Isaac Newton’s second law of motion we can see that the rate of change of momentum is equal to the force acting on the particle.
         
 

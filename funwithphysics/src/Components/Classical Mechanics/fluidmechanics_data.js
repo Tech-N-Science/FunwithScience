@@ -66,7 +66,7 @@ const Topics = [
         topic: "Poiseuille's law",
         image: poiseuillelaw,
         details: `Poiseuille's law states that the flow of liquid depends on the following variables such as the length of the tube(L), radius (r), pressure gradient (∆P) and the viscosity of the fluid (μ) in accordance with their relationship.`,
-        formula: "Δp = 8μLQ/πR^4",
+        formula: "Δp = 8μLQ/πR⁴",
         process: "While examining the blood flow through arteries, it is found that high viscosity of blood makes it almost incompressible. It also has application in blood pressure measurement instruments.",
         siunit: "pascal, m³/s",
         dimension: "ML⁻¹T⁻², L³T⁻¹"
@@ -75,7 +75,7 @@ const Topics = [
         topic: "Bernoulli's equation",
         image: bernoulliequation,
         details: `Bernoulli's equation states that the total mechanical energy of the flowing fluid, comprising the energy associated with fluid pressure, the gravitational potential energy of elevation, and the kinetic energy of fluid motion, remains constant.`,
-        formula: "P1 + 1/2ρV1^2 + ρgh1 = P2 + 1/2ρV2^2 + ρgh2",
+        formula: "P1 + 1/2ρV1² + ρgh1 = P2 + 1/2ρV2² + ρgh2",
         process: "It is applied to various measuring devices such as Venturi meter, Nozzle meter, Orifice meter, Pitot tube,etc.",
         siunit: "pascal, m/s, m, kg m⁻³, m/s²",
         dimension: "ML−¹T−², LT⁻¹, L, ML⁻³, LT⁻²"

@@ -18,13 +18,9 @@ function MOICalculator({ match }) {
 
     const handleClick = () => {
       console.log(details.topic);
-      if (details.topic === "Ring" || details.topic === "Hollow Cylinder") {
-        let res = mass * Math.pow(radius, 2);
-        setResult(res);
-      } else if (
+      if (
         details.topic === "Disc" ||
-        details.topic === "Solid Cylinder" ||
-        details.topic === "Rod"
+        details.topic === "Solid Cylinder"
       ) {
         let res = 0.5 * mass * Math.pow(radius, 2);
         setResult(res);
@@ -58,7 +54,121 @@ function MOICalculator({ match }) {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="work">
-            <Form.Label>Moment of Inertia(W)</Form.Label>
+            <Form.Label>Moment of Inertia(I)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " Kg m² "}
+            />
+            <Form.Text className="text-muted">
+              Enter the above values to Calculate.
+            </Form.Text>
+          </Form.Group>
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            Reset
+          </Button>
+        </Form>
+      </React.Fragment>
+    );
+  }
+
+  // Rod
+  function CalculateRod(){
+    const [result, setResult] = useState(null);
+    const [mass, setMass] = useState(null);
+    const [length, setLength] = useState(null);
+
+    const handleClick = () => {
+      let res = (1/12) * mass * Math.pow(length, 2);
+      setResult(res);
+    };
+    return (
+      <React.Fragment>
+        <Form>
+          <Form.Group className="mb-3" controlId="force">
+            <Form.Label> Mass (in Kilogram)</Form.Label>
+            <Form.Control
+              onChange={(e) => setMass(e.target.value)}
+              type="number"
+              placeholder="Enter mass of the object in kilogram"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="displacement">
+            <Form.Label> Length (in m)</Form.Label>
+            <Form.Control
+              onChange={(e) => setLength(e.target.value)}
+              type="number"
+              placeholder="Enter length of the object in meter"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="work">
+            <Form.Label>Moment of Inertia(I)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " Kg m² "}
+            />
+            <Form.Text className="text-muted">
+              Enter the above values to Calculate.
+            </Form.Text>
+          </Form.Group>
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            Reset
+          </Button>
+        </Form>
+      </React.Fragment>
+    );
+  }
+
+
+  // Hollow Cylinder
+  function CalculateHollow(){
+    const [result, setResult] = useState(null);
+    const [mass, setMass] = useState(null);
+    const [inradius, setLength] = useState(null);
+    const [exradius, setWidth] = useState(null);
+
+    const handleClick = () => {
+      let res = (mass * (Math.pow(inradius, 2) + Math.pow(exradius, 2))) / 2;
+      setResult(res);
+    };
+    return (
+      <React.Fragment>
+        <Form>
+          <Form.Group className="mb-3" controlId="force">
+            <Form.Label> Mass (in Kilogram)</Form.Label>
+            <Form.Control
+              onChange={(e) => setMass(e.target.value)}
+              type="number"
+              placeholder="Enter mass of the object in kilogram"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="displacement">
+            <Form.Label> External radius (in m)</Form.Label>
+            <Form.Control
+              onChange={(e) => setLength(e.target.value)}
+              type="number"
+              placeholder="Enter length of the object in meter"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="displacement">
+            <Form.Label> Internal Radius (in m)</Form.Label>
+            <Form.Control
+              onChange={(e) => setWidth(e.target.value)}
+              type="number"
+              placeholder="Enter width of the object in meter"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="work">
+            <Form.Label>Moment of Inertia(I)</Form.Label>
             <Form.Control
               readOnly
               type="number"
@@ -120,7 +230,7 @@ function MOICalculator({ match }) {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="work">
-            <Form.Label>Moment of Inertia(W)</Form.Label>
+            <Form.Label>Moment of Inertia(I)</Form.Label>
             <Form.Control
               readOnly
               type="number"
@@ -154,7 +264,7 @@ function MOICalculator({ match }) {
         currentCall = CalculatorMOI();
         break;
       case "Hollow Cylinder":
-        currentCall = CalculatorMOI();
+        currentCall = CalculateHollow();
         break;
       case "Solid Cylinder":
         currentCall = CalculatorMOI();
@@ -166,7 +276,7 @@ function MOICalculator({ match }) {
         currentCall = CalculatorMOI();
         break;
       case "Rod":
-        currentCall = CalculatorMOI();
+        currentCall = CalculateRod();
         break;
       case "Spherical Shell":
         currentCall = CalculatorMOI();
