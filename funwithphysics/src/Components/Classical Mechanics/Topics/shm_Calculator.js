@@ -15,6 +15,7 @@ function shm_Calculator({ match }) {
         const [velocity, setVelocity] = useState(null)
         const [freq, setFreq] = useState(null)
         const [choice, setChoice] = useState("wave length")
+        const [plank, setPlank] = useState(6.62607015 * Math.pow(10, -34));
 
         const handle_reset = () => {
             setResult(null);
@@ -64,10 +65,11 @@ function shm_Calculator({ match }) {
                 return {
                     name: "Energy",
                     mainunit: "Joule",
-                    quantities: ["Frequency"],
-                    subunits: ["Hz"],
-                    setters: [setFreq],
-                    getters: [freq],
+                    quantities: ["Frequency","Plank's constant"],
+                    subunits: ["Hz","m² kg / s"],
+                    setters: [setFreq, setPlank],
+                    getters: [freq,plank],
+                    
                 };
         };
 
@@ -137,10 +139,12 @@ function shm_Calculator({ match }) {
                         type="number"
                         placeholder={choice_data().getters[1] !== null ? '' : "Enter in " + choice_data().subunits[1]}
                         value={choice_data().getters[1] === null ? '' : choice_data().getters[1]}
-                        readOnly={choice_data().getters[1] === undefined ? true : false}
+                        readOnly={choice_data().getters[1] === undefined || choice_data().getters[1] === plank ? true : false}
                     />
-                    {console.log(choice_data().getters[1])}
+                    
                 </Form.Group>
+
+                
 
                 <Form.Group className="mb-4">
                     <Form.Control
@@ -183,7 +187,7 @@ function shm_Calculator({ match }) {
 
         const handleClick = () => {
             let res;
-            const pi = 3.14;
+            const pi = Math.PI;
             const g = 9.8;
             switch (choiceOsc) {
                 case "shm":

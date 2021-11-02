@@ -683,6 +683,10 @@ function Calculator({ match }) {
     };
     function reset() {
       setResult(null);
+      setRadius(null);
+      setTime(null);
+     setVelocity(null);
+    
     }
     const choiceData = () => {
       if (choice === "circumference")
