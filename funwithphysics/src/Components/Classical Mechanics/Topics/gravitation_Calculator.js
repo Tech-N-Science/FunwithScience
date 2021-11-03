@@ -19,7 +19,7 @@ function GravitationCalculator({ match }) {
         const [distance, setDistance] = useState(null)
 
         const handleClick = () => {
-            let res = ( 6.67 * mass_A * mass_B ) / ( distance * distance );
+            let res = ( 6.67 * Math.pow(10,-11) * mass_A * mass_B ) / ( distance * distance );
             setResult(res)
         }
         return <React.Fragment>
@@ -39,7 +39,7 @@ function GravitationCalculator({ match }) {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="Gravitational_Force">
                     <Form.Label>Gravitational Force (F)</Form.Label>
-                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " x 10 ^ -11 Newton"} />
+                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " Newton"} />
                     <Form.Text className="text-muted">
                         Enter masses & distance to Calculate the Gravitational Force .
                     </Form.Text>

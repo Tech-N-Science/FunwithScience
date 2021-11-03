@@ -511,7 +511,7 @@ function Calculator({ match }) {
       } else if (choice === "velocity_ini") {
         res = parseFloat(fvelocity) - parseFloat(acceleration * Math.abs(time));
       } else if (choice === "acceleration") {
-        res = (fvelocity ** 2 - ivelocity ** 2) / (2 * displacement);
+        res = (fvelocity * fvelocity - ivelocity * ivelocity) / (2 * displacement);
       } else if (choice === "time") {
         res = Math.abs((fvelocity - ivelocity) / acceleration);
       }
@@ -521,6 +521,11 @@ function Calculator({ match }) {
     };
     function reset() {
       setResult(null);
+      setiVelocity(null);
+      setfVelocity(null);
+      setAcceleration(null);
+      setTime(null);
+      setDisplacement(null);
     }
     const choiceData = () => {
       if (choice === "displacement")
@@ -673,8 +678,8 @@ function Calculator({ match }) {
       } else if (choice === "time")
         res = parseFloat(2 * Math.PI * radius) / parseFloat(velocity);
       else if (choice === "rad") {
-        let x = ((2 * Math.PI) / time) ** 2;
-        res = x * radius;
+        let x = (velocity * velocity);
+        res = x / radius;
       } else if (choice === "omega") {
         res = (2 * Math.PI) / time;
       }
@@ -721,10 +726,10 @@ function Calculator({ match }) {
         return {
           name: "Radial Acceleration",
           mainunit: "m",
-          quantities: ["Radius", "Time"],
-          subunits: ["m", "s"],
-          setters: [setRadius, setTime],
-          getters: [radius, time],
+          quantities: ["Velocity", "Radius"],
+          subunits: ["m/s", "m"],
+          setters: [setVelocity, setRadius],
+          getters: [velocity, radius],
         };
       } else if (choice === "omega") {
         return {

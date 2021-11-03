@@ -58,7 +58,7 @@ const Topics = [
         `,
     formula: "F = ma",
     process: `The force (F) required to move an object of mass (m) with an acceleration (a) is given by the formula F = m x a. So, force = mass multiplied by acceleration.`,
-    siunit: "N or Kg.m.s²",
+    siunit: "N or Kg.m/s²",
     dimension: "ML/T²",
   },
   {
@@ -70,7 +70,7 @@ const Topics = [
     process: `F, is the frictional force, N is the normal force. The the friction is calculated by F = μN.
         
         μ is the coefficient of friction, when the two objects are in relative motion, we call it coefficient of kinetic friction and when they are static, it is called the static friction coefficient.`,
-    siunit: "kg · m/s",
+    siunit: "kg · m/s²",
     dimension: "ML/T²",
   },
   {
@@ -135,7 +135,7 @@ const Topics = [
     process:
       "Use the first object's mass(m1), initial velocity(u1), final velocity(v1) and second object's mass(m1), initial velocity(u2) to find out the unknown velocity of the second object(v2).",
     siunit: "m/s",
-    dimension: "L/S",
+    dimension: "L/T",
   },
   {
     topic: "Moment of Inertia",
@@ -146,10 +146,10 @@ const Topics = [
     topic: "Circular Motion",
     image: circular_motion,
     details: "Uniform circular motion means that the magnitude of the velocity will always be constant. But the direction of the velocity will change at a constant rate from every point. It means that the path of the object will form a circle. And the object will complete the repeated trips around the path in the same amount of time every time.",
-    formula: "v=( 2.π.r )/T  ω=v/r & aᵣₐ=( 4.π².r )/T",
+    formula: "v=( 2.π.r )/T  ω=2π/T & aᵣₐ=v²/r",
     process: "For an object to move along a curved circular path, the direction of its velocity must change. It is because at each point on the circular path tangent will give the direction. A change in velocity will cause the acceleration which will not be in the same direction as the velocity. Therefore for an object to move along a circular path, there must be an acceleration that will always be perpendicular to the velocity.",
     siunit: "m , m/s , s , m/s² , rad/s",
-    dimension: "M , M/T , T , M/T² , 1/T²",
+    dimension: "M , M/T , T , M/T² , 1/T",
   },
   {
     topic: "Fluid Mechanics",
@@ -166,7 +166,7 @@ const Topics = [
     image: kinematics,
     details: `Kinematics is a subject of physics evolved from classical mechanics that explains the motion of points, bodies (objects), and systems of bodies (groups of objects) without taking into account the forces that cause them to move. Kinematics is an area of mathematics that is sometimes referred to as "geometry of motion." A kinematics issue begins by specifying the geometry of the system and stating the beginning conditions of any known values of location, velocity, and/or acceleration of points inside the system. The location, velocity, and acceleration of any unknown portions of the system may then be calculated using geometry arguments. Kinetics, not kinematics, is the study of how forces operate on bodies.`,
     formula: ["v=v₀​+a.t & Δx=v​₀.t+1/2.​a.t² & (v)²=(v₀)²​+2.a.Δx"],
-    process: `In kinematics there are three 3 fundamental equations of motion as mentioned above. Each equation consists of different physical quantities and can be used to determine the missing value if all other values are already known. Some scenarios may need the utilzation of more than one equations. These can be used to solve real life problems like vehicular motion, projectile motion, falling motion and can also be used to derive more complex equation often used in higher Physics.Time is always taken as absolute ie. +tive`,
+    process: `In kinematics there are three 3 fundamental equations of motion as mentioned above. Each equation consists of different physical quantities and can be used to determine the missing value if all other values are already known. Some scenarios may need the utilzation of more than one equations. These can be used to solve real life problems like vehicular motion, projectile motion, falling motion and can also be used to derive more complex equation often used in higher Physics.Time is always taken as absolute ie. +tive. Here 'v' is final velocity, 'v₀' is initial velocity, ' a' is acceleration and 't' is time.`,
     siunit: "m , m/s , s , m/s²",
     dimension: "M , M/T , T , M/T²",
   },
@@ -182,7 +182,7 @@ const Topics = [
     ],
     formula: [" Stress(σ) = F/A",<br/>,  "Strain = ΔX/X"],
     siunit: "Stress- N/m² (Pa) , Strain- no unit",
-    dimension: "F/A, dimensionless",
+    dimension: "ML⁻¹T⁻², dimensionless",
     process: "Stress is measured by the force which is applied per unit area, it's denoted with sigma (σ). The strain is a ratio of the original dimensions and the deformed dimensions, as it's a ratio it's dimensionless and has no unit."
   },
   {topic: "Rotational Dynamics",

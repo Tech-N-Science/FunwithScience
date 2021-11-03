@@ -58,7 +58,7 @@ function WPECalculator({ match }) {
         const [time, settime] = useState(null)
 
         const handleClick = () => {
-            let res = workdone * time;
+            let res = workdone / time;
             setResult(res)
         }
 

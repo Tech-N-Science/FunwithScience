@@ -24,7 +24,11 @@ function MOICalculator({ match }) {
       ) {
         let res = 0.5 * mass * Math.pow(radius, 2);
         setResult(res);
-      } else if (details.topic === "Solid Sphere") {
+      } else if(details.topic === "Ring"){
+        let res = mass * Math.pow(radius, 2);
+        setResult(res);
+      }
+      else if (details.topic === "Solid Sphere") {
         let res = 0.4 * mass * Math.pow(radius, 2);
         setResult(res);
       } else if (details.topic === "Spherical Shell") {
