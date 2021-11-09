@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import logo from "../../Images/Logo/logo.png";
+import logo from "../../Images/Logo/logo.webp";
 import { Link } from "react-router-dom";
 import Form from "../Form/Form"
 const Footer = () => {

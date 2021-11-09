@@ -5,7 +5,7 @@ import { Data } from "../FAQ/Data";
 import { IconContext } from "react-icons";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { Accordion, Card } from "react-bootstrap";
-import logo from "../../Images/Logo/logo.png";
+import logo from "../../Images/Logo/logo.webp";
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
@@ -31,7 +31,7 @@ const Navbar = () => {
         <NavLink to="/" className="nav-item ">
           <p className="navbar-brand">
             <img src={logo} alt="logo" height="10%" width="10%" />
-            &ensp; Fun With Physics
+            &ensp; Tech N Science
           </p>
         </NavLink>
         <button
