@@ -32,7 +32,6 @@
 @media (min-width: 291px) and (max-width: 600px){
     .fa-book{
         display: none;
-        margin-left: 10px;
     }
     .navbar-brand{
         font-size: 22px;
@@ -40,6 +39,7 @@
     .navbar-brand img{
         height: 41px;
         width: 41px;
+        padding: 3px;
     }
 }
 
@@ -58,6 +58,7 @@
     .navbar-brand img{
         width: 32px;
         height: 32px;
+        padding: 3px;
     }
 }
 

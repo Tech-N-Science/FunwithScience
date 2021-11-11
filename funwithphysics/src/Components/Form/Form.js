@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Toast } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
@@ -86,7 +85,7 @@ function Form() {
 				<Toast.Body>Message sent successfully</Toast.Body>
 				</Toast>
 			</Col>
-			<div className="btn">
+			<div style={{display:"inline-block"}}>
 				<button type="submit">Send</button>
 			</div>
 		</form>

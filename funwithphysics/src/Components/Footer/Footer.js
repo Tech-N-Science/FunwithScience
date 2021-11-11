@@ -93,7 +93,7 @@ const Footer = () => {
           <div className="right box">
             <h2>Contact us</h2>
             <div className="content">
-              <Form></Form>
+              <Form />
             </div>
           </div>
         </div>

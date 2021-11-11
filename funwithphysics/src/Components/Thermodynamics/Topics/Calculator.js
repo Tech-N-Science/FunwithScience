@@ -10,7 +10,7 @@ function Calculator({ match }) {
   // KTG calculator
   function CalculatorKTG() {
     const [result, setResult] = useState(null);
-    const [gasCon, setGasCon] = useState();
+    const [gasCon, setGasCon] = useState("8.3145");
     const [moles, setMoles] = useState(null);
     const [temperature, setTemperature] = useState(null);
     const [pressure, setPressure] = useState(null);
@@ -126,6 +126,12 @@ function Calculator({ match }) {
     };
     function reset() {
       setResult(null);
+      setMoles(null);
+      setTemperature(null);
+      setMolarMass(null);
+      setPressure(null);
+      setVolume(null);
+      setFreedom(null);
     }
     return (
       <>
@@ -180,6 +186,7 @@ function Calculator({ match }) {
               type="number"
               placeholder={"Enter in " + choiceData().subunits[2]}
               value={choiceData().getters[2]===null?'':choiceData().getters[2]}
+              
             />
           </Form.Group>
           <Form.Group className="mb-4">
