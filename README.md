@@ -12,7 +12,7 @@ It really is that easy!
 And the best part of it? **FunwithScience is open source!** 🤩
 
 
-**The website is live and can be visited on https://myfunwithphysics.web.app/**
+**The website is live and can be visited on https://technscience.com/**
 
 Also join the discord channel for discussion **https://discord.gg/UfhRBpbQXN**
 
