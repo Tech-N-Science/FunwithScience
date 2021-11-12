@@ -1,38 +1,6 @@
-
-import friction from "../../Images/Classical_mechanics/friction.jpg";
-import gravitation from "../../Images/Classical_mechanics/gravitation.jpg";
-import force from "../../Images/Classical_mechanics/force.jpg";
-import error_measurement from "../../Images/Classical_mechanics/error.jpg";
-import torque from "../../Images/Classical_mechanics/torque.jpg";
-import work_power_energy from "../../Images/Classical_mechanics/wpe.jpg";
-import collision from "../../Images/Classical_mechanics/collision.jpg";
-import moment_of_inertia from "../../Images/Classical_mechanics/moment of inertia/momentOfInertia.jpg";
-import kinematics from "../../Images/Classical_mechanics/kinematics.jpg";
-import shm from "../../Images/Classical_mechanics/shm.jpg";
-import stress_strain from "../../Images/Classical_mechanics/stress_strain.jpg";
-
-import fluid_mechanics from "../../Images/Classical_mechanics/fluidmechanics/fluid_mechanics.jpg";
-import circular_motion from "../../Images/Classical_mechanics/circular_motion.png";
-export {
-  
-  force,
-  friction,
-  gravitation,
-  torque,
-  error_measurement,
-  work_power_energy,
-  moment_of_inertia,
-  collision,
-  kinematics,
-  fluid_mechanics,
-  circular_motion,
-  stress_strain
-};
-
 const Topics = [
   {
     topic: "Momentum",
-    
     details: `Momentum is a vector quantity, defined as the product of the mass of a particle and its velocity. From Isaac Newton’s second law of motion we can see that the rate of change of momentum is equal to the force acting on the particle.
         
 
@@ -45,7 +13,6 @@ const Topics = [
   },
   {
     topic: "Force",
-    image: force,
     details: ` 
         Force is an external agent that has the ability to change the state of rest or motion of a certain body. It has a magnitude as well as a direction.
         The Force can be measured using a spring balance.                                             
@@ -63,7 +30,6 @@ const Topics = [
   },
   {
     topic: "Friction",
-    image: friction,
     details: `Friction is a force that resists the sliding or rolling of one solid object over another.
         Surface of an object is microscopically irreguler, thats why, when any two objects in contact try to be in motion relatively with the another one, a force apears at their contact point resisting the motion, this force is opposite to the direction of motion.`,
     formula: "F = μN",
@@ -75,19 +41,17 @@ const Topics = [
   },
   {
     topic: "Gravitation",
-    image: gravitation,
     details: "....",
   },
   {
     topic: "Error Measurements",
-    image: error_measurement,
     details:
       "Any measurement that you make is just an approximation, 100% accuracy is not possible. If you measure the same object two different times, the two measurements may not be exactly the same.  The difference between the two measurements is called a variation in the measurements. This variation introduces an unwanted but unavoidable uncertainty in our measurement. This uncertainty is called the Errors in measurement. This ‘error’ should not be confused with a ‘mistake’. Error, unlike mistake, does not mean that you got the wrong answer. It just means you didn’t get as close to the true value as possible. The errors in measurement are a mathematical way to show the uncertainty in the measurement.  It is the difference between the result of the measurement and the true value of what you were measuring. Absolute , Relative and Percentage error are three types of error with which every experimental scientist should be familiar.",
 
     formula: [
       "E (Abs) = | X (measured) - X (actual) | ",
       <br />,
-      "E(Rel) = E(Abs) / X(actual) & ",
+      "E(Rel) = E(Abs) / X(actual)", <br/>,
       "E(Per) = E(Rel) * 100% ",
     ],
     process:
@@ -99,7 +63,6 @@ const Topics = [
   },
   {
     topic: "Torque",
-    image: torque,
     details: `Torque is the measure of the force that can cause an object to rotate about an axis. Force is what causes an object to accelerate in linear kinematics. Similarly, torque is what causes an angular acceleration. Hence, torque can be defined as the rotational equivalent of linear force. The point where the object rotates is called the axis of rotation. In physics, torque is simply the tendency of a force to turn or twist. Different terminologies such as moment or moment of force are interchangeably used to describe torque.`,
     formula: "T = F.r. sinθ",
     process: `A simple way to calculate the magnitude of the torque is to first determine the lever arm and then multiply it times the applied force.
@@ -110,12 +73,10 @@ const Topics = [
   },
   {
     topic: "Work Power Energy",
-    image: work_power_energy,
     details: "....",
   },
   {
     topic: "Collision",
-    image: collision,
     details: [
       "Collision is known as the sudden but short interaction of two or more than two bodies to exert a mutual influence, usually by exchanging energy. For example, two biliard balls, a hammer and a nail etc. ",
       <br />,
@@ -139,12 +100,10 @@ const Topics = [
   },
   {
     topic: "Moment of Inertia",
-    image: moment_of_inertia,
     details: "...",
   },
   {
     topic: "Circular Motion",
-    image: circular_motion,
     details: "Uniform circular motion means that the magnitude of the velocity will always be constant. But the direction of the velocity will change at a constant rate from every point. It means that the path of the object will form a circle. And the object will complete the repeated trips around the path in the same amount of time every time.",
     formula: "v=( 2.π.r )/T  ω=2π/T & aᵣₐ=v²/r",
     process: "For an object to move along a curved circular path, the direction of its velocity must change. It is because at each point on the circular path tangent will give the direction. A change in velocity will cause the acceleration which will not be in the same direction as the velocity. Therefore for an object to move along a circular path, there must be an acceleration that will always be perpendicular to the velocity.",
@@ -153,26 +112,22 @@ const Topics = [
   },
   {
     topic: "Fluid Mechanics",
-    image: fluid_mechanics,
     details: "...",
   },
   {
     topic: "Simple Harmonic Motion",
-    image: shm,
     details: "....",
   },
   {
     topic: "Kinematics",
-    image: kinematics,
     details: `Kinematics is a subject of physics evolved from classical mechanics that explains the motion of points, bodies (objects), and systems of bodies (groups of objects) without taking into account the forces that cause them to move. Kinematics is an area of mathematics that is sometimes referred to as "geometry of motion." A kinematics issue begins by specifying the geometry of the system and stating the beginning conditions of any known values of location, velocity, and/or acceleration of points inside the system. The location, velocity, and acceleration of any unknown portions of the system may then be calculated using geometry arguments. Kinetics, not kinematics, is the study of how forces operate on bodies.`,
-    formula: ["v=v₀​+a.t & Δx=v​₀.t+1/2.​a.t² & (v)²=(v₀)²​+2.a.Δx"],
+    formula: ["v=v₀​+a.t", <br/>, "Δx=v​₀.t+1/2.​a.t²", <br/>,"(v)²=(v₀)²​+2.a.Δx"],
     process: `In kinematics there are three 3 fundamental equations of motion as mentioned above. Each equation consists of different physical quantities and can be used to determine the missing value if all other values are already known. Some scenarios may need the utilzation of more than one equations. These can be used to solve real life problems like vehicular motion, projectile motion, falling motion and can also be used to derive more complex equation often used in higher Physics.Time is always taken as absolute ie. +tive. Here 'v' is final velocity, 'v₀' is initial velocity, ' a' is acceleration and 't' is time.`,
     siunit: "m , m/s , s , m/s²",
     dimension: "M , M/T , T , M/T²",
   },
   {
     topic: "Stress and Strain",
-    image: stress_strain,
     details: [
       <h3>Stress</h3>,
       "In classical mechanics, Stress is a known as a physical quantity that expresses the amount of force, which is experienced by the nearby particles. Stress is calculated as force per unit area.",

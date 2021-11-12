@@ -211,12 +211,14 @@ footer {
     color: #000;
     font-size: 20px;
     padding: 0 10px;
-    margin-top: -5px;
+    margin-top: 10px;
+    margin-left: 5px;
     font-weight: 400;
     border-radius: 6px;
     border: 2px solid cyan;
     transition: all 0.3s ease;
     cursor: pointer;
+    width: 346px;
 }
 
 .right form button:hover {
@@ -308,11 +310,19 @@ footer {
     .additional {
         margin-top: 50px;
     }
+
+    .right form button {
+        width: 87vh;
+    }
 }
 
 @media (max-width: 320px) {
     .bottom *{
         font-size: 12px;
+    }
+
+    .right form button {
+        width: 210px;
     }
 
     .center .icons {

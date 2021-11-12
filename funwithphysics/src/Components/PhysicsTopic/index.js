@@ -10,9 +10,6 @@ import photonics from "../../Images/photonics.webp"
 import statistical from "../../Images/statistical.png";
 import './styles.css'
 
-
-
-
 function PhysicsTopicItem(props) {
 	return (
 		<div className="col-xs-12 col-sm-6 col-md-3 text-center animate-box">

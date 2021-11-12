@@ -34,6 +34,6 @@ export default function ClassicalMechanics() {
                     )
                 }
             </div>
-        </div >
+        </div>
     )
 }
