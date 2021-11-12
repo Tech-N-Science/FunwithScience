@@ -9,7 +9,7 @@ This project is a Physics calculator where the user just needs to enter the valu
 
 It really is that easy!
 
-And the best part of it? **FunwithPhysics is open source!** 🤩
+And the best part of it? **FunwithScience is open source!** 🤩
 
 
 **The website is live and can be visited on https://myfunwithphysics.web.app/**
