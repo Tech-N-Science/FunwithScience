@@ -140,6 +140,20 @@ const Topics = [
     dimension: "ML⁻¹T⁻², dimensionless",
     process: "Stress is measured by the force which is applied per unit area, it's denoted with sigma (σ). The strain is a ratio of the original dimensions and the deformed dimensions, as it's a ratio it's dimensionless and has no unit."
   },
+  {
+    topic: "Projectile Motion",
+    details: `Projectile Motion  can be
+    described by the
+    horizontal and vertical
+    components of motion.
+    i.e, If a person through a ball from at any point with any speed (u) with any angle θ (theta), and due to the gravity (g) a downward force applied on it which is constant (9.8m/s²) then that type of motion of ball is called projectile motion. and the max height covered by the ball is denoted by (h) and this is a point at which the ball is comes toward the earth.
+     `,
+    formula: ["Range=u² * sin2θ/g" ,<br/>,"Time= 2u sin θ/g  &" ," Max-Height=u² sin²θ/2g"],
+    process:
+      ["Range: To find the range or the distance covered by the object, we need to know the initial speed which is (u) and the angle by which the object is through out where as the g is constant which is 9.8m/s², put these values in formula for the range & Time: To find the time at which the the ball touch the ground, we also need to know that the initial speed and the angle theeta and g is constant & Max Height: To find the maximum height covered by the object is initial speed and the angle"],
+    siunit: "NA",
+    dimension: "NA",
+  },
   {topic: "Rotational Dynamics",
   details: "....",
 }
