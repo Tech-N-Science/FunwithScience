@@ -138,7 +138,7 @@ const Topics = [
     formula: [" Stress(σ) = F/A",<br/>,  "Strain = ΔX/X"],
     siunit: "Stress- N/m² (Pa) , Strain- no unit",
     dimension: "ML⁻¹T⁻², dimensionless",
-    process: "Stress is measured by the force which is applied per unit area, it's denoted with sigma (σ). The strain is a ratio of the original dimensions and the deformed dimensions, as it's a ratio it's dimensionless and has no unit."
+    process: "  Stress is measured by the force which is applied per unit area, it's denoted with sigma (σ). The strain is a ratio of the original dimensions and the deformed dimensions, as it's a ratio it's dimensionless and has no unit."
   },
   {
     topic: "Projectile Motion",
