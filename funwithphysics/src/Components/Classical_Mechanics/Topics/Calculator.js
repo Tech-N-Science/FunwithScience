@@ -15,6 +15,119 @@ function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
   
+  // Projectile Motion Calculator
+  const CalculatorProjectileMotion=()=>{
+
+    const [choice, setChoice] = useState("range")
+    const [velocity, setVelocity] = useState(null)
+    const [angle, setAngle] = useState(null)
+    const [result, setResult] = useState(null)
+    const reset =()=>{
+      setVelocity(null)
+      setAngle(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      if(choice === "range"){
+        res=(2 * velocity * velocity * Math.sin(angle*Math.PI/180) * Math.cos(angle*Math.PI/180))/9.8
+      }
+      else if(choice === "time"){
+        res=(2 * velocity * Math.sin(angle*Math.PI/180))/9.8
+      }
+      else if (choice === "max-height"){
+        res=(velocity * velocity * Math.sin(angle*Math.PI/180) * Math.sin(angle*Math.PI/180))/19.6
+      }
+      setResult(res)
+
+    }
+    const handleChange=(e)=>{
+      setChoice(e.target.value)
+      reset();
+    }
+    const choiceData=()=>{
+      if (choice === "range")
+      return{
+        name:"Range",
+        mainunit:"m"
+      }
+      else if(choice === "time")
+      return{
+        name:"Time",
+        mainunit:"s"
+      }
+      else if(choice === "max-height")
+      return{
+        name:"Maximum Height",
+        mainunit:"m"
+      }
+    }
+    return(
+      <>
+  <React.Fragment>
+        <Form>
+          <Form.Group className="mb-3" controlId="choice2">
+          <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e)=>handleChange(e)}>
+              <option value="range">R : Range or Distance</option>
+              <option value="time">T : Time of flight</option>
+              <option value="max-height">H : Maximum-Height</option>
+            </Form.Control>
+            </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Initial Velocity (u)</Form.Label>
+            <Form.Control
+              onChange={(e) =>setVelocity(e.target.value)}
+              type="number"
+              placeholder={"Enter in m/s"}
+              value={
+                velocity === null ? "": velocity
+              }
+            />
+            </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Angle (θ)</Form.Label>
+            <Form.Control
+              onChange={(e) =>setAngle(e.target.value)}
+              type="number"
+              placeholder={"Enter in degree"}
+              value={
+                angle === null ? "": angle
+              }
+            />
+            </Form.Group>
+            <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " "+choiceData().mainunit 
+              }
+            />
+          </Form.Group>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+            </Form>
+            </React.Fragment>
+</>)
+  }
+
   // Momentum Calculator
   function CalculatorMomentum() {
     const [result, setResult] = useState(null);
@@ -929,6 +1042,9 @@ function Calculator({ match }) {
         break;
       case "Stress and Strain":
         currentCall = Stress_Strain_calc();
+        break;
+      case "Projectile Motion":
+        currentCall = CalculatorProjectileMotion();
         break;
       default:
         break;
