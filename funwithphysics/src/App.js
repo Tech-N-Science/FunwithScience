@@ -37,9 +37,9 @@ const App = () => {
           path="/thermodynamics"
           component={Thermodynamics}
         />
-        <Suspense fallback={<div>Loading....</div>}>
+        
         <Route exact path="/physics" component={PhysicsTopic} />
-        </Suspense>
+       
         <Route
           exact
           path="/classicalmechanics/calc/:topic"
