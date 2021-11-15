@@ -418,9 +418,29 @@ function Calculator({ match }) {
   }
   return (
     <div className="Calculator__main">
-      <div className="Calculator__header">
-        <h1>{details.topic}</h1>
+        <div className="Calculator__header">
+          <h1>{details.topic}</h1>
+        </div>
+        <div className="Calculator__details">
+          <p>{details.details}</p>
+        </div>
+        <div className="Calculator__formula">
+          <h3>Working Formula:</h3>
+          <h3>{details.formula}</h3>
+          <h3>S.I. Unit : {details.siunit}</h3>
+          <h3>Dimension : {details.dimension}</h3>
+        </div>
+        <div className="Calculator__process">
+          <h3> Process</h3>
+          <p>{details.process}</p>
+        </div>
+        <div className="Calculator__calc">
+          <h3>{details.topic} Calculator</h3>
+          <hr />
+          {calC(details.topic)}
+        </div>
       </div>
+<<<<<<< HEAD
     
       <div className="Calculator__details">
         <p>{details.details}</p>
@@ -449,6 +469,8 @@ function Calculator({ match }) {
         <p></p>
       </div> */}
     </div>
+=======
+>>>>>>> 3e1a6975625eda8fa014e5c3df7f9616ad694e17
   );
 }
 export default Calculator;

@@ -1,8 +1,7 @@
 import Home from "./Components/Home/Home";
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
-import Navbar from "./Components/Navbar/Navbar";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ClassicalMechanics from "./Components/Classical_Mechanics/ClassicalMechanics";
 import Thermodynamics from "./Components/Thermodynamics/Thermodynamics";
 import CalcClassic from "./Components/Classical_Mechanics/Topics/Calculator";
@@ -15,12 +14,15 @@ import shm_Calculator from "./Components/Classical_Mechanics/Topics/shm_Calculat
 import rotation_Calculator from "./Components/Classical_Mechanics/Topics/rotation_Calculator";
 import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
+const Navbar = lazy(()=>import("./Components/Navbar/Navbar"));
 
 
 const App = () => {
   return (
     <React.Fragment>
+      <Suspense fallback={<div>Loading....</div>}>
       <Navbar />
+      </Suspense>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={Home} />
@@ -35,7 +37,9 @@ const App = () => {
           path="/thermodynamics"
           component={Thermodynamics}
         />
+        
         <Route exact path="/physics" component={PhysicsTopic} />
+       
         <Route
           exact
           path="/classicalmechanics/calc/:topic"

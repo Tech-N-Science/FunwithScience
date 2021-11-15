@@ -105,10 +105,10 @@ const Topics = [
   {
     topic: "Circular Motion",
     details: "Uniform circular motion means that the magnitude of the velocity will always be constant. But the direction of the velocity will change at a constant rate from every point. It means that the path of the object will form a circle. And the object will complete the repeated trips around the path in the same amount of time every time.",
-    formula: "v=( 2.π.r )/T  ω=2π/T & aᵣₐ=v²/r",
+    formula: ["v=( 2.π.r )/T",<br/>, " ω=2π/T" ,<br/>, "aᵣₐ=v²/r"],
     process: "For an object to move along a curved circular path, the direction of its velocity must change. It is because at each point on the circular path tangent will give the direction. A change in velocity will cause the acceleration which will not be in the same direction as the velocity. Therefore for an object to move along a circular path, there must be an acceleration that will always be perpendicular to the velocity.",
-    siunit: "m , m/s , s , m/s² , rad/s",
-    dimension: "M , M/T , T , M/T² , 1/T",
+    siunit: "Circumference: m ,  Velocity: m/s ,  Time: s ,        Radial Acc: m/s² , Radial Acc: rad/s",
+    dimension: "Circumference: L , Velocity: L/T , Time: T, Radial Acc: L/T² , Radial Acc: 1/T",
   },
   {
     topic: "Fluid Mechanics",
@@ -123,8 +123,8 @@ const Topics = [
     details: `Kinematics is a subject of physics evolved from classical mechanics that explains the motion of points, bodies (objects), and systems of bodies (groups of objects) without taking into account the forces that cause them to move. Kinematics is an area of mathematics that is sometimes referred to as "geometry of motion." A kinematics issue begins by specifying the geometry of the system and stating the beginning conditions of any known values of location, velocity, and/or acceleration of points inside the system. The location, velocity, and acceleration of any unknown portions of the system may then be calculated using geometry arguments. Kinetics, not kinematics, is the study of how forces operate on bodies.`,
     formula: ["v=v₀​+a.t", <br/>, "Δx=v​₀.t+1/2.​a.t²", <br/>,"(v)²=(v₀)²​+2.a.Δx"],
     process: `In kinematics there are three 3 fundamental equations of motion as mentioned above. Each equation consists of different physical quantities and can be used to determine the missing value if all other values are already known. Some scenarios may need the utilzation of more than one equations. These can be used to solve real life problems like vehicular motion, projectile motion, falling motion and can also be used to derive more complex equation often used in higher Physics.Time is always taken as absolute ie. +tive. Here 'v' is final velocity, 'v₀' is initial velocity, ' a' is acceleration and 't' is time.`,
-    siunit: "m , m/s , s , m/s²",
-    dimension: "M , M/T , T , M/T²",
+    siunit: "Distance/Displacement: m , Velocity: m/s , Time: s , Accelearation: m/s²",
+    dimension: "Distance/Displacement: M ,Velocity: M/T , Time: T , Accelearation: M/T²",
   },
   {
     topic: "Stress and Strain",
@@ -136,8 +136,8 @@ const Topics = [
       "Strain is known as the measurement of the deformation of a body, it's the ratio of the deformed dimension and the initial dimension. "
     ],
     formula: [" Stress(σ) = F/A",<br/>,  "Strain = ΔX/X"],
-    siunit: "Stress- N/m² (Pa) , Strain- no unit",
-    dimension: "ML⁻¹T⁻², dimensionless",
+    siunit: "Stress: N/m² (Pa) , Strain: no unit",
+    dimension: "Stress: ML⁻¹T⁻², Strain: dimensionless",
     process: "  Stress is measured by the force which is applied per unit area, it's denoted with sigma (σ). The strain is a ratio of the original dimensions and the deformed dimensions, as it's a ratio it's dimensionless and has no unit."
   },
   {
@@ -146,13 +146,13 @@ const Topics = [
     described by the
     horizontal and vertical
     components of motion.
-    i.e, If a person through a ball from at any point with any speed (u) with any angle θ (theta), and due to the gravity (g) a downward force applied on it which is constant (9.8m/s²) then that type of motion of ball is called projectile motion. and the max height covered by the ball is denoted by (h) and this is a point at which the ball is comes toward the earth.
+    i.e, If a person throws a ball from any point with any speed (u) with any angle θ (theta), and due to the gravity (g) a downward force is applied on it which is constant (9.8m/s²) then the motion of the ball is called projectile motion, and the max height attained by the ball is denoted by (h). The total distance covered by the ball from initial point to final point is called the Range(R).
      `,
-    formula: ["Range=u² * sin2θ/g" ,<br/>,"Time= 2u sin θ/g  &" ," Max-Height=u² sin²θ/2g"],
+    formula: ["Range=u² * sin2θ/g" ,<br/>,"Time= 2u sin θ/g " ,<br/>," Max-Height=u² sin²θ/2g"],
     process:
       ["Range: To find the range or the distance covered by the object, we need to know the initial speed which is (u) and the angle by which the object is through out where as the g is constant which is 9.8m/s², put these values in formula for the range & Time: To find the time at which the the ball touch the ground, we also need to know that the initial speed and the angle theeta and g is constant & Max Height: To find the maximum height covered by the object is initial speed and the angle"],
-    siunit: "NA",
-    dimension: "NA",
+    siunit: ["Range: m",",  Time: s",",   Max-Height: m"],
+    dimension:  ["Range: L",",  Time: T",",   Max-Height: L"],
   },
   {topic: "Rotational Dynamics",
   details: "....",

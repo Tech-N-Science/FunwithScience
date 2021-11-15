@@ -65,24 +65,24 @@ If you think that you can add a new feature or want to fix a bug, we invite you 
 
    Run command `git init`
 
-4. Fork the [repository](https://github.com/Amit366/FunwithPhysics).
+4. Fork the [repository](https://github.com/Tech-N-Science/FunwithScience.git).
 
 5. Clone your forked repository of project.
 
 ```git clone
-git clone https://github.com/<your_username>/FunwithPhysics.git
+git clone https://github.com/<your_username>/FunwithScience.git
 ```
 
 6. Navigate to the project directory.
 
 ```
-cd FunwithPhysics
+cd FunwithScience
 ```
 
 7. Add a reference(remote) to the original repository.
 
 ```
-git remote add upstream https://github.com/Amit366/FunwithPhysics.git
+git remote add upstream https://github.com/Tech-N-Science/FunwithScience.git
 ```
 
 8. Check the remotes for this repository.
