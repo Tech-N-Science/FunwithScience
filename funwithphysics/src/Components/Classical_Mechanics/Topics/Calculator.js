@@ -26,6 +26,12 @@ function Calculator({ match }) {
       setVelocity(null)
       setAngle(null)
       setResult(null)
+
+    }
+
+    const handleChange=(e)=>{
+      setChoice(e.target.value)
+      reset();
     }
     const calcResult=()=>{
       let res;
@@ -41,30 +47,35 @@ function Calculator({ match }) {
       setResult(res)
 
     }
-    const handleChange=(e)=>{
-      setChoice(e.target.value)
-      reset();
-    }
     const choiceData=()=>{
       if (choice === "range")
       return{
         name:"Range",
-        mainunit:"m"
+        mainunit:"m",
+        quantities:["Initial Velocity (u)","Angle (θ)"],
+        setters:[setVelocity,setAngle],
+        getters:[velocity,angle]
+
       }
       else if(choice === "time")
       return{
         name:"Time",
-        mainunit:"s"
+        mainunit:"s",
+        quantities:["Initial Velocity (u)","Angle (θ)"],
+        setters:[setVelocity,setAngle],
+        getters:[velocity,angle]
       }
       else if(choice === "max-height")
       return{
         name:"Maximum Height",
-        mainunit:"m"
+        mainunit:"m",
+        quantities:["Initial Velocity (u)","Angle (θ)"],
+        setters:[setVelocity,setAngle],
+        getters:[velocity,angle]
       }
     }
     return(
       <>
-  <React.Fragment>
         <Form>
           <Form.Group className="mb-3" controlId="choice2">
           <Form.Label>Select the type of calculation</Form.Label>
@@ -84,24 +95,24 @@ function Calculator({ match }) {
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Initial Velocity (u)</Form.Label>
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
             <Form.Control
-              onChange={(e) =>setVelocity(e.target.value)}
+              onChange={(e) =>choiceData().setters[0](e.target.value)}
               type="number"
               placeholder={"Enter in m/s"}
               value={
-                velocity === null ? "": velocity
+                choiceData().getters[0] === null ? "": choiceData().getters[0]
               }
             />
             </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Angle (θ)</Form.Label>
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
             <Form.Control
-              onChange={(e) =>setAngle(e.target.value)}
+              onChange={(e) =>choiceData().setters[1](e.target.value)}
               type="number"
               placeholder={"Enter in degree"}
               value={
-                angle === null ? "": angle
+                choiceData().getters[1] === null ? "": choiceData().getters[1]
               }
             />
             </Form.Group>
@@ -119,12 +130,12 @@ function Calculator({ match }) {
         <Button variant="primary" onClick={calcResult}>
           Calculate
         </Button>
+        </Form>
         &nbsp;&nbsp;&nbsp;
           <Button variant="dark" onClick={() => reset()} type="reset">
             Reset
           </Button>
-            </Form>
-            </React.Fragment>
+            
 </>)
   }
 
