@@ -146,7 +146,7 @@ const Topics = [
     described by the
     horizontal and vertical
     components of motion.
-    i.e, If a person through a ball from at any point with any speed (u) with any angle θ (theta), and due to the gravity (g) a downward force applied on it which is constant (9.8m/s²) then that type of motion of ball is called projectile motion. and the max height covered by the ball is denoted by (h) and this is a point at which the ball is comes toward the earth.
+    i.e, If a person throws a ball from any point with any speed (u) with any angle θ (theta), and due to the gravity (g) a downward force is applied on it which is constant (9.8m/s²) then the motion of the ball is called projectile motion, and the max height attained by the ball is denoted by (h). The total distance covered by the ball from initial point to final point is called the Range(R).
      `,
     formula: ["Range=u² * sin2θ/g" ,<br/>,"Time= 2u sin θ/g " ,<br/>," Max-Height=u² sin²θ/2g"],
     process:
