@@ -417,6 +417,7 @@ function Calculator({ match }) {
     return currentCall;
   }
   return (
+    <>
     <div className="Calculator__main">
         <div className="Calculator__header">
           <h1>{details.topic}</h1>
@@ -440,7 +441,6 @@ function Calculator({ match }) {
           {calC(details.topic)}
         </div>
       </div>
-<<<<<<< HEAD
     
       <div className="Calculator__details">
         <p>{details.details}</p>
@@ -468,9 +468,7 @@ function Calculator({ match }) {
         <h3> Dimension : {details.dimension}</h3>
         <p></p>
       </div> */}
-    </div>
-=======
->>>>>>> 3e1a6975625eda8fa014e5c3df7f9616ad694e17
+    </>
   );
 }
 export default Calculator;
