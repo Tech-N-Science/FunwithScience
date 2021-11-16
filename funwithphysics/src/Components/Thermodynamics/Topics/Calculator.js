@@ -7,6 +7,191 @@ function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
 
+  //Energy calculator
+  const CalculatorEnergy =()=>{
+    const [heat, setHeat] = useState(null)
+    const [work, setWork] = useState(null)
+    const [result, setResult] = useState(null)
+
+    const handleClick =()=>{
+      let res;
+      res= heat-work;
+      setResult(res)
+    }
+    const reset=()=>{
+      setHeat(null)
+      setWork(null)
+      setResult(null)
+    }
+    return(<>
+          <Form>
+          <Form.Group className="mb-3" controlId="mass">
+            <Form.Label>Amount of heat (Q)</Form.Label>
+            <Form.Control
+              onChange={(e)=>setHeat(e.target.value)}
+              type="number"
+              placeholder="Enter the amount of head applied to the thermodynamics system in (Joule)"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="mass">
+            <Form.Label>Work done(W)</Form.Label>
+            <Form.Control
+            onChange={(e)=>setWork(e.target.value)}
+              type="number"
+              placeholder="Enter the work done by the thermodynamics system in (Joule)"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="momentum">
+            <Form.Label>Change in energy (∆U)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " Joule"}
+            />
+            <Form.Text className="text-muted">
+              Enter Work and amount of heat to Calculate the Momentum.
+            </Form.Text>
+          </Form.Group>
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={reset} type="reset">
+            Reset
+          </Button>
+          </Form>
+    </>)
+  }
+
+  //first Law of thermodynamics calculator
+  const CalculatorFirstLaw=()=>{
+    const [choice, setChoice] = useState("energy")
+    const [heat, setHeat] = useState(null)
+    const [work, setWork] = useState(null)
+    const [energy, setEnergy] = useState(null)
+    const [result, setResult] = useState(null)
+
+    const handleChange=(e)=>{
+      setChoice(e.target.value)
+      reset()
+    }
+
+    const reset=()=>{
+      setEnergy(null)
+      setHeat(null)
+      setWork(null)
+      setResult(null)
+    }
+
+    const calcResult=()=>{
+      let res;
+      if(choice === "energy"){
+        res = heat - work;
+      }
+      else if(choice === "work"){
+        res = heat - energy;
+      }
+      else if(choice === "heat"){
+        res = energy - work;
+      }
+      setResult(res);
+    }
+
+    const choiceData=()=>{
+      if(choice === "energy"){
+        return{
+          name:"Change in energy",
+          quantities:["Amount of heat (Q)","Work done by System (W)"],
+          mainunit:"joule",
+          setters:[setHeat,setWork],
+          getters:[heat,work]
+        }
+      }
+      else if (choice === "heat"){
+        return{
+          name:"The amount of heat",
+          quantities:["Work done by System (W)","Change in energy (∆U)"],
+          mainunit:"joule",
+          setters:[setWork,setEnergy],
+          getters:[work,energy]
+        }
+      }
+      else if(choice === "work")
+      return{
+        name:"Work done by the system",
+        quantities:["Amount of heat (Q)","Change in energy (∆U)"],
+        mainunit:"joule",
+        setters:[setHeat,setEnergy],
+        getters:[heat,energy]
+
+      }
+    }
+    return(
+      <>
+      <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+              <option value="energy">∆U : Change in energy</option>
+              <option value="heat">Q: Amount of heat</option>
+              <option value="work">W: Work done by system</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e)=>choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in " +choiceData().mainunit }
+              value={
+                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e)=>choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={"Enter in " +choiceData().mainunit }
+              value={
+                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    )
+  }
+
   // KTG calculator
   function CalculatorKTG() {
     const [result, setResult] = useState(null);
@@ -212,11 +397,19 @@ function Calculator({ match }) {
     );
   }
 
+
+  //adding the calculators togather
   function calC(key) {
     let currentCall;
     switch (key) {
       case "Kinetic Theory of Gases":
         currentCall = CalculatorKTG();
+        break;
+      case "First law":
+        currentCall = CalculatorFirstLaw();
+        break;
+      case "Energy":
+        currentCall = CalculatorEnergy();
         break;
       default:
         break;
@@ -224,6 +417,7 @@ function Calculator({ match }) {
     return currentCall;
   }
   return (
+    <>
     <div className="Calculator__main">
         <div className="Calculator__header">
           <h1>{details.topic}</h1>
@@ -247,6 +441,34 @@ function Calculator({ match }) {
           {calC(details.topic)}
         </div>
       </div>
+    
+      <div className="Calculator__details">
+        <p>{details.details}</p>
+      </div>
+      <div className="Calculator__formula">
+          <h3>Working Formula:</h3>
+          <h3>{details.formula}</h3> 
+          <h3>S.I. Unit : {details.siunit}</h3>
+          <h3>Dimension : {details.dimension}</h3>
+        </div>
+      <div className="Calculator__calc">
+        <h3>{details.topic} Calculator</h3>
+        <hr />
+        {calC(details.topic)}
+      </div>
+      <div className="Calculator__process">
+        <h3> Process</h3>
+        <p>{details.process}</p>
+      </div>
+      {/* <div className="Calculator__siunit">
+        <h3> S.I. Unit : {details.siunit}</h3>
+        <p></p>
+      </div>
+      <div className="Calculator__dimension">
+        <h3> Dimension : {details.dimension}</h3>
+        <p></p>
+      </div> */}
+    </>
   );
 }
 export default Calculator;

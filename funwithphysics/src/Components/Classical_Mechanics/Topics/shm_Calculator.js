@@ -161,11 +161,13 @@ function shm_Calculator({ match }) {
                 {/* Buttons */}
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
-                </Button>&nbsp;&nbsp;&nbsp;
+                </Button>
+                </Form>
+                &nbsp;&nbsp;&nbsp;
                 <Button variant="dark" onClick={handle_reset} type="reset">
                     Reset
                 </Button>
-            </Form>
+            
         </React.Fragment>
     }
 
