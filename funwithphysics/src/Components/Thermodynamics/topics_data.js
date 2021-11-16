@@ -5,6 +5,11 @@ export { ktg };
 const Topics = [
   {
     topic: "Efficiency",
+    details: "Thermal efficiency (ηth) of any heat engine is a dimensionless performance measure of a device that use thermal energy, such as internal combustion engine, boiler, furnace etc, and can be defined as the ratio of the work it does (W) and the heat input at the heigh temperature (QH) ", 
+    formula:"ηth=W/QH",
+    process:"Put the value of work (W) and the heat input at he heigh temperatue(QH)",
+    siunit:"joule per joule",
+    dimension:"NA"
     
   },
   {
@@ -30,11 +35,11 @@ const Topics = [
 
   {
     topic: "Second law",
-    details: "The first law of thermodynamics states that the change in internal energy (ΔU) of the thermodynamics system is equal to the difference between the amount of heat (Q) applied to the system and the worked done by the system (W) due to this",
+    details: "Second law of thermodynamics states that the change in entropy (dS) is defined as the ratio of the heat transfer (dQ) in to the system and the temperature (T)",
     formula: "dS=dQ/T",
-    process:"Basically this is used to find the work done by the thermodynamics system (w) for which we need to be know change in energy (ΔU) after applied the some amount of heat (Q), by putting these values in formula we can easily find any of these",
-    siunit :"joule",
-    dimension:"[M L² / T²]"
+    process:"To find the change in entropy we need to know the heat transfer (dQ) and the temperature (T) ",
+    siunit :"joules per kelvin",
+    dimension:"[M L² K/ T²]"
   },
   
 

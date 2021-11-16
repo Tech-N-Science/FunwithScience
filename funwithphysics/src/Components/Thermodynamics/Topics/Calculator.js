@@ -7,10 +7,268 @@ function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
 
+  //Thermal efficiency (ηth) calculator
+  const CalculatorEfficiency=()=>{
+    const [choice, setChoice] = useState("efficiency")
+    const [heat, setHeat] = useState(null)
+    const [efficiency, setEfficiency] = useState(null)
+    const [work, setWork] = useState(null)
+    const [result, setResult] = useState(null)
+
+    const reset=()=>{
+      setHeat(null)
+      setEfficiency(null)
+      setWork(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      if(choice==="efficiency"){
+        res=work/heat;
+      }
+      else if(choice==="heat"){
+        res=work/efficiency;
+      }
+      else if (choice==="work"){
+        res=efficiency*heat;
+      }
+      setResult(res)
+    }
+    const choiceData =()=>{
+      if(choice==="efficiency")
+      return{
+        name:"Efficiency (η)",
+        mainunit:"joule per joule",
+        quantities:["Work (W)","Heat at Heigh temperatue (QH)"],
+        getters:[work,heat],
+        setters:[setWork,setHeat],
+        subunits:["joule","joule"],
+      }
+      else if (choice==="heat")
+      return{
+        name:"Heat input at the heigh temperature (QH)",
+        mainunit:"joule",
+        quantities:["Thermal efficiency (η)","Work (W)"],
+        getters:[efficiency,work],
+        setters:[setEfficiency,setWork],
+        subunits:["joule per joule","joule"],
+        
+
+      }
+      else if(choice==="work")
+      return{
+        name:"Work",
+        mainunit:"joule",
+        quantities:["Thermal efficiency (η)","Heat at Heigh temperatue (QH)"],
+        getters:[efficiency,heat],
+        setters:[setEfficiency,setHeat],
+        subunits:["joule per joule","joule"],
+      }
+    }
+
+    const handleChange=(e)=>{
+      setChoice(e.target.value)
+      reset()
+    }
+
+    return(
+      <>
+      <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e)=>{handleChange(e)}}>
+              <option value="efficiency">ηth : Thermal efficiency </option>
+              <option value="work">W : Work</option>
+              <option value="heat">QH : Heat at Heigh temperatue </option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e)=>{choiceData().setters[0](e.target.value)}}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0] }
+              value={
+                choiceData().getters[0] === null ? "": choiceData().getters[0]
+              }
+            />
+            </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e)=>{choiceData().setters[1](e.target.value)}}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[1] }
+              value={
+                choiceData().getters[1] === null ? "": choiceData().getters[1]
+              }
+            />
+            </Form.Group>
+            <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+          </Form>
+          <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    )
+  }
+
 
   //Second Law of thermodynamics calculator
   const CalculatorSecondLaw=()=>{
+    const [choice, setChoice] = useState("entropy")
+    const [entropy, setEntropy] = useState(null)
+    const [temperature, setTemperature] = useState(null)
+    const [heat, setHeat] = useState(null)
+    const [result, setResult] = useState(null)
 
+    const handleChange=(e)=>{
+      setChoice(e.target.value)
+      reset();
+    }
+
+    const reset =()=>{
+      setHeat(null)
+      setEntropy(null)
+      setTemperature(null)
+      setResult(null)
+    }
+
+    const calcResult= ()=>{
+      let res;
+      if(choice==="entropy"){
+        res=heat/temperature;
+      }
+      else if(choice==="heat"){
+        res=entropy*temperature;
+      }
+      else if(choice==="temperature"){
+        res=heat/entropy
+      }
+      setResult(res)
+
+    }
+    const choiceData=()=>{
+      if(choice==="entropy"){
+        return{
+          name:"Change in Entropy (dS)",
+          mainunit:"joules per kelvin",
+          quantities:["Heat transfer","Temprature"],
+          getters:[heat,temperature],
+          setter:[setHeat,setTemperature],
+          subunits:["joules","kelvin"]
+        }
+      }
+      else if (choice==="heat"){
+        return{
+          name:"Heat transfered (dQ)",
+          mainunit:"joules",
+          quantities:["Change in Entropy","Temprature"],
+          getters:[entropy,temperature],
+          setter:[setEntropy,setTemperature],
+          subunits:["joules per kelvin","kelvin"]
+
+        }
+      }
+      else if(choice==="temperature"){
+        return{
+          name:"Temperature (T)",
+          mainunit:"kelvin",
+          quantities:["Heat transfer","Change in entropy"],
+          getters:[heat,entropy],
+          setter:[setHeat,setEntropy],
+          subunits:["joules","joules per kelvin"]
+        }
+      }
+    }
+
+    return(
+      <>
+      <Form>
+          <Form.Group className="mb-3" controlId="choice2">
+          <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e)=>handleChange(e)}>
+              <option value="entropy">dS: Change in Entropy</option>
+              <option value="heat">dQ : Heat transfer</option>
+              <option value="temperature">T :Tempreature</option>
+            </Form.Control>
+            </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e)=>{choiceData().setter[0](e.target.value)}}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0] }
+              value={
+                choiceData().getters[0] === null ? "": choiceData().getters[0]
+              }
+            />
+            </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) =>choiceData().setter[1](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[1] }
+              value={
+                choiceData().getters[1] === null ? "": choiceData().getters[1]
+              }
+            />
+            </Form.Group>
+            <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    )
   }
 
   //first Law of thermodynamics calculator
@@ -360,6 +618,9 @@ function Calculator({ match }) {
         break;
       case "Second law":
         currentCall = CalculatorSecondLaw();
+        break;
+      case "Efficiency":
+        currentCall=CalculatorEfficiency();
         break;
       default:
         break;
