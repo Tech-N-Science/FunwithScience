@@ -7,61 +7,7 @@ function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
 
-  //Energy calculator
-  const CalculatorEnergy =()=>{
-    const [heat, setHeat] = useState(null)
-    const [work, setWork] = useState(null)
-    const [result, setResult] = useState(null)
-
-    const handleClick =()=>{
-      let res;
-      res= heat-work;
-      setResult(res)
-    }
-    const reset=()=>{
-      setHeat(null)
-      setWork(null)
-      setResult(null)
-    }
-    return(<>
-          <Form>
-          <Form.Group className="mb-3" controlId="mass">
-            <Form.Label>Amount of heat (Q)</Form.Label>
-            <Form.Control
-              onChange={(e)=>setHeat(e.target.value)}
-              type="number"
-              placeholder="Enter the amount of head applied to the thermodynamics system in (Joule)"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="mass">
-            <Form.Label>Work done(W)</Form.Label>
-            <Form.Control
-            onChange={(e)=>setWork(e.target.value)}
-              type="number"
-              placeholder="Enter the work done by the thermodynamics system in (Joule)"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="momentum">
-            <Form.Label>Change in energy (∆U)</Form.Label>
-            <Form.Control
-              readOnly
-              type="number"
-              placeholder={result === null ? "Result" : result + " Joule"}
-            />
-            <Form.Text className="text-muted">
-              Enter Work and amount of heat to Calculate the Momentum.
-            </Form.Text>
-          </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={reset} type="reset">
-            Reset
-          </Button>
-          </Form>
-    </>)
-  }
+  
 
   //first Law of thermodynamics calculator
   const CalculatorFirstLaw=()=>{
@@ -408,16 +354,12 @@ function Calculator({ match }) {
       case "First law":
         currentCall = CalculatorFirstLaw();
         break;
-      case "Energy":
-        currentCall = CalculatorEnergy();
-        break;
       default:
         break;
     }
     return currentCall;
   }
   return (
-    <>
     <div className="Calculator__main">
         <div className="Calculator__header">
           <h1>{details.topic}</h1>
@@ -440,35 +382,7 @@ function Calculator({ match }) {
           <hr />
           {calC(details.topic)}
         </div>
-      </div>
-    
-      <div className="Calculator__details">
-        <p>{details.details}</p>
-      </div>
-      <div className="Calculator__formula">
-          <h3>Working Formula:</h3>
-          <h3>{details.formula}</h3> 
-          <h3>S.I. Unit : {details.siunit}</h3>
-          <h3>Dimension : {details.dimension}</h3>
-        </div>
-      <div className="Calculator__calc">
-        <h3>{details.topic} Calculator</h3>
-        <hr />
-        {calC(details.topic)}
-      </div>
-      <div className="Calculator__process">
-        <h3> Process</h3>
-        <p>{details.process}</p>
-      </div>
-      {/* <div className="Calculator__siunit">
-        <h3> S.I. Unit : {details.siunit}</h3>
-        <p></p>
-      </div>
-      <div className="Calculator__dimension">
-        <h3> Dimension : {details.dimension}</h3>
-        <p></p>
-      </div> */}
-    </>
+      </div>   
   );
 }
 export default Calculator;
