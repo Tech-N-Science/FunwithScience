@@ -1,6 +1,5 @@
-import ktg from "../../Images/Thermodynamics/KTG.png";
 
-export { ktg };
+export { };
 
 const Topics = [
   {
@@ -22,7 +21,6 @@ const Topics = [
   },
   {
     topic: "Kinetic Theory of Gases",
-    image: ktg,
     details: `According to the Kinetic Theory of Gases, gaseous particles are constantly moving and collide in completely elastic collisions. In a collection of gas particles, the average kinetic energy is directly proportional to absolute temperature.
 
     According to this theory, the gas molecule is composed of a huge number of tiny molecules compared to the distances between them. The kinetic theory of gases is necessary for clarifying the process of trapping particles by the diffusion mechanism.`,
