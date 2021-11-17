@@ -21,7 +21,7 @@ function Calculator({ match }) {
     }
     const calcResult=()=>{
       let res;
-      res= boltzmann*Math.log10(microstates)
+      res= boltzmann*Math.log(microstates)
       setResult(res);
     }
     return(<>
@@ -76,15 +76,15 @@ function Calculator({ match }) {
     const [result, setResult] = useState(null)
     const [tempcold, setTempcold] = useState(null)
     const [temphot, setTemphot] = useState(null)
-    const [volume, setVolume] = useState(null)
-    const [unit, setUnit] = useState(null)
+    const [heatabsorb, setheatabsorb] = useState(null)
+    const [heatrelease, setheatrelease] = useState(null)
 
     const reset=()=>{
       setHeat(null)
       setTemphot(null)
       setTempcold(null)
-      setVolume(null)
-      setUnit(null)
+      setheatrelease(null)
+      setheatabsorb(null)
       // setEfficiency(null)
       setWork(null)
       setResult(null)
@@ -95,10 +95,10 @@ function Calculator({ match }) {
         res=work/heat;
       }
       else if(choice==="refrige"){
-        res=volume/unit*100;
+        res=heatabsorb/(heatrelease-heatabsorb);
       }
       else if (choice==="carnot"){
-        res=(temphot-tempcold)/temphot*100;
+        res=(temphot-tempcold)/temphot;
       }
       setResult(res)
     }
@@ -106,7 +106,7 @@ function Calculator({ match }) {
       if(choice==="efficiency")
       return{
         name:"Efficiency (η)",
-        mainunit:"joule per joule",
+        mainunit:"",
         quantities:["Work (W)","Heat at Heigh temperatue (QH)"],
         getters:[work,heat],
         setters:[setWork,setHeat],
@@ -115,19 +115,19 @@ function Calculator({ match }) {
       else if (choice==="refrige")
       return{
         name:"Refrigerator Efficiency",
-        mainunit:"(ft3)/KWhs",
-        quantities:["Volume Cooled ","Unit Electrical Energy per day "],
-        getters:[volume,unit],
-        setters:[setVolume,setUnit],
-        subunits:["cubic feet (ft3)","KWh"],
+        mainunit:"",
+        quantities:["Heat Absorbed(Qc)","Heat Released(Qh)"],
+        getters:[heatabsorb,heatrelease],
+        setters:[setheatabsorb,setheatrelease],
+        subunits:["joule","joule"],
         
 
       }
       else if(choice==="carnot")
       return{
         name:"Efficiency of carnot engine percentage",
-        mainunit:"%",
-        quantities:["Temperature of the cold reservoir (Tc)","Temperature of the hot reservoir (Th)"],
+        mainunit:"",
+        quantities:["Temperature of the hot reservoir (Th)","Temperature of the cold reservoir (Tc)"],
         getters:[temphot,tempcold],
         setters:[setTemphot,setTempcold],
         subunits:["kelvin","kelvin"],
