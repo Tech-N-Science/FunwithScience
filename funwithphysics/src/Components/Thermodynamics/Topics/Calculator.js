@@ -229,13 +229,13 @@ function Calculator({ match }) {
     const calcResult= ()=>{
       let res;
       if(choice==="entropy"){
-        res=heat/temperature;
+        res=parseFloat(heat)/parseFloat(temperature);
       }
       else if(choice==="heat"){
-        res=entropy*temperature;
+        res=parseFloat(entropy)*parseFloat(temperature);
       }
       else if(choice==="temperature"){
-        res=heat/entropy
+        res=parseFloat(heat)/parseFloat(entropy)
       }
       setResult(res)
 
@@ -362,13 +362,13 @@ function Calculator({ match }) {
     const calcResult=()=>{
       let res;
       if(choice === "energy"){
-        res = heat - work;
+        res = parseFloat(heat) - parseFloat(work);
       }
       else if(choice === "work"){
-        res = heat - energy;
+        res = parseFloat(heat) - parseFloat(energy);
       }
       else if(choice === "heat"){
-        res = energy - work;
+        res = parseFloat(energy) + parseFloat(work);
       }
       setResult(res);
     }
