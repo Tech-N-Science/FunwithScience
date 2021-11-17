@@ -7,6 +7,66 @@ function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
 
+
+  //Third law of thermodynamics
+  const CalculatorThirdLaw=()=>{
+    const [result, setResult] = useState(null)
+    const [microstates, setMicrostates] = useState(null)
+    // const [boltzmann, setBoltzmann] = useState(1.38 *Math.pow(10,-23))
+
+    const boltzmann=1.38 *Math.pow(10,-23)
+    const reset=()=>{
+      setMicrostates(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      res= boltzmann*Math.log10(microstates)
+      setResult(res);
+    }
+    return(<>
+    <Form>
+    <Form.Group>
+                <Form.Label>Number of microstates:</Form.Label>
+                <Form.Control
+                  onChange={(e) => setMicrostates(e.target.value)}
+                  type="number"
+                  placeholder="Enter the number of microstates"
+                  value={microstates===null?"":microstates}
+                />
+              </Form.Group>
+    <Form.Group>
+                <Form.Label>Boltzmann Constant:</Form.Label>
+                <Form.Control
+                  readOnly
+                  // type="number"
+                  value={boltzmann}
+                  // placeholder="The value of Boltzmann costant is 1.38×10^−23 J/K"
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+              <Form.Label>The entropy is:</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " Joules per kelvin"
+              }
+            />
+          </Form.Group>
+    </Form>
+    <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+    </>)
+  }
+
   //Thermal efficiency (ηth) calculator
   const CalculatorEfficiency=()=>{
     const [choice, setChoice] = useState("efficiency")
@@ -629,6 +689,9 @@ function Calculator({ match }) {
         break;
       case "Efficiency":
         currentCall=CalculatorEfficiency();
+        break;
+      case "Third law":
+        currentCall=CalculatorThirdLaw();
         break;
       default:
         break;

@@ -41,6 +41,14 @@ const Topics = [
     siunit :"Entropy: joules per kelvin",
     dimension:"Entropy: [M L² K/ T²]"
   },
+  {
+    topic:"Third law",
+    details:"Third law of thermodynamics provides the absolute reference point for the determination of the entropy. ",
+    formula:"S=kB log W",
+    process:"Where S is the entropy, kB is Boltzmann constant and its value is 1.38×10^−23 J/K and W is no. of micro states, Put the value of micro states.",
+    siunit:"Entropy: Joules per kelvin",
+    dimension:"Entropy: [M L² K/ T²]"
+  }
   
 
 ];
