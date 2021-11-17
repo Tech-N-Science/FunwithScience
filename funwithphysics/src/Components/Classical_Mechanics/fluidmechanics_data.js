@@ -1,9 +1,10 @@
 const Topics = [
     {
         topic: "Density",
-        details: `Density is the measurement of how tightly a material is packed together.`,
+        details: `Density is the measurement of how tightly a material is packed together. A fluid's mass density, often known as density, is defined as the ratio of a fluid's mass to its volume.
+                 A fluid's density is defined as its mass per unit volume.`,
         formula: "ρ = m/V",
-        process: "Iron, platinum, and lead are examples of dense materials. Materials that are dense are most likely to ‘feel’ heavy or hard. The opposite of dense is sparse and a few examples of sparse material are glass, bamboo, aluminium, and styrofoam. In general, liquids are less dense than solids and gases are less dense than liquids. This is due to the fact that solids have densely packed particles, liquids are materials where particles can slide around one another, and gases have particles that are free to move all over the place.",
+        process: "In general, liquids are less dense than solids and gases are less dense than liquids. This is due to the fact that solids have densely packed particles, liquids are materials where particles can slide around one another, and gases have particles that are free to move all over the place. Density is denoted by symbol ρ (rho) and the unit of mass density is (kg/m3).",
         siunit: "kg m⁻³",
         dimension: "M L⁻³"
     },
