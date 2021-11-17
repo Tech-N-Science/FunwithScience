@@ -7,17 +7,85 @@ function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
 
+
+  //Third law of thermodynamics
+  const CalculatorThirdLaw=()=>{
+    const [result, setResult] = useState(null)
+    const [microstates, setMicrostates] = useState(null)
+    // const [boltzmann, setBoltzmann] = useState(1.38 *Math.pow(10,-23))
+
+    const boltzmann=1.38 *Math.pow(10,-23)
+    const reset=()=>{
+      setMicrostates(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      res= boltzmann*Math.log10(microstates)
+      setResult(res);
+    }
+    return(<>
+    <Form>
+    <Form.Group>
+                <Form.Label>Number of microstates:</Form.Label>
+                <Form.Control
+                  onChange={(e) => setMicrostates(e.target.value)}
+                  type="number"
+                  placeholder="Enter the number of microstates"
+                  value={microstates===null?"":microstates}
+                />
+              </Form.Group>
+    <Form.Group>
+                <Form.Label>Boltzmann Constant:</Form.Label>
+                <Form.Control
+                  readOnly
+                  // type="number"
+                  value={boltzmann}
+                  // placeholder="The value of Boltzmann costant is 1.38×10^−23 J/K"
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+              <Form.Label>The entropy is:</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " Joules per kelvin"
+              }
+            />
+          </Form.Group>
+    </Form>
+    <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+    </>)
+  }
+
   //Thermal efficiency (ηth) calculator
   const CalculatorEfficiency=()=>{
     const [choice, setChoice] = useState("efficiency")
     const [heat, setHeat] = useState(null)
-    const [efficiency, setEfficiency] = useState(null)
+    // const [efficiency, setEfficiency] = useState(null)
     const [work, setWork] = useState(null)
     const [result, setResult] = useState(null)
+    const [tempcold, setTempcold] = useState(null)
+    const [temphot, setTemphot] = useState(null)
+    const [volume, setVolume] = useState(null)
+    const [unit, setUnit] = useState(null)
 
     const reset=()=>{
       setHeat(null)
-      setEfficiency(null)
+      setTemphot(null)
+      setTempcold(null)
+      setVolume(null)
+      setUnit(null)
+      // setEfficiency(null)
       setWork(null)
       setResult(null)
     }
@@ -26,11 +94,11 @@ function Calculator({ match }) {
       if(choice==="efficiency"){
         res=work/heat;
       }
-      else if(choice==="heat"){
-        res=work/efficiency;
+      else if(choice==="refrige"){
+        res=volume/unit*100;
       }
-      else if (choice==="work"){
-        res=efficiency*heat;
+      else if (choice==="carnot"){
+        res=(temphot-tempcold)/temphot*100;
       }
       setResult(res)
     }
@@ -44,25 +112,25 @@ function Calculator({ match }) {
         setters:[setWork,setHeat],
         subunits:["joule","joule"],
       }
-      else if (choice==="heat")
+      else if (choice==="refrige")
       return{
-        name:"Heat input at the heigh temperature (QH)",
-        mainunit:"joule",
-        quantities:["Thermal efficiency (η)","Work (W)"],
-        getters:[efficiency,work],
-        setters:[setEfficiency,setWork],
-        subunits:["joule per joule","joule"],
+        name:"Refrigerator Efficiency",
+        mainunit:"(ft3)/KWhs",
+        quantities:["Volume Cooled ","Unit Electrical Energy per day "],
+        getters:[volume,unit],
+        setters:[setVolume,setUnit],
+        subunits:["cubic feet (ft3)","KWh"],
         
 
       }
-      else if(choice==="work")
+      else if(choice==="carnot")
       return{
-        name:"Work",
-        mainunit:"joule",
-        quantities:["Thermal efficiency (η)","Heat at Heigh temperatue (QH)"],
-        getters:[efficiency,heat],
-        setters:[setEfficiency,setHeat],
-        subunits:["joule per joule","joule"],
+        name:"Efficiency of carnot engine percentage",
+        mainunit:"%",
+        quantities:["Temperature of the cold reservoir (Tc)","Temperature of the hot reservoir (Th)"],
+        getters:[temphot,tempcold],
+        setters:[setTemphot,setTempcold],
+        subunits:["kelvin","kelvin"],
       }
     }
 
@@ -79,8 +147,8 @@ function Calculator({ match }) {
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control as="select" onChange={(e)=>{handleChange(e)}}>
               <option value="efficiency">ηth : Thermal efficiency </option>
-              <option value="work">W : Work</option>
-              <option value="heat">QH : Heat at Heigh temperatue </option>
+              <option value="carnot">η: Efficiency of carnot engine </option>
+              <option value="refrige">Refrigerator Efficiency</option>
             </Form.Control>
           </Form.Group>
           <Form.Group className="mb-4" controlId="text">
@@ -621,6 +689,9 @@ function Calculator({ match }) {
         break;
       case "Efficiency":
         currentCall=CalculatorEfficiency();
+        break;
+      case "Third law":
+        currentCall=CalculatorThirdLaw();
         break;
       default:
         break;

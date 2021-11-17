@@ -4,10 +4,10 @@ export { };
 const Topics = [
   {
     topic: "Efficiency",
-    details: "Any heat engine's thermal efficiency (th) is a dimensionless performance measure of a device that uses thermal energy, such as an internal combustion engine, boiler, or furnace, and can be defined as the ratio of work done (W) to heat input at the highest temperature (QH).", 
-    formula:"ηth=W/QH",
-    process:" 'ηth' is the efficiency and to calculate it put the value of work (W) and the heat input at he heigh temperatue(QH).",
-    siunit:"NA",
+    details: "Thermal efficiency (ηth) of any heat engine is a dimensionless performance measure of a device that use thermal energy, such as internal combustion engine, boiler, furnace etc, and can be defined as the ratio of the work it does (W) and the heat input at the heigh temperature (QH) ", 
+    formula:["ηth=W/QH,",<br/>,"eff. of carnot engine (η)=(Th-Tc)/Th,",<br/>,"& Refrigerator Efficiency = Volume Cooled (ft3) / Unit Electrical Energy per day (KWh)"],
+    process:"Put the value of work (W) and the heat input at he heigh temperatue(QH), To find the Efficiency of carnot engine put the value of Temperature of the cold reservoir (Tc) & Temperature of the hot reservoir (Th) and To find the Refrigerator Efficiency put the value Volume Cooled (ft3) and Unit Electrical Energy per day (KWh).",
+    siunit:"joule per joule",
     dimension:"NA"
     
   },
@@ -39,6 +39,14 @@ const Topics = [
     siunit :"Entropy: joules per kelvin",
     dimension:"Entropy: [M L² K/ T²]"
   },
+  {
+    topic:"Third law",
+    details:"Third law of thermodynamics provides the absolute reference point for the determination of the entropy. ",
+    formula:"S=kB log W",
+    process:"Where S is the entropy, kB is Boltzmann constant and its value is 1.38×10^−23 J/K and W is no. of micro states, Put the value of micro states.",
+    siunit:"Entropy: Joules per kelvin",
+    dimension:"Entropy: [M L² K/ T²]"
+  }
   
 
 ];
