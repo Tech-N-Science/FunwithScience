@@ -6,8 +6,8 @@ const Topics = [
   {
     topic: "Efficiency",
     details: "Thermal efficiency (ηth) of any heat engine is a dimensionless performance measure of a device that use thermal energy, such as internal combustion engine, boiler, furnace etc, and can be defined as the ratio of the work it does (W) and the heat input at the heigh temperature (QH) ", 
-    formula:"ηth=W/QH",
-    process:"Put the value of work (W) and the heat input at he heigh temperatue(QH)",
+    formula:["ηth=W/QH,",<br/>,"eff. of carnot engine (η)=(Th-Tc)/Th,",<br/>,"& Refrigerator Efficiency = Volume Cooled (ft3) / Unit Electrical Energy per day (KWh)"],
+    process:"Put the value of work (W) and the heat input at he heigh temperatue(QH), To find the Efficiency of carnot engine put the value of Temperature of the cold reservoir (Tc) & Temperature of the hot reservoir (Th) and To find the Refrigerator Efficiency put the value Volume Cooled (ft3) and Unit Electrical Energy per day (KWh).",
     siunit:"joule per joule",
     dimension:"NA"
     
