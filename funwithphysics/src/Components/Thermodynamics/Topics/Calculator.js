@@ -364,12 +364,12 @@ function Calculator({ match }) {
       if(choice === "energy"){
         res = heat - work;
       }
+      else if (choice ==="heat"){
+        res=+work+ +energy;
+      }
       else if(choice === "work"){
         res = heat - energy;
-      }
-      else if(choice === "heat"){
-        res = energy - work;
-      }
+      } 
       setResult(res);
     }
 
@@ -388,8 +388,8 @@ function Calculator({ match }) {
           name:"The amount of heat",
           quantities:["Work done by System (W)","Change in energy (∆U)"],
           mainunit:"joule",
-          setters:[setWork,setEnergy],
-          getters:[work,energy]
+          getters:[work,energy],
+          setters:[setWork,setEnergy]
         }
       }
       else if(choice === "work")
