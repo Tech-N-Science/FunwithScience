@@ -1,14 +1,13 @@
-import ktg from "../../Images/Thermodynamics/KTG.png";
 
-export { ktg };
+export { };
 
 const Topics = [
   {
     topic: "Efficiency",
     details: "Thermal efficiency (ηth) of any heat engine is a dimensionless performance measure of a device that use thermal energy, such as internal combustion engine, boiler, furnace etc, and can be defined as the ratio of the work it does (W) and the heat input at the heigh temperature (QH) ", 
-    formula:["ηth=W/QH,",<br/>,"eff. of carnot engine (η)=(Th-Tc)/Th,",<br/>,"& Refrigerator Efficiency = Volume Cooled (ft3) / Unit Electrical Energy per day (KWh)"],
-    process:"Put the value of work (W) and the heat input at he heigh temperatue(QH), To find the Efficiency of carnot engine put the value of Temperature of the cold reservoir (Tc) & Temperature of the hot reservoir (Th) and To find the Refrigerator Efficiency put the value Volume Cooled (ft3) and Unit Electrical Energy per day (KWh).",
-    siunit:"joule per joule",
+    formula:["ηth=W/QH,",<br/>,"eff. of carnot engine (η)=(Tₕ-Tc)/Tₕ,",<br/>,"Refrigerator Efficiency = Qc/(Qₕ-Qc)."],
+    process:"Thermal Efficiency is the ratio of work done (W) and the heat at high temperature(QH). For Carnot engine efficiency is found by the difference between the highest temperature(Tₕ) and lowest temperature(Tc) to  the highest temperature(Tₕ). For refregirator efficiency is found by the heat absorbed(Qₕ) to the difference between heat released(Qc) and heat absorbed(Qₕ).",
+    siunit:"NA",
     dimension:"NA"
     
   },
@@ -22,7 +21,6 @@ const Topics = [
   },
   {
     topic: "Kinetic Theory of Gases",
-    image: ktg,
     details: `According to the Kinetic Theory of Gases, gaseous particles are constantly moving and collide in completely elastic collisions. In a collection of gas particles, the average kinetic energy is directly proportional to absolute temperature.
 
     According to this theory, the gas molecule is composed of a huge number of tiny molecules compared to the distances between them. The kinetic theory of gases is necessary for clarifying the process of trapping particles by the diffusion mechanism.`,
@@ -43,7 +41,7 @@ const Topics = [
   },
   {
     topic:"Third law",
-    details:"Third law of thermodynamics provides the absolute reference point for the determination of the entropy. ",
+    details:"As the temperature approaches absolute zero, the Third Law of Thermodynamics is concerned with the limiting behaviour of systems. Because most thermodynamics calculations rely solely on entropy differences, the entropy scale's zero point is frequently overlooked. The Third Law, on the other hand, is discussed for completeness' sake because it depicts the state of zero entropy.",
     formula:"S=kB log W",
     process:"Where S is the entropy, kB is Boltzmann constant and its value is 1.38×10^−23 J/K and W is no. of micro states, Put the value of micro states.",
     siunit:"Entropy: Joules per kelvin",
