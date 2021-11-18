@@ -14,12 +14,19 @@ import shm_Calculator from "./Components/Classical_Mechanics/Topics/shm_Calculat
 import rotation_Calculator from "./Components/Classical_Mechanics/Topics/rotation_Calculator";
 import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
+import {Helmet} from "react-helmet"
 const Navbar = lazy(()=>import("./Components/Navbar/Navbar"));
 
 
 const App = () => {
   return (
     <React.Fragment>
+      <Helmet>
+        <title>JEE questions and calculators - Tech N Science</title>
+        <meta name="description" content="Website for Physics formula and Physics calculator for IIT-JEE and NEET. In this website we provide free calculahrefr
+        and also formulas to make the long, tiring calculations easy. This website can be used by anyone who wants to reduce their efforts of long calculations." />
+        <meta name="keyword" content="Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science" />
+      </Helmet>
       <Suspense fallback={<div>Loading....</div>}>
       <Navbar />
       </Suspense>

@@ -3,9 +3,16 @@ import { Card } from 'react-bootstrap'
 import './classicalMechanics.css'
 import Topics from "./topics_data"
 import { Link } from "react-router-dom"
+import {Helmet} from "react-helmet"
 
 export default function ClassicalMechanics() {
     return (
+       <> 
+        <Helmet>
+          <title>Classical Mechanics</title>
+          <meta name="description" content="Explore the Classical Mechanics section and try out the calculators."/>
+          <meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science"/>
+        </Helmet>
         <div className="mech__main">
             <div className="mech__header">
                 <h1>Classical Mechanics-Topics</h1>
@@ -35,5 +42,6 @@ export default function ClassicalMechanics() {
                 }
             </div>
         </div>
+      </>
     )
 }

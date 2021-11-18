@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Calculator.css'
 import { Form, Button } from 'react-bootstrap'
 import '../classicalMechanics.css'
+import {Helmet} from "react-helmet";
 import Gravitation_list from "../gravitation_data";
 
 
@@ -73,6 +74,11 @@ function GravitationCalculator({ match }) {
     return (
         
         <div className="Calculator__main">
+            <Helmet>
+                <title>{details.topic}</title>
+                <meta name="description" content={details.details}/>
+                <meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science"/>
+            </Helmet>
             <div className="Calculator__header">
                 <h1>{details.topic}</h1>
             </div>
