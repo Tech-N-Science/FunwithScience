@@ -3,6 +3,7 @@ import './Calculator.css'
 import { Form, Button } from 'react-bootstrap'
 import "../classicalMechanics.css";
 import shm_list from "../shm_data";
+import {Helmet} from "react-helmet"
 
 function shm_Calculator({ match }) {
     const page = shm_list.filter(data => (data.topic) === (match.params.topic))
@@ -356,6 +357,11 @@ function shm_Calculator({ match }) {
     return (
 
         <div className="Calculator__main">
+            <Helmet>
+                <title>{details.topic}</title>
+                <meta name="description" content={details.details}/>
+                <meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science"/>
+            </Helmet>
             <div className="Calculator__header">
                 <h1>{details.topic}</h1>
             </div>

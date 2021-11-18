@@ -10,6 +10,7 @@ import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
 import fluid_list from "../fluidmechanics_data";
 import { Link } from "react-router-dom";
+import {Helmet} from "react-helmet"
 
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -227,7 +228,7 @@ function Calculator({ match }) {
               readOnly
               type="number"
               placeholder={
-                result === null ? "Result" : result + " N or Kg.m.s² "
+                result === null ? "Result" : result + " N or Kg.m/s² "
               }
             />
             <Form.Text className="text-muted">
@@ -1280,7 +1281,14 @@ function Calculator({ match }) {
     );
   } else {
     return (
+      <>
+      
       <div className="Calculator__main">
+      <Helmet>
+          <title>{details.topic}</title>
+          <meta name="description" content={details.details}/>
+          <meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science"/>
+        </Helmet>
         <div className="Calculator__header">
           <h1>{details.topic}</h1>
         </div>
@@ -1303,6 +1311,7 @@ function Calculator({ match }) {
           {calC(details.topic)}
         </div>
       </div>
+      </>
     );
   }
 }

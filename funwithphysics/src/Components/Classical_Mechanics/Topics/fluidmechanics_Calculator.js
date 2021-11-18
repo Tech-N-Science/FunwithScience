@@ -3,6 +3,7 @@ import './Calculator.css'
 import { Form, Button } from 'react-bootstrap'
 import '../classicalMechanics.css'
 import fluid_list from "../fluidmechanics_data";
+import {Helmet} from "react-helmet"
 
 function FluidCalculator({ match }) {
     const page = fluid_list.filter(data => (data.topic) === (match.params.topic))
@@ -669,6 +670,12 @@ function FluidCalculator({ match }) {
     }
 
     return (
+        <>
+        <Helmet>
+          <title>{details.topic}</title>
+          <meta name="description" content={details.details}/>
+          <meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science"/>
+        </Helmet>
         <div className="Calculator__main">
         <div className="Calculator__header">
             <h1>{details.topic}</h1>
@@ -692,6 +699,7 @@ function FluidCalculator({ match }) {
             <p>{details.process}</p>
         </div>
         </div>
+        </>
     )
 }
 
