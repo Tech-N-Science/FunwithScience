@@ -10,12 +10,12 @@ import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
 import fluid_list from "../fluidmechanics_data";
 import { Link } from "react-router-dom";
-import {Helmet} from "react-helmet"
+import {Helmet} from "react-helmet" 
 
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
-  
+   
   // Projectile Motion Calculator
   const CalculatorProjectileMotion=()=>{
 
