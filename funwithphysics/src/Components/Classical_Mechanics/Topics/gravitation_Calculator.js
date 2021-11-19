@@ -76,7 +76,7 @@ function GravitationCalculator({ match }) {
         <div className="Calculator__main">
             <Helmet>
                 <title>{details.topic}</title>
-                <meta name="description" content={details.details}/>
+                <meta name="description" content={details.details} data-react-helmet="true"/>
                 <meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science"/>
             </Helmet>
             <div className="Calculator__header">
