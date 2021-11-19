@@ -3,6 +3,7 @@ import "./Calculator.css";
 import Topics from "../topics_data";
 import { Form, Button } from "react-bootstrap";
 import "../thermodynamics.css";
+import { Helmet } from "react-helmet";
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
@@ -700,6 +701,11 @@ function Calculator({ match }) {
   }
   return (
     <div className="Calculator__main">
+      <Helmet>
+        <title>{details.topic}</title>
+        <meta name="description" content="{details.details}"/>
+        <meta name="keywords" content="Thermodynamics, thermo, calculator, Thermodynamics calculator, thermo calculator, first law, second law, third law, entropy,efficiency,calculator, physics, Tech n science, technscience, tech and science"/>
+      </Helmet>
         <div className="Calculator__header">
           <h1>{details.topic}</h1>
         </div>

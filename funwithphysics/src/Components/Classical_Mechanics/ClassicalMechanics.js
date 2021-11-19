@@ -9,7 +9,7 @@ export default function ClassicalMechanics() {
     return (
        <> 
         <Helmet>
-          <title>Classical Mechanics</title>
+          <title>Classical Mechanics | physics | Tech N Science</title>
           <meta name="description" content="Explore the Classical Mechanics section and try out the calculators."/>
           <meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science"/>
         </Helmet>

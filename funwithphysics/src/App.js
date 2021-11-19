@@ -15,7 +15,6 @@ import rotation_Calculator from "./Components/Classical_Mechanics/Topics/rotatio
 import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
 import {Helmet} from "react-helmet"
-import Favicon from "./favicon.ico"
 import { hydrate, render } from "react-dom";
 const Navbar = lazy(()=>import("./Components/Navbar/Navbar"));
 
@@ -30,7 +29,6 @@ const App = () => {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <link rel="shortcut icon" href={Favicon}/>
       </Helmet>
       <Suspense fallback={<div>Loading....</div>}>
       <Navbar />

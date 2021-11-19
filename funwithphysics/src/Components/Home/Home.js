@@ -9,7 +9,6 @@ const Home = () => {
 	return (
 		<React.Fragment>
 			<Helmet>
-			<title>Tech N Science - Home</title>
 			<meta name="description" content="This website provides physics and math calculators and also JEE level questions which would help the JEE aspirants in their preparations. As solving different questions from various books and websites in very inconvenient, so have brought all the standard questions together. So let's explore." data-react-helmet="true"/>
 			<meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science, Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science"/>
 			</Helmet>

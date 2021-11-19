@@ -3,10 +3,16 @@ import { Card } from 'react-bootstrap'
 import './thermodynamics.css'
 import Topics from "./topics_data"
 import { Link } from "react-router-dom"
+import { Helmet } from 'react-helmet'
 
 export default function Thermodynamics() {
     return (
         <div className="mech__main">
+            <Helmet>
+                <title>Thermodynamics | physics | Tech N Science</title>
+                <meta name="description" content="Explore the thermodynamics calculator"/>
+                <meta name="keywords" content="Thermodynamics, thermo, calculator, Thermodynamics calculator, thermo calculator, first law, second law, third law, entropy,efficiency,calculator, physics, Tech n science, technscience, tech and science"/>
+            </Helmet>
             <div className="mech__header">
                 <h1>Thermodynamics-Topics</h1>
             </div>
