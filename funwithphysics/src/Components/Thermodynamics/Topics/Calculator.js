@@ -169,7 +169,7 @@ function Calculator({ match }) {
               value={
                 choiceData().getters[0] === null ? "": choiceData().getters[0]
               }
-            />
+            /> 
             </Form.Group>
           <Form.Group className="mb-4">
             <Form.Label>{choiceData().quantities[1]}</Form.Label>

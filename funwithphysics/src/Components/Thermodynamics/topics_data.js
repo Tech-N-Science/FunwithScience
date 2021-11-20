@@ -8,7 +8,7 @@ const Topics = [
     formula:["ηth=W/QH,",<br/>,"eff. of carnot engine (η)=(Tₕ-Tc)/Tₕ,",<br/>,"Refrigerator Efficiency = Qc/(Qₕ-Qc)."],
     process:"Thermal Efficiency is the ratio of work done (W) and the heat at high temperature(QH). For Carnot engine efficiency is found by the difference between the highest temperature(Tₕ) and lowest temperature(Tc) to  the highest temperature(Tₕ). For refregirator efficiency is found by the heat absorbed(Qₕ) to the difference between heat released(Qc) and heat absorbed(Qₕ).",
     siunit:"NA",
-    dimension:"NA"
+    dimension:"NA" 
     
   },
   {
