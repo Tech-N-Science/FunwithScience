@@ -9,9 +9,11 @@ const Home = () => {
 	return (
 		<React.Fragment>
 			<Helmet>
-			<meta name="description" content="Website for Science formula and Science calculator for IIT-JEE and NEET. In this website we provide free calculator
-             and also formulas to make the long, tiring calculations easy. This website can be used by anyone who wants to reduce their efforts of long calculations." data-react-helmet="true"/>
+			<title>Fun With Science - Tech N Science </title>
+			<meta name="description" content="We at Tech N Science try to bring all sciences under one roof by providing JEE level questions and also calculators for different science formulas." data-react-helmet="true"/>
 			<meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science, Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science"/>
+			<script async="async" data-cfasync="false" src="//pl16771570.effectivegatetocontent.com/6844348360a02b17dbc8e95d61baad35/invoke.js"></script>
+            <div id="container-6844348360a02b17dbc8e95d61baad35"></div>
 			</Helmet>
 			{/* ----Banner---- */}
 			<div className="banner">
