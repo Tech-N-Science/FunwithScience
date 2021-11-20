@@ -16,6 +16,7 @@ import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
 import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
 import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
+import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
 import {Helmet} from "react-helmet"
 import Favicon from "./favicon.ico"
 import { hydrate, render } from "react-dom";
@@ -94,11 +95,17 @@ const App = () => {
           path="/electromagnetism"
           component={Electromagnetism}
         />
+        <Route
+          exact
+          path="/electromagnetism/calc/:topic"
+          component={calculatorElec}
+        />
 
         <Route
           exact
           path="/electromagnetism/calc/electric_field/:topic"
           component={electricfield_calculator}
+          
         />
 
         <Route exact path="/quiz" component={Quiz} />

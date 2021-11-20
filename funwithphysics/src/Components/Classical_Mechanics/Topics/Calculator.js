@@ -1278,7 +1278,7 @@ function Calculator({ match }) {
           ))}
         </div>
       </div>
-    );
+    ); 
   } else {
     return (
       <>
