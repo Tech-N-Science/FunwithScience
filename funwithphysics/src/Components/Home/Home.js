@@ -9,16 +9,18 @@ const Home = () => {
 	return (
 		<React.Fragment>
 			<Helmet>
-			<title>Tech N Science - Home</title>
-			<meta name="description" content="This website provides physics and math calculators and also JEE level questions which would help the JEE aspirants in their preparations. As solving different questions from various books and websites in very inconvenient, so have brought all the standard questions together. So let's explore." data-react-helmet="true"/>
+			<title>Fun With Science - Tech N Science </title>
+			<meta name="description" content="We at Tech N Science try to bring all sciences under one roof by providing JEE level questions and also calculators for different science formulas." data-react-helmet="true"/>
 			<meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science, Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science"/>
+			<script async="async" data-cfasync="false" src="//pl16771570.effectivegatetocontent.com/6844348360a02b17dbc8e95d61baad35/invoke.js"></script>
+            <div id="container-6844348360a02b17dbc8e95d61baad35"></div>
 			</Helmet>
 			{/* ----Banner---- */}
 			<div className="banner">
 				<p id="credit">Photo by <a href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">NASA</a> on <a href="https://unsplash.com/s/photos/planet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
   
-				<h2 className="banner_text col-md-8 col-sm-8 auto pt-5">Physics is about questioning, studying, probing nature. You probe, and, if you're lucky, you get strange clues.
-					<br />So, keep Exploring Physics.</h2>
+				<h2 className="banner_text col-md-8 col-sm-8 auto pt-5">We at Tech N Science try to bring all sciences under one roof by providing JEE level questions and also calculators for different science formulas. 
+					<br />So, keep Exploring!!.</h2>
 				<div className="banner_button">
 					<button type="button" className="btn btn-light">Explore</button>
 					<Button href="#learn" className="btn btn-light"> Learn</Button>

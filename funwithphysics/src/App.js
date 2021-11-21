@@ -18,7 +18,6 @@ import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
 import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
 import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
 import {Helmet} from "react-helmet"
-import Favicon from "./favicon.ico"
 import { hydrate, render } from "react-dom";
 const Navbar = lazy(()=>import("./Components/Navbar/Navbar"));
 
@@ -33,7 +32,6 @@ const App = () => {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <link rel="shortcut icon" href={Favicon}/>
       </Helmet>
       <Suspense fallback={<div>Loading....</div>}>
       <Navbar />

@@ -23,19 +23,19 @@ Also join the discord channel for discussion **https://discord.gg/UfhRBpbQXN**
 
 <div align="center">
 
-<a href="https://github.com/Amit366/FunwithPhysics"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103"></a>
-<a href="https://github.com/Amit366/FunwithPhysics"><img src="https://img.shields.io/badge/Built%20by-developers%20%3C%2F%3E-0059b3"></a>
-<a href="https://github.com/Amit366/FunwithPhysics"><img src="https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=yellow"></a>
+<a href="https://github.com/Tech-N-Science/FunwithScience"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103"></a>
+<a href="https://github.com/Tech-N-Science/FunwithScience"><img src="https://img.shields.io/badge/Built%20by-developers%20%3C%2F%3E-0059b3"></a>
+<a href="https://github.com/Tech-N-Science/FunwithScience"><img src="https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=yellow"></a>
 <a href="https://github.com/Amit366/"><img src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg?v=103"></a>
-<a href="https://github.com/Amit366/FunwithPhysics/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?v=103"></a>
+<a href="https://github.com/Tech-N-Science/FunwithScience/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?v=103"></a>
 
-<a href="https://github.com/Amit366/FunwithPhysics/graphs/contributors"><img src="https://img.shields.io/github/contributors/Amit366/FunwithPhysics?color=brightgreen"></a>
-<a href="https://github.com/Amit366/FunwithPhysics/stargazers"><img src="https://img.shields.io/github/stars/Amit366/FunwithPhysics?color=0059b3"></a>
-<a href="https://github.com/Amit366/FunwithPhysics/network/members"><img src="https://img.shields.io/github/forks/Amit366/FunwithPhysics?color=yellow"></a>
-<a href="https://github.com/Amit366/FunwithPhysics/issues"><img src="https://img.shields.io/github/issues/Amit366/FunwithPhysics?color=0059b3"></a>
-<a href="https://github.com/Amit366/FunwithPhysics/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed-raw/Amit366/FunwithPhysics?color=yellow"></a>
-<a href="https://github.com/Amit366/FunwithPhysics/pulls"><img src="https://img.shields.io/github/issues-pr/Amit366/FunwithPhysics?color=brightgreen"></a>
-<a href="https://github.com/Amit366/FunwithPhysics/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/Amit366/FunwithPhysics?color=0059b3"></a> 
+<a href="https://github.com/Tech-N-Science/FunwithScience/graphs/contributors"><img src="https://img.shields.io/github/contributors/Amit366/FunwithPhysics?color=brightgreen"></a>
+<a href="https://github.com/Tech-N-Science/FunwithScience/stargazers"><img src="https://img.shields.io/github/stars/Amit366/FunwithPhysics?color=0059b3"></a>
+<a href="https://github.com/Tech-N-Science/FunwithScience/network/members"><img src="https://img.shields.io/github/forks/Amit366/FunwithPhysics?color=yellow"></a>
+<a href="https://github.com/Tech-N-Science/FunwithScience/issues"><img src="https://img.shields.io/github/issues/Amit366/FunwithPhysics?color=0059b3"></a>
+<a href="https://github.com/Tech-N-Science/FunwithScience/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed-raw/Tech-N-Science/FunwithScience?color=yellow"></a>
+<a href="https://github.com/Tech-N-Science/FunwithScience/pulls"><img src="https://img.shields.io/github/issues-pr/Amit366/FunwithPhysics?color=brightgreen"></a>
+<a href="https://github.com/Tech-N-Science/FunwithScience/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/Amit366/FunwithPhysics?color=0059b3"></a> 
 </div>
 
 
@@ -49,7 +49,7 @@ Also join the discord channel for discussion **https://discord.gg/UfhRBpbQXN**
 
 ### Tech Used
 
-<img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/> <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/> <img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> <img alt="Bootstrap**" src="https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white"/>
+<img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/> <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/> <img alt="React" src="https://img.shields.io/badge/react%20-%23323330.svg?&style=for-the-badge&logo=react&logoColor=%#61DBFB"/> <img alt="Bootstrap**" src="https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white"/>
 
 
 
@@ -169,7 +169,8 @@ If you have any doubts, please let us know in the comments.
     <tr>
 	<td>
 	<a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
-	<a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" width="35%"/></a>
+	<a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" width="25%"/></a>
+        <a href="https://winterofcode.com/"><img src="winter of code.png" width="35%"/></a>
 	</td>
     </tr>
 </table>
@@ -228,6 +229,7 @@ Thanks goes to these wonderful people :
 	<td align="center"><a href="https://github.com/souravseal99"><img src="https://avatars.githubusercontent.com/u/69809086?v=4" width="100px;" alt=""/><br /><sub><b>Sourav Seal </b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=souravseal99" title="Code">💻</a></td>
 	<td align="center"><a href="https://github.com/glebkema"><img src="https://avatars.githubusercontent.com/u/3881568?v=4" width="100px;" alt=""/><br /><sub><b>Gleb Kemarsky</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=glebkema" title="Code">💻</a></td>
 	<td align="center"><a href="https://github.com/rayanepimentel"><img src="https://avatars.githubusercontent.com/u/37915359?v=4" width="100px;" alt=""/><br /><sub><b>Rayane Pimentel</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=rayanepimentel" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/beingdevrahul"><img src="https://avatars.githubusercontent.com/u/85609125?v=4" width="100px;" alt=""/><br /><sub><b>Rahul Sharma</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=beingdevrahul" title="Code">💻</a></td>
  </tr>
 </table>
 

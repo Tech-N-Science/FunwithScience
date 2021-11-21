@@ -15,7 +15,7 @@ function PhysicsTopicItem(props) {
 	return (
 		<>
 		<Helmet>
-          <title>Physics</title>
+          <title>Physics Calculator</title>
 		  <meta name="description" content="Get info and calculator of various physics topics by choosing from the following."/>
 		  <meta name="keywords" content="physics, calculators, calculator, physics calculator, TechN Science, technscience, tech n science"/>
 		</Helmet>

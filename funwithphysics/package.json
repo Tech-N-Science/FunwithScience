@@ -1,5 +1,5 @@
 {
-    "name": "funwithpysics",
+    "name": "technscience",
     "homepage": "https://technscience.com",
     "version": "0.1.0",
     "private": true,
@@ -8,6 +8,7 @@
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
         "bootstrap": "^5.0.2",
+        "firebase": "^9.5.0",
         "gatsby": "^4.2.0",
         "gatsby-plugin-react-helmet": "^5.2.0",
         "react": "^17.0.2",

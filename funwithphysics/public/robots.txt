@@ -1,3 +1,13 @@
 # https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:
+User-Agent: *
+Allow: /ads/preferences/
+Allow: /dtt/k
+Allow: /gpt/
+Allow: /pagead/show_ads.js
+Allow: /pagead/js/adsbygoogle.js
+Allow: /pagead/js/*/show_ads_impl.js
+Allow: /static/glade.js
+Allow: /static/glade/
+Allow: /tag/js/
+Disallow: /
+Noindex: /
