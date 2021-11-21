@@ -7,8 +7,6 @@ import fluid_list from "../fluidmechanics_data";
 function FluidCalculator({ match }) {
     const page = fluid_list.filter(data => (data.topic) === (match.params.topic))
     const details = page[0]
-    console.log(page)
-    console.log(details.formula)
 
     // Density Calculator
     function CalculatorDensity() {
@@ -19,6 +17,12 @@ function FluidCalculator({ match }) {
         const handleClick = () => {
             let res = mass / vol;
             setResult(res)
+        }
+
+        const handleReset = () => {
+            setResult(null)
+            setMass(null)
+            setVol(null)
         }
        
         return <React.Fragment>
@@ -42,7 +46,7 @@ function FluidCalculator({ match }) {
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="dark" onClick={() => setResult(null)} type="reset">
+                <Button variant="dark" onClick={handleReset} type="reset">
                     Reset
                 </Button>
             </Form>
@@ -58,6 +62,12 @@ function FluidCalculator({ match }) {
         const handleClick = () => {
             let res = force / area;
             setResult(res)
+        }
+
+        const handleReset = () => { 
+            setResult(null)
+            setForce(null)
+            setArea(null)
         }
    
         return <React.Fragment>
@@ -81,7 +91,7 @@ function FluidCalculator({ match }) {
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="dark" onClick={() => setResult(null)} type="reset">
+                <Button variant="dark" onClick={handleReset} type="reset">
                     Reset
                 </Button>
             </Form>
@@ -97,6 +107,12 @@ function FluidCalculator({ match }) {
         const handleClick = () => {
             let res = area * velocity;
             setResult(res)
+        }
+
+        const handleReset = () => {
+            setResult(null)
+            setArea(null)
+            setVelocity(null)
         }
    
         return <React.Fragment>
@@ -120,7 +136,7 @@ function FluidCalculator({ match }) {
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="dark" onClick={() => setResult(null)} type="reset">
+                <Button variant="dark" onClick={handleReset} type="reset">
                     Reset
                 </Button>
             </Form>
@@ -137,12 +153,6 @@ function FluidCalculator({ match }) {
         const [choice, setChoice] = useState("area");
 
         function handleChange(e) {
-            console.log(e.target.value);
-            setResult(null);
-            setArea1(null);
-            setArea2(null);
-            setVelocity1(null);
-            setVelocity2(null);
             setChoice(e.target.value);
             choiceData();
         }
@@ -150,19 +160,25 @@ function FluidCalculator({ match }) {
         const calcResult = () => {
             let res;
             if (choice === "area"){
-                res = (area1 * velocity1) / velocity2
-                console.log(res)
+                res = (area2 * velocity1) / velocity2;
+                console.log(area1);
+                console.log(velocity1);
+                console.log(velocity2);
             }
             else if (choice === "velocity"){
-                res = (area1 * velocity1) / area2
-                console.log(res)
+                res = (area1 * velocity1) / area2;
             }
             console.log(res)
             setResult(res);
         }
 
         function reset() {
-            setResult(null)
+            setResult(null);
+            setArea1(null);
+            setArea2(null);
+            setVelocity1(null);
+            setVelocity2(null);
+            console.log(choice);
         }
 
         const choiceData = () => {
@@ -264,6 +280,13 @@ function FluidCalculator({ match }) {
             let res = (force / area) / rateofdeformation;
             setResult(res)
         }
+
+        const handleReset = () => {
+            setResult(null);
+            setForce(null);
+            setArea(null);
+            setRateofdeformation(null);
+        }
    
         return <React.Fragment>
             <Form>
@@ -290,7 +313,7 @@ function FluidCalculator({ match }) {
                 <Button variant="primary" onClick={handleClick}>
                     Calculate
                 </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="dark" onClick={() => setResult(null)} type="reset">
+                <Button variant="dark" onClick={handleReset} type="reset">
                     Reset
                 </Button>
             </Form>
@@ -308,13 +331,6 @@ function FluidCalculator({ match }) {
         const [choice, setChoice] = useState("pressure")
 
         function handleChange(e) {
-            console.log(e.target.value);
-            setResult(null);
-            setViscosity(null);
-            setLength(null);
-            setFlowrate(null);
-            setRadius(null);
-            setPressurediff(null);
             setChoice(e.target.value);
             choiceData();
         }
@@ -331,7 +347,12 @@ function FluidCalculator({ match }) {
         }
 
         function reset() {
-            setResult(null)
+            setResult(null);
+            setViscosity(null);
+            setLength(null);
+            setFlowrate(null);
+            setRadius(null);
+            setPressurediff(null);
         }
    
         const choiceData = () => {
@@ -445,16 +466,6 @@ function FluidCalculator({ match }) {
         const [choice, setChoice] = useState("pressure")
 
         function handleChange(e) {
-            console.log(e.target.value);
-            setResult(null);
-            setPressure1(null);
-            setPressure2(null);
-            setVelocity1(null);
-            setVelocity2(null);
-            setHeight1(null);
-            setHeight2(null);
-            setDensity(null);
-            setGravity(null);
             setChoice(e.target.value);
             choiceData();
         }
@@ -474,7 +485,15 @@ function FluidCalculator({ match }) {
         }
 
         function reset() {
-            setResult(null)
+            setResult(null);
+            setPressure1(null);
+            setPressure2(null);
+            setVelocity1(null);
+            setVelocity2(null);
+            setHeight1(null);
+            setHeight2(null);
+            setDensity(null);
+            setGravity(null);
         }
 
         const choiceData = () => {
@@ -513,7 +532,7 @@ function FluidCalculator({ match }) {
                 <Form.Group className="mb-4" controlId="choice">
                     <Form.Label>Select the type of calculation</Form.Label>
                     <Form.Control as="select" onChange={(e) => handleChange(e)}>
-                    <option value="area">Pressure</option>
+                    <option value="pressure">Pressure</option>
                     <option value="velocity">Velocity</option>
                     <option value="height">Height</option>
                     </Form.Control>

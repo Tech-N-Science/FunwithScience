@@ -15,7 +15,8 @@ import shm_Calculator from "./Components/Classical_Mechanics/Topics/shm_Calculat
 import rotation_Calculator from "./Components/Classical_Mechanics/Topics/rotation_Calculator";
 import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
-
+import NumMCQ from "./Components/NumMCQ/NumMCQ";
+import Singlequestion from "./Components/NumMCQ/Singlequestion";
 
 const App = () => {
   return (
@@ -80,6 +81,18 @@ const App = () => {
           component={FluidCalculator}
         />
 
+        <Route 
+          exact 
+          path="/questions"
+          component={NumMCQ}
+        />
+
+        <Route
+          exact
+          path="/questions/:id"
+          component={Singlequestion}
+        />
+        
         <Redirect to="/" />
       </Switch>
     </React.Fragment>

@@ -1,0 +1,102 @@
+.singlequestion {
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.maincontent {
+  height: 100%;
+  width: 60%;
+  border: 1px solid #000;
+}
+
+.editorial_discussionforum {
+  width: 40%;
+  border: 1px solid #000;
+}
+
+.answer-box {
+  padding-top: 1.2rem;
+}
+
+.answerOption {
+  margin-top: 0.5rem;
+}
+
+.btns-box {
+  padding-top: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-btn {
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 10rem;
+}
+
+.next-btn {
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 10rem;
+}
+
+.container {
+  margin-top: 0.5rem;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: rgba(114, 112, 112, 0.979);
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #000000;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 7px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
