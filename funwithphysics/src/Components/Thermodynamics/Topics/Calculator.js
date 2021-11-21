@@ -363,13 +363,13 @@ function Calculator({ match }) {
     const calcResult=()=>{
       let res;
       if(choice === "energy"){
-        res = heat - work;
+        res = parseFloat(heat) - parseFloat(work);
       }
       else if (choice ==="heat"){
-        res=+work+ +energy;
+        res=parseFloat(work) + parseFloat(energy);
       }
       else if(choice === "work"){
-        res = heat - energy;
+        res = parseFloat(heat) - parseFloat(energy);
       } 
       setResult(res);
     }
