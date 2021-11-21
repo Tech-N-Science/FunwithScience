@@ -11,62 +11,151 @@ function electricfield_calculator({ match }) {
   );
   const details = page[0];
 
-  //Electric field for the charged ring
+  //Electric field for the charged disc
+  const Disc = () => {
+    const [distance, setDistance] = useState(null);
+    const [density, setDensity] = useState(null);
+    const [radius, setRadius] = useState(null);
+    const [result, setResult] = useState(null);
+    const k = 8.854187817 * Math.pow(10, -12);
+    const reset =()=>{
+      setDistance(null)
+      setRadius(null)
+      setResult(null)
+      setDensity(null)
+    }
+    const calcResult=()=>{
+      let res;
+      let con=density/(2*k);
+      let back= 1-(distance/Math.sqrt(distance*distance+radius*radius))
+      res=con*back;
+      setResult(res);
+    }
 
-  const Ring=()=>{
-      const [charge, setCharge] = useState(null);
-      const [distance, setDistance] = useState(null);
-      const [radius, setRadius] = useState(null);
-      const [result, setResult] = useState(null);
-      const k = 8.99 * Math.pow(10, 9);
-      const reset=()=>{
-          setCharge(null)
-          setDistance(null)
-          setRadius(null)
-          setResult(null)
-      }
-      const calcResult=()=>{
-          let res;
-          let num=k*2*3.14*charge*distance*radius;
-          let den=Math.pow((distance*distance+radius*radius),3/2)
-          res=num/den;
-          setResult(res);
-      }
-    return(<>
-    <Form>
-        <Form.Group className="mb-4">
-            <Form.Label>Charge density (λ)</Form.Label>
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Distance (x)</Form.Label>
             <Form.Control
-            onChange={(e)=>{setCharge(e.target.value)}}
-            type="number"
-            value={charge===null?"":charge}
-            placeholder="Enter the charge density in (C)"
+              type="number"
+              onChange={(e) => {
+                setDistance(e.target.value);
+              }}
+              placeholder="Enter the distance in (m)"
+              value={distance === null ? "" : distance}
             />
-        </Form.Group>
-        <Form.Group className="mb-4">
-            <Form.Label>distance (x)</Form.Label>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Surface density (σ)</Form.Label>
             <Form.Control
-            onChange={(e)=>{setDistance(e.target.value)}}
-            type="number"
-            value={distance===null?"":distance}
-            placeholder="Enter the distance from the center of the ring along x axis in (m)"
+              type="number"
+              onChange={(e) => {
+                setDensity(e.target.value);
+              }}
+              placeholder="Enter the surface density in (m)"
+              value={density === null ? "" : density}
             />
-        </Form.Group>
-        <Form.Group className="mb-4">
+          </Form.Group>
+          <Form.Group className="mb-4">
             <Form.Label>Radius (R)</Form.Label>
             <Form.Control
-            onChange={(e)=>{setRadius(e.target.value)}}
-            type="number"
-            value={radius===null?"":radius}
-            placeholder="Enter the Radius of the ring in (m)"
+              type="number"
+              onChange={(e) => {
+                setRadius(e.target.value);
+              }}
+              placeholder="Enter the radius in (m)"
+              value={radius === null ? "" : radius}
             />
-        </Form.Group>
-        <Form.Group>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Constant (ε0)</Form.Label>
+            <Form.Control
+              readOnly
+              // type="number"
+              value={k + " F/m"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} N/C`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
+  //Electric field for the charged ring
+  const Ring = () => {
+    const [charge, setCharge] = useState(null);
+    const [distance, setDistance] = useState(null);
+    const [radius, setRadius] = useState(null);
+    const [result, setResult] = useState(null);
+    const k = 8.99 * Math.pow(10, 9);
+    const reset = () => {
+      setCharge(null);
+      setDistance(null);
+      setRadius(null);
+      setResult(null);
+    };
+    const calcResult = () => {
+      let res;
+      let num = k * 2 * 3.14 * charge * distance * radius;
+      let den = Math.pow(distance * distance + radius * radius, 3 / 2);
+      res = num / den;
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Charge density (λ)</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                setCharge(e.target.value);
+              }}
+              type="number"
+              value={charge === null ? "" : charge}
+              placeholder="Enter the charge density in (C)"
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>distance (x)</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                setDistance(e.target.value);
+              }}
+              type="number"
+              value={distance === null ? "" : distance}
+              placeholder="Enter the distance from the center of the ring along x axis in (m)"
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Radius (R)</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                setRadius(e.target.value);
+              }}
+              type="number"
+              value={radius === null ? "" : radius}
+              placeholder="Enter the Radius of the ring in (m)"
+            />
+          </Form.Group>
+          <Form.Group>
             <Form.Label>Constant (k)</Form.Label>
             <Form.Control
               readOnly
               // type="number"
-              placeholder={"Enter in the charge"}
               value={k + " N m²/C²"}
             />
           </Form.Group>
@@ -74,23 +163,20 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               type="number"
-              placeholder={
-                result === null
-                  ? "Result"
-                  : `${result} N/C`
-              }
+              placeholder={result === null ? "Result" : `${result} N/C`}
             />
           </Form.Group>
-    </Form>
-    <Button variant="primary" onClick={calcResult}>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
           Calculate
         </Button>
         &nbsp;&nbsp;&nbsp;
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-    </>)
-  }
+      </>
+    );
+  };
 
   //Electric field for Spherical shell
   const SphericalShell = () => {
@@ -99,16 +185,16 @@ function electricfield_calculator({ match }) {
     const [result, setResult] = useState(null);
 
     const k = 8.99 * Math.pow(10, 9);
-    const reset=()=>{
-        setCharge(null)
-        setDistance(null)
-        setResult(null)
-    }
-    const calcResult=()=>{
-        let res;
-        res=(k*charge)/(distance*distance);
-        setResult(res)
-    }
+    const reset = () => {
+      setCharge(null);
+      setDistance(null);
+      setResult(null);
+    };
+    const calcResult = () => {
+      let res;
+      res = (k * charge) / (distance * distance);
+      setResult(res);
+    };
 
     return (
       <>
@@ -149,11 +235,7 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               type="number"
-              placeholder={
-                result === null
-                  ? "Result"
-                  : `${result} N/C`
-              }
+              placeholder={result === null ? "Result" : `${result} N/C`}
             />
           </Form.Group>
         </Form>
@@ -168,57 +250,63 @@ function electricfield_calculator({ match }) {
     );
   };
 
-
-
   //Electric field for a sphere
-  const Sphere=()=>{
-      const [charge, setCharge] = useState(null);
-      const [radius, setRadius] = useState(null);
-      const [distance, setDistance] = useState(null);
-      const [result, setResult] = useState(null);
-      const k = 8.99 * Math.pow(10, 9);
+  const Sphere = () => {
+    const [charge, setCharge] = useState(null);
+    const [radius, setRadius] = useState(null);
+    const [distance, setDistance] = useState(null);
+    const [result, setResult] = useState(null);
+    const k = 8.99 * Math.pow(10, 9);
 
-      const reset =()=>{
-          setRadius(null)
-          setCharge(null)
-          setDistance(null)
-          setResult(null)
-      }
-      const calcResult=()=>{
-          let res;
-          res=(k*charge*distance)/(radius*radius*radius)
-          setResult(res)
-      }
+    const reset = () => {
+      setRadius(null);
+      setCharge(null);
+      setDistance(null);
+      setResult(null);
+    };
+    const calcResult = () => {
+      let res;
+      res = (k * charge * distance) / (radius * radius * radius);
+      setResult(res);
+    };
 
-      return(<>
-      <Form>
-        <Form.Group className="mb-4">
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
             <Form.Label>Charge (q)</Form.Label>
-            <Form.Control 
-            type="number"
-            onChange={(e)=>{setCharge(e.target.value)}}
-            placeholder="Enter the charge in (C)"
-            value={charge===null?"":charge}/>
-
-        </Form.Group>
-        <Form.Group className="mb-4">
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setCharge(e.target.value);
+              }}
+              placeholder="Enter the charge in (C)"
+              value={charge === null ? "" : charge}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
             <Form.Label>Distance (r)</Form.Label>
-            <Form.Control 
-            type="number"
-            onChange={(e)=>{setDistance(e.target.value)}}
-            placeholder="Enter the distance in (m)"
-            value={distance===null?"":distance}/>
-
-        </Form.Group>
-        <Form.Group className="mb-4">
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setDistance(e.target.value);
+              }}
+              placeholder="Enter the distance in (m)"
+              value={distance === null ? "" : distance}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
             <Form.Label>Radius of the sphere</Form.Label>
-            <Form.Control 
-            type="number"
-            onChange={(e)=>{setRadius(e.target.value)}}
-            placeholder="Enter the Radius(m)"
-            value={radius===null?"":radius}/>
-        </Form.Group>
-        <Form.Group>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setRadius(e.target.value);
+              }}
+              placeholder="Enter the Radius(m)"
+              value={radius === null ? "" : radius}
+            />
+          </Form.Group>
+          <Form.Group>
             <Form.Label>Constant (k)</Form.Label>
             <Form.Control
               readOnly
@@ -230,74 +318,79 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               type="number"
-              placeholder={
-                result === null
-                  ? "Result"
-                  : `${result} N/C`
-              }
+              placeholder={result === null ? "Result" : `${result} N/C`}
             />
           </Form.Group>
-    </Form>
-    <Button variant="primary" onClick={calcResult}>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
           Calculate
         </Button>
         &nbsp;&nbsp;&nbsp;
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-    
-      </>)
-
-  }
+      </>
+    );
+  };
 
   //Electric field for Line charge for a finite length
-  const LineCharge=()=>{
-      const [charge, setCharge] = useState(null);
-      const [distance, setDistance] = useState(null);
-      const [halfLength, setHalfLength] = useState(null);
-      const [result, setResult] = useState(null);
+  const LineCharge = () => {
+    const [charge, setCharge] = useState(null);
+    const [distance, setDistance] = useState(null);
+    const [halfLength, setHalfLength] = useState(null);
+    const [result, setResult] = useState(null);
 
-      const k = 8.99 * Math.pow(10, 9);
-      const reset=()=>{
-          setCharge(null)
-          setDistance(null)
-          setHalfLength(null)
-          setResult(null)
-      }
-      const calcResult=()=>{
-          let res;
-          res=(k*charge)/(distance*Math.sqrt(distance*distance+halfLength*halfLength));
-          setResult(res)
-      }
-    return(<>
-    <Form>
-        <Form.Group className="mb-4">
+    const k = 8.99 * Math.pow(10, 9);
+    const reset = () => {
+      setCharge(null);
+      setDistance(null);
+      setHalfLength(null);
+      setResult(null);
+    };
+    const calcResult = () => {
+      let res;
+      res =
+        (k * charge) /
+        (distance * Math.sqrt(distance * distance + halfLength * halfLength));
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
             <Form.Label>Charge (q)</Form.Label>
-            <Form.Control 
-            type="number"
-            onChange={(e)=>{setCharge(e.target.value)}}
-            placeholder="Enter the charge in (C)"
-            value={charge===null?"":charge}/>
-
-        </Form.Group>
-        <Form.Group className="mb-4">
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setCharge(e.target.value);
+              }}
+              placeholder="Enter the charge in (C)"
+              value={charge === null ? "" : charge}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
             <Form.Label>Distance (x)</Form.Label>
-            <Form.Control 
-            type="number"
-            onChange={(e)=>{setDistance(e.target.value)}}
-            placeholder="Enter the distance in (m)"
-            value={distance===null?"":distance}/>
-
-        </Form.Group>
-        <Form.Group className="mb-4">
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setDistance(e.target.value);
+              }}
+              placeholder="Enter the distance in (m)"
+              value={distance === null ? "" : distance}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
             <Form.Label>Half length (a)</Form.Label>
-            <Form.Control 
-            type="number"
-            onChange={(e)=>{setHalfLength(e.target.value)}}
-            placeholder="Enter the half length (m)"
-            value={halfLength===null?"":halfLength}/>
-        </Form.Group>
-        <Form.Group>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setHalfLength(e.target.value);
+              }}
+              placeholder="Enter the half length (m)"
+              value={halfLength === null ? "" : halfLength}
+            />
+          </Form.Group>
+          <Form.Group>
             <Form.Label>Constant (k)</Form.Label>
             <Form.Control
               readOnly
@@ -310,23 +403,20 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               type="number"
-              placeholder={
-                result === null
-                  ? "Result"
-                  : `${result} N/C`
-              }
+              placeholder={result === null ? "Result" : `${result} N/C`}
             />
           </Form.Group>
-    </Form>
-    <Button variant="primary" onClick={calcResult}>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
           Calculate
         </Button>
         &nbsp;&nbsp;&nbsp;
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-    </>)
-  }
+      </>
+    );
+  };
 
   //Electric field for point Charge
   const PointCharge = () => {
@@ -335,16 +425,16 @@ function electricfield_calculator({ match }) {
     const [result, setResult] = useState(null);
 
     const k = 8.99 * Math.pow(10, 9);
-    const reset=()=>{
-        setCharge(null)
-        setDistance(null)
-        setResult(null)
-    }
-    const calcResult=()=>{
-        let res;
-        res=(k*charge)/(distance*distance);
-        setResult(res)
-    }
+    const reset = () => {
+      setCharge(null);
+      setDistance(null);
+      setResult(null);
+    };
+    const calcResult = () => {
+      let res;
+      res = (k * charge) / (distance * distance);
+      setResult(res);
+    };
 
     return (
       <>
@@ -385,11 +475,7 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               type="number"
-              placeholder={
-                result === null
-                  ? "Result"
-                  : `${result} N/C`
-              }
+              placeholder={result === null ? "Result" : `${result} N/C`}
             />
           </Form.Group>
         </Form>
@@ -421,6 +507,9 @@ function electricfield_calculator({ match }) {
         break;
       case "Ring":
         currentCall = Ring();
+        break;
+      case "Disc":
+        currentCall = Disc();
         break;
       default:
         break;

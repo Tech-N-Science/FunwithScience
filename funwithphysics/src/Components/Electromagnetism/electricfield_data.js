@@ -33,6 +33,11 @@ const Topics =[
     },
     {
         topic:"Disc",
+        formula:"E=σ/2*ε0[1-x²/√(x²+R²)]",
+        siunit:"newtons per coulomb (N/C)",
+        dimension:"[M L/ I T³].",
+        details:`Electric field for the charged disc is given by the equation "E=σ/2*ε0[1-x²/√(x²+R²)]" where σ is surface density x is distance, R is the radius where as ε0 is constant and it's value is 8.854187817 × 10⁻¹² F/m `,
+        process:"To find the electric field for the disc we need to know the Radius (R) of the disc, and the distance (x) and the surface density(σ), where as the (ε0) is constant and its value is 8.854187817 × 10⁻¹² F/m ",
     },
     {
         topic:"Shell",
