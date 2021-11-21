@@ -1,17 +1,24 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import classicalMechanics from "../../Images/Classical_Mechanics.jpg"
-import thermodynamics from "../../Images/Thermodynamics.jpg"
-import electromagnetism from "../../Images/electromagnetism.jpg"
-import relativity from "../../Images/relativity.jpg"
-import atomic from "../../Images/atomic_physics.jpg"
-import nuclear from "../../Images/nuclear.jpg"
-import photonics from "../../Images/photonics.jpg"
-import statistical from "../../Images/statistical.jpg";
-import './styles.css'
+import classicalMechanics from "../../Images/Classical_Mechanics.webp"
+import thermodynamics from "../../Images/Thermodynamics.webp"
+import electromagnetism from "../../Images/electromagnetism.webp"
+import relativity from "../../Images/relativity.webp"
+import atomic from "../../Images/atomic_physics.webp"
+import nuclear from "../../Images/nuclear.webp"
+import photonics from "../../Images/photonics.webp"
+import statistical from "../../Images/statistical.png";
+import './styles.css';
+import {Helmet} from "react-helmet";
 
 function PhysicsTopicItem(props) {
 	return (
+		<>
+		<Helmet>
+          <title>Physics Calculator</title>
+		  <meta name="description" content="Get info and calculator of various physics topics by choosing from the following."/>
+		  <meta name="keywords" content="physics, calculators, calculator, physics calculator, TechN Science, technscience, tech n science"/>
+		</Helmet>
 		<div className="col-xs-12 col-sm-6 col-md-3 text-center animate-box">
 			<Link style={{ color: "black" }} to={props.link} className="services">
 				<span className="icon">
@@ -24,6 +31,7 @@ function PhysicsTopicItem(props) {
 			</Link>
 			{props.children}
 		</div>
+		</>
 	)
 }
 
@@ -40,7 +48,7 @@ function PhysicsTopic() {
 					<div className="row">
 					<PhysicsTopicItem name="Classical mechanics" link="/classicalmechanics" icon="icon-shop" image={classicalMechanics} >
 							<p>Classical mechanics is a theory that describes the motion of macroscopic objects, projectile motions of machinery parts and astronomical objects, and machine rotatory motion. </p>
-							<p id="credit">Photo by <a href="https://unsplash.com/@gabriele_macera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Gab</a> on <a href="https://unsplash.com/s/photos/engine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+							<p id="credit">Photo by <a href="https://unsplash.com/@xavier_von_erlach?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Xavier von Erlach</a> on <a href="https://unsplash.com/s/photos/mechanics?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
 							</PhysicsTopicItem>
 					<PhysicsTopicItem name="Thermodynamics" link="/thermodynamics" icon="icon-heart4" image={thermodynamics}>
 							<p>Thermodynamics is the study of the transfer of heat and energy from one body to another.</p>
@@ -64,7 +72,7 @@ function PhysicsTopic() {
 						</PhysicsTopicItem>
 						<PhysicsTopicItem name="Photonics" link="/photonics" icon="icon-bubble3" image={photonics}>
 							<p>Photonics is the physical science of light waves. It deals with the science behind the generation, detection and manipulation of light.</p>
-						    <p id="credit">Photo by <a href="https://unsplash.com/@mischievous_penguins?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Casey Horner</a> on <a href="https://unsplash.com/s/photos/light?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+						    <p id="credit">Photo by <a href="https://unsplash.com/@umby?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Umberto</a> on <a href="https://unsplash.com/s/photos/light?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
 						</PhysicsTopicItem>
 						<PhysicsTopicItem name="Statistical Mechanics" link="/statistical" icon="icon-world" image={statistical}>
 							<p>Statistical mechanics is a mathematical framework that applies statistical methods and probability theory to large assemblies of microscopic entities.</p>

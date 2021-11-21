@@ -1,8 +1,7 @@
 import Home from "./Components/Home/Home";
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
-import Navbar from "./Components/Navbar/Navbar";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ClassicalMechanics from "./Components/Classical_Mechanics/ClassicalMechanics";
 import Thermodynamics from "./Components/Thermodynamics/Thermodynamics";
 import CalcClassic from "./Components/Classical_Mechanics/Topics/Calculator";
@@ -17,11 +16,25 @@ import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
 import NumMCQ from "./Components/NumMCQ/NumMCQ";
 import Singlequestion from "./Components/NumMCQ/Singlequestion";
+import { Helmet } from "react-helmet"
+import { hydrate, render } from "react-dom";
+const Navbar = lazy(()=>import("./Components/Navbar/Navbar"));
 
 const App = () => {
   return (
     <React.Fragment>
+      <Helmet>
+        <title>JEE questions and calculators - Tech N Science</title>
+        <meta name="description" content="Website for Physics formula and Physics calculator for IIT-JEE and NEET. In this website we provide free calculator
+        and also formulas to make the long, tiring calculations easy. This website can be used by anyone who wants to reduce their efforts of long calculations." data-react-helmet="true"/>
+        <meta name="keyword" content="Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+      </Helmet>
+      <Suspense fallback={<div>Loading....</div>}>
       <Navbar />
+      </Suspense>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={Home} />
@@ -36,7 +49,9 @@ const App = () => {
           path="/thermodynamics"
           component={Thermodynamics}
         />
+        
         <Route exact path="/physics" component={PhysicsTopic} />
+       
         <Route
           exact
           path="/classicalmechanics/calc/:topic"
@@ -100,3 +115,11 @@ const App = () => {
 };
 
 export default App;
+
+
+const rootElement = document.getElementById("root");
+if (rootElement.hasChildNodes()) {
+  hydrate(App, rootElement);
+} else {
+  render(App, rootElement);
+}

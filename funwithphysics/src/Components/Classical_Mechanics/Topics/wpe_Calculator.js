@@ -3,6 +3,7 @@ import './Calculator.css'
 import { Form, Button, Col, Row } from 'react-bootstrap'
 import "../classicalMechanics.css";
 import WPE_list from "../wpe_data";
+import {Helmet} from "react-helmet"
 
 function WPECalculator({ match }) {
     const page = WPE_list.filter(data => (data.topic) === (match.params.topic))
@@ -228,6 +229,11 @@ function WPECalculator({ match }) {
     return (
 
         <div className="Calculator__main">
+            <Helmet>
+            <title>{details.topic}</title>
+            <meta name="description" content={details.details} data-react-helmet="true"/>
+            <meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science"/>
+            </Helmet>
             <div className="Calculator__header">
                 <h1>{details.topic}</h1>
             </div>

@@ -3,15 +3,22 @@ import '../Home/Home.css'
 import { Button } from 'react-bootstrap'
 import Footer from '../Footer/Footer'
 import { LearnMore } from '../LearnMore'
+import {Helmet} from "react-helmet"
 
 const Home = () => {
 	return (
 		<React.Fragment>
+			<Helmet>
+			<title>Fun With Science - Tech N Science </title>
+			<meta name="description" content="We at Tech N Science try to bring all sciences under one roof by providing JEE level questions and also calculators for different science formulas." data-react-helmet="true"/>
+			<meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science, Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science"/>
+			</Helmet>
 			{/* ----Banner---- */}
 			<div className="banner">
-				<p id="credit">Image by <a href="https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1149733">Free-Photos</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1149733">Pixabay</a></p>
-				<h2 className="banner_text col-md-8 col-sm-8 auto pt-5">Physics is about questioning, studying, probing nature. You probe, and, if you're lucky, you get strange clues.
-					<br />So, keep Exploring Physics.</h2>
+				<p id="credit">Photo by <a href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">NASA</a> on <a href="https://unsplash.com/s/photos/planet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+  
+				<h2 className="banner_text col-md-8 col-sm-8 auto pt-5">We at Tech N Science try to bring all sciences under one roof by providing JEE level questions and also calculators for different science formulas. 
+					<br />So, keep Exploring!!.</h2>
 				<div className="banner_button">
 					<button type="button" className="btn btn-light">Explore</button>
 					<Button href="#learn" className="btn btn-light"> Learn</Button>

@@ -10,11 +10,136 @@ import Gravitation_list from "../gravitation_data";
 import MOI_list from "../moi_data";
 import fluid_list from "../fluidmechanics_data";
 import { Link } from "react-router-dom";
+import {Helmet} from "react-helmet"
 
 function Calculator({ match }) {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
   
+  // Projectile Motion Calculator
+  const CalculatorProjectileMotion=()=>{
+
+    const [choice, setChoice] = useState("range")
+    const [velocity, setVelocity] = useState(null)
+    const [angle, setAngle] = useState(null)
+    const [result, setResult] = useState(null)
+    const reset =()=>{
+      setVelocity(null)
+      setAngle(null)
+      setResult(null)
+
+    }
+
+    const handleChange=(e)=>{
+      setChoice(e.target.value)
+      reset();
+    }
+    const calcResult=()=>{
+      let res;
+      if(choice === "range"){
+        res=(2 * velocity * velocity * Math.sin(angle*Math.PI/180) * Math.cos(angle*Math.PI/180))/9.8
+      }
+      else if(choice === "time"){
+        res=(2 * velocity * Math.sin(angle*Math.PI/180))/9.8
+      }
+      else if (choice === "max-height"){
+        res=(velocity * velocity * Math.sin(angle*Math.PI/180) * Math.sin(angle*Math.PI/180))/19.6
+      }
+      setResult(res)
+
+    }
+    const choiceData=()=>{
+      if (choice === "range")
+      return{
+        name:"Range",
+        mainunit:"m",
+        quantities:["Initial Velocity (u)","Angle (θ)"],
+        setters:[setVelocity,setAngle],
+        getters:[velocity,angle]
+
+      }
+      else if(choice === "time")
+      return{
+        name:"Time",
+        mainunit:"s",
+        quantities:["Initial Velocity (u)","Angle (θ)"],
+        setters:[setVelocity,setAngle],
+        getters:[velocity,angle]
+      }
+      else if(choice === "max-height")
+      return{
+        name:"Maximum Height",
+        mainunit:"m",
+        quantities:["Initial Velocity (u)","Angle (θ)"],
+        setters:[setVelocity,setAngle],
+        getters:[velocity,angle]
+      }
+    }
+    return(
+      <>
+        <Form>
+          <Form.Group className="mb-3" controlId="choice2">
+          <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e)=>handleChange(e)}>
+              <option value="range">R : Range or Distance</option>
+              <option value="time">T : Time of flight</option>
+              <option value="max-height">H : Maximum-Height</option>
+            </Form.Control>
+            </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e) =>choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in m/s"}
+              value={
+                choiceData().getters[0] === null ? "": choiceData().getters[0]
+              }
+            />
+            </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) =>choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={"Enter in degree"}
+              value={
+                choiceData().getters[1] === null ? "": choiceData().getters[1]
+              }
+            />
+            </Form.Group>
+            <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " "+choiceData().mainunit 
+              }
+            />
+          </Form.Group>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        </Form>
+        &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+            
+</>)
+  }
+
   // Momentum Calculator
   function CalculatorMomentum() {
     const [result, setResult] = useState(null);
@@ -103,7 +228,7 @@ function Calculator({ match }) {
               readOnly
               type="number"
               placeholder={
-                result === null ? "Result" : result + " N or Kg.m.s² "
+                result === null ? "Result" : result + " N or Kg.m/s² "
               }
             />
             <Form.Text className="text-muted">
@@ -930,6 +1055,9 @@ function Calculator({ match }) {
       case "Stress and Strain":
         currentCall = Stress_Strain_calc();
         break;
+      case "Projectile Motion":
+        currentCall = CalculatorProjectileMotion();
+        break;
       default:
         break;
     }
@@ -1153,7 +1281,14 @@ function Calculator({ match }) {
     );
   } else {
     return (
+      <>
+      
       <div className="Calculator__main">
+      <Helmet>
+          <title>{details.topic}</title>
+          <meta name="description" content={details.details} data-react-helmet="true"/>
+          <meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science"/>
+        </Helmet>
         <div className="Calculator__header">
           <h1>{details.topic}</h1>
         </div>
@@ -1176,6 +1311,7 @@ function Calculator({ match }) {
           {calC(details.topic)}
         </div>
       </div>
+      </>
     );
   }
 }

@@ -3,6 +3,7 @@ import './Calculator.css'
 import { Form, Button } from 'react-bootstrap'
 import '../classicalMechanics.css'
 import fluid_list from "../fluidmechanics_data";
+import {Helmet} from "react-helmet"
 
 function FluidCalculator({ match }) {
     const page = fluid_list.filter(data => (data.topic) === (match.params.topic))
@@ -32,12 +33,12 @@ function FluidCalculator({ match }) {
                     <Form.Control onChange={(e) => setMass(e.target.value)} type="number" placeholder="Enter mass of the object" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="volume">
-                    <Form.Label> Volume (in m^3)</Form.Label>
+                    <Form.Label> Volume (in m³)</Form.Label>
                     <Form.Control onChange={(e) => setVol(e.target.value)} type="number" placeholder="Enter volume of the object" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="density">
                     <Form.Label>Density</Form.Label>
-                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " kg m^-3 "} />
+                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " kg m⁻³ "} />
                     <Form.Text className="text-muted">
                         Enter the above values to calculate.
                     </Form.Text>
@@ -77,7 +78,7 @@ function FluidCalculator({ match }) {
                     <Form.Control onChange={(e) => setForce(e.target.value)} type="number" placeholder="Enter the force applied on the object" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="area">
-                    <Form.Label> Area (in m^2)</Form.Label>
+                    <Form.Label> Area (in m²)</Form.Label>
                     <Form.Control onChange={(e) => setArea(e.target.value)} type="number" placeholder="Enter area of the object" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="pressure">
@@ -118,7 +119,7 @@ function FluidCalculator({ match }) {
         return <React.Fragment>
             <Form>
                 <Form.Group className="mb-3" controlId="area">
-                    <Form.Label> Area (in m^2)</Form.Label>
+                    <Form.Label> Area (in m²)</Form.Label>
                     <Form.Control onChange={(e) => setArea(e.target.value)} type="number" placeholder="Enter the cross-sectional area of object" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="velocity">
@@ -127,7 +128,7 @@ function FluidCalculator({ match }) {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="volumeflowrate">
                     <Form.Label>Volume flow rate</Form.Label>
-                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " m^3/s "} />
+                    <Form.Control readOnly type="number" placeholder={result === null ? "Result" : result + " m³/s "} />
                     <Form.Text className="text-muted">
                         Enter the above values to calculate.
                     </Form.Text>
@@ -178,25 +179,24 @@ function FluidCalculator({ match }) {
             setArea2(null);
             setVelocity1(null);
             setVelocity2(null);
-            console.log(choice);
         }
 
         const choiceData = () => {
             if (choice === "area")
               return {
                 name: "Area",
-                mainunit: "m^2",
+                mainunit: "m²",
                 quantities: ["Area 1", "Velocity 1", "Velocity 2"],
-                subunits: ["m^2", "m/s", "m/s"],
-                setters: [setArea2, setVelocity1, setVelocity2],
-                getters: [area2, velocity1, velocity2],
+                subunits: ["m²", "m/s", "m/s"],
+                setters: [setArea1, setVelocity1, setVelocity2],
+                getters: [area1, velocity1, velocity2],
             }
             else if (choice === "velocity")
                 return {
                 name: "Velocity",
                 mainunit: "m/s",
                 quantities: ["Area 1", "Velocity 1", "Area 2"],
-                subunits: ["m^2", "m/s", "m^2"],
+                subunits: ["m²", "m/s", "m²"],
                 setters: [setArea1, setVelocity1, setArea2],
                 getters: [area1, velocity1, area2],
             }
@@ -295,7 +295,7 @@ function FluidCalculator({ match }) {
                     <Form.Control onChange={(e) => setForce(e.target.value)} type="number" placeholder="Enter the force" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="area">
-                    <Form.Label> Area (in m^2)</Form.Label>
+                    <Form.Label> Area (in m²)</Form.Label>
                     <Form.Control onChange={(e) => setArea(e.target.value)} type="number" placeholder="Enter area of each plate" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="rateofdeformation">
@@ -329,6 +329,7 @@ function FluidCalculator({ match }) {
         const [radius, setRadius] = useState(null)
         const [pressurediff, setPressurediff] = useState(null)
         const [choice, setChoice] = useState("pressure")
+        const [pi, setPi] = useState(Math.PI);
 
         function handleChange(e) {
             setChoice(e.target.value);
@@ -360,19 +361,19 @@ function FluidCalculator({ match }) {
               return {
                 name: "Pressure",
                 mainunit: "pascal",
-                quantities: ["Viscosity of fluid", "Length of pipe", "Flow rate of fluid", "Radius of the pipe"],
-                subunits: ["pascal-second", "m", "m^3/s", "m"],
-                setters: [setViscosity, setLength, setFlowrate, setRadius],
-                getters: [viscosity, length, flowrate, radius],
+                quantities: ["Viscosity of fluid", "Length of pipe", "Flow rate of fluid", "Radius of the pipe","Pi"],
+                subunits: ["pascal-second", "m", "m³/s", "m","NaN"],
+                setters: [setViscosity, setLength, setFlowrate, setRadius,setPi],
+                getters: [viscosity, length, flowrate, radius,pi],
             }
             else if (choice === "flowrate")
                 return {
                 name: "Volumetric flow Rate",
-                mainunit: "m^3/s",
-                quantities: ["Viscosity of fluid", "Length of pipe", "Pressure Difference", "Radius of the pipe"],
-                subunits: ["pascal-second", "m", "pascal", "m"],
-                setters: [setViscosity, setLength, setPressurediff, setRadius],
-                getters: [viscosity, length, pressurediff, radius],
+                mainunit: "m³/s",
+                quantities: ["Viscosity of fluid", "Length of pipe", "Pressure Difference", "Radius of the pipe","Pi"],
+                subunits: ["pascal-second", "m", "pascal", "m","NaN"],
+                setters: [setViscosity, setLength, setPressurediff, setRadius,setPi],
+                getters: [viscosity, length, pressurediff, radius,pi],
             }
         }
 
@@ -428,6 +429,22 @@ function FluidCalculator({ match }) {
                     type="number"
                     placeholder={"Enter in " + choiceData().subunits[3]}
                     value={choiceData().getters[3]===null?'':choiceData().getters[3]}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-4">
+                    <Form.Label>{choiceData().quantities[4]}</Form.Label>
+                    <Form.Control
+                    onChange={(e) => choiceData().setters[4](e.target.value)}
+                    type="number"
+                    placeholder={
+                        choiceData().subunits[4] === "NaN"
+                          ? "No Unit"
+                          : "Enter in " + choiceData().subunits[4]
+                      }
+                      readOnly={
+                        choiceData().getters[4] === null ? "" : choiceData().getters[4]
+                      }
+                     
                     />
                 </Form.Group>
                 <Form.Group className="mb-4">
@@ -502,7 +519,7 @@ function FluidCalculator({ match }) {
                 name: "Pressure",
                 mainunit: "pascal",
                 quantities: ["Pressure 1", "Velocity 1", "Height 1", "Velocity 2", "Height 2", "Density", "Gravity"],
-                subunits: ["pascal", "m/s", "m", "m/s", "m", "kg m^-3", "m/s^2"],
+                subunits: ["pascal", "m/s", "m", "m/s", "m", "kg m⁻³", "m/s²"],
                 setters: [setPressure1, setVelocity1, setHeight1, setVelocity2, setHeight2, setDensity, setGravity],
                 getters: [pressure1, velocity1, height1, velocity2, height2, density, gravity],
             }
@@ -511,7 +528,7 @@ function FluidCalculator({ match }) {
                 name: "Velocity",
                 mainunit: "m/s",
                 quantities: ["Pressure 1", "Velocity 1", "Height 1", "Pressure 2", "Height 2", "Density", "Gravity"],
-                subunits: ["pascal", "m/s", "m", "pascal", "m", "kg m^-3", "m/s^2"],
+                subunits: ["pascal", "m/s", "m", "pascal", "m", "kg m⁻³", "m/s²"],
                 setters: [setPressure1, setVelocity1, setHeight1, setPressure2, setHeight2, setDensity, setGravity],
                 getters: [pressure1, velocity1, height1, pressure2, height2, density, gravity],
             }
@@ -520,7 +537,7 @@ function FluidCalculator({ match }) {
                 name: "Height",
                 mainunit: "m",
                 quantities: ["Pressure 1", "Velocity 1", "Height 1", "Pressure 2", "Velocity 2", "Density", "Gravity"],
-                subunits: ["pascal", "m/s", "m", "pascal", "m/s", "kg m^-3", "m/s^2"],
+                subunits: ["pascal", "m/s", "m", "pascal", "m/s", "kg m^-3", "m/s²"],
                 setters: [setPressure1, setVelocity1, setHeight1, setPressure2, setVelocity2, setDensity, setGravity],
                 getters: [pressure1, velocity1, height1, pressure2, velocity2, density, gravity],
             }
@@ -662,6 +679,12 @@ function FluidCalculator({ match }) {
     }
 
     return (
+        <>
+        <Helmet>
+          <title>{details.topic}</title>
+          <meta name="description" content={details.details} data-react-helmet="true"/>
+          <meta name="keywords" content="Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science"/>
+        </Helmet>
         <div className="Calculator__main">
         <div className="Calculator__header">
             <h1>{details.topic}</h1>
@@ -685,6 +708,7 @@ function FluidCalculator({ match }) {
             <p>{details.process}</p>
         </div>
         </div>
+        </>
     )
 }
 
