@@ -14,11 +14,20 @@ import shm_Calculator from "./Components/Classical_Mechanics/Topics/shm_Calculat
 import rotation_Calculator from "./Components/Classical_Mechanics/Topics/rotation_Calculator";
 import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
+<<<<<<< HEAD
 import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
 import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
 import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
 import {Helmet} from "react-helmet"
+=======
+import NumMCQ from "./Components/NumMCQ/NumMCQ";
+import Singlequestion from "./Components/NumMCQ/Singlequestion";
+import { Helmet } from "react-helmet"
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
 import { hydrate, render } from "react-dom";
+import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
+import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
+import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
 const Navbar = lazy(()=>import("./Components/Navbar/Navbar"));
 
 const App = () => {
@@ -113,7 +122,36 @@ const App = () => {
           path="/classicalmechanics/calc/fluid_mechanics/:topic"
           component={FluidCalculator}
         />
+        <Route
+          exact
+          path="/electromagnetism"
+          component={Electromagnetism}
+        />
+        <Route
+          exact
+          path="/electromagnetism/calc/:topic"
+          component={calculatorElec}
+        />
 
+        <Route
+          exact
+          path="/electromagnetism/calc/electric_field/:topic"
+          component={electricfield_calculator}
+
+        />
+
+        <Route 
+          exact 
+          path="/questions"
+          component={NumMCQ}
+        />
+
+        <Route
+          exact
+          path="/questions/:id"
+          component={Singlequestion}
+        />
+        
         <Redirect to="/" />
       </Switch>
     </React.Fragment>

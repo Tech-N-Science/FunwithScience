@@ -69,7 +69,11 @@
         grid-template-areas: "header header" "details details" "formula formula " "process process " "calc calc";
         row-gap: 3em;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
     .Calculator__header,
     .Calculator__details,
     .Calculator__formula,
@@ -91,7 +95,11 @@
     .Calculator__formula,
     .Calculator__calc h3,
     .Calculator__process{
+<<<<<<< HEAD
      
+=======
+
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
         max-width: 100%;
     }
     .Calculator__main {
@@ -118,4 +126,7 @@
         padding: 1rem;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 89719544f9465284503124cd09348425024eb03c

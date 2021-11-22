@@ -48,4 +48,8 @@ const Topics =[
         process:"To find the electric field for a spherical shell we need to know the charge of magnitude (Q), a distance (r) away from the spherical shell, by putting these values in formula we can easily find the electric field",
     }
 ]
+<<<<<<< HEAD
 export default Topics
+=======
+export default Topics 
+>>>>>>> 89719544f9465284503124cd09348425024eb03c

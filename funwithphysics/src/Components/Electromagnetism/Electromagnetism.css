@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
   } /* normalizing  */
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
   .mech__main {
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
@@ -11,11 +15,19 @@
       " . header . "
       " . topics .";
   }
+<<<<<<< HEAD
   
   .card {
     width: 100% !important;
   }
   
+=======
+
+  .card {
+    width: 100% !important;
+  }
+
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
   .mech__topics-card {
     max-width: 1200px !important;
     grid-area: "topics";
@@ -26,7 +38,11 @@
     row-gap: 2em;
     transition: "opacity 350ms ease";
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
   .mech__header {
     grid-area: "header";
     grid-column-start: 1;
@@ -37,7 +53,11 @@
     margin-top: 1em;
     margin-bottom: 1em;
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
   .a:hover {
     transform: scale(1.03);
     transition-duration: 0.2s;
@@ -45,14 +65,22 @@
       0 8px 32px -8px hsla(0, 0%, 0%, 0.14),
       0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
   @media only screen and (max-width: 992px) {
     .mech__topics-card {
       display: grid;
       grid-template-columns: 1fr 1fr !important;
     }
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
   @media only screen and (max-width: 550px) {
     .mech__main {
       display: block;
@@ -73,15 +101,24 @@
       justify-self: center;
     }
   }
+<<<<<<< HEAD
   
   a {
     text-decoration: none;
   }
   
+=======
+
+  a {
+    text-decoration: none;
+  }
+
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
   .btn:hover {
     color: #fff;
     background-color: #343a40;
     border-color: #343a40;
+<<<<<<< HEAD
   
     display: inline-block;
   }
@@ -89,3 +126,13 @@
   .btn {
     border: 1px solid ;
   }
+=======
+
+    display: inline-block;
+  }
+
+  .btn {
+    border: 1px solid ;
+  } 
+  
+>>>>>>> 89719544f9465284503124cd09348425024eb03c
