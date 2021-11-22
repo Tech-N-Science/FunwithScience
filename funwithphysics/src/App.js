@@ -20,11 +20,11 @@ import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
 import {Helmet} from "react-helmet"
 import NumMCQ from "./Components/NumMCQ/NumMCQ";
 import Singlequestion from "./Components/NumMCQ/Singlequestion";
-import { Helmet } from "react-helmet"
+// import { Helmet } from "react-helmet"
 import { hydrate, render } from "react-dom";
-import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
-import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
-import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
+// import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
+// import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
+// import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
 const Navbar = lazy(()=>import("./Components/Navbar/Navbar"));
 
 const App = () => {

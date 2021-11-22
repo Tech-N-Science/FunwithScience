@@ -2,7 +2,7 @@ import React from 'react'
 import './Calculator.css'
 import Topics from "../topics_data"
 import { Form, Card, Button, Row, Col } from "react-bootstrap";
-import {  Card, } from "react-bootstrap";
+// import {  Card, } from "react-bootstrap";
 import '../Electromagnetism.css'
 import electricfield_data from "../electricfield_data"
 import { Link } from "react-router-dom";
