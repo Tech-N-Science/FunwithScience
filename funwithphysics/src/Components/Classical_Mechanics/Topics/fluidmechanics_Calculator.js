@@ -490,10 +490,14 @@ function FluidCalculator({ match }) {
         const calcResult = () => {
             let res
             if (choice === "pressure"){
-                res = pressure1 + 0.5*density*(Math.pow(velocity1, 2)) + density*gravity*height1 - 0.5*density*(Math.pow(velocity2, 2)) - density*gravity*height2
+                let r1 =  0.5*density*(Math.pow(velocity1, 2))
+                let r2=  density*gravity*height1 
+                let r3= 0.5*density*(Math.pow(velocity2, 2)) 
+                let r4= density*gravity*height2
+                res = parseFloat(pressure1) + parseFloat(r1)+ parseFloat(r2) - parseFloat(r3)-parseFloat(r4);
             }
             else if (choice === "velocity"){
-                res = Math.sqrt(((pressure1 + 0.5*density*(Math.pow(velocity1, 2)) + density*gravity*height1 - pressure2 - density*gravity*height2) / density) * 2)  
+                res = Math.sqrt(((parseFloat(pressure1) + parseFloat(0.5*density*(Math.pow(velocity1, 2))) + parseFloat(density*gravity*height1) - parseFloat(pressure2 )- parseFloat(density*gravity*height2)) / parseFloat(density)) * 2)  
             }
             else if (choice === "height"){
                 res = (pressure1 + 0.5*density*(Math.pow(velocity1, 2)) + density*gravity*height1 - pressure1 - 0.5*density*(Math.pow(velocity2, 2))) / (density*gravity)

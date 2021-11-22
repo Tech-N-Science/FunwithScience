@@ -51,9 +51,9 @@ const Topics = [
     },
     {
         topic: "Bernoulli's equation",
-        details: `The total mechanical energy of the moving fluid, which includes the energy associated with fluid pressure, the gravitational potential energy of elevation, and the kinetic energy of fluid motion, remains constant, according to Bernoulli's equation.`,
-        formula: "P1 + 1/2ρV1² + ρgh1 = P2 + 1/2ρV2² + ρgh2",
-        process: "It is applied to various measuring devices such as Venturi meter, Nozzle meter, Orifice meter, Pitot tube,etc.",
+        details: `According to Bernoulli's equation, the total mechanical energy of the moving fluid remains constant, which comprises the energy associated with fluid pressure, the gravitational potential energy of elevation, and the kinetic energy of fluid motion.`,
+        formula: "P₁ + 1/2ρV₁² + ρgh₁ = P₂ + 1/2ρV₂² + ρgh₂",
+        process: "It is applied to various measuring devices such as Venturi meter, Nozzle meter, Orifice meter, Pitot tube,etc. Here 'P₁', 'V₁' and 'h₁' are the pressure, velocity and height of one opening of the tube and 'P₂', 'V₂' and 'h₂' are the pressure, velocity and height of other opening of the tube and 'ρ' is density of fluid.",
         siunit: "Pressure: pascal, Velocity: m/s, height: m, density: kg m⁻³",
         dimension: "Pressure: ML⁻¹T⁻²,  Velocity: LT⁻¹, Height: L, density: ML⁻³"
     }

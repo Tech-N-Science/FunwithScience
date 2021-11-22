@@ -17,7 +17,7 @@ function electricfield_calculator({ match }) {
     const [density, setDensity] = useState(null);
     const [radius, setRadius] = useState(null);
     const [result, setResult] = useState(null);
-    const k = 8.854187817 * Math.pow(10, -12);
+    const e = 8.854187817 * Math.pow(10, -12);
     const reset =()=>{
       setDistance(null)
       setRadius(null)
@@ -26,7 +26,7 @@ function electricfield_calculator({ match }) {
     }
     const calcResult=()=>{
       let res;
-      let con=density/(2*k);
+      let con=density/(2*e);
       let back= 1-(distance/Math.sqrt(distance*distance+radius*radius))
       res=con*back;
       setResult(res);
@@ -69,11 +69,11 @@ function electricfield_calculator({ match }) {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Constant (ε0)</Form.Label>
+            <Form.Label>Constant (ε₀)</Form.Label>
             <Form.Control
               readOnly
               // type="number"
-              value={k + " F/m"}
+              value={e + " C²/N. m²"}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -110,7 +110,7 @@ function electricfield_calculator({ match }) {
     };
     const calcResult = () => {
       let res;
-      let num = k * 2 * 3.14 * charge * distance * radius;
+      let num = k * charge * distance;
       let den = Math.pow(distance * distance + radius * radius, 3 / 2);
       res = num / den;
       setResult(res);
@@ -119,7 +119,7 @@ function electricfield_calculator({ match }) {
       <>
         <Form>
           <Form.Group className="mb-4">
-            <Form.Label>Charge density (λ)</Form.Label>
+            <Form.Label>Charge (Q)</Form.Label>
             <Form.Control
               onChange={(e) => {
                 setCharge(e.target.value);
