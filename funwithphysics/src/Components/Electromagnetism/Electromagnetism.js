@@ -1,11 +1,18 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import './Electromagnetism.css'
-import Topics from "./topics_data"
 import { Link } from "react-router-dom"
 import {Helmet} from "react-helmet" 
 
 export default function Electromagnetism() {
+    //topics_data
+    const Topics = [
+        {
+            topic:"Electric Field",
+            details:"....",
+        }
+    ]
+
     return (<>
     <Helmet>
           <title>Electromagnetism</title>
