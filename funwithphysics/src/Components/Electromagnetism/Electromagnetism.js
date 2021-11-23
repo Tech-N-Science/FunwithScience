@@ -15,7 +15,7 @@ export default function Electromagnetism() {
 
     return (<>
     <Helmet>
-          <title>Electromagnetism</title>
+          <title>Electromagnetism | physics | Tech N Science</title>
           <meta name="description" content="Explore the Electromagnetism section and try out the calculators."/>
           <meta name="keywords" content="Electromagnetism, calculator, physics, Tech n science, technscience, tech and science"/>
         </Helmet>

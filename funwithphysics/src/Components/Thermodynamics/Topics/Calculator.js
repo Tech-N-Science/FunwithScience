@@ -62,7 +62,7 @@ function Calculator({ match }) {
         "As the temperature approaches absolute zero, the Third Law of Thermodynamics is concerned with the limiting behaviour of systems. Because most thermodynamics calculations rely solely on entropy differences, the entropy scale's zero point is frequently overlooked. The Third Law, on the other hand, is discussed for completeness' sake because it depicts the state of zero entropy.",
       formula: "S=kB log W",
       process:
-        "Where S is the entropy, kB is Boltzmann constant and its value is 1.38×10^−23 J/K and W is no. of micro states, Put the value of micro states.",
+        "Where S is the entropy, kB is Boltzmann constant and its value is 1.38×10−²³ J/K and W is no. of micro states, Put the value of micro states.",
       siunit: "Entropy: Joules per kelvin",
       dimension: "Entropy: [M L² K/ T²]",
     },
