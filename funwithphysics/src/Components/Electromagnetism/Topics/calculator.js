@@ -1,16 +1,164 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Calculator.css'
 import Topics from "../topics_data"
-import {  Card, } from "react-bootstrap";
 import '../Electromagnetism.css'
 import electricfield_data from "../electricfield_data"
 import { Link } from "react-router-dom";
 import {Helmet} from "react-helmet" 
+import { Form, Card, Button } from "react-bootstrap";
 
 const calculator = ({match}) => {
     const page=Topics.filter((data)=>data.topic===match.params.topic)
     const details=page[0]
 
+       //Ohm's law
+    const OhmCalculator=()=>{
+      const [choice, setChoice] = useState("voltage");
+      const [voltage, setVoltage] = useState(null);
+      const [current, setCurrent] = useState(null);
+      const [resistance, setResistance] = useState(null);
+      const [result, setResult] = useState(null);
+
+      const calcResult=()=>{
+        let res;
+        if(choice==="voltage"){
+          res=current * resistance;
+        }
+        if(choice==="current"){
+          res=voltage / resistance;
+        }
+        if(choice==="resistance"){
+          res=voltage / current;
+        }
+        setResult(res)
+
+      }
+      const reset =()=>{
+        setCurrent(null)
+        setVoltage(null)
+        setResistance(null)
+        setResult(null)
+      }
+
+      const handleChange=(e)=>{
+        setChoice(e.target.value);
+        setCurrent(null);
+        setResistance(null);
+        setVoltage(null)
+      }
+      const choiceData=()=>{
+        if(choice==="voltage")
+        return{
+          name:"Voltage (V)",
+          mainunit:"(V)",
+          quantities:["Current","Resistance"],
+          subunits:["(A)","(ohm)"],
+          getters:[current,resistance],
+          setters:[setCurrent,setResistance]
+        }
+        if(choice==="current")
+        return{
+          name:"Current (A)",
+          mainunit:"(A)",
+          quantities:["Voltage","Resistance"],
+          subunits:["(V)","(ohm)"],
+          getters:[voltage,resistance],
+          setters:[setVoltage,setResistance]
+        }
+        if(choice==="resistance")
+        return{
+          name:"Resistance (R)",
+          mainunit:"(ohm)",
+          quantities:["Voltage","Current"],
+          subunits:["(V)","(A)"],
+          getters:[voltage,current],
+          setters:[setVoltage,setCurrent]
+        }
+      }
+      return(<>
+      <Form>
+         {/* dropdown */}
+         <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e)=>{handleChange(e)}}>
+              <option value="voltage">Voltage (V)</option>
+              <option value="current">Current (A)</option>
+              <option value="resistance">Resistance (R)</option>
+
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0]}
+              value={
+                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+              }
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={
+                choiceData().subunits[1] === "NaN"
+                  ? "No Unit"
+                  : "Enter in " + choiceData().subunits[1]
+              }
+              value={
+                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+      </Form>
+      <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>)
+
+    }
+
+    const calC=(key)=>{
+      let currentCall;
+      switch(key){
+        case "Ohm's Law":
+          currentCall=OhmCalculator()
+          break;
+        default:
+          break;
+      }
+      return currentCall;
+    }
+
+    //Electric field
     if (details.topic === "Electric Field") {
         return (
           <div className="mech__main">
@@ -74,7 +222,7 @@ const calculator = ({match}) => {
           <div className="Calculator__calc">
             <h3>{details.topic} Calculator</h3>
             <hr />
-            {/* {calC(details.topic)} */}
+            {calC(details.topic)}
           </div>
         </div>
         </>
