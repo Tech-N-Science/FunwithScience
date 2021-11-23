@@ -31,7 +31,7 @@ const App = () => {
   return (
     <React.Fragment>
       <Helmet>
-        <title>JEE questions and calculators - Tech N Science</title>
+        <title>Fun with Science - Tech N Science</title>
         <meta name="description" content="Website for Physics formula and Physics calculator for IIT-JEE and NEET. In this website we provide free calculator
         and also formulas to make the long, tiring calculations easy. This website can be used by anyone who wants to reduce their efforts of long calculations." data-react-helmet="true"/>
         <meta name="keyword" content="Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science" />
