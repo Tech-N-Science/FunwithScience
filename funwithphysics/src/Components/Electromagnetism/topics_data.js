@@ -11,6 +11,11 @@ const Topics = [
         formula:"V=IR",
         dimension:"",
 
+    },
+    {
+        topic:"Electric Potential",
+        details:"..."
     }
+
 ]
 export default Topics;

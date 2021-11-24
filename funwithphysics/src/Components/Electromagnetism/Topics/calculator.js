@@ -5,6 +5,7 @@ import { Form, Card, Button } from "react-bootstrap";
 // import {  Card, } from "react-bootstrap";
 import '../Electromagnetism.css'
 import electricfield_data from "../electricfield_data"
+import electricpotential_data from "../electricpotential_data"
 import { Link } from "react-router-dom";
 import {Helmet} from "react-helmet" 
 
@@ -170,6 +171,40 @@ const calculator = ({match}) => {
                 <React.Fragment key={data.topic}>
                   <Link
                     to={`/electromagnetism/calc/electric_field/${data.topic}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Card
+                      className="a"
+                      key={data.topic}
+                      style={{
+                        width: "18rem",
+                        color: "black",
+                        textAlign: "center",
+                        fontSize: "20px",
+                      }}
+                    >
+                      <Card.Body>
+                        <div> {data.topic}</div>
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        );
+      }
+      else if (details.topic === "Electric Potential") {
+        return (
+          <div className="mech__main">
+            <div className="mech__header">
+              <h1>Electric Potential</h1>
+            </div>
+            <div className="mech__topics-card">
+              {electricpotential_data.map((data) => (
+                <React.Fragment key={data.topic}>
+                  <Link
+                    to={`/electromagnetism/calc/electric_potential/${data.topic}`}
                     style={{ textDecoration: "none" }}
                   >
                     <Card
