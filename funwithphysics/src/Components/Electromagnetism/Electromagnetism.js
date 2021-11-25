@@ -20,6 +20,11 @@ export default function Electromagnetism() {
             dimension:"",
       
         },
+        {
+            topic:"Electric Potential",
+            details:"..."
+        
+          }
     ]
 
     return (<>
