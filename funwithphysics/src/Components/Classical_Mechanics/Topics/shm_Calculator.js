@@ -216,7 +216,7 @@ function shm_Calculator({ match }) {
             const g = 9.8;
             switch (choiceOsc) {
                 case "shm":
-                    res = amplitude * Math.sin(omega * time + phi)
+                    res = amplitude * Math.sin(((omega * parseFloat(time) + parseFloat(phi))*Math.PI)/180)
                     break;
                 case "pendulum":
                     res = 2 * pi * Math.sqrt(length / g);

@@ -923,9 +923,9 @@ function Calculator({ match }) {
 
     const handleSubmit = () => {
       let result =
-        (massOne * initialVelOne +
-          massTwo * initialVelTwo -
-          massOne * finalVelOne) /
+        (parseFloat(massOne) * parseFloat(initialVelOne) +
+          parseFloat(massTwo) * parseFloat(initialVelTwo) -
+          parseFloat(massOne) * parseFloat(finalVelOne)) /
         massTwo;
       setFinalVelTwo(result);
     };
