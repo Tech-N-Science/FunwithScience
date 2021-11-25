@@ -17,3 +17,6 @@
 7) Then if time permits we can implement the same with Math section
 
 8) If time permits we can start with Backend like login, signup, my profile, quiz score and son on.
+
+
+Please follow the instructions given in this link regarding proposals: https://docs.google.com/document/d/1lHSJFGWpU0TMZy0b28snOTEWMEhIEQzpeBohYHGAMcA/edit?usp=sharing
