@@ -37,7 +37,7 @@ function electricfield_calculator({ match }) {
         <br />,
         "1) If r > R, in this case electric field produced is same as that of a point charge i.e, E = kq/r²",
         <br />,
-        "2) If r = R, in in this case electric field produced is same as that of a point charge i.e, E = kq/R²",
+        "2) If r = R, in in this case electric field produced is given by E = kq/R²",
         <br />,
         "3) If r < R, in in this case electric field produced is kqr/R³",
         <br />,
