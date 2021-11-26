@@ -32,7 +32,7 @@ const calculator = ({ match }) => {
   const electricpotential_data = [
   {
     topic:"Point Charge",
-    details:`Electric Potential created by a point charge (Q) is given by the equation "V=kQ/r", where V is the electric potential and Q is the charge, r is the distance from the charge is observed to be where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²`,
+    details:`Electric Potential due to a point charge (Q) at a point P is given by the equation "V=kQ/r", where V is the electric potential and Q is the charge, r is the distance from the charge to the point P,  where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
     formula:"V=kQ/r",
     siunit:"volt",
     dimension:"M L² T⁻³ I⁻¹",
@@ -40,36 +40,57 @@ const calculator = ({ match }) => {
   },
   {
     topic:"Ring",
-    formula:"kQ/√(R²+r²)",
-    details:`Electric potential for the charged ring is given by the equation "V=kQ/√(R²+r²)" where Q is the charge, R is the Radius, r is the distance of the charge from the center where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²`,
+    formula:"V=kQ/√(R²+r²)",
+    details:`Electric potential due to a charged ring at a point P perpendicular to its axis is given by the equation "V=kQ/√(R²+r²)" where Q is the charge, R is the Radius, r is the distance of the charge ring from the point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
     siunit:"volt",
     dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for the charged ring we need to know the charge (Q), distance of the charge from the center (r) and the radius of the ring (R) by putting these values in the formula we can easily find the electric potential."
-
+    process:"To find the electric potential for the charged ring we need to know the charge (Q), distance of the charge from the center (r) and the radius of the ring (R) where as the k is constant by putting these values in the formula we can easily find the electric potential."
+  
   },
   {
     topic:"Disc",
-  details:`Electric potential for Disc is given by the equation "V=kσ2π[√(R²+r²)-r]" where σ is the surface density, R is the radius, and r is the distance where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²`,
-  formula:"V=kσ2π[√(R²+r²)-r]",
-  siunit:"volt",
-  process:"By putting the value of surface density (σ), Radius (R) and distance (r) in given equation we can easily find the electric potential for the disc, where as k is constant and it's value is 9.0*10^9 N m²/C²",
-  dimension:"M L² T⁻³ I⁻¹"
+    details:`Electric potential due to a charged Disc at a point P perpendicular to its axis is given by the equation "V=kσ2π[√(R²+r²)-r]" where σ is the surface charge density, R is the radius, and r is the distance between the center of disc and point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²`,
+    formula:"V=kσ2π[√(R²+r²)-r]",
+    siunit:"volt",
+    process:"By putting the value of surface charge density (σ), Radius (R) and distance (r) in given equation we can easily find the electric potential for the disc, where as k is constant and it's value is 8.99*10⁹ N m²/C²",
+    dimension:"M L² T⁻³ I⁻¹"
   },
   {
     topic:"Sphere",
-    details:[`Electric potential outside the sphere is given by the equation "V=kQ/r" where Q is the charge outside the sphere and r the distance at which charge is placed.`,<br/>,`Electric potential inside the sphere is given by the equation "V=kQ[(3R²/2)-(r²/2)]" where is Q is the charge, R is the Radius of the sphere and r is the distance at which charge is placed.`,<br/>,"Where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C² "],
-    formula:["Sphere (Outside)=> V=kQ/r",<br/>,"Sphere (Inside)=> V=kQ[(3R²/2)-(r²/2)]"],
+    details:["There are three condition for Sphere:",
+    <br />,
+    "1) If r > R, in this case electric potential due to the charged sphere is same as that of a point charge i.e, V = kQ/r",
+    <br />,
+    "2) If r = R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R",
+    <br />,
+    "3) If r < R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R³[(3R²/2)-(r²/2)]",
+    <br />,
+
+    "where 'r' is the distance between the center of sphere and the point at which electric potential is produced and 'R' is the radius of sphere. ",
+  ],
+    formula:["Sphere (r > R)=> V=kQ/r",<br/>,"Sphere (r < R)=> V=kQ/R³[(3R²/2)-(r²/2)]"],
     siunit:"volt",
     dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for the (Outside) the sphere we need to know the charge (Q) and the distance (r) where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C² "
+    process:"To find the electric potential for (r > R) the sphere we need to know the charge (Q) and the distance (r) where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C² "
   },
   {
     topic:"Shell",
-    formula:["Shell (Outside)=> V=kQ/r",<br/>,"Shell (Inside)=> V=kQ/R"],
-    details:[`Electric potential for the charge outside the of the Shell is given by the equation "V=kQ/r" where Q is the charge and r is the distance at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²`,<br/>,`Electric potential for the charge outside the of the Shell is given by the equation "V=kQ/R" where Q is the charge and R is the radius of the shell where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²`],
+    formula:["Shell (r > R)=> V=kQ/r",<br/>,"Shell (r < R)=> V=kQ/R"],
+    details:[
+      "There are three condition for Shell:",
+      <br />,
+      "1) If r > R, in this case electric potential produced is same as that of a point charge i.e, V = kQ/r",
+      <br />,
+      "2) If r = R, in this case electric potential produced is given by the formula V = kQ/R",
+      <br />,
+      "3) If r < R, in this case electric potential produced is given by the formula V = kQ/R",
+      <br />,
+
+      "where 'r' is the distance between the center of shell and the point at which electric potential is produced and 'R' is the radius of sphere. ",
+    ],
     siunit:"volt",
     dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for the Outside the sphere we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²., Similarly for the Inside the sphere, but now we need to know the Radius (R) rather then the distance"
+    process:"To find the electric potential for the Outside the shell we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²."
   }
 ]
 
@@ -105,7 +126,7 @@ const calculator = ({ match }) => {
         <br />,
         "1) If r > R, in this case electric field produced is same as that of a point charge i.e, E = kq/r²",
         <br />,
-        "2) If r = R, in in this case electric field produced is same as that of a point charge i.e, E = kq/r²",
+        "2) If r = R, in in this case electric field produced is same as that of a point charge i.e, E = kq/R²",
         <br />,
         "3) If r < R, in in this case electric field produced is kqr/R³",
         <br />,
@@ -130,9 +151,9 @@ const calculator = ({ match }) => {
       formula: "E=σ/2ε₀[1-x/√(x²+R²)]",
       siunit: "newtons per coulomb (N/C)",
       dimension: "[M L I⁻¹ T⁻³].",
-      details: `Electric field produced by the charged disc at a point P is given by the equation "E=σ/2ε₀[1-x²/√(x²+R²)]" where σ is surface density, x is distance, R is the radius where as ε₀ is constant and it's value is 8.854187817 × 10⁻¹² C²/N. m² `,
+      details: `Electric field produced by the charged disc at a point P is given by the equation "E=σ/2ε₀[1-x²/√(x²+R²)]" where σ is surface charge density, x is distance, R is the radius where as ε₀ is constant and it's value is 8.854187817 × 10⁻¹² C²/N. m² `,
       process:
-        "To find the electric field for the disc we need to know the Radius (R) of the disc, and the distance (x) and the surface density(σ), where as the (ε₀) is constant and its value is 8.854187817 × 10⁻¹² C²/N. m² ",
+        "To find the electric field for the disc we need to know the Radius (R) of the disc, and the distance (x) and the surface charge density(σ), where as the (ε₀) is constant and its value is 8.854187817 × 10⁻¹² C²/N. m² ",
     },
     {
       topic: "Shell",
@@ -141,12 +162,12 @@ const calculator = ({ match }) => {
         <br />,
         "1) If r > R, in this case electric field produced is same as that of a point charge i.e, E = kq/r²",
         <br />,
-        "2) If r = R, in in this case electric field produced is same as that of a point charge i.e, E = kq/r²",
+        "2) If r = R, in this case electric field produced is same as that of a point charge i.e, E = kq/R²",
         <br />,
-        "3) If r < R, in in this case electric field produced is zero",
+        "3) If r < R, in this case electric field produced is zero",
         <br />,
 
-        "where 'r' is the distance between the center of sphere and the point at which electric field is produced and 'R' is the radius of sphere. ",
+        "where 'r' is the distance between the center of shell and the point at which electric field is produced and 'R' is the radius of shell. ",
       ],
       formula: "E=kQ/r²",
       siunit: "newtons per coulomb (N/C)",
