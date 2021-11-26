@@ -20,6 +20,11 @@ export default function Electromagnetism() {
             dimension:"",
       
         },
+        {
+            topic:"Electric Potential",
+            details:"..."
+        
+          }
     ]
 
     return (<>
@@ -37,13 +42,11 @@ export default function Electromagnetism() {
                     Topics.map(data =>
                         <React.Fragment key={data.topic}>
                             <Card key={data.topic} style={{ width:'18rem' }}>
-
                                 <Card.Body>
                                     {
                                         data.details === undefined ?
                                             <Link className="btn" disabled={true} to={`/electromagnetism/calc/${data.topic}`} variant="outline-dark"> {data.topic}</Link> :
                                             <Link className="btn" to={`/electromagnetism/calc/${data.topic}`} variant="outline-dark"> {data.topic}</Link>
-
                                     }
                                     <div style={{ padding: "0.3em" }}>
                                         {

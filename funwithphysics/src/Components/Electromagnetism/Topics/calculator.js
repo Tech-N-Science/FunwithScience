@@ -21,7 +21,57 @@ const calculator = ({ match }) => {
       dimension:"",
 
   },
+  {
+    topic:"Electric Potential",
+    details:"..."
+
+  }
   ];
+
+  //electricpotential_data
+  const electricpotential_data = [
+  {
+    topic:"Point Charge",
+    details:`Electric Potential created by a point charge (Q) is given by the equation "V=kQ/r", where V is the electric potential and Q is the charge, r is the distance from the charge is observed to be where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²`,
+    formula:"V=kQ/r",
+    siunit:"volt",
+    dimension:"M L² T⁻³ I⁻¹",
+    process:"To find the the electric potential for a point charge we need to know the charge (Q) and the distance (r), by putting these values in the formula we can easily find the electric potential."
+  },
+  {
+    topic:"Ring",
+    formula:"kQ/√(R²+r²)",
+    details:`Electric potential for the charged ring is given by the equation "V=kQ/√(R²+r²)" where Q is the charge, R is the Radius, r is the distance of the charge from the center where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²`,
+    siunit:"volt",
+    dimension:"M L² T⁻³ I⁻¹",
+    process:"To find the electric potential for the charged ring we need to know the charge (Q), distance of the charge from the center (r) and the radius of the ring (R) by putting these values in the formula we can easily find the electric potential."
+
+  },
+  {
+    topic:"Disc",
+  details:`Electric potential for Disc is given by the equation "V=kσ2π[√(R²+r²)-r]" where σ is the surface density, R is the radius, and r is the distance where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²`,
+  formula:"V=kσ2π[√(R²+r²)-r]",
+  siunit:"volt",
+  process:"By putting the value of surface density (σ), Radius (R) and distance (r) in given equation we can easily find the electric potential for the disc, where as k is constant and it's value is 9.0*10^9 N m²/C²",
+  dimension:"M L² T⁻³ I⁻¹"
+  },
+  {
+    topic:"Sphere",
+    details:[`Electric potential outside the sphere is given by the equation "V=kQ/r" where Q is the charge outside the sphere and r the distance at which charge is placed.`,<br/>,`Electric potential inside the sphere is given by the equation "V=kQ[(3R²/2)-(r²/2)]" where is Q is the charge, R is the Radius of the sphere and r is the distance at which charge is placed.`,<br/>,"Where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C² "],
+    formula:["Sphere (Outside)=> V=kQ/r",<br/>,"Sphere (Inside)=> V=kQ[(3R²/2)-(r²/2)]"],
+    siunit:"volt",
+    dimension:"M L² T⁻³ I⁻¹",
+    process:"To find the electric potential for the (Outside) the sphere we need to know the charge (Q) and the distance (r) where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C² "
+  },
+  {
+    topic:"Shell",
+    formula:["Shell (Outside)=> V=kQ/r",<br/>,"Shell (Inside)=> V=kQ/R"],
+    details:[`Electric potential for the charge outside the of the Shell is given by the equation "V=kQ/r" where Q is the charge and r is the distance at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²`,<br/>,`Electric potential for the charge outside the of the Shell is given by the equation "V=kQ/R" where Q is the charge and R is the radius of the shell where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²`],
+    siunit:"volt",
+    dimension:"M L² T⁻³ I⁻¹",
+    process:"To find the electric potential for the Outside the sphere we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 9.0*10^9 N m²/C²., Similarly for the Inside the sphere, but now we need to know the Radius (R) rather then the distance"
+  }
+]
 
   //electricfield_data
   const electricfield_data = [
@@ -270,6 +320,39 @@ const calculator = ({ match }) => {
             <React.Fragment key={data.topic}>
               <Link
                 to={`/electromagnetism/calc/electric_field/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  } else if (details.topic === "Electric Potential") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Electric Potential</h1>
+        </div>
+        <div className="mech__topics-card">
+          {electricpotential_data.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Link
+                to={`/electromagnetism/calc/electric_potential/${data.topic}`}
                 style={{ textDecoration: "none" }}
               >
                 <Card

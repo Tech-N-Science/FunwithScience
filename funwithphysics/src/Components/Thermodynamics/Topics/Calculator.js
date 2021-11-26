@@ -669,7 +669,7 @@ function Calculator({ match }) {
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control as="select" onChange={(e) => handleChange(e)}>
-              <option value="ke">
+              <option value="ke"> 
                 KE : Total translational kinetic energy of gas
               </option>
               <option value="rms">Vᵣₘₛ : RMS speed</option>

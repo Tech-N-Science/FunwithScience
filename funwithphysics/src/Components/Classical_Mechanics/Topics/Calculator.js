@@ -1743,7 +1743,7 @@ function Calculator({ match }) {
           ))}
         </div>
       </div>
-    );
+    ); 
   } else {
     return (
       <>
@@ -1786,5 +1786,5 @@ function Calculator({ match }) {
     );
   }
 }
-
+  
 export default Calculator;

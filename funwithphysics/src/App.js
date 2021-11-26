@@ -14,13 +14,18 @@ import shm_Calculator from "./Components/Classical_Mechanics/Topics/shm_Calculat
 import rotation_Calculator from "./Components/Classical_Mechanics/Topics/rotation_Calculator";
 import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
-import NumMCQ from "./Components/NumMCQ/NumMCQ";
-import Singlequestion from "./Components/NumMCQ/Singlequestion";
-import { Helmet } from "react-helmet"
-import { hydrate, render } from "react-dom";
 import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
 import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
+import { electricpotential_calculator } from "./Components/Electromagnetism/Topics/electricpotential_calculator";
 import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
+import {Helmet} from "react-helmet"
+import NumMCQ from "./Components/NumMCQ/NumMCQ";
+import Singlequestion from "./Components/NumMCQ/Singlequestion";
+// import { Helmet } from "react-helmet"
+import { hydrate, render } from "react-dom";
+// import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
+// import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
+// import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
 const Navbar = lazy(()=>import("./Components/Navbar/Navbar"));
 
 const App = () => {
@@ -78,7 +83,7 @@ const App = () => {
         <Route
           exact
           path="/classicalmechanics/calc/shm/:topic"
-          component={shm_Calculator}
+          component={shm_Calculator} 
         />
         <Route
           exact
@@ -89,6 +94,23 @@ const App = () => {
           exact
           path="/classicalmechanics/calc/rotation/:topic"
           component={rotation_Calculator}
+        />
+        <Route
+          exact
+          path="/electromagnetism"
+          component={Electromagnetism}
+        />
+        <Route
+          exact
+          path="/electromagnetism/calc/:topic"
+          component={calculatorElec}
+        />
+
+        <Route
+          exact
+          path="/electromagnetism/calc/electric_field/:topic"
+          component={electricfield_calculator}
+          
         />
 
         <Route exact path="/quiz" component={Quiz} />
@@ -113,6 +135,12 @@ const App = () => {
           exact
           path="/electromagnetism/calc/electric_field/:topic"
           component={electricfield_calculator}
+
+        />
+        <Route
+          exact
+          path="/electromagnetism/calc/electric_potential/:topic"
+          component={electricpotential_calculator}
 
         />
 

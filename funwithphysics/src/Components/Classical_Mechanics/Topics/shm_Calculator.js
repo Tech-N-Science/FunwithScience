@@ -376,7 +376,7 @@ function shm_Calculator({ match }) {
         return currentCall;
     }
 
-    return (
+    return ( 
 
         <div className="Calculator__main">
             <Helmet>

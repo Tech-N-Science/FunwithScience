@@ -69,7 +69,6 @@
         grid-template-areas: "header header" "details details" "formula formula " "process process " "calc calc";
         row-gap: 3em;
     }
-
     .Calculator__header,
     .Calculator__details,
     .Calculator__formula,
@@ -91,7 +90,6 @@
     .Calculator__formula,
     .Calculator__calc h3,
     .Calculator__process{
-
         max-width: 100%;
     }
     .Calculator__main {
