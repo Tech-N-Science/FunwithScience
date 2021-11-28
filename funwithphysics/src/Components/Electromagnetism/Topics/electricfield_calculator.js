@@ -37,7 +37,7 @@ function electricfield_calculator({ match }) {
         <br />,
         "1) If r > R, in this case electric field produced is same as that of a point charge i.e, E = kq/r²",
         <br />,
-        "2) If r = R, in in this case electric field produced is same as that of a point charge i.e, E = kq/r²",
+        "2) If r = R, in in this case electric field produced is given by E = kq/R²",
         <br />,
         "3) If r < R, in in this case electric field produced is kqr/R³",
         <br />,
@@ -62,9 +62,9 @@ function electricfield_calculator({ match }) {
       formula: "E=σ/2ε₀[1-x/√(x²+R²)]",
       siunit: "newtons per coulomb (N/C)",
       dimension: "[M L I⁻¹ T⁻³].",
-      details: `Electric field produced by the charged disc at a point P is given by the equation "E=σ/2ε₀[1-x²/√(x²+R²)]" where σ is surface density, x is distance, R is the radius where as ε₀ is constant and it's value is 8.854187817 × 10⁻¹² C²/N. m² `,
+      details: `Electric field produced by the charged disc at a point P is given by the equation "E=σ/2ε₀[1-x²/√(x²+R²)]" where σ is surface charge density, x is distance, R is the radius where as ε₀ is constant and it's value is 8.854187817 × 10⁻¹² C²/N. m² `,
       process:
-        "To find the electric field for the disc we need to know the Radius (R) of the disc, and the distance (x) and the surface density(σ), where as the (ε₀) is constant and its value is 8.854187817 × 10⁻¹² C²/N. m² ",
+        "To find the electric field for the disc we need to know the Radius (R) of the disc, and the distance (x) and the surface charge density(σ), where as the (ε₀) is constant and its value is 8.854187817 × 10⁻¹² C²/N. m² ",
     },
     {
       topic: "Shell",
@@ -73,12 +73,12 @@ function electricfield_calculator({ match }) {
         <br />,
         "1) If r > R, in this case electric field produced is same as that of a point charge i.e, E = kq/r²",
         <br />,
-        "2) If r = R, in in this case electric field produced is same as that of a point charge i.e, E = kq/r²",
+        "2) If r = R, in this case electric field produced given by the formula E = kq/R²",
         <br />,
-        "3) If r < R, in in this case electric field produced is zero",
+        "3) If r < R, in this case electric field produced is zero",
         <br />,
 
-        "where 'r' is the distance between the center of sphere and the point at which electric field is produced and 'R' is the radius of sphere. ",
+        "where 'r' is the distance between the center of shell and the point at which electric field is produced and 'R' is the radius of shell. ",
       ],
       formula: "E=kQ/r²",
       siunit: "newtons per coulomb (N/C)",
@@ -130,13 +130,13 @@ function electricfield_calculator({ match }) {
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Surface density (σ)</Form.Label>
+            <Form.Label>Surface charge density (σ)</Form.Label>
             <Form.Control
               type="number"
               onChange={(e) => {
                 setDensity(e.target.value);
               }}
-              placeholder="Enter the surface density in (m)"
+              placeholder="Enter the surface charge density in (Cm⁻²)"
               value={density === null ? "" : density}
             />
           </Form.Group>

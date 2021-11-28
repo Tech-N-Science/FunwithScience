@@ -28,6 +28,9 @@
         "postbuild": "react-snap",
         "eject": "react-scripts eject"
     },
+    "reactSnap": {
+        "skipThirdPartyRequests": true
+    },
     "eslintConfig": {
         "extends": [
             "react-app",
