@@ -661,7 +661,8 @@ function FluidCalculator({ match }) {
         let r1=2*(pressure1-pressure2)/density
         let r2=2*gravity*(height1-height2)
         let r3=velocity1*velocity1
-        res=parseFloat(r1)+parseFloat(r2)+parseFloat(r3)
+        let r4=parseFloat(r1)+parseFloat(r2)+parseFloat(r3)
+        res=Math.sqrt(r4)
       }
       setResult(res)
 
