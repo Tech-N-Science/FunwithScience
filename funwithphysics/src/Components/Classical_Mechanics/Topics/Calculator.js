@@ -326,6 +326,26 @@ function Calculator({ match }) {
       siunit: "G = Nm²/Kg²",
       dimension: "G = M⁻¹ L³ T⁻²",
     },
+    {
+      topic: "Gravitational Field",
+      details: 
+        "The gravitational field is defined as the gravitational force per unit mass that would be exerted on a small test mass at that position. It's a vector field that points in the direction of the force experienced by a small test mass at that location.",
+      formula: "g = GM/r²",
+      process: 
+        "Let’s consider a point particle of mass M and G is the constant of proportionality known as the universal gravitation constant ( 6.67 × 10⁻¹¹ Newton - meter² · kg⁻² ) then the magnitude of the resultant gravitational field strength denoted by term g, at a distance of r,  from M is equals to product of (G and M) divided by (r²).",
+      siunit: "N/kg",
+      dimension: "g = L T⁻²",
+    },
+      {
+        topic: "Gravitational Potential Energy",
+        details: 
+          "Gravitational potential energy refers to the work that a body needs to do against a test mass in order to arrive to a specific position. In other words, gravitational potential energy is the amount of energy that an object has or gains as a result of a change in the position of its gravitational field.",
+        formula: "U = -GMm/r",
+        process: 
+          "Consider a source mass ‘M’ is placed at a point along the x-axis, initially, a test mass ‘m’ is at infinity and G is the constant of proportionality known as the universal gravitation constant ( 6.67 × 10⁻¹¹ Newton - meter² · kg⁻² ) therefore gravitational potential energy (U) at a point which is at a distance ‘r’ from the source mass is equal to the product of negative of (G, M and m) divided by (r).",
+        siunit: " J/Kg",
+        dimension: "U = M¹ L² T⁻²",
+      },
   ];
 
   // MOI_list
