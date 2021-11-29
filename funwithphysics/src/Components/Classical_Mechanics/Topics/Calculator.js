@@ -323,8 +323,8 @@ function Calculator({ match }) {
       formula: "F = GmMd⁻²",
       process:
         "The Force of Gravitation F , between two bodies / system of mass m and M , where d is the radius or distance between the two bodies and G is the constant of proportionality known as the universal gravitation constant ( 6.67 × 10⁻¹¹ Newton - meter² · kg⁻² ) , is equals to product of ( G , m and M ) divided by the ( d² ) . SI unit for gravitation force is Newton . SI unit for universal gravitational constant is Newton - meter² · Kg⁻² ",
-      siunit: "G = Nm²/Kg²",
-      dimension: "G = M⁻¹ L³ T⁻²",
+        siunit: "F = kg·m/s² or N",
+        dimension: "G = M L T⁻²",
     },
     {
       topic: "Gravitational Field",
