@@ -35,7 +35,7 @@ function GravitationCalculator({ match }) {
       process: 
         "Consider a source mass ‘M’ is placed at a point along the x-axis, initially, a test mass ‘m’ is at infinity and G is the constant of proportionality known as the universal gravitation constant ( 6.67 × 10⁻¹¹ Newton - meter² · kg⁻² ) therefore gravitational potential energy (U) at a point which is at a distance ‘r’ from the source mass is equal to the product of negative of (G, M and m) divided by (r).",
       siunit: " J/Kg",
-      dimension: "U = M¹ L² T⁻²",
+      dimension: "U = L² T⁻²",
     },
   ];
 
