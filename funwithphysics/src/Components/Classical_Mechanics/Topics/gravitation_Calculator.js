@@ -17,6 +17,26 @@ function GravitationCalculator({ match }) {
       siunit: "G = Nm²/Kg²",
       dimension: "G = M⁻¹ L³ T⁻²",
     },
+    {
+      topic: "Gravitational Field",
+      details: 
+        "The gravitational field is defined as the gravitational force per unit mass that would be exerted on a small test mass at that position. It's a vector field that points in the direction of the force experienced by a small test mass at that location.",
+      formula: "g = GM/r²",
+      process: 
+        "Let’s consider a point particle of mass M and G is the constant of proportionality known as the universal gravitation constant ( 6.67 × 10⁻¹¹ Newton - meter² · kg⁻² ) then the magnitude of the resultant gravitational field strength denoted by term g, at a distance of r,  from M is equals to product of (G and M) divided by (r²).",
+      siunit: "N/kg",
+      dimension: "g = L T⁻²",
+    },
+    {
+      topic: "Gravitational Potential Energy",
+      details: 
+        "Gravitational potential energy refers to the work that a body needs to do against a test mass in order to arrive to a specific position. In other words, gravitational potential energy is the amount of energy that an object has or gains as a result of a change in the position of its gravitational field.",
+      formula: "U = -GMm/r",
+      process: 
+        "Consider a source mass ‘M’ is placed at a point along the x-axis, initially, a test mass ‘m’ is at infinity and G is the constant of proportionality known as the universal gravitation constant ( 6.67 × 10⁻¹¹ Newton - meter² · kg⁻² ) therefore gravitational potential energy (U) at a point which is at a distance ‘r’ from the source mass is equal to the product of negative of (G, M and m) divided by (r).",
+      siunit: " J/Kg",
+      dimension: "U = M¹ L² T⁻²",
+    },
   ];
 
   const page = Gravitation_list.filter(
@@ -88,6 +108,138 @@ function GravitationCalculator({ match }) {
     );
   }
 
+  //Gravitational Field
+  function CalculatorGravitationalField() {
+    const [result, setResult] = useState(null);
+    const [mass, setMass] = useState(null);
+    const [distance, setDistance] = useState(null);
+    // const [G, setG] = useState(Math.G);
+
+    const handleClick = () => {
+      let res =
+        (6.67 * Math.pow(10, -11)  * mass) / (distance * distance);
+      setResult(res);
+    };
+    return (
+      <React.Fragment>
+        <Form>
+          <Form.Group className="mb-3" controlId="Mass">
+            <Form.Label>Mass (M)</Form.Label>
+            <Form.Control
+              onChange={(e) => setMass(e.target.value)}
+              type="number"
+              placeholder="Enter Mass of body in SI unit"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Distance">
+            <Form.Label>Distance (r)</Form.Label>
+            <Form.Control
+              onChange={(e) => setDistance(e.target.value)}
+              type="number"
+              placeholder="Enter Distance in SI unit"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Distance">
+            <Form.Label>Universal Gravitation Constant (G)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Gravitational_Field">
+            <Form.Label>Gravitational Field (g)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " N/kg"}
+            />
+            <Form.Text className="text-muted">
+              Enter mass & distance to Calculate the Gravitational Field .
+            </Form.Text>
+          </Form.Group>
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            Reset
+          </Button>
+        </Form>
+      </React.Fragment>
+    );
+  }
+
+  //Gravitational Potential Energy
+  function CalculatorGravitationalPotentialEnergy() {
+    const [result, setResult] = useState(null);
+    const [mass_A, setMassA] = useState(null);
+    const [mass_B, setMassB] = useState(null);
+    const [distance, setDistance] = useState(null);
+
+    const handleClick = () => {
+      let res =
+      -(6.67 * Math.pow(10, -11)  * mass_A * mass_B) / (distance);
+      setResult(res);
+    };
+    return (
+      <React.Fragment>
+        <Form>
+          <Form.Group className="mb-3" controlId="Mass">
+            <Form.Label>Mass (M)</Form.Label>
+            <Form.Control
+              onChange={(e) => setMassA(e.target.value)}
+              type="number"
+              placeholder="Enter Mass of body in SI unit"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Mass">
+            <Form.Label>Mass (m)</Form.Label>
+            <Form.Control
+              onChange={(e) => setMassB(e.target.value)}
+              type="number"
+              placeholder="Enter Mass of body in SI unit"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Height">
+            <Form.Label>Distance (r)</Form.Label>
+            <Form.Control
+              onChange={(e) => setDistance(e.target.value)}
+              type="number"
+              placeholder="Enter Height in SI unit"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Distance">
+            <Form.Label>Universal Gravitation Constant (G)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Gravitational_Potential_Energy">
+            <Form.Label>Gravitational Potential Energy (U)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " N/kg"}
+            />
+            <Form.Text className="text-muted">
+              Enter mass & height to Calculate the Gravitational Potential Energy .
+            </Form.Text>
+          </Form.Group>
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            Reset
+          </Button>
+        </Form>
+      </React.Fragment>
+    );
+  }
+
   // Adding Calculators together
 
   function calCu_gravi(key) {
@@ -95,6 +247,12 @@ function GravitationCalculator({ match }) {
     switch (key) {
       case "Gravitational Force":
         currentCall = CalculatorGravitationalForce();
+        break;
+      case "Gravitational Field":
+        currentCall = CalculatorGravitationalField();
+        break;
+      case "Gravitational Potential Energy":
+        currentCall = CalculatorGravitationalPotentialEnergy();
         break;
       default:
         break;
@@ -140,4 +298,5 @@ function GravitationCalculator({ match }) {
     </div>
   );
 }
+
 export default GravitationCalculator;
