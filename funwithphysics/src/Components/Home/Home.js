@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Home/Home.css'
 import { Button } from 'react-bootstrap'
 import Footer from '../Footer/Footer'
 import { LearnMore } from '../LearnMore'
 import {Helmet} from "react-helmet"
-
+import Navbar from "../Navbar/Navbar"
 const Home = () => {
+	const [loading,setloading]=useState(true)
+	useEffect(()=>{
+		setTimeout(()=>{
+			setloading(false)
+		},4000)
+	},[]) 
 	return (
 		<React.Fragment>
+			<Navbar/>
 			<Helmet>
 			<title>Fun With Science - Tech N Science </title>
 			<meta name="description" content="We at Tech N Science try to bring all sciences under one roof by providing JEE level questions and also calculators for different science formulas." data-react-helmet="true"/>
@@ -31,7 +38,7 @@ const Home = () => {
 			<LearnMore />
 			<Footer />
 			{/* <!-- Back to top button --> */}
-			<button className="gotopbtn" onClick={scroll}> <i className="fas fa-arrow-up"></i> </button>
+			{!loading && <button className="gotopbtn" onClick={scroll}> <i className="fas fa-arrow-up"></i> </button>}
 		</React.Fragment>
 	)
 }

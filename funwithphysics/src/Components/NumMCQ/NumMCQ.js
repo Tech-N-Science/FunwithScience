@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./NumMCQ.css";
 import Singlecard from "./Card";
 import { useState } from "react";
 
 const NumMCQ = () => {
+  const cardref=useRef()
+  const filterref=useRef()
   // questions_data
   const data = [
     {
@@ -96,28 +98,38 @@ const NumMCQ = () => {
     },
   ];
 
-  const [searchTerm, setsearchTerm] = useState("");
+  const [searchTerm, setsearchTerm] = useState([]);
 
   function handleClick(e) {
-    setsearchTerm(e.target.value);
+    if(e.target.checked === true)
+    { if(!searchTerm.includes(e.target.value.toLowerCase()))
+      setsearchTerm([...searchTerm,e.target.value.toLowerCase()]);
+    }
+    else{
+      setsearchTerm(searchTerm.filter(value => value !== e.target.value.toLowerCase()));
+      // setsearchTerm(searchTerm.filter((value)=>value !== e.target.value))
+    }
   }
-
+  function handlefilterclk(e)
+  {
+    e.target.style.display="none";
+    cardref.current.style.display="none"
+    filterref.current.style.display="block"
+  }
+  console.log(searchTerm);
   return (
     <div className="questions">
       <h1>Questions</h1>
       <div className="main-div">
-        <div className="card-container">
+        <div className="card-container" ref={cardref}>
           {data
             .filter((value) => {
-              if (searchTerm === "") {
+              if (searchTerm.length === 0) {
                 return value;
-              } else if (
-                value.type.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
+              } 
+              else if (searchTerm.includes(value.type.toLowerCase())){
                 return value;
-              } else if (
-                value.topic.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
+              } else if (searchTerm.includes(value.topic.toLowerCase())){
                 return value;
               }
               return false;
@@ -137,9 +149,13 @@ const NumMCQ = () => {
                 </div>
               );
             })}
+            <button className="filter-btn" onClick={(e)=>handlefilterclk(e)}><i class="fas fa-filter"></i></button>
         </div>
-        <div className="filter-box">
+        <div className="filter-box" ref={filterref}>
+          <div>
           <span>Apply filter :</span>
+          <span className="cancel"><i class="fas fa-times"></i></span>
+          </div>
           <label class="container">
             Numerical
             <input type="hidden" name="Numerical" value="false" />
