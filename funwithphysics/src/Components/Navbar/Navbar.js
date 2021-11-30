@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { Data } from "../FAQ/Data";
@@ -18,6 +18,18 @@ const Navbar = () => {
     setClicked(index);
   };
 
+  const menuBtnRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const handleToggle = () => {
+    if (!menuOpen) {
+      menuBtnRef.current.classList.add("open");
+      setMenuOpen(true);
+    } else {
+      menuBtnRef.current.classList.remove("open");
+      setMenuOpen(false);
+    }
+  };
+
   const scrollToBottom = () => {
     window.scrollTo({
       top: document.documentElement.scrollHeight,
@@ -28,23 +40,23 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-lg navbar-light bg-light pt-3">
-        <NavLink to="/" className="nav-item ">
-          <p className="navbar-brand">
-            <img src={logo} alt="logo" height="10%" width="10%" />
-            &ensp; Tech N Science
-          </p>
-        </NavLink>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-        <span className="navbar-toggler-icon"></span>
-        </button>
+        <p className="navbar-brand">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <div onClick={handleToggle} ref={menuBtnRef} class="menu-btn ">
+              <div class="menu-btn__burger"></div>
+            </div>
+          </button>
+          <img src={logo} alt="logo" height="10%" width="10%" />
+          &ensp; Tech N Science
+        </p>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul style={{ fontSize: "20px" }} className="navbar-nav ml-auto mr-5">
             <NavLink to="/" className="nav-item ">
