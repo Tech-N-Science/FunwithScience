@@ -3,3 +3,47 @@ body {
   margin: 0px;
   box-sizing: border-box;
 }
+.loadingdiv{
+  width: 100vw;
+  height: 100vh;
+  background-color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 2s ease;
+  animation: shadeoff 3s ease;
+}
+.loadingimg{
+  width: 550px;
+  height: 530px;
+  opacity: 0;
+  animation: rotation 4s ease;
+}
+@keyframes shadeoff{
+  30%{
+    background-color: rgba(106,210,232, 0.4);
+  }
+  50%{
+    background-color: rgba(106,210,232, 0.6);
+  }
+  80%{
+    background-color: rgba(106,210,232, 0.8);
+  }
+  100%{
+    background-color: rgba(106,210,232,1);
+  }
+}
+
+@keyframes rotation{
+  100%{
+    opacity:1;
+    transform: rotate(360deg);
+  }  
+}
+@media(max-width:500px)
+{
+  .loadingimg{
+    width: 80vw;
+    height: 300px;
+  }
+}

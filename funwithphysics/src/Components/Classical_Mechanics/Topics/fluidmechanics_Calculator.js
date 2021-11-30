@@ -719,9 +719,9 @@ function FluidCalculator({ match }) {
        <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control as="select" onChange={(e) => handleChange(e)}>
-              <option value="pressure">Pressure</option>
-              <option value="velocity">Velocity</option>
-              <option value="height">Height</option>
+              <option value="pressure">Final Pressure(P₂)</option>
+              <option value="velocity">Final Velocity(V₂)</option>
+              <option value="height">Final Height(h₂)</option>
             </Form.Control>
           </Form.Group>
           <Form.Group className="mb-4" controlId="text">
