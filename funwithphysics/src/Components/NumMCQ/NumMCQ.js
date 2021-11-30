@@ -97,10 +97,13 @@ const NumMCQ = () => {
   ];
 
   const [searchTerm, setsearchTerm] = useState("");
+  
 
   function handleClick(e) {
     setsearchTerm(e.target.value);
   }
+  const type1 = document.getElementById("type1");
+  const type2 = document.getElementById("type2");
 
   return (
     <div className="questions">
@@ -109,9 +112,10 @@ const NumMCQ = () => {
         <div className="card-container">
           {data
             .filter((value) => {
-              if (searchTerm === "") {
+              if (searchTerm === "" || (type1.checked === true && type2.checked === true)) {
                 return value;
-              } else if (
+              }
+               else if (
                 value.type.toLowerCase().includes(searchTerm.toLowerCase())
               ) {
                 return value;
@@ -140,10 +144,11 @@ const NumMCQ = () => {
         </div>
         <div className="filter-box">
           <span>Apply filter :</span>
+          <h5 className="heading">Type</h5>
           <label class="container">
             Numerical
             <input type="hidden" name="Numerical" value="false" />
-            <input
+            <input id="type1"
               type="checkbox"
               value="Numerical"
               onClick={(e) => handleClick(e)}
@@ -153,19 +158,51 @@ const NumMCQ = () => {
           <label class="container">
             Multiple Correct
             <input type="hidden" name="Multiple Correct" value="false" />
-            <input
+            <input id="type2"
               type="checkbox"
               value="Multiple Correct"
               onClick={(e) => handleClick(e)}
             />
             <span class="checkmark"></span>
           </label>
+          <h5 className="heading">Difficulty</h5>
           <label class="container">
-            Thermodynamics
+            Easy
+            <input type="hidden" name="Easy" value="false" />
+            <input
+              type="checkbox"
+              value="Easy"
+              onClick={(e) => handleClick(e)}
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            Medium
+            <input type="hidden" name="Medium" value="false" />
+            <input
+              type="checkbox"
+              value="Medium"
+              onClick={(e) => handleClick(e)}
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            Hard
+            <input type="hidden" name="Hard" value="false" />
+            <input
+              type="checkbox"
+              value="Hard"
+              onClick={(e) => handleClick(e)}
+            />
+            <span class="checkmark"></span>
+          </label>
+          <h5 className="heading">Topic</h5>
+          <label class="container">
+            Thermo-dynamics
             <input type="hidden" name="Thermodynamics" value="false" />
             <input
               type="checkbox"
-              value="Thermodynamics"
+              value="Thermo-dynamics"
               onClick={(e) => handleClick(e)}
             />
             <span class="checkmark"></span>
@@ -190,10 +227,10 @@ const NumMCQ = () => {
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Electromagnetism
+            Electro-magnetism
             <input
               type="checkbox"
-              value="Electromagnetism"
+              value="Electro-magnetism"
               onClick={(e) => handleClick(e)}
             />
             <span class="checkmark"></span>

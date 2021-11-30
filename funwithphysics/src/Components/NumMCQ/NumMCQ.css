@@ -5,6 +5,8 @@
 
 .main-div {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .questions > h1 {
@@ -20,11 +22,13 @@
 }
 
 .filter-box {
-    width:30%;
+    position: relative;
+    display: inline-block;
+    width:35%;
     margin-top: 1rem;
     height: 100%;
     margin-right: 1rem;
-    background-color: #D0D0D0;
+    background-color: #e5e6eb;
     border-radius: 5px;
 }
 
@@ -32,8 +36,18 @@
     display: inline-block;
     width: 100%;
     font-size: 1.5rem;
-    padding-left: 4px;
+    padding-left: 6px;
     font-weight: bold;
-    background-color: #afafaf;
-    border-radius: 5px;
+    font-family: cursive;
+    background-color: #d6d3d3;
+    border-radius: 3px;
+    padding-top: 10px;
 }
+.heading{
+    font-size: 1 rem;
+    padding-left: 10px;
+    font-family: cursive;
+    padding-top: 12px;
+    font-weight: bold;
+}
+

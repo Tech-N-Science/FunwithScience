@@ -16,19 +16,53 @@ const calculator = ({ match }) => {
     {
       topic:"Ohm's Law",
       details:`Ohm's law states that the voltage (V) between two points is directly proportional to the current (I) across that two points and the constant of proportionality is resistance (R) and the equation is given as "V=IR"`,
-      siunit:["Resistance  : Ohm", <br/>,"Current : (A)", <br/>,"Voltage : (V)"],
+      siunit:["Resistance  : Ohm", <br/>,"Current : (Ampere)", <br/>,"Voltage : (V)"],
       process:"To find the voltage (V), we need to know the the current between the two point and the resistance(R) across the points & To find the current(I) or the resistance(R) we can also find it using the ohm's law.",
       formula:"V=IR",
-      dimension:"",
+      dimension:"V = ML²T⁻²I⁻¹, R = ML²T⁻³I⁻²",
 
   },
+  {
+    topic:"Drift Velocity",
+    details:`Subatomic particles, such as electrons, constantly move in random directions. When electrons are subjected to an electric field, they move randomly, but slowly in one direction, the direction of the applied electric field. Drift velocity is the net velocity at which these electrons drift.`,
+    siunit: 'm/s',
+    process:"To find the drift velocity (V), we need to know the the current flowing through the conductor(I), number of electrons(n), Area of cross-section of the conductor(A) and the charge of electron(q).",
+    formula:"V = I/nAq",
+    dimension:"M⁻¹T²I",
+
+},
   {
     topic:"Electric Potential",
     details:"..."
 
-  }
-  ];
+  },
+  {
+    topic:"Flux",
+    details:"..."
 
+  },
+  ];
+  //Flux data
+  const flux_data = [
+    {
+      topic: "Electric Flux",
+      formula: "ΦE=E.S.cosθ",
+      siunit: "volt metres (V m)",
+      dimension: "[M L³ T⁻³ I⁻¹]",
+      process:
+        "To find the electric flux, we need to know the electric field (E), area of the surface (S) and angle (θ) between the electric field lines and the normal to S.",
+      details: `Electric Flux is defined as "ΦE=E.S.cosθ", where ΦE denotes the electric flux, E denotes the electric field, S denotes the surface area, and θ is the angle between the electric field lines and the normal (perpendicular) to S. `,
+    },
+    {
+      topic: "Magnetic Flux",
+      formula: "ΦB=B.A.cosθ",
+      siunit: "volt–seconds or weber",
+      dimension: "[M L² T⁻² I⁻¹]",
+      process:
+        "To find the magnetic flux we need to know the magnetic field (B), area (A)and the angle (θ).",
+      details: `Magnetic Flux is given by the equation "ΦB=B.A.cosθ", where ΦB is the magnetic flux, B is the magnetic field, A is area and θ is the angle between the perpendicular vector to the area and magnetic field.`,
+    },
+  ];
   //electricpotential_data
   const electricpotential_data = [
   {
@@ -318,18 +352,97 @@ const calculator = ({ match }) => {
 
   }
 
+  //Drift velocity
+  const DriftVelocity=()=>{
+    const [area, setArea] = useState(null);
+    const [current, setCurrent] = useState(null);
+    const [number, setNumber] = useState(null);
+    const [charge, setCharge] = useState(null);
+    const [result, setResult] = useState(null);
+
+    const reset=()=>{
+      setCurrent(null)
+      setNumber(null)
+      setCharge(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      res=current/(number*area*charge);
+      setResult(res);
+    }
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Current (I)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCurrent(e.target.value)}
+              type="number"
+              placeholder={"Enter in Ampere"}
+              value={current === null ? "" : current}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Area (A))</Form.Label>
+            <Form.Control
+              onChange={(e) => setArea(e.target.value)}
+              type="number"
+              placeholder={"Enter in (m²)"}
+              value={area === null ? "" : area}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Number of electrons (n)</Form.Label>
+            <Form.Control
+              onChange={(e) => setNumber(e.target.value)}
+              type="number"
+              placeholder={"Enter number of electrons"}
+              value={number === null ? "" : number}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Charge (q)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCharge(e.target.value)}
+              type="number"
+              placeholder={"Enter in coulomb"}
+              value={charge === null ? "" : charge}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " m/s²"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
   const calC=(key)=>{
     let currentCall;
     switch(key){
       case "Ohm's Law":
         currentCall=OhmCalculator()
         break;
+      case "Drift Velocity":
+        currentCall=DriftVelocity()
+        break;
       default:
         break;
     }
     return currentCall;
   }
-
 
   //Electric field
   if (details.topic === "Electric Field") {
@@ -398,7 +511,42 @@ const calculator = ({ match }) => {
         </div>
       </div>
     );
-  } else {
+  } else if (details.topic === "Flux") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Flux</h1>
+        </div>
+        <div className="mech__topics-card">
+          {flux_data.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Link
+                to={`/electromagnetism/calc/Flux/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+   else {
     return (
       <>
         <div className="Calculator__main">
