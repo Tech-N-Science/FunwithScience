@@ -27,7 +27,7 @@ const Home = () => {
 				<h2 className="banner_text col-md-8 col-sm-8 auto pt-5">We at Tech N Science try to bring all sciences under one roof by providing JEE level questions and also calculators for different science formulas. 
 					<br />So, keep Exploring!!.</h2>
 				<div className="banner_button">
-					<button type="button" className="btn btn-light">Explore</button>
+					
 					<Button href="#learn" className="btn btn-light"> Learn</Button>
 				</div>
 			</div>
