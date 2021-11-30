@@ -9,6 +9,7 @@ body {
   height: 100%;
   margin: 0px;
   padding: 0px;
+
   background-color:white;
   display: flex;
   align-items: center;
@@ -50,3 +51,4 @@ body {
     animation: rotation 4s ease;
   }
 }
+

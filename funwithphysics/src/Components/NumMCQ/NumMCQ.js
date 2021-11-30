@@ -97,7 +97,6 @@ const NumMCQ = () => {
       ],
     },
   ];
-
   const [searchTerm, setsearchTerm] = useState([]);
 
   function handleClick(e) {
@@ -156,10 +155,11 @@ const NumMCQ = () => {
           <span>Apply filter :</span>
           <span className="cancel"><i class="fas fa-times"></i></span>
           </div>
+          <h5 className="heading">Type</h5>
           <label class="container">
             Numerical
             <input type="hidden" name="Numerical" value="false" />
-            <input
+            <input id="type1"
               type="checkbox"
               value="Numerical"
               onClick={(e) => handleClick(e)}
@@ -169,19 +169,51 @@ const NumMCQ = () => {
           <label class="container">
             Multiple Correct
             <input type="hidden" name="Multiple Correct" value="false" />
-            <input
+            <input id="type2"
               type="checkbox"
               value="Multiple Correct"
               onClick={(e) => handleClick(e)}
             />
             <span class="checkmark"></span>
           </label>
+          <h5 className="heading">Difficulty</h5>
           <label class="container">
-            Thermodynamics
+            Easy
+            <input type="hidden" name="Easy" value="false" />
+            <input
+              type="checkbox"
+              value="Easy"
+              onClick={(e) => handleClick(e)}
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            Medium
+            <input type="hidden" name="Medium" value="false" />
+            <input
+              type="checkbox"
+              value="Medium"
+              onClick={(e) => handleClick(e)}
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            Hard
+            <input type="hidden" name="Hard" value="false" />
+            <input
+              type="checkbox"
+              value="Hard"
+              onClick={(e) => handleClick(e)}
+            />
+            <span class="checkmark"></span>
+          </label>
+          <h5 className="heading">Topic</h5>
+          <label class="container">
+            Thermo-dynamics
             <input type="hidden" name="Thermodynamics" value="false" />
             <input
               type="checkbox"
-              value="Thermodynamics"
+              value="Thermo-dynamics"
               onClick={(e) => handleClick(e)}
             />
             <span class="checkmark"></span>
@@ -206,10 +238,10 @@ const NumMCQ = () => {
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Electromagnetism
+            Electro-magnetism
             <input
               type="checkbox"
-              value="Electromagnetism"
+              value="Electro-magnetism"
               onClick={(e) => handleClick(e)}
             />
             <span class="checkmark"></span>

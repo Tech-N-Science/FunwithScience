@@ -22,11 +22,8 @@ import CalculatorElec from "./Components/Electromagnetism/Topics/calculator";
 import {Helmet} from "react-helmet"
 import NumMCQ from "./Components/NumMCQ/NumMCQ";
 import Singlequestion from "./Components/NumMCQ/Singlequestion";
-// import { Helmet } from "react-helmet"
 import { hydrate, render } from "react-dom";
-// import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
-// import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
-// import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
+import flux_calculator from "./Components/Electromagnetism/Topics/flux_calculator";
 const Home = lazy(() => {
   return Promise.all([
     import("./Components/Home/Home"),
@@ -47,7 +44,6 @@ const App = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
       </Helmet>
-      
       <Switch>
       <Route exact path="/">
         <Suspense fallback={<div className="loadingdiv"><img className="loadingimg" src={Loadingimg} alt=""/></div>}>
@@ -180,6 +176,12 @@ const App = () => {
           component={electricfield_calculator}
         >
         </Route>
+        <Route
+          exact
+          path="/electromagnetism/calc/Flux/:topic"
+          component={flux_calculator}
+
+        />
         <Route
           exact
           path="/electromagnetism/calc/electric_potential/:topic"
