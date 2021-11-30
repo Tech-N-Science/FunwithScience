@@ -4,18 +4,21 @@ body {
   box-sizing: border-box;
 }
 .loadingdiv{
-  width: 100vw;
-  height: 100vh;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+
   background-color:white;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 2s ease;
   animation: shadeoff 3s ease;
 }
 .loadingimg{
-  width: 550px;
-  height: 530px;
+  width: 500px;
+  height: 500px;
   opacity: 0;
   animation: rotation 4s ease;
 }
@@ -40,10 +43,12 @@ body {
     transform: rotate(360deg);
   }  
 }
-@media(max-width:500px)
+@media(max-width:600px)
 {
   .loadingimg{
-    width: 80vw;
-    height: 300px;
+    width: 350px;
+    height: 350px;
+    animation: rotation 4s ease;
   }
 }
+
