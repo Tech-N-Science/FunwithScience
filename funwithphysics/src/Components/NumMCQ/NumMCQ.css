@@ -31,7 +31,19 @@
     background-color: #e5e6eb;
     border-radius: 5px;
 }
-
+.filter-box > div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    padding: 5px;
+    font-weight: bold;
+    background-color: #afafaf;
+    border-radius: 5px;
+}
+.cancel{
+    cursor: pointer;
+}
 .filter-box > span {
     display: inline-block;
     width: 100%;
@@ -43,11 +55,35 @@
     border-radius: 3px;
     padding-top: 10px;
 }
-.heading{
-    font-size: 1 rem;
-    padding-left: 10px;
-    font-family: cursive;
-    padding-top: 12px;
-    font-weight: bold;
+.filter-btn{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    z-index: 10;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #52CDE6;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+    display: none;
 }
-
+.fa-filter{
+    color: white;
+    font-size: 32px;
+}
+@media(max-width:600px)
+{
+    .filter-box{
+        width: 100%;
+        display: none;
+    }
+    .card-container{
+        width: 100%;
+    }
+    .filter-btn{
+        display: flex;
+    }
+}
