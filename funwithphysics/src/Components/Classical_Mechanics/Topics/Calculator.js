@@ -4,6 +4,7 @@ import { Form, Card, Button, Row, Col } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Navbar from "../../Navbar/Navbar"
 
 function Calculator({ match }) {
   // topics_data
@@ -565,6 +566,7 @@ function Calculator({ match }) {
     };
     return (
       <>
+        <Navbar/>
         <Form>
           <Form.Group className="mb-3" controlId="choice2">
             <Form.Label>Select the type of calculation</Form.Label>

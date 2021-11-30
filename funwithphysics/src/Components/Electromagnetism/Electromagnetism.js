@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap'
 import './Electromagnetism.css'
 import { Link } from "react-router-dom"
 import {Helmet} from "react-helmet" 
+import Navbar from "../Navbar/Navbar"
 
 export default function Electromagnetism() {
     //topics_data
@@ -28,6 +29,7 @@ export default function Electromagnetism() {
     ]
 
     return (<>
+    <Navbar/>
     <Helmet>
           <title>Electromagnetism | physics | Tech N Science</title>
           <meta name="description" content="Explore the Electromagnetism section and try out the calculators."/>

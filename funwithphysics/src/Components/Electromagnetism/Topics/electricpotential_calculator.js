@@ -3,8 +3,7 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Helmet } from "react-helmet";
-
-
+import Navbar from "../../Navbar/Navbar"
 
 export const electricpotential_calculator = ({match}) => {
   const electricpotential_data=[  {
@@ -123,6 +122,7 @@ export const electricpotential_calculator = ({match}) => {
         }
       }
       return(<>
+      <Navbar/>
       <Form>
         {/* dropdown */}
        <Form.Group className="mb-4" controlId="choice">

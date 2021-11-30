@@ -1,4 +1,4 @@
-import Home from "./Components/Home/Home";
+// import Home from "./Components/Home/Home";
 import Loadingimg from "./Images/Logo/logo.webp"
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
@@ -28,8 +28,8 @@ import { hydrate, render } from "react-dom";
 // import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
 // import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
 // import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
-const Navbar = lazy(()=>{return Promise.all([
-  import("./Components/Navbar/Navbar"),
+const Home= lazy(()=>{return Promise.all([
+  import("./Components/Home/Home"),
   new Promise(resolve => setTimeout(resolve, 4000))
 ])
 .then(([moduleExports]) => moduleExports);});
@@ -46,11 +46,12 @@ const App = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
       </Helmet>
-      <Suspense fallback={<div className="loadingdiv"><img className="loadingimg" src={Loadingimg} alt=""/></div>}>
-      <Navbar />
-      </Suspense>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/">
+        <Suspense fallback={<div className="loadingdiv"><img className="loadingimg" src={Loadingimg} alt=""/></div>}>
+        <Home/>
+        </Suspense>
+        </Route>
         <Route exact path="/about" component={Home} />
         <Route exact path="/contact" component={Home} />
         <Route

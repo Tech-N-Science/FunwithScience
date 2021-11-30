@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap'
 import './thermodynamics.css'
 import { Link } from "react-router-dom"
 import { Helmet } from 'react-helmet'
+import Navbar from "../Navbar/Navbar"
 
 export default function Thermodynamics() {
     // topics_data
@@ -58,6 +59,7 @@ export default function Thermodynamics() {
 
     return (
         <div className="mech__main">
+        <Navbar/>
             <Helmet>
                 <title>Thermodynamics | physics | Tech N Science</title>
                 <meta name="description" content="Explore the thermodynamics calculator"/>
