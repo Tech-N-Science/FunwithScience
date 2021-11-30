@@ -101,6 +101,8 @@ const NumMCQ = () => {
   function handleClick(e) {
     setsearchTerm(e.target.value);
   }
+  const type1 = document.getElementById("type1");
+  const type2 = document.getElementById("type2");
 
   return (
     <div className="questions">
@@ -109,7 +111,7 @@ const NumMCQ = () => {
         <div className="card-container">
           {data
             .filter((value) => {
-              if (searchTerm === "") {
+              if (searchTerm === "" || (type1.checked === true && type2.checked === true)) {
                 return value;
               } else if (
                 value.type.toLowerCase().includes(searchTerm.toLowerCase())
@@ -143,7 +145,7 @@ const NumMCQ = () => {
           <label class="container">
             Numerical
             <input type="hidden" name="Numerical" value="false" />
-            <input
+            <input id="type1"
               type="checkbox"
               value="Numerical"
               onClick={(e) => handleClick(e)}
@@ -153,7 +155,7 @@ const NumMCQ = () => {
           <label class="container">
             Multiple Correct
             <input type="hidden" name="Multiple Correct" value="false" />
-            <input
+            <input id="type2"
               type="checkbox"
               value="Multiple Correct"
               onClick={(e) => handleClick(e)}
