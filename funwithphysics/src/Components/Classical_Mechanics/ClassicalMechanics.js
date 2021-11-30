@@ -3,7 +3,6 @@ import { Card } from "react-bootstrap";
 import "./classicalMechanics.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import Navbar from "../Navbar/Navbar"
 
 export default function ClassicalMechanics() {
   //topics_data
@@ -192,7 +191,6 @@ export default function ClassicalMechanics() {
 
   return (
     <>
-    <Navbar/>
       <Helmet>
         <title>Classical Mechanics | physics | Tech N Science</title>
         <meta

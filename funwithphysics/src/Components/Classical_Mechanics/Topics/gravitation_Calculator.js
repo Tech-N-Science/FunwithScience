@@ -3,7 +3,6 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
-import Navbar from "../../Navbar/Navbar"
 
 function GravitationCalculator({ match }) {
   // Gravitation_list
@@ -61,7 +60,6 @@ function GravitationCalculator({ match }) {
     };
     return (
       <React.Fragment>
-        <Navbar/>
         <Form>
           <Form.Group className="mb-3" controlId="mass_A">
             <Form.Label>Mass A (m)</Form.Label>

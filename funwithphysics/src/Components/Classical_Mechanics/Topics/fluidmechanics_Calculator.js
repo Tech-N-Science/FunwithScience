@@ -3,7 +3,6 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
-import Navbar from "../../Navbar/Navbar"
 
 function FluidCalculator({ match }) {
   //fluid_list
@@ -96,7 +95,6 @@ function FluidCalculator({ match }) {
 
     return (
       <React.Fragment>
-        <Navbar/>
         <Form>
           <Form.Group className="mb-3" controlId="mass">
             <Form.Label> Mass (in kgs)</Form.Label>
