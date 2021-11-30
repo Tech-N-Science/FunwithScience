@@ -30,7 +30,7 @@ import { hydrate, render } from "react-dom";
 // import calculatorElec from "./Components/Electromagnetism/Topics/calculator";
 const Navbar = lazy(()=>{return Promise.all([
   import("./Components/Navbar/Navbar"),
-  new Promise(resolve => setTimeout(resolve, 3000))
+  new Promise(resolve => setTimeout(resolve, 4000))
 ])
 .then(([moduleExports]) => moduleExports);});
 // https://i.pinimg.com/originals/45/12/4d/45124d126d0f0b6d8f5c4d635d466246.gif
