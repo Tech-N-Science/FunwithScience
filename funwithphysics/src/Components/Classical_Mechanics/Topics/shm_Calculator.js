@@ -3,7 +3,6 @@ import './Calculator.css'
 import { Form, Button } from 'react-bootstrap'
 import "../classicalMechanics.css";
 import {Helmet} from "react-helmet"
-import Navbar from "../../Navbar/Navbar"
 
 function shm_Calculator({ match }) {
     // shm_list
@@ -124,7 +123,6 @@ function shm_Calculator({ match }) {
 
 
         return <React.Fragment>
-            <Navbar/>
             <Form>
                 {/* dropdown */}
                 <Form.Group className="mb-4" controlId="choice">

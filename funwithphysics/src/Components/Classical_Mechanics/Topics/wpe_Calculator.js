@@ -3,7 +3,6 @@ import "./Calculator.css";
 import { Form, Button, Col, Row } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
-import Navbar from "../../Navbar/Navbar"
 
 function WPECalculator({ match }) {
   // WPE_list
@@ -68,7 +67,6 @@ function WPECalculator({ match }) {
 
     return (
       <React.Fragment>
-        <Navbar/>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Force (in Newtons)</Form.Label>

@@ -3,7 +3,6 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
-import Navbar from "../../Navbar/Navbar"
 
 function rotation_Calculator({ match }) {
   // rotation_list
@@ -72,7 +71,6 @@ function rotation_Calculator({ match }) {
 
     return (
       <React.Fragment>
-        <Navbar/>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Inertia (in kg m²)</Form.Label>

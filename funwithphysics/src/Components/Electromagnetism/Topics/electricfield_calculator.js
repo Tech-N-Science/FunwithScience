@@ -3,7 +3,6 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Helmet } from "react-helmet";
-import Navbar from "../../Navbar/Navbar"
 
 function electricfield_calculator({ match }) {
   //electricfield_data
@@ -118,7 +117,6 @@ function electricfield_calculator({ match }) {
 
     return (
       <>
-      <Navbar/>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Distance (x)</Form.Label>
