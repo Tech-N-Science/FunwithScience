@@ -24,6 +24,7 @@ import NumMCQ from "./Components/NumMCQ/NumMCQ";
 import Singlequestion from "./Components/NumMCQ/Singlequestion";
 // import { Helmet } from "react-helmet"
 import { hydrate, render } from "react-dom";
+import flux_calculator from "./Components/Electromagnetism/Topics/flux_calculator";
 
 // import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
 // import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
@@ -141,6 +142,12 @@ const App = () => {
           exact
           path="/electromagnetism/calc/electric_field/:topic"
           component={electricfield_calculator}
+
+        />
+        <Route
+          exact
+          path="/electromagnetism/calc/Flux/:topic"
+          component={flux_calculator}
 
         />
         <Route

@@ -25,9 +25,34 @@ const calculator = ({ match }) => {
     topic:"Electric Potential",
     details:"..."
 
-  }
-  ];
+  },
+  {
+    topic:"Flux",
+    details:"..."
 
+  },
+  ];
+  //Flux data
+  const flux_data = [
+    {
+      topic: "Electric Flux",
+      formula: "ΦE=E.S.cosθ",
+      siunit: "volt metres (V m)",
+      dimension: "[L³ M T⁻³ I⁻¹]",
+      process:
+        "To find the electric flux, we need to know the electric field (E), area of the surface (S) and angle (θ) between the electric field lines and the normal to S.",
+      details: `Electric Flux is given by the equation "ΦE=E.S.cosθ", where ΦE is the electric flux, E is the electric field, S is the area of the surface & θ is the angle between the electric field lines and the normal (perpendicular) to S. `,
+    },
+    {
+      topic: "Magnetic Flux",
+      formula: "ΦB=B.A.cosθ",
+      siunit: "volt–seconds",
+      dimension: "[M L² T⁻² I⁻¹]",
+      process:
+        "To find the magnetic flux we need to know the magnetic field (B), area (A)and the angle (θ).",
+      details: `Magnetic Flux is given by the equation "ΦB=B.A.cosθ", where ΦB is the magnetic flux, B is the magnetic field, A is area and θ is the angle between the perpendicular vector to the area and magnetic field.`,
+    },
+  ];
   //electricpotential_data
   const electricpotential_data = [
   {
@@ -396,7 +421,42 @@ const calculator = ({ match }) => {
         </div>
       </div>
     );
-  } else {
+  } else if (details.topic === "Flux") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Flux</h1>
+        </div>
+        <div className="mech__topics-card">
+          {flux_data.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Link
+                to={`/electromagnetism/calc/Flux/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+   else {
     return (
       <>
         <div className="Calculator__main">

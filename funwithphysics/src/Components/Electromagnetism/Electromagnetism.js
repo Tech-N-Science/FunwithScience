@@ -24,7 +24,12 @@ export default function Electromagnetism() {
             topic:"Electric Potential",
             details:"..."
         
-          }
+          },
+        {
+            topic:"Flux",
+            details:"..."
+        
+          },
     ]
 
     return (<>
