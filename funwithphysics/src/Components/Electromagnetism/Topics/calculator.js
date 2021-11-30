@@ -38,15 +38,15 @@ const calculator = ({ match }) => {
       topic: "Electric Flux",
       formula: "ΦE=E.S.cosθ",
       siunit: "volt metres (V m)",
-      dimension: "[L³ M T⁻³ I⁻¹]",
+      dimension: "[M L³ T⁻³ I⁻¹]",
       process:
         "To find the electric flux, we need to know the electric field (E), area of the surface (S) and angle (θ) between the electric field lines and the normal to S.",
-      details: `Electric Flux is given by the equation "ΦE=E.S.cosθ", where ΦE is the electric flux, E is the electric field, S is the area of the surface & θ is the angle between the electric field lines and the normal (perpendicular) to S. `,
+      details: `Electric Flux is defined as "ΦE=E.S.cosθ", where ΦE denotes the electric flux, E denotes the electric field, S denotes the surface area, and θ is the angle between the electric field lines and the normal (perpendicular) to S. `,
     },
     {
       topic: "Magnetic Flux",
       formula: "ΦB=B.A.cosθ",
-      siunit: "volt–seconds",
+      siunit: "volt–seconds or weber",
       dimension: "[M L² T⁻² I⁻¹]",
       process:
         "To find the magnetic flux we need to know the magnetic field (B), area (A)and the angle (θ).",
