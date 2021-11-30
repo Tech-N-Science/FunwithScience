@@ -3,6 +3,7 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
+import Navbar from "../../Navbar/Navbar"
 
 function MOICalculator({ match }) {
   // MOI_list
@@ -115,6 +116,7 @@ function MOICalculator({ match }) {
 
     return (
       <React.Fragment>
+        <Navbar/>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Mass (in Kilogram)</Form.Label>
