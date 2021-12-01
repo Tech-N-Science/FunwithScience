@@ -41,7 +41,7 @@ export default function Electromagnetism() {
           },
           {
             topic: "Resistivity",
-            details: `By using the equation "ρ=RA/l", where ρ is resistivity, R is resistance, A is area and l is Length we can easily calculate the resistivity.`,
+            details: `Electrical resistance of a conductor with a unit cross-sectional area and length. Resistivity, a material attribute, is useful in comparing different materials based on their capacity to conduct electric currents. Poor conductors have high resistance.`,
             siunit: "ohm-meter",
             dimension: "ML³T⁻³I⁻²",
             process:
