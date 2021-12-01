@@ -1,8 +1,8 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
-import './Electromagnetism.css'
-import { Link } from "react-router-dom"
-import {Helmet} from "react-helmet" 
+import React from "react";
+import { Card } from "react-bootstrap";
+import "./Electromagnetism.css";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function Electromagnetism() {
     //topics_data
@@ -40,6 +40,15 @@ export default function Electromagnetism() {
         
           },
           {
+            topic: "Resistivity",
+            details: `By using the equation "ρ=RA/l", where ρ is resistivity, R is resistance, A is area and l is Length we can easily calculate the resistivity.`,
+            siunit: "ohm-meter",
+            dimension: "ML³T⁻³I⁻²",
+            process:
+              "To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
+            formula: "ρ=RA/l",
+          },
+          {
             topic:"Self Inductance",
             details:`When the coil's current or magnetic flux changes, an opposing induced electromotive force is created. Self Induction is the name given to this occurrence. When electricity begins to flow through the coil at any time, it is discovered that the magnetic flux becomes directly proportional to the current flowing through the circuit. `,
             siunit: 'Henry (H)',
@@ -50,39 +59,68 @@ export default function Electromagnetism() {
         },
     ]
 
-    return (<>
-    <Helmet>
-          <title>Electromagnetism | physics | Tech N Science</title>
-          <meta name="description" content="Explore the Electromagnetism section and try out the calculators."/>
-          <meta name="keywords" content="Electromagnetism, calculator, physics, Tech n science, technscience, tech and science"/>
-        </Helmet>
-        <div className="mech__main">
-            <div className="mech__header">
-                <h1>Electromagnetism-Topics</h1>
-            </div>
-            <div className="mech__topics-card">
-                {
-                    Topics.map(data =>
-                        <React.Fragment key={data.topic}>
-                            <Card key={data.topic} style={{ width:'18rem' }}>
-                                <Card.Body>
-                                    {
-                                        data.details === undefined ?
-                                            <Link className="btn" disabled={true} to={`/electromagnetism/calc/${data.topic}`} variant="outline-dark"> {data.topic}</Link> :
-                                            <Link className="btn" to={`/electromagnetism/calc/${data.topic}`} variant="outline-dark"> {data.topic}</Link>
-                                    }
-                                    <div style={{ padding: "0.3em" }}>
-                                        {
-                                            data.details === undefined ? <Card.Text> Will be <span style={{ fontWeight: "bold", color: "#19165b" }}>available</span> soon...</Card.Text> : <Card.Text>{" "}</Card.Text>
-                                        }
-                                    </div>
-                                </Card.Body>
-                            </Card>
-                        </React.Fragment>
-                    )
-                }
-            </div>
-        </div >
-        </>
-    )
+  return (
+    <>
+      <Helmet>
+        <title>Electromagnetism | physics | Tech N Science</title>
+        <meta
+          name="description"
+          content="Explore the Electromagnetism section and try out the calculators."
+        />
+        <meta
+          name="keywords"
+          content="Electromagnetism, calculator, physics, Tech n science, technscience, tech and science"
+        />
+      </Helmet>
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Electromagnetism-Topics</h1>
+        </div>
+        <div className="mech__topics-card">
+          {Topics.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Card key={data.topic} style={{ width: "18rem" }}>
+                <Card.Body>
+                  {data.details === undefined ? (
+                    <Link
+                      className="btn"
+                      disabled={true}
+                      to={`/electromagnetism/calc/${data.topic}`}
+                      variant="outline-dark"
+                    >
+                      {" "}
+                      {data.topic}
+                    </Link>
+                  ) : (
+                    <Link
+                      className="btn"
+                      to={`/electromagnetism/calc/${data.topic}`}
+                      variant="outline-dark"
+                    >
+                      {" "}
+                      {data.topic}
+                    </Link>
+                  )}
+                  <div style={{ padding: "0.3em" }}>
+                    {data.details === undefined ? (
+                      <Card.Text>
+                        {" "}
+                        Will be{" "}
+                        <span style={{ fontWeight: "bold", color: "#19165b" }}>
+                          available
+                        </span>{" "}
+                        soon...
+                      </Card.Text>
+                    ) : (
+                      <Card.Text> </Card.Text>
+                    )}
+                  </div>
+                </Card.Body>
+              </Card>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 }

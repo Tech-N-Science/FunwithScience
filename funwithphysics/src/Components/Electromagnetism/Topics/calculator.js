@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./Calculator.css";
 import { Form, Card, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
@@ -41,6 +41,15 @@ const calculator = ({ match }) => {
 
   },
   {
+    topic: "Resistivity",
+    details: `By using the equation "ρ=RA/l", where ρ is resistivity, R is resistance, A is area and l is Length we can easily calculate the resistivity.`,
+    siunit: "ohm-meter",
+    dimension: "ML³T⁻³I⁻²",
+    process:
+      "To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
+    formula: "ρ=RA/l",
+  },
+  {
     topic:"Self Inductance",
     details:`When the coil's current or magnetic flux changes, an opposing induced electromotive force is created. Self Induction is the name given to this occurrence. When electricity begins to flow through the coil at any time, it is discovered that the magnetic flux becomes directly proportional to the current flowing through the circuit. `,
     siunit: 'Henry (H)',
@@ -73,69 +82,78 @@ const calculator = ({ match }) => {
   ];
   //electricpotential_data
   const electricpotential_data = [
-  {
-    topic:"Point Charge",
-    details:`Electric Potential due to a point charge (Q) at a point P is given by the equation "V=kQ/r", where V is the electric potential and Q is the charge, r is the distance from the charge to the point P,  where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
-    formula:"V=kQ/r",
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the the electric potential for a point charge we need to know the charge (Q) and the distance (r), by putting these values in the formula we can easily find the electric potential."
-  },
-  {
-    topic:"Ring",
-    formula:"V=kQ/√(R²+r²)",
-    details:`Electric potential due to a charged ring at a point P perpendicular to its axis is given by the equation "V=kQ/√(R²+r²)" where Q is the charge, R is the Radius, r is the distance of the charge ring from the point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for the charged ring we need to know the charge (Q), distance of the charge from the center (r) and the radius of the ring (R) where as the k is constant by putting these values in the formula we can easily find the electric potential."
-  
-  },
-  {
-    topic:"Disc",
-    details:`Electric potential due to a charged Disc at a point P perpendicular to its axis is given by the equation "V=kσ2π[√(R²+r²)-r]" where σ is the surface charge density, R is the radius, and r is the distance between the center of disc and point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²`,
-    formula:"V=kσ2π[√(R²+r²)-r]",
-    siunit:"volt",
-    process:"By putting the value of surface charge density (σ), Radius (R) and distance (r) in given equation we can easily find the electric potential for the disc, where as k is constant and it's value is 8.99*10⁹ N m²/C²",
-    dimension:"M L² T⁻³ I⁻¹"
-  },
-  {
-    topic:"Sphere",
-    details:["There are three condition for Sphere:",
-    <br />,
-    "1) If r > R, in this case electric potential due to the charged sphere is same as that of a point charge i.e, V = kQ/r",
-    <br />,
-    "2) If r = R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R",
-    <br />,
-    "3) If r < R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R³[(3R²/2)-(r²/2)]",
-    <br />,
+    {
+      topic: "Point Charge",
+      details: `Electric Potential due to a point charge (Q) at a point P is given by the equation "V=kQ/r", where V is the electric potential and Q is the charge, r is the distance from the charge to the point P,  where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
+      formula: "V=kQ/r",
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the the electric potential for a point charge we need to know the charge (Q) and the distance (r), by putting these values in the formula we can easily find the electric potential.",
+    },
+    {
+      topic: "Ring",
+      formula: "V=kQ/√(R²+r²)",
+      details: `Electric potential due to a charged ring at a point P perpendicular to its axis is given by the equation "V=kQ/√(R²+r²)" where Q is the charge, R is the Radius, r is the distance of the charge ring from the point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the electric potential for the charged ring we need to know the charge (Q), distance of the charge from the center (r) and the radius of the ring (R) where as the k is constant by putting these values in the formula we can easily find the electric potential.",
+    },
+    {
+      topic: "Disc",
+      details: `Electric potential due to a charged Disc at a point P perpendicular to its axis is given by the equation "V=kσ2π[√(R²+r²)-r]" where σ is the surface charge density, R is the radius, and r is the distance between the center of disc and point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²`,
+      formula: "V=kσ2π[√(R²+r²)-r]",
+      siunit: "volt",
+      process:
+        "By putting the value of surface charge density (σ), Radius (R) and distance (r) in given equation we can easily find the electric potential for the disc, where as k is constant and it's value is 8.99*10⁹ N m²/C²",
+      dimension: "M L² T⁻³ I⁻¹",
+    },
+    {
+      topic: "Sphere",
+      details: [
+        "There are three condition for Sphere:",
+        <br />,
+        "1) If r > R, in this case electric potential due to the charged sphere is same as that of a point charge i.e, V = kQ/r",
+        <br />,
+        "2) If r = R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R",
+        <br />,
+        "3) If r < R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R³[(3R²/2)-(r²/2)]",
+        <br />,
 
-    "where 'r' is the distance between the center of sphere and the point at which electric potential is produced and 'R' is the radius of sphere. ",
-  ],
-    formula:["Sphere (r > R)=> V=kQ/r",<br/>,"Sphere (r < R)=> V=kQ/R³[(3R²/2)-(r²/2)]"],
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for (r > R) the sphere we need to know the charge (Q) and the distance (r) where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C² "
-  },
-  {
-    topic:"Shell",
-    formula:["Shell (r > R)=> V=kQ/r",<br/>,"Shell (r < R)=> V=kQ/R"],
-    details:[
-      "There are three condition for Shell:",
-      <br />,
-      "1) If r > R, in this case electric potential produced is same as that of a point charge i.e, V = kQ/r",
-      <br />,
-      "2) If r = R, in this case electric potential produced is given by the formula V = kQ/R",
-      <br />,
-      "3) If r < R, in this case electric potential produced is given by the formula V = kQ/R",
-      <br />,
+        "where 'r' is the distance between the center of sphere and the point at which electric potential is produced and 'R' is the radius of sphere. ",
+      ],
+      formula: [
+        "Sphere (r > R)=> V=kQ/r",
+        <br />,
+        "Sphere (r < R)=> V=kQ/R³[(3R²/2)-(r²/2)]",
+      ],
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the electric potential for (r > R) the sphere we need to know the charge (Q) and the distance (r) where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C² ",
+    },
+    {
+      topic: "Shell",
+      formula: ["Shell (r > R)=> V=kQ/r", <br />, "Shell (r < R)=> V=kQ/R"],
+      details: [
+        "There are three condition for Shell:",
+        <br />,
+        "1) If r > R, in this case electric potential produced is same as that of a point charge i.e, V = kQ/r",
+        <br />,
+        "2) If r = R, in this case electric potential produced is given by the formula V = kQ/R",
+        <br />,
+        "3) If r < R, in this case electric potential produced is given by the formula V = kQ/R",
+        <br />,
 
-      "where 'r' is the distance between the center of shell and the point at which electric potential is produced and 'R' is the radius of shell. ",
-    ],
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for the Outside the shell we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²."
-  }
-]
+        "where 'r' is the distance between the center of shell and the point at which electric potential is produced and 'R' is the radius of shell. ",
+      ],
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the electric potential for the Outside the shell we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C².",
+    },
+  ];
 
   //electricfield_data
   const electricfield_data = [
@@ -222,38 +240,116 @@ const calculator = ({ match }) => {
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
+  //Resistivity Calculator
+  const ResistivityCalculator=()=>{
+    const [resistance, setResistance] = useState(null);
+    const [length, setLength] = useState(null);
+    const [area, setArea] = useState(null);
+    const [result, setResult] = useState(null);
 
+    const calcResult =()=>{
+      let res;
+      res=resistance*area/length;
+      setResult(res)
+    }
+    const reset =()=>{
+      setResistance(null)
+      setLength(null)
+      setArea(null)
+      setResult(null)
+    }
+    return(<>
+    <Form>
+    <Form.Group className="mb-4">
+            <Form.Label>Resistance (R)</Form.Label>
+            <Form.Control
+              onChange={(e) => setResistance(e.target.value)}
+              type="number"
+              placeholder=
+                "Enter in ohm (Ω)"
+              
+              value={
+                resistance === null ? "" : resistance
+              }
+            />
+          </Form.Group>
+    <Form.Group className="mb-4">
+            <Form.Label>Area (A)</Form.Label>
+            <Form.Control
+              onChange={(e) => setArea(e.target.value)}
+              type="number"
+              placeholder=
+                "Enter in (m²)"
+              
+              value={
+                area === null ? "" : area
+              }
+            />
+          </Form.Group>
+    <Form.Group className="mb-4">
+            <Form.Label>Length (l)</Form.Label>
+            <Form.Control
+              onChange={(e) => setLength(e.target.value)}
+              type="number"
+              placeholder=
+                "Enter in (m)"
+              
+              value={
+                length === null ? "" : length
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " (Ω⋅m)"
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+    </>)
+  }
 
   //Ohm's Law
-  const OhmCalculator=()=>{
+  const OhmCalculator = () => {
     const [choice, setChoice] = useState("voltage");
     const [voltage, setVoltage] = useState(null);
     const [current, setCurrent] = useState(null);
     const [resistance, setResistance] = useState(null);
     const [result, setResult] = useState(null);
 
-    const calcResult=()=>{
+    const calcResult = () => {
       let res;
-      if(choice==="voltage"){
-        res=current * resistance;
+      if (choice === "voltage") {
+        res = current * resistance;
       }
-      if(choice==="current"){
-        res=voltage / resistance;
+      if (choice === "current") {
+        res = voltage / resistance;
       }
-      if(choice==="resistance"){
-        res=voltage / current;
+      if (choice === "resistance") {
+        res = voltage / current;
       }
-      setResult(res)
+      setResult(res);
+    };
+    const reset = () => {
+      setCurrent(null);
+      setVoltage(null);
+      setResistance(null);
+      setResult(null);
+    };
 
-    }
-    const reset =()=>{
-      setCurrent(null)
-      setVoltage(null)
-      setResistance(null)
-      setResult(null)
-    }
-
-    const handleChange=(e)=>{
+    const handleChange = (e) => {
       setChoice(e.target.value);
       setCurrent(null);
       setResistance(null);
@@ -356,9 +452,7 @@ const calculator = ({ match }) => {
       <Button variant="dark" onClick={() => reset()} type="reset">
         Reset
       </Button>
-    </>)
-
-  }
+    </>)}
 
   //Drift velocity
   const DriftVelocity=()=>{
@@ -508,9 +602,12 @@ const calculator = ({ match }) => {
 
   const calC=(key)=>{
     let currentCall;
-    switch(key){
+    switch (key) {
       case "Ohm's Law":
-        currentCall=OhmCalculator()
+        currentCall = OhmCalculator();
+        break;
+      case "Resistivity":
+        currentCall = ResistivityCalculator();
         break;
       case "Drift Velocity":
         currentCall=DriftVelocity()
@@ -624,9 +721,7 @@ const calculator = ({ match }) => {
         </div>
       </div>
     );
-  }
-
-   else {
+  } else {
     return (
       <>
         <div className="Calculator__main">
