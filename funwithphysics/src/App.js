@@ -51,10 +51,14 @@ const App = () => {
         </Suspense>
         </Route> 
         <Route exact path="/about" component={Home}>
+        <Suspense fallback={<div className="loadingdiv"><img className="loadingimg" src={Loadingimg} alt=""/></div>}>
           <Home/>
+        </Suspense>
         </Route>
-        <Route exact path="/contact">
+        <Route exact path="/contact" component={Home}>
+        <Suspense fallback={<div className="loadingdiv"><img className="loadingimg" src={Loadingimg} alt=""/></div>}>
           <Home/>
+         </Suspense>
         </Route>
         <Route
           exact

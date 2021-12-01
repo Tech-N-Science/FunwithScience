@@ -57,6 +57,17 @@ export default function Electromagnetism() {
             dimension:"ML²T⁻²I²",
         
         },
+        {
+            topic: "Motional EMF",
+            details:
+                "A motional electromotive force is an emf caused by the movement of a conductor across a magnetic field. E = -vLB denotes the equation. This equation holds true as long as the velocity, field, and length are all perpendicular to each other. The minus sign represents Lentz law.",
+            formula: "ε = Bvl",
+            siunit: "Volts (Joules/Coulombs)",
+            dimension: "M L² T⁻³ I⁻¹",
+            process:
+                "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l). ",
+        
+          },
     ]
 
   return (
