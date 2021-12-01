@@ -24,7 +24,17 @@ export default function Electromagnetism() {
             topic:"Electric Potential",
             details:"..."
         
-          }
+          },
+        {
+            topic: "Electromotive Force (EMF)",
+            details:
+              "The eletromotive force (emf) of a source may be defined as the work done by the source in taking a unit positive charge from lower to the higher potential.",
+            formula: "ε = V+Ir",
+            siunit: "Volts (Joules/Coulombs)",
+            dimension: "M L² T⁻³ I⁻¹",
+            process:
+             "To find the electromotive force (ε) we need to know the voltage of a cell (V), internal resistance (r) and current across the circuit(I). ",
+           }
     ]
 
     return (<>
