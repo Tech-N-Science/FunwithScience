@@ -25,6 +25,17 @@ const calculator = ({ match }) => {
     topic:"Electric Potential",
     details:"..."
 
+  },
+  {
+    topic: "Electromotive Force (EMF)",
+    details:
+        "The eletromotive force (emf) of a source may be defined as the work done by the source in taking a unit positive charge from lower to the higher potential.",
+    formula: "ε = V+Ir",
+    siunit: "Volts (Joules/Coulombs)",
+    dimension: "M L² T⁻³ I⁻¹",
+    process:
+        "To find the electromotive force (ε) we need to know the voltage of a cell (V), internal resistance (r) and current across the circuit(I). ",
+   
   }
   ];
 
@@ -175,8 +186,7 @@ const calculator = ({ match }) => {
       process:
         "he charge of magnitude (Q), distance (r) away from the spherical shell and by putting these values in formula we can easily find the electric field.",
     },
-  ];
-
+  ]
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
 
@@ -313,22 +323,93 @@ const calculator = ({ match }) => {
         Reset
       </Button>
     </>)
-
-  }
-
+  };
   const calC=(key)=>{
     let currentCall;
     switch(key){
       case "Ohm's Law":
         currentCall=OhmCalculator()
         break;
+        case "Electromotive Force (EMF)":
+        currentCall=EmfCalculator()
+        break;
       default:
         break;
     }
     return currentCall;
-  }
+  };
+  // emf calculator
+  const EmfCalculator=()=>{
+    const [voltage, setVoltage] = useState(null);
+    const [current, setCurrent] = useState(null);
+    const [resistance, setResistance] = useState(null);
+    const [result, setResult] = useState(null);
 
+    const reset =()=>{
+      setCurrent(null)
+      setVoltage(null)
+      setResistance(null)
+      setResult(null)
+    }
 
+    const calcResult=()=>{
+      let res;
+        res = parseFloat(voltage) + (current * resistance);
+        setResult(res);
+      }
+    return(<>
+    <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Voltage (V)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setVoltage(e.target.value);
+              }}
+              placeholder="Enter the voltage in (volt)"
+              value={voltage === null ? "" : voltage}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Current (I)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setCurrent(e.target.value);
+              }}
+              placeholder="Enter the value of current in (A)"
+              value={current === null ? "" : current}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Internal Resistance (r)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setResistance(e.target.value);
+              }}
+              placeholder="Enter the internal resistance in (ohm)"
+              value={resistance === null ? "" : resistance}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} Volts`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+   };
   //Electric field
   if (details.topic === "Electric Field") {
     return (
@@ -362,7 +443,7 @@ const calculator = ({ match }) => {
           ))}
         </div>
       </div>
-    );
+    );// electic potential
   } else if (details.topic === "Electric Potential") {
     return (
       <div className="mech__main">
@@ -395,8 +476,8 @@ const calculator = ({ match }) => {
           ))}
         </div>
       </div>
-    );
-  } else {
+    )}
+   else {
     return (
       <>
         <div className="Calculator__main">
