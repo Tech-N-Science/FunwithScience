@@ -42,7 +42,11 @@ const calculator = ({ match }) => {
   },
   {
     topic:"Resistivity",
-    details:"hey"
+    details:`By using the equation "ρ=RA/l", where ρ is resistivity, R is resistance, A is area and l is Length we can easily calculate the resistivity.`,
+    siunit:"ohm-meter",
+    dimension: "ML³T⁻³I⁻²",
+    process:"To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
+    formula:"ρ=RA/l"
 
   },
   ];
