@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./Calculator.css";
 import { Form, Card, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
@@ -13,24 +13,36 @@ const calculator = ({ match }) => {
       details: "....",
     },
     {
-      topic:"Ohm's Law",
-      details:`Ohm's law states that the voltage (V) between two points is directly proportional to the current (I) across that two points and the constant of proportionality is resistance (R) and the equation is given as "V=IR"`,
-      siunit:["Resistance  : Ohm", <br/>,"Current : (A)", <br/>,"Voltage : (V)"],
-      process:"To find the voltage (V), we need to know the the current between the two point and the resistance(R) across the points & To find the current(I) or the resistance(R) we can also find it using the ohm's law.",
-      formula:"V=IR",
-      dimension:"",
-
-  },
-  {
-    topic:"Electric Potential",
-    details:"..."
-
-  },
-  {
-    topic:"Flux",
-    details:"..."
-
-  },
+      topic: "Ohm's Law",
+      details: `Ohm's law states that the voltage (V) between two points is directly proportional to the current (I) across that two points and the constant of proportionality is resistance (R) and the equation is given as "V=IR"`,
+      siunit: [
+        "Resistance  : Ohm",
+        <br />,
+        "Current : (A)",
+        <br />,
+        "Voltage : (V)",
+      ],
+      process:
+        "To find the voltage (V), we need to know the the current between the two point and the resistance(R) across the points & To find the current(I) or the resistance(R) we can also find it using the ohm's law.",
+      formula: "V=IR",
+      dimension: "",
+    },
+    {
+      topic: "Resistivity",
+      formula:"ρ = RA/l",
+      details:`By using the formula "ρ = RA/l", we can easily find the resistivity where R is the resistance, A is the area and l is the length.`,
+      process:"To find the resistivity we need to know the Resistance (R), area (A) and the length (l) by which we can easily calculate the resistivity.",
+      siunit:"ohm-meter (Ω⋅m)",
+      dimension:"ML²T⁻¹Q⁻¹."
+    },
+    {
+      topic: "Electric Potential",
+      details: "...",
+    },
+    {
+      topic: "Flux",
+      details: "...",
+    },
   ];
   //Flux data
   const flux_data = [
@@ -55,69 +67,78 @@ const calculator = ({ match }) => {
   ];
   //electricpotential_data
   const electricpotential_data = [
-  {
-    topic:"Point Charge",
-    details:`Electric Potential due to a point charge (Q) at a point P is given by the equation "V=kQ/r", where V is the electric potential and Q is the charge, r is the distance from the charge to the point P,  where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
-    formula:"V=kQ/r",
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the the electric potential for a point charge we need to know the charge (Q) and the distance (r), by putting these values in the formula we can easily find the electric potential."
-  },
-  {
-    topic:"Ring",
-    formula:"V=kQ/√(R²+r²)",
-    details:`Electric potential due to a charged ring at a point P perpendicular to its axis is given by the equation "V=kQ/√(R²+r²)" where Q is the charge, R is the Radius, r is the distance of the charge ring from the point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for the charged ring we need to know the charge (Q), distance of the charge from the center (r) and the radius of the ring (R) where as the k is constant by putting these values in the formula we can easily find the electric potential."
-  
-  },
-  {
-    topic:"Disc",
-    details:`Electric potential due to a charged Disc at a point P perpendicular to its axis is given by the equation "V=kσ2π[√(R²+r²)-r]" where σ is the surface charge density, R is the radius, and r is the distance between the center of disc and point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²`,
-    formula:"V=kσ2π[√(R²+r²)-r]",
-    siunit:"volt",
-    process:"By putting the value of surface charge density (σ), Radius (R) and distance (r) in given equation we can easily find the electric potential for the disc, where as k is constant and it's value is 8.99*10⁹ N m²/C²",
-    dimension:"M L² T⁻³ I⁻¹"
-  },
-  {
-    topic:"Sphere",
-    details:["There are three condition for Sphere:",
-    <br />,
-    "1) If r > R, in this case electric potential due to the charged sphere is same as that of a point charge i.e, V = kQ/r",
-    <br />,
-    "2) If r = R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R",
-    <br />,
-    "3) If r < R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R³[(3R²/2)-(r²/2)]",
-    <br />,
+    {
+      topic: "Point Charge",
+      details: `Electric Potential due to a point charge (Q) at a point P is given by the equation "V=kQ/r", where V is the electric potential and Q is the charge, r is the distance from the charge to the point P,  where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
+      formula: "V=kQ/r",
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the the electric potential for a point charge we need to know the charge (Q) and the distance (r), by putting these values in the formula we can easily find the electric potential.",
+    },
+    {
+      topic: "Ring",
+      formula: "V=kQ/√(R²+r²)",
+      details: `Electric potential due to a charged ring at a point P perpendicular to its axis is given by the equation "V=kQ/√(R²+r²)" where Q is the charge, R is the Radius, r is the distance of the charge ring from the point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the electric potential for the charged ring we need to know the charge (Q), distance of the charge from the center (r) and the radius of the ring (R) where as the k is constant by putting these values in the formula we can easily find the electric potential.",
+    },
+    {
+      topic: "Disc",
+      details: `Electric potential due to a charged Disc at a point P perpendicular to its axis is given by the equation "V=kσ2π[√(R²+r²)-r]" where σ is the surface charge density, R is the radius, and r is the distance between the center of disc and point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²`,
+      formula: "V=kσ2π[√(R²+r²)-r]",
+      siunit: "volt",
+      process:
+        "By putting the value of surface charge density (σ), Radius (R) and distance (r) in given equation we can easily find the electric potential for the disc, where as k is constant and it's value is 8.99*10⁹ N m²/C²",
+      dimension: "M L² T⁻³ I⁻¹",
+    },
+    {
+      topic: "Sphere",
+      details: [
+        "There are three condition for Sphere:",
+        <br />,
+        "1) If r > R, in this case electric potential due to the charged sphere is same as that of a point charge i.e, V = kQ/r",
+        <br />,
+        "2) If r = R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R",
+        <br />,
+        "3) If r < R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R³[(3R²/2)-(r²/2)]",
+        <br />,
 
-    "where 'r' is the distance between the center of sphere and the point at which electric potential is produced and 'R' is the radius of sphere. ",
-  ],
-    formula:["Sphere (r > R)=> V=kQ/r",<br/>,"Sphere (r < R)=> V=kQ/R³[(3R²/2)-(r²/2)]"],
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for (r > R) the sphere we need to know the charge (Q) and the distance (r) where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C² "
-  },
-  {
-    topic:"Shell",
-    formula:["Shell (r > R)=> V=kQ/r",<br/>,"Shell (r < R)=> V=kQ/R"],
-    details:[
-      "There are three condition for Shell:",
-      <br />,
-      "1) If r > R, in this case electric potential produced is same as that of a point charge i.e, V = kQ/r",
-      <br />,
-      "2) If r = R, in this case electric potential produced is given by the formula V = kQ/R",
-      <br />,
-      "3) If r < R, in this case electric potential produced is given by the formula V = kQ/R",
-      <br />,
+        "where 'r' is the distance between the center of sphere and the point at which electric potential is produced and 'R' is the radius of sphere. ",
+      ],
+      formula: [
+        "Sphere (r > R)=> V=kQ/r",
+        <br />,
+        "Sphere (r < R)=> V=kQ/R³[(3R²/2)-(r²/2)]",
+      ],
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the electric potential for (r > R) the sphere we need to know the charge (Q) and the distance (r) where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C² ",
+    },
+    {
+      topic: "Shell",
+      formula: ["Shell (r > R)=> V=kQ/r", <br />, "Shell (r < R)=> V=kQ/R"],
+      details: [
+        "There are three condition for Shell:",
+        <br />,
+        "1) If r > R, in this case electric potential produced is same as that of a point charge i.e, V = kQ/r",
+        <br />,
+        "2) If r = R, in this case electric potential produced is given by the formula V = kQ/R",
+        <br />,
+        "3) If r < R, in this case electric potential produced is given by the formula V = kQ/R",
+        <br />,
 
-      "where 'r' is the distance between the center of shell and the point at which electric potential is produced and 'R' is the radius of shell. ",
-    ],
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for the Outside the shell we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²."
-  }
-]
+        "where 'r' is the distance between the center of shell and the point at which electric potential is produced and 'R' is the radius of shell. ",
+      ],
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the electric potential for the Outside the shell we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C².",
+    },
+  ];
 
   //electricfield_data
   const electricfield_data = [
@@ -204,155 +225,240 @@ const calculator = ({ match }) => {
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
+  //Resistivity Calculator
+  const ResistivityCalculator=()=>{
+    const [resistance, setResistance] = useState(null);
+    const [length, setLength] = useState(null);
+    const [area, setArea] = useState(null);
+    const [result, setResult] = useState(null);
 
+    const calcResult =()=>{
+      let res;
+      res=resistance*area/length;
+      setResult(res)
+    }
+    const reset =()=>{
+      setResistance(null)
+      setLength(null)
+      setArea(null)
+      setResult(null)
+    }
+    return(<>
+    <Form>
+    <Form.Group className="mb-4">
+            <Form.Label>Resistance (R)</Form.Label>
+            <Form.Control
+              onChange={(e) => setResistance(e.target.value)}
+              type="number"
+              placeholder=
+                "Enter in ohm (Ω)"
+              
+              value={
+                resistance === null ? "" : resistance
+              }
+            />
+          </Form.Group>
+    <Form.Group className="mb-4">
+            <Form.Label>Area (A)</Form.Label>
+            <Form.Control
+              onChange={(e) => setArea(e.target.value)}
+              type="number"
+              placeholder=
+                "Enter in (m²)"
+              
+              value={
+                area === null ? "" : area
+              }
+            />
+          </Form.Group>
+    <Form.Group className="mb-4">
+            <Form.Label>Length (l)</Form.Label>
+            <Form.Control
+              onChange={(e) => setLength(e.target.value)}
+              type="number"
+              placeholder=
+                "Enter in (m)"
+              
+              value={
+                length === null ? "" : length
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " (Ω⋅m)"
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+    </>)
+  }
 
   //Ohm's Law
-  const OhmCalculator=()=>{
+  const OhmCalculator = () => {
     const [choice, setChoice] = useState("voltage");
     const [voltage, setVoltage] = useState(null);
     const [current, setCurrent] = useState(null);
     const [resistance, setResistance] = useState(null);
     const [result, setResult] = useState(null);
 
-    const calcResult=()=>{
+    const calcResult = () => {
       let res;
-      if(choice==="voltage"){
-        res=current * resistance;
+      if (choice === "voltage") {
+        res = current * resistance;
       }
-      if(choice==="current"){
-        res=voltage / resistance;
+      if (choice === "current") {
+        res = voltage / resistance;
       }
-      if(choice==="resistance"){
-        res=voltage / current;
+      if (choice === "resistance") {
+        res = voltage / current;
       }
-      setResult(res)
+      setResult(res);
+    };
+    const reset = () => {
+      setCurrent(null);
+      setVoltage(null);
+      setResistance(null);
+      setResult(null);
+    };
 
-    }
-    const reset =()=>{
-      setCurrent(null)
-      setVoltage(null)
-      setResistance(null)
-      setResult(null)
-    }
-
-    const handleChange=(e)=>{
+    const handleChange = (e) => {
       setChoice(e.target.value);
       setCurrent(null);
       setResistance(null);
-      setVoltage(null)
-    }
-    const choiceData=()=>{
-      if(choice==="voltage")
-      return{
-        name:"Voltage (V)",
-        mainunit:"(V)",
-        quantities:["Current","Resistance"],
-        subunits:["(A)","(ohm)"],
-        getters:[current,resistance],
-        setters:[setCurrent,setResistance]
-      }
-      if(choice==="current")
-      return{
-        name:"Current (I)",
-        mainunit:"(A)",
-        quantities:["Voltage","Resistance"],
-        subunits:["(V)","(ohm)"],
-        getters:[voltage,resistance],
-        setters:[setVoltage,setResistance]
-      }
-      if(choice==="resistance")
-      return{
-        name:"Resistance (R)",
-        mainunit:"(ohm)",
-        quantities:["Voltage","Current"],
-        subunits:["(V)","(I)"],
-        getters:[voltage,current],
-        setters:[setVoltage,setCurrent]
-      }
-    }
-    return(<>
-    <Form>
-       {/* dropdown */}
-       <Form.Group className="mb-4" controlId="choice">
-          <Form.Label>Select the type of calculation</Form.Label>
-          <Form.Control as="select" onChange={(e)=>{handleChange(e)}}>
-            <option value="voltage">Voltage (V)</option>
-            <option value="current">Current (I)</option>
-            <option value="resistance">Resistance (R)</option>
+      setVoltage(null);
+    };
+    const choiceData = () => {
+      if (choice === "voltage")
+        return {
+          name: "Voltage (V)",
+          mainunit: "(V)",
+          quantities: ["Current", "Resistance"],
+          subunits: ["(A)", "(ohm)"],
+          getters: [current, resistance],
+          setters: [setCurrent, setResistance],
+        };
+      if (choice === "current")
+        return {
+          name: "Current (I)",
+          mainunit: "(A)",
+          quantities: ["Voltage", "Resistance"],
+          subunits: ["(V)", "(ohm)"],
+          getters: [voltage, resistance],
+          setters: [setVoltage, setResistance],
+        };
+      if (choice === "resistance")
+        return {
+          name: "Resistance (R)",
+          mainunit: "(ohm)",
+          quantities: ["Voltage", "Current"],
+          subunits: ["(V)", "(I)"],
+          getters: [voltage, current],
+          setters: [setVoltage, setCurrent],
+        };
+    };
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control
+              as="select"
+              onChange={(e) => {
+                handleChange(e);
+              }}
+            >
+              <option value="voltage">Voltage (V)</option>
+              <option value="current">Current (I)</option>
+              <option value="resistance">Resistance (R)</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0]}
+              value={
+                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+              }
+            />
+          </Form.Group>
 
-          </Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-4" controlId="text">
-          <Form.Text className="text">
-            <strong>
-              {" "}
-              To find the {choiceData().name}, Enter the following values
-            </strong>
-            <br />
-          </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Label>{choiceData().quantities[0]}</Form.Label>
-          <Form.Control
-            onChange={(e) => choiceData().setters[0](e.target.value)}
-            type="number"
-            placeholder={"Enter in " + choiceData().subunits[0]}
-            value={
-              choiceData().getters[0] === null ? "" : choiceData().getters[0]
-            }
-          />
-        </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={
+                choiceData().subunits[1] === "NaN"
+                  ? "No Unit"
+                  : "Enter in " + choiceData().subunits[1]
+              }
+              value={
+                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
 
-        <Form.Group className="mb-4">
-          <Form.Label>{choiceData().quantities[1]}</Form.Label>
-          <Form.Control
-            onChange={(e) => choiceData().setters[1](e.target.value)}
-            type="number"
-            placeholder={
-              choiceData().subunits[1] === "NaN"
-                ? "No Unit"
-                : "Enter in " + choiceData().subunits[1]
-            }
-            value={
-              choiceData().getters[1] === null ? "" : choiceData().getters[1]
-            }
-          />
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Control
-            readOnly
-            type="number"
-            placeholder={
-              result === null
-                ? "Result"
-                : result + " " + choiceData().mainunit
-            }
-          />
-        </Form.Group>
-    </Form>
-    <Button variant="primary" onClick={calcResult}>
-        Calculate
-      </Button>
-      &nbsp;&nbsp;&nbsp;
-      <Button variant="dark" onClick={() => reset()} type="reset">
-        Reset
-      </Button>
-    </>)
-
-  }
-
-  const calC=(key)=>{
+  const calC = (key) => {
     let currentCall;
-    switch(key){
+    switch (key) {
       case "Ohm's Law":
-        currentCall=OhmCalculator()
+        currentCall = OhmCalculator();
+        break;
+      case "Resistivity":
+        currentCall = ResistivityCalculator();
         break;
       default:
         break;
     }
     return currentCall;
-  }
-
+  };
 
   //Electric field
   if (details.topic === "Electric Field") {
@@ -454,9 +560,7 @@ const calculator = ({ match }) => {
         </div>
       </div>
     );
-  }
-
-   else {
+  } else {
     return (
       <>
         <div className="Calculator__main">
