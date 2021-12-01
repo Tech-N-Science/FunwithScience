@@ -230,6 +230,12 @@ Thanks goes to these wonderful people :
 	<td align="center"><a href="https://github.com/glebkema"><img src="https://avatars.githubusercontent.com/u/3881568?v=4" width="100px;" alt=""/><br /><sub><b>Gleb Kemarsky</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=glebkema" title="Code">💻</a></td>
 	<td align="center"><a href="https://github.com/rayanepimentel"><img src="https://avatars.githubusercontent.com/u/37915359?v=4" width="100px;" alt=""/><br /><sub><b>Rayane Pimentel</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=rayanepimentel" title="Code">💻</a></td>
   <td align="center"><a href="https://github.com/beingdevrahul"><img src="https://avatars.githubusercontent.com/u/85609125?v=4" width="100px;" alt=""/><br /><sub><b>Rahul Sharma</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=beingdevrahul" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/kushagra487"><img src="https://avatars.githubusercontent.com/u/75723079?v=4" width="100px;" alt=""/><br /><sub><b>kushagra</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=kushagra487" title="Code">💻</a></td>
+ </tr>
+  <td align="center"><a href="https://github.com/Akshita44"><img src="https://avatars.githubusercontent.com/u/83125396?v=4" width="100px;" alt=""/><br /><sub><b>Akshita</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=Akshita44" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/pragyamittal0"><img src="https://avatars.githubusercontent.com/u/69578414?v=4" width="100px;" alt=""/><br /><sub><b>Pragya Mittal</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=pragyamittal0" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/ganeshbirajdar09"><img src="https://avatars.githubusercontent.com/u/89690784?v=4" width="100px;" alt=""/><br /><sub><b>Ganesh Birajdar</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=ganeshbirajdar09" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/ps6067966"><img src="https://avatars.githubusercontent.com/u/26248740?v=4" width="100px;" alt=""/><br /><sub><b>Pratap Singh</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=ps6067966" title="Code">💻</a></td>
  </tr>
 </table>
 

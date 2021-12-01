@@ -1,7 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
-import Navbar from "./Components/Navbar/Navbar"
 import Loadingimg from "./Images/Logo/logo.webp"
+import Navbar from "./Components/Navbar/Navbar"
 import React, { Suspense, lazy } from "react";
 import ClassicalMechanics from "./Components/Classical_Mechanics/ClassicalMechanics";
 import Thermodynamics from "./Components/Thermodynamics/Thermodynamics";
@@ -31,7 +31,6 @@ const Home = lazy(() => {
   ])
   .then(([moduleExports]) => moduleExports);
 });
-
 const App = () => {
   return (
     <React.Fragment>
@@ -45,43 +44,38 @@ const App = () => {
         <meta name="theme-color" content="#000000" />
       </Helmet>
       <Switch>
-      <Route exact path="/">
         <Suspense fallback={<div className="loadingdiv"><img className="loadingimg" src={Loadingimg} alt=""/></div>}>
         <Home/>
         </Suspense>
-        </Route> 
-        <Route exact path="/about" component={Home}>
-          <Home/>
-        </Route>
-        <Route exact path="/contact">
-          <Home/>
-        </Route>
+        <Route exact path="/about" component={Home} />
+        <Route exact path="/contact" component={Home} />
         <Route
           exact
           path="/classicalmechanics"
+     
         >
-          <Navbar/>
+             <Navbar/>
           <ClassicalMechanics/>
         </Route>
         <Route
           exact
-          path="/thermodynamics">
-        <Navbar/>
+          path="/thermodynamics"
+        >
+             <Navbar/>
         <Thermodynamics/>
         </Route>
+
         <Route exact path="/physics">
-        <Navbar/>
+       <Navbar/>
         <PhysicsTopic/> 
         </Route>
-       
         <Route
           exact
           path="/classicalmechanics/calc/:topic"
           component={CalcClassic}
         >
-            {/* <Navbar/> */}
-            {/* <CalcClassic/> */}
         </Route>
+
         <Route
           exact
           path="/thermodynamics/calc/:topic"
@@ -104,8 +98,8 @@ const App = () => {
           exact
           path="/classicalmechanics/calc/shm/:topic"
           component={shm_Calculator} 
-        >
-        </Route>
+        />
+        
         <Route
           exact
           path="/classicalmechanics/calc/work_power_energy/:topic"
@@ -116,15 +110,16 @@ const App = () => {
           exact
           path="/classicalmechanics/calc/rotation/:topic"
           component={rotation_Calculator}
-        >
-        </Route>
+        />
+       
         <Route
           exact
           path="/electromagnetism"
-        >
-          <Navbar/>
+         >
+            <Navbar/>
           <Electromagnetism/>
         </Route>
+       
         <Route
           exact
           path="/electromagnetism/calc/:topic"
@@ -136,9 +131,8 @@ const App = () => {
           exact
           path="/electromagnetism/calc/electric_field/:topic"
           component={electricfield_calculator} 
-        >
-        </Route>
-
+        />
+        
         <Route exact path="/quiz">
         <Navbar/>
         <Quiz/>
@@ -150,26 +144,7 @@ const App = () => {
           component={FluidCalculator}
         >
         </Route>
-        <Route
-          exact
-          path="/electromagnetism"
-        >
-          <Navbar/>
-          <Electromagnetism/>
-        </Route>
-        <Route
-          exact
-          path="/electromagnetism/calc/:topic"
-          component={CalculatorElec}
-        >
-        </Route>
-
-        <Route
-          exact
-          path="/electromagnetism/calc/electric_field/:topic"
-          component={electricfield_calculator}
-        >
-        </Route>
+        
         <Route
           exact
           path="/electromagnetism/calc/Flux/:topic"
@@ -186,10 +161,11 @@ const App = () => {
         <Route 
           exact 
           path="/questions"
-        >
-          <Navbar/>
+          />
+            <Navbar/>
           <NumMCQ/>
         </Route>
+       
 
         <Route
           exact
