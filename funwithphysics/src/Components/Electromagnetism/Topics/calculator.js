@@ -13,36 +13,38 @@ const calculator = ({ match }) => {
       details: "....",
     },
     {
-      topic: "Ohm's Law",
-      details: `Ohm's law states that the voltage (V) between two points is directly proportional to the current (I) across that two points and the constant of proportionality is resistance (R) and the equation is given as "V=IR"`,
-      siunit: [
-        "Resistance  : Ohm",
-        <br />,
-        "Current : (A)",
-        <br />,
-        "Voltage : (V)",
-      ],
-      process:
-        "To find the voltage (V), we need to know the the current between the two point and the resistance(R) across the points & To find the current(I) or the resistance(R) we can also find it using the ohm's law.",
-      formula: "V=IR",
-      dimension: "",
-    },
-    {
-      topic: "Resistivity",
-      formula:"ρ = RA/l",
-      details:`By using the formula "ρ = RA/l", we can easily find the resistivity where R is the resistance, A is the area and l is the length.`,
-      process:"To find the resistivity we need to know the Resistance (R), area (A) and the length (l) by which we can easily calculate the resistivity.",
-      siunit:"ohm-meter (Ω⋅m)",
-      dimension:"ML²T⁻¹Q⁻¹."
-    },
-    {
-      topic: "Electric Potential",
-      details: "...",
-    },
-    {
-      topic: "Flux",
-      details: "...",
-    },
+      topic:"Ohm's Law",
+      details:`Ohm's law states that the voltage (V) between two points is directly proportional to the current (I) across that two points and the constant of proportionality is resistance (R) and the equation is given as "V=IR"`,
+      siunit:["Resistance  : Ohm", <br/>,"Current : (Ampere)", <br/>,"Voltage : (V)"],
+      process:"To find the voltage (V), we need to know the the current between the two point and the resistance(R) across the points & To find the current(I) or the resistance(R) we can also find it using the ohm's law.",
+      formula:"V=IR",
+      dimension:"V = ML²T⁻²I⁻¹, R = ML²T⁻³I⁻²",
+
+  },
+  {
+    topic:"Drift Velocity",
+    details:`Subatomic particles, such as electrons, constantly move in random directions. When electrons are subjected to an electric field, they move randomly, but slowly in one direction, the direction of the applied electric field. Drift velocity is the net velocity at which these electrons drift.`,
+    siunit: 'm/s',
+    process:"To find the drift velocity (V), we need to know the the current flowing through the conductor(I), number of electrons(n), Area of cross-section of the conductor(A) and the charge of electron(q).",
+    formula:"V = I/nAq",
+    dimension:"M⁻¹T²I",
+
+},
+  {
+    topic:"Electric Potential",
+    details:"..."
+
+  },
+  {
+    topic:"Flux",
+    details:"..."
+
+  },
+  {
+    topic:"Resistivity",
+    details:"hey"
+
+  },
   ];
   //Flux data
   const flux_data = [
@@ -50,15 +52,15 @@ const calculator = ({ match }) => {
       topic: "Electric Flux",
       formula: "ΦE=E.S.cosθ",
       siunit: "volt metres (V m)",
-      dimension: "[L³ M T⁻³ I⁻¹]",
+      dimension: "[M L³ T⁻³ I⁻¹]",
       process:
         "To find the electric flux, we need to know the electric field (E), area of the surface (S) and angle (θ) between the electric field lines and the normal to S.",
-      details: `Electric Flux is given by the equation "ΦE=E.S.cosθ", where ΦE is the electric flux, E is the electric field, S is the area of the surface & θ is the angle between the electric field lines and the normal (perpendicular) to S. `,
+      details: `Electric Flux is defined as "ΦE=E.S.cosθ", where ΦE denotes the electric flux, E denotes the electric field, S denotes the surface area, and θ is the angle between the electric field lines and the normal (perpendicular) to S. `,
     },
     {
       topic: "Magnetic Flux",
       formula: "ΦB=B.A.cosθ",
-      siunit: "volt–seconds",
+      siunit: "volt–seconds or weber",
       dimension: "[M L² T⁻² I⁻¹]",
       process:
         "To find the magnetic flux we need to know the magnetic field (B), area (A)and the angle (θ).",
@@ -445,7 +447,84 @@ const calculator = ({ match }) => {
     );
   };
 
-  const calC = (key) => {
+  //Drift velocity
+  const DriftVelocity=()=>{
+    const [area, setArea] = useState(null);
+    const [current, setCurrent] = useState(null);
+    const [number, setNumber] = useState(null);
+    const [charge, setCharge] = useState(null);
+    const [result, setResult] = useState(null);
+
+    const reset=()=>{
+      setCurrent(null)
+      setNumber(null)
+      setCharge(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      res=current/(number*area*charge);
+      setResult(res);
+    }
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Current (I)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCurrent(e.target.value)}
+              type="number"
+              placeholder={"Enter in Ampere"}
+              value={current === null ? "" : current}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Area (A))</Form.Label>
+            <Form.Control
+              onChange={(e) => setArea(e.target.value)}
+              type="number"
+              placeholder={"Enter in (m²)"}
+              value={area === null ? "" : area}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Number of electrons (n)</Form.Label>
+            <Form.Control
+              onChange={(e) => setNumber(e.target.value)}
+              type="number"
+              placeholder={"Enter number of electrons"}
+              value={number === null ? "" : number}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Charge (q)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCharge(e.target.value)}
+              type="number"
+              placeholder={"Enter in coulomb"}
+              value={charge === null ? "" : charge}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " m/s²"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
+  const calC=(key)=>{
     let currentCall;
     switch (key) {
       case "Ohm's Law":
@@ -454,11 +533,14 @@ const calculator = ({ match }) => {
       case "Resistivity":
         currentCall = ResistivityCalculator();
         break;
+      case "Drift Velocity":
+        currentCall=DriftVelocity()
+        break;
       default:
         break;
     }
     return currentCall;
-  };
+  }
 
   //Electric field
   if (details.topic === "Electric Field") {
