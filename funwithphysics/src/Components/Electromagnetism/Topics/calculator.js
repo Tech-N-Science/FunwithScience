@@ -467,6 +467,7 @@ const calculator = ({ match }) => {
       setNumber(null)
       setCharge(null)
       setResult(null)
+      setArea(null)
     }
     const calcResult=()=>{
       let res;
@@ -486,7 +487,7 @@ const calculator = ({ match }) => {
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Area (A))</Form.Label>
+            <Form.Label>Area (A)</Form.Label>
             <Form.Control
               onChange={(e) => setArea(e.target.value)}
               type="number"
@@ -531,6 +532,74 @@ const calculator = ({ match }) => {
     );
   };
 
+  //Self inductance
+  const SelfInductance=()=>{
+    const [current, setCurrent] = useState(null);
+    const [number, setNumber] = useState(null);
+    const [flux, setFlux] = useState(null);
+    const [result, setResult] = useState(null);
+
+    const reset=()=>{
+      setCurrent(null)
+      setNumber(null)
+      setFlux(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      res=number*flux/current;
+      setResult(res);
+    }
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Number of turns(N)</Form.Label>
+            <Form.Control
+              onChange={(e) => setNumber(e.target.value)}
+              type="number"
+              placeholder={"Enter number of turns"}
+              value={number === null ? "" : number}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Magnetic fux(Φ)</Form.Label>
+            <Form.Control
+              onChange={(e) => setFlux(e.target.value)}
+              type="number"
+              placeholder={"Enter in weber"}
+              value={flux === null ? "" : flux}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Current(I)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCurrent(e.target.value)}
+              type="number"
+              placeholder={"Enter in ampere"}
+              value={current === null ? "" : current}
+            />
+          </Form.Group>
+          
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " Henry"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
   const calC=(key)=>{
     let currentCall;
     switch (key) {
@@ -543,6 +612,9 @@ const calculator = ({ match }) => {
       case "Drift Velocity":
         currentCall=DriftVelocity()
         break;
+        case "Self Inductance":
+          currentCall=SelfInductance()
+          break;
       default:
         break;
     }
