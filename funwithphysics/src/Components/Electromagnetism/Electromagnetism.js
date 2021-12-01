@@ -39,6 +39,15 @@ export default function Electromagnetism() {
             details:"..."
         
           },
+          {
+            topic:"Self Inductance",
+            details:`When the coil's current or magnetic flux changes, an opposing induced electromotive force is created. Self Induction is the name given to this occurrence. When electricity begins to flow through the coil at any time, it is discovered that the magnetic flux becomes directly proportional to the current flowing through the circuit. `,
+            siunit: 'Henry (H)',
+            process:"To find the Self inductance of inductor(L), we need to know the the current flowing through the conductor(I), number of turns (N) and magnetic flux(Φ).",
+            formula:"L = NΦ/I",
+            dimension:"ML²T⁻²I²",
+        
+        },
     ]
 
     return (<>
