@@ -64,6 +64,18 @@ const calculator = ({ match }) => {
     formula:"F = qvBsin(θ)",
     dimension:"ML¹T⁻²",
   },
+},
+{
+  topic: "Motional EMF",
+  details:
+      "A motional electromotive force is an emf caused by the movement of a conductor across a magnetic field. E = -vLB denotes the equation. This equation holds true as long as the velocity, field, and length are all perpendicular to each other. The minus sign represents Lentz law.",
+  formula: "ε = -Bvl",
+  siunit: "Volts (Joules/Coulombs)",
+  dimension: "M L² T⁻³ I⁻¹",
+  process:
+      "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l). ",
+
+},
   ];
   //Flux data
   const flux_data = [
@@ -666,11 +678,69 @@ const calculator = ({ match }) => {
             />
           </Form.Group>
           
+  //EMF Calculator
+  const EmfCalculator=()=>{
+    const [velocity, setVelocity] = useState(null);
+    const [magnetic, setMagnetic] = useState(null);
+    const [length, setLength] = useState(null);
+    const [result, setResult] = useState(null);
+  
+    const reset =()=>{
+      setVelocity(null)
+      setMagnetic(null)
+      setLength(null)
+      setResult(null)
+    }
+
+    const calcResult=()=>{
+      let res;
+        res = -(velocity*magnetic*length);
+        setResult(res);
+      }
+    return(<>
+    <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Magnetic Field(B)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setMagnetic(e.target.value);
+              }}
+              placeholder="Enter the magnetic field in weber"
+              value={ magnetic === null ? "" : magnetic}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Velocity(V)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setVelocity(e.target.value);
+              }}
+              placeholder="Enter velocity in m/s"
+              value={velocity === null ? "" : velocity}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Length(l)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setLength(e.target.value);
+              }}
+              placeholder="Enter the internal resistance in (ohm)"
+              value={length === null ? "" : length
+            }
+            />
+          </Form.Group>
+
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
               placeholder={result === null ? "Result" : result + " Newtons"}
+
+              placeholder={result === null ? "Result" : `${result} Volts`}
             />
           </Form.Group>
         </Form>
@@ -684,6 +754,7 @@ const calculator = ({ match }) => {
       </>
     );
   };
+   };
 
   const calC=(key)=>{
     let currentCall;
@@ -703,6 +774,12 @@ const calculator = ({ match }) => {
       case "Magnetic Force":
         currentCall=MagneticForce()
         break;
+        case "Self Inductance":
+          currentCall=SelfInductance()
+          break;
+          case "Motional EMF":
+            currentCall= EmfCalculator()
+            break;
       default:
         break;
     }

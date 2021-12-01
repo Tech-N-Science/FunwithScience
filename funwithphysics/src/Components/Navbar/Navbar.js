@@ -74,16 +74,6 @@ const Navbar = () => {
             >
               <span className="nav-link">Contact</span>
             </NavLink>
-            <NavLink
-              to="/"
-              className="nav-item"
-              type="button"
-              data-toggle="modal"
-              data-target="#exampleModal"
-              style={{ color: "gray", marginLeft: "5px" }}
-            >
-              FAQ
-            </NavLink>
           </ul>
         </div>
       </nav>
