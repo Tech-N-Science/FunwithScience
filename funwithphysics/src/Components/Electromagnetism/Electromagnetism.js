@@ -57,6 +57,14 @@ export default function Electromagnetism() {
             dimension:"ML²T⁻²I²",
         
         },
+        {
+          topic:"Magnetic Force",
+          details:`Magnetic fields exert forces on moving charges, and so they exert forces on other magnets, all of which have moving charges. The direction of the force on a moving charge is given by right hand rule 1 (RHR-1): Point the thumb of the right hand in the direction of v, the fingers in the direction of B, and a perpendicular to the palm points in the direction of F. The force is perpendicular to the plane formed by v and B. Since the force is zero if v is parallel to B, charged particles often follow magnetic field lines rather than cross them. `,
+          siunit: 'Newton (N)',
+          process:"To find the Magnetic Force exerted(N), we need to know the charge flowing(q), speed of charges (v) and magnetic field strength(B) and the angle between velocity and magnetic field(θ).",
+          formula:"F = qvBsin(θ)",
+          dimension:"ML¹T⁻²",
+        },
     ]
 
   return (
