@@ -3,6 +3,7 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Helmet } from "react-helmet";
+// import Navbar from "../../Navbar/Navbar"
 
 const flux_calculator = ({ match }) => {
   const flux_data = [
@@ -48,6 +49,7 @@ const flux_calculator = ({ match }) => {
     }
     return (
       <>
+      {/* <Navbar/> */}
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Magnetic Field(B)</Form.Label>
