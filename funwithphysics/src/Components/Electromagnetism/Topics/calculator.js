@@ -4,7 +4,7 @@ import { Form, Card, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
+// import Navbar from "../../Navbar/Navbar"
 const calculator = ({ match }) => {
   //topics_data
   const Topics = [
@@ -280,6 +280,7 @@ const calculator = ({ match }) => {
       }
     }
     return(<>
+    {/* <Navbar/> */}
     <Form>
        {/* dropdown */}
        <Form.Group className="mb-4" controlId="choice">

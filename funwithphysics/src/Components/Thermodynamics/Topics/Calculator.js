@@ -3,6 +3,8 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../thermodynamics.css";
 import { Helmet } from "react-helmet";
+// import Navbar from "../../Navbar/Navbar"
+
 function Calculator({ match }) {
   // topics_data
   const Topics = [
@@ -773,7 +775,9 @@ function Calculator({ match }) {
   }
   return (
     <div className="Calculator__main">
+    {/* <Navbar/> */}
       <Helmet>
+
         <title>{details.topic}</title>
         <meta name="description" content="{details.details}" />
         <meta
@@ -781,6 +785,7 @@ function Calculator({ match }) {
           content="Thermodynamics, thermo, calculator, Thermodynamics calculator, thermo calculator, first law, second law, third law, entropy,efficiency,calculator, physics, Tech n science, technscience, tech and science"
         />
       </Helmet>
+
       <div className="Calculator__header">
         <h1>{details.topic}</h1>
       </div>
