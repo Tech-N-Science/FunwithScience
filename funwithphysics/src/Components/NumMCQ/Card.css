@@ -3,13 +3,24 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    /* overflow: hidden; */
   }
   /* .solve-question-btn {
     
   } */
+  .flex-column {
+    width: 100%;
+    color: pink;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
   
   .singlecard {
-    width: 400px;
+    width: 100%;
+    overflow: hidden;
   }
   .singlecard:hover {
     box-shadow: 3px 3px #888888;
@@ -23,8 +34,8 @@
     background-color: #4486f4;
   }
   .card-title {
-    height: 30px;
-    width: 600px;
+    /* height: 30px;
+    width: 600px; */
     padding: 0;
     overflow: hidden;
     position: relative;
@@ -38,10 +49,5 @@
   
   .card-text {
     padding: 10px 2px;
-  }
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
   

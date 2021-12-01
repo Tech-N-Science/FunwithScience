@@ -6,6 +6,7 @@ import { useState } from "react";
 const NumMCQ = () => {
   const cardref=useRef()
   const filterref=useRef()
+  const btnref=useRef()
   // questions_data
   const data = [
     {
@@ -111,9 +112,16 @@ const NumMCQ = () => {
   }
   function handlefilterclk(e)
   {
-    e.target.style.display="none";
-    cardref.current.style.display="none"
-    filterref.current.style.display="block"
+    btnref.current.className +=" filterbtnhide";
+    cardref.current.className +=" cardhide"
+    filterref.current.className += " filtershow"
+  }
+  function handlecross()
+  {
+    btnref.current.classList.toggle("filterbtnhide");
+    cardref.current.classList.toggle("cardhide")
+    filterref.current.classList.toggle("filtershow")
+
   }
   console.log(searchTerm);
   return (
@@ -148,12 +156,13 @@ const NumMCQ = () => {
                 </div>
               );
             })}
-            <button className="filter-btn" onClick={(e)=>handlefilterclk(e)}><i class="fas fa-filter"></i></button>
+            <button className="filter-btn" onClick={(e)=>handlefilterclk(e)} ref={btnref}>
+              <i class="fas fa-filter"></i></button>
         </div>
         <div className="filter-box" ref={filterref}>
           <div>
           <span>Apply filter :</span>
-          <span className="cancel"><i class="fas fa-times"></i></span>
+          <span className="cancel" onClick={handlecross}><i class="fas fa-times"></i></span>
           </div>
           <h5 className="heading">Type</h5>
           <label class="container">

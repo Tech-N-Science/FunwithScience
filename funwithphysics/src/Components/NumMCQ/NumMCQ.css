@@ -24,7 +24,7 @@
 .filter-box {
     position: relative;
     display: inline-block;
-    width:35%;
+    width:30%;
     margin-top: 1rem;
     height: 100%;
     margin-right: 1rem;
@@ -42,6 +42,7 @@
     border-radius: 5px;
 }
 .cancel{
+    display: none;
     cursor: pointer;
 }
 .filter-box > span {
@@ -76,7 +77,11 @@
 }
 @media(max-width:600px)
 {
+    .cancel{
+        display: block;
+    }
     .filter-box{
+        margin-left: 10px;
         width: 100%;
         display: none;
     }
@@ -85,5 +90,16 @@
     }
     .filter-btn{
         display: flex;
+    }
+    .filterbtnhide{
+        display: none;
+    }
+    .cardhide{
+        display: none;
+    }
+    .filtershow
+    {
+        width: 100%;
+        display: block;
     }
 }

@@ -77,30 +77,28 @@ const App = () => {
         <Route
           exact
           path="/classicalmechanics/calc/:topic"
+          component={CalcClassic}
         >
-            <Navbar/>
-            <CalcClassic/>
+            {/* <Navbar/> */}
+            {/* <CalcClassic/> */}
         </Route>
         <Route
           exact
           path="/thermodynamics/calc/:topic"
+          component={CalcThermo}
         >
-          <Navbar/>
-          <CalcThermo/>
         </Route>
         <Route
           exact
           path="/classicalmechanics/calc/gravitation/:topic"
+          component={GravitationCalculator}
         >
-          <Navbar/>
-          <GravitationCalculator/>
         </Route>
         <Route
           exact
           path="/classicalmechanics/calc/moment_of_inertia/:topic"
+          component={MOICalculator}
         >
-          <Navbar/>
-          <MOICalculator/>
         </Route>
         <Route
           exact
@@ -111,9 +109,8 @@ const App = () => {
         <Route
           exact
           path="/classicalmechanics/calc/work_power_energy/:topic"
+          component={WPECalculator}
         >
-          <Navbar/>
-          <WPECalculator/>
         </Route>
         <Route
           exact
@@ -131,9 +128,8 @@ const App = () => {
         <Route
           exact
           path="/electromagnetism/calc/:topic"
+          component={CalculatorElec}
         >
-          <Navbar/>
-          <CalculatorElec/>
         </Route>
 
         <Route
@@ -151,9 +147,8 @@ const App = () => {
         <Route
           exact
           path="/classicalmechanics/calc/fluid_mechanics/:topic"
+          component={FluidCalculator}
         >
-          <Navbar/>
-          <FluidCalculator/>
         </Route>
         <Route
           exact
@@ -165,9 +160,8 @@ const App = () => {
         <Route
           exact
           path="/electromagnetism/calc/:topic"
+          component={CalculatorElec}
         >
-          <Navbar/>
-          <CalculatorElec/>
         </Route>
 
         <Route
@@ -200,9 +194,8 @@ const App = () => {
         <Route
           exact
           path="/questions/:id"
+          component={Singlequestion}
         >
-          <Navbar/>
-          <Singlequestion/>
         </Route>
         
         <Redirect to="/" />

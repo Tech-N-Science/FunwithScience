@@ -5,8 +5,7 @@ import "../classicalMechanics.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-function Calculator({ match }) {
-  // topics_data
+function Calculator({match}){
   const Topics = [
     {
       topic: "Circular Motion",
