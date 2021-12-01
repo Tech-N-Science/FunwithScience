@@ -1,53 +1,52 @@
 .card-body {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    /* overflow: hidden; */
-  }
-  /* .solve-question-btn {
-    
-  } */
-  .flex-column {
-    width: 100%;
-    color: pink;
-    background-color: aqua;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+/* .solve-question-btn {
   
-  
-  .singlecard {
-    width: 100%;
-    overflow: hidden;
-  }
-  .singlecard:hover {
-    box-shadow: 3px 3px #888888;
-  }
-  .solve-question-btn {
-    background-color: #4486f4;
-  }
-  .solve-question-btn:hover {
-    box-shadow: 3px 3px #888888;
-    color: #fff;
-    background-color: #4486f4;
-  }
-  .card-title {
-    /* height: 30px;
-    width: 600px; */
-    padding: 0;
-    overflow: hidden;
-    position: relative;
-    margin: 0 5px 0 5px;
-    text-align: left;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: #000;
-  }
-  
-  .card-text {
-    padding: 10px 2px;
-  }
-  
+} */
+
+.singlecard {
+  width: 400px;
+  overflow: hidden
+}
+.singlecard:hover {
+  box-shadow: 3px 3px #888888;
+}
+.solve-question-btn {
+  background-color: #4486f4;
+}
+.solve-question-btn:hover {
+  box-shadow: 3px 3px #888888;
+  color: #fff;
+  background-color: #4486f4;
+}
+.card-title {
+  height: 30px;
+  width: 600px; 
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  margin: 0 5px 0 5px;
+  text-align: left;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #000;
+}
+
+.card-text {
+  padding: 10px 2px;
+}
+
+
+.flex-column {
+  width: 100%;
+  color: pink;
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
