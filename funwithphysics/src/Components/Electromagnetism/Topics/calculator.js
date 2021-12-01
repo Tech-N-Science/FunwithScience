@@ -452,7 +452,7 @@ const calculator = ({ match }) => {
       <Button variant="dark" onClick={() => reset()} type="reset">
         Reset
       </Button>
-    </>);
+    </>)}
 
   //Drift velocity
   const DriftVelocity=()=>{
@@ -762,6 +762,6 @@ const calculator = ({ match }) => {
       </>
     );
   }
-};}
+};
 
 export default calculator;
