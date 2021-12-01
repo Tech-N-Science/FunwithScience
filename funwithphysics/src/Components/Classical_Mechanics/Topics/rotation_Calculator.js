@@ -3,6 +3,7 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
+// import Navbar from "../../Navbar/Navbar"
 
 function rotation_Calculator({ match }) {
   // rotation_list

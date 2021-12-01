@@ -51,7 +51,15 @@ export default function Electromagnetism() {
       process:
         "To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
       formula: "ρ=RA/l",
-    },
+    },{
+      topic:"Self Inductance",
+      details:`When the coil's current or magnetic flux changes, an opposing induced electromotive force is created. Self Induction is the name given to this occurrence. When electricity begins to flow through the coil at any time, it is discovered that the magnetic flux becomes directly proportional to the current flowing through the circuit. `,
+      siunit: 'Henry (H)',
+      process:"To find the Self inductance of inductor(L), we need to know the the current flowing through the conductor(I), number of turns (N) and magnetic flux(Φ).",
+      formula:"L = NΦ/I",
+      dimension:"ML²T⁻²I²",
+  
+  },
   ];
 
   return (

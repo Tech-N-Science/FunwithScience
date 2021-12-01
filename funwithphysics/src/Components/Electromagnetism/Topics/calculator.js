@@ -4,7 +4,7 @@ import { Form, Card, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
+// import Navbar from "../../Navbar/Navbar"
 const calculator = ({ match }) => {
   //topics_data
   const Topics = [
@@ -41,14 +41,23 @@ const calculator = ({ match }) => {
 
   },
   {
-    topic:"Resistivity",
-    details:`By using the equation "ρ=RA/l", where ρ is resistivity, R is resistance, A is area and l is Length we can easily calculate the resistivity.`,
-    siunit:"ohm-meter",
+    topic: "Resistivity",
+    details: `By using the equation "ρ=RA/l", where ρ is resistivity, R is resistance, A is area and l is Length we can easily calculate the resistivity.`,
+    siunit: "ohm-meter",
     dimension: "ML³T⁻³I⁻²",
-    process:"To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
-    formula:"ρ=RA/l"
-
+    process:
+      "To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
+    formula: "ρ=RA/l",
   },
+  {
+    topic:"Self Inductance",
+    details:`When the coil's current or magnetic flux changes, an opposing induced electromotive force is created. Self Induction is the name given to this occurrence. When electricity begins to flow through the coil at any time, it is discovered that the magnetic flux becomes directly proportional to the current flowing through the circuit. `,
+    siunit: 'Henry (H)',
+    process:"To find the Self inductance of inductor(L), we need to know the the current flowing through the conductor(I), number of turns (N) and magnetic flux(Φ).",
+    formula:"L = NΦ/I",
+    dimension:"ML²T⁻²I²",
+
+},
   ];
   //Flux data
   const flux_data = [
@@ -344,112 +353,106 @@ const calculator = ({ match }) => {
       setChoice(e.target.value);
       setCurrent(null);
       setResistance(null);
-      setVoltage(null);
-    };
-    const choiceData = () => {
-      if (choice === "voltage")
-        return {
-          name: "Voltage (V)",
-          mainunit: "(V)",
-          quantities: ["Current", "Resistance"],
-          subunits: ["(A)", "(ohm)"],
-          getters: [current, resistance],
-          setters: [setCurrent, setResistance],
-        };
-      if (choice === "current")
-        return {
-          name: "Current (I)",
-          mainunit: "(A)",
-          quantities: ["Voltage", "Resistance"],
-          subunits: ["(V)", "(ohm)"],
-          getters: [voltage, resistance],
-          setters: [setVoltage, setResistance],
-        };
-      if (choice === "resistance")
-        return {
-          name: "Resistance (R)",
-          mainunit: "(ohm)",
-          quantities: ["Voltage", "Current"],
-          subunits: ["(V)", "(I)"],
-          getters: [voltage, current],
-          setters: [setVoltage, setCurrent],
-        };
-    };
-    return (
-      <>
-        <Form>
-          {/* dropdown */}
-          <Form.Group className="mb-4" controlId="choice">
-            <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control
-              as="select"
-              onChange={(e) => {
-                handleChange(e);
-              }}
-            >
-              <option value="voltage">Voltage (V)</option>
-              <option value="current">Current (I)</option>
-              <option value="resistance">Resistance (R)</option>
-            </Form.Control>
-          </Form.Group>
-          <Form.Group className="mb-4" controlId="text">
-            <Form.Text className="text">
-              <strong>
-                {" "}
-                To find the {choiceData().name}, Enter the following values
-              </strong>
-              <br />
-            </Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>{choiceData().quantities[0]}</Form.Label>
-            <Form.Control
-              onChange={(e) => choiceData().setters[0](e.target.value)}
-              type="number"
-              placeholder={"Enter in " + choiceData().subunits[0]}
-              value={
-                choiceData().getters[0] === null ? "" : choiceData().getters[0]
-              }
-            />
-          </Form.Group>
+      setVoltage(null)
+    }
+    const choiceData=()=>{
+      if(choice==="voltage")
+      return{
+        name:"Voltage (V)",
+        mainunit:"(V)",
+        quantities:["Current","Resistance"],
+        subunits:["(A)","(ohm)"],
+        getters:[current,resistance],
+        setters:[setCurrent,setResistance]
+      }
+      if(choice==="current")
+      return{
+        name:"Current (I)",
+        mainunit:"(A)",
+        quantities:["Voltage","Resistance"],
+        subunits:["(V)","(ohm)"],
+        getters:[voltage,resistance],
+        setters:[setVoltage,setResistance]
+      }
+      if(choice==="resistance")
+      return{
+        name:"Resistance (R)",
+        mainunit:"(ohm)",
+        quantities:["Voltage","Current"],
+        subunits:["(V)","(I)"],
+        getters:[voltage,current],
+        setters:[setVoltage,setCurrent]
+      }
+    }
+    return(<>
+    {/* <Navbar/> */}
+    <Form>
+       {/* dropdown */}
+       <Form.Group className="mb-4" controlId="choice">
+          <Form.Label>Select the type of calculation</Form.Label>
+          <Form.Control as="select" onChange={(e)=>{handleChange(e)}}>
+            <option value="voltage">Voltage (V)</option>
+            <option value="current">Current (I)</option>
+            <option value="resistance">Resistance (R)</option>
 
-          <Form.Group className="mb-4">
-            <Form.Label>{choiceData().quantities[1]}</Form.Label>
-            <Form.Control
-              onChange={(e) => choiceData().setters[1](e.target.value)}
-              type="number"
-              placeholder={
-                choiceData().subunits[1] === "NaN"
-                  ? "No Unit"
-                  : "Enter in " + choiceData().subunits[1]
-              }
-              value={
-                choiceData().getters[1] === null ? "" : choiceData().getters[1]
-              }
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Control
-              readOnly
-              type="number"
-              placeholder={
-                result === null
-                  ? "Result"
-                  : result + " " + choiceData().mainunit
-              }
-            />
-          </Form.Group>
-        </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
-      </>
-    );
-  };
+          </Form.Control>
+        </Form.Group>
+        <Form.Group className="mb-4" controlId="text">
+          <Form.Text className="text">
+            <strong>
+              {" "}
+              To find the {choiceData().name}, Enter the following values
+            </strong>
+            <br />
+          </Form.Text>
+        </Form.Group>
+        <Form.Group className="mb-4">
+          <Form.Label>{choiceData().quantities[0]}</Form.Label>
+          <Form.Control
+            onChange={(e) => choiceData().setters[0](e.target.value)}
+            type="number"
+            placeholder={"Enter in " + choiceData().subunits[0]}
+            value={
+              choiceData().getters[0] === null ? "" : choiceData().getters[0]
+            }
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-4">
+          <Form.Label>{choiceData().quantities[1]}</Form.Label>
+          <Form.Control
+            onChange={(e) => choiceData().setters[1](e.target.value)}
+            type="number"
+            placeholder={
+              choiceData().subunits[1] === "NaN"
+                ? "No Unit"
+                : "Enter in " + choiceData().subunits[1]
+            }
+            value={
+              choiceData().getters[1] === null ? "" : choiceData().getters[1]
+            }
+          />
+        </Form.Group>
+        <Form.Group className="mb-4">
+          <Form.Control
+            readOnly
+            type="number"
+            placeholder={
+              result === null
+                ? "Result"
+                : result + " " + choiceData().mainunit
+            }
+          />
+        </Form.Group>
+    </Form>
+    <Button variant="primary" onClick={calcResult}>
+        Calculate
+      </Button>
+      &nbsp;&nbsp;&nbsp;
+      <Button variant="dark" onClick={() => reset()} type="reset">
+        Reset
+      </Button>
+    </>);
 
   //Drift velocity
   const DriftVelocity=()=>{
@@ -687,6 +690,6 @@ const calculator = ({ match }) => {
       </>
     );
   }
-};
+};}
 
 export default calculator;
