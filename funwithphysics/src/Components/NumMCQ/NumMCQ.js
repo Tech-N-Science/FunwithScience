@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./NumMCQ.css";
 import Singlecard from "./Card";
 import { useState } from "react";
 
 const NumMCQ = () => {
+  const cardref=useRef()
+  const filterref=useRef()
+  const btnref=useRef()
   // questions_data
   const data = [
     {
@@ -95,29 +98,45 @@ const NumMCQ = () => {
       ],
     },
   ];
-
-  const [searchTerm, setsearchTerm] = useState("");
+  const [searchTerm, setsearchTerm] = useState([]);
 
   function handleClick(e) {
-    setsearchTerm(e.target.value);
+    if(e.target.checked === true)
+    { if(!searchTerm.includes(e.target.value.toLowerCase()))
+      setsearchTerm([...searchTerm,e.target.value.toLowerCase()]);
+    }
+    else{
+      setsearchTerm(searchTerm.filter(value => value !== e.target.value.toLowerCase()));
+      // setsearchTerm(searchTerm.filter((value)=>value !== e.target.value))
+    }
   }
+  function handlefilterclk(e)
+  {
+    btnref.current.className +=" filterbtnhide";
+    cardref.current.className +=" cardhide"
+    filterref.current.className += " filtershow"
+  }
+  function handlecross()
+  {
+    btnref.current.classList.toggle("filterbtnhide");
+    cardref.current.classList.toggle("cardhide")
+    filterref.current.classList.toggle("filtershow")
 
+  }
+  console.log(searchTerm);
   return (
     <div className="questions">
       <h1>Questions</h1>
       <div className="main-div">
-        <div className="card-container">
+        <div className="card-container" ref={cardref}>
           {data
             .filter((value) => {
-              if (searchTerm === "") {
+              if (searchTerm.length === 0) {
                 return value;
-              } else if (
-                value.type.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
+              } 
+              else if (searchTerm.includes(value.type.toLowerCase())){
                 return value;
-              } else if (
-                value.topic.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
+              } else if (searchTerm.includes(value.topic.toLowerCase())){
                 return value;
               }
               return false;
@@ -137,13 +156,19 @@ const NumMCQ = () => {
                 </div>
               );
             })}
+            <button className="filter-btn" onClick={(e)=>handlefilterclk(e)} ref={btnref}>
+              <i class="fas fa-filter"></i></button>
         </div>
-        <div className="filter-box">
+        <div className="filter-box" ref={filterref}>
+          <div>
           <span>Apply filter :</span>
+          <span className="cancel" onClick={handlecross}><i class="fas fa-times"></i></span>
+          </div>
+          <h5 className="heading">Type</h5>
           <label class="container">
             Numerical
             <input type="hidden" name="Numerical" value="false" />
-            <input
+            <input id="type1"
               type="checkbox"
               value="Numerical"
               onClick={(e) => handleClick(e)}
@@ -153,19 +178,51 @@ const NumMCQ = () => {
           <label class="container">
             Multiple Correct
             <input type="hidden" name="Multiple Correct" value="false" />
-            <input
+            <input id="type2"
               type="checkbox"
               value="Multiple Correct"
               onClick={(e) => handleClick(e)}
             />
             <span class="checkmark"></span>
           </label>
+          <h5 className="heading">Difficulty</h5>
           <label class="container">
-            Thermodynamics
+            Easy
+            <input type="hidden" name="Easy" value="false" />
+            <input
+              type="checkbox"
+              value="Easy"
+              onClick={(e) => handleClick(e)}
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            Medium
+            <input type="hidden" name="Medium" value="false" />
+            <input
+              type="checkbox"
+              value="Medium"
+              onClick={(e) => handleClick(e)}
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            Hard
+            <input type="hidden" name="Hard" value="false" />
+            <input
+              type="checkbox"
+              value="Hard"
+              onClick={(e) => handleClick(e)}
+            />
+            <span class="checkmark"></span>
+          </label>
+          <h5 className="heading">Topic</h5>
+          <label class="container">
+            Thermo-dynamics
             <input type="hidden" name="Thermodynamics" value="false" />
             <input
               type="checkbox"
-              value="Thermodynamics"
+              value="Thermo-dynamics"
               onClick={(e) => handleClick(e)}
             />
             <span class="checkmark"></span>
@@ -190,10 +247,10 @@ const NumMCQ = () => {
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Electromagnetism
+            Electro-magnetism
             <input
               type="checkbox"
-              value="Electromagnetism"
+              value="Electro-magnetism"
               onClick={(e) => handleClick(e)}
             />
             <span class="checkmark"></span>

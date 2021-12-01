@@ -1,10 +1,10 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./Calculator.css";
 import { Form, Card, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
+// import Navbar from "../../Navbar/Navbar"
 const calculator = ({ match }) => {
   //topics_data
   const Topics = [
@@ -15,16 +15,24 @@ const calculator = ({ match }) => {
     {
       topic:"Ohm's Law",
       details:`Ohm's law states that the voltage (V) between two points is directly proportional to the current (I) across that two points and the constant of proportionality is resistance (R) and the equation is given as "V=IR"`,
-      siunit:["Resistance  : Ohm", <br/>,"Current : (A)", <br/>,"Voltage : (V)"],
+      siunit:["Resistance  : Ohm", <br/>,"Current : (Ampere)", <br/>,"Voltage : (V)"],
       process:"To find the voltage (V), we need to know the the current between the two point and the resistance(R) across the points & To find the current(I) or the resistance(R) we can also find it using the ohm's law.",
       formula:"V=IR",
-      dimension:"",
+      dimension:"V = ML²T⁻²I⁻¹, R = ML²T⁻³I⁻²",
 
   },
   {
+    topic:"Drift Velocity",
+    details:`Subatomic particles, such as electrons, constantly move in random directions. When electrons are subjected to an electric field, they move randomly, but slowly in one direction, the direction of the applied electric field. Drift velocity is the net velocity at which these electrons drift.`,
+    siunit: 'm/s',
+    process:"To find the drift velocity (V), we need to know the the current flowing through the conductor(I), number of electrons(n), Area of cross-section of the conductor(A) and the charge of electron(q).",
+    formula:"V = I/nAq",
+    dimension:"M⁻¹T²I",
+
+},
+  {
     topic:"Electric Potential",
     details:"..."
-
   },
   {
     topic: "Electromotive Force (EMF)",
@@ -48,62 +56,127 @@ const calculator = ({ match }) => {
     siunit:"volt",
     dimension:"M L² T⁻³ I⁻¹",
     process:"To find the the electric potential for a point charge we need to know the charge (Q) and the distance (r), by putting these values in the formula we can easily find the electric potential."
+    
   },
   {
-    topic:"Ring",
-    formula:"V=kQ/√(R²+r²)",
-    details:`Electric potential due to a charged ring at a point P perpendicular to its axis is given by the equation "V=kQ/√(R²+r²)" where Q is the charge, R is the Radius, r is the distance of the charge ring from the point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for the charged ring we need to know the charge (Q), distance of the charge from the center (r) and the radius of the ring (R) where as the k is constant by putting these values in the formula we can easily find the electric potential."
-  
-  },
-  {
-    topic:"Disc",
-    details:`Electric potential due to a charged Disc at a point P perpendicular to its axis is given by the equation "V=kσ2π[√(R²+r²)-r]" where σ is the surface charge density, R is the radius, and r is the distance between the center of disc and point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²`,
-    formula:"V=kσ2π[√(R²+r²)-r]",
-    siunit:"volt",
-    process:"By putting the value of surface charge density (σ), Radius (R) and distance (r) in given equation we can easily find the electric potential for the disc, where as k is constant and it's value is 8.99*10⁹ N m²/C²",
-    dimension:"M L² T⁻³ I⁻¹"
-  },
-  {
-    topic:"Sphere",
-    details:["There are three condition for Sphere:",
-    <br />,
-    "1) If r > R, in this case electric potential due to the charged sphere is same as that of a point charge i.e, V = kQ/r",
-    <br />,
-    "2) If r = R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R",
-    <br />,
-    "3) If r < R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R³[(3R²/2)-(r²/2)]",
-    <br />,
+    topic:"Flux",
+    details:"..."
 
-    "where 'r' is the distance between the center of sphere and the point at which electric potential is produced and 'R' is the radius of sphere. ",
-  ],
-    formula:["Sphere (r > R)=> V=kQ/r",<br/>,"Sphere (r < R)=> V=kQ/R³[(3R²/2)-(r²/2)]"],
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for (r > R) the sphere we need to know the charge (Q) and the distance (r) where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C² "
   },
   {
-    topic:"Shell",
-    formula:["Shell (r > R)=> V=kQ/r",<br/>,"Shell (r < R)=> V=kQ/R"],
-    details:[
-      "There are three condition for Shell:",
-      <br />,
-      "1) If r > R, in this case electric potential produced is same as that of a point charge i.e, V = kQ/r",
-      <br />,
-      "2) If r = R, in this case electric potential produced is given by the formula V = kQ/R",
-      <br />,
-      "3) If r < R, in this case electric potential produced is given by the formula V = kQ/R",
-      <br />,
+    topic: "Resistivity",
+    details: `Electrical resistance of a conductor with a unit cross-sectional area and length. Resistivity, a material attribute, is useful in comparing different materials based on their capacity to conduct electric currents. Poor conductors have high resistance.`,
+    siunit: "ohm-meter",
+    dimension: "ML³T⁻³I⁻²",
+    process:
+      "To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
+    formula: "ρ=RA/l",
+  },
+  {
+    topic:"Self Inductance",
+    details:`When the coil's current or magnetic flux changes, an opposing induced electromotive force is created. Self Induction is the name given to this occurrence. When electricity begins to flow through the coil at any time, it is discovered that the magnetic flux becomes directly proportional to the current flowing through the circuit. `,
+    siunit: 'Henry (H)',
+    process:"To find the Self inductance of inductor(L), we need to know the the current flowing through the conductor(I), number of turns (N) and magnetic flux(Φ).",
+    formula:"L = NΦ/I",
+    dimension:"ML²T⁻²I²",
 
-      "where 'r' is the distance between the center of shell and the point at which electric potential is produced and 'R' is the radius of shell. ",
-    ],
-    siunit:"volt",
-    dimension:"M L² T⁻³ I⁻¹",
-    process:"To find the electric potential for the Outside the shell we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²."
-  }
-]
+},
+  ];
+  //Flux data
+  const flux_data = [
+    {
+      topic: "Electric Flux",
+      formula: "ΦE=E.S.cosθ",
+      siunit: "volt metres (V m)",
+      dimension: "[M L³ T⁻³ I⁻¹]",
+      process:
+        "To find the electric flux, we need to know the electric field (E), area of the surface (S) and angle (θ) between the electric field lines and the normal to S.",
+      details: `Electric Flux is defined as "ΦE=E.S.cosθ", where ΦE denotes the electric flux, E denotes the electric field, S denotes the surface area, and θ is the angle between the electric field lines and the normal (perpendicular) to S. `,
+    },
+    {
+      topic: "Magnetic Flux",
+      formula: "ΦB=B.A.cosθ",
+      siunit: "volt–seconds or weber",
+      dimension: "[M L² T⁻² I⁻¹]",
+      process:
+        "To find the magnetic flux we need to know the magnetic field (B), area (A)and the angle (θ).",
+      details: `Magnetic Flux is given by the equation "ΦB=B.A.cosθ", where ΦB is the magnetic flux, B is the magnetic field, A is area and θ is the angle between the perpendicular vector to the area and magnetic field.`,
+    },
+  ];
+  //electricpotential_data
+  const electricpotential_data = [
+    {
+      topic: "Point Charge",
+      details: `Electric Potential due to a point charge (Q) at a point P is given by the equation "V=kQ/r", where V is the electric potential and Q is the charge, r is the distance from the charge to the point P,  where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
+      formula: "V=kQ/r",
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the the electric potential for a point charge we need to know the charge (Q) and the distance (r), by putting these values in the formula we can easily find the electric potential.",
+    },
+    {
+      topic: "Ring",
+      formula: "V=kQ/√(R²+r²)",
+      details: `Electric potential due to a charged ring at a point P perpendicular to its axis is given by the equation "V=kQ/√(R²+r²)" where Q is the charge, R is the Radius, r is the distance of the charge ring from the point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C²`,
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the electric potential for the charged ring we need to know the charge (Q), distance of the charge from the center (r) and the radius of the ring (R) where as the k is constant by putting these values in the formula we can easily find the electric potential.",
+    },
+    {
+      topic: "Disc",
+      details: `Electric potential due to a charged Disc at a point P perpendicular to its axis is given by the equation "V=kσ2π[√(R²+r²)-r]" where σ is the surface charge density, R is the radius, and r is the distance between the center of disc and point P where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C²`,
+      formula: "V=kσ2π[√(R²+r²)-r]",
+      siunit: "volt",
+      process:
+        "By putting the value of surface charge density (σ), Radius (R) and distance (r) in given equation we can easily find the electric potential for the disc, where as k is constant and it's value is 8.99*10⁹ N m²/C²",
+      dimension: "M L² T⁻³ I⁻¹",
+    },
+    {
+      topic: "Sphere",
+      details: [
+        "There are three condition for Sphere:",
+        <br />,
+        "1) If r > R, in this case electric potential due to the charged sphere is same as that of a point charge i.e, V = kQ/r",
+        <br />,
+        "2) If r = R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R",
+        <br />,
+        "3) If r < R, in this case electric potential due to the charged sphere is given by the formula V = kQ/R³[(3R²/2)-(r²/2)]",
+        <br />,
+
+        "where 'r' is the distance between the center of sphere and the point at which electric potential is produced and 'R' is the radius of sphere. ",
+      ],
+      formula: [
+        "Sphere (r > R)=> V=kQ/r",
+        <br />,
+        "Sphere (r < R)=> V=kQ/R³[(3R²/2)-(r²/2)]",
+      ],
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the electric potential for (r > R) the sphere we need to know the charge (Q) and the distance (r) where as k is (1/4πε₀) which is constant and it's value is 8.99*10⁹ N m²/C² ",
+    },
+    {
+      topic: "Shell",
+      formula: ["Shell (r > R)=> V=kQ/r", <br />, "Shell (r < R)=> V=kQ/R"],
+      details: [
+        "There are three condition for Shell:",
+        <br />,
+        "1) If r > R, in this case electric potential produced is same as that of a point charge i.e, V = kQ/r",
+        <br />,
+        "2) If r = R, in this case electric potential produced is given by the formula V = kQ/R",
+        <br />,
+        "3) If r < R, in this case electric potential produced is given by the formula V = kQ/R",
+        <br />,
+
+        "where 'r' is the distance between the center of shell and the point at which electric potential is produced and 'R' is the radius of shell. ",
+      ],
+      siunit: "volt",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the electric potential for the Outside the shell we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C².",
+    },
+  ];
 
   //electricfield_data
   const electricfield_data = [
@@ -189,38 +262,116 @@ const calculator = ({ match }) => {
   ]
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
+  //Resistivity Calculator
+  const ResistivityCalculator=()=>{
+    const [resistance, setResistance] = useState(null);
+    const [length, setLength] = useState(null);
+    const [area, setArea] = useState(null);
+    const [result, setResult] = useState(null);
 
+    const calcResult =()=>{
+      let res;
+      res=resistance*area/length;
+      setResult(res)
+    }
+    const reset =()=>{
+      setResistance(null)
+      setLength(null)
+      setArea(null)
+      setResult(null)
+    }
+    return(<>
+    <Form>
+    <Form.Group className="mb-4">
+            <Form.Label>Resistance (R)</Form.Label>
+            <Form.Control
+              onChange={(e) => setResistance(e.target.value)}
+              type="number"
+              placeholder=
+                "Enter in ohm (Ω)"
+              
+              value={
+                resistance === null ? "" : resistance
+              }
+            />
+          </Form.Group>
+    <Form.Group className="mb-4">
+            <Form.Label>Area (A)</Form.Label>
+            <Form.Control
+              onChange={(e) => setArea(e.target.value)}
+              type="number"
+              placeholder=
+                "Enter in (m²)"
+              
+              value={
+                area === null ? "" : area
+              }
+            />
+          </Form.Group>
+    <Form.Group className="mb-4">
+            <Form.Label>Length (l)</Form.Label>
+            <Form.Control
+              onChange={(e) => setLength(e.target.value)}
+              type="number"
+              placeholder=
+                "Enter in (m)"
+              
+              value={
+                length === null ? "" : length
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " (Ω⋅m)"
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+    </>)
+  }
 
   //Ohm's Law
-  const OhmCalculator=()=>{
+  const OhmCalculator = () => {
     const [choice, setChoice] = useState("voltage");
     const [voltage, setVoltage] = useState(null);
     const [current, setCurrent] = useState(null);
     const [resistance, setResistance] = useState(null);
     const [result, setResult] = useState(null);
 
-    const calcResult=()=>{
+    const calcResult = () => {
       let res;
-      if(choice==="voltage"){
-        res=current * resistance;
+      if (choice === "voltage") {
+        res = current * resistance;
       }
-      if(choice==="current"){
-        res=voltage / resistance;
+      if (choice === "current") {
+        res = voltage / resistance;
       }
-      if(choice==="resistance"){
-        res=voltage / current;
+      if (choice === "resistance") {
+        res = voltage / current;
       }
-      setResult(res)
+      setResult(res);
+    };
+    const reset = () => {
+      setCurrent(null);
+      setVoltage(null);
+      setResistance(null);
+      setResult(null);
+    };
 
-    }
-    const reset =()=>{
-      setCurrent(null)
-      setVoltage(null)
-      setResistance(null)
-      setResult(null)
-    }
-
-    const handleChange=(e)=>{
+    const handleChange = (e) => {
       setChoice(e.target.value);
       setCurrent(null);
       setResistance(null);
@@ -256,6 +407,7 @@ const calculator = ({ match }) => {
       }
     }
     return(<>
+    {/* <Navbar/> */}
     <Form>
        {/* dropdown */}
        <Form.Group className="mb-4" controlId="choice">
@@ -322,17 +474,175 @@ const calculator = ({ match }) => {
       <Button variant="dark" onClick={() => reset()} type="reset">
         Reset
       </Button>
-    </>)
+
+    </>);
+};
+
+  //Drift velocity
+  const DriftVelocity=()=>{
+    const [area, setArea] = useState(null);
+    const [current, setCurrent] = useState(null);
+    const [number, setNumber] = useState(null);
+    const [charge, setCharge] = useState(null);
+    const [result, setResult] = useState(null);
+
+    const reset=()=>{
+      setCurrent(null)
+      setNumber(null)
+      setCharge(null)
+      setResult(null)
+      setArea(null)
+    }
+    const calcResult=()=>{
+      let res;
+      res=current/(number*area*charge);
+      setResult(res);
+    }
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Current (I)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCurrent(e.target.value)}
+              type="number"
+              placeholder={"Enter in Ampere"}
+              value={current === null ? "" : current}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Area (A)</Form.Label>
+            <Form.Control
+              onChange={(e) => setArea(e.target.value)}
+              type="number"
+              placeholder={"Enter in (m²)"}
+              value={area === null ? "" : area}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Number of electrons (n)</Form.Label>
+            <Form.Control
+              onChange={(e) => setNumber(e.target.value)}
+              type="number"
+              placeholder={"Enter number of electrons"}
+              value={number === null ? "" : number}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Charge (q)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCharge(e.target.value)}
+              type="number"
+              placeholder={"Enter in coulomb"}
+              value={charge === null ? "" : charge}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " m/s²"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
   };
+
+  //Self inductance
+  const SelfInductance=()=>{
+    const [current, setCurrent] = useState(null);
+    const [number, setNumber] = useState(null);
+    const [flux, setFlux] = useState(null);
+    const [result, setResult] = useState(null);
+
+    const reset=()=>{
+      setCurrent(null)
+      setNumber(null)
+      setFlux(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      res=number*flux/current;
+      setResult(res);
+    }
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Number of turns(N)</Form.Label>
+            <Form.Control
+              onChange={(e) => setNumber(e.target.value)}
+              type="number"
+              placeholder={"Enter number of turns"}
+              value={number === null ? "" : number}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Magnetic fux(Φ)</Form.Label>
+            <Form.Control
+              onChange={(e) => setFlux(e.target.value)}
+              type="number"
+              placeholder={"Enter in weber"}
+              value={flux === null ? "" : flux}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Current(I)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCurrent(e.target.value)}
+              type="number"
+              placeholder={"Enter in ampere"}
+              value={current === null ? "" : current}
+            />
+          </Form.Group>
+          
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " Henry"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
+
   const calC=(key)=>{
     let currentCall;
-    switch(key){
+    switch (key) {
       case "Ohm's Law":
-        currentCall=OhmCalculator()
+        currentCall = OhmCalculator();
+        break;
+      case "Resistivity":
+        currentCall = ResistivityCalculator();
+        break;
+      case "Drift Velocity":
+        currentCall=DriftVelocity()
         break;
         case "Electromotive Force (EMF)":
         currentCall=EmfCalculator()
         break;
+        case "Self Inductance":
+          currentCall=SelfInductance()
+          break;
       default:
         break;
     }
@@ -344,7 +654,7 @@ const calculator = ({ match }) => {
     const [current, setCurrent] = useState(null);
     const [resistance, setResistance] = useState(null);
     const [result, setResult] = useState(null);
-
+  }
     const reset =()=>{
       setCurrent(null)
       setVoltage(null)
@@ -410,6 +720,7 @@ const calculator = ({ match }) => {
       </>
     );
    };
+
   //Electric field
   if (details.topic === "Electric Field") {
     return (
@@ -476,8 +787,41 @@ const calculator = ({ match }) => {
           ))}
         </div>
       </div>
-    )}
-   else {
+      );
+  } else if (details.topic === "Flux") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Flux</h1>
+        </div>
+        <div className="mech__topics-card">
+          {flux_data.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Link
+                to={`/electromagnetism/calc/Flux/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  } else {
     return (
       <>
         <div className="Calculator__main">
