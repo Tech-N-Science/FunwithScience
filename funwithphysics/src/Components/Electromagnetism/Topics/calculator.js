@@ -80,6 +80,14 @@ const calculator = ({ match }) => {
       "To find the Time period (T) we need to know the magnetic field (B), the mass of the particle(m) and the charge of the particle(q). ",
 
 },
+ {
+   topic:"Power Factor",
+   details: "Power factor may be defined as the ratio of the true power to apparent power of an a.c. circuit.",
+   siunit: "Unitless",
+   process:"To find the Power Factor of an a.c. circuit, we need to know the resistance (R), and impedance of the circuit (Z).",
+   formula:"cosϕ = R/Z",
+   dimension:"Dimensionless",       
+},
 
   ];
   //Flux data
@@ -835,6 +843,82 @@ const Timeperiod = () => {
       </>
     );
    };
+   // power factor
+   const Power_factorCalculator=()=>{
+    const [resistance, setResistance] = useState(null);
+    const [inductance, setInductance] = useState(null);
+    const [capacitive, setCapacitive] = useState(null);
+    const [result, setResult] = useState(null);
+  
+    const reset =()=>{
+      setResistance(null)
+      setInductance(null)
+      setCapacitive(null)
+      setResult(null)
+    }
+
+    const calcResult=()=>{
+      let res;
+      let r = Math.pow(resistance,2);
+      let i = Math.pow(inductance - capacitive, 2);
+      let sum = parseInt(r) + parseInt(i);
+      let impedance = Math.sqrt(sum);
+      res = resistance / impedance;
+        setResult(res);
+      }
+    return(<>
+    <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Resistance(R)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setResistance(e.target.value);
+              }}
+              placeholder="Enter the resistance of the circuit"
+              value={ resistance === null ? "" : resistance}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Inductive reactance (XL)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setInductance(e.target.value);
+              }}
+              placeholder="Enter Inductive reactance"
+              value={inductance === null ? "" : inductance}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Capacitive reactance (Xc)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setCapacitive(e.target.value);
+              }}
+              placeholder="Enter Inductive reactance"
+              value={capacitive === null ? "" : capacitive}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result}`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+   };
 
   const calC=(key)=>{
     let currentCall;
@@ -857,7 +941,9 @@ const Timeperiod = () => {
       case "Time period":
         currentCall= Timeperiod()
         break;
-            
+     case "Power Factor":
+        currentCall=Power_factorCalculator()
+        break;  
       default:
         break;
     }
