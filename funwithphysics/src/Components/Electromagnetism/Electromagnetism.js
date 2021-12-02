@@ -117,6 +117,10 @@ export default function Electromagnetism() {
       formula: "F = qvBsin(θ)",
       dimension: "ML¹T⁻²",
     },
+    {
+      topic: "Magnetic field",
+      details: "....",
+    },
   ];
 
   return (
