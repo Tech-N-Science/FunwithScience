@@ -100,6 +100,15 @@ const calculator = ({ match }) => {
       process:
         "To find the Time period (T) we need to know the magnetic field (B), the mass of the particle(m) and the charge of the particle(q). ",
     },
+    {
+      topic: "Magnetic Force",
+      details: `Magnetic fields exert forces on moving charges, and so they exert forces on other magnets, all of which have moving charges. The direction of the force on a moving charge is given by right hand rule 1 (RHR-1): Point the thumb of the right hand in the direction of v, the fingers in the direction of B, and a perpendicular to the palm points in the direction of F. The force is perpendicular to the plane formed by v and B. Since the force is zero if v is parallel to B, charged particles often follow magnetic field lines rather than cross them. `,
+      siunit: "Newton (N)",
+      process:
+        "To find the Magnetic Force exerted(N), we need to know the charge flowing(q), speed of charges (v) and magnetic field strength(B) and the angle between velocity and magnetic field(θ).",
+      formula: "F = qvBsin(θ)",
+      dimension: "ML¹T⁻²",
+    },
   ];
   //Flux data
   const flux_data = [
@@ -988,6 +997,84 @@ const calculator = ({ match }) => {
     );
   };
 
+  // Magnetic Force
+  const MagneticForce = () => {
+    const [charge, setCharge] = useState(null);
+    const [speed, setSpeed] = useState(null);
+    const [magneticfield, setMagneticfield] = useState(null);
+    const [theta, setTheta] = useState(null);
+    const [result, setResult] = useState(null);
+
+    const reset = () => {
+      setCharge(null);
+      setSpeed(null);
+      setMagneticfield(null);
+      setTheta(null);
+      setResult(null);
+    };
+    const calcResult = () => {
+      let res;
+      res = charge * speed * magneticfield * Math.sin(theta * (Math.PI / 180));
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Charge (q)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCharge(e.target.value)}
+              type="number"
+              placeholder={"Enter in coulomb"}
+              value={charge === null ? "" : charge}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Speed (v)</Form.Label>
+            <Form.Control
+              onChange={(e) => setSpeed(e.target.value)}
+              type="number"
+              placeholder={"Enter in m/s"}
+              value={speed === null ? "" : speed}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Magnetic field (B)</Form.Label>
+            <Form.Control
+              onChange={(e) => setMagneticfield(e.target.value)}
+              type="number"
+              placeholder={"Enter in tesla"}
+              value={magneticfield === null ? "" : magneticfield}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Theta (θ)</Form.Label>
+            <Form.Control
+              onChange={(e) => setTheta(e.target.value)}
+              type="number"
+              placeholder={"Enter in degrees"}
+              value={theta === null ? "" : theta}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " Newtons"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
   const calC = (key) => {
     let currentCall;
     switch (key) {
@@ -1014,6 +1101,9 @@ const calculator = ({ match }) => {
         break;
       case "Energy Density Of Inductor":
         currentCall = EnergyOfInductor();
+        break;
+      case "Magnetic Force":
+        currentCall = MagneticForce();
         break;
       default:
         break;
