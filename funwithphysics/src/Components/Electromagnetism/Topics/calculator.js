@@ -117,6 +117,10 @@ const calculator = ({ match }) => {
       formula: "F = qvBsin(θ)",
       dimension: "ML¹T⁻²",
     },
+    {
+      topic: "Magnetic field",
+      details: "....",
+    },
   ];
   //Flux data
   const flux_data = [
@@ -213,7 +217,20 @@ const calculator = ({ match }) => {
         "To find the electric potential for the Outside the shell we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C².",
     },
   ];
-
+//magneticfield_data
+  const magneticfield_data = [
+    {
+      topic: "Infinite Sheet",
+      details:
+        "The magnetic field (B) produced due to current sheet due to a charge density(J) is μ₀J₀/2.",
+      formula: "B= μ₀*J₀/2",
+      siunit: "Tesla",
+      dimension: " ",
+      process:
+        "To find the magnetic field for a infinite sheet  we need to know the current density (J₀). ",
+    },
+    
+  ];
   //electricfield_data
   const electricfield_data = [
     {
@@ -1231,7 +1248,41 @@ const calculator = ({ match }) => {
         </div>
       </div>
     );
-  } else if (details.topic === "Electric Potential") {
+  } else if (details.topic === "Magnetic field") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Magnetic field</h1>
+        </div>
+        <div className="mech__topics-card">
+          {magneticfield_data.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Link
+                to={`/electromagnetism/calc/magnetic_field/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+ }
+  else if (details.topic === "Electric Potential") {
     return (
       <div className="mech__main">
         <div className="mech__header">
