@@ -8,6 +8,15 @@ const calculator = ({ match }) => {
   //topics_data
   const Topics = [
     {
+      topic: "Coulomb's law",
+      details: `The quantity of electric force between two point charges q1 and q2 is proportional to the product of the charges' magnitudes; this electric force is known as electrostatic force or coulomb force. using the formula F=k[(q1*q2)/r2], where F is the electric force, q1 and q2 are the charges, and r is the separation distance.`,
+      formula: "F=k[(q1*q2)/r²]",
+      process:
+        "To find the force between these charges we need to know the q1 and q2 charges and distance of separation (r), where k is constant and it's value is 8.99 × 10⁹ N m²/C².",
+      siunit: "(N)",
+      dimension: "[M¹L¹T⁻²]",
+    },
+    {
       topic: "Electric Field",
       details: "....",
     },
@@ -102,12 +111,16 @@ const calculator = ({ match }) => {
     },
     {
       topic: "Magnetic Force",
-      details: `Magnetic fields exert forces on moving charges, and so they exert forces on other magnets, all of which have moving charges. The direction of the force on a moving charge is given by right hand rule 1 (RHR-1): Point the thumb of the right hand in the direction of v, the fingers in the direction of B, and a perpendicular to the palm points in the direction of F. The force is perpendicular to the plane formed by v and B. Since the force is zero if v is parallel to B, charged particles often follow magnetic field lines rather than cross them. `,
+      details: `Moving charges exert forces on magnetic fields, which in turn impose pressures on other magnets with moving charges. Right hand rule 1 (RHR-1) determines the direction of force on a moving charge: The right hand's thumb should point in the direction of v, the fingers should point in the direction of B, and a perpendicular to the palm should point in the direction of F. The force is parallel to the plane created by v and B. Charged particles frequently follow magnetic field lines rather than crossing them because the force is zero when v is parallel to B. `,
       siunit: "Newton (N)",
       process:
-        "To find the Magnetic Force exerted(N), we need to know the charge flowing(q), speed of charges (v) and magnetic field strength(B) and the angle between velocity and magnetic field(θ).",
+        "To find the Magnetic Force exerted(F), we need to know the charge flowing(q), speed of charges (v) and magnetic field strength(B) and the angle between velocity and magnetic field(θ).",
       formula: "F = qvBsin(θ)",
       dimension: "ML¹T⁻²",
+    },
+    {
+      topic: "Magnetic field",
+      details: "....",
     },
   ];
   //Flux data
@@ -205,7 +218,19 @@ const calculator = ({ match }) => {
         "To find the electric potential for the Outside the shell we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C².",
     },
   ];
-
+  //magneticfield_data
+  const magneticfield_data = [
+    {
+      topic: "Infinite Sheet",
+      details:
+        "Consider an infinite vertical sheet carrying current out of the page. The sheet has a uniform current per unit length J₀. The magnetic field (B) produced due to current sheet due to a charge density(J₀) can be calculated using Ampere's Law. So the magnetic field produced is μ₀J₀/2.",
+      formula: "B= μ₀*J₀/2",
+      siunit: "Tesla",
+      dimension: "MT⁻²I⁻¹ ",
+      process:
+        "To find the magnetic field(B) for a infinite sheet  we need to know the current density (J₀) and then applying Ampere's Law we can determine the magnetic field. ",
+    },
+  ];
   //electricfield_data
   const electricfield_data = [
     {
@@ -291,6 +316,83 @@ const calculator = ({ match }) => {
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
+
+  //Coulomb's law Calculator
+  const CoulombCalculator = () => {
+    const [charge1, setCharge1] = useState(null);
+    const [charge2, setCharge2] = useState(null);
+    const [distance, setDistance] = useState(null);
+    const [result, setResult] = useState(null);
+    const k = 8.99 * Math.pow(10, 9);
+    const reset = () => {
+      setCharge1(null);
+      setCharge2(null);
+      setDistance(null);
+      setResult(null);
+    };
+    const calcResult = () => {
+      let res;
+      let r1 = (charge1 * charge2) / (distance * distance);
+      res = k * r1;
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Charge 1 (q1)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCharge1(e.target.value)}
+              type="number"
+              placeholder="Enter in coulomb"
+              value={charge1 === null ? "" : charge1}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Charge 2 (q2)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCharge2(e.target.value)}
+              type="number"
+              placeholder="Enter in coulomb"
+              value={charge2 === null ? "" : charge2}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Distance of separation (r)</Form.Label>
+            <Form.Control
+              onChange={(e) => setDistance(e.target.value)}
+              type="number"
+              placeholder="Enter in (m)"
+              value={distance === null ? "" : distance}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Coulomb constant(k)</Form.Label>
+            <Form.Control
+              // type="number"
+              readOnly
+              placeholder={"8.99 * 10⁹ N m²/C²"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " (N)"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
   //Resistivity Calculator
   const ResistivityCalculator = () => {
     const [resistance, setResistance] = useState(null);
@@ -891,11 +993,11 @@ const calculator = ({ match }) => {
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Magnetic Permeability(μ)</Form.Label>
+            <Form.Label>Magnetic Permeability(μ₀)</Form.Label>
             <Form.Control
               className="permeability"
               readOnly={true}
-              placeholder={"4π*10⁻⁷"}
+              placeholder={"4π*10⁻⁷ Henry/m"}
             />
           </Form.Group>
 
@@ -1078,6 +1180,9 @@ const calculator = ({ match }) => {
   const calC = (key) => {
     let currentCall;
     switch (key) {
+      case "Coulomb's law":
+        currentCall = CoulombCalculator();
+        break;
       case "Ohm's Law":
         currentCall = OhmCalculator();
         break;
@@ -1123,6 +1228,39 @@ const calculator = ({ match }) => {
             <React.Fragment key={data.topic}>
               <Link
                 to={`/electromagnetism/calc/electric_field/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  } else if (details.topic === "Magnetic field") {
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Magnetic field</h1>
+        </div>
+        <div className="mech__topics-card">
+          {magneticfield_data.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Link
+                to={`/electromagnetism/calc/magnetic_field/${data.topic}`}
                 style={{ textDecoration: "none" }}
               >
                 <Card
