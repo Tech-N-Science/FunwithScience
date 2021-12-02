@@ -345,6 +345,14 @@ function Calculator({ match }) {
       siunit: " Joule",
       dimension: "U = M¹ L² T⁻²",
     },
+    {
+      topic: "Escape Velocity",
+      details: "Escape velocity is the minimum velocity required by a body to be projected to overcome the gravitational pull of the earth.",
+      formula: "V = √2GM/R",
+      process: "It is the minimum velocity required by an object to escape the gravitational field that is, escape the land without ever falling back. An object that has this velocity at the earth’s surface will totally escape the earth’s gravitational field ignoring the losses due to the atmosphere.",
+      siunit: "m/s",
+      dimension: "L T⁻¹",
+    },
   ];
 
   // MOI_list
