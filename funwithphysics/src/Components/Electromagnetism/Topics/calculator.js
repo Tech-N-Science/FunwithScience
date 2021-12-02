@@ -62,12 +62,13 @@ const calculator = ({ match }) => {
       dimension: "ML²T⁻²I²",
     },
     {
-      topic:"Energy Density Of Inductor",
-      details:`The energy stored in a magnetic field is equal to the work needed to produce a current through the inductor.Energy density is the energy per unit volume stored in the magnetic field when an electric current flows in an inductor `,
-      siunit: 'joules per cubic metre',
-      process:"To find the energy density of inductor, we need to know the value of magnetic field that is generated when current(I) flows throw an inductor with inductance(L).",
-      formula:"B²/2u",
-      dimension:"ML⁻¹T⁻²",
+      topic: "Energy Density Of Inductor",
+      details: `The effort required to create a current via an inductor is equal to the energy stored in a magnetic field. When an electric current travels through an inductor, the energy density is the amount of energy stored per unit volume in the magnetic field. `,
+      siunit: "joules per cubic metre",
+      process:
+        "To find the energy density of inductor, we need to know the value of magnetic field that is generated when current(I) flows throw an inductor with inductance(L).",
+      formula: "B²/2μ₀",
+      dimension: "ML⁻¹T⁻²",
     },
     {
       topic: "Power Factor",
@@ -850,22 +851,24 @@ const calculator = ({ match }) => {
       </>
     );
   };
+
   // EnergyOfInductor
-  const EnergyOfInductor=()=>{
+  const EnergyOfInductor = () => {
     const [magneticfeild, setmagneticfeild] = useState(null);
     // const [Permeability, setPermeability] = useState(null);
     const [result, setResult] = useState(null);
-  
-    const reset=()=>{
-      setmagneticfeild(null)
+
+    const reset = () => {
+      setmagneticfeild(null);
       // setPermeability(null)
-      setResult(null)
-    }
-    const calcResult=()=>{
+      setResult(null);
+    };
+    const calcResult = () => {
       let res;
-      res=(magneticfeild*magneticfeild)/(2*0.000001256);
+      res =
+        (magneticfeild * magneticfeild) / (2 * 4 * Math.PI * Math.pow(10, -7));
       setResult(res);
-    }
+    };
     return (
       <>
         <Form>
@@ -880,17 +883,20 @@ const calculator = ({ match }) => {
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Label>Magnetic Permeability(μ)</Form.Label>
-            <Form.Control className="permeability"
+            <Form.Control
+              className="permeability"
               readOnly={true}
               placeholder={"4π*10⁻⁷"}
             />
           </Form.Group>
-          
+
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " joules per cubic metre"}
+              placeholder={
+                result === null ? "Result" : result + " joules per cubic metre"
+              }
             />
           </Form.Group>
         </Form>
@@ -1007,7 +1013,7 @@ const calculator = ({ match }) => {
         currentCall = Power_factorCalculator();
         break;
       case "Energy Density Of Inductor":
-        currentCall=EnergyOfInductor()
+        currentCall = EnergyOfInductor();
         break;
       default:
         break;
