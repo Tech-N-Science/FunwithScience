@@ -8,6 +8,14 @@ export default function Electromagnetism() {
   //topics_data
   const Topics = [
     {
+      topic:"Coulomb's law",
+      details:`The amount of electric force between two point charges q1 and q2 is directly proportional to the product of the magnitudes of charges, that electric force is called electrostatic force or coulomb force. by using equation "F=k[(q1*q2)/r²]" where F is the electric force, q1 and q2 are the charges and r is the distance of separation`,
+      formula:"F=k[(q1*q2)/r²]",
+      process:"To find the force between these charges we need to know the q1 and q2 charges and distance of separation (V) put these values in formula. where k is constant and it's value is 8.99 × 10^9 N m²/C².",
+      siunit:"(N)",
+      dimension:"[M¹L¹T⁻²]"
+    },
+    {
       topic: "Electric Field",
       details: "....",
     },
