@@ -17,6 +17,7 @@
 }
 .solve-question-btn {
   background-color: #4486f4;
+  /* margin-right: 1px; */
 }
 .solve-question-btn:hover {
   box-shadow: 3px 3px #888888;
@@ -35,7 +36,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #000;
-  /* background-color: #4486f4; */
 }
 
 .card-text {
@@ -45,8 +45,8 @@
 
 .flex-column {
   width: 100%;
-  color: pink;
-  background-color: aqua;
+  /* color: pink; */
+  /* background-color: aqua; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -56,5 +56,12 @@
 {
   .card-title{
     width: 200px;
+  }
+  .solve-question-btn{
+    width: 100px;
+    font-size: 12px;
+  }
+  .card-body{
+    justify-content: space-around;
   }
 }

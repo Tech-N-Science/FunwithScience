@@ -58,6 +58,14 @@ const calculator = ({ match }) => {
     dimension:"ML²T⁻²I²",
 
 },
+{
+  topic:"Energy Density Of Inductor",
+  details:`The energy stored in a magnetic field is equal to the work needed to produce a current through the inductor.Energy density is the energy per unit volume stored in the magnetic field when an electric current flows in an inductor `,
+  siunit: 'joules per cubic metre',
+  process:"To find the energy density of inductor, we need to know the value of magnetic field that is generated when current(I) flows throw an inductor with inductance(L).",
+  formula:"B²/2u",
+  dimension:"ML⁻¹T⁻²",
+}
   ];
   //Flux data
   const flux_data = [
@@ -599,7 +607,60 @@ const calculator = ({ match }) => {
       </>
     );
   };
+  //Energy of Inductor
+  const EnergyOfInductor=()=>{
+    const [magneticfeild, setmagneticfeild] = useState(null);
+    // const [Permeability, setPermeability] = useState(null);
+    const [result, setResult] = useState(null);
 
+    const reset=()=>{
+      setmagneticfeild(null)
+      // setPermeability(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      res=(magneticfeild*magneticfeild)/(2*0.000001256);
+      setResult(res);
+    }
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Magnetic Field(B)</Form.Label>
+            <Form.Control
+              onChange={(e) => setmagneticfeild(e.target.value)}
+              type="number"
+              placeholder={"Enter in Tesla"}
+              value={magneticfeild === null ? "" : magneticfeild}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Magnetic Permeability(μ)</Form.Label>
+            <Form.Control className="permeability"
+              readOnly={true}
+              placeholder={"4π*10⁻⁷"}
+            />
+          </Form.Group>
+          
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " joules per cubic metre"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
   const calC=(key)=>{
     let currentCall;
     switch (key) {
@@ -615,6 +676,9 @@ const calculator = ({ match }) => {
         case "Self Inductance":
           currentCall=SelfInductance()
           break;
+        case "Energy Density Of Inductor":
+            currentCall=EnergyOfInductor()
+            break;
       default:
         break;
     }

@@ -717,9 +717,10 @@ function Calculator({ match }) {
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Label>{choiceData().quantities[2]}</Form.Label>
-            <Form.Control
+            <Form.Control className="K_energy"
               onChange={(e) => choiceData().setters[2](e.target.value)}
               type="number"
+              readOnly
               placeholder={"Enter in " + choiceData().subunits[2]}
               value={
                 choiceData().getters[2] === null ? "" : choiceData().getters[2]

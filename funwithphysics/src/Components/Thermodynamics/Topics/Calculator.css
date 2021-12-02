@@ -12,7 +12,9 @@
     row-gap: 1.5em;
     max-width: 100%;
 }
-
+.K_energy{
+    background-color: white !important;
+}
 
 .Calculator__header {
     grid-area: header;

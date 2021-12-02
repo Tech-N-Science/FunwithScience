@@ -57,6 +57,15 @@ export default function Electromagnetism() {
             dimension:"ML²T⁻²I²",
         
         },
+        {
+          topic:"Energy Density Of Inductor",
+          details:`The energy stored in a magnetic field is equal to the work needed to produce a current through the inductor.Energy density is the energy per unit volume stored in the magnetic field when an electric current flows in an inductor `,
+          siunit: 'joules per cubic metre',
+          process:"To find the energy density of inductor, we need to know the value of magnetic field that is generated when current(I) flows throw an inductor with inductance(L).",
+          formula:"B²/2u",
+          dimension:"ML⁻¹T⁻²",
+          // The energy stored in a magnetic field is equal to the work needed to produce a current through the inductor. 
+      }
     ]
 
   return (

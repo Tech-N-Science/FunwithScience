@@ -12,6 +12,9 @@
     row-gap: 1.5em;
     max-width: 100%;
 }
+.permeability{
+    background-color: white !important;
+}
 
 
 .Calculator__header {
