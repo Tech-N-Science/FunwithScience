@@ -79,6 +79,15 @@ export default function Electromagnetism() {
                 "To find the Time period (T) we need to know the magnetic field (B), the mass of the particle(m) and the charge of the particle(q). ",
           
           },
+        {
+            topic:"Power Factor",
+            details: "Power factor may be defined as the ratio of the true power to apparent power of an a.c. circuit.",
+            siunit: "Unitless",
+            process:"To find the Power Factor of an a.c. circuit, we need to know the resistance (R), and impedance of the circuit (Z).",
+            formula:"cosϕ = R/Z",
+            dimension:"Dimensionless",
+          
+        },
     ]
 
   return (
