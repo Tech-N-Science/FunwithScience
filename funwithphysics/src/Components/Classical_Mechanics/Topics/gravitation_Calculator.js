@@ -20,29 +20,31 @@ function GravitationCalculator({ match }) {
     },
     {
       topic: "Gravitational Field",
-      details: 
+      details:
         "The gravitational field is defined as the gravitational force per unit mass that would be exerted on a small test mass at that position. It's a vector field that points in the direction of the force experienced by a small test mass at that location.",
       formula: "g = GM/r²",
-      process: 
+      process:
         "Let’s consider a point particle of mass M and G is the constant of proportionality known as the universal gravitation constant ( 6.67 × 10⁻¹¹ Newton - meter² · kg⁻² ) then the magnitude of the resultant gravitational field strength denoted by term g, at a distance of r,  from M is equals to product of (G and M) divided by (r²).",
       siunit: "N/kg",
       dimension: "g = L T⁻²",
     },
     {
       topic: "Gravitational Potential Energy",
-      details: 
+      details:
         "Gravitational potential energy refers to the work that a body needs to do against a test mass in order to arrive to a specific position. In other words, gravitational potential energy is the amount of energy that an object has or gains as a result of a change in the position of its gravitational field.",
       formula: "U = -GMm/r",
-      process: 
+      process:
         "Consider a source mass ‘M’ is placed at a point along the x-axis, initially, a test mass ‘m’ is at infinity and G is the constant of proportionality known as the universal gravitation constant ( 6.67 × 10⁻¹¹ Newton - meter² · kg⁻² ) therefore gravitational potential energy (U) at a point which is at a distance ‘r’ from the source mass is equal to the product of negative of (G, M and m) divided by (r).",
       siunit: " Joule",
       dimension: "U = M¹ L² T⁻²",
     },
     {
       topic: "Escape Velocity",
-      details: "Escape velocity is the minimum velocity required by a body to be projected to overcome the gravitational pull of the earth.",
-      formula: "V = √2GM/R",
-      process: "It is the minimum velocity required by an object to escape the gravitational field that is, escape the land without ever falling back. An object that has this velocity at the earth’s surface will totally escape the earth’s gravitational field ignoring the losses due to the atmosphere.",
+      details:
+        "Escape velocity is the speed at which an object may break away from the gravitational pull of the planet or moon and escape without developing propulsion.",
+      formula: "V = √(2GM/R)",
+      process:
+        "It is the minimum velocity required by an object to escape the gravitational field that is, escape the land without ever falling back. An object that has this velocity at the earth’s surface will totally escape the earth’s gravitational field ignoring the losses due to the atmosphere. Here 'V' is the escape velocity, 'M' is mass of the celestial object whose gravitational pull has to be superseded and 'R' is the distance from the object to the centre of mass of the body to be escaped",
       siunit: "m/s",
       dimension: "L T⁻¹",
     },
@@ -124,8 +126,7 @@ function GravitationCalculator({ match }) {
     // const [G, setG] = useState(Math.G);
 
     const handleClick = () => {
-      let res =
-        (6.67 * Math.pow(10, -11)  * mass) / (distance * distance);
+      let res = (6.67 * Math.pow(10, -11) * mass) / (distance * distance);
       setResult(res);
     };
     return (
@@ -186,8 +187,7 @@ function GravitationCalculator({ match }) {
     const [distance, setDistance] = useState(null);
 
     const handleClick = () => {
-      let res =
-      -(6.67 * Math.pow(10, -11)  * mass_A * mass_B) / (distance);
+      let res = -(6.67 * Math.pow(10, -11) * mass_A * mass_B) / distance;
       setResult(res);
     };
     return (
@@ -225,7 +225,10 @@ function GravitationCalculator({ match }) {
               placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="Gravitational_Potential_Energy">
+          <Form.Group
+            className="mb-3"
+            controlId="Gravitational_Potential_Energy"
+          >
             <Form.Label>Gravitational Potential Energy (U)</Form.Label>
             <Form.Control
               readOnly
@@ -233,7 +236,8 @@ function GravitationCalculator({ match }) {
               placeholder={result === null ? "Result" : result + " N/kg"}
             />
             <Form.Text className="text-muted">
-              Enter mass & height to Calculate the Gravitational Potential Energy .
+              Enter mass & height to Calculate the Gravitational Potential
+              Energy .
             </Form.Text>
           </Form.Group>
           <Button variant="primary" onClick={handleClick}>
@@ -255,7 +259,7 @@ function GravitationCalculator({ match }) {
     const [radius, setRadius] = useState(null);
 
     const handleClick = () => {
-      let res = Math.sqrt((2 * 6.67 * Math.pow(10, -11) * mass)/radius);
+      let res = Math.sqrt((2 * 6.67 * Math.pow(10, -11) * mass) / radius);
       setResult(res);
       console.log(mass);
       console.log(radius);
@@ -276,7 +280,7 @@ function GravitationCalculator({ match }) {
             <Form.Control
               onChange={(e) => setRadius(e.target.value)}
               type="number"
-              placeholder="Enter radius of body from the center of gravity in metres"
+              placeholder="Enter distance of body from the center of gravity in metres"
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="Gravitational_Constant">
