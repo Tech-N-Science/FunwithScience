@@ -38,14 +38,20 @@ function GravitationCalculator({ match }) {
       siunit: " Joule",
       dimension: "U = M¹ L² T⁻²",
     },
+    {
+      topic: "Escape Velocity",
+      details: "Escape velocity is the minimum velocity required by a body to be projected to overcome the gravitational pull of the earth.",
+      formula: "V = √2GM/R",
+      process: "It is the minimum velocity required by an object to escape the gravitational field that is, escape the land without ever falling back. An object that has this velocity at the earth’s surface will totally escape the earth’s gravitational field ignoring the losses due to the atmosphere.",
+      siunit: "m/s",
+      dimension: "L T⁻¹",
+    },
   ];
 
   const page = Gravitation_list.filter(
     (data) => data.topic === match.params.topic
   );
   const details = page[0];
-  console.log(page);
-  console.log(details.formula);
 
   //Gravitational Force
   function CalculatorGravitationalForce() {
@@ -242,6 +248,68 @@ function GravitationCalculator({ match }) {
     );
   }
 
+  // Escape Velocity Calculator
+  function CalculatorEscapeVelocity() {
+    const [result, setResult] = useState(null);
+    const [mass, setMass] = useState(null);
+    const [radius, setRadius] = useState(null);
+
+    const handleClick = () => {
+      let res = Math.sqrt((2 * 6.67 * Math.pow(10, -11) * mass)/radius);
+      setResult(res);
+      console.log(mass);
+      console.log(radius);
+    };
+    return (
+      <React.Fragment>
+        <Form>
+          <Form.Group className="mb-3" controlId="Mass">
+            <Form.Label>Mass (M)</Form.Label>
+            <Form.Control
+              onChange={(e) => setMass(e.target.value)}
+              type="number"
+              placeholder="Enter mass of body in kgs"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Radius">
+            <Form.Label>Radius (R)</Form.Label>
+            <Form.Control
+              onChange={(e) => setRadius(e.target.value)}
+              type="number"
+              placeholder="Enter radius of body from the center of gravity in metres"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Gravitational_Constant">
+            <Form.Label>Universal Gravitation Constant (G)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Escape_velocity">
+            <Form.Label>Escape Velocity (V)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " m/s"}
+            />
+            <Form.Text className="text-muted">
+              Enter mass & radius to calculate the Escape Velocity .
+            </Form.Text>
+          </Form.Group>
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            Reset
+          </Button>
+        </Form>
+      </React.Fragment>
+    );
+  }
+
   // Adding Calculators together
 
   function calCu_gravi(key) {
@@ -255,6 +323,9 @@ function GravitationCalculator({ match }) {
         break;
       case "Gravitational Potential Energy":
         currentCall = CalculatorGravitationalPotentialEnergy();
+        break;
+      case "Escape Velocity":
+        currentCall = CalculatorEscapeVelocity();
         break;
       default:
         break;
