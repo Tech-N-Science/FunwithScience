@@ -11,7 +11,7 @@ function Calculator({ match }) {
     {
       topic: "Efficiency",
       details:
-        "Thermal efficiency (ηth) of any heat engine is a dimensionless performance measure of a device that use thermal energy, such as internal combustion engine, boiler, furnace etc, and can be defined as the ratio of the work it does (W) and the heat input at the heigh temperature (QH) ",
+        "Thermal efficiency (ηth) of any heat engine is dimensionless performance measure of a device that use thermal energy, such as internal combustion engine, boiler, furnace etc, and can be defined as the ratio of the work it does (W) and the heat input at the heigh temperature (QH) ",
       formula: [
         "ηth=W/QH,",
         <br />,

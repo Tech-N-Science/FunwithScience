@@ -5,68 +5,101 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 export default function Electromagnetism() {
-    //topics_data
-    const Topics = [
-        {
-            topic:"Electric Field",
-            details:"....",
-        },
-        {
-            topic:"Ohm's Law",
-            details:`Ohm's law states that the voltage (V) between two points is directly proportional to the current (I) across that two points and the constant of proportionality is resistance (R) and the equation is given as "V=IR"`,
-            siunit:["Resistance  : Ohm", <br/>,"Current : (Ampere)", <br/>,"Voltage : (V)"],
-            process:"To find the voltage (V), we need to know the the current between the two point and the resistance(R) across the points & To find the current(I) or the resistance(R) we can also find it using the ohm's law.",
-            formula:"V=IR",
-            dimension:"V = ML²T⁻²I⁻¹, R = ML²T⁻³I⁻²",
-      
-        },
-        {
-            topic:"Drift Velocity",
-            details:`Subatomic particles, such as electrons, constantly move in random directions. When electrons are subjected to an electric field, they move randomly, but slowly in one direction, the direction of the applied electric field. Drift velocity is the net velocity at which these electrons drift.`,
-            siunit: 'm/s',
-            process:"To find the drift velocity (V), we need to know the the current flowing through the conductor(I), number of electrons(n), Area of cross-section of the conductor(A) and the charge of electron(q).",
-            formula:"V = I/nAq",
-            dimension:"M⁻¹T²I",
-        
-        },
-        {
-            topic:"Electric Potential",
-            details:"..."
-        
-          },
-        {
-            topic:"Flux",
-            details:"..."
-        
-          },
-          {
-            topic: "Resistivity",
-            details: `Electrical resistance of a conductor with a unit cross-sectional area and length. Resistivity, a material attribute, is useful in comparing different materials based on their capacity to conduct electric currents. Poor conductors have high resistance.`,
-            siunit: "ohm-meter",
-            dimension: "ML³T⁻³I⁻²",
-            process:
-              "To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
-            formula: "ρ=RA/l",
-          },
-          {
-            topic:"Self Inductance",
-            details:`When the coil's current or magnetic flux changes, an opposing induced electromotive force is created. Self Induction is the name given to this occurrence. When electricity begins to flow through the coil at any time, it is discovered that the magnetic flux becomes directly proportional to the current flowing through the circuit. `,
-            siunit: 'Henry (H)',
-            process:"To find the Self inductance of inductor(L), we need to know the the current flowing through the conductor(I), number of turns (N) and magnetic flux(Φ).",
-            formula:"L = NΦ/I",
-            dimension:"ML²T⁻²I²",
-        
-        },
-        {
-          topic:"Energy Density Of Inductor",
-          details:`The energy stored in a magnetic field is equal to the work needed to produce a current through the inductor.Energy density is the energy per unit volume stored in the magnetic field when an electric current flows in an inductor `,
-          siunit: 'joules per cubic metre',
-          process:"To find the energy density of inductor, we need to know the value of magnetic field that is generated when current(I) flows throw an inductor with inductance(L).",
-          formula:"B²/2u",
-          dimension:"ML⁻¹T⁻²",
-          // The energy stored in a magnetic field is equal to the work needed to produce a current through the inductor. 
-      }
-    ]
+  //topics_data
+  const Topics = [
+    {
+      topic: "Electric Field",
+      details: "....",
+    },
+    {
+      topic: "Ohm's Law",
+      details: `Ohm's law states that the voltage (V) between two points is directly proportional to the current (I) across that two points and the constant of proportionality is resistance (R) and the equation is given as "V=IR"`,
+      siunit: [
+        "Resistance  : Ohm",
+        <br />,
+        "Current : (Ampere)",
+        <br />,
+        "Voltage : (V)",
+      ],
+      process:
+        "To find the voltage (V), we need to know the the current between the two point and the resistance(R) across the points & To find the current(I) or the resistance(R) we can also find it using the ohm's law.",
+      formula: "V=IR",
+      dimension: "V = ML²T⁻²I⁻¹, R = ML²T⁻³I⁻²",
+    },
+    {
+      topic: "Drift Velocity",
+      details: `Subatomic particles, such as electrons, constantly move in random directions. When electrons are subjected to an electric field, they move randomly, but slowly in one direction, the direction of the applied electric field. Drift velocity is the net velocity at which these electrons drift.`,
+      siunit: "m/s",
+      process:
+        "To find the drift velocity (V), we need to know the the current flowing through the conductor(I), number of electrons(n), Area of cross-section of the conductor(A) and the charge of electron(q).",
+      formula: "V = I/nAq",
+      dimension: "M⁻¹T²I",
+    },
+    {
+      topic: "Electric Potential",
+      details: "...",
+    },
+    {
+      topic: "Flux",
+      details: "...",
+    },
+    {
+      topic: "Resistivity",
+      details: `Electrical resistance of a conductor with a unit cross-sectional area and length. Resistivity, a material attribute, is useful in comparing different materials based on their capacity to conduct electric currents. Poor conductors have high resistance.`,
+      siunit: "ohm-meter",
+      dimension: "ML³T⁻³I⁻²",
+      process:
+        "To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
+      formula: "ρ=RA/l",
+    },
+    {
+      topic: "Self Inductance",
+      details: `When the coil's current or magnetic flux changes, an opposing induced electromotive force is created. Self Induction is the name given to this occurrence. When electricity begins to flow through the coil at any time, it is discovered that the magnetic flux becomes directly proportional to the current flowing through the circuit. `,
+      siunit: "Henry (H)",
+      process:
+        "To find the Self inductance of inductor(L), we need to know the the current flowing through the conductor(I), number of turns (N) and magnetic flux(Φ).",
+      formula: "L = NΦ/I",
+      dimension: "ML²T⁻²I²",
+    },
+    {
+      topic:"Energy Density Of Inductor",
+      details:`The energy stored in a magnetic field is equal to the work needed to produce a current through the inductor.Energy density is the energy per unit volume stored in the magnetic field when an electric current flows in an inductor `,
+      siunit: 'joules per cubic metre',
+      process:"To find the energy density of inductor, we need to know the value of magnetic field that is generated when current(I) flows throw an inductor with inductance(L).",
+      formula:"B²/2u",
+      dimension:"ML⁻¹T⁻²",
+    },
+    {
+      topic: "Power Factor",
+      details:
+        "Power factor may be defined as the ratio between Resistance and Impedance in AC Circuit.",
+      siunit: "Unitless",
+      process:
+        "To find the Power Factor of an a.c. circuit, we need to know the resistance (R), and impedance of the circuit (Z). Where Z = Z = √(R²+(XL - Xc)²). If cosθ is 1 then AC circuit is purely Resistive.",
+      formula: "cosθ = R/Z, Z = √(R²+(XL - Xc)²)",
+      dimension: "Dimensionless",
+    },
+    {
+      topic: "Motional EMF",
+      details:
+        "A motional electromotive force in a sliding bar is an emf caused by the movement of a conductor across a magnetic field. E = -vLB denotes the equation. This equation holds true as long as the velocity, field, and length of sliding bar are all perpendicular to each other. The minus sign represents Lentz law.",
+      formula: "ε = -Bvl",
+      siunit: "Volts (Joules/Coulombs)",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l) of sliding bar. ",
+    },
+    {
+      topic: "Time period",
+      details:
+        "The time for the charged particle to go around the circular path is defined as the period, which is the same as the distance traveled (the circumference) divided by the speed. Based on this and Equation, we can derive the period of motion as T = 2πm/(qB).",
+      formula: "T = 2πm/(qB)",
+      siunit: "second",
+      dimension: "T",
+      process:
+        "To find the Time period (T) we need to know the magnetic field (B), the mass of the particle(m) and the charge of the particle(q). ",
+    },
+  ];
 
   return (
     <>

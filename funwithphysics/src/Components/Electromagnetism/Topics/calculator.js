@@ -4,7 +4,6 @@ import { Form, Card, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-// import Navbar from "../../Navbar/Navbar"
 const calculator = ({ match }) => {
   //topics_data
   const Topics = [
@@ -13,59 +12,93 @@ const calculator = ({ match }) => {
       details: "....",
     },
     {
-      topic:"Ohm's Law",
-      details:`Ohm's law states that the voltage (V) between two points is directly proportional to the current (I) across that two points and the constant of proportionality is resistance (R) and the equation is given as "V=IR"`,
-      siunit:["Resistance  : Ohm", <br/>,"Current : (Ampere)", <br/>,"Voltage : (V)"],
-      process:"To find the voltage (V), we need to know the the current between the two point and the resistance(R) across the points & To find the current(I) or the resistance(R) we can also find it using the ohm's law.",
-      formula:"V=IR",
-      dimension:"V = ML²T⁻²I⁻¹, R = ML²T⁻³I⁻²",
-
-  },
-  {
-    topic:"Drift Velocity",
-    details:`Subatomic particles, such as electrons, constantly move in random directions. When electrons are subjected to an electric field, they move randomly, but slowly in one direction, the direction of the applied electric field. Drift velocity is the net velocity at which these electrons drift.`,
-    siunit: 'm/s',
-    process:"To find the drift velocity (V), we need to know the the current flowing through the conductor(I), number of electrons(n), Area of cross-section of the conductor(A) and the charge of electron(q).",
-    formula:"V = I/nAq",
-    dimension:"M⁻¹T²I",
-
-},
-  {
-    topic:"Electric Potential",
-    details:"..."
-
-  },
-  {
-    topic:"Flux",
-    details:"..."
-
-  },
-  {
-    topic: "Resistivity",
-    details: `Electrical resistance of a conductor with a unit cross-sectional area and length. Resistivity, a material attribute, is useful in comparing different materials based on their capacity to conduct electric currents. Poor conductors have high resistance.`,
-    siunit: "ohm-meter",
-    dimension: "ML³T⁻³I⁻²",
-    process:
-      "To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
-    formula: "ρ=RA/l",
-  },
-  {
-    topic:"Self Inductance",
-    details:`When the coil's current or magnetic flux changes, an opposing induced electromotive force is created. Self Induction is the name given to this occurrence. When electricity begins to flow through the coil at any time, it is discovered that the magnetic flux becomes directly proportional to the current flowing through the circuit. `,
-    siunit: 'Henry (H)',
-    process:"To find the Self inductance of inductor(L), we need to know the the current flowing through the conductor(I), number of turns (N) and magnetic flux(Φ).",
-    formula:"L = NΦ/I",
-    dimension:"ML²T⁻²I²",
-
-},
-{
-  topic:"Energy Density Of Inductor",
-  details:`The energy stored in a magnetic field is equal to the work needed to produce a current through the inductor.Energy density is the energy per unit volume stored in the magnetic field when an electric current flows in an inductor `,
-  siunit: 'joules per cubic metre',
-  process:"To find the energy density of inductor, we need to know the value of magnetic field that is generated when current(I) flows throw an inductor with inductance(L).",
-  formula:"B²/2u",
-  dimension:"ML⁻¹T⁻²",
-}
+      topic: "Ohm's Law",
+      details: `Ohm's law states that the voltage (V) between two points is directly proportional to the current (I) across that two points and the constant of proportionality is resistance (R) and the equation is given as "V=IR"`,
+      siunit: [
+        "Resistance  : Ohm",
+        <br />,
+        "Current : (Ampere)",
+        <br />,
+        "Voltage : (V)",
+      ],
+      process:
+        "To find the voltage (V), we need to know the the current between the two point and the resistance(R) across the points & To find the current(I) or the resistance(R) we can also find it using the ohm's law.",
+      formula: "V=IR",
+      dimension: "V = ML²T⁻²I⁻¹, R = ML²T⁻³I⁻²",
+    },
+    {
+      topic: "Drift Velocity",
+      details: `Subatomic particles, such as electrons, constantly move in random directions. When electrons are subjected to an electric field, they move randomly, but slowly in one direction, the direction of the applied electric field. Drift velocity is the net velocity at which these electrons drift.`,
+      siunit: "m/s",
+      process:
+        "To find the drift velocity (V), we need to know the the current flowing through the conductor(I), number of electrons(n), Area of cross-section of the conductor(A) and the charge of electron(q).",
+      formula: "V = I/nAq",
+      dimension: "M⁻¹T²I",
+    },
+    {
+      topic: "Electric Potential",
+      details: "...",
+    },
+    {
+      topic: "Flux",
+      details: "...",
+    },
+    {
+      topic: "Resistivity",
+      details: `Electrical resistance of a conductor with a unit cross-sectional area and length. Resistivity, a material attribute, is useful in comparing different materials based on their capacity to conduct electric currents. Poor conductors have high resistance.`,
+      siunit: "ohm-meter",
+      dimension: "ML³T⁻³I⁻²",
+      process:
+        "To find the resistivity we need to know the Resistance (R), area (A), and the length (l) by putting these value in formula we can easily find the resistivity.",
+      formula: "ρ=RA/l",
+    },
+    {
+      topic: "Self Inductance",
+      details: `When the coil's current or magnetic flux changes, an opposing induced electromotive force is created. Self Induction is the name given to this occurrence. When electricity begins to flow through the coil at any time, it is discovered that the magnetic flux becomes directly proportional to the current flowing through the circuit. `,
+      siunit: "Henry (H)",
+      process:
+        "To find the Self inductance of inductor(L), we need to know the the current flowing through the conductor(I), number of turns (N) and magnetic flux(Φ).",
+      formula: "L = NΦ/I",
+      dimension: "ML²T⁻²I²",
+    },
+    {
+      topic:"Energy Density Of Inductor",
+      details:`The energy stored in a magnetic field is equal to the work needed to produce a current through the inductor.Energy density is the energy per unit volume stored in the magnetic field when an electric current flows in an inductor `,
+      siunit: 'joules per cubic metre',
+      process:"To find the energy density of inductor, we need to know the value of magnetic field that is generated when current(I) flows throw an inductor with inductance(L).",
+      formula:"B²/2u",
+      dimension:"ML⁻¹T⁻²",
+    },
+    {
+      topic: "Power Factor",
+      details:
+        "Power factor may be defined as the ratio between Resistance and Impedance in AC Circuit.",
+      siunit: "Unitless",
+      process:
+        "To find the Power Factor of an a.c. circuit, we need to know the resistance (R), and impedance of the circuit (Z). Where Z = Z = √(R²+(XL - Xc)²). If cosθ is 1 then AC circuit is purely Resistive.",
+      formula: "cosθ = R/Z, Z = √(R²+(XL - Xc)²)",
+      dimension: "Dimensionless",
+    },
+    {
+      topic: "Motional EMF",
+      details:
+        "A motional electromotive force in a sliding bar is an emf caused by the movement of a conductor across a magnetic field. E = -vLB denotes the equation. This equation holds true as long as the velocity, field, and length of sliding bar are all perpendicular to each other. The minus sign represents Lentz law.",
+      formula: "ε = -Bvl",
+      siunit: "Volts (Joules/Coulombs)",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l) of sliding bar. ",
+    },
+    {
+      topic: "Time period",
+      details:
+        "The time for the charged particle to go around the circular path is defined as the period, which is the same as the distance traveled (the circumference) divided by the speed. Based on this and Equation, we can derive the period of motion as T = 2πm/(qB).",
+      formula: "T = 2πm/(qB)",
+      siunit: "second",
+      dimension: "T",
+      process:
+        "To find the Time period (T) we need to know the magnetic field (B), the mass of the particle(m) and the charge of the particle(q). ",
+    },
   ];
   //Flux data
   const flux_data = [
@@ -249,73 +282,58 @@ const calculator = ({ match }) => {
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
   //Resistivity Calculator
-  const ResistivityCalculator=()=>{
+  const ResistivityCalculator = () => {
     const [resistance, setResistance] = useState(null);
     const [length, setLength] = useState(null);
     const [area, setArea] = useState(null);
     const [result, setResult] = useState(null);
 
-    const calcResult =()=>{
+    const calcResult = () => {
       let res;
-      res=resistance*area/length;
-      setResult(res)
-    }
-    const reset =()=>{
-      setResistance(null)
-      setLength(null)
-      setArea(null)
-      setResult(null)
-    }
-    return(<>
-    <Form>
-    <Form.Group className="mb-4">
+      res = (resistance * area) / length;
+      setResult(res);
+    };
+    const reset = () => {
+      setResistance(null);
+      setLength(null);
+      setArea(null);
+      setResult(null);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
             <Form.Label>Resistance (R)</Form.Label>
             <Form.Control
               onChange={(e) => setResistance(e.target.value)}
               type="number"
-              placeholder=
-                "Enter in ohm (Ω)"
-              
-              value={
-                resistance === null ? "" : resistance
-              }
+              placeholder="Enter in ohm (Ω)"
+              value={resistance === null ? "" : resistance}
             />
           </Form.Group>
-    <Form.Group className="mb-4">
+          <Form.Group className="mb-4">
             <Form.Label>Area (A)</Form.Label>
             <Form.Control
               onChange={(e) => setArea(e.target.value)}
               type="number"
-              placeholder=
-                "Enter in (m²)"
-              
-              value={
-                area === null ? "" : area
-              }
+              placeholder="Enter in (m²)"
+              value={area === null ? "" : area}
             />
           </Form.Group>
-    <Form.Group className="mb-4">
+          <Form.Group className="mb-4">
             <Form.Label>Length (l)</Form.Label>
             <Form.Control
               onChange={(e) => setLength(e.target.value)}
               type="number"
-              placeholder=
-                "Enter in (m)"
-              
-              value={
-                length === null ? "" : length
-              }
+              placeholder="Enter in (m)"
+              value={length === null ? "" : length}
             />
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={
-                result === null
-                  ? "Result"
-                  : result + " (Ω⋅m)"
-              }
+              placeholder={result === null ? "Result" : result + " (Ω⋅m)"}
             />
           </Form.Group>
         </Form>
@@ -326,8 +344,9 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-    </>)
-  }
+      </>
+    );
+  };
 
   //Ohm's Law
   const OhmCalculator = () => {
@@ -361,127 +380,277 @@ const calculator = ({ match }) => {
       setChoice(e.target.value);
       setCurrent(null);
       setResistance(null);
-      setVoltage(null)
-    }
-    const choiceData=()=>{
-      if(choice==="voltage")
-      return{
-        name:"Voltage (V)",
-        mainunit:"(V)",
-        quantities:["Current","Resistance"],
-        subunits:["(A)","(ohm)"],
-        getters:[current,resistance],
-        setters:[setCurrent,setResistance]
-      }
-      if(choice==="current")
-      return{
-        name:"Current (I)",
-        mainunit:"(A)",
-        quantities:["Voltage","Resistance"],
-        subunits:["(V)","(ohm)"],
-        getters:[voltage,resistance],
-        setters:[setVoltage,setResistance]
-      }
-      if(choice==="resistance")
-      return{
-        name:"Resistance (R)",
-        mainunit:"(ohm)",
-        quantities:["Voltage","Current"],
-        subunits:["(V)","(I)"],
-        getters:[voltage,current],
-        setters:[setVoltage,setCurrent]
-      }
-    }
-    return(<>
-    {/* <Navbar/> */}
-    <Form>
-       {/* dropdown */}
-       <Form.Group className="mb-4" controlId="choice">
-          <Form.Label>Select the type of calculation</Form.Label>
-          <Form.Control as="select" onChange={(e)=>{handleChange(e)}}>
-            <option value="voltage">Voltage (V)</option>
-            <option value="current">Current (I)</option>
-            <option value="resistance">Resistance (R)</option>
+      setVoltage(null);
+    };
+    const choiceData = () => {
+      if (choice === "voltage")
+        return {
+          name: "Voltage (V)",
+          mainunit: "(V)",
+          quantities: ["Current", "Resistance"],
+          subunits: ["(A)", "(ohm)"],
+          getters: [current, resistance],
+          setters: [setCurrent, setResistance],
+        };
+      if (choice === "current")
+        return {
+          name: "Current (I)",
+          mainunit: "(A)",
+          quantities: ["Voltage", "Resistance"],
+          subunits: ["(V)", "(ohm)"],
+          getters: [voltage, resistance],
+          setters: [setVoltage, setResistance],
+        };
+      if (choice === "resistance")
+        return {
+          name: "Resistance (R)",
+          mainunit: "(ohm)",
+          quantities: ["Voltage", "Current"],
+          subunits: ["(V)", "(I)"],
+          getters: [voltage, current],
+          setters: [setVoltage, setCurrent],
+        };
+    };
+    return (
+      <>
+        {/* <Navbar/> */}
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control
+              as="select"
+              onChange={(e) => {
+                handleChange(e);
+              }}
+            >
+              <option value="voltage">Voltage (V)</option>
+              <option value="current">Current (I)</option>
+              <option value="resistance">Resistance (R)</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0]}
+              value={
+                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+              }
+            />
+          </Form.Group>
 
-          </Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-4" controlId="text">
-          <Form.Text className="text">
-            <strong>
-              {" "}
-              To find the {choiceData().name}, Enter the following values
-            </strong>
-            <br />
-          </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Label>{choiceData().quantities[0]}</Form.Label>
-          <Form.Control
-            onChange={(e) => choiceData().setters[0](e.target.value)}
-            type="number"
-            placeholder={"Enter in " + choiceData().subunits[0]}
-            value={
-              choiceData().getters[0] === null ? "" : choiceData().getters[0]
-            }
-          />
-        </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={
+                choiceData().subunits[1] === "NaN"
+                  ? "No Unit"
+                  : "Enter in " + choiceData().subunits[1]
+              }
+              value={
+                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
 
-        <Form.Group className="mb-4">
-          <Form.Label>{choiceData().quantities[1]}</Form.Label>
-          <Form.Control
-            onChange={(e) => choiceData().setters[1](e.target.value)}
-            type="number"
-            placeholder={
-              choiceData().subunits[1] === "NaN"
-                ? "No Unit"
-                : "Enter in " + choiceData().subunits[1]
-            }
-            value={
-              choiceData().getters[1] === null ? "" : choiceData().getters[1]
-            }
-          />
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Control
-            readOnly
-            type="number"
-            placeholder={
-              result === null
-                ? "Result"
-                : result + " " + choiceData().mainunit
-            }
-          />
-        </Form.Group>
-    </Form>
-    <Button variant="primary" onClick={calcResult}>
-        Calculate
-      </Button>
-      &nbsp;&nbsp;&nbsp;
-      <Button variant="dark" onClick={() => reset()} type="reset">
-        Reset
-      </Button>
-    </>)}
+  //Time period
+  const Timeperiod = () => {
+    const [choice, setChoice] = useState("Time");
+    const [mass, setMass] = useState(null);
+    const [charge, setCharge] = useState(null);
+    const [magnet, setMagnet] = useState(null);
+    const [result, setResult] = useState(null);
+
+    const calcResult = () => {
+      let res;
+      if (choice === "Time") {
+        res = (2 * Math.PI * mass) / (charge * magnet);
+      }
+      if (choice === "Frequency") {
+        res = (charge * magnet) / (2 * Math.PI * mass);
+      }
+
+      setResult(res);
+    };
+    const reset = () => {
+      setMass(null);
+      setCharge(null);
+      setMagnet(null);
+      setResult(null);
+    };
+
+    const handleChange = (e) => {
+      setChoice(e.target.value);
+      setMass(null);
+      setCharge(null);
+      setMagnet(null);
+    };
+    const choiceData = () => {
+      if (choice === "Time")
+        return {
+          name: "Time period (s)",
+          mainunit: "(s)",
+          quantities: ["Mass", "Charge", "Magnetic field"],
+          subunits: ["(kg)", "(C)", "(Tesla)"],
+          getters: [mass, charge, magnet],
+          setters: [setMass, setCharge, setMagnet],
+        };
+      if (choice === "Frequency")
+        return {
+          name: "Frequency (s⁻¹)",
+          mainunit: "(s⁻¹)",
+          quantities: ["Mass", "Charge", "Magnetic field"],
+          subunits: ["(kg)", "(C)", "(Tesla)"],
+          getters: [mass, charge, magnet],
+          setters: [setMass, setCharge, setMagnet],
+        };
+    };
+    return (
+      <>
+        {/* <Navbar/> */}
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control
+              as="select"
+              onChange={(e) => {
+                handleChange(e);
+              }}
+            >
+              <option value="Time">Time period (s)</option>
+              <option value="Frequency">Frequency (s⁻¹)</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0]}
+              value={
+                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+              }
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={
+                choiceData().subunits[1] === "NaN"
+                  ? "No Unit"
+                  : "Enter in " + choiceData().subunits[1]
+              }
+              value={
+                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[2]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[2](e.target.value)}
+              type="number"
+              placeholder={
+                choiceData().subunits[2] === "NaN"
+                  ? "No Unit"
+                  : "Enter in " + choiceData().subunits[2]
+              }
+              value={
+                choiceData().getters[2] === null ? "" : choiceData().getters[2]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
 
   //Drift velocity
-  const DriftVelocity=()=>{
+  const DriftVelocity = () => {
     const [area, setArea] = useState(null);
     const [current, setCurrent] = useState(null);
     const [number, setNumber] = useState(null);
     const [charge, setCharge] = useState(null);
     const [result, setResult] = useState(null);
 
-    const reset=()=>{
-      setCurrent(null)
-      setNumber(null)
-      setCharge(null)
-      setResult(null)
-      setArea(null)
-    }
-    const calcResult=()=>{
+    const reset = () => {
+      setCurrent(null);
+      setNumber(null);
+      setCharge(null);
+      setResult(null);
+      setArea(null);
+    };
+    const calcResult = () => {
       let res;
-      res=current/(number*area*charge);
+      res = current / (number * area * charge);
       setResult(res);
-    }
+    };
     return (
       <>
         <Form>
@@ -541,23 +710,23 @@ const calculator = ({ match }) => {
   };
 
   //Self inductance
-  const SelfInductance=()=>{
+  const SelfInductance = () => {
     const [current, setCurrent] = useState(null);
     const [number, setNumber] = useState(null);
     const [flux, setFlux] = useState(null);
     const [result, setResult] = useState(null);
 
-    const reset=()=>{
-      setCurrent(null)
-      setNumber(null)
-      setFlux(null)
-      setResult(null)
-    }
-    const calcResult=()=>{
+    const reset = () => {
+      setCurrent(null);
+      setNumber(null);
+      setFlux(null);
+      setResult(null);
+    };
+    const calcResult = () => {
       let res;
-      res=number*flux/current;
+      res = (number * flux) / current;
       setResult(res);
-    }
+    };
     return (
       <>
         <Form>
@@ -588,7 +757,7 @@ const calculator = ({ match }) => {
               value={current === null ? "" : current}
             />
           </Form.Group>
-          
+
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -607,12 +776,86 @@ const calculator = ({ match }) => {
       </>
     );
   };
-  //Energy of Inductor
+
+  //EMF Calculator
+  const EmfCalculator = () => {
+    const [velocity, setVelocity] = useState(null);
+    const [magnetic, setMagnetic] = useState(null);
+    const [length, setLength] = useState(null);
+    const [result, setResult] = useState(null);
+
+    const reset = () => {
+      setVelocity(null);
+      setMagnetic(null);
+      setLength(null);
+      setResult(null);
+    };
+
+    const calcResult = () => {
+      let res;
+      res = -(velocity * magnetic * length);
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Magnetic Field(B)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setMagnetic(e.target.value);
+              }}
+              placeholder="Enter the magnetic field in weber"
+              value={magnetic === null ? "" : magnetic}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Velocity(V)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setVelocity(e.target.value);
+              }}
+              placeholder="Enter velocity in m/s"
+              value={velocity === null ? "" : velocity}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Length(l)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setLength(e.target.value);
+              }}
+              placeholder="Enter the internal resistance in (ohm)"
+              value={length === null ? "" : length}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} Volts`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+  // EnergyOfInductor
   const EnergyOfInductor=()=>{
     const [magneticfeild, setmagneticfeild] = useState(null);
     // const [Permeability, setPermeability] = useState(null);
     const [result, setResult] = useState(null);
-
+  
     const reset=()=>{
       setmagneticfeild(null)
       // setPermeability(null)
@@ -661,7 +904,85 @@ const calculator = ({ match }) => {
       </>
     );
   };
-  const calC=(key)=>{
+  // power factor
+  const Power_factorCalculator = () => {
+    const [resistance, setResistance] = useState(null);
+    const [inductance, setInductance] = useState(null);
+    const [capacitive, setCapacitive] = useState(null);
+    const [result, setResult] = useState(null);
+
+    const reset = () => {
+      setResistance(null);
+      setInductance(null);
+      setCapacitive(null);
+      setResult(null);
+    };
+
+    const calcResult = () => {
+      let res;
+      let r = Math.pow(resistance, 2);
+      let i = Math.pow(inductance - capacitive, 2);
+      let sum = parseInt(r) + parseInt(i);
+      let impedance = Math.sqrt(sum);
+      res = resistance / impedance;
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Resistance(R)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setResistance(e.target.value);
+              }}
+              placeholder="Enter the resistance of the circuit"
+              value={resistance === null ? "" : resistance}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Inductive reactance (XL)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setInductance(e.target.value);
+              }}
+              placeholder="Enter Inductive reactance"
+              value={inductance === null ? "" : inductance}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Capacitive reactance (Xc)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setCapacitive(e.target.value);
+              }}
+              placeholder="Enter Inductive reactance"
+              value={capacitive === null ? "" : capacitive}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result}`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
+  const calC = (key) => {
     let currentCall;
     switch (key) {
       case "Ohm's Law":
@@ -671,19 +992,28 @@ const calculator = ({ match }) => {
         currentCall = ResistivityCalculator();
         break;
       case "Drift Velocity":
-        currentCall=DriftVelocity()
+        currentCall = DriftVelocity();
         break;
-        case "Self Inductance":
-          currentCall=SelfInductance()
-          break;
-        case "Energy Density Of Inductor":
-            currentCall=EnergyOfInductor()
-            break;
+      case "Self Inductance":
+        currentCall = SelfInductance();
+        break;
+      case "Motional EMF":
+        currentCall = EmfCalculator();
+        break;
+      case "Time period":
+        currentCall = Timeperiod();
+        break;
+      case "Power Factor":
+        currentCall = Power_factorCalculator();
+        break;
+      case "Energy Density Of Inductor":
+        currentCall=EnergyOfInductor()
+        break;
       default:
         break;
     }
     return currentCall;
-  }
+  };
 
   //Electric field
   if (details.topic === "Electric Field") {
