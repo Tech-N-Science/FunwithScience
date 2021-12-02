@@ -218,19 +218,18 @@ const calculator = ({ match }) => {
         "To find the electric potential for the Outside the shell we need to know the charge (Q), and the distance (r) at which charge is placed where as k is (1/4πε₀) which is constant and it's value is 8.99*10^9 N m²/C².",
     },
   ];
-//magneticfield_data
+  //magneticfield_data
   const magneticfield_data = [
     {
       topic: "Infinite Sheet",
       details:
-        "The magnetic field (B) produced due to current sheet due to a charge density(J) is μ₀J₀/2.",
+        "Consider an infinite vertical sheet carrying current out of the page. The sheet has a uniform current per unit length J₀. The magnetic field (B) produced due to current sheet due to a charge density(J₀) can be calculated using Ampere's Law. So the magnetic field produced is μ₀J₀/2.",
       formula: "B= μ₀*J₀/2",
       siunit: "Tesla",
-      dimension: " ",
+      dimension: "MT⁻²I⁻¹ ",
       process:
-        "To find the magnetic field for a infinite sheet  we need to know the current density (J₀). ",
+        "To find the magnetic field(B) for a infinite sheet  we need to know the current density (J₀) and then applying Ampere's Law we can determine the magnetic field. ",
     },
-    
   ];
   //electricfield_data
   const electricfield_data = [
@@ -994,11 +993,11 @@ const calculator = ({ match }) => {
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Magnetic Permeability(μ)</Form.Label>
+            <Form.Label>Magnetic Permeability(μ₀)</Form.Label>
             <Form.Control
               className="permeability"
               readOnly={true}
-              placeholder={"4π*10⁻⁷"}
+              placeholder={"4π*10⁻⁷ Henry/m"}
             />
           </Form.Group>
 
@@ -1284,8 +1283,7 @@ const calculator = ({ match }) => {
         </div>
       </div>
     );
- }
-  else if (details.topic === "Electric Potential") {
+  } else if (details.topic === "Electric Potential") {
     return (
       <div className="mech__main">
         <div className="mech__header">

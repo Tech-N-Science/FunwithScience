@@ -10,14 +10,13 @@ function Magneticfield_calculator({ match }) {
     {
       topic: "Infinite Sheet",
       details:
-        "The magnetic field (B) produced due to current sheet due to a charge density(J) is μ₀J₀/2.",
+        "Consider an infinite vertical sheet carrying current out of the page. The sheet has a uniform current per unit length J₀. The magnetic field (B) produced due to current sheet due to a charge density(J₀) can be calculated using Ampere's Law. So the magnetic field produced is μ₀J₀/2.",
       formula: "B= μ₀*J₀/2",
       siunit: "Tesla",
-      dimension: " ",
+      dimension: "MT⁻²I⁻¹ ",
       process:
-        "To find the magnetic field for a infinite sheet  we need to know the current density (J₀). ",
+        "To find the magnetic field(B) for a infinite sheet  we need to know the current density (J₀) and then applying Ampere's Law we can determine the magnetic field. ",
     },
-    
   ];
 
   const page = magneticfield_data.filter(
@@ -29,14 +28,14 @@ function Magneticfield_calculator({ match }) {
   const Infinite_sheet = () => {
     const [currentdensity, setCurrentDensity] = useState(null);
     const [result, setResult] = useState(null);
-    const μ = (4 * 3.14) * Math.pow(10, -7);
+    const μ = 4 * 3.14 * Math.pow(10, -7);
     const reset = () => {
       setResult(null);
       setCurrentDensity(null);
     };
     const calcResult = () => {
       let res;
-      res = (μ * currentdensity)/2;
+      res = (μ * currentdensity) / 2;
       setResult(res);
     };
 
@@ -59,7 +58,7 @@ function Magneticfield_calculator({ match }) {
             <Form.Control
               readOnly
               // type="number"
-              value={μ + " Henry/m"}
+              placeholder={"4π*10⁻⁷ Henry/m"}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -81,7 +80,6 @@ function Magneticfield_calculator({ match }) {
     );
   };
 
-  
   const calC = (key) => {
     let currentCall;
     switch (key) {
