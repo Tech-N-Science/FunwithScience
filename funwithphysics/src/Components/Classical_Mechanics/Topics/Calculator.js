@@ -349,7 +349,7 @@ function Calculator({ match }) {
       topic: "Escape Velocity",
       details:
         "Escape velocity is the speed at which an object may break away from the gravitational pull of the planet or moon and escape without developing propulsion.",
-      formula: "V = √2GM/R",
+      formula: "V = √(2GM/R)",
       process:
         "It is the minimum velocity required by an object to escape the gravitational field that is, escape the land without ever falling back. An object that has this velocity at the earth’s surface will totally escape the earth’s gravitational field ignoring the losses due to the atmosphere. Here 'V' is the escape velocity, 'M' is mass of the celestial object whose gravitational pull has to be superseded and 'R' is the distance from the object to the centre of mass of the body to be escaped.",
       siunit: "m/s",
