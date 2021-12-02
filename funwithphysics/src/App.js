@@ -17,6 +17,7 @@ import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
 import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
 import  electricfield_calculator  from "./Components/Electromagnetism/Topics/electricfield_calculator";
+import  Magneticfield_calculator  from "./Components/Electromagnetism/Topics/Magneticfield_calculator";
 import { electricpotential_calculator } from "./Components/Electromagnetism/Topics/electricpotential_calculator";
 import CalculatorElec from "./Components/Electromagnetism/Topics/calculator";
 import {Helmet} from "react-helmet"
@@ -142,6 +143,12 @@ const App = () => {
           component={electricfield_calculator} 
         >
         </Route>
+        <Route
+          exact
+          path="/electromagnetism/calc/magnetic_field/:topic"
+          component={Magneticfield_calculator}
+          
+        />
 
         <Route exact path="/quiz">
         <Navbar/>
@@ -186,7 +193,12 @@ const App = () => {
           component={electricpotential_calculator}
         >
         </Route>
-
+        <Route
+          exact
+          path="/electromagnetism/calc/magnetic_field/:topic"
+          component={Magneticfield_calculator}
+          
+        />
         <Route 
           exact 
           path="/questions"
