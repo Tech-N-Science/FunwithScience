@@ -67,8 +67,8 @@ export default function Electromagnetism() {
         "Power factor may be defined as the ratio between Resistance and Impedance in AC Circuit.",
       siunit: "Unitless",
       process:
-        "To find the Power Factor of an a.c. circuit, we need to know the resistance (R), and impedance of the circuit (Z). Where Z = Z = √(R²+(XL - Xc)²). If cosϕ is 1 then AC circuit is purely Resistive.",
-      formula: "cosϕ = R/Z, Z = √(R²+(XL - Xc)²)",
+        "To find the Power Factor of an a.c. circuit, we need to know the resistance (R), and impedance of the circuit (Z). Where Z = Z = √(R²+(XL - Xc)²). If cosθ is 1 then AC circuit is purely Resistive.",
+      formula: "cosθ = R/Z, Z = √(R²+(XL - Xc)²)",
       dimension: "Dimensionless",
     },
     {
