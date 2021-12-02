@@ -61,12 +61,23 @@ export default function Electromagnetism() {
             topic: "Motional EMF",
             details:
                 "A motional electromotive force in a sliding bar is an emf caused by the movement of a conductor across a magnetic field. E = -vLB denotes the equation. This equation holds true as long as the velocity, field, and length of sliding bar are all perpendicular to each other. The minus sign represents Lentz law.",
-            formula: "ε = Bvl",
+            formula: "ε = -Bvl",
             siunit: "Volts (Joules/Coulombs)",
             dimension: "M L² T⁻³ I⁻¹",
             process:
                 "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l) of sliding bar. ",
         
+          },
+          {
+            topic: "Time period",
+            details:
+                "The time for the charged particle to go around the circular path is defined as the period, which is the same as the distance traveled (the circumference) divided by the speed. Based on this and Equation, we can derive the period of motion as T = 2πm/(qB).",
+            formula: "T = 2πm/(qB)",
+            siunit: "second",
+            dimension: "T",
+            process:
+                "To find the Time period (T) we need to know the magnetic field (B), the mass of the particle(m) and the charge of the particle(q). ",
+          
           },
     ]
 

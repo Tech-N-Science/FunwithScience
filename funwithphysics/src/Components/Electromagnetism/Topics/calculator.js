@@ -62,11 +62,22 @@ const calculator = ({ match }) => {
   topic: "Motional EMF",
   details:
       "A motional electromotive force in a sliding bar is an emf caused by the movement of a conductor across a magnetic field. E = -vLB denotes the equation. This equation holds true as long as the velocity, field, and length of sliding bar are all perpendicular to each other. The minus sign represents Lentz law.",
-  formula: "ε = Bvl",
+  formula: "ε = -Bvl",
   siunit: "Volts (Joules/Coulombs)",
   dimension: "M L² T⁻³ I⁻¹",
   process:
       "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l) of sliding bar. ",
+
+},
+{
+  topic: "Time period",
+  details:
+      "The time for the charged particle to go around the circular path is defined as the period, which is the same as the distance traveled (the circumference) divided by the speed. Based on this and Equation, we can derive the period of motion as T = 2πm/(qB).",
+  formula: "T = 2πm/(qB)",
+  siunit: "second",
+  dimension: "T",
+  process:
+      "To find the Time period (T) we need to know the magnetic field (B), the mass of the particle(m) and the charge of the particle(q). ",
 
 },
 
@@ -464,7 +475,146 @@ const calculator = ({ match }) => {
       <Button variant="dark" onClick={() => reset()} type="reset">
         Reset
       </Button>
-    </>)}
+    </>)
+  }
+
+//Time period
+const Timeperiod = () => {
+  const [choice, setChoice] = useState("Time");
+  const [mass, setMass] = useState(null);
+  const [charge, setCharge] = useState(null);
+  const [magnet, setMagnet] = useState(null);
+  const [result, setResult] = useState(null);
+
+  const calcResult = () => {
+    let res;
+    if (choice === "Time") {
+      res = (2*Math.PI*mass)/(charge*magnet);
+    }
+    if (choice === "Frequency") {
+      res = (charge*magnet)/(2*Math.PI*mass);
+    }
+    
+    setResult(res);
+  };
+  const reset = () => {
+    setMass(null);
+    setCharge(null);
+    setMagnet(null);
+    setResult(null);
+  };
+
+  const handleChange = (e) => {
+    setChoice(e.target.value);
+    setMass(null);
+    setCharge(null);
+    setMagnet(null)
+  }
+  const choiceData=()=>{
+    if(choice==="Time")
+    return{
+      name:"Time period (s)",
+      mainunit:"(s)",
+      quantities:["Mass","Charge","Magnetic field"],
+      subunits:["(kg)","(C)","(Tesla)"],
+      getters:[mass,charge,magnet],
+      setters:[setMass,setCharge,setMagnet]
+    }
+    if(choice==="Frequency")
+    return{
+      name:"Frequency (s⁻¹)",
+      mainunit:"(s⁻¹)",
+      quantities:["Mass","Charge","Magnetic field"],
+      subunits:["(kg)","(C)","(Tesla)"],
+      getters:[mass,charge,magnet],
+      setters:[setMass,setCharge,setMagnet]
+    }
+    
+  }
+  return(<>
+  {/* <Navbar/> */}
+  <Form>
+     {/* dropdown */}
+     <Form.Group className="mb-4" controlId="choice">
+        <Form.Label>Select the type of calculation</Form.Label>
+        <Form.Control as="select" onChange={(e)=>{handleChange(e)}}>
+          <option value="Time">Time period (s)</option>
+          <option value="Frequency">Frequency (s⁻¹)</option>
+          
+
+        </Form.Control>
+      </Form.Group>
+      <Form.Group className="mb-4" controlId="text">
+        <Form.Text className="text">
+          <strong>
+            {" "}
+            To find the {choiceData().name}, Enter the following values
+          </strong>
+          <br />
+        </Form.Text>
+      </Form.Group>
+      <Form.Group className="mb-4">
+        <Form.Label>{choiceData().quantities[0]}</Form.Label>
+        <Form.Control
+          onChange={(e) => choiceData().setters[0](e.target.value)}
+          type="number"
+          placeholder={"Enter in " + choiceData().subunits[0]}
+          value={
+            choiceData().getters[0] === null ? "" : choiceData().getters[0]
+          }
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-4">
+        <Form.Label>{choiceData().quantities[1]}</Form.Label>
+        <Form.Control
+          onChange={(e) => choiceData().setters[1](e.target.value)}
+          type="number"
+          placeholder={
+            choiceData().subunits[1] === "NaN"
+              ? "No Unit"
+              : "Enter in " + choiceData().subunits[1]
+          }
+          value={
+            choiceData().getters[1] === null ? "" : choiceData().getters[1]
+          }
+        />
+      </Form.Group>
+      <Form.Group className="mb-4">
+        <Form.Label>{choiceData().quantities[2]}</Form.Label>
+        <Form.Control
+          onChange={(e) => choiceData().setters[2](e.target.value)}
+          type="number"
+          placeholder={
+            choiceData().subunits[2] === "NaN"
+              ? "No Unit"
+              : "Enter in " + choiceData().subunits[2]
+          }
+          value={
+            choiceData().getters[2] === null ? "" : choiceData().getters[2]
+          }
+        />
+      </Form.Group>
+      <Form.Group className="mb-4">
+        <Form.Control
+          readOnly
+          type="number"
+          placeholder={
+            result === null
+              ? "Result"
+              : result + " " + choiceData().mainunit
+          }
+        />
+      </Form.Group>
+  </Form>
+  <Button variant="primary" onClick={calcResult}>
+      Calculate
+    </Button>
+    &nbsp;&nbsp;&nbsp;
+    <Button variant="dark" onClick={() => reset()} type="reset">
+      Reset
+    </Button>
+  </>)}
 
   //Drift velocity
   const DriftVelocity=()=>{
@@ -698,12 +848,16 @@ const calculator = ({ match }) => {
       case "Drift Velocity":
         currentCall=DriftVelocity()
         break;
-        case "Self Inductance":
-          currentCall=SelfInductance()
-          break;
-          case "Motional EMF":
-            currentCall= EmfCalculator()
-            break;
+      case "Self Inductance":
+        currentCall=SelfInductance()
+        break;
+      case "Motional EMF":
+        currentCall= EmfCalculator()
+        break;
+      case "Time period":
+        currentCall= Timeperiod()
+        break;
+            
       default:
         break;
     }
