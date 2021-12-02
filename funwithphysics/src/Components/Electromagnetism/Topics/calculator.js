@@ -8,6 +8,14 @@ const calculator = ({ match }) => {
   //topics_data
   const Topics = [
     {
+      topic:"Coulomb's law",
+      details:`The amount of electric force between two point charges q1 and q2 is directly proportional to the product of the magnitudes of charges, that electric force is called electrostatic force or coulomb force. by using equation "F=k[(q1*q2)/r²]" where F is the electric force, q1 and q2 are the charges and r is the distance of separation`,
+      formula:"F=k[(q1*q2)/r²]",
+      process:"To find the force between these charges we need to know the q1 and q2 charges and distance of separation (V) put these values in formula. where k is constant and it's value is 8.99 × 10^9 N m²/C².",
+      siunit:"(N)",
+      dimension:"[M¹L¹T⁻²]"
+    },
+    {
       topic: "Electric Field",
       details: "....",
     },
@@ -282,6 +290,81 @@ const calculator = ({ match }) => {
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
+
+  //Coulomb's law Calculator
+  const CoulombCalculator =()=>{
+    const [charge1, setCharge1] = useState(null);
+    const [charge2, setCharge2] = useState(null);
+    const [distance, setDistance] = useState(null);
+    const [result, setResult] = useState(null);
+    const k=8.99 *Math.pow(10,9);
+    const reset =()=>{
+      setCharge1(null)
+      setCharge2(null)
+      setDistance(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      let r1=(charge1*charge2)/(distance*distance);
+      res=k*r1;
+      setResult(res)
+    }
+    return(<>
+    <Form>
+    <Form.Group className="mb-4">
+            <Form.Label>Charge 1 (q1)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCharge1(e.target.value)}
+              type="number"
+              placeholder="Enter in coulomb"
+              value={charge1 === null ? "" : charge1}
+            />
+          </Form.Group>
+    <Form.Group className="mb-4">
+            <Form.Label>Charge 2 (q2)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCharge2(e.target.value)}
+              type="number"
+              placeholder="Enter in coulomb"
+              value={charge2 === null ? "" : charge2}
+            />
+          </Form.Group>
+    <Form.Group className="mb-4">
+            <Form.Label>Distance of separation (r)</Form.Label>
+            <Form.Control
+              onChange={(e) => setDistance(e.target.value)}
+              type="number"
+              placeholder="Enter in (m)"
+              value={distance === null ? "" : distance}
+            />
+          </Form.Group>
+    <Form.Group className="mb-4">
+            <Form.Label>Coulomb constant(k)</Form.Label>
+            <Form.Control
+              // type="number"
+              readOnly
+              value={k +" N m²/C²"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " (N)"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+    </>)
+  }
+
   //Resistivity Calculator
   const ResistivityCalculator = () => {
     const [resistance, setResistance] = useState(null);
@@ -991,6 +1074,9 @@ const calculator = ({ match }) => {
   const calC = (key) => {
     let currentCall;
     switch (key) {
+      case "Coulomb's law":
+        currentCall = CoulombCalculator();
+        break;
       case "Ohm's Law":
         currentCall = OhmCalculator();
         break;
