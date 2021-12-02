@@ -111,7 +111,7 @@ function Calculator({ match }) {
       siunit:
         "Distance/Displacement: m , Velocity: m/s , Time: s , Accelearation: m/s²",
       dimension:
-        "Distance/Displacement: M ,Velocity: M/T , Time: T , Accelearation: M/T²",
+        "Distance/Displacement: L ,Velocity: L/T , Time: T , Accelearation: L/T²",
     },
     {
       topic: "Momentum",
