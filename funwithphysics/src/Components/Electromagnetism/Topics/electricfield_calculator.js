@@ -118,7 +118,7 @@ function electricfield_calculator({ match }) {
 
     return (
       <>
-      {/* <Navbar/> */}
+        {/* <Navbar/> */}
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Distance (x)</Form.Label>
@@ -158,7 +158,7 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               // type="number"
-              value={e + " C²/N. m²"}
+              placeholder={"8.854 * 10⁻¹² C²/N. m²"}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -241,7 +241,7 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               // type="number"
-              value={k + " N m²/C²"}
+              placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -312,8 +312,7 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               // type="number"
-              placeholder={"Enter in the charge"}
-              value={k + " N m²/C²"}
+              placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -396,7 +395,7 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               // type="number"
-              value={k + " N m²/C²"}
+              placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -480,8 +479,7 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               // type="number"
-              placeholder={"Enter in the charge"}
-              value={k + " N m²/C²"}
+              placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -552,8 +550,7 @@ function electricfield_calculator({ match }) {
             <Form.Control
               readOnly
               // type="number"
-              placeholder={"Enter in the charge"}
-              value={k + " N m²/C²"}
+              placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
           <Form.Group className="mb-4">
