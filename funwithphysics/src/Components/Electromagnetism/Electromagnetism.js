@@ -8,12 +8,13 @@ export default function Electromagnetism() {
   //topics_data
   const Topics = [
     {
-      topic:"Coulomb's law",
-      details:`The amount of electric force between two point charges q1 and q2 is directly proportional to the product of the magnitudes of charges, that electric force is called electrostatic force or coulomb force. by using equation "F=k[(q1*q2)/r²]" where F is the electric force, q1 and q2 are the charges and r is the distance of separation`,
-      formula:"F=k[(q1*q2)/r²]",
-      process:"To find the force between these charges we need to know the q1 and q2 charges and distance of separation (V) put these values in formula. where k is constant and it's value is 8.99 × 10^9 N m²/C².",
-      siunit:"(N)",
-      dimension:"[M¹L¹T⁻²]"
+      topic: "Coulomb's law",
+      details: `The quantity of electric force between two point charges q1 and q2 is proportional to the product of the charges' magnitudes; this electric force is known as electrostatic force or coulomb force. using the formula F=k[(q1*q2)/r2], where F is the electric force, q1 and q2 are the charges, and r is the separation distance.`,
+      formula: "F=k[(q1*q2)/r²]",
+      process:
+        "To find the force between these charges we need to know the q1 and q2 charges and distance of separation (r), where k is constant and it's value is 8.99 × 10⁹ N m²/C².",
+      siunit: "(N)",
+      dimension: "[M¹L¹T⁻²]",
     },
     {
       topic: "Electric Field",
@@ -110,10 +111,10 @@ export default function Electromagnetism() {
     },
     {
       topic: "Magnetic Force",
-      details: `Magnetic fields exert forces on moving charges, and so they exert forces on other magnets, all of which have moving charges. The direction of the force on a moving charge is given by right hand rule 1 (RHR-1): Point the thumb of the right hand in the direction of v, the fingers in the direction of B, and a perpendicular to the palm points in the direction of F. The force is perpendicular to the plane formed by v and B. Since the force is zero if v is parallel to B, charged particles often follow magnetic field lines rather than cross them. `,
+      details: `Moving charges exert forces on magnetic fields, which in turn impose pressures on other magnets with moving charges. Right hand rule 1 (RHR-1) determines the direction of force on a moving charge: The right hand's thumb should point in the direction of v, the fingers should point in the direction of B, and a perpendicular to the palm should point in the direction of F. The force is parallel to the plane created by v and B. Charged particles frequently follow magnetic field lines rather than crossing them because the force is zero when v is parallel to B. `,
       siunit: "Newton (N)",
       process:
-        "To find the Magnetic Force exerted(N), we need to know the charge flowing(q), speed of charges (v) and magnetic field strength(B) and the angle between velocity and magnetic field(θ).",
+        "To find the Magnetic Force exerted(F), we need to know the charge flowing(q), speed of charges (v) and magnetic field strength(B) and the angle between velocity and magnetic field(θ).",
       formula: "F = qvBsin(θ)",
       dimension: "ML¹T⁻²",
     },
