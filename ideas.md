@@ -14,7 +14,7 @@
 
 6) Working on the CSS part of the website (Home, Contact, About us)
 
-7) If time permits we can start with Backend like login, signup, my profile, quiz score and son on.
+7) Start with Backend like login, signup, my profile, quiz score and son on.
 
 8) Working on the design part of the quiz section and questions section - Using CSS
 
