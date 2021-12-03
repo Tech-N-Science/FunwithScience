@@ -357,17 +357,21 @@ function Calculator({ match }) {
     },
     {
       topic: "Kepler's Second Law",
-      details: "Kepler’s second law states that a planet sweeps out equal areas in equal times, that is, the area divided by time, called the areal velocity, is constant.",
-      formula: "L = 2m(dA/dt)",
-      process: "Kepler’s second law is actually a consequence of the conservation of angular momentum, which holds for any system with only radial forces. Since the angular momentum is constant, the areal velocity must also be constant.",
-      siunit: "kg-m²/sec",
+      details:
+        "According to Kepler's second law, a planet sweeps away equal areas in equal periods, i.e., the areal velocity (area divided by time) remains constant.",
+      formula: "(dA/dt) = L/2m",
+      process:
+        "The conservation of angular momentum, which holds for any system with just radial forces, is the source of Kepler's second law. The areal velocity must be constant since the angular momentum is constant. Here 'L' is angular velocity, 'dA' is change in area, 'dt' change in time and 'm' is mass of celestial body.",
+      siunit: "L = kg-m²/sec",
       dimension: "M L² T⁻¹",
     },
     {
       topic: "Kepler's Third Law",
-      details: "Kepler’s third law states that the square of the period is proportional to the cube of the semi-major axis of the orbit.",
+      details:
+        "According to Kepler's third law, the square of the period is equal to the cube of the orbit's semi-major axis. In Satellite Orbits and Energy, we derived Kepler’s third law for the special case of a circular orbit.",
       formula: "T² = 4π²a³/GM",
-      process: "In Satellite Orbits and Energy, we derived Kepler’s third law for the special case of a circular orbit. For an ellipse, recall that the semi-major axis is one-half the sum of the perihelion and the aphelion. For a circular orbit, the semi-major axis (a) is the same as the radius for the orbit.",
+      process:
+        "Remember that the semi-major axis of an ellipse is one-half the sum of the perihelion and aphelion. The semi-major axis (a) of a circular orbit is the same as the orbit's radius. Here 'T' is the time period, 'a' is semi-major axis and 'M' is mass of celestial body.",
       siunit: "Time Period: s, Semi-Major Axis: m",
       dimension: "Time Period: T, Semi-Major Axis: L",
     },
