@@ -355,6 +355,26 @@ function Calculator({ match }) {
       siunit: "m/s",
       dimension: "L T⁻¹",
     },
+    {
+      topic: "Kepler's Second Law",
+      details:
+        "According to Kepler's second law, a planet sweeps away equal areas in equal periods, i.e., the areal velocity (area divided by time) remains constant.",
+      formula: "(dA/dt) = L/2m",
+      process:
+        "The conservation of angular momentum, which holds for any system with just radial forces, is the source of Kepler's second law. The areal velocity must be constant since the angular momentum is constant. Here 'L' is angular velocity, 'dA' is change in area, 'dt' change in time and 'm' is mass of celestial body.",
+      siunit: "L = kg-m²/sec",
+      dimension: "M L² T⁻¹",
+    },
+    {
+      topic: "Kepler's Third Law",
+      details:
+        "According to Kepler's third law, the square of the period is equal to the cube of the orbit's semi-major axis. In Satellite Orbits and Energy, we derived Kepler’s third law for the special case of a circular orbit.",
+      formula: "T² = 4π²a³/GM",
+      process:
+        "Remember that the semi-major axis of an ellipse is one-half the sum of the perihelion and aphelion. The semi-major axis (a) of a circular orbit is the same as the orbit's radius. Here 'T' is the time period, 'a' is semi-major axis and 'M' is mass of celestial body.",
+      siunit: "Time Period: s, Semi-Major Axis: m",
+      dimension: "Time Period: T, Semi-Major Axis: L",
+    },
   ];
 
   // MOI_list

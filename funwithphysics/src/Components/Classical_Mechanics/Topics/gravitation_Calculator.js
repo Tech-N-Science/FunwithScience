@@ -48,6 +48,26 @@ function GravitationCalculator({ match }) {
       siunit: "m/s",
       dimension: "L T⁻¹",
     },
+    {
+      topic: "Kepler's Second Law",
+      details:
+        "According to Kepler's second law, a planet sweeps away equal areas in equal periods, i.e., the areal velocity (area divided by time) remains constant.",
+      formula: "(dA/dt) = L/2m",
+      process:
+        "The conservation of angular momentum, which holds for any system with just radial forces, is the source of Kepler's second law. The areal velocity must be constant since the angular momentum is constant. Here 'L' is angular velocity, 'dA' is change in area, 'dt' change in time and 'm' is mass of celestial body.",
+      siunit: "L = kg-m²/sec",
+      dimension: "M L² T⁻¹",
+    },
+    {
+      topic: "Kepler's Third Law",
+      details:
+        "According to Kepler's third law, the square of the period is equal to the cube of the orbit's semi-major axis. In Satellite Orbits and Energy, we derived Kepler’s third law for the special case of a circular orbit.",
+      formula: "T² = 4π²a³/GM",
+      process:
+        "Remember that the semi-major axis of an ellipse is one-half the sum of the perihelion and aphelion. The semi-major axis (a) of a circular orbit is the same as the orbit's radius. Here 'T' is the time period, 'a' is semi-major axis and 'M' is mass of celestial body.",
+      siunit: "Time Period: s, Semi-Major Axis: m",
+      dimension: "Time Period: T, Semi-Major Axis: L",
+    },
   ];
 
   const page = Gravitation_list.filter(
@@ -314,6 +334,200 @@ function GravitationCalculator({ match }) {
     );
   }
 
+  // Kepler's Second Law
+  function CalculatorKeplerSecondLaw() {
+    const [result, setResult] = useState(null);
+    const [area, setArea] = useState(null);
+    const [time, setTime] = useState(null);
+    const [mass, setMass] = useState(null);
+
+    const handleClick = () => {
+      let res = (mass * area * 2) / time;
+      setResult(res);
+    };
+
+    return (
+      <React.Fragment>
+        <Form>
+          <Form.Group className="mb-3" controlId="Area">
+            <Form.Label>Change in area (dA)</Form.Label>
+            <Form.Control
+              onChange={(e) => setArea(e.target.value)}
+              type="number"
+              placeholder="Enter in metres squared"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Time">
+            <Form.Label>Change in time (dt)</Form.Label>
+            <Form.Control
+              onChange={(e) => setTime(e.target.value)}
+              type="number"
+              placeholder="Enter in seconds"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Mass">
+            <Form.Label>Mass of the moving planet(m)</Form.Label>
+            <Form.Control
+              onChange={(e) => setMass(e.target.value)}
+              type="number"
+              placeholder="Enter in kgs"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Angular_momentum">
+            <Form.Label>Angular Momentum (L)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " kg-m²/sec"}
+            />
+            <Form.Text className="text-muted">
+              Enter all the above fields to calculate the angular momentum.
+            </Form.Text>
+          </Form.Group>
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            Reset
+          </Button>
+        </Form>
+      </React.Fragment>
+    );
+  }
+
+  // Kepler's Third Law
+  function CalculatorKeplerThirdLaw() {
+    const [result, setResult] = useState(null);
+    const [timeperiod, setTimeperiod] = useState(null);
+    const [mass, setMass] = useState(null);
+    const [sma, setSMA] = useState(null);
+    const [choice, setChoice] = useState("timeperiod");
+
+    function handleChange(e) {
+      setChoice(e.target.value);
+      choiceData();
+      reset();
+    }
+
+    const calcResult = () => {
+      let res;
+      if (choice === "timeperiod") {
+        res = Math.sqrt(
+          (4 * Math.pow(Math.PI, 2) * Math.pow(sma, 3)) /
+            (6.67 * Math.pow(10, -11) * mass)
+        );
+      } else if (choice === "semimajoraxis") {
+        res = Math.cbrt(
+          (6.67 * Math.pow(10, -11) * mass * Math.pow(timeperiod, 2)) /
+            (4 * Math.pow(Math.PI, 2))
+        );
+      }
+      setResult(res);
+    };
+
+    function reset() {
+      setResult(null);
+      setTimeperiod(null);
+      setMass(null);
+      setSMA(null);
+    }
+
+    const choiceData = () => {
+      if (choice === "timeperiod")
+        return {
+          name: "Time Period",
+          mainunit: "s",
+          quantities: ["Mass", "Semi-major axis"],
+          subunits: ["kg", "m"],
+          setters: [setMass, setSMA],
+          getters: [mass, sma],
+        };
+      else if (choice === "semimajoraxis")
+        return {
+          name: "Semi-major axis",
+          mainunit: "m",
+          quantities: ["Mass", "Time Period"],
+          subunits: ["kg", "s"],
+          setters: [setMass, setTimeperiod],
+          getters: [mass, timeperiod],
+        };
+    };
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+              <option value="timeperiod">Time Period</option>
+              <option value="semimajoraxis">Semi-major axis</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0]}
+              value={
+                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[1]}
+              value={
+                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Gravitational_Constant">
+            <Form.Label>Universal Gravitation Constant (G)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+            <Form.Text className="text-muted">
+              Enter the above values to calculate.
+            </Form.Text>
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  }
+
   // Adding Calculators together
 
   function calCu_gravi(key) {
@@ -330,6 +544,12 @@ function GravitationCalculator({ match }) {
         break;
       case "Escape Velocity":
         currentCall = CalculatorEscapeVelocity();
+        break;
+      case "Kepler's Second Law":
+        currentCall = CalculatorKeplerSecondLaw();
+        break;
+      case "Kepler's Third Law":
+        currentCall = CalculatorKeplerThirdLaw();
         break;
       default:
         break;
