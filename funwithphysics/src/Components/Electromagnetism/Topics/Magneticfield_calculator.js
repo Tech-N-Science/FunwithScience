@@ -17,12 +17,88 @@ function Magneticfield_calculator({ match }) {
       process:
         "To find the magnetic field(B) for a infinite sheet  we need to know the current density (J₀) and then applying Ampere's Law we can determine the magnetic field. ",
     },
+    {
+      topic:"Finite Length Solenoid",
+      details:"Magnetic field due to a finite length solenoid is the product of no. of turns and the the current in the solenoid",
+      formula:"B=μ₀*N*I",
+      siunit: "Tesla",
+      dimension: "MT⁻²I⁻¹ ",
+      process:"To find the magnetic field for the finite length solenoid we need to know the no. of turns (N) and the current in solenoid (I) where as μ₀ is constant and it's value is 4π*10⁻⁷ Henry/m"
+    }
   ];
 
   const page = magneticfield_data.filter(
     (data) => data.topic === match.params.topic
   );
   const details = page[0];
+
+  //magnetic field for Finite Length Solenoid
+  const Finite_Length_Solenoid=()=>{
+    const [turns, setTurns] = useState(null);
+    const [current, setCurrent] = useState(null);
+    const [result, setResult] = useState(null);
+    const μ = 4 * 3.14 * Math.pow(10, -7);
+    const reset =()=>{
+      setTurns(null)
+      setCurrent(null)
+      setResult(null)
+    }
+    const calcResult=()=>{
+      let res;
+      res= μ*turns*current;
+      setResult(res);
+    }
+    
+    return (<>
+      <Form>
+      <Form.Group className="mb-4">
+            <Form.Label> Number of turns(N)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setTurns(e.target.value);
+              }}
+              placeholder="Enter the no. of turns (N)"
+              value={turns === null ? "" : turns}
+            />
+          </Form.Group>
+      <Form.Group className="mb-4">
+            <Form.Label> Current (I)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setCurrent(e.target.value);
+              }}
+              placeholder="Enter the no. of turns (N)"
+              value={current === null ? "" : current}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Constant (μ₀)</Form.Label>
+            <Form.Control
+              readOnly
+              // type="number"
+              placeholder={"4π*10⁻⁷ Henry/m"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} T`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    )
+  }
 
   //magnetic field for infinite sheet
   const Infinite_sheet = () => {
@@ -85,6 +161,9 @@ function Magneticfield_calculator({ match }) {
     switch (key) {
       case "Infinite Sheet":
         currentCall = Infinite_sheet();
+        break;
+      case "Finite Length Solenoid":
+        currentCall = Finite_Length_Solenoid();
         break;
       default:
         break;

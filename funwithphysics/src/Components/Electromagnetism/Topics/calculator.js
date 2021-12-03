@@ -230,6 +230,14 @@ const calculator = ({ match }) => {
       process:
         "To find the magnetic field(B) for a infinite sheet  we need to know the current density (J₀) and then applying Ampere's Law we can determine the magnetic field. ",
     },
+    {
+      topic:"Finite Length Solenoid",
+      details:"Magnetic field due to a finite length solenoid is the product of no. of turns and the the current in the solenoid",
+      formula:"B=μ₀*N*I",
+      siunit: "Tesla",
+      dimension: "MT⁻²I⁻¹ ",
+      process:"To find the magnetic field for the finite length solenoid we need to know the no. of turns (N) and the current in solenoid (I) where as μ₀ is constant and it's value is 4π*10⁻⁷ Henry/m"
+    }
   ];
   //electricfield_data
   const electricfield_data = [
