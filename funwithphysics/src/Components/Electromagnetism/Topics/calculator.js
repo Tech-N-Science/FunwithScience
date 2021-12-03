@@ -230,6 +230,22 @@ const calculator = ({ match }) => {
       process:
         "To find the magnetic field(B) for a infinite sheet  we need to know the current density (J₀) and then applying Ampere's Law we can determine the magnetic field. ",
     },
+    {
+      topic: "Solid Cylinder",
+      details:
+        "Consider a solid cylinder of radius(R) carrying current (i) along its length. The cylinder has a uniform current density. The magnetic field (B) inside the solid cylinder at a distance r from the axis is μ₀ir/2πR² which is calculated using Ampere's Law",
+      formula: `Inside the Cylinder-\n
+      B=μ₀ir/2πR² \n
+      At Surface-
+      B=µ₀i/ 2πR\n
+      Outside the Cylinder-
+      B=µ₀i/ 2πr
+       `,
+      siunit: "Tesla",
+      dimension: "MT⁻²I⁻¹ ",
+      process:
+        "To find the magnetic field(B) for a solid cylinder we need to know its radius, the current flowing along its length and a distance from the axis. ",
+    }
   ];
   //electricfield_data
   const electricfield_data = [
