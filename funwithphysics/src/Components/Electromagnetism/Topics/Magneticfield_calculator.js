@@ -18,6 +18,14 @@ function Magneticfield_calculator({ match }) {
         "To find the magnetic field(B) for a infinite sheet  we need to know the current density (J₀) and then applying Ampere's Law we can determine the magnetic field. ",
     },
     {
+      topic:"Infinite Wire",
+      details:"The magnetic field of a long straight wire has more implications than one might first suspect. Each segment of current produces a magnetic field like that of a long straight wire, and the total field of any shape current is the vector sum of the fields due to each segment. Since the wire is very long, the magnitude of the field depends only on distance from the wire r, not on position along the wire.",
+      formula:"B = μ₀I/2πr",
+      siunit:"Tesla",
+      dimension:"MT⁻²I⁻¹",
+      process:"To find the magnetic field(B) for an infinite wire  we need to know the current density (I), shortest distance to the wire (r) and then applying Biot Savart's Law we can determine the magnetic field. ",
+    },
+    {
       topic: "Solenoid",
       details:
         "Outside the solenoid, the field is radially uniform or constant. The flux density outside the solenoid may likewise be shown to be zero using an intuitive reasoning. Magnetic field lines can only exist as loops; unlike electric field lines, they cannot diverge or converge to a point. Because the magnetic field lines in the solenoid follow a longitudinal course, the magnetic field lines outside the solenoid must proceed in the opposite direction. This occurs as a result of the lines creating a loop. The volume outside the solenoid, on the other hand, is significantly larger than the volume within. As a result, the density of magnetic field lines outside the solenoid is significantly reduced. As a result, the field outside the solenoid can be said to be constant. For the total number of field lines to be conserved, the field outside must go to zero as the solenoid gets longer. ",
@@ -311,11 +319,83 @@ function Magneticfield_calculator({ match }) {
     );
   };
 
+  // magnetic field due to infinite wire
+  const Infinite_wire = () => {
+    const [current, setCurrent] = useState(null);
+    const [distance, setDistance] = useState(null);
+    const [result, setResult] = useState(null);
+    const μ = 4 * 3.14 * Math.pow(10, -7);
+    const reset = () => {
+      setResult(null);
+      setCurrent(null);
+      setDistance(null);
+    };
+    const calcResult = () => {
+      let res;
+      res = (μ * current) / (2 * Math.PI * distance);
+      setResult(res);
+    };
+
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label> Current (I)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setCurrent(e.target.value);
+              }}
+              placeholder="Enter in amperes"
+              value={current === null ? "" : current}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label> Distance (r)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setDistance(e.target.value);
+              }}
+              placeholder="Enter in amperes"
+              value={distance === null ? "" : distance}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Constant (μ₀)</Form.Label>
+            <Form.Control
+              readOnly
+              // type="number"
+              placeholder={"4π*10⁻⁷ Henry/m"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} T`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
   const calC = (key) => {
     let currentCall;
     switch (key) {
       case "Infinite Sheet":
         currentCall = Infinite_sheet();
+        break;
+      case "Infinite Wire":
+        currentCall = Infinite_wire();
         break;
       case "Solenoid":
         currentCall = Finite_Length_Solenoid();
