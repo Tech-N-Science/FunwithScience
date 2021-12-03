@@ -231,6 +231,14 @@ const calculator = ({ match }) => {
         "To find the magnetic field(B) for a infinite sheet  we need to know the current density (J₀) and then applying Ampere's Law we can determine the magnetic field. ",
     },
     {
+      topic:"Infinite Wire",
+      details:"The magnetic field of a long straight wire has more implications than one might first suspect. Each segment of current produces a magnetic field like that of a long straight wire, and the total field of any shape current is the vector sum of the fields due to each segment. Since the wire is very long, the magnitude of the field depends only on distance from the wire r, not on position along the wire.",
+      formula:"B = μ₀I/2πr",
+      siunit:"Tesla",
+      dimension:"MT⁻²I⁻¹",
+      process:"To find the magnetic field(B) for an infinite wire  we need to know the current density (I), shortest distance to the wire (r) and then applying Biot Savart's Law we can determine the magnetic field. ",
+    },
+    {
       topic: "Solenoid",
       details:
         "Outside the solenoid, the field is radially uniform or constant. The flux density outside the solenoid may likewise be shown to be zero using an intuitive reasoning. Magnetic field lines can only exist as loops; unlike electric field lines, they cannot diverge or converge to a point. Because the magnetic field lines in the solenoid follow a longitudinal course, the magnetic field lines outside the solenoid must proceed in the opposite direction. This occurs as a result of the lines creating a loop. The volume outside the solenoid, on the other hand, is significantly larger than the volume within. As a result, the density of magnetic field lines outside the solenoid is significantly reduced. As a result, the field outside the solenoid can be said to be constant. For the total number of field lines to be conserved, the field outside must go to zero as the solenoid gets longer. ",
