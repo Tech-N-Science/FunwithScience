@@ -231,13 +231,41 @@ const calculator = ({ match }) => {
         "To find the magnetic field(B) for a infinite sheet  we need to know the current density (J₀) and then applying Ampere's Law we can determine the magnetic field. ",
     },
     {
-      topic:"Finite Length Solenoid",
-      details:"Magnetic field due to a finite length solenoid is the product of no. of turns and the the current in the solenoid",
-      formula:"B=μ₀*N*I",
+      topic: "Solenoid",
+      details:
+        "Outside the solenoid, the field is radially uniform or constant. The flux density outside the solenoid may likewise be shown to be zero using an intuitive reasoning. Magnetic field lines can only exist as loops; unlike electric field lines, they cannot diverge or converge to a point. Because the magnetic field lines in the solenoid follow a longitudinal course, the magnetic field lines outside the solenoid must proceed in the opposite direction. This occurs as a result of the lines creating a loop. The volume outside the solenoid, on the other hand, is significantly larger than the volume within. As a result, the density of magnetic field lines outside the solenoid is significantly reduced. As a result, the field outside the solenoid can be said to be constant. For the total number of field lines to be conserved, the field outside must go to zero as the solenoid gets longer. ",
+      formula: "B=μ₀*N*I",
       siunit: "Tesla",
       dimension: "MT⁻²I⁻¹ ",
-      process:"To find the magnetic field for the finite length solenoid we need to know the no. of turns (N) and the current in solenoid (I) where as μ₀ is constant and it's value is 4π*10⁻⁷ Henry/m"
-    }
+      process:
+        "To find the magnetic field for the solenoid we need to know the no. of turns (N) and the current in solenoid (I) where as μ₀ is constant and it's value is 4π*10⁻⁷ Henry/m",
+    },
+    {
+      topic: "Solid Cylinder",
+      details: [
+        "Consider a solid cylinder of radius(R) carrying current (i) along its length. The cylinder has a uniform current density. The magnetic field (B) due to the solid cylinder can be calculated for three cases:",
+        <br />,
+        "1) If r < R, the magnetic field is given by the formula B=μ₀ir/2πR²",
+        <br />,
+        "2) If r = R, the magnetic field is given by the formula B=μ₀i/2πR",
+        <br />,
+        "3) If r > R, the magnetic field is given by the formula B=μ₀i/2πr",
+        <br />,
+        <br />,
+        "where 'r' is the distance from the axis of the solid cylinder.",
+      ],
+      formula: [
+        "Inside(r < R): B=μ₀ir/2πR²",
+        <br />,
+        "At Surface (r = R): B=µ₀i/2πR",
+        <br />,
+        "Outside(r > R): B=µ₀i/2πr",
+      ],
+      siunit: "Tesla",
+      dimension: "MT⁻²I⁻¹ ",
+      process:
+        "To find the magnetic field(B) for a solid cylinder we need to know its radius(R), the current(I) flowing along its length and a distance from the axis(r). ",
+    },
   ];
   //electricfield_data
   const electricfield_data = [
