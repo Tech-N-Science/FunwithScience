@@ -51,4 +51,12 @@ body {
     animation: rotation 4s ease;
   }
 }
+@media(max-width:320px)
+{
+  .loadingimg{
+    width: 200px;
+    height: 200px;
+    animation: rotation 4s ease;
+  }
+}
 

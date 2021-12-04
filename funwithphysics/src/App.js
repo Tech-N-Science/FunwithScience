@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
 import Navbar from "./Components/Navbar/Navbar";
+import Signup from "./Components/Signup/Signup";
 import Loadingimg from "./Images/Logo/logo.webp";
 import React, { Suspense, lazy } from "react";
 import ClassicalMechanics from "./Components/Classical_Mechanics/ClassicalMechanics";
@@ -99,6 +100,10 @@ const App = () => {
         <Route exact path="/physics">
           <Navbar />
           <PhysicsTopic />
+        </Route>
+        <Route exact path="/Signup">
+          <Navbar/>
+          <Signup/>
         </Route>
 
         <Route
