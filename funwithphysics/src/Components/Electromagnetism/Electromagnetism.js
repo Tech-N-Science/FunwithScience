@@ -100,6 +100,16 @@ export default function Electromagnetism() {
         "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l) of sliding bar. ",
     },
     {
+      topic: "Faraday's Law",
+      details:
+        "Faraday's law states that the induced emf(ε) in a circuit is proportional to the rate of change over time(t) of the magnetic flux(Φ) through that circuit.",
+      formula: "E = -N * (ΔΦ /Δt) ",
+      siunit: "Volts (Joules/Coulombs)",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "In order to find the induced EMF(ε) we need know the rate of change of Time period(Δt) and the rate of change of magnetic flux(ΔΦ) in the circuit and also the number of turns in the coil(N). ",
+    },
+    {
       topic: "Time period",
       details:
         "The time for the charged particle to go around the circular path is defined as the period, which is the same as the distance traveled (the circumference) divided by the speed. Based on this and Equation, we can derive the period of motion as T = 2πm/(qB).",
@@ -123,12 +133,14 @@ export default function Electromagnetism() {
       details: "....",
     },
     {
-      topic:"Gauss Law",
-      details:"The Gauss law relates the ‘flow’ of electric field lines (flux) to the charges within the enclosed surface. If there are no charges enclosed by a surface, then the net electric flux remains zero. This means that the number of electric field lines entering the surface is equal to the field lines leaving the surface.",
-      formula:"Φ = Q/ϵ0",
-      siunit:"Nm²/C",
-      dimension:"M L³ T⁻³ I⁻¹",
-      process:"According to the Gauss law, the total flux linked with a closed surface is 1/ε0 times the charge Q enclosed by the closed surface.",
+      topic: "Gauss Law",
+      details:
+        "The Gauss law relates the ‘flow’ of electric field lines (flux) to the charges within the enclosed surface. If there are no charges enclosed by a surface, then the net electric flux remains zero. This means that the number of electric field lines entering the surface is equal to the field lines leaving the surface.",
+      formula: "Φ = Q/ϵ0",
+      siunit: "Nm²/C",
+      dimension: "M L³ T⁻³ I⁻¹",
+      process:
+        "According to the Gauss law, the total flux linked with a closed surface is 1/ε0 times the charge Q enclosed by the closed surface.",
     },
   ];
 
