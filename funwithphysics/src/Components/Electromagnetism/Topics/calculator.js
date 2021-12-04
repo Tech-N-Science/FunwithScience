@@ -112,6 +112,16 @@ const calculator = ({ match }) => {
         "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l) of sliding bar. ",
     },
     {
+      topic: "Induced EMF",
+      details:
+        "Faraday's law states that the induced emf(ε) in a circuit is proportional to the rate of change over time(t) of the magnetic flux(Φ) through that circuit.",
+      formula: "E = -N * (ΔΦ /Δt) ",
+      siunit: "Volts (Joules/Coulombs)",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "In order to find the induced EMF(ε) we need know the rate of change of Time period(Δt) and the rate of change of magnetic flux(ΔΦ) in the circuit and also the number of turns in the coil(N). ",
+    },
+    {
       topic: "Time period",
       details:
         "The time for the charged particle to go around the circular path is defined as the period, which is the same as the distance traveled (the circumference) divided by the speed. Based on this and Equation, we can derive the period of motion as T = 2πm/(qB).",
@@ -956,7 +966,79 @@ const calculator = ({ match }) => {
       </>
     );
   };
+  //Induced EMF Calculator (Faraday's Law)
+  const InducedEmfCalculator = () => {
+    const [turns, setTurns] = useState(null);
+    const [flux, setFlux] = useState(null);
+    const [time, setTime] = useState(null);
+    const [result, setResult] = useState(null);
 
+    const reset = () => {
+      setTurns(null);
+      setFlux(null);
+      setTime(null);
+      setResult(null);
+    };
+
+    const calcResult = () => {
+      let res;
+      res = -turns * (flux / time);
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Number of Turns(N)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setTurns(e.target.value);
+              }}
+              placeholder="Enter the number of turns"
+              value={turns === null ? "" : turns}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Change in Flux(ΔΦ)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setFlux(e.target.value);
+              }}
+              placeholder="Enter the change in flux(Wb)"
+              value={flux === null ? "" : flux}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Change in Time(Δt)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setTime(e.target.value);
+              }}
+              placeholder="Enter the change in time(s)"
+              value={time === null ? "" : time}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} Volts`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
   //EMF Calculator
   const EmfCalculator = () => {
     const [velocity, setVelocity] = useState(null);
@@ -1321,6 +1403,9 @@ const calculator = ({ match }) => {
         break;
       case "Motional EMF":
         currentCall = EmfCalculator();
+        break;
+      case "Induced EMF":
+        currentCall = InducedEmfCalculator();
         break;
       case "Time period":
         currentCall = Timeperiod();
