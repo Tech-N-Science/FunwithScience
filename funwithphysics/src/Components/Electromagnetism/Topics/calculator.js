@@ -122,6 +122,14 @@ const calculator = ({ match }) => {
       topic: "Magnetic field",
       details: "....",
     },
+    {
+      topic:"Gauss Law",
+      details:"The Gauss law relates the ‘flow’ of electric field lines (flux) to the charges within the enclosed surface. If there are no charges enclosed by a surface, then the net electric flux remains zero. This means that the number of electric field lines entering the surface is equal to the field lines leaving the surface.",
+      formula:"Φ = Q/ϵ0",
+      siunit:"Nm²/C",
+      dimension:"M L³ T⁻³ I⁻¹",
+      process:"According to the Gauss law, the total flux linked with a closed surface is 1/ε0 times the charge Q enclosed by the closed surface.",
+    },
   ];
   //Flux data
   const flux_data = [
@@ -1223,6 +1231,62 @@ const calculator = ({ match }) => {
     );
   };
 
+  // Gauss Law 
+  const GaussLaw = () => {
+    const [charge, setCharge] = useState(null);
+    const [result, setResult] = useState(null);
+    const e = 8.854187817 * Math.pow(10, -12);
+
+    const reset = () => {
+      setCharge(null);
+      setResult(null);
+    };
+
+    const calcResult = () => {
+      let res;
+      res = charge / e;
+      setResult(res);
+    };
+
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Total Charge Enclosed (Q)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCharge(e.target.value)}
+              type="number"
+              placeholder={"Enter in coulombs"}
+              value={charge === null ? "" : charge}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Electric Constant (ε₀)</Form.Label>
+            <Form.Control
+              readOnly
+              // type="number"
+              placeholder={"8.854 * 10⁻¹² F.m⁻¹"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " Nm²/C"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
   const calC = (key) => {
     let currentCall;
     switch (key) {
@@ -1255,6 +1319,9 @@ const calculator = ({ match }) => {
         break;
       case "Magnetic Force":
         currentCall = MagneticForce();
+        break;
+      case "Gauss Law":
+        currentCall = GaussLaw();
         break;
       default:
         break;
