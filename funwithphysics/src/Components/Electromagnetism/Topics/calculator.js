@@ -112,6 +112,16 @@ const calculator = ({ match }) => {
         "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l) of sliding bar. ",
     },
     {
+      topic: "Faraday's Law",
+      details:
+        "Faraday's law states that the induced emf(ε) in a circuit is proportional to the rate of change over time(t) of the magnetic flux(Φ) through that circuit.",
+      formula: "ε = -N * (ΔΦ /Δt) ",
+      siunit: "Volts (Joules/Coulombs)",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "In order to find the induced EMF(ε) we need know the rate of change of Time period(Δt) and the rate of change of magnetic flux(ΔΦ) in the circuit and also the number of turns in the coil(N). ",
+    },
+    {
       topic: "Time period",
       details:
         "The time for the charged particle to go around the circular path is defined as the period, which is the same as the distance traveled (the circumference) divided by the speed. Based on this and Equation, we can derive the period of motion as T = 2πm/(qB).",
@@ -297,6 +307,16 @@ const calculator = ({ match }) => {
       dimension: "MT⁻²I⁻¹ ",
       process:
         "To find the magnetic field(B) for the points inside the toroid we need to know the total number of turns (N), current in the loop (I) and radius of the loop (r) and then by applying Ampere's Law we can determine the magnetic field for the points inside the toroid. ",
+    },
+    {
+      topic: "Circular coil",
+      details:
+        "Consider a circular coil  with N number of turns of the carrying current wire. The magnetic field (B) produced  due to current (I) at the center with radius (r) can be calculated using Ampere's Law. So the magnetic field produced is  μ₀NI/2r.",
+      formula: "B= μ₀NI/2r",
+      siunit: "Tesla",
+      dimension: "MT⁻²I⁻¹ ",
+      process:
+        "To find the magnetic field(B) at the centre of circular coil we need to know the total number of turns (N), current in the loop (I) and radius of the loop (r) and then by applying Ampere's Law we can determine the magnetic field at hte centre of circular coil. ",
     },
   ];
   //electricfield_data
@@ -956,7 +976,79 @@ const calculator = ({ match }) => {
       </>
     );
   };
+  //Induced EMF Calculator (Faraday's Law)
+  const InducedEmfCalculator = () => {
+    const [turns, setTurns] = useState(null);
+    const [flux, setFlux] = useState(null);
+    const [time, setTime] = useState(null);
+    const [result, setResult] = useState(null);
 
+    const reset = () => {
+      setTurns(null);
+      setFlux(null);
+      setTime(null);
+      setResult(null);
+    };
+
+    const calcResult = () => {
+      let res;
+      res = -turns * (flux / time);
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Number of Turns(N)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setTurns(e.target.value);
+              }}
+              placeholder="Enter the number of turns"
+              value={turns === null ? "" : turns}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Change in Flux(ΔΦ)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setFlux(e.target.value);
+              }}
+              placeholder="Enter the change in flux(Wb)"
+              value={flux === null ? "" : flux}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Change in Time(Δt)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setTime(e.target.value);
+              }}
+              placeholder="Enter the change in time(s)"
+              value={time === null ? "" : time}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} Volts`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
   //EMF Calculator
   const EmfCalculator = () => {
     const [velocity, setVelocity] = useState(null);
@@ -1321,6 +1413,9 @@ const calculator = ({ match }) => {
         break;
       case "Motional EMF":
         currentCall = EmfCalculator();
+        break;
+      case "Faraday's Law":
+        currentCall = InducedEmfCalculator();
         break;
       case "Time period":
         currentCall = Timeperiod();
