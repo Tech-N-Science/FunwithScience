@@ -9,61 +9,60 @@ function Calculator({ match }) {
   // topics_data
   const Topics = [
     {
-      topic:"Mass Energy Relation",
-      details:`Equation "E = mc²" is the Einstein’s theory of special relativity that defines that the mass and energy are the same physical entity and can be changed into one another. In the equation, the increased relativistic mass (m) of a body times the speed of light squared (c²) is equal to the kinetic energy (E) of that body. where the value of speed of light is 299,792,458 m/s`,
-      formula:"E=MC²",
-      process:"To find the the energy we need to know the value of mass & we can easily calculate mass if we have the value of energy. where as the value of speed of light is 299,792,458 m/s",
-      siunit:["Energy: joule",<br/>,"Mass: kg"],
-      dimension:["Energy: M L² T⁻²",<br/>,"mass: M"]
-
-    }
+      topic: "Mass Energy Relation",
+      details: `The Einstein's special relativity equation "E = mc²" states that mass and energy are the same physical object that may be converted into one another. The kinetic energy (E) of a body is equal to its enhanced relativistic mass (m) times the speed of light squared (c²) in the equation, where the speed of light is 3x10⁸m/s`,
+      formula: "E=MC²",
+      process:
+        "To find the the energy we need to know the value of mass & we can easily calculate mass if we have the value of energy. where as the value of speed of light is 3x10⁸m/s",
+      siunit: ["Energy: joule", <br />, "Mass: kg"],
+      dimension: ["Energy: M L² T⁻²", <br />, "mass: M"],
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
 
   //Mass Energy Relation calculator
-  const MassEnergyCalculator=()=>{
+  const MassEnergyCalculator = () => {
     const [choice, setChoice] = useState("Energy");
     const [mass, setMass] = useState(null);
     const [energy, setEnergy] = useState(null);
     const [result, setResult] = useState(null);
-    const reset=()=>{
-      setMass(null)
-      setEnergy(null)
-      setResult(null)
+    const reset = () => {
+      setMass(null);
+      setEnergy(null);
+      setResult(null);
+    };
+    const C = 3 * Math.pow(10, 8);
 
-    }
-    const C=299792458 
-
-    const handleChange=(e)=>{
-      setChoice(e.target.value)
-      reset()
-    }
-    const calcResult=()=>{
+    const handleChange = (e) => {
+      setChoice(e.target.value);
+      reset();
+    };
+    const calcResult = () => {
       let res;
-      if(choice==="Energy"){
-        res=mass*C*C;
-      }
-      else if(choice==="Mass"){
-        res=energy/(C*C);
+      if (choice === "Energy") {
+        res = mass * C * C;
+      } else if (choice === "Mass") {
+        res = energy / (C * C);
       }
       setResult(res);
-    }
-    const choiceData=()=>{
-      if(choice==="Energy")
-      return{
-        name:"Energy",
-        mainunit:"joule"
-      }
-      if(choice==="Mass")
-      return{
-        name:"Mass",
-        mainunit:"kg"
-      }
-    }
-    return(<>
-    <Form>
+    };
+    const choiceData = () => {
+      if (choice === "Energy")
+        return {
+          name: "Energy",
+          mainunit: "joule",
+        };
+      if (choice === "Mass")
+        return {
+          name: "Mass",
+          mainunit: "kg",
+        };
+    };
+    return (
+      <>
+        <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
@@ -86,36 +85,30 @@ function Calculator({ match }) {
               <br />
             </Form.Text>
           </Form.Group>
-          {
-            choice==="Energy"?<Form.Group className="mb-4">
-            <Form.Label>Mass (M)</Form.Label>
-            <Form.Control
-              onChange={(e) => setMass(e.target.value)}
-              type="number"
-              placeholder={"Enter in kg"}
-              value={
-                mass === null ? "" : mass
-              }
-            />
-          </Form.Group>:<Form.Group className="mb-4">
-            <Form.Label>Energy (E)</Form.Label>
-            <Form.Control
-              onChange={(e) => setEnergy(e.target.value)}
-              type="number"
-              placeholder={"Enter in joule"}
-              value={
-                energy === null ? "" : energy
-              }
-            />
-          </Form.Group>
-          }
+          {choice === "Energy" ? (
+            <Form.Group className="mb-4">
+              <Form.Label>Mass (M)</Form.Label>
+              <Form.Control
+                onChange={(e) => setMass(e.target.value)}
+                type="number"
+                placeholder={"Enter in kg"}
+                value={mass === null ? "" : mass}
+              />
+            </Form.Group>
+          ) : (
+            <Form.Group className="mb-4">
+              <Form.Label>Energy (E)</Form.Label>
+              <Form.Control
+                onChange={(e) => setEnergy(e.target.value)}
+                type="number"
+                placeholder={"Enter in joule"}
+                value={energy === null ? "" : energy}
+              />
+            </Form.Group>
+          )}
           <Form.Group className="mb-4">
             <Form.Label>Speed of ligth (C)</Form.Label>
-            <Form.Control
-            readOnly
-              type="number"
-              placeholder={"299,792,458 m/s"}
-            />
+            <Form.Control readOnly type="number" placeholder={"3 * 10⁸ m/s"} />
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Control
@@ -136,17 +129,16 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-    </>)
-  }
-
-  
+      </>
+    );
+  };
 
   //adding the calculators togather
   function calC(key) {
     let currentCall;
     switch (key) {
       case "Mass Energy Relation":
-        currentCall=MassEnergyCalculator()
+        currentCall = MassEnergyCalculator();
         break;
       default:
         break;

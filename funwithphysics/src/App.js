@@ -53,6 +53,7 @@ const App = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
       </Helmet>
+
       <Switch>
         <Route exact path="/">
           <Suspense
@@ -164,11 +165,7 @@ const App = () => {
           <Navbar />
           <Relativity />
         </Route>
-        <Route
-          exact
-          path="/relativity/calc/:topic"
-          component={Calrelativity}
-        />
+        <Route exact path="/relativity/calc/:topic" component={Calrelativity} />
 
         <Route exact path="/quiz">
           <Navbar />
