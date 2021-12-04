@@ -63,6 +63,16 @@ function Magneticfield_calculator({ match }) {
       process:
         "To find the magnetic field(B) for a solid cylinder we need to know its radius(R), the current(I) flowing along its length and a distance from the axis(r). ",
     },
+    {
+      topic: "Toroid",
+      details:
+        "Consider a hollow circular ring with N number of turns of the carrying current wire. The magnetic field (B) produced  due to current (I) at point P (inside toroid) with radius (r) can be calculated using Ampere's Law. So the magnetic field produced is  μ₀*N*I/2*π*r.",
+      formula: "B= μ₀*N*I/2*π*r",
+      siunit: "Tesla",
+      dimension: "MT⁻²I⁻¹ ",
+      process:
+        "To find the magnetic field(B) for the points inside the toroid we need to know the total number of turns (N), current in the loop (I) and radius of the loop (r) and then by applying Ampere's Law we can determine the magnetic field for the points inside the toroid. ",
+    },
   ];
 
   const page = magneticfield_data.filter(
@@ -138,6 +148,87 @@ function Magneticfield_calculator({ match }) {
       </>
     );
   };
+  // Toroid
+  const Toroid = () => {
+  const [turns, setTurns] = useState(null);
+  const [radius, setRadius] = useState(null);
+  const [current, setCurrent] = useState(null);
+  const [result, setResult] = useState(null);
+  const μ = 4 * Math.PI * Math.pow(10, -7);
+  const reset = () => {
+    setTurns(null);
+    setRadius(null);
+    setCurrent(null);
+    setResult(null);
+  };
+  const calcResult = () => {
+    let res;
+    res = μ * (turns * current)/ 2* (Math.PI * radius);
+    setResult(res);
+  };
+
+  return (
+    <>
+      <Form>
+        <Form.Group className="mb-4">
+          <Form.Label> Number of turns(N)</Form.Label>
+          <Form.Control
+            type="number"
+            onChange={(e) => {
+              setTurns(e.target.value);
+            }}
+            placeholder="Enter the no. of turns (N)"
+            value={turns === null ? "" : turns}
+          />
+        </Form.Group>
+        <Form.Group className="mb-4">
+          <Form.Label> Current (I)</Form.Label>
+          <Form.Control
+            type="number"
+            onChange={(e) => {
+              setCurrent(e.target.value);
+            }}
+            placeholder="Enter the value of current"
+            value={current === null ? "" : current}
+          />
+        </Form.Group>
+        <Form.Group className="mb-4">
+          <Form.Label> Radius (r)</Form.Label>
+          <Form.Control
+            type="number"
+            onChange={(e) => {
+              setRadius(e.target.value);
+            }}
+            placeholder="Enter the value of radius"
+            value={radius === null ? "" : radius}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Constant (μ₀)</Form.Label>
+          <Form.Control
+            readOnly
+            // type="number"
+            placeholder={"4π*10⁻⁷ Henry/m"}
+          />
+        </Form.Group>
+        <Form.Group className="mb-4">
+          <Form.Control
+            readOnly
+            type="number"
+            placeholder={result === null ? "Result" : `${result} T`}
+          />
+        </Form.Group>
+      </Form>
+      <Button variant="primary" onClick={calcResult}>
+        Calculate
+      </Button>
+      &nbsp;&nbsp;&nbsp;
+      <Button variant="dark" onClick={() => reset()} type="reset">
+        Reset
+      </Button>
+    </>
+  );
+};
 
   //magnetic field for infinite sheet
   const Infinite_sheet = () => {
@@ -404,6 +495,9 @@ function Magneticfield_calculator({ match }) {
         break;
       case "Solid Cylinder":
         currentCall = SolidCylinder();
+        break;
+     case "Toroid":
+        currentCall = Toroid();
         break;
       default:
         break;
