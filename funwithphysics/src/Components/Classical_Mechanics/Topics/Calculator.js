@@ -4,6 +4,7 @@ import { Form, Card, Button, Row, Col } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Navbar from "../../Navbar/Navbar";
 
 function Calculator({ match }) {
   const Topics = [
@@ -1795,7 +1796,8 @@ function Calculator({ match }) {
     );
   } else {
     return (
-      <>
+      <React.Fragment>
+        <Navbar />
         <div className="Calculator__main">
           <Helmet>
             <title>{details.topic}</title>
@@ -1831,7 +1833,7 @@ function Calculator({ match }) {
             {calC(details.topic)}
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 }

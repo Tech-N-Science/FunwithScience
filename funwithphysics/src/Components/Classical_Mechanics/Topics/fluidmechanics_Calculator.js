@@ -3,7 +3,8 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
-// import Navbar from "../../Navbar/Navbar"
+import Navbar from "../../Navbar/Navbar";
+
 function FluidCalculator({ match }) {
   //fluid_list
   const fluid_list = [
@@ -266,7 +267,7 @@ function FluidCalculator({ match }) {
     function handleChange(e) {
       setChoice(e.target.value);
       choiceData();
-      reset()
+      reset();
     }
 
     const calcResult = () => {
@@ -631,7 +632,7 @@ function FluidCalculator({ match }) {
   }
 
   // Bernoulli's equation calculator
-  const CalculatorBernoulliequation =()=>{
+  const CalculatorBernoulliequation = () => {
     const [choice, setChoice] = useState("pressure");
     const [pressure1, setPressure1] = useState(null);
     const [velocity1, setVelocity1] = useState(null);
@@ -643,81 +644,162 @@ function FluidCalculator({ match }) {
     const [density, setDensity] = useState(null);
     const [result, setResult] = useState(null);
 
-    const calcResult=()=>{
-      let res
-      if(choice==="pressure"){
-        let r1= 0.5* density* velocity1* velocity1;
-        let r2= density* gravity* height1;
-        let r3= 0.5* density* velocity2* velocity2;
-        let r4=density* gravity* height2;
-        res=parseFloat(pressure1)+parseFloat(r1)+parseFloat(r2)-parseFloat(r3)-parseFloat(r4);
+    const calcResult = () => {
+      let res;
+      if (choice === "pressure") {
+        let r1 = 0.5 * density * velocity1 * velocity1;
+        let r2 = density * gravity * height1;
+        let r3 = 0.5 * density * velocity2 * velocity2;
+        let r4 = density * gravity * height2;
+        res =
+          parseFloat(pressure1) +
+          parseFloat(r1) +
+          parseFloat(r2) -
+          parseFloat(r3) -
+          parseFloat(r4);
       }
-      if(choice==="height"){
-        let r1=(pressure1-pressure2)/(density*gravity)
-        let r2= (0.5*velocity1*velocity1)/gravity
-        let r3= (0.5*velocity2*velocity2)/gravity
-        res=parseFloat(r1)+parseFloat(r2)+parseFloat(height1)-parseFloat(r3);
+      if (choice === "height") {
+        let r1 = (pressure1 - pressure2) / (density * gravity);
+        let r2 = (0.5 * velocity1 * velocity1) / gravity;
+        let r3 = (0.5 * velocity2 * velocity2) / gravity;
+        res =
+          parseFloat(r1) +
+          parseFloat(r2) +
+          parseFloat(height1) -
+          parseFloat(r3);
       }
-      if(choice==="velocity"){
-        let r1=2*(pressure1-pressure2)/density
-        let r2=2*gravity*(height1-height2)
-        let r3=velocity1*velocity1
-        let r4=parseFloat(r1)+parseFloat(r2)+parseFloat(r3)
-        res=Math.sqrt(r4)
+      if (choice === "velocity") {
+        let r1 = (2 * (pressure1 - pressure2)) / density;
+        let r2 = 2 * gravity * (height1 - height2);
+        let r3 = velocity1 * velocity1;
+        let r4 = parseFloat(r1) + parseFloat(r2) + parseFloat(r3);
+        res = Math.sqrt(r4);
       }
-      setResult(res)
+      setResult(res);
+    };
 
-    }
+    const reset = () => {
+      setPressure1(null);
+      setPressure2(null);
+      setVelocity2(null);
+      setVelocity1(null);
+      setDensity(null);
+      setHeight1(null);
+      setHeight2(null);
+      setGravity(null);
+      setResult(null);
+    };
 
-    const reset =()=>{
-      setPressure1(null)
-      setPressure2(null)
-      setVelocity2(null)
-      setVelocity1(null)
-      setDensity(null)
-      setHeight1(null)
-      setHeight2(null)
-      setGravity(null)
-      setResult(null)
-    }
-
-    const handleChange=(e)=>{
-      setChoice(e.target.value)
-      reset()
-    }
-    const choiceData=()=>{
-      if(choice==="pressure")
-      return{
-        name:"Pressure",
-        mainunit:"pascal",
-        quantities:["Pressure 1 (P1)","Density (ρ)","Height 1 (h1)","Velocity 1 (V1)","Heigth 2 (h2)","Velocity 2 (V2)","Gravity"],
-        subunits:["Pascal","kg m⁻³","m","m/s","m","m/s","m/s²"],
-        getters:[pressure1,density,height1,velocity1,height2,velocity2,gravity],
-        setters:[setPressure1,setDensity,setHeight1,setVelocity1,setHeight2,setVelocity2,setGravity]
-      }
-      if(choice==="velocity")
-      return{
-        name:"Velocity",
-        mainunit:"m/s",
-        quantities:["Pressure 1 (P1)","Density (ρ)","Height 1 (h1)","Velocity 1 (V1)","Heigth 2 (h2)","Pressure 2 (P2)","Gravity"],
-        subunits:["Pascal","kg m⁻³","m","m/s","m","Pascal","m/s²"],
-        getters:[pressure1,density,height1,velocity1,height2,pressure2,gravity],
-        setters:[setPressure1,setDensity,setHeight1,setVelocity1,setHeight2,setPressure2,setGravity]
-      }
-      if(choice==="height")
-      return{
-        name:"Height",
-        mainunit:"m",
-        quantities:["Pressure 1 (P1)","Density (ρ)","Height 1 (h1)","Velocity 1 (V1)","Velocity 2 (V2)","Pressure 2 (P2)","Gravity"],
-        subunits:["Pascal","kg m⁻³","m","m/s","m/s","Pascal","m/s²"],
-        getters:[pressure1,density,height1,velocity1,velocity2,pressure2,gravity],
-        setters:[setPressure1,setDensity,setHeight1,setVelocity1,setVelocity2,setPressure2,setGravity]
-      }
-    }
-    return(<>
-    <Form>
-       {/* dropdown */}
-       <Form.Group className="mb-4" controlId="choice">
+    const handleChange = (e) => {
+      setChoice(e.target.value);
+      reset();
+    };
+    const choiceData = () => {
+      if (choice === "pressure")
+        return {
+          name: "Pressure",
+          mainunit: "pascal",
+          quantities: [
+            "Pressure 1 (P1)",
+            "Density (ρ)",
+            "Height 1 (h1)",
+            "Velocity 1 (V1)",
+            "Heigth 2 (h2)",
+            "Velocity 2 (V2)",
+            "Gravity",
+          ],
+          subunits: ["Pascal", "kg m⁻³", "m", "m/s", "m", "m/s", "m/s²"],
+          getters: [
+            pressure1,
+            density,
+            height1,
+            velocity1,
+            height2,
+            velocity2,
+            gravity,
+          ],
+          setters: [
+            setPressure1,
+            setDensity,
+            setHeight1,
+            setVelocity1,
+            setHeight2,
+            setVelocity2,
+            setGravity,
+          ],
+        };
+      if (choice === "velocity")
+        return {
+          name: "Velocity",
+          mainunit: "m/s",
+          quantities: [
+            "Pressure 1 (P1)",
+            "Density (ρ)",
+            "Height 1 (h1)",
+            "Velocity 1 (V1)",
+            "Heigth 2 (h2)",
+            "Pressure 2 (P2)",
+            "Gravity",
+          ],
+          subunits: ["Pascal", "kg m⁻³", "m", "m/s", "m", "Pascal", "m/s²"],
+          getters: [
+            pressure1,
+            density,
+            height1,
+            velocity1,
+            height2,
+            pressure2,
+            gravity,
+          ],
+          setters: [
+            setPressure1,
+            setDensity,
+            setHeight1,
+            setVelocity1,
+            setHeight2,
+            setPressure2,
+            setGravity,
+          ],
+        };
+      if (choice === "height")
+        return {
+          name: "Height",
+          mainunit: "m",
+          quantities: [
+            "Pressure 1 (P1)",
+            "Density (ρ)",
+            "Height 1 (h1)",
+            "Velocity 1 (V1)",
+            "Velocity 2 (V2)",
+            "Pressure 2 (P2)",
+            "Gravity",
+          ],
+          subunits: ["Pascal", "kg m⁻³", "m", "m/s", "m/s", "Pascal", "m/s²"],
+          getters: [
+            pressure1,
+            density,
+            height1,
+            velocity1,
+            velocity2,
+            pressure2,
+            gravity,
+          ],
+          setters: [
+            setPressure1,
+            setDensity,
+            setHeight1,
+            setVelocity1,
+            setVelocity2,
+            setPressure2,
+            setGravity,
+          ],
+        };
+    };
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control as="select" onChange={(e) => handleChange(e)}>
               <option value="pressure">Final Pressure(P₂)</option>
@@ -829,8 +911,9 @@ function FluidCalculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-    </>)
-  }
+      </>
+    );
+  };
   // Adding Calculators together
   function calC(key) {
     let currentCall;
@@ -863,7 +946,8 @@ function FluidCalculator({ match }) {
   }
 
   return (
-    <>
+    <React.Fragment>
+      <Navbar />
       <Helmet>
         <title>{details.topic}</title>
         <meta
@@ -899,7 +983,7 @@ function FluidCalculator({ match }) {
           <p>{details.process}</p>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 }
 
