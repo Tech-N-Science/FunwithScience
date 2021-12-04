@@ -122,6 +122,14 @@ const calculator = ({ match }) => {
       topic: "Magnetic field",
       details: "....",
     },
+    {
+      topic:"Gauss Law",
+      details:"The Gauss law relates the ‘flow’ of electric field lines (flux) to the charges within the enclosed surface. If there are no charges enclosed by a surface, then the net electric flux remains zero. This means that the number of electric field lines entering the surface is equal to the field lines leaving the surface.",
+      formula:"Φ = Q/ϵ0",
+      siunit:"Nm²/C",
+      dimension:"M L³ T⁻³ I⁻¹",
+      process:"According to the Gauss law, the total flux linked with a closed surface is 1/ε0 times the charge Q enclosed by the closed surface.",
+    },
   ];
   //Flux data
   const flux_data = [
@@ -275,6 +283,16 @@ const calculator = ({ match }) => {
       dimension: "MT⁻²I⁻¹ ",
       process:
         "To find the magnetic field(B) for a solid cylinder we need to know its radius(R), the current(I) flowing along its length and a distance from the axis(r). ",
+    },
+    {
+      topic: "Toroid",
+      details:
+        "Consider a hollow circular ring with N number of turns of the carrying current wire. The magnetic field (B) produced  due to current (I) at point P (inside toroid) with radius (r) can be calculated using Ampere's Law. So the magnetic field produced is  μ₀*N*I/2*π*r.",
+      formula: "B= μ₀*N*I/2*π*r",
+      siunit: "Tesla",
+      dimension: "MT⁻²I⁻¹ ",
+      process:
+        "To find the magnetic field(B) for the points inside the toroid we need to know the total number of turns (N), current in the loop (I) and radius of the loop (r) and then by applying Ampere's Law we can determine the magnetic field for the points inside the toroid. ",
     },
   ];
   //electricfield_data
@@ -1223,6 +1241,62 @@ const calculator = ({ match }) => {
     );
   };
 
+  // Gauss Law 
+  const GaussLaw = () => {
+    const [charge, setCharge] = useState(null);
+    const [result, setResult] = useState(null);
+    const e = 8.854187817 * Math.pow(10, -12);
+
+    const reset = () => {
+      setCharge(null);
+      setResult(null);
+    };
+
+    const calcResult = () => {
+      let res;
+      res = charge / e;
+      setResult(res);
+    };
+
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Total Charge Enclosed (Q)</Form.Label>
+            <Form.Control
+              onChange={(e) => setCharge(e.target.value)}
+              type="number"
+              placeholder={"Enter in coulombs"}
+              value={charge === null ? "" : charge}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Electric Constant (ε₀)</Form.Label>
+            <Form.Control
+              readOnly
+              // type="number"
+              placeholder={"8.854 * 10⁻¹² F.m⁻¹"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " Nm²/C"}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
   const calC = (key) => {
     let currentCall;
     switch (key) {
@@ -1255,6 +1329,9 @@ const calculator = ({ match }) => {
         break;
       case "Magnetic Force":
         currentCall = MagneticForce();
+        break;
+      case "Gauss Law":
+        currentCall = GaussLaw();
         break;
       default:
         break;

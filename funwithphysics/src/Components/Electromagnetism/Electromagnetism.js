@@ -122,6 +122,14 @@ export default function Electromagnetism() {
       topic: "Magnetic field",
       details: "....",
     },
+    {
+      topic:"Gauss Law",
+      details:"The Gauss law relates the ‘flow’ of electric field lines (flux) to the charges within the enclosed surface. If there are no charges enclosed by a surface, then the net electric flux remains zero. This means that the number of electric field lines entering the surface is equal to the field lines leaving the surface.",
+      formula:"Φ = Q/ϵ0",
+      siunit:"Nm²/C",
+      dimension:"M L³ T⁻³ I⁻¹",
+      process:"According to the Gauss law, the total flux linked with a closed surface is 1/ε0 times the charge Q enclosed by the closed surface.",
+    },
   ];
 
   return (
