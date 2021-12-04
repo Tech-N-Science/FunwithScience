@@ -3,6 +3,7 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Helmet } from "react-helmet";
+import Navbar from "../../Navbar/Navbar";
 
 function Magneticfield_calculator({ match }) {
   //magneticfield_data
@@ -66,8 +67,8 @@ function Magneticfield_calculator({ match }) {
     {
       topic: "Toroid",
       details:
-        "Consider a hollow circular ring with N number of turns of the carrying current wire. The magnetic field (B) produced  due to current (I) at point P (inside toroid) with radius (r) can be calculated using Ampere's Law. So the magnetic field produced is  μ₀*N*I/2*π*r.",
-      formula: "B= μ₀*N*I/2*π*r",
+        "Consider a hollow circular ring with N number of turns of the carrying current wire. The magnetic field (B) produced  due to current (I) at point P (inside toroid) with radius (r) can be calculated using Ampere's Law. So the magnetic field produced is  μ₀NI/2πr.",
+      formula: "B= μ₀NI/2πr",
       siunit: "Tesla",
       dimension: "MT⁻²I⁻¹ ",
       process:
@@ -150,85 +151,85 @@ function Magneticfield_calculator({ match }) {
   };
   // Toroid
   const Toroid = () => {
-  const [turns, setTurns] = useState(null);
-  const [radius, setRadius] = useState(null);
-  const [current, setCurrent] = useState(null);
-  const [result, setResult] = useState(null);
-  const μ = 4 * Math.PI * Math.pow(10, -7);
-  const reset = () => {
-    setTurns(null);
-    setRadius(null);
-    setCurrent(null);
-    setResult(null);
-  };
-  const calcResult = () => {
-    let res;
-    res = μ * (turns * current)/ 2* (Math.PI * radius);
-    setResult(res);
-  };
+    const [turns, setTurns] = useState(null);
+    const [radius, setRadius] = useState(null);
+    const [current, setCurrent] = useState(null);
+    const [result, setResult] = useState(null);
+    const μ = 4 * Math.PI * Math.pow(10, -7);
+    const reset = () => {
+      setTurns(null);
+      setRadius(null);
+      setCurrent(null);
+      setResult(null);
+    };
+    const calcResult = () => {
+      let res;
+      res = (μ * turns * current) / (2 * Math.PI * radius);
+      setResult(res);
+    };
 
-  return (
-    <>
-      <Form>
-        <Form.Group className="mb-4">
-          <Form.Label> Number of turns(N)</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => {
-              setTurns(e.target.value);
-            }}
-            placeholder="Enter the no. of turns (N)"
-            value={turns === null ? "" : turns}
-          />
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Label> Current (I)</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => {
-              setCurrent(e.target.value);
-            }}
-            placeholder="Enter the value of current"
-            value={current === null ? "" : current}
-          />
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Label> Radius (r)</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => {
-              setRadius(e.target.value);
-            }}
-            placeholder="Enter the value of radius"
-            value={radius === null ? "" : radius}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Constant (μ₀)</Form.Label>
-          <Form.Control
-            readOnly
-            // type="number"
-            placeholder={"4π*10⁻⁷ Henry/m"}
-          />
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Control
-            readOnly
-            type="number"
-            placeholder={result === null ? "Result" : `${result} T`}
-          />
-        </Form.Group>
-      </Form>
-      <Button variant="primary" onClick={calcResult}>
-        Calculate
-      </Button>
-      &nbsp;&nbsp;&nbsp;
-      <Button variant="dark" onClick={() => reset()} type="reset">
-        Reset
-      </Button>
-    </>
-  );
-};
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label> Number of turns(N)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setTurns(e.target.value);
+              }}
+              placeholder="Enter the no. of turns (N)"
+              value={turns === null ? "" : turns}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label> Current (I)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setCurrent(e.target.value);
+              }}
+              placeholder="Enter the value of current"
+              value={current === null ? "" : current}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label> Radius (r)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setRadius(e.target.value);
+              }}
+              placeholder="Enter the value of radius"
+              value={radius === null ? "" : radius}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Constant (μ₀)</Form.Label>
+            <Form.Control
+              readOnly
+              // type="number"
+              placeholder={"4π*10⁻⁷ Henry/m"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} T`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
 
   //magnetic field for infinite sheet
   const Infinite_sheet = () => {
@@ -496,7 +497,7 @@ function Magneticfield_calculator({ match }) {
       case "Solid Cylinder":
         currentCall = SolidCylinder();
         break;
-     case "Toroid":
+      case "Toroid":
         currentCall = Toroid();
         break;
       default:
@@ -505,7 +506,8 @@ function Magneticfield_calculator({ match }) {
     return currentCall;
   };
   return (
-    <>
+    <React.Fragment>
+      <Navbar />
       <div className="Calculator__main">
         <Helmet>
           <title>{details.topic}</title>
@@ -541,7 +543,7 @@ function Magneticfield_calculator({ match }) {
           <p>{details.process}</p>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 }
 

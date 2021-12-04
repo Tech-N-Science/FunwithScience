@@ -3,7 +3,7 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Helmet } from "react-helmet";
-// import Navbar from "../../Navbar/Navbar"
+import Navbar from "../../Navbar/Navbar";
 
 const flux_calculator = ({ match }) => {
   const flux_data = [
@@ -36,20 +36,20 @@ const flux_calculator = ({ match }) => {
     const [area, setArea] = useState(null);
     const [result, setResult] = useState(null);
 
-    const reset=()=>{
-      setMagneticfield(null)
-      setAngle(null)
-      setArea(null)
-      setResult(null)
-    }
-    const calcResult=()=>{
+    const reset = () => {
+      setMagneticfield(null);
+      setAngle(null);
+      setArea(null);
+      setResult(null);
+    };
+    const calcResult = () => {
       let res;
-      res=magneticfield*area*Math.cos((angle*Math.PI)/180)
+      res = magneticfield * area * Math.cos((angle * Math.PI) / 180);
       setResult(res);
-    }
+    };
     return (
       <>
-      {/* <Navbar/> */}
+        {/* <Navbar/> */}
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Magnetic Field(B)</Form.Label>
@@ -178,7 +178,8 @@ const flux_calculator = ({ match }) => {
     return currentCall;
   };
   return (
-    <>
+    <React.Fragment>
+      <Navbar />
       <div className="Calculator__main">
         <Helmet>
           <title>{details.topic}</title>
@@ -214,7 +215,7 @@ const flux_calculator = ({ match }) => {
           <p>{details.process}</p>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

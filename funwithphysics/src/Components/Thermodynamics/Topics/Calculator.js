@@ -3,7 +3,7 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../thermodynamics.css";
 import { Helmet } from "react-helmet";
-// import Navbar from "../../Navbar/Navbar"
+import Navbar from "../../Navbar/Navbar";
 
 function Calculator({ match }) {
   // topics_data
@@ -671,7 +671,7 @@ function Calculator({ match }) {
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control as="select" onChange={(e) => handleChange(e)}>
-              <option value="ke"> 
+              <option value="ke">
                 KE : Total translational kinetic energy of gas
               </option>
               <option value="rms">Vᵣₘₛ : RMS speed</option>
@@ -717,7 +717,8 @@ function Calculator({ match }) {
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Label>{choiceData().quantities[2]}</Form.Label>
-            <Form.Control className="K_energy"
+            <Form.Control
+              className="K_energy"
               onChange={(e) => choiceData().setters[2](e.target.value)}
               type="number"
               readOnly
@@ -775,40 +776,41 @@ function Calculator({ match }) {
     return currentCall;
   }
   return (
-    <div className="Calculator__main">
-    {/* <Navbar/> */}
-      <Helmet>
+    <React.Fragment>
+      <Navbar />
+      <div className="Calculator__main">
+        <Helmet>
+          <title>{details.topic}</title>
+          <meta name="description" content="{details.details}" />
+          <meta
+            name="keywords"
+            content="Thermodynamics, thermo, calculator, Thermodynamics calculator, thermo calculator, first law, second law, third law, entropy,efficiency,calculator, physics, Tech n science, technscience, tech and science"
+          />
+        </Helmet>
 
-        <title>{details.topic}</title>
-        <meta name="description" content="{details.details}" />
-        <meta
-          name="keywords"
-          content="Thermodynamics, thermo, calculator, Thermodynamics calculator, thermo calculator, first law, second law, third law, entropy,efficiency,calculator, physics, Tech n science, technscience, tech and science"
-        />
-      </Helmet>
-
-      <div className="Calculator__header">
-        <h1>{details.topic}</h1>
+        <div className="Calculator__header">
+          <h1>{details.topic}</h1>
+        </div>
+        <div className="Calculator__details">
+          <p>{details.details}</p>
+        </div>
+        <div className="Calculator__formula">
+          <h3>Working Formula:</h3>
+          <h3>{details.formula}</h3>
+          <h3>S.I. Unit : {details.siunit}</h3>
+          <h3>Dimension : {details.dimension}</h3>
+        </div>
+        <div className="Calculator__process">
+          <h3> Process</h3>
+          <p>{details.process}</p>
+        </div>
+        <div className="Calculator__calc">
+          <h3>{details.topic} Calculator</h3>
+          <hr />
+          {calC(details.topic)}
+        </div>
       </div>
-      <div className="Calculator__details">
-        <p>{details.details}</p>
-      </div>
-      <div className="Calculator__formula">
-        <h3>Working Formula:</h3>
-        <h3>{details.formula}</h3>
-        <h3>S.I. Unit : {details.siunit}</h3>
-        <h3>Dimension : {details.dimension}</h3>
-      </div>
-      <div className="Calculator__process">
-        <h3> Process</h3>
-        <p>{details.process}</p>
-      </div>
-      <div className="Calculator__calc">
-        <h3>{details.topic} Calculator</h3>
-        <hr />
-        {calC(details.topic)}
-      </div>
-    </div>
+    </React.Fragment>
   );
 }
 export default Calculator;

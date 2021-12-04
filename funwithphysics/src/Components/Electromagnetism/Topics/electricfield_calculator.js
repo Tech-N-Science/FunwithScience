@@ -3,7 +3,7 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Helmet } from "react-helmet";
-// import Navbar from "../../Navbar/Navbar"
+import Navbar from "../../Navbar/Navbar";
 
 function electricfield_calculator({ match }) {
   //electricfield_data
@@ -599,7 +599,8 @@ function electricfield_calculator({ match }) {
     return currentCall;
   };
   return (
-    <>
+    <React.Fragment>
+      <Navbar />
       <div className="Calculator__main">
         <Helmet>
           <title>{details.topic}</title>
@@ -635,7 +636,7 @@ function electricfield_calculator({ match }) {
           <p>{details.process}</p>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 }
 

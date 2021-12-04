@@ -4,6 +4,8 @@ import { Form, Card, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Navbar from "../../Navbar/Navbar";
+
 const calculator = ({ match }) => {
   //topics_data
   const Topics = [
@@ -51,6 +53,16 @@ const calculator = ({ match }) => {
     {
       topic: "Flux",
       details: "...",
+    },
+    {
+      topic: "Gauss Law",
+      details:
+        "The Gauss law is a relationship between the 'flow' of electric field lines (flux) and the charges on the enclosed surface. The net electric flow stays zero if no charges are contained by a surface. The number of electric field lines entering the surface equals the number of field lines exiting the surface.",
+      formula: "Φ = Q/ε₀",
+      siunit: "Nm²/C or volt-meter",
+      dimension: "M L³ T⁻³ I⁻¹",
+      process:
+        "According to the Gauss law, the total electric flux (Φ) linked with a closed surface is 1/ε₀ times the charge Q enclosed by the closed surface.",
     },
     {
       topic: "Resistivity",
@@ -121,14 +133,6 @@ const calculator = ({ match }) => {
     {
       topic: "Magnetic field",
       details: "....",
-    },
-    {
-      topic:"Gauss Law",
-      details:"The Gauss law relates the ‘flow’ of electric field lines (flux) to the charges within the enclosed surface. If there are no charges enclosed by a surface, then the net electric flux remains zero. This means that the number of electric field lines entering the surface is equal to the field lines leaving the surface.",
-      formula:"Φ = Q/ϵ0",
-      siunit:"Nm²/C",
-      dimension:"M L³ T⁻³ I⁻¹",
-      process:"According to the Gauss law, the total flux linked with a closed surface is 1/ε0 times the charge Q enclosed by the closed surface.",
     },
   ];
   //Flux data
@@ -287,8 +291,8 @@ const calculator = ({ match }) => {
     {
       topic: "Toroid",
       details:
-        "Consider a hollow circular ring with N number of turns of the carrying current wire. The magnetic field (B) produced  due to current (I) at point P (inside toroid) with radius (r) can be calculated using Ampere's Law. So the magnetic field produced is  μ₀*N*I/2*π*r.",
-      formula: "B= μ₀*N*I/2*π*r",
+        "Consider a hollow circular ring with N number of turns of the carrying current wire. The magnetic field (B) produced  due to current (I) at point P (inside toroid) with radius (r) can be calculated using Ampere's Law. So the magnetic field produced is  μ₀NI/2πr.",
+      formula: "B= μ₀NI/2πr",
       siunit: "Tesla",
       dimension: "MT⁻²I⁻¹ ",
       process:
@@ -1241,7 +1245,7 @@ const calculator = ({ match }) => {
     );
   };
 
-  // Gauss Law 
+  // Gauss Law
   const GaussLaw = () => {
     const [charge, setCharge] = useState(null);
     const [result, setResult] = useState(null);
@@ -1271,7 +1275,7 @@ const calculator = ({ match }) => {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Electric Constant (ε₀)</Form.Label>
+            <Form.Label>Vacuum permittivity (ε₀)</Form.Label>
             <Form.Control
               readOnly
               // type="number"
@@ -1474,7 +1478,8 @@ const calculator = ({ match }) => {
     );
   } else {
     return (
-      <>
+      <React.Fragment>
+        <Navbar />
         <div className="Calculator__main">
           <Helmet>
             <title>{details.topic}</title>
@@ -1510,7 +1515,7 @@ const calculator = ({ match }) => {
             {calC(details.topic)}
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 };

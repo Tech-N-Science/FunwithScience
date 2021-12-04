@@ -53,6 +53,16 @@ export default function Electromagnetism() {
       details: "...",
     },
     {
+      topic: "Gauss Law",
+      details:
+        "The Gauss law is a relationship between the 'flow' of electric field lines (flux) and the charges on the enclosed surface. The net electric flow stays zero if no charges are contained by a surface. The number of electric field lines entering the surface equals the number of field lines exiting the surface.",
+      formula: "Φ = Q/ε₀",
+      siunit: "Nm²/C or volt-meter",
+      dimension: "M L³ T⁻³ I⁻¹",
+      process:
+        "According to the Gauss law, the total electric flux (Φ) linked with a closed surface is 1/ε₀ times the charge Q enclosed by the closed surface.",
+    },
+    {
       topic: "Resistivity",
       details: `Electrical resistance of a conductor with a unit cross-sectional area and length. Resistivity, a material attribute, is useful in comparing different materials based on their capacity to conduct electric currents. Poor conductors have high resistance.`,
       siunit: "ohm-meter",
@@ -121,14 +131,6 @@ export default function Electromagnetism() {
     {
       topic: "Magnetic field",
       details: "....",
-    },
-    {
-      topic:"Gauss Law",
-      details:"The Gauss law relates the ‘flow’ of electric field lines (flux) to the charges within the enclosed surface. If there are no charges enclosed by a surface, then the net electric flux remains zero. This means that the number of electric field lines entering the surface is equal to the field lines leaving the surface.",
-      formula:"Φ = Q/ϵ0",
-      siunit:"Nm²/C",
-      dimension:"M L³ T⁻³ I⁻¹",
-      process:"According to the Gauss law, the total flux linked with a closed surface is 1/ε0 times the charge Q enclosed by the closed surface.",
     },
   ];
 
