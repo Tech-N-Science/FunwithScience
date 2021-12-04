@@ -276,6 +276,16 @@ const calculator = ({ match }) => {
       process:
         "To find the magnetic field(B) for a solid cylinder we need to know its radius(R), the current(I) flowing along its length and a distance from the axis(r). ",
     },
+    {
+      topic: "Toroid",
+      details:
+        "Consider a hollow circular ring with N number of turns of the carrying current wire. The magnetic field (B) produced  due to current (I) at point P (inside toroid) with radius (r) can be calculated using Ampere's Law. So the magnetic field produced is  μ₀*N*I/2*π*r.",
+      formula: "B= μ₀*N*I/2*π*r",
+      siunit: "Tesla",
+      dimension: "MT⁻²I⁻¹ ",
+      process:
+        "To find the magnetic field(B) for the points inside the toroid we need to know the total number of turns (N), current in the loop (I) and radius of the loop (r) and then by applying Ampere's Law we can determine the magnetic field for the points inside the toroid. ",
+    },
   ];
   //electricfield_data
   const electricfield_data = [
