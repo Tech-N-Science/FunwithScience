@@ -112,10 +112,10 @@ const calculator = ({ match }) => {
         "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l) of sliding bar. ",
     },
     {
-      topic: "Induced EMF",
+      topic: "Faraday's Law",
       details:
         "Faraday's law states that the induced emf(ε) in a circuit is proportional to the rate of change over time(t) of the magnetic flux(Φ) through that circuit.",
-      formula: "E = -N * (ΔΦ /Δt) ",
+      formula: "ε = -N * (ΔΦ /Δt) ",
       siunit: "Volts (Joules/Coulombs)",
       dimension: "M L² T⁻³ I⁻¹",
       process:
@@ -311,13 +311,13 @@ const calculator = ({ match }) => {
     {
       topic: "Circular coil",
       details:
-        "Consider a circular coil  with N number of turns of the carrying current wire. The magnetic field (B) produced  due to current (I) at the centre with radius (r) can be calculated using Ampere's Law. So the magnetic field produced is  μ₀*N*I/2*r.",
-      formula: "B= μ₀*N*I/2*r",
+        "Consider a circular coil  with N number of turns of the carrying current wire. The magnetic field (B) produced  due to current (I) at the center with radius (r) can be calculated using Ampere's Law. So the magnetic field produced is  μ₀NI/2r.",
+      formula: "B= μ₀NI/2r",
       siunit: "Tesla",
       dimension: "MT⁻²I⁻¹ ",
       process:
         "To find the magnetic field(B) at the centre of circular coil we need to know the total number of turns (N), current in the loop (I) and radius of the loop (r) and then by applying Ampere's Law we can determine the magnetic field at hte centre of circular coil. ",
-    }, 
+    },
   ];
   //electricfield_data
   const electricfield_data = [
@@ -1414,7 +1414,7 @@ const calculator = ({ match }) => {
       case "Motional EMF":
         currentCall = EmfCalculator();
         break;
-      case "Induced EMF":
+      case "Faraday's Law":
         currentCall = InducedEmfCalculator();
         break;
       case "Time period":
