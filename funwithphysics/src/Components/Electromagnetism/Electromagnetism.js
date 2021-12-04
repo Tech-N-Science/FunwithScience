@@ -110,6 +110,16 @@ export default function Electromagnetism() {
         "To find the motional EMF(ε) we need to know the magnetic field (B), the constant speed (v) and the length (l) of sliding bar. ",
     },
     {
+      topic: "Induced EMF",
+      details:
+        "Faraday's law states that the induced emf(ε) in a circuit is proportional to the rate of change over time(t) of the magnetic flux(Φ) through that circuit.",
+      formula: "E = -N * (ΔΦ /Δt) ",
+      siunit: "Volts (Joules/Coulombs)",
+      dimension: "M L² T⁻³ I⁻¹",
+      process:
+        "In order to find the induced EMF(ε) we need know the rate of change of Time period(Δt) and the rate of change of magnetic flux(ΔΦ) in the circuit and also the number of turns in the coil(N). ",
+    },
+    {
       topic: "Time period",
       details:
         "The time for the charged particle to go around the circular path is defined as the period, which is the same as the distance traveled (the circumference) divided by the speed. Based on this and Equation, we can derive the period of motion as T = 2πm/(qB).",
