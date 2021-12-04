@@ -26,6 +26,8 @@ import NumMCQ from "./Components/NumMCQ/NumMCQ";
 import Singlequestion from "./Components/NumMCQ/Singlequestion";
 import { hydrate, render } from "react-dom";
 import flux_calculator from "./Components/Electromagnetism/Topics/flux_calculator";
+import Relativity from "./Components/Relativity/Relativity";
+import Calrelativity from "./Components/Relativity/Topics/Calculator";
 const Home = lazy(() => {
   return Promise.all([
     import("./Components/Home/Home"),
@@ -52,6 +54,7 @@ const App = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
       </Helmet>
+
       <Switch>
         <Route exact path="/">
           <Suspense
@@ -161,6 +164,13 @@ const App = () => {
           path="/electromagnetism/calc/magnetic_field/:topic"
           component={Magneticfield_calculator}
         />
+        {/* adding relativity calculator */}
+
+        <Route exact path="/relativity">
+          <Navbar />
+          <Relativity />
+        </Route>
+        <Route exact path="/relativity/calc/:topic" component={Calrelativity} />
 
         <Route exact path="/quiz">
           <Navbar />
