@@ -67,14 +67,18 @@ figure {
   .signmain {
     min-width: 700px;
     margin-top: 20px;
+    margin-top: 70px;
   }
 }
+
 @media (max-width: 750px) {
   .signmain {
     flex: 1;
     width: 100%;
     padding: 40px 20px;
     margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
   }
   figure {
     flex: 6;
@@ -84,13 +88,19 @@ figure {
     margin-left: 10px;
   }
 }
+
 @media (max-width: 500px) {
   .signmain {
     flex: 1;
     padding: 0px 20px;
     flex-direction: column;
     width: 100% !important;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-left: 90px;
+    margin-right: 90px;
+  }
+  .signhead {
+    font-size: 30px;
   }
   figure {
     display: none;
@@ -113,7 +123,9 @@ figure {
     flex: 1;
     padding: 0px 20px;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-left: 90px;
+    margin-right: 90px;
   }
   .forminput {
     width: 200px;
@@ -121,9 +133,12 @@ figure {
   .signupbtn {
     width: 200px;
   }
-  .signmain > form {
-    /* margin-left: 20px; */
+  .signhead {
+    font-size: 25px;
+  }
+
+  form {
+    margin-left: 100px;
     margin-right: 10px;
-    min-width: 200px;
   }
 }
