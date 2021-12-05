@@ -14,15 +14,21 @@ function Signup() {
             </figure>
             <form>
             <p className="signhead">Sign Up</p>
-            <input type="text" className="forminput fontAwesome" name="name"
+            <div className="signdiv">
+            <span><i class="fas fa-user"></i></span><input type="text" className="forminput fontAwesome" name="name"
             onChange={(e)=>{setusername(e.target.value)}}
-            placeholder="&#xf007; Username" required/>
-            <input type="email" className="forminput fontAwesome" name="email" 
+            placeholder="Username" required/>
+            </div>
+            <div className="signdiv">
+            <span><i class="fas fa-envelope"></i></span><input type="email" className="forminput fontAwesome" name="email" 
             onChange={(e)=>{setemail(e.target.value)}}
-            autoComplete="off"  placeholder="&#xf0e0; Email" required/>
-            <input type="password" className="forminput fontAwesome"  name="password" 
+            autoComplete="off"  placeholder="Email" required/>
+            </div>
+            <div className="signdiv">
+            <span><i class="fas fa-key"></i></span><input type="password" className="forminput fontAwesome"  name="password" 
             onChange={(e)=>{setpasssword(e.target.value)}}
-            placeholder="&#xf084; Password" required/>
+            placeholder="Password" required/>
+            </div>
             <button type="submit" className="btn btn-primary signupbtn">Submit</button>
             </form>
             </div>
