@@ -16,6 +16,15 @@ export default function Relativity() {
       siunit: ["Energy: joule", <br />, "Mass: kg"],
       dimension: ["Energy: M L² T⁻²", <br />, "mass: M"],
     },
+    {
+      topic: "Relativistic Kinetic Energy",
+      details: "If the object moves at atleast 1% of the speed of light then one can notice relativistic effects.In such a case you need to calculate the kinetic energy from KE= E-PE where E= mc² and PE = m₀c² .",
+      formula: "KE = m₀c² * [1-√(1- v²/c²)]",
+      process:
+        "To find the kinetic energy we need to know the value of mass (m₀) and velocity of the body(v) where  the value of speed of light is 3x10⁸m/s",
+      siunit: ["Kinetic Energy: joule", <br />, "Mass: kg" , <br />, "Velocity: m/s"],
+      dimension: "Kinetic Energy: M L² T⁻²",
+    },
   ];
 
   return (
