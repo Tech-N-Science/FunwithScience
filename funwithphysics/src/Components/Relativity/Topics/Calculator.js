@@ -17,6 +17,22 @@ function Calculator({ match }) {
       siunit: ["Energy: joule", <br />, "Mass: kg"],
       dimension: ["Energy: M L² T⁻²", <br />, "mass: M"],
     },
+    {
+      topic: "Relativistic Kinetic Energy",
+      details:
+        "Relativistic effects can be observed if an object moves at least 1% of the speed of light. In this scenario, you must compute the kinetic energy using the formula KE= E-PE, where E = mc2 and PE = m0c2.",
+      formula: "KE = m₀c² * [√(1- v²/c²) - 1]",
+      process:
+        "To find the kinetic energy we need to know the value of mass (m₀) and velocity of the body(v) where  the value of speed of light is 3x10⁸m/s",
+      siunit: [
+        "Kinetic Energy: joule",
+        <br />,
+        "Mass: kg",
+        <br />,
+        "Velocity: m/s",
+      ],
+      dimension: "Kinetic Energy: M L² T⁻²",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -132,6 +148,75 @@ function Calculator({ match }) {
       </>
     );
   };
+  //Relativistic kinetic energy
+  const RelativeKECalculator = () => {
+    const [mass, setMass] = useState(null);
+    const [velocity, setVelocity] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setMass(null);
+      setVelocity(null);
+      setResult(null);
+    };
+    const c = 3 * Math.pow(10, 8);
+
+    const calcResult = () => {
+      let res;
+      let vel = Math.pow(velocity, 2) / Math.pow(c, 2);
+      res = mass * Math.pow(c, 2) * [Math.sqrt(1 - vel) - 1];
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label> Mass (m₀)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setMass(e.target.value);
+              }}
+              placeholder="Enter the mass of body"
+              value={mass === null ? "" : mass}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label> Velocity (v)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setVelocity(e.target.value);
+              }}
+              placeholder="Enter the value of velocity"
+              value={velocity === null ? "" : velocity}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label> Speed of light (c)</Form.Label>
+            <Form.Control
+              readOnly
+              // type="number"
+              placeholder={"3 * 10⁸ m/s"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} T`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
 
   //adding the calculators togather
   function calC(key) {
@@ -139,6 +224,9 @@ function Calculator({ match }) {
     switch (key) {
       case "Mass Energy Relation":
         currentCall = MassEnergyCalculator();
+        break;
+      case "Relativistic Kinetic Energy":
+        currentCall = RelativeKECalculator();
         break;
       default:
         break;

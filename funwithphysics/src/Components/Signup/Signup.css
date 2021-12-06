@@ -28,7 +28,20 @@
   font-size: 40px;
   font-weight: 600;
 }
+.signdiv{
+  display: flex;
+}
+.signdiv > span{
+  height: 100%;
+  border-bottom: 2px solid black;
+}
+i{
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
 .forminput {
+  padding-left: 5px;
   background-color: transparent;
   border: none;
   width: 250px;
