@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "funwithscience";
+$dbname = "funwithscience_backend";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
