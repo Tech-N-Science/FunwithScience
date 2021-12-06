@@ -35,7 +35,7 @@ export default class Signup extends Component {
       email: this.state.email,
       pass: this.state.pass,
     };
-    //console.log(ob);
+
     axios
       .post("http://localhost/funwithscience_backend/insert.php", ob)
       .then((res) => console.log(res.data));
