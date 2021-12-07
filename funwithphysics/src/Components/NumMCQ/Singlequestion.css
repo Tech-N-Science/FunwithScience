@@ -24,7 +24,8 @@
 }
 
 .btns-box {
-  padding-top: 1.8rem;
+  padding-top: 1.5rem;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -38,7 +39,7 @@
 }
 
 .next-btn {
-  padding: 0.5rem 0.5rem;
+  padding: 0rem 0.5rem;
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
@@ -145,7 +146,6 @@
   transition: all 0.5s;
   cursor: pointer;
   border-radius: 15px;
-  padding: 8px 37px;
 }
 .next-btn span {
   cursor: pointer;
@@ -180,7 +180,7 @@
   display: inline-block;
   text-align: center;
 
-  padding: 0.7em 2em;
+  padding: 0.5em;
   border: 3px solid #35bdd0;
 
   position: relative;

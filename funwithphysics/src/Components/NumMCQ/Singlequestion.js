@@ -3,6 +3,7 @@ import "./Singlequestion.css";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { useLocation } from "react-router";
+import Navbar from "./../Navbar/Navbar";
 
 const Singlequestion = () => {
   const location = useLocation();
@@ -22,7 +23,8 @@ const Singlequestion = () => {
     }
 
     return (
-      <>
+      <React.Fragment>
+        <Navbar />
         <span
           style={{
             display: "flex",
@@ -35,14 +37,16 @@ const Singlequestion = () => {
         >
           {type} Question
         </span>
+        <br />
+        <br />
+        <span className="editorial-btn"> Question</span>
+        <span className="editorial-btn"> Editorial</span>
+        <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">
             <h4>{question}</h4>
             <span style={{ color: "red" }}>*Select all that are correct</span>
             <div className="answer-box">
-              <span className="editorial-btn"> Question</span>
-              <span className="editorial-btn"> Editorial</span>
-              <span className="editorial-btn"> Discussion Forum</span>
               {answer.map((ansOptions, index) => {
                 return (
                   <div className="container">
@@ -71,7 +75,7 @@ const Singlequestion = () => {
             Editorial and Discussion forum
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   } else if (type === "Numerical") {
     const handleSubmit = () => {
@@ -88,7 +92,8 @@ const Singlequestion = () => {
     const handleNext = () => {};
 
     return (
-      <>
+      <React.Fragment>
+        <Navbar />
         <span
           style={{
             display: "flex",
@@ -101,6 +106,11 @@ const Singlequestion = () => {
         >
           {type} Question
         </span>
+        <br />
+        <br />
+        <span className="editorial-btn"> Question</span>
+        <span className="editorial-btn"> Editorial</span>
+        <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">
             <h4>{question}</h4>
@@ -112,20 +122,20 @@ const Singlequestion = () => {
               />
             </div>
             <div className="btns-box">
-              <Button
+              <button
                 className="submit-btn"
                 variant="primary"
                 onClick={handleSubmit}
               >
                 Submit
-              </Button>
-              <Button
+              </button>
+              <button
                 className="next-btn"
                 variant="primary"
                 onClick={handleNext}
               >
                 Next
-              </Button>
+              </button>
             </div>
           </div>
           &emsp;&emsp;
@@ -133,7 +143,7 @@ const Singlequestion = () => {
             Editorial and Discussion forum
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 };

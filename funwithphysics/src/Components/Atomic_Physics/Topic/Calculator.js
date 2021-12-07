@@ -10,12 +10,14 @@ function Calculator({ match }) {
   const Topics = [
     {
       topic: "Bohr's model",
-      formula:"1/λ=R[(1/nf²)-(1/ni²)]",
-      siunit:"Wavelength: nm",
-      details:"",
-      process:"To find the (λ) wavelength of the emitted EM radiation we need to know the value of initial state (ni) and the final excitation state (nf) where R is the Rydberg constant, and it's value is determined by an experiment 1.097 × 10^7 / m (or m⁻¹)",
-      dimension:"[L]"
-    }
+      formula: "1/λ=R[(1/nf²)-(1/ni²)]",
+      siunit: "Wavelength: m",
+      details:
+        "The Rydberg formula describes the various transition energies that occur between energy levels. A photon is released when an electron goes from a higher to a lower energy level. Depending on the beginning and ultimate energy levels of the transition, the hydrogen atom can produce different wavelengths of light. It emits a photon with an energy equal to the square of the energy levels of the final (nf) and initial (ni).",
+      process:
+        "To find the (λ) wavelength of the emitted EM radiation we need to know the value of initial state (ni) and the final excitation state (nf) where R is the Rydberg constant, and it's value is determined by an experiment 1.097 × 10^7 / m (or m⁻¹)",
+      dimension: "[L]",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -23,58 +25,54 @@ function Calculator({ match }) {
 
   //Mass Energy Relation calculator
   const BohrModel = () => {
-      const [initial, setInitial] = useState(null);
-      const [final, setFinal] = useState(null);
-      const [result, setResult] = useState(null);
-        const R=1.097 *Math.pow(10,7)
-      const reset =()=>{
-          setInitial(null)
-          setFinal(null)
-          setResult(null)
-      }
-      const calcResult=()=>{
-          let res;
-          let r1=1/(initial*initial);
-          let r2=1/(final*final);
-          let r3=R*(r2-r1);
-          res=1/r3;
-          
-          setResult(res)
-      }
-      return(<>
-      <Form>
-          <Form.Group className="mb-4">
-              <Form.Label>Initial State (ni)</Form.Label>
-              <Form.Control onChange={(e)=>setInitial(e.target.value)} 
-              type="number"
-              placeholder="Enter the initial state (ni)" 
-              value={initial === null ? "" : initial} />
+    const [initial, setInitial] = useState(null);
+    const [final, setFinal] = useState(null);
+    const [result, setResult] = useState(null);
+    const R = 1.097 * Math.pow(10, 7);
+    const reset = () => {
+      setInitial(null);
+      setFinal(null);
+      setResult(null);
+    };
+    const calcResult = () => {
+      let res;
+      let r1 = 1 / (initial * initial);
+      let r2 = 1 / (final * final);
+      let r3 = R * (r2 - r1);
+      res = 1 / r3;
 
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Initial State (ni)</Form.Label>
+            <Form.Control
+              onChange={(e) => setInitial(e.target.value)}
+              type="number"
+              placeholder="Enter the initial state (ni)"
+              value={initial === null ? "" : initial}
+            />
           </Form.Group>
           <Form.Group className="mb-4">
-              <Form.Label>Final Excitation State (nf)</Form.Label>
-              <Form.Control onChange={(e)=>setFinal(e.target.value)} 
+            <Form.Label>Final Excitation State (nf)</Form.Label>
+            <Form.Control
+              onChange={(e) => setFinal(e.target.value)}
               type="number"
-              placeholder="Enter the Final state (nf)" 
-              value={final === null ? "" : final} />
-
+              placeholder="Enter the Final state (nf)"
+              value={final === null ? "" : final}
+            />
           </Form.Group>
           <Form.Group className="mb-4">
-              <Form.Label>Rydberg constant(R)</Form.Label>
-              <Form.Control  
-                readOnly
-              placeholder="1.097 × 10^7 / m (or m⁻¹)"/>
-
+            <Form.Label>Rydberg constant(R)</Form.Label>
+            <Form.Control readOnly placeholder="1.097 × 10^7 / m (or m⁻¹)" />
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={
-                result === null
-                  ? "Result"
-                  : result + " nm"
-              }
+              placeholder={result === null ? "Result" : result + " m"}
             />
           </Form.Group>
         </Form>
@@ -85,8 +83,8 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>)
-    
+      </>
+    );
   };
 
   //adding the calculators togather
