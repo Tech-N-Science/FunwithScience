@@ -33,6 +33,16 @@ function Calculator({ match }) {
       ],
       dimension: "Kinetic Energy: M L² T⁻²",
     },
+    {
+      topic: "Relativistic Velocity",
+      details:
+        "Relativistic effects can be observed if we combine time dilation and length contraction. In this scenario, you must compute the velocity using the formula  u = (v+w) / (1+(v * w)/c²).",
+      formula: " u = (v+w)/(1+(v*w)/c²)",
+      process:
+        "To find the relativistic velocity we need to know the value of speed of object (v) and speed of the projectile as seen from spaceship (w) where  the value of speed of light is 3x10⁸m/s",
+      siunit:  "Velocity: m/s",
+      dimension: "Velocity: L T⁻¹",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -217,6 +227,77 @@ function Calculator({ match }) {
       </>
     );
   };
+  // Relativistic velocity
+  const RelativeVelocityCalculator = () => {
+  const [speed, setSpeed] = useState(null);
+  const [pspeed, setPSpeed] = useState(null);
+  const [result, setResult] = useState(null);
+  const reset = () => {
+    setSpeed(null);
+    setPSpeed(null);
+    setResult(null);
+  };
+  const c = 3 * Math.pow(10, 8);
+
+  const calcResult = () => {
+    let res;
+    let vel = (speed * pspeed) / Math.pow(c, 2);
+    let add = parseInt(speed) + parseInt(pspeed);
+    res = add / (parseInt(1)+parseInt(vel));
+    setResult(res);
+  };
+  return (
+    <>
+      <Form>
+        <Form.Group className="mb-4">
+          <Form.Label> Speed (v)</Form.Label>
+          <Form.Control
+            type="number"
+            onChange={(e) => {
+              setSpeed(e.target.value);
+            }}
+            placeholder="Enter the speed of object"
+            value={speed === null ? "" : speed}
+          />
+        </Form.Group>
+        <Form.Group className="mb-4">
+          <Form.Label> Speed of projectile (w)</Form.Label>
+          <Form.Control
+            type="number"
+            onChange={(e) => {
+              setPSpeed(e.target.value);
+            }}
+            placeholder="Enter the value of speed of projectile"
+            value={pspeed === null ? "" : pspeed}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label> Speed of light (c)</Form.Label>
+          <Form.Control
+            readOnly
+            // type="number"
+            placeholder={"3 * 10⁸ m/s"}
+          />
+        </Form.Group>
+        <Form.Group className="mb-4">
+          <Form.Control
+            readOnly
+            type="number"
+            placeholder={result === null ? "Result" : `${result} m/s`}
+          />
+        </Form.Group>
+      </Form>
+      <Button variant="primary" onClick={calcResult}>
+        Calculate
+      </Button>
+      &nbsp;&nbsp;&nbsp;
+      <Button variant="dark" onClick={() => reset()} type="reset">
+        Reset
+      </Button>
+    </>
+  );
+};
+
 
   //adding the calculators togather
   function calC(key) {
@@ -227,6 +308,9 @@ function Calculator({ match }) {
         break;
       case "Relativistic Kinetic Energy":
         currentCall = RelativeKECalculator();
+        break;
+      case "Relativistic Velocity":
+        currentCall = RelativeVelocityCalculator();
         break;
       default:
         break;
