@@ -42,6 +42,16 @@ export default function Relativity() {
       siunit: "Velocity: m/s",
       dimension: "Velocity: L T⁻¹",
     },
+    {
+      topic: "Time Dilation",
+      details:
+        "Time dilation is a measure of the elapsed time that we measure using two clocks.",
+      formula: "Δt = Δt₀ / √(1 - v²/c²)",
+      process:
+        "To find the time dilation we need to know the value of velocity (v) and proper time (Δt₀) where  the value of speed of light is 3x10⁸m/s",
+      siunit:  "Time dilation: seconds",
+      dimension: "Time dilation : T",
+    },
   ];
 
   return (
