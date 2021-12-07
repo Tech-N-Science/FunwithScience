@@ -32,6 +32,16 @@ export default function Relativity() {
       ],
       dimension: "Kinetic Energy: M L² T⁻²",
     },
+    {
+      topic: "Relativistic Velocity",
+      details:
+        "Relativistic effects can be observed if we combine time dilation and length contraction. In this scenario, you must compute the velocity using the formula  u = (v+w) / (1+(v * w)/c²). When the speed of the spacecraft or the projectile is less than the speed of light, the formula becomes u = v + w, which is the total of the velocities. If the velocities v and w are both high, the projectile's speed as perceived from outside the spacecraft is substantially lower than the sum of the two speeds v + w and never reaches the speed of light.",
+      formula: " u = (v+w)/(1+(v*w)/c²)",
+      process:
+        "To find the relativistic velocity we need to know the value of speed of object (v) and speed of the projectile as seen from spaceship (w) where  the value of speed of light is 3x10⁸m/s",
+      siunit: "Velocity: m/s",
+      dimension: "Velocity: L T⁻¹",
+    },
   ];
 
   return (

@@ -29,6 +29,8 @@ import { hydrate, render } from "react-dom";
 import flux_calculator from "./Components/Electromagnetism/Topics/flux_calculator";
 import Relativity from "./Components/Relativity/Relativity";
 import Calrelativity from "./Components/Relativity/Topics/Calculator";
+import AtomicPhysics from "./Components/Atomic_Physics/AtomicPhysics";
+import CalcAtomic from "./Components/Atomic_Physics/Topic/Calculator";
 const Home = lazy(() => {
   return Promise.all([
     import("./Components/Home/Home"),
@@ -175,6 +177,13 @@ const App = () => {
           <Relativity />
         </Route>
         <Route exact path="/relativity/calc/:topic" component={Calrelativity} />
+
+        {/* adding atomic physics calculator */}
+        <Route exact path="/atomic">
+          <Navbar />
+          <AtomicPhysics/>
+          </Route>
+          <Route exact path="/atomicphysics/calc/:topic" component={CalcAtomic} />
 
         <Route exact path="/quiz">
           <Navbar />
