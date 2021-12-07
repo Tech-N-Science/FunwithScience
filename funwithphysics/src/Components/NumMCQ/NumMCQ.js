@@ -2,126 +2,35 @@ import React, { useRef } from "react";
 import "./NumMCQ.css";
 import Singlecard from "./Card";
 import { useState } from "react";
+import { data } from "./data";
 
 const NumMCQ = () => {
-  const cardref=useRef()
-  const filterref=useRef()
-  const btnref=useRef()
-  // questions_data
-  const data = [
-    {
-      id: 1,
-      type: "Multiple Correct",
-      question: "ABCD",
-      topic: "",
-      answer: [
-        { answerText: "It is an ionizing radiation", isCorrect: false },
-        { answerText: "It is unable to penetrate human skin", isCorrect: true },
-      ],
-    },
-    {
-      id: 2,
-      type: "Multiple Correct",
-      question: "EFCD",
-      topic: "",
-      answer: [
-        { answerText: "It is an ionizing radiation", isCorrect: false },
-        { answerText: "It is unable to penetrate human skin", isCorrect: true },
-      ],
-    },
-    {
-      id: 3,
-      type: "Multiple Correct",
-      question: "ABCD",
-      topic: "",
-      answer: [
-        { answerText: "It is an ionizing radiation", isCorrect: false },
-        { answerText: "It is unable to penetrate human skin", isCorrect: true },
-      ],
-    },
-    {
-      id: 4,
-      type: "Multiple Correct",
-      question: "ABCD",
-      topic: "",
-      answer: [
-        { answerText: "It is an ionizing radiation", isCorrect: false },
-        { answerText: "It is unable to penetrate human skin", isCorrect: true },
-      ],
-    },
-    {
-      id: 5,
-      type: "Numerical",
-      question:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      topic: "",
-      answer: 5,
-    },
-    {
-      id: 6,
-      type: "Numerical",
-      question: "ABCD",
-      topic: "",
-      answer: [
-        { answerText: "It is an ionizing radiation", isCorrect: false },
-        { answerText: "It is unable to penetrate human skin", isCorrect: true },
-      ],
-    },
-    {
-      id: 7,
-      type: "Numerical",
-      question: "ABCD",
-      topic: "",
-      answer: [
-        { answerText: "It is an ionizing radiation", isCorrect: false },
-        { answerText: "It is unable to penetrate human skin", isCorrect: true },
-      ],
-    },
-    {
-      id: 8,
-      type: "Numerical",
-      question: "ABCD",
-      topic: "",
-      answer: [
-        { answerText: "It is an ionizing radiation", isCorrect: false },
-        { answerText: "It is unable to penetrate human skin", isCorrect: true },
-      ],
-    },
-    {
-      id: 9,
-      type: "Numerical",
-      question: "ABCD",
-      topic: "",
-      answer: [
-        { answerText: "It is an ionizing radiation", isCorrect: false },
-        { answerText: "It is unable to penetrate human skin", isCorrect: true },
-      ],
-    },
-  ];
+  const cardref = useRef();
+  const filterref = useRef();
+  const btnref = useRef();
+
   const [searchTerm, setsearchTerm] = useState([]);
 
   function handleClick(e) {
-    if(e.target.checked === true)
-    { if(!searchTerm.includes(e.target.value.toLowerCase()))
-      setsearchTerm([...searchTerm,e.target.value.toLowerCase()]);
-    }
-    else{
-      setsearchTerm(searchTerm.filter(value => value !== e.target.value.toLowerCase()));
+    if (e.target.checked === true) {
+      if (!searchTerm.includes(e.target.value.toLowerCase()))
+        setsearchTerm([...searchTerm, e.target.value.toLowerCase()]);
+    } else {
+      setsearchTerm(
+        searchTerm.filter((value) => value !== e.target.value.toLowerCase())
+      );
       // setsearchTerm(searchTerm.filter((value)=>value !== e.target.value))
     }
   }
-  function handlefilterclk(e)
-  {
-    btnref.current.className +=" filterbtnhide";
-    cardref.current.className +=" cardhide"
-    filterref.current.className += " filtershow"
+  function handlefilterclk(e) {
+    btnref.current.className += " filterbtnhide";
+    cardref.current.className += " cardhide";
+    filterref.current.className += " filtershow";
   }
-  function handlecross()
-  {
+  function handlecross() {
     btnref.current.classList.toggle("filterbtnhide");
-    cardref.current.classList.toggle("cardhide")
-    filterref.current.classList.toggle("filtershow")
-
+    cardref.current.classList.toggle("cardhide");
+    filterref.current.classList.toggle("filtershow");
   }
   console.log(searchTerm);
   return (
@@ -133,10 +42,9 @@ const NumMCQ = () => {
             .filter((value) => {
               if (searchTerm.length === 0) {
                 return value;
-              } 
-              else if (searchTerm.includes(value.type.toLowerCase())){
+              } else if (searchTerm.includes(value.type.toLowerCase())) {
                 return value;
-              } else if (searchTerm.includes(value.topic.toLowerCase())){
+              } else if (searchTerm.includes(value.topic.toLowerCase())) {
                 return value;
               }
               return false;
@@ -156,19 +64,27 @@ const NumMCQ = () => {
                 </div>
               );
             })}
-            <button className="filter-btn" onClick={(e)=>handlefilterclk(e)} ref={btnref}>
-              <i class="fas fa-filter"></i></button>
+          <button
+            className="filter-btn"
+            onClick={(e) => handlefilterclk(e)}
+            ref={btnref}
+          >
+            <i class="fas fa-filter"></i>
+          </button>
         </div>
         <div className="filter-box" ref={filterref}>
           <div>
-          <span>Apply filter :</span>
-          <span className="cancel" onClick={handlecross}><i class="fas fa-times"></i></span>
+            <span>Apply filter :</span>
+            <span className="cancel" onClick={handlecross}>
+              <i class="fas fa-times"></i>
+            </span>
           </div>
           <h5 className="heading">Type</h5>
           <label class="container">
             Numerical
             <input type="hidden" name="Numerical" value="false" />
-            <input id="type1"
+            <input
+              id="type1"
               type="checkbox"
               value="Numerical"
               onClick={(e) => handleClick(e)}
@@ -178,7 +94,8 @@ const NumMCQ = () => {
           <label class="container">
             Multiple Correct
             <input type="hidden" name="Multiple Correct" value="false" />
-            <input id="type2"
+            <input
+              id="type2"
               type="checkbox"
               value="Multiple Correct"
               onClick={(e) => handleClick(e)}
