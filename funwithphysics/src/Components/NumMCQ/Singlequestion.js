@@ -23,43 +23,54 @@ const Singlequestion = () => {
 
     return (
       <>
-      <span style={{ display: "flex", fontSize:"2em", justifyContent : "center", paddingTop:"2rem", paddingLeft:"2rem", paddingRight:"2rem"}}>{type} Question</span>
-      <div className="singlequestion">
-        <div className="maincontent">
-          <h4>{question}</h4>
-          <span style={{ color: "red" }}>*Select all that are correct</span>
-          <div className="answer-box">
-            {answer.map((ansOptions, index) => {
-              return (
-                <button
-                  style={{ backgroundColor: background }}
-                  key={index}
-                  className="answerOption"
-                  onClick={(e) => handleClick(e)}
-                >
-                  {ansOptions.answerText}
-                </button>
-              );
-            })}
+        <span
+          style={{
+            display: "flex",
+            fontSize: "2em",
+            justifyContent: "center",
+            paddingTop: "2rem",
+            paddingLeft: "2rem",
+            paddingRight: "2rem",
+          }}
+        >
+          {type} Question
+        </span>
+        <div className="singlequestion">
+          <div className="maincontent">
+            <h4>{question}</h4>
+            <span style={{ color: "red" }}>*Select all that are correct</span>
+            <div className="answer-box">
+              <span className="editorial-btn"> Question</span>
+              <span className="editorial-btn"> Editorial</span>
+              <span className="editorial-btn"> Discussion Forum</span>
+              {answer.map((ansOptions, index) => {
+                return (
+                  <div className="container">
+                    <button
+                      key={index}
+                      className="answerOption"
+                      onClick={(e) => handleClick(e)}
+                    >
+                      {ansOptions.answerText}
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="btns-box">
+              <button className="submit-btn" onClick={handleSubmit}>
+                Submit
+              </button>
+              <button className="next-btn" onClick={handleNext}>
+                <span> Next</span>
+              </button>
+            </div>
           </div>
-          <div className="btns-box">
-            <Button
-              className="submit-btn"
-              variant="primary"
-              onClick={handleSubmit}
-            >
-              Submit
-            </Button>
-            <Button className="next-btn" variant="primary" onClick={handleNext}>
-              Next
-            </Button>
+          &emsp;&emsp;
+          <div className="editorial_discussionforum">
+            Editorial and Discussion forum
           </div>
         </div>
-        &emsp;&emsp;
-        <div className="editorial_discussionforum">
-          Editorial and Discussion forum
-        </div>
-      </div>
       </>
     );
   } else if (type === "Numerical") {
@@ -78,35 +89,50 @@ const Singlequestion = () => {
 
     return (
       <>
-      <span style={{ display: "flex", fontSize:"2em", justifyContent : "center", paddingTop:"2rem", paddingLeft:"2rem", paddingRight:"2rem"}}>{type} Question</span>
-      <div className="singlequestion">
-        <div className="maincontent">
-          <h4>{question}</h4>
-          <div className="answer-box">
-            <input
-              type="number"
-              placeholder="Please enter answer here.."
-              onChange={(e) => setResult(e.target.value)}
-            />
+        <span
+          style={{
+            display: "flex",
+            fontSize: "2em",
+            justifyContent: "center",
+            paddingTop: "2rem",
+            paddingLeft: "2rem",
+            paddingRight: "2rem",
+          }}
+        >
+          {type} Question
+        </span>
+        <div className="singlequestion">
+          <div className="maincontent">
+            <h4>{question}</h4>
+            <div className="answer-box">
+              <input
+                type="number"
+                placeholder="Please enter answer here.."
+                onChange={(e) => setResult(e.target.value)}
+              />
+            </div>
+            <div className="btns-box">
+              <Button
+                className="submit-btn"
+                variant="primary"
+                onClick={handleSubmit}
+              >
+                Submit
+              </Button>
+              <Button
+                className="next-btn"
+                variant="primary"
+                onClick={handleNext}
+              >
+                Next
+              </Button>
+            </div>
           </div>
-          <div className="btns-box">
-            <Button
-              className="submit-btn"
-              variant="primary"
-              onClick={handleSubmit}
-            >
-              Submit
-            </Button>
-            <Button className="next-btn" variant="primary" onClick={handleNext}>
-              Next
-            </Button>
+          &emsp;&emsp;
+          <div className="editorial_discussionforum">
+            Editorial and Discussion forum
           </div>
         </div>
-        &emsp;&emsp;
-        <div className="editorial_discussionforum">
-          Editorial and Discussion forum
-        </div>
-      </div>
       </>
     );
   }
