@@ -65,7 +65,7 @@ export default class Signup extends Component {
               </span>
               <input
                 type="text"
-                className="forminput fontAwesome"
+                className="forminput"
                 name="username"
                 placeholder="Username"
                 required
@@ -79,7 +79,7 @@ export default class Signup extends Component {
               </span>
               <input
                 type="email"
-                className="forminput fontAwesome"
+                className="forminput"
                 name="email"
                 autoComplete="off"
                 placeholder="Email"
@@ -94,7 +94,7 @@ export default class Signup extends Component {
               </span>
               <input
                 type="password"
-                className="forminput fontAwesome"
+                className="forminput"
                 name="pass"
                 placeholder="Password"
                 required
