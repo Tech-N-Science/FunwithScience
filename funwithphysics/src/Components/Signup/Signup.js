@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import signimg from "../../Images/girl.jpg";
+import Navbar from "../Navbar/Navbar";
 import "./Signup.css";
 import axios from "axios";
 
 export default class Signup extends Component {
-  constructor(prop) {
-    super(prop);
+  constructor(props) {
+    super(props);
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    console.log(this.props);
 
     this.state = {
       username: "",
@@ -38,7 +40,18 @@ export default class Signup extends Component {
 
     axios
       .post("http://localhost/funwithscience_backend/insert.php", ob)
-      .then((res) => console.log(res.data));
+      .then((res) => {
+        if (res.data===1)
+        {
+        alert("User Registered Successfully")
+        this.props.history.push("/")
+         console.log(res.data)
+        }
+        else{
+          alert("Some Error Occured");
+          console.log(res.data)
+        }}
+      );
 
     this.setState({
       username: "",
@@ -49,6 +62,8 @@ export default class Signup extends Component {
 
   render() {
     return (
+    <>
+      <Navbar/>
       <div className="signup">
         <div className="signmain">
           <figure>
@@ -108,6 +123,7 @@ export default class Signup extends Component {
           </form>
         </div>
       </div>
+      </>
     );
   }
 }

@@ -104,10 +104,7 @@ const App = () => {
           <Navbar />
           <PhysicsTopic />
         </Route>
-        <Route exact path="/Signup">
-          <Navbar/>
-          <Signup/>
-        </Route>
+        <Route exact path="/Signup" component={Signup}></Route>
         <Route exact path="/Login">
           <Navbar/>
           <Login/>
