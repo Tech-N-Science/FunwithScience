@@ -2,6 +2,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
+import Login from "./Components/Loginpage/Login";
 import Loadingimg from "./Images/Logo/logo.webp";
 import React, { Suspense, lazy } from "react";
 import ClassicalMechanics from "./Components/Classical_Mechanics/ClassicalMechanics";
@@ -105,7 +106,10 @@ const App = () => {
           <Navbar/>
           <Signup/>
         </Route>
-
+        <Route exact path="/Login">
+          <Navbar/>
+          <Login/>
+        </Route>
         <Route
           exact
           path="/classicalmechanics/calc/:topic"
