@@ -45,11 +45,11 @@ export default function Relativity() {
     {
       topic: "Time Dilation",
       details:
-        "Time dilation is a measure of the elapsed time that we measure using two clocks.",
+        "Time dilation is a measure of the elapsed time that we measure using two clocks. Time dilation is a measure of the elapsed time that we measure using two clocks. You can presumably see (or have already learned from playing with our time dilation calculator) that the observer speed must be extraordinarily high - on the same order of magnitude as the speed of light - for the difference in the two time spans to be evident. That is why relativistic effects are so perplexing: we cannot observe them in ordinary life.",
       formula: "Δt = Δt₀ / √(1 - v²/c²)",
       process:
         "To find the time dilation we need to know the value of velocity (v) and proper time (Δt₀) where  the value of speed of light is 3x10⁸m/s",
-      siunit:  "Time dilation: seconds",
+      siunit: "Time dilation: seconds",
       dimension: "Time dilation : T",
     },
   ];

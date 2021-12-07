@@ -46,11 +46,11 @@ function Calculator({ match }) {
     {
       topic: "Time Dilation",
       details:
-        "Time dilation is a measure of the elapsed time that we measure using two clocks.",
+        "Time dilation is a measure of the elapsed time that we measure using two clocks. You can presumably see (or have already learned from playing with our time dilation calculator) that the observer speed must be extraordinarily high - on the same order of magnitude as the speed of light - for the difference in the two time spans to be evident. That is why relativistic effects are so perplexing: we cannot observe them in ordinary life.",
       formula: "Δt = Δt₀ / √(1 - v²/c²)",
       process:
         "To find the time dilation we need to know the value of velocity (v) and proper time (Δt₀) where  the value of speed of light is 3x10⁸m/s",
-      siunit:  "Time dilation: seconds",
+      siunit: "Time dilation: seconds",
       dimension: "Time dilation : T",
     },
   ];
@@ -309,73 +309,73 @@ function Calculator({ match }) {
   };
   // time dilation
   const TimeDilationCalculator = () => {
-  const [velocity, setVelocity] = useState(null);
-  const [time, setTime] = useState(null);
-  const [result, setResult] = useState(null);
-  const reset = () => {
-    setVelocity(null);
-    setTime(null);
-    setResult(null);
-  };
-  const c = 3 * Math.pow(10, 8);
+    const [velocity, setVelocity] = useState(null);
+    const [time, setTime] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setVelocity(null);
+      setTime(null);
+      setResult(null);
+    };
+    const c = 3 * Math.pow(10, 8);
 
-  const calcResult = () => {
-    let res;
-    let vel = Math.sqrt(1 - (Math.pow(velocity, 2) / Math.pow(c, 2)));
-    res = parseFloat(time/vel);
-    setResult(res);
+    const calcResult = () => {
+      let res;
+      let vel = Math.sqrt(1 - Math.pow(velocity, 2) / Math.pow(c, 2));
+      res = parseFloat(time / vel);
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label> Velocity (v)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setVelocity(e.target.value);
+              }}
+              placeholder="Enter the value of velocity"
+              value={velocity === null ? "" : velocity}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label> Time (Δt₀)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setTime(e.target.value);
+              }}
+              placeholder="Enter the value of proper time"
+              value={time === null ? "" : time}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label> Speed of light (c)</Form.Label>
+            <Form.Control
+              readOnly
+              // type="number"
+              placeholder={"3 * 10⁸ m/s"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} sec`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
   };
-  return (
-    <>
-      <Form>
-        <Form.Group className="mb-4">
-          <Form.Label> Velocity (v)</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => {
-              setVelocity(e.target.value);
-            }}
-            placeholder="Enter the value of velocity"
-            value={velocity === null ? "" : velocity}
-          />
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Label> Time (Δt₀)</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => {
-              setTime(e.target.value);
-            }}
-            placeholder="Enter the value of proper time"
-            value={time === null ? "" : time}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label> Speed of light (c)</Form.Label>
-          <Form.Control
-            readOnly
-            // type="number"
-            placeholder={"3 * 10⁸ m/s"}
-          />
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Control
-            readOnly
-            type="number"
-            placeholder={result === null ? "Result" : `${result} sec`}
-          />
-        </Form.Group>
-      </Form>
-      <Button variant="primary" onClick={calcResult}>
-        Calculate
-      </Button>
-      &nbsp;&nbsp;&nbsp;
-      <Button variant="dark" onClick={() => reset()} type="reset">
-        Reset
-      </Button>
-    </>
-  );
-};
 
   //adding the calculators togather
   function calC(key) {
@@ -390,8 +390,8 @@ function Calculator({ match }) {
       case "Relativistic Velocity":
         currentCall = RelativeVelocityCalculator();
         break;
-      case "Relativistic Velocity":
-        currentCall = RelativeVelocityCalculator();
+      case "Time Dilation":
+        currentCall = TimeDilationCalculator();
         break;
       default:
         break;
