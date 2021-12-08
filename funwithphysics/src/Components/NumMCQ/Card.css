@@ -125,3 +125,81 @@
   border-top: 9px solid #ffe7e6;
   border-bottom: 9px solid #ffe7e6;
 }
+@media (max-width: 320px) {
+  .card-title {
+    width: 170px;
+    font-size: small;
+    margin-left: 20px;
+  }
+  .card-body {
+    justify-content: space-around;
+  }
+  .solve-question-btn {
+    width: 90px;
+    font-size: 10px;
+    padding-left: -1.5px;
+    padding-right: -1.5px;
+  }
+
+  /* Difficulty tags */
+  .tag {
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    font-size: 12px;
+    line-height: 1;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 3px 4px 1px;
+    border-radius: 2px 0px 0px 2px;
+    margin: 0 9px 0 0;
+  }
+  .tag-easy {
+    background-color: rgba(0, 175, 137, 0.1);
+    color: rgba(0, 175, 137, 1);
+  }
+
+  .tag-easy:after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-right: 4px solid transparent;
+    border-top: 9px solid rgba(0, 175, 137, 0.1);
+    border-bottom: 9px solid rgba(0, 175, 137, 0.1);
+  }
+
+  .tag-med {
+    background-color: #fef6e7;
+    color: #ac6600;
+  }
+
+  .tag-med:after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-right: 4px solid transparent;
+    border-top: 9px solid #fef6e7;
+    border-bottom: 9px solid #fef6e7;
+  }
+  .tag-hard {
+    background-color: #ffe7e6;
+    color: #dd3333;
+  }
+
+  .tag-hard:after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-right: 4px solid transparent;
+    border-top: 9px solid #ffe7e6;
+    border-bottom: 9px solid #ffe7e6;
+  }
+}
