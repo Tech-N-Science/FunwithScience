@@ -53,6 +53,16 @@ function Calculator({ match }) {
       siunit: "Time dilation: seconds",
       dimension: "Time dilation : T",
     },
+    {
+      topic: "Length Contraction",
+      details:
+        "Relativity can be observed when object travels with speed of light and there length contraction comes into the picture. The speed must be very high - equivalent to the speed of light - for the impact of length contraction to be evident. We have no experience with items travelling at such high speeds in our daily lives. As a result, the implications of special relativity are quite perplexing.",
+      formula: "Relative Length = L * √(1 - v²/c²)",
+      process:
+        "Because, in addition to the great speed required, measuring the length of an item moving with regard to us is difficult, the consequences of length contraction are difficult to perceive. To find the length contraction we need to know the value of length (L) and speed of object (v) where  the value of speed of light is 3x10⁸m/s",
+      siunit: "Relative Length: metres",
+      dimension: "Relative Length : L",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -377,6 +387,76 @@ function Calculator({ match }) {
     );
   };
 
+  //Length Contraction
+  const LengthContractionCalculator = () => {
+    const [velocity, setVelocity] = useState(null);
+    const [length, setLength] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setVelocity(null);
+      setLength(null);
+      setResult(null);
+    };
+    const c = 3 * Math.pow(10, 8);
+
+    const calcResult = () => {
+      let res;
+      let vel = Math.sqrt(1 - Math.pow(velocity, 2) / Math.pow(c, 2));
+      res = length * vel;
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label> Speed (v)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setVelocity(e.target.value);
+              }}
+              placeholder="Enter the value of speed"
+              value={velocity === null ? "" : velocity}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label> Length(L)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setLength(e.target.value);
+              }}
+              placeholder="Enter the value of length of object"
+              value={length === null ? "" : length}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label> Speed of light (c)</Form.Label>
+            <Form.Control
+              readOnly
+              // type="number"
+              placeholder={"3 * 10⁸ m/s"}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : `${result} metres`}
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -392,6 +472,9 @@ function Calculator({ match }) {
         break;
       case "Time Dilation":
         currentCall = TimeDilationCalculator();
+        break;
+      case "Length Contraction":
+        currentCall = LengthContractionCalculator();
         break;
       default:
         break;

@@ -1,33 +1,31 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "./AtomicPhysics.css";
+import "./NuclearPhysics.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-export default function AtomicPhysics() {
+export default function NuclearPhysics() {
   // topics_data
   const Topics = [
     {
-      topic: "Bohr's model",
-      formula: "1/λ=R[(1/nf²)-(1/ni²)]",
-      siunit: "Wavelength: m",
-      details:
-        "The Rydberg formula describes the various transition energies that occur between energy levels. A photon is released when an electron goes from a higher to a lower energy level. Depending on the beginning and ultimate energy levels of the transition, the hydrogen atom can produce different wavelengths of light. It emits a photon with an energy equal to the square of the energy levels of the final (nf) and initial (ni).",
-      process:
-        "To find the (λ) wavelength of the emitted EM radiation we need to know the value of initial state (ni) and the final excitation state (nf) where R is the Rydberg constant, and it's value is determined by an experiment 1.097 × 107 / m (or m⁻¹)",
-      dimension: "[L]",
+      topic: "Mass defect",
+      formula: "Δm=[Z(mp+me)+(A-Z)mn]-matom",
+      siunit: "Atomic mass unit (amu)",
+      details: ` The mass of an atom is always slightly less than the total of the masses of the individual neutrons, protons, and electrons that make up the atom, according to careful measurements. The mass defect (m) is the discrepancy between the mass of an atom and the sum of its components' masses.`,
+      process: `The calculation of mass defect can be calculated by the equation "Δm=[Z(mₚ+mₑ)+(A-Z)mₙ]-mₐₜₒₘ", where 'Δm' is the mass defect, 'Z' is the atomic number (number of protons), 'A' is the mass number (number of nucleons), 'mₚ' is the mass of a proton (1.007277 amu), 'mₑ' is mass of an electron (0.000548597 amu), 'mₙ' is mass of a neutron (1.008665 amu) and 'mₐₜₒₘ' is the mass of nuclide. In order to calculate the mass defect it is important to use full accuracy of mass masurement.`,
+      dimension: "M",
     },
   ];
 
   return (
     <div className="mech__main">
       <Helmet>
-        <title>Atomic | physics | Tech N Science</title>
-        <meta name="description" content="Explore the Atomic physics calculator" />
-        <meta name="keywords" content="Atomic physics, Bohr's model" />
+        <title>Nuclear | physics | Tech N Science</title>
+        <meta name="description" content="Explore the Relativity calculator" />
+        <meta name="keywords" content="Nuclear Physics, Calculator" />
       </Helmet>
       <div className="mech__header">
-        <h1>Atomic Physics-Topics</h1>
+        <h1>Nuclear Physics-Topics</h1>
       </div>
       <div className="mech__topics-card">
         {Topics.map((data) => (
@@ -38,7 +36,7 @@ export default function AtomicPhysics() {
                   <Link
                     className="btn"
                     disabled={true}
-                    to={`/atomicphysics/calc/${data.topic}`}
+                    to={`/nuclearphysics/calc/${data.topic}`}
                     variant="outline-dark"
                   >
                     {" "}
@@ -47,7 +45,7 @@ export default function AtomicPhysics() {
                 ) : (
                   <Link
                     className="btn"
-                    to={`/atomicphysics/calc/${data.topic}`}
+                    to={`/nuclearphysics/calc/${data.topic}`}
                     variant="outline-dark"
                   >
                     {" "}
