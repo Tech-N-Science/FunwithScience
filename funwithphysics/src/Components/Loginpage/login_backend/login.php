@@ -35,7 +35,7 @@ $num = mysqli_num_rows($result);
 if($num == 1){
   $passfetch = mysqli_fetch_array($result);
   $db_pass = $passfetch['pass'];
-  $db_user=$passfetch['username']
+  $db_user=$passfetch['username'];
   $pass_decode = password_verify($subscriber_password,$db_pass);
 
   if($pass_decode){
