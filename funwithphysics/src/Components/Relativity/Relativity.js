@@ -55,11 +55,11 @@ export default function Relativity() {
     {
       topic: "Length Contraction",
       details:
-        "Relativity can be observed when object travels with speed of light and there length contraction comes into the picture.",
-      formula: "Relative Length = l * √(1 - v²/c²)",
+        "Relativity can be observed when object travels with speed of light and there length contraction comes into the picture. The speed must be very high - equivalent to the speed of light - for the impact of length contraction to be evident. We have no experience with items travelling at such high speeds in our daily lives. As a result, the implications of special relativity are quite perplexing.",
+      formula: "Relative Length = L * √(1 - v²/c²)",
       process:
-        "To find the length contraction we need to know the value of length (l) and speed of object (v) where  the value of speed of light is 3x10⁸m/s",
-      siunit:  "Relative Length: metres",
+        "Because, in addition to the great speed required, measuring the length of an item moving with regard to us is difficult, the consequences of length contraction are difficult to perceive. To find the length contraction we need to know the value of length (L) and speed of object (v) where  the value of speed of light is 3x10⁸m/s",
+      siunit: "Relative Length: metres",
       dimension: "Relative Length : L",
     },
   ];
