@@ -9,6 +9,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "funwithscience_backend";
+
 $con = mysqli_connect($servername, $username, $password, $dbname);
 
 if($con){
@@ -32,14 +33,13 @@ $result=mysqli_query($con,$q);
 $num = mysqli_num_rows($result);
 
 if($num == 1){
-  $passfetch = mysqli_fetch_assoc($result);
-
+  $passfetch = mysqli_fetch_array($result);
   $db_pass = $passfetch['pass'];
- 
+  $db_user=$passfetch['username']
   $pass_decode = password_verify($subscriber_password,$db_pass);
 
   if($pass_decode){
-    echo "1";
+    echo $db_user;
   }
   else{
     echo "2";

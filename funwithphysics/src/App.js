@@ -1,10 +1,11 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
+import reducer,{initialstate} from "./reducer";
 import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Loginpage/Login";
 import Loadingimg from "./Images/Logo/logo.webp";
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useReducer } from "react";
 import ClassicalMechanics from "./Components/Classical_Mechanics/ClassicalMechanics";
 import Thermodynamics from "./Components/Thermodynamics/Thermodynamics";
 import CalcClassic from "./Components/Classical_Mechanics/Topics/Calculator";
@@ -39,8 +40,9 @@ const Home = lazy(() => {
     new Promise((resolve) => setTimeout(resolve, 4000)),
   ]).then(([moduleExports]) => moduleExports);
 });
-
+export const Context=React.createContext()
 const App = () => {
+  const [state,dispatch]=useReducer(reducer,initialstate)
   return (
     <React.Fragment>
       <Helmet>
@@ -59,7 +61,7 @@ const App = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
       </Helmet>
-
+      <Context.Provider value={{state,dispatch}}>
       <Switch>
         <Route exact path="/">
           <Suspense
@@ -236,6 +238,7 @@ const App = () => {
 
         <Redirect to="/" />
       </Switch>
+      </Context.Provider>
     </React.Fragment>
   );
 };

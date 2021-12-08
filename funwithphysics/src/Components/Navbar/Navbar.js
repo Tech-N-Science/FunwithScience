@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { Data } from "../FAQ/Data";
@@ -6,8 +6,9 @@ import { IconContext } from "react-icons";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { Accordion, Card } from "react-bootstrap";
 import logo from "../../Images/Logo/logo.webp";
-
+import { Context } from "../../App";
 const Navbar = () => {
+  const {state,dispatch}=useContext(Context)
   const [clicked, setClicked] = useState(false);
 
   const toggle = (index) => {
@@ -36,7 +37,11 @@ const Navbar = () => {
       behavior: "smooth",
     });
   };
-
+  const handlelogout=()=>{
+    dispatch({
+      type:"Logout"
+    })
+  }
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-lg navbar-light bg-light pt-3">
@@ -65,12 +70,16 @@ const Navbar = () => {
             <NavLink to="/about" className="nav-item">
               <span className="nav-link">About</span>
             </NavLink>
-            <NavLink to="/Signup" className="nav-item">
+            {!state.user ?(<><NavLink to="/Signup" className="nav-item">
               <span className="nav-link">SignUp</span>
             </NavLink>
             <NavLink to="/Login" className="nav-item">
               <span className="nav-link">Login</span>
-            </NavLink>
+            </NavLink></>):(
+              <NavLink to="/Login" className="nav-item">
+               <span className="nav-link" onClick={handlelogout}>Logout</span>
+             </NavLink>
+            )}
             <NavLink
               to="/contact"
               className="nav-item"
