@@ -26,12 +26,7 @@ $subscriber_fname=$request->username;
 $sql = "INSERT INTO sign_up (username,email,pass)
 VALUES ('$subscriber_fname','$subscriber_email','$subscriber_password');";
 if ($conn->query($sql) === TRUE) {
-
-	echo "<script>
-    alert('Registered Successfully');
-    window.location.href='loginAGA.html';
-    </script>";
-  
+	echo "1";
  } 
 else {
   echo "Error: " . $sql . "<br>" . $conn->error;

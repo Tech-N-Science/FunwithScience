@@ -19,6 +19,7 @@ function Login() {
       .then((res) =>{
         if(res.data===1)
         {
+          alert("User LoggedIn Successfully");
           history.push("/");
         }
         else{
