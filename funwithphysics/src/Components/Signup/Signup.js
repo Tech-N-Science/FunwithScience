@@ -43,7 +43,7 @@ export default class Signup extends Component {
       .then((res) => {
         if (res.data === 1) {
           alert(" Registered Successfully");
-          this.props.history.push("/");
+          this.props.history.push("/login");
           console.log(res.data);
         } else {
           alert("Some Error Occured");
