@@ -52,6 +52,16 @@ export default function Relativity() {
       siunit: "Time dilation: seconds",
       dimension: "Time dilation : T",
     },
+    {
+      topic: "Length Contraction",
+      details:
+        "Relativity can be observed when object travels with speed of light and there length contraction comes into the picture.",
+      formula: "Relative Length = l * √(1 - v²/c²)",
+      process:
+        "To find the length contraction we need to know the value of length (l) and speed of object (v) where  the value of speed of light is 3x10⁸m/s",
+      siunit:  "Relative Length: metres",
+      dimension: "Relative Length : L",
+    },
   ];
 
   return (
