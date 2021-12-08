@@ -31,6 +31,8 @@ import Relativity from "./Components/Relativity/Relativity";
 import Calrelativity from "./Components/Relativity/Topics/Calculator";
 import AtomicPhysics from "./Components/Atomic_Physics/AtomicPhysics";
 import CalcAtomic from "./Components/Atomic_Physics/Topic/Calculator";
+import NuclearPhysics from "./Components/Nuclear_Physics/NuclearPhysics";
+import CalcNuclear from "./Components/Nuclear_Physics/Topic/Calculator";
 const Home = lazy(() => {
   return Promise.all([
     import("./Components/Home/Home"),
@@ -181,6 +183,13 @@ const App = () => {
           <AtomicPhysics/>
           </Route>
           <Route exact path="/atomicphysics/calc/:topic" component={CalcAtomic} />
+
+        {/* adding nuclear physics calculator */}
+        <Route exact path="/nuclear">
+          <Navbar />
+          <NuclearPhysics />
+        </Route>
+        <Route exact path="/nuclearphysics/calc/:topic" component={CalcNuclear} />
 
         <Route exact path="/quiz">
           <Navbar />
