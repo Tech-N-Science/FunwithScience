@@ -11,11 +11,11 @@ const Singlecard = (props) => {
         <span
           className={
             "tag " +
-            (props.difficulty == "Easy"
+            (props.difficulty === "Easy"
               ? "tag-easy"
-              : props.difficulty == "Medium"
+              : props.difficulty === "Medium"
               ? "tag-med"
-              : props.difficulty == "Hard"
+              : props.difficulty === "Hard"
               ? "tag-hard"
               : "")
           }
