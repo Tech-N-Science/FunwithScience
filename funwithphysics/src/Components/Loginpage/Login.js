@@ -1,35 +1,34 @@
 import React, { useState } from "react";
 import logimg from "../../Images/group1.jpg";
 import "./Login.css";
-import {useHistory} from "react-router-dom"
-import axios from "axios"
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
-  const [email,setemail]=useState();
-  const [pass,setpass]=useState();
-  const history=useHistory();
+  const [email, setemail] = useState();
+  const [pass, setpass] = useState();
+  const history = useHistory();
   function onSubmit(e) {
     e.preventDefault();
     const ob = {
       email,
-      pass
+      pass,
     };
-    axios
-      .post("http://localhost/login_backend/login.php", ob)
-      .then((res) =>{
-        if(res.data===1)
-        {
-          alert("User LoggedIn Successfully");
-          history.push("/");
-        }
-        else{
-          alert("Invalid Signin");
-          setemail("")
-          setpass("")
-          console.log(res.data)
-        }
-    } 
-    );
+    axios.post("http://localhost/login_backend/login.php", ob).then((res) => {
+      if (res.data === 1) {
+        alert("Login Successful");
+        history.push("/");
+      } else if (res.data === 2) {
+        alert("password incorrect");
+        setemail("");
+        setpass("");
+      } else {
+        alert("Invalid Login Details");
+        setemail("");
+        setpass("");
+        console.log(res.data);
+      }
+    });
   }
   return (
     <div>
@@ -55,7 +54,9 @@ function Login() {
                 placeholder="Email"
                 required
                 value={email}
-                onChange={(e)=>{setemail(e.target.value)}}
+                onChange={(e) => {
+                  setemail(e.target.value);
+                }}
               />
             </div>
             <div className="signdiv">
@@ -69,18 +70,26 @@ function Login() {
                 placeholder="Password"
                 required
                 value={pass}
-                onChange={(e)=>{setpass(e.target.value)}}
+                onChange={(e) => {
+                  setpass(e.target.value);
+                }}
               />
             </div>
-            <button type="submit"  onClick={onSubmit} className="btn btn-primary loginbtn">
+            <button
+              type="submit"
+              onClick={onSubmit}
+              className="btn btn-primary loginbtn"
+            >
               Login
             </button>
+            <p id="Register">
+              Don't Have an account?<a href="/Signup">Register Here</a>
+            </p>
           </form>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
-
+export default Login;

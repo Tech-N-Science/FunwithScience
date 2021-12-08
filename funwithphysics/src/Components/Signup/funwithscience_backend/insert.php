@@ -22,9 +22,9 @@ $subscriber_password = $request->pass;
 $subscriber_fname=$request->username;
 }
 
-
+$encry = password_hash($subscriber_password,PASSWORD_BCRYPT);
 $sql = "INSERT INTO sign_up (username,email,pass)
-VALUES ('$subscriber_fname','$subscriber_email','$subscriber_password');";
+VALUES ('$subscriber_fname','$subscriber_email','$encry');";
 if ($conn->query($sql) === TRUE) {
 	echo "1";
  } 

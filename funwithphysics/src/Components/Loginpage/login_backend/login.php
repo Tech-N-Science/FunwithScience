@@ -27,11 +27,25 @@ $subscriber_email = $request->email;
 $subscriber_password = $request->pass;
 }
 
-$q="select * from sign_up where email ='$subscriber_email' && pass = '$subscriber_password';";
+$q="select * from sign_up where email ='$subscriber_email' ;";
 $result=mysqli_query($con,$q);
 $num = mysqli_num_rows($result);
+
 if($num == 1){
-  echo "1";
+  $passfetch = mysqli_fetch_assoc($result);
+
+  $db_pass = $passfetch['pass'];
+ 
+  $pass_decode = password_verify($subscriber_password,$db_pass);
+
+  if($pass_decode){
+    echo "1";
+  }
+  else{
+    echo "2";
+  }
+
+
 }else {
   echo "0";
 }
