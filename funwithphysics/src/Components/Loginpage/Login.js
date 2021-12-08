@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logimg from "../../Images/group1.jpg";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-
+import {Context} from "../../App";
 function Login() {
+  const {dispatch}=useContext(Context)
   const [email, setemail] = useState();
   const [pass, setpass] = useState();
   const history = useHistory();
@@ -15,18 +16,24 @@ function Login() {
       pass,
     };
     axios.post("http://localhost/login_backend/login.php", ob).then((res) => {
-      if (res.data === 1) {
-        alert("Login Successful");
-        history.push("/");
-      } else if (res.data === 2) {
+      if (res.data === 2) {
         alert("password incorrect");
         setemail("");
         setpass("");
-      } else {
+      }else if(res.data === 0) {
         alert("Invalid Login Details");
         setemail("");
         setpass("");
         console.log(res.data);
+      }
+      else{
+        dispatch({
+          type:"Login",
+          payload: res.data
+        })
+        alert("Login Successful");
+        console.log(res.data);
+        history.push("/");
       }
     });
   }
