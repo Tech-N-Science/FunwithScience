@@ -7,12 +7,28 @@ import "./Card.css";
 const Singlecard = (props) => {
   return (
     <Card className="singlecard">
-      <Card.Header>{props.type}</Card.Header>
-    
+      <Card.Header>
+        <span
+          className={
+            "tag " +
+            (props.difficulty == "Easy"
+              ? "tag-easy"
+              : props.difficulty == "Medium"
+              ? "tag-med"
+              : props.difficulty == "Hard"
+              ? "tag-hard"
+              : "")
+          }
+        >
+          {props.difficulty}
+        </span>
+        {props.type}
+      </Card.Header>
+
       <Card.Body className="card-body">
-      <div classname="flex-column">
-        <Card.Title className="card-title">{props.question}</Card.Title>
-        <Card.Text className="card-text">{props.topic}</Card.Text>
+        <div classname="flex-column">
+          <Card.Title className="card-title">{props.question}</Card.Title>
+          <Card.Text className="card-text">{props.topic}</Card.Text>
         </div>
         <Link
           to={{

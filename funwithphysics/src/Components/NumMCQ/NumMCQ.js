@@ -59,6 +59,7 @@ const NumMCQ = () => {
                     answer={card.answer}
                     key={card.id}
                     id={card.id}
+                    difficulty={card.difficulty}
                   />
                   &nbsp;&nbsp;&nbsp;&nbsp;
                 </div>

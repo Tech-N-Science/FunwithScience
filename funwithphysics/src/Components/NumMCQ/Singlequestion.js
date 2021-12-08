@@ -63,7 +63,7 @@ const Singlequestion = () => {
             </div>
             <div className="btns-box">
               <button className="submit-btn" onClick={handleSubmit}>
-                Submit
+                <span> Submit</span>
               </button>
               <button className="next-btn" onClick={handleNext}>
                 <span> Next</span>
@@ -122,19 +122,11 @@ const Singlequestion = () => {
               />
             </div>
             <div className="btns-box">
-              <button
-                className="submit-btn"
-                variant="primary"
-                onClick={handleSubmit}
-              >
-                Submit
+              <button className="submit-btn" onClick={handleSubmit}>
+                <span> Submit</span>
               </button>
-              <button
-                className="next-btn"
-                variant="primary"
-                onClick={handleNext}
-              >
-                Next
+              <button className="next-btn" onClick={handleNext}>
+                <span> Next</span>
               </button>
             </div>
           </div>
