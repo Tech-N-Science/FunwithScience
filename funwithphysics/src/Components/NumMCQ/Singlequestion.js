@@ -1,9 +1,9 @@
 import React from "react";
 import "./Singlequestion.css";
-import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { useLocation } from "react-router";
 import Navbar from "./../Navbar/Navbar";
+import { Helmet } from "react-helmet";
 
 const Singlequestion = () => {
   const location = useLocation();
@@ -45,6 +45,14 @@ const Singlequestion = () => {
         <div className="singlequestion">
           <div className="maincontent">
             <h4>{question}</h4>
+            <Helmet>
+              <title>{question}</title>
+              <meta name="description" content="{question}" />
+              <meta
+                name="keywords"
+                content="questions, Physics Questions, calculator, physics, Tech n science, technscience, tech and science"
+              />
+            </Helmet>
             <span style={{ color: "red" }}>*Select all that are correct</span>
             <div className="answer-box">
               {answer.map((ansOptions, index) => {
@@ -94,6 +102,14 @@ const Singlequestion = () => {
     return (
       <React.Fragment>
         <Navbar />
+        <Helmet>
+          <title>{question}</title>
+          <meta name="description" content="{question}" />
+          <meta
+            name="keywords"
+            content="questions, Physics Questions, calculator, physics, Tech n science, technscience, tech and science"
+          />
+        </Helmet>
         <span
           style={{
             display: "flex",

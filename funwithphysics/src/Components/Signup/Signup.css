@@ -35,13 +35,13 @@
   height: 100%;
   border-bottom: 2px solid black;
 }
-.signdiv > span > i{
+.signdiv > span > i {
   font-size: 20px;
   color: black;
   margin: 0;
   padding: 0;
 }
-.signdiv >span >i:hover{
+.signdiv > span > i:hover {
   color: black;
   cursor: pointer;
 }
@@ -146,17 +146,21 @@ figure {
     margin-right: 90px;
   }
   .forminput {
-    width: 200px;
+    width: 150px;
   }
   .signupbtn {
-    width: 200px;
+    width: 170px;
   }
   .signhead {
     font-size: 25px;
   }
 
-  .signmain >form {
-    margin-left: 100px;
+  .signmain > form {
+    margin-left: 60px;
     margin-right: 10px;
+  }
+  #Login_Here {
+    font-size: small;
+    margin-top: -25px;
   }
 }
