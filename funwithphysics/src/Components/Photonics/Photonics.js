@@ -9,11 +9,11 @@ export default function Photonics() {
   const Topics = [
     {
         topic: "Brewster's Angle",
-        formula:"",
-        siunit:"",
-        process:"",
-        details:"",
-        dimension:""
+        formula:"θ = tan⁻¹(n2/n1)",
+        siunit:"degree",
+        process:`To find the Brewster's angle we need to know the (n1) refractive index of the initial medium through which the light propagates (the "incident medium") and (n2) the index of the other medium, we can easily find the the angle by putting these values`,
+        details:`"θ = tan⁻¹(n2/n1)" This equation is known as Brewster's law where θ is a brewster's angle and n1 is the refractive index of the initial medium through which the light propagates (the "incident medium") and n2 is the index of the other medium, we can easily find the the angle by putting these values`,
+        dimension:"M⁰ L⁰ T⁰ "
     },
   ];
 
