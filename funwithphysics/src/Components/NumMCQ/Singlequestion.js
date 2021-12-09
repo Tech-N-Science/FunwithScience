@@ -44,7 +44,7 @@ const Singlequestion = () => {
         <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">
-            <h4>{question}</h4>
+            <h4 className="question">{question}</h4>
             <Helmet>
               <title>{question}</title>
               <meta name="description" content="{question}" />
@@ -133,7 +133,7 @@ const Singlequestion = () => {
         <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">
-            <h4>{question}</h4>
+            <h4 className="question">{question}</h4>
             <div className="answer-box">
               <input
                 type="number"
