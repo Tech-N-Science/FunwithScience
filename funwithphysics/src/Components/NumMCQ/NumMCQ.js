@@ -163,11 +163,11 @@ const NumMCQ = () => {
               <span class="checkmark"></span>
             </label>
             <label class="container">
-              Classical Mechanics
-              <input type="hidden" name="Classical Mechanics" value="false" />
+              Mechanics
+              <input type="hidden" name="Mechanics" value="false" />
               <input
                 type="checkbox"
-                value="Classical Mechanics"
+                value="Mechanics"
                 onClick={(e) => handleClick(e)}
               />
               <span class="checkmark"></span>
