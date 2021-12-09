@@ -59,7 +59,7 @@ function Calculator({ match }) {
             <Form.Label>Final Excitation State (nf)</Form.Label>
             <Form.Control
               onChange={(e) => setFinal(e.target.value)}
-              type="number"
+              type="number" 
               placeholder="Enter the Final state (nf)"
               value={final === null ? "" : final}
             />
