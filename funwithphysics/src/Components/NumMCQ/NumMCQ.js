@@ -59,6 +59,10 @@ const NumMCQ = () => {
                   return value;
                 } else if (searchTerm.includes(value.topic.toLowerCase())) {
                   return value;
+                } else if (
+                  searchTerm.includes(value.difficulty.toLowerCase())
+                ) {
+                  return value;
                 }
                 return false;
               })
