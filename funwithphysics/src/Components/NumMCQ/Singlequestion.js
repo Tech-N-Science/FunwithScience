@@ -89,9 +89,9 @@ const Singlequestion = () => {
     const handleSubmit = () => {
       // eslint-disable-next-line
       if (
-        result == answer ||
-        result == answer + 0.2 ||
-        result == answer - 0.2
+        result === answer ||
+        result === answer + 0.2 ||
+        result === answer - 0.2
       ) {
         alert("Correct Answer");
       } else {
