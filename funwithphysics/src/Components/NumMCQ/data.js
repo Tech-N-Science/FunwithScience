@@ -95,7 +95,7 @@ export const data = [
       "A fighter plane flying horizontally at an altitude of 1.5km with speed of 720km/h passes directly overhead an antiaircraft gun. At what angle from the vertical should the gun be fired for the shell with muzzle speed 400m/s to hit the plane?",
     topic: "Mechanics",
     answer: 30,
-    difficulty: "Easy",
+    difficulty: "Medium",
   },
   {
     id: 7,
