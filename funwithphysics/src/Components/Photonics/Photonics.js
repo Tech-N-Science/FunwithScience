@@ -1,21 +1,19 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "./AtomicPhysics.css";
+import "./Photonics.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-export default function AtomicPhysics() {
+export default function Photonics() {
   // topics_data
   const Topics = [
     {
-      topic: "Bohr's model",
-      formula: "1/λ=R[(1/nf²)-(1/ni²)]",
-      siunit: "Wavelength: m",
-      details:
-        "The Rydberg formula describes the various transition energies that occur between energy levels. A photon is released when an electron goes from a higher to a lower energy level. Depending on the beginning and ultimate energy levels of the transition, the hydrogen atom can produce different wavelengths of light. It emits a photon with an energy equal to the square of the energy levels of the final (nf) and initial (ni).",
-      process:
-        "To find the (λ) wavelength of the emitted EM radiation we need to know the value of initial state (ni) and the final excitation state (nf) where R is the Rydberg constant, and it's value is determined by an experiment 1.097 × 107 / m (or m⁻¹)",
-      dimension: "[L]",
+        topic: "Brewster's Angle",
+        formula:"θ = tan⁻¹(n2/n1)",
+        siunit:"degree",
+        process:`To find the Brewster's angle we need to know the (n1) refractive index of the initial medium through which the light propagates (the "incident medium") and (n2) the index of the other medium, we can easily find the the angle by putting these values`,
+        details:`"θ = tan⁻¹(n2/n1)" This equation is known as Brewster's law where θ is a brewster's angle and n1 is the refractive index of the initial medium through which the light propagates (the "incident medium") and n2 is the index of the other medium, we can easily find the the angle by putting these values`,
+        dimension:"M⁰ L⁰ T⁰ "
     },
   ];
 
@@ -27,7 +25,7 @@ export default function AtomicPhysics() {
         <meta name="keywords" content="Atomic physics, Bohr's model" />
       </Helmet>
       <div className="mech__header"> 
-        <h1>Atomic Physics-Topics</h1>
+        <h1>Photonics-Topics</h1>
       </div>
       <div className="mech__topics-card">
         {Topics.map((data) => (
@@ -38,7 +36,7 @@ export default function AtomicPhysics() {
                   <Link
                     className="btn"
                     disabled={true}
-                    to={`/atomicphysics/calc/${data.topic}`}
+                    to={`/photonics/calc/${data.topic}`}
                     variant="outline-dark"
                   >
                     {" "}
@@ -47,7 +45,7 @@ export default function AtomicPhysics() {
                 ) : (
                   <Link
                     className="btn"
-                    to={`/atomicphysics/calc/${data.topic}`}
+                    to={`/photonics/calc/${data.topic}`}
                     variant="outline-dark"
                   >
                     {" "}
