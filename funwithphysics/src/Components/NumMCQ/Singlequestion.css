@@ -228,11 +228,11 @@ input[type="number"] {
   .question {
     font-weight: normal;
     font-size: 18px;
-    width: 300px;
+    width: fit-content;
     padding-left: 5px;
   }
   .maincontent {
-    width: 290px;
+    width: 270px;
   }
   .editorial-btn {
     margin-left: 30px;
@@ -248,9 +248,22 @@ input[type="number"] {
     margin-bottom: 5px;
   }
   .maincontent {
-    width: 300px;
+    width: 250px;
   }
   .question {
     font-size: small;
+    width: fit-content;
   }
+  .small{
+    font-size: 1rem;
+    margin-left: 1px;
+  }
+}
+.small{
+  display: "flex";
+  font-size: 2rem;
+  justify-content: "center";
+  padding-top: "2rem";
+  padding-left: "2rem";
+  padding-right: "2rem";
 }
