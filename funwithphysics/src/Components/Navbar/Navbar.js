@@ -53,7 +53,7 @@ const Navbar = () => {
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
-            aria-label="Toggle navigation"
+            aria-label="Toggle navigation" 
           >
             <div onClick={handleToggle} ref={menuBtnRef} class="menu-btn ">
               <div class="menu-btn__burger"></div>
