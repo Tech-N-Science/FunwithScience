@@ -129,3 +129,20 @@
     padding: 3px;
   }
 }
+@media (min-width : 601px){
+  .navbar-toggler {
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .navbar-brand {
+    font-size: 20px;
+    display: flex;
+  }
+  .navbar-brand img {
+    width: 32px;
+    height: 32px;
+    padding: 3px;
+  }
+}
