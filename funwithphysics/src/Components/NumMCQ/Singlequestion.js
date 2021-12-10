@@ -25,16 +25,7 @@ const Singlequestion = () => {
     return (
       <React.Fragment>
         <Navbar />
-        <span
-          style={{
-            display: "flex",
-            fontSize: "2em",
-            justifyContent: "center",
-            paddingTop: "2rem",
-            paddingLeft: "2rem",
-            paddingRight: "2rem",
-          }}
-        >
+        <span className="small">
           {type} Question
         </span>
         <br />
@@ -114,16 +105,7 @@ const Singlequestion = () => {
             content="questions, Physics Questions, calculator, physics, Tech n science, technscience, tech and science"
           />
         </Helmet>
-        <span
-          style={{
-            display: "flex",
-            fontSize: "2em",
-            justifyContent: "center",
-            paddingTop: "2rem",
-            paddingLeft: "2rem",
-            paddingRight: "2rem",
-          }}
-        >
+        <span className="small">
           {type} Question
         </span>
         <br />
