@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../Home/Home.css'
 import { Button } from 'react-bootstrap'
 import Footer from '../Footer/Footer'
 import { LearnMore } from '../LearnMore'
 import {Helmet} from "react-helmet"
 import Navbar from "../Navbar/Navbar"
+import { Context } from '../../App'
 const Home = () => {
 	const [loading,setloading]=useState(true)
+	const {dispatch}=useContext(Context)
 	useEffect(()=>{
 		setTimeout(()=>{
 			setloading(false)
+			const user = JSON.parse(localStorage.getItem('user'));
+            if(user !== null){
+            dispatch({
+				type:"Set",
+				payload: user});
+            }
 		},4000)
 	},[]) 
 	return (
