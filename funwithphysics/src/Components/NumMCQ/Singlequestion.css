@@ -207,11 +207,19 @@
   border-radius: 25px;
   width: 90%;
 }
-
-.answerOption:focus {
+.answer{
   color: #fff;
   background: #5bc0de;
 }
+.anserwhite{
+  border: 2px solid cadetblue !important;
+  background-color: #fff !important;
+  color: #000 !important;
+}
+/* .answerOption:focus {
+  color: #fff;
+  background: #5bc0de;
+} */
 
 input[type="number"] {
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
@@ -228,11 +236,11 @@ input[type="number"] {
   .question {
     font-weight: normal;
     font-size: 18px;
-    width: 300px;
+    width: fit-content;
     padding-left: 5px;
   }
   .maincontent {
-    width: 290px;
+    width: 270px;
   }
   .editorial-btn {
     margin-left: 30px;
@@ -248,9 +256,22 @@ input[type="number"] {
     margin-bottom: 5px;
   }
   .maincontent {
-    width: 300px;
+    width: 250px;
   }
   .question {
     font-size: small;
+    width: fit-content;
   }
+  .small{
+    font-size: 1rem;
+    margin-left: 1px;
+  }
+}
+.small{
+  display: "flex";
+  font-size: 2rem;
+  justify-content: "center";
+  padding-top: "2rem";
+  padding-left: "2rem";
+  padding-right: "2rem";
 }
