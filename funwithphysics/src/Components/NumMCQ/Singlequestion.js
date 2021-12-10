@@ -4,22 +4,74 @@ import { useState } from "react";
 import { useLocation } from "react-router";
 import Navbar from "./../Navbar/Navbar";
 import { Helmet } from "react-helmet";
-
+import { data } from "./data";
 const Singlequestion = () => {
   const location = useLocation();
-  const { type, question, answer } = location.state;
-  const [result, setResult] = useState("");
-  const [background, setBackground] = useState("");
-
+  var {type,ques,ans} = location.state;
+  // console.log(ans);
+  const[question,setquestion]=useState(ques)
+  const[answer,setanswer]=useState(ans)
+  const [result, setResult] = useState([]);
+  const [multinext,setmultinext]=useState(1);
+  const [numericalnext,setnumericalnext]=useState(1);
+  const multicorrect=data.filter((value)=>value.type === "Multiple Correct");
+  const numerical=data.filter((value)=> value.type === "Numerical");
   if (type === "Multiple Correct") {
-    const handleSubmit = () => {};
+    const handleSubmit = () => {
+      if (result.length === 0)
+      {
+        alert("Please select the options");
+      }
+      else{
+      for(let e of result){
+        for (let i of answer)
+        {
+          if (i.answerText===e)
+          {
+            if (i.isCorrect === false)
+            {
+              alert("Wrong Answer")
+               return
+            }
+            else{
+              break;
+            }
+          }
+        }
+      }
+      alert("Correct Answer");
+      handleNext()
+    }
+    };
 
-    const handleNext = () => {};
+    const handleNext = () => {
+      console.log(multinext);
+      console.log(multicorrect[multinext]);
+      setquestion(multicorrect[multinext].question)
+      setanswer(multicorrect[multinext].answer)
+      if(multinext === multicorrect.length-1)
+      {
+        setmultinext(0)
+      }
+      else{
+        setmultinext(multinext+1)
+      }
+    };
 
     function handleClick(e) {
-      setResult(e.target.value);
-      console.log(e.target.value);
-      setBackground("green");
+      if(result.includes(e.target.value))
+      {
+        setResult(result.filter((value)=> value !== e.target.value))
+        e.target.style.backgroundColor="white";
+        console.log(result);
+      }
+      else{
+        setResult([...result,e.target.value]);
+        e.target.style.backgroundColor="#5bc0de";
+        console.log(result);
+      }
+      
+      // setBackground("green");
     }
 
     return (
@@ -58,10 +110,13 @@ const Singlequestion = () => {
               {answer.map((ansOptions, index) => {
                 return (
                   <div className="container">
+                     {/* <input type="checkbox" id="switch" />
+                     <label for="switch">Toggle</label> */}
                     <button
                       key={index}
                       className="answerOption"
                       onClick={(e) => handleClick(e)}
+                      value={ansOptions.answerText}
                     >
                       {ansOptions.answerText}
                     </button>
@@ -90,6 +145,7 @@ const Singlequestion = () => {
       // eslint-disable-next-line
       if (result == answer) {
         alert("Correct Answer");
+        handleNext()
       } else {
         alert("Wrong Answer, Please try again !!");
       }
@@ -97,7 +153,19 @@ const Singlequestion = () => {
       console.log(result);
     };
 
-    const handleNext = () => {};
+    const handleNext = () => {
+      console.log(numericalnext);
+      console.log(numerical[numericalnext]);
+      setquestion(numerical[numericalnext].question)
+      setanswer(numerical[numericalnext].answer)
+      if(numericalnext === numerical.length - 1)
+      {
+        setnumericalnext(0)
+      }
+      else{
+        setnumericalnext(numericalnext+1)
+      }
+    };
 
     return (
       <React.Fragment>

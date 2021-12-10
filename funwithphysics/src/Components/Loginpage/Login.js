@@ -31,6 +31,7 @@ function Login() {
           type:"Login",
           payload: res.data
         })
+        localStorage.setItem('user', JSON.stringify(res.data))
         alert("Login Successful");
         console.log(res.data);
         history.push("/");
