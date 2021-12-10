@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./Card.css";
 import { Context } from "../../App";
 const Singlecard = (props) => {
-  const {state}=useContext(Context)
+  const { state } = useContext(Context);
   const user=localStorage.getItem("user");
   return (
     <Card className="singlecard">
@@ -34,25 +34,29 @@ const Singlecard = (props) => {
         </div>
         {state.user || user!=="null" ?(
           <Link
-          to={{
-            pathname: `/questions/${props.id}`,
-            state: {
-              type: props.type,
-              ques: props.question,
-              ans: props.answer,
-            },
-          }}
-        >
-          <Button variant="primary" className="solve-question-btn">
-            Solve Question
-          </Button>
-        </Link>
-        ):(
-          <Link
-          to="/Login">
-          <Button variant="primary" className="solve-question-btn" onClick={()=>(alert("You need to login first!!"))}>
-            Solve Question
-          </Button></Link>
+            to={{
+              pathname: `/questions/${props.id}`,
+              state: {
+                type: props.type,
+                ques: props.question,
+                ans: props.answer,
+              },
+            }}
+          >
+            <Button variant="primary" className="solve-question-btn">
+              Solve Question
+            </Button>
+          </Link>
+        ) : (
+          <Link to="/Login">
+            <Button
+              variant="primary"
+              className="solve-question-btn"
+              onClick={() => alert("You need to login first!!")}
+            >
+              Solve Question
+            </Button>
+          </Link>
         )}
       </Card.Body>
     </Card>

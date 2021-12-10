@@ -211,6 +211,11 @@
   color: #fff;
   background: #5bc0de;
 }
+.anserwhite{
+  border: 2px solid cadetblue !important;
+  background-color: #fff !important;
+  color: #000 !important;
+}
 /* .answerOption:focus {
   color: #fff;
   background: #5bc0de;
@@ -219,4 +224,41 @@
 input[type="number"] {
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
   border: 1px solid #e8e8e8;
+}
+@media (max-width: 500px) {
+  .editorial_discussionforum {
+    display: none;
+  }
+  .answer-box {
+    width: fit-content;
+    margin-left: 10px;
+  }
+  .question {
+    font-weight: normal;
+    font-size: 18px;
+    width: 300px;
+    padding-left: 5px;
+  }
+  .maincontent {
+    width: 290px;
+  }
+  .editorial-btn {
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .editorial_discussionforum {
+    display: none;
+  }
+  .editorial-btn {
+    margin-bottom: 5px;
+  }
+  .maincontent {
+    width: 300px;
+  }
+  .question {
+    font-size: small;
+  }
 }
