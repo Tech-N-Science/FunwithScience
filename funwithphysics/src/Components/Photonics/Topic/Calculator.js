@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
-import "../AtomicPhysics.css";
+import "../Photonics.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 
@@ -9,70 +9,63 @@ function Calculator({ match }) {
   // topics_data
   const Topics = [
     {
-      topic: "Bohr's model",
-      formula: "1/λ=R[(1/nf²)-(1/ni²)]",
-      siunit: "Wavelength: m",
-      details:
-        "The Rydberg formula describes the various transition energies that occur between energy levels. A photon is released when an electron goes from a higher to a lower energy level. Depending on the beginning and ultimate energy levels of the transition, the hydrogen atom can produce different wavelengths of light. It emits a photon with an energy equal to the square of the energy levels of the final (nf) and initial (ni).",
-      process:
-        "To find the (λ) wavelength of the emitted EM radiation we need to know the value of initial state (ni) and the final excitation state (nf) where R is the Rydberg constant, and it's value is determined by an experiment 1.097 × 10^7 / m (or m⁻¹)",
-      dimension: "[L]",
+      topic: "Brewster's Angle",
+      formula: "θ = tan⁻¹(n₂/n₁)",
+      siunit: "degree",
+      process: `"θ = tan⁻¹(n₂/n₁)" This equation is known as Brewster's law, where 'θ' is a brewster's angle, 'n₁' is the refractive index of the first media through which light propagates (the "incidental medium"), and 'n₂' is the index of the other medium, and we can simply get the angle by plugging these numbers into the equation.`,
+      details: `The reflected light will be linearly polarised if light strikes an interface at a 90ᴼ angle between the reflected and refracted rays. The polarisation direction (the direction in which the electric field vectors point) is parallel to the interface plane.
+
+               The Brewster angle, θ., is a unique incidence angle that results in a 90ᴼ angle between the reflected and refracted rays. A quick calculation reveals that tan(θ) = n₂/n₁.`,
+      dimension: "M⁰ L⁰ T⁰ ",
     },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
   const details = page[0];
 
-  //Mass Energy Relation calculator
-  const BohrModel = () => {
-    const [initial, setInitial] = useState(null);
-    const [final, setFinal] = useState(null);
+  //adding Brewster's Angle calcular
+  const BrewsterAngle = () => {
+    const [n1, setN1] = useState(null);
+    const [n2, setN2] = useState(null);
     const [result, setResult] = useState(null);
-    const R = 1.097 * Math.pow(10, 7);
     const reset = () => {
-      setInitial(null);
-      setFinal(null);
       setResult(null);
+      setN2(null);
+      setN1(null);
     };
     const calcResult = () => {
       let res;
-      let r1 = 1 / (initial * initial);
-      let r2 = 1 / (final * final);
-      let r3 = R * (r2 - r1);
-      res = 1 / r3;
-
+      let r1 = n2 / n1;
+      let r2 = Math.atan(r1);
+      res = (r2 * 180) / Math.PI;
       setResult(res);
     };
     return (
       <>
         <Form>
           <Form.Group className="mb-4">
-            <Form.Label>Initial State (ni)</Form.Label>
+            <Form.Label>refractive index of the initial medium (n₁)</Form.Label>
             <Form.Control
-              onChange={(e) => setInitial(e.target.value)}
               type="number"
-              placeholder="Enter the initial state (ni)"
-              value={initial === null ? "" : initial}
+              placeholder="Enter the value of n1"
+              onChange={(e) => setN1(e.target.value)}
+              value={n1 === null ? "" : n1}
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Final Excitation State (nf)</Form.Label>
+            <Form.Label>the index of the other medium (n₂)</Form.Label>
             <Form.Control
-              onChange={(e) => setFinal(e.target.value)}
-              type="number" 
-              placeholder="Enter the Final state (nf)"
-              value={final === null ? "" : final}
+              type="number"
+              placeholder="Enter the value of n2"
+              onChange={(e) => setN2(e.target.value)}
+              value={n2 === null ? "" : n2}
             />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Rydberg constant(R)</Form.Label>
-            <Form.Control readOnly placeholder="1.097 × 10^7 / m (or m⁻¹)" />
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " m"}
+              placeholder={result === null ? "Result" : result + " degree"}
             />
           </Form.Group>
         </Form>
@@ -91,8 +84,8 @@ function Calculator({ match }) {
   function calC(key) {
     let currentCall;
     switch (key) {
-      case "Bohr's model":
-        currentCall = BohrModel();
+      case "Brewster's Angle":
+        currentCall = BrewsterAngle();
         break;
       default:
         break;
