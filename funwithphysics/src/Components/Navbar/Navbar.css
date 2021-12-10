@@ -133,7 +133,7 @@
     padding: 3px;
   }
 }
-@media (min-width: 750px) {
+@media (min-width: 601px) {
   .navbar-toggler {
     display: inline;
     margin: 0px;
