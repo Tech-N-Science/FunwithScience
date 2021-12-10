@@ -236,11 +236,11 @@ input[type="number"] {
   .question {
     font-weight: normal;
     font-size: 18px;
-    width: fit-content;
+    width: 300px;
     padding-left: 5px;
   }
   .maincontent {
-    width: 270px;
+    width: 290px;
   }
   .editorial-btn {
     margin-left: 30px;
@@ -256,22 +256,9 @@ input[type="number"] {
     margin-bottom: 5px;
   }
   .maincontent {
-    width: 250px;
+    width: 300px;
   }
   .question {
     font-size: small;
-    width: fit-content;
   }
-  .small{
-    font-size: 1rem;
-    margin-left: 1px;
-  }
-}
-.small{
-  display: "flex";
-  font-size: 2rem;
-  justify-content: "center";
-  padding-top: "2rem";
-  padding-left: "2rem";
-  padding-right: "2rem";
 }
