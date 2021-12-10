@@ -8,12 +8,14 @@ export default function Photonics() {
   // topics_data
   const Topics = [
     {
-        topic: "Brewster's Angle",
-        formula:"θ = tan⁻¹(n2/n1)",
-        siunit:"degree",
-        process:`To find the Brewster's angle we need to know the (n1) refractive index of the initial medium through which the light propagates (the "incident medium") and (n2) the index of the other medium, we can easily find the the angle by putting these values`,
-        details:`"θ = tan⁻¹(n2/n1)" This equation is known as Brewster's law where θ is a brewster's angle and n1 is the refractive index of the initial medium through which the light propagates (the "incident medium") and n2 is the index of the other medium, we can easily find the the angle by putting these values`,
-        dimension:"M⁰ L⁰ T⁰ "
+      topic: "Brewster's Angle",
+      formula: "θ = tan⁻¹(n₂/n₁)",
+      siunit: "degree",
+      process: `"θ = tan⁻¹(n₂/n₁)" This equation is known as Brewster's law, where 'θ' is a brewster's angle, 'n₁' is the refractive index of the first media through which light propagates (the "incidental medium"), and 'n₂' is the index of the other medium, and we can simply get the angle by plugging these numbers into the equation.`,
+      details: `The reflected light will be linearly polarised if light strikes an interface at a 90ᴼ angle between the reflected and refracted rays. The polarisation direction (the direction in which the electric field vectors point) is parallel to the interface plane.
+
+               The Brewster angle, θ., is a unique incidence angle that results in a 90ᴼ angle between the reflected and refracted rays. A quick calculation reveals that tan(θ) = n₂/n₁.`,
+      dimension: "M⁰ L⁰ T⁰ ",
     },
   ];
 
@@ -21,10 +23,13 @@ export default function Photonics() {
     <div className="mech__main">
       <Helmet>
         <title>Atomic | physics | Tech N Science</title>
-        <meta name="description" content="Explore the Atomic physics calculator" />
+        <meta
+          name="description"
+          content="Explore the Atomic physics calculator"
+        />
         <meta name="keywords" content="Atomic physics, Bohr's model" />
       </Helmet>
-      <div className="mech__header"> 
+      <div className="mech__header">
         <h1>Photonics-Topics</h1>
       </div>
       <div className="mech__topics-card">
