@@ -8,22 +8,22 @@ export const data = [
     answer: [
       {
         answerText:
-          "A)  the maximum magnitude for the resultant is 8 units when θ = 90⁰",
+          "the maximum magnitude for the resultant is 8 units when θ = 90⁰",
         isCorrect: false,
       },
       {
         answerText:
-          "B)  the maximum magnitude for the resultant is 8 units when θ = 0⁰",
+          "the maximum magnitude for the resultant is 8 units when θ = 0⁰",
         isCorrect: true,
       },
       {
         answerText:
-          "C)  the maximum magnitude for the resultant is 2 units when θ = 180⁰",
+          "the maximum magnitude for the resultant is 2 units when θ = 180⁰",
         isCorrect: true,
       },
       {
         answerText:
-          "D)  the maximum magnitude for the resultant is 4 units when θ = 180⁰",
+          "the maximum magnitude for the resultant is 4 units when θ = 180⁰",
         isCorrect: false,
       },
     ],
@@ -36,19 +36,19 @@ export const data = [
     topic: "Mechanics",
     answer: [
       {
-        answerText: "A)  It is correct to say that B ⃗=kA ⃗ ",
+        answerText: "It is correct to say that B ⃗=kA ⃗ ",
         isCorrect: true,
       },
       {
-        answerText: "B)  It is not correct to say that B ⃗=kA ⃗",
+        answerText: "It is not correct to say that B ⃗=kA ⃗",
         isCorrect: false,
       },
       {
-        answerText: "C)  It is correct to say that B ⃗/A ⃗ =k",
+        answerText: "It is correct to say that B ⃗/A ⃗ =k",
         isCorrect: false,
       },
       {
-        answerText: "D)  It is not correct to say that B ⃗/A ⃗ =k",
+        answerText: "It is not correct to say that B ⃗/A ⃗ =k",
         isCorrect: true,
       },
     ],
@@ -60,13 +60,13 @@ export const data = [
     question: "A ⃗=i ̂+j ̂+k ̂  and B ⃗=2i ̂-3k ̂  then",
     topic: "Mechanics",
     answer: [
-      { answerText: "A)  |3Ā+B ⃗| = √34", isCorrect: true },
-      { answerText: "B)  |Ā X B ⃗| = √38", isCorrect: true },
+      { answerText: "|3Ā+B ⃗| = √34", isCorrect: true },
+      { answerText: "|Ā X B ⃗| = √38", isCorrect: true },
       {
-        answerText: "C)  Angle made by Ā with X-axis is cos⁻¹(1/√3)",
+        answerText: "Angle made by Ā with X-axis is cos⁻¹(1/√3)",
         isCorrect: true,
       },
-      { answerText: "D)  A ⃗ .B ⃗ = 1", isCorrect: false },
+      { answerText: "A ⃗ .B ⃗ = 1", isCorrect: false },
     ],
     difficulty: "Easy",
   },
@@ -103,11 +103,8 @@ export const data = [
     question: "ABCD",
     topic: "",
     answer: [
-      { answerText: "A)  It is an ionizing radiation", isCorrect: false },
-      {
-        answerText: "B)  It is unable to penetrate human skin",
-        isCorrect: true,
-      },
+      { answerText: "It is an ionizing radiation", isCorrect: false },
+      { answerText: "It is unable to penetrate human skin", isCorrect: true },
     ],
     difficulty: "Hard",
   },
@@ -117,11 +114,8 @@ export const data = [
     question: "ABCD",
     topic: "",
     answer: [
-      { answerText: "A)  It is an ionizing radiation", isCorrect: false },
-      {
-        answerText: "B)  It is unable to penetrate human skin",
-        isCorrect: true,
-      },
+      { answerText: "It is an ionizing radiation", isCorrect: false },
+      { answerText: "It is unable to penetrate human skin", isCorrect: true },
     ],
     difficulty: "Easy",
   },
@@ -131,11 +125,8 @@ export const data = [
     question: "ABCD",
     topic: "",
     answer: [
-      { answerText: "A)  It is an ionizing radiation", isCorrect: false },
-      {
-        answerText: "B)  It is unable to penetrate human skin",
-        isCorrect: true,
-      },
+      { answerText: "It is an ionizing radiation", isCorrect: false },
+      { answerText: "It is unable to penetrate human skin", isCorrect: true },
     ],
     difficulty: "Medium",
   },
