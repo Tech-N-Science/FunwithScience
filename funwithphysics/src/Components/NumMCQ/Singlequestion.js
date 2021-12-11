@@ -1,5 +1,4 @@
 import React from "react";
-import Radium, { StyleRoot } from 'radium';
 import "./Singlequestion.css";
 import { useState } from "react";
 import { useLocation } from "react-router";
@@ -64,22 +63,6 @@ const Singlequestion = () => {
       handleNext();
     }
     };
-     const style = {
-      display: "flex",
-      fontSize: "2rem",
-      fontWeight:"470",
-      justifyContent: "center",
-      paddingTop: "2rem",
-      paddingLeft: "2rem",
-      paddingRight: "2rem",
-      // Adding media querry..
-      '@media (max-width: 350px)': {
-        fontSize : "20px",
-        paddingTop: "1rem",
-        paddingLeft: "1rem",
-        paddingRight: "1rem",
-      },
-    };
     function handleClick(e) {
       if(result.includes(e.target.value))
       {
@@ -99,10 +82,18 @@ const Singlequestion = () => {
     }
 
     return (
-      <StyleRoot>
       <React.Fragment>
         <Navbar />
-        <span style={style} >
+        <span
+          style={{
+            display: "flex",
+            fontSize: "2em",
+            justifyContent: "center",
+            paddingTop: "2rem",
+            paddingLeft: "2rem",
+            paddingRight: "2rem",
+          }}
+        >
           {type} Question
         </span>
         <br />
@@ -153,7 +144,6 @@ const Singlequestion = () => {
           </div>
         </div>
       </React.Fragment>
-      </StyleRoot>
     );
   } else if (type === "Numerical") {
     const handleSubmit = () => {
@@ -187,24 +177,8 @@ const Singlequestion = () => {
         setnumericalnext(numericalnext+1)
       }
     };
-      const style = {
-      display: "flex",
-      fontSize: "2rem",
-      fontWeight:"470",
-      justifyContent: "center",
-      paddingTop: "2rem",
-      paddingLeft: "2rem",
-      paddingRight: "2rem",
-      // Adding media querry..
-      '@media (max-width: 350px)': {
-        fontSize : "20px",
-        paddingTop: "1rem",
-        paddingLeft: "1rem",
-        paddingRight: "1rem",
-      },
-    };
+
     return (
-      <StyleRoot>
       <React.Fragment>
         <Navbar />
         <Helmet>
@@ -216,7 +190,15 @@ const Singlequestion = () => {
           />
         </Helmet>
         <span
-          style={style}>
+          style={{
+            display: "flex",
+            fontSize: "2em",
+            justifyContent: "center",
+            paddingTop: "2rem",
+            paddingLeft: "2rem",
+            paddingRight: "2rem",
+          }}
+        >
           {type} Question
         </span>
         <br />
@@ -249,9 +231,8 @@ const Singlequestion = () => {
           </div>
         </div>
       </React.Fragment>
-      </StyleRoot>
     );
   }
 };
 
-export default Radium(Singlequestion);
+export default Singlequestion;
