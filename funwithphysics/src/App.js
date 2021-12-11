@@ -1,5 +1,6 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
+import Radium , {StyleRoot} from 'radium';
 import reducer,{initialstate} from "./reducer";
 import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
@@ -46,6 +47,7 @@ export const Context=React.createContext()
 const App = () => {
   const [state,dispatch]=useReducer(reducer,initialstate)
   return (
+    <StyleRoot>
     <React.Fragment>
       <Helmet>
         <title>Fun with Science - Tech N Science</title>
@@ -249,10 +251,11 @@ const App = () => {
       </Switch>
       </Context.Provider>
     </React.Fragment>
+    </StyleRoot>
   );
 };
 
-export default App;
+export default Radium(App);
 
 const rootElement = document.getElementById("root");
 if (rootElement.hasChildNodes()) {
