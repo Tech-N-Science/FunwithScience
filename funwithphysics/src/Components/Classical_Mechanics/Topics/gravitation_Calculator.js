@@ -454,7 +454,7 @@ function GravitationCalculator({ match }) {
         };
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -524,7 +524,7 @@ function GravitationCalculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   }
 

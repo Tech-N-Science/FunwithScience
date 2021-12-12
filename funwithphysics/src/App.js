@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
 import Radium , {StyleRoot} from 'radium';
+import Home from './Components/Home/Home'
 import reducer,{initialstate} from "./reducer";
 import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
@@ -37,12 +38,12 @@ import NuclearPhysics from "./Components/Nuclear_Physics/NuclearPhysics";
 import CalcNuclear from "./Components/Nuclear_Physics/Topic/Calculator";
 import Photonics from "./Components/Photonics/Photonics";
 import CalcPhotonics from "./Components/Photonics/Topic/Calculator"
-const Home = lazy(() => {
-  return Promise.all([
-    import("./Components/Home/Home"),
-    new Promise((resolve) => setTimeout(resolve, 4000)),
-  ]).then(([moduleExports]) => moduleExports);
-});
+// const Home = lazy(() => {
+//   return Promise.all([
+//     import("./Components/Home/Home"),
+//     new Promise((resolve) => setTimeout(resolve, 4000)),
+//   ]).then(([moduleExports]) => moduleExports);
+// });
 export const Context=React.createContext()
 const App = () => {
   const [state,dispatch]=useReducer(reducer,initialstate)

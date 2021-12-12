@@ -76,7 +76,7 @@ const Quiz = () => {
             You scored {score} out of {questions.length}
           </div>
         ) : (
-          <>
+          <React.Fragment>
             <div className="question-section">
               <div className="question-count">
                 <span>Question {currentQuestion + 1}</span>/{questions.length}
@@ -107,7 +107,7 @@ const Quiz = () => {
                 )
               )}
             </div>
-          </>
+          </React.Fragment>
         )}
       </div>
     </div>
