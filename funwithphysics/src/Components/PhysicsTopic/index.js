@@ -13,7 +13,7 @@ import {Helmet} from "react-helmet";
 
 function PhysicsTopicItem(props) {
 	return (
-		<>
+		<React.Fragment>
 		<Helmet>
           <title>Physics Calculator</title>
 		  <meta name="description" content="Get info and calculator of various physics topics by choosing from the following."/>
@@ -31,7 +31,7 @@ function PhysicsTopicItem(props) {
 			</Link>
 			{props.children}
 		</div>
-		</>
+		</React.Fragment>
 	)
 }
 
@@ -41,6 +41,7 @@ function PhysicsTopic() {
 	}, [])
 
     return (
+		<React.Fragment>
         <div>
             <h3 className="learn-header" id="learn">Physics calculator</h3>
             <div id="fh5co-course-categories" className="mt-5 p-5">
@@ -81,6 +82,7 @@ function PhysicsTopic() {
 				</div>
 			</div>
         </div>
+		</React.Fragment>
     )
 }
 export default PhysicsTopic

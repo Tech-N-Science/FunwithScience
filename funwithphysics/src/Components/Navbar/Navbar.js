@@ -74,12 +74,12 @@ const Navbar = () => {
             <NavLink to="/about" className="nav-item">
               <span className="nav-link">About</span>
             </NavLink>
-            {!state.user && user=== "null" ?(<><NavLink to="/Signup" className="nav-item">
+            {!state.user && user=== "null" ?(<React.Fragment><NavLink to="/Signup" className="nav-item">
               <span className="nav-link">SignUp</span>
             </NavLink>
             <NavLink to="/Login" className="nav-item">
               <span className="nav-link">Login</span>
-            </NavLink></>):(
+            </NavLink></React.Fragment>):(
               <NavLink to="/Login" className="nav-item">
                <span className="nav-link" onClick={handlelogout}>Logout</span>
              </NavLink>

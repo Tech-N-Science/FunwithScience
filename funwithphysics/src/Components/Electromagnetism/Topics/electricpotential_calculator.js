@@ -134,7 +134,7 @@ export const electricpotential_calculator = ({ match }) => {
       }
     };
     return (
-      <>
+      <React.Fragment>
         {/* <Navbar/> */}
         <Form>
           {/* dropdown */}
@@ -204,7 +204,7 @@ export const electricpotential_calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -261,7 +261,7 @@ export const electricpotential_calculator = ({ match }) => {
         };
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -347,7 +347,7 @@ export const electricpotential_calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -375,7 +375,7 @@ export const electricpotential_calculator = ({ match }) => {
     };
     const k = 8.99 * Math.pow(10, 9);
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Distance (r)</Form.Label>
@@ -423,7 +423,7 @@ export const electricpotential_calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -449,7 +449,7 @@ export const electricpotential_calculator = ({ match }) => {
 
     const k = 8.99 * Math.pow(10, 9);
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (Q)</Form.Label>
@@ -497,7 +497,7 @@ export const electricpotential_calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -518,7 +518,7 @@ export const electricpotential_calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (Q)</Form.Label>
@@ -557,7 +557,7 @@ export const electricpotential_calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 

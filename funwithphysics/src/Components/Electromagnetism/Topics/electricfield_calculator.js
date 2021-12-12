@@ -117,7 +117,7 @@ function electricfield_calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragment>
         {/* <Navbar/> */}
         <Form>
           <Form.Group className="mb-4">
@@ -176,7 +176,7 @@ function electricfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -201,7 +201,7 @@ function electricfield_calculator({ match }) {
       setResult(res);
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (Q)</Form.Label>
@@ -259,7 +259,7 @@ function electricfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -282,7 +282,7 @@ function electricfield_calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Enter the Charge (q)</Form.Label>
@@ -330,7 +330,7 @@ function electricfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -355,7 +355,7 @@ function electricfield_calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (q)</Form.Label>
@@ -413,7 +413,7 @@ function electricfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -439,7 +439,7 @@ function electricfield_calculator({ match }) {
       setResult(res);
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (q)</Form.Label>
@@ -497,7 +497,7 @@ function electricfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -520,7 +520,7 @@ function electricfield_calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Enter the Charge (Q)</Form.Label>
@@ -568,7 +568,7 @@ function electricfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 

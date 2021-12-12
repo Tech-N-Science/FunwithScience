@@ -41,7 +41,7 @@ function Calculator({ match }) {
       setResult(res);
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>refractive index of the initial medium (n₁)</Form.Label>
@@ -76,7 +76,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
