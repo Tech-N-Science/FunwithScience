@@ -44,7 +44,7 @@ function Calculator({ match }) {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Initial State (ni)</Form.Label>
@@ -59,7 +59,7 @@ function Calculator({ match }) {
             <Form.Label>Final Excitation State (nf)</Form.Label>
             <Form.Control
               onChange={(e) => setFinal(e.target.value)}
-              type="number" 
+              type="number"
               placeholder="Enter the Final state (nf)"
               value={final === null ? "" : final}
             />
@@ -83,7 +83,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
