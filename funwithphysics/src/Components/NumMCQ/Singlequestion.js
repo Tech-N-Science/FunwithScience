@@ -211,4 +211,4 @@ const Singlequestion = () => {
   }
 };
 
-export default Radium(Singlequestion);
+export default Singlequestion;
