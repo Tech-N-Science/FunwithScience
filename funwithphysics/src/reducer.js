@@ -13,13 +13,7 @@ export default (initialState, action) => {
       ...initialState,
       user: null,
     };
-  }else if (action.type === "Set") {
-    return {
-      ...initialState,
-      user: action.payload,
-    };
-  }
-   else {
+  } else {
     return initialState;
   }
 };
