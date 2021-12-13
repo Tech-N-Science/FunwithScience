@@ -48,7 +48,7 @@ const flux_calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <>
+      <React.Fragment>
         {/* <Navbar/> */}
         <Form>
           <Form.Group className="mb-4">
@@ -93,7 +93,7 @@ const flux_calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -116,7 +116,7 @@ const flux_calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Electric Field(E)</Form.Label>
@@ -160,7 +160,7 @@ const flux_calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
   const calC = (key) => {

@@ -26,7 +26,7 @@ export default function AtomicPhysics() {
         <meta name="description" content="Explore the Atomic physics calculator" />
         <meta name="keywords" content="Atomic physics, Bohr's model" />
       </Helmet>
-      <div className="mech__header">
+      <div className="mech__header"> 
         <h1>Atomic Physics-Topics</h1>
       </div>
       <div className="mech__topics-card">

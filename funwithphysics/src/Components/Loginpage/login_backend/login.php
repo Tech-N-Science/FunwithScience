@@ -28,7 +28,7 @@ $subscriber_email = $request->email;
 $subscriber_password = $request->pass;
 }
 
-$q="select * from sign_up where email ='$subscriber_email' ;";
+$q="select * from sign_up where email ='$subscriber_email';";
 $result=mysqli_query($con,$q);
 $num = mysqli_num_rows($result);
 

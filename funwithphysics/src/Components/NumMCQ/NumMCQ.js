@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 import "./NumMCQ.css";
 import Singlecard from "./Card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { data } from "./data";
 import { Helmet } from "react-helmet";
 
+var v = 0;
 const NumMCQ = () => {
   const cardref = useRef();
   const filterref = useRef();
@@ -12,16 +13,77 @@ const NumMCQ = () => {
 
   const [searchTerm, setsearchTerm] = useState([]);
 
+  const [typ, settyp] = useState(false);
+  const [top, settop] = useState(false);
+  const [difficult, setdifficult] = useState(false);
+  const dif = ["easy", "medium", "hard"];
+  var tflag = 0;
+  var dflag = 0;
+  var vflag = 0;
+  useEffect(() => {
+    settop(0);
+    settyp(0);
+    setdifficult(0);
+  }, [searchTerm]);
   function handleClick(e) {
+    tflag = 0;
+    dflag = 0;
+    vflag = 0;
     if (e.target.checked === true) {
-      if (!searchTerm.includes(e.target.value.toLowerCase()))
-        setsearchTerm([...searchTerm, e.target.value.toLowerCase()]);
+      if (!searchTerm.includes(e.target.value.toLowerCase())) {
+        searchTerm.push(e.target.value.toLowerCase());
+        setsearchTerm(searchTerm);
+      }
     } else {
-      setsearchTerm(
-        searchTerm.filter((value) => value !== e.target.value.toLowerCase())
-      );
-      // setsearchTerm(searchTerm.filter((value)=>value !== e.target.value))
+      // setsearchTerm(
+      //   searchTerm.filter((value) => value !== e.target.value.toLowerCase())
+      //   );
+      const i = searchTerm.indexOf(e.target.value.toLowerCase());
+      searchTerm.splice(i, 1);
+      setsearchTerm(searchTerm);
     }
+    for (let k of data) {
+      if (searchTerm.includes(k.topic.toLowerCase())) {
+        tflag = 1;
+        v++;
+        settop(v);
+        break;
+      }
+    }
+    if (tflag === 0) {
+      settop(tflag);
+    }
+    for (let l of data) {
+      if (searchTerm.includes(l.type.toLowerCase())) {
+        console.log(";;;;;;");
+        vflag = 1;
+        v++;
+        console.log(v);
+        settyp(v);
+        break;
+      }
+    }
+    if (vflag === 0) {
+      settyp(vflag);
+    }
+    for (let j of dif) {
+      console.log(j);
+      console.log(searchTerm.includes(j));
+      if (searchTerm.includes(j)) {
+        console.log("hello from difference");
+        dflag = 1;
+        v++;
+        setdifficult(v);
+        break;
+      }
+    }
+    if (dflag === 0) {
+      setdifficult(dflag);
+    }
+    //   // setsearchTerm(searchTerm.filter((value)=>value !== e.target.value))
+    console.log(searchTerm);
+    console.log(vflag, tflag, dflag);
+    console.log(typ, top, difficult);
   }
   function handlefilterclk(e) {
     btnref.current.className += " filterbtnhide";
@@ -53,11 +115,53 @@ const NumMCQ = () => {
           <div className="card-container" ref={cardref}>
             {data
               .filter((value) => {
+                console.log(typ, top, difficult);
                 if (searchTerm.length === 0) {
                   return value;
-                } else if (searchTerm.includes(value.type.toLowerCase())) {
-                  return value;
+                } else if (typ && top && difficult) {
+                  console.log("........//", value);
+                  console.log(value.type.toLowerCase());
+                  if (
+                    searchTerm.includes(value.type.toLowerCase()) &&
+                    searchTerm.includes(value.topic.toLowerCase()) &&
+                    searchTerm.includes(value.difficulty.toLowerCase())
+                  ) {
+                    return value;
+                  }
+                } else if (typ && top) {
+                  if (
+                    searchTerm.includes(value.type.toLowerCase()) &&
+                    searchTerm.includes(value.topic.toLowerCase())
+                  ) {
+                    return value;
+                  }
+                } else if (top && difficult) {
+                  if (
+                    searchTerm.includes(value.topic.toLowerCase()) &&
+                    searchTerm.includes(value.difficulty.toLowerCase())
+                  ) {
+                    return value;
+                  }
+                } else if (difficult && typ) {
+                  console.log("hello");
+                  if (
+                    searchTerm.includes(value.difficulty.toLowerCase()) &&
+                    searchTerm.includes(value.type.toLowerCase())
+                  ) {
+                    return value;
+                  }
+                } else if (
+                  typ &&
+                  searchTerm.includes(value.type.toLowerCase())
+                ) {
+                  {
+                    return value;
+                  }
                 } else if (searchTerm.includes(value.topic.toLowerCase())) {
+                  return value;
+                } else if (
+                  searchTerm.includes(value.difficulty.toLowerCase())
+                ) {
                   return value;
                 }
                 return false;
@@ -159,11 +263,11 @@ const NumMCQ = () => {
               <span class="checkmark"></span>
             </label>
             <label class="container">
-              Classical Mechanics
-              <input type="hidden" name="Classical Mechanics" value="false" />
+              Mechanics
+              <input type="hidden" name="Mechanics" value="false" />
               <input
                 type="checkbox"
-                value="Classical Mechanics"
+                value="Mechanics"
                 onClick={(e) => handleClick(e)}
               />
               <span class="checkmark"></span>
