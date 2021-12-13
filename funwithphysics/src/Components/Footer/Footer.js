@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.css";
 import logo from "../../Images/Logo/logo.webp";
 import { Link } from "react-router-dom";
-// import Form from "../Form/Form";
+import Form from "../Form/Form";
 const Footer = () => {
   return (
     <React.Fragment>
@@ -96,9 +96,9 @@ const Footer = () => {
 
           <div className="right box">
             <h2>Contact us</h2>
-            {/* <div className="content">
+            <div className="content">
               <Form />
-            </div> */}
+            </div>
           </div>
         </div>
 
