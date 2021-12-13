@@ -10,7 +10,6 @@ import { Context } from "../../App";
 const Navbar = () => {
   const {state,dispatch}=useContext(Context)
   const [clicked, setClicked] = useState(false);
-  const user=localStorage.getItem("user");
 
   const toggle = (index) => {
     if (clicked === index) {
@@ -42,9 +41,6 @@ const Navbar = () => {
     dispatch({
       type:"Logout"
     })
-    localStorage.setItem('user', null)
-  console.log(user);
-  console.log(typeof(user));
   }
   return (
     <React.Fragment>
@@ -57,13 +53,13 @@ const Navbar = () => {
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
-            aria-label="Toggle navigation" 
+            aria-label="Toggle navigation"
           >
             <div onClick={handleToggle} ref={menuBtnRef} class="menu-btn ">
               <div class="menu-btn__burger"></div>
             </div>
           </button>
-          <img src={logo} alt="logo" height="10%" width="10%" />
+          <img src={logo} alt="logo" height="10%" width="10%"  />
           &ensp; Tech N Science
         </p>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -74,12 +70,12 @@ const Navbar = () => {
             <NavLink to="/about" className="nav-item">
               <span className="nav-link">About</span>
             </NavLink>
-            {!state.user && user=== "null" ?(<React.Fragment><NavLink to="/Signup" className="nav-item">
+            {!state.user ?(<><NavLink to="/Signup" className="nav-item">
               <span className="nav-link">SignUp</span>
             </NavLink>
             <NavLink to="/Login" className="nav-item">
               <span className="nav-link">Login</span>
-            </NavLink></React.Fragment>):(
+            </NavLink></>):(
               <NavLink to="/Login" className="nav-item">
                <span className="nav-link" onClick={handlelogout}>Logout</span>
              </NavLink>
