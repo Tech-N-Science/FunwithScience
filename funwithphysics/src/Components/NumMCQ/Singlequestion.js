@@ -1,14 +1,11 @@
 import React from "react";
-import Radium, { StyleRoot } from 'radium';
 import "./Singlequestion.css";
 import { useState } from "react";
-import { useLocation } from "react-router";
 import Navbar from "./../Navbar/Navbar";
 import { Helmet } from "react-helmet";
 import { data } from "./data";
 const Singlequestion = () => {
-  const location = useLocation();
-  var { type, ques, ans } = location.state;
+  var { type, ques, ans } = window.location.state;
   const [question, setquestion] = useState(ques);
   const [answer, setanswer] = useState(ans);
   const [result, setResult] = useState([]);
@@ -58,22 +55,6 @@ const Singlequestion = () => {
         handleNext();
       }
     };
-     const style = {
-      display: "flex",
-      fontSize: "2rem",
-      fontWeight:"470",
-      justifyContent: "center",
-      paddingTop: "2rem",
-      paddingLeft: "2rem",
-      paddingRight: "2rem",
-      // Adding media querry..
-      '@media (max-width: 350px)': {
-        fontSize : "20px",
-        paddingTop: "1rem",
-        paddingLeft: "1rem",
-        paddingRight: "1rem",
-      },
-    };
     function handleClick(e) {
       if (result.includes(e.target.value)) {
         const i = result.indexOf(e.target.value);
@@ -91,17 +72,25 @@ const Singlequestion = () => {
     }
 
     return (
-      <StyleRoot>
       <React.Fragment>
         <Navbar />
-        <span style={style} >
+        <span
+          style={{
+            display: "flex",
+            fontSize: "2em",
+            justifyContent: "center",
+            paddingTop: "2rem",
+            paddingLeft: "2rem",
+            paddingRight: "2rem",
+          }}
+        >
           {type} Question
         </span>
         <br />
         <br />
-        <button className="editorial-btn">Questions</button>
-        <button className="editorial-btn"> Editorial</button>
-        <button className="editorial-btn"> Discussion Forum</button>
+        <span className="editorial-btn"> Question</span>
+        <span className="editorial-btn"> Editorial</span>
+        <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">
             <h4 className="question">{question}</h4>
@@ -145,7 +134,6 @@ const Singlequestion = () => {
           </div>
         </div>
       </React.Fragment>
-      </StyleRoot>
     );
   } else if (type === "Numerical") {
     const handleSubmit = () => {
@@ -177,24 +165,8 @@ const Singlequestion = () => {
         setnumericalnext(numericalnext + 1);
       }
     };
-      const style = {
-      display: "flex",
-      fontSize: "2rem",
-      fontWeight:"470",
-      justifyContent: "center",
-      paddingTop: "2rem",
-      paddingLeft: "2rem",
-      paddingRight: "2rem",
-      // Adding media querry..
-      '@media (max-width: 350px)': {
-        fontSize : "20px",
-        paddingTop: "1rem",
-        paddingLeft: "1rem",
-        paddingRight: "1rem",
-      },
-    };
+
     return (
-      <StyleRoot>
       <React.Fragment>
         <Navbar />
         <Helmet>
@@ -206,7 +178,15 @@ const Singlequestion = () => {
           />
         </Helmet>
         <span
-          style={style}>
+          style={{
+            display: "flex",
+            fontSize: "2em",
+            justifyContent: "center",
+            paddingTop: "2rem",
+            paddingLeft: "2rem",
+            paddingRight: "2rem",
+          }}
+        >
           {type} Question
         </span>
         <br />
@@ -239,9 +219,8 @@ const Singlequestion = () => {
           </div>
         </div>
       </React.Fragment>
-      </StyleRoot>
     );
   }
 };
 
-export default Radium(Singlequestion);
+export default Singlequestion;
