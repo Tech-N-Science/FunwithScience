@@ -109,7 +109,7 @@ function Magneticfield_calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Number of turns(N)</Form.Label>
@@ -156,7 +156,7 @@ function Magneticfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
   //circular coil
@@ -179,7 +179,7 @@ function Magneticfield_calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Number of turns(N)</Form.Label>
@@ -237,7 +237,7 @@ function Magneticfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
   // Toroid
@@ -260,7 +260,7 @@ function Magneticfield_calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Number of turns(N)</Form.Label>
@@ -318,7 +318,7 @@ function Magneticfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -338,7 +338,7 @@ function Magneticfield_calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Current Density (J₀)</Form.Label>
@@ -374,7 +374,7 @@ function Magneticfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -407,7 +407,7 @@ function Magneticfield_calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
@@ -500,7 +500,7 @@ function Magneticfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -522,7 +522,7 @@ function Magneticfield_calculator({ match }) {
     };
 
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Current (I)</Form.Label>
@@ -569,7 +569,7 @@ function Magneticfield_calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 

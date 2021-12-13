@@ -107,7 +107,7 @@ function Calculator({ match }) {
         };
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -175,7 +175,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
   //Relativistic kinetic energy
@@ -197,7 +197,7 @@ function Calculator({ match }) {
       setResult(res);
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Mass (m₀)</Form.Label>
@@ -244,7 +244,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
   // Relativistic velocity
@@ -267,7 +267,7 @@ function Calculator({ match }) {
       setResult(res);
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Speed (v)</Form.Label>
@@ -314,7 +314,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
   // time dilation
@@ -336,7 +336,7 @@ function Calculator({ match }) {
       setResult(res);
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Velocity (v)</Form.Label>
@@ -383,7 +383,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -406,7 +406,7 @@ function Calculator({ match }) {
       setResult(res);
     };
     return (
-      <>
+      <React.Fragment>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Speed (v)</Form.Label>
@@ -453,7 +453,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </>
+      </React.Fragment>
     );
   };
 

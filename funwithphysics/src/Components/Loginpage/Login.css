@@ -18,6 +18,9 @@
 .loginbtn {
   width: 250px;
 }
+.remem {
+  margin-left: 10px;
+}
 .loginmain > form {
   flex: 4;
   display: flex;
@@ -107,7 +110,7 @@ figure {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .loginmain {
     flex: 1;
     padding: 0px 20px;
@@ -134,6 +137,12 @@ figure {
   }
   .loginbtn {
     margin-bottom: 50px;
+  }
+  .check {
+    margin-left: -130px;
+  }
+  .remem {
+    margin-left: -120px;
   }
 }
 @media (max-width: 320px) {
@@ -162,5 +171,11 @@ figure {
   #Register {
     margin-top: -25px;
     font-size: small;
+  }
+  .check {
+    margin-left: -80px;
+  }
+  .remem {
+    margin-left: -70px;
   }
 }

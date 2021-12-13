@@ -60,7 +60,7 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <>
+      <React.Fragment>
         <Navbar />
         <div className="signup">
           <div className="signmain">
@@ -124,7 +124,7 @@ export default class Signup extends Component {
             </form>
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 }
