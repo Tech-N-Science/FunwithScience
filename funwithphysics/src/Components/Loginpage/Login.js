@@ -3,39 +3,35 @@ import logimg from "../../Images/group1.jpg";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { Context } from "../../App";
+import {Context} from "../../App";
 function Login() {
-  const { dispatch } = useContext(Context);
+  const {dispatch}=useContext(Context)
   const [email, setemail] = useState();
   const [pass, setpass] = useState();
-  const [remember, setRemember] = useState();
   const history = useHistory();
   function onSubmit(e) {
     e.preventDefault();
     const ob = {
       email,
       pass,
-      remember,
     };
     axios.post("http://localhost/login_backend/login.php", ob).then((res) => {
       if (res.data === 2) {
         alert("password incorrect");
         setemail("");
         setpass("");
-        setRemember("");
-      } else if (res.data === 0) {
+      }else if(res.data === 0) {
         alert("Invalid Login Details");
         setemail("");
         setpass("");
-        setRemember("");
         console.log(res.data);
-      } else {
+      }
+      else{
         dispatch({
-          type: "Login",
-          payload: res.data,
-        });
+          type:"Login",
+          payload: res.data
+        })
         alert("Login Successful");
-        localStorage.setItem('user', JSON.stringify(res.data))
         console.log(res.data);
         history.push("/");
       }
@@ -85,19 +81,6 @@ function Login() {
                   setpass(e.target.value);
                 }}
               />
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                className="check"
-                name="remember"
-                required
-                value={pass}
-                onChange={(e) => {
-                  setpass(e.target.value);
-                }}
-              />
-              <label className="remem">Remember me</label>
             </div>
             <button
               type="submit"
