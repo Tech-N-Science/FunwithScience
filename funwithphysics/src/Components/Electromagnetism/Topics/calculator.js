@@ -425,7 +425,7 @@ const calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge 1 (q1)</Form.Label>
@@ -477,7 +477,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -500,7 +500,7 @@ const calculator = ({ match }) => {
       setResult(null);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Resistance (R)</Form.Label>
@@ -544,7 +544,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -612,7 +612,7 @@ const calculator = ({ match }) => {
         };
     };
     return (
-      <React.Fragment>
+      <>
         {/* <Navbar/> */}
         <Form>
           {/* dropdown */}
@@ -684,7 +684,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -741,7 +741,7 @@ const calculator = ({ match }) => {
         };
     };
     return (
-      <React.Fragment>
+      <>
         {/* <Navbar/> */}
         <Form>
           {/* dropdown */}
@@ -827,7 +827,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -852,7 +852,7 @@ const calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Current (I)</Form.Label>
@@ -905,7 +905,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -928,7 +928,7 @@ const calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Number of turns(N)</Form.Label>
@@ -973,7 +973,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
   //Induced EMF Calculator (Faraday's Law)
@@ -996,7 +996,7 @@ const calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Number of Turns(N)</Form.Label>
@@ -1046,7 +1046,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
   //EMF Calculator
@@ -1069,7 +1069,7 @@ const calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Magnetic Field(B)</Form.Label>
@@ -1119,7 +1119,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -1141,7 +1141,7 @@ const calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Magnetic Field(B)</Form.Label>
@@ -1178,7 +1178,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
   // power factor
@@ -1205,7 +1205,7 @@ const calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Resistance(R)</Form.Label>
@@ -1255,7 +1255,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -1280,7 +1280,7 @@ const calculator = ({ match }) => {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (q)</Form.Label>
@@ -1333,7 +1333,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -1355,7 +1355,7 @@ const calculator = ({ match }) => {
     };
 
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Total Charge Enclosed (Q)</Form.Label>
@@ -1389,7 +1389,7 @@ const calculator = ({ match }) => {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
