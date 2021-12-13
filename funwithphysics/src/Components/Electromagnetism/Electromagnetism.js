@@ -145,7 +145,7 @@ export default function Electromagnetism() {
   ];
 
   return (
-    <React.Fragment>
+    <>
       <Helmet>
         <title>Electromagnetism | physics | Tech N Science</title>
         <meta
@@ -206,6 +206,6 @@ export default function Electromagnetism() {
           ))}
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }

@@ -314,7 +314,7 @@ function FluidCalculator({ match }) {
     };
 
     return (
-      <React.Fragment>
+      <>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -384,7 +384,7 @@ function FluidCalculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   }
 
@@ -531,7 +531,7 @@ function FluidCalculator({ match }) {
     };
 
     return (
-      <React.Fragment>
+      <>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -627,7 +627,7 @@ function FluidCalculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   }
 
@@ -796,7 +796,7 @@ function FluidCalculator({ match }) {
         };
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -911,7 +911,7 @@ function FluidCalculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
   // Adding Calculators together

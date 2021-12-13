@@ -190,7 +190,7 @@ export default function ClassicalMechanics() {
   ];
 
   return (
-    <React.Fragment>
+    <>
       <Helmet>
         <title>Classical Mechanics | physics | Tech N Science</title>
         <meta
@@ -251,6 +251,6 @@ export default function ClassicalMechanics() {
           ))}
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }

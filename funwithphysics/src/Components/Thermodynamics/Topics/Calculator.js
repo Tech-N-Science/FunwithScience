@@ -90,7 +90,7 @@ function Calculator({ match }) {
       setResult(res);
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group>
             <Form.Label>Number of microstates:</Form.Label>
@@ -128,7 +128,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -204,7 +204,7 @@ function Calculator({ match }) {
     };
 
     return (
-      <React.Fragment>
+      <>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -274,7 +274,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -341,7 +341,7 @@ function Calculator({ match }) {
     };
 
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-3" controlId="choice2">
             <Form.Label>Select the type of calculation</Form.Label>
@@ -403,7 +403,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -466,7 +466,7 @@ function Calculator({ match }) {
         };
     };
     return (
-      <React.Fragment>
+      <>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -527,7 +527,7 @@ function Calculator({ match }) {
         <Button variant="dark" onClick={() => reset()} type="reset">
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   };
 
@@ -666,7 +666,7 @@ function Calculator({ match }) {
       setFreedom(null);
     }
     return (
-      <React.Fragment>
+      <>
         <Form>
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
@@ -747,7 +747,7 @@ function Calculator({ match }) {
         <Button variant="dark" type="reset" onClick={() => reset()}>
           Reset
         </Button>
-      </React.Fragment>
+      </>
     );
   }
 
