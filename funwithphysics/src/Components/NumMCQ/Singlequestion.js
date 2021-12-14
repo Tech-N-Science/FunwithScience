@@ -3,9 +3,11 @@ import "./Singlequestion.css";
 import { useState } from "react";
 import Navbar from "./../Navbar/Navbar";
 import { Helmet } from "react-helmet";
+import { useLocation } from "react-router";
 import { data } from "./data";
 const Singlequestion = () => {
-  var { type, ques, ans } = window.location.state;
+  const location = useLocation();
+  var { type, ques, ans } = location.state;
   const [question, setquestion] = useState(ques);
   const [answer, setanswer] = useState(ans);
   const [result, setResult] = useState([]);
