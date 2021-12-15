@@ -115,7 +115,7 @@ const Singlequestion = () => {
                       onClick={(e) => handleClick(e)}
                       value={ansOptions.answerText}
                     >
-                      {ansOptions.answerText}
+                      <span className="numbering">{ansOptions.answerText.slice(0,1)}</span>{ansOptions.answerText.slice(2,)}
                     </button>
                   </div>
                 );
