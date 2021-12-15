@@ -19,6 +19,7 @@
 .card-container {
   width: 70%;
   padding: 1rem;
+  counter-reset:my-sec-counter;
 }
 
 .filter-box {

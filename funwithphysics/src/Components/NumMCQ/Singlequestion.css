@@ -3,7 +3,6 @@
   padding: 2rem;
   justify-content: space-between;
 }
-
 .maincontent {
   height: 100%;
   width: 60%;
@@ -86,6 +85,18 @@
   content: "";
   position: absolute;
   display: none;
+}
+.numbering{
+  border-radius: 50%;
+  border: 2px solid black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 0px 4px 1px 4px;
+  margin-right:8px;
+  margin-left: 2px;
 }
 
 .container input:checked ~ .checkmark:after {
