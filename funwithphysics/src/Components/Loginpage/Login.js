@@ -17,29 +17,31 @@ function Login() {
       pass,
       remember,
     };
-    axios.post("http://localhost/login_backend/login.php", ob).then((res) => {
-      if (res.data === 2) {
-        alert("password incorrect");
-        setemail("");
-        setpass("");
-        setRemember("");
-      } else if (res.data === 0) {
-        alert("Invalid Login Details");
-        setemail("");
-        setpass("");
-        setRemember("");
-        console.log(res.data);
-      } else {
-        dispatch({
-          type: "Login",
-          payload: res.data,
-        });
-        alert("Login Successful");
-        localStorage.setItem("user", JSON.stringify(res.data));
-        console.log(res.data);
-        history.push("/");
-      }
-    });
+    axios
+      .post("http://localhost/funwithscience_backend/login.php", ob)
+      .then((res) => {
+        if (res.data === 2) {
+          alert("password incorrect");
+          setemail("");
+          setpass("");
+          setRemember("");
+        } else if (res.data === 0) {
+          alert("Invalid Login Details");
+          setemail("");
+          setpass("");
+          setRemember("");
+          console.log(res.data);
+        } else {
+          dispatch({
+            type: "Login",
+            payload: res.data,
+          });
+          alert("Login Successful");
+          localStorage.setItem("user", JSON.stringify(res.data));
+          console.log(res.data);
+          history.push("/");
+        }
+      });
   }
   return (
     <div>
