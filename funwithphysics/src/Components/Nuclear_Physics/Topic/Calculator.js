@@ -127,7 +127,7 @@ function Calculator({ match }) {
     );
   };
 
-     // Force Calculator
+     // Mass-Energy Calculator
   function MassEnergy() {
     const [result, setResult] = useState(null);
     const [mass, setmass] = useState(null);
