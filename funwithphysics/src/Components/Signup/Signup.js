@@ -74,7 +74,7 @@ export default class Signup extends Component {
               <p className="signhead">Sign Up</p>
               <div className="signdiv">
                 <span>
-                  <i class="fas fa-user"></i>
+                  <i className="fas fa-user"></i>
                 </span>
                 <input
                   type="text"
@@ -88,7 +88,7 @@ export default class Signup extends Component {
               </div>
               <div className="signdiv">
                 <span>
-                  <i class="fas fa-envelope"></i>
+                  <i className="fas fa-envelope"></i>
                 </span>
                 <input
                   type="email"
@@ -103,7 +103,7 @@ export default class Signup extends Component {
               </div>
               <div className="signdiv">
                 <span>
-                  <i class="fas fa-key"></i>
+                  <i className="fas fa-key"></i>
                 </span>
                 <input
                   type="password"

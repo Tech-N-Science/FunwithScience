@@ -145,13 +145,15 @@ function MOICalculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -197,13 +199,15 @@ function MOICalculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -258,13 +262,15 @@ function MOICalculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -320,13 +326,15 @@ function MOICalculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
