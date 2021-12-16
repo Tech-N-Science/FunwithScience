@@ -16,6 +16,22 @@ function Calculator({ match }) {
       process: `The calculation of mass defect can be calculated by the equation "Δm=[Z(mₚ+mₑ)+(A-Z)mₙ]-mₐₜₒₘ", where 'Δm' is the mass defect, 'Z' is the atomic number (number of protons), 'A' is the mass number (number of nucleons), 'mₚ' is the mass of a proton (1.007277 amu), 'mₑ' is mass of an electron (0.000548597 amu), 'mₙ' is mass of a neutron (1.008665 amu) and 'mₐₜₒₘ' is the mass of nuclide. In order to calculate the mass defect it is important to use full accuracy of mass masurement.`,
       dimension: "M",
     },
+    {
+      topic: "Mass and Energy",
+      details: `The mass and energy equivalence shows that the mass and energy are inter-convertible. It means if you have mass you have got energy inside that body. Whenver that body loses mass or has a mass defect it releases some amount of energy. This relation was given by Physicist Albert Einstein.`,
+      siunit: [
+        "Energy  : Joules",
+        <br />,
+        "Mass : Kilograms",
+        <br />,
+        "Velocity : meter/sec",
+        <br />,
+      ],
+      process:
+        "To find the Energy(E), we need to know the the mass defect of the particular Substance and speed of light which is c = 3x10⁸ m/s.",
+      formula: "E=mc²",
+      dimension: "E = M¹L²T⁻², m = M¹ , c = LT⁻¹",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -111,12 +127,62 @@ function Calculator({ match }) {
     );
   };
 
+     // Force Calculator
+  function MassEnergy() {
+    const [result, setResult] = useState(null);
+    const [mass, setmass] = useState(null);
+
+    const handleClick = () => {
+      let res = mass*(9);
+      setResult(res);
+    };
+
+    return (
+      <React.Fragment>
+        <Form>
+          <Form.Group className="mb-3" controlId="mass">
+            <Form.Label> Mass Defect</Form.Label>
+            <Form.Control
+              onChange={(e) => setmass(e.target.value)}
+              type="number"
+              placeholder="Enter the Mass Defect"
+            />
+          </Form.Group>
+          
+          <Form.Group className="mb-3" controlId="momentum">
+            <Form.Label>Energy Released(J)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null ? "Result" : result + " x 10¹⁶ Joules"
+              }
+            />
+            <Form.Text className="text-muted">
+              Enter the above values to Calculate.
+            </Form.Text>
+          </Form.Group>
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            Reset
+          </Button>
+        </Form>
+      </React.Fragment>
+    );
+  }
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
     switch (key) {
       case "Mass defect":
         currentCall = MassDefect();
+        break;
+      case "Mass and Energy":
+        currentCall = MassEnergy();
         break;
       default:
         break;
