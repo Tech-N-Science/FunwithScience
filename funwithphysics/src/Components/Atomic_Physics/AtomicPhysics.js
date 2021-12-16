@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet";
 
 export default function AtomicPhysics() {
   // topics_data
-  // testing my branch sayandeveloper
   const Topics = [
     {
       topic: "Bohr's model",
