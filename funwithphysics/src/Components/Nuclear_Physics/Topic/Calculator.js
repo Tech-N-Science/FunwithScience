@@ -62,6 +62,38 @@ function Calculator({ match }) {
       formula: "Q = Δm x c²",
       dimension: "Q = M¹ L² T⁻², Δm = M¹, c = L¹T⁻¹",
     },
+
+    {
+      topic: "Binding Energy",
+      details: `Binding energy is the smallest amount of energy required to remove a particle from a system of particles or to disassemble a system of particles into individual parts.`,
+      siunit: [
+        "Energy  : Joule",
+        <br />,
+        "Mass Defect : Kg",
+        <br />,
+      ],
+      process:
+        "To find the Binding Energy(B.E) value, we need to know the the mass defect(Δm) of the particular reaction and for Binding Energy per nucleon we also need to know the mass number(A). The Speed of Light = 3 x 10⁸ m/s .",
+      formula: "B.E = Δm x c², B.E per Nucleon = (Δm x c²) / A",
+      dimension: "B.E = M¹ L² T⁻², Δm = M¹, c = L¹T⁻¹",
+    },
+
+    {
+      topic: "Half and Mean Lifetime",
+      details: `Half-life refers to the amount of time it takes for half of a particular sample to react i.e it refers to the time that a particular quantity requires to reduce its initial value to half. Mean lifetime of all the nuclei of a particular unstable atomic species is the time interval which is thought as the sum of the lifetimes of all the individual unstable nuclei in a sample, divided by the total number of unstable nuclei present. `,
+      siunit: [
+        "Half Life  : Seconds",
+        <br />,
+        "Mean Life : Seconds",
+        <br />,
+        "Decay Constant : 1/Seconds",
+        <br />,
+      ],
+      process:
+        "To find the Half Life and Mean Life value, we need to know the the Decay Constant(λ) of the particular Substance.",
+      formula: "Half Life = ln2/λ, Mean Life = 1/λ",
+      dimension: "Half Life = T, Mean Life = T, λ = T⁻¹",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -264,7 +296,7 @@ function Calculator({ match }) {
 
     const A = 931.5;//Energy released in Mev per amu.
     const handleClick = () => {
-      let res = (massdefect)*931.5;  
+      let res = (massdefect)*A;  
       setResult(res);
     };
 
@@ -310,6 +342,234 @@ function Calculator({ match }) {
     );
   }
 
+  //Binding Energy Calculator
+  const BindingEnergy = () => {
+    const [choice, setChoice] = useState("Binding Energy");
+    const [MassDefect, setMassDefect] = useState(null);
+    const [MassNumber, setMassNumber] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setMassNumber(null);
+      setMassDefect(null);
+      setResult(null);
+    };
+    const C = 3 * Math.pow(10, 8);
+
+    const handleChange = (e) => {
+      setChoice(e.target.value);
+      reset();
+    };
+    const calcResult = () => {
+      let res;
+      if (choice === "Binding Energy") {
+        res = MassDefect * C * C;
+      } else if (choice === "Binding Energy per Nucleon") {
+        res = (MassDefect * C * C)/MassNumber;
+      }
+      setResult(res);
+    };
+    const choiceData = () => {
+      if (choice === "Binding Energy")
+        return {
+          name: "Binding Energy",
+          mainunit: "joule",
+        };
+      if (choice === "Binding Energy per Nucleon")
+        return {
+          name: "Binding Energy per Nucleon",
+          mainunit: "joule/nucleon",
+        };
+    };
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control
+              as="select"
+              onChange={(e) => {
+                handleChange(e);
+              }}
+            >
+              <option value="Binding Energy">Binding Energy</option>
+              <option value="Binding Energy per Nucleon">Binding Energy per Nucleon</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          {choice === "Binding Energy" ? (
+            <Form.Group className="mb-4">
+              <Form.Label>Mass Defect (Δm)</Form.Label>
+              <Form.Control
+                onChange={(e) => setMassDefect(e.target.value)}
+                type="number"
+                placeholder={"Enter Mass Defect in Kg"}
+                value={MassDefect === null ? "" : MassDefect}
+              />
+            </Form.Group>
+          ) : (
+            <Form.Group className="mb-4">
+              <Form.Label>Mass Defect (Δm)</Form.Label>
+              <Form.Control
+                onChange={(e) => setMassDefect(e.target.value)}
+                type="number"
+                placeholder={"Enter Mass Defect in Kg"}
+                value={MassDefect === null ? "" : MassDefect}
+              />
+              <br/>
+              <Form.Label>Mass Number (A)</Form.Label>
+              <Form.Control
+                onChange={(e) => setMassNumber(e.target.value)}
+                type="number"
+                placeholder={"Enter the mass number"}
+                value={MassNumber === null ? "" : MassNumber}
+              />
+              
+            </Form.Group>
+            
+          )}
+          <Form.Group className="mb-4">
+            <Form.Label>Speed of ligth (C)</Form.Label>
+            <Form.Control readOnly type="number" placeholder={"3 * 10⁸ m/s"} />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
+  const Lifetime = () => {
+    const [choice, setChoice] = useState("Half Life");
+    const [DecayConstant, setDecayConstant] = useState(null);
+    // const [MassNumber, setMassNumber] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setDecayConstant(null);
+      // setMassDefect(null);
+      setResult(null);
+    };
+    // const C = 3 * Math.pow(10, 8);
+
+    const handleChange = (e) => {
+      setChoice(e.target.value);
+      reset();
+    };
+    const calcResult = () => {
+      let res;
+      if (choice === "Half Life") {
+        res = Math.LN2/DecayConstant;
+      } else if (choice === "Mean Life") {
+        res = 1/DecayConstant;
+      }
+      setResult(res);
+    };
+    const choiceData = () => {
+      if (choice === "Half Life")
+        return {
+          name: "Half Life",
+          mainunit: "seconds",
+        };
+      if (choice === "Mean Life")
+        return {
+          name: "Mean Life",
+          mainunit: "seconds",
+        };
+    };
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control
+              as="select"
+              onChange={(e) => {
+                handleChange(e);
+              }}
+            >
+              <option value="Half Life">Half Life</option>
+              <option value="Mean Life">Mean Life</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          {choice === "Half Life" ? (
+            <Form.Group className="mb-4">
+              <Form.Label>Decay Constant(λ)</Form.Label>
+              <Form.Control
+                onChange={(e) => setDecayConstant(e.target.value)}
+                type="number"
+                placeholder={"Enter Decay Constant in s⁻¹"}
+                value={DecayConstant === null ? "" : DecayConstant}
+              />
+            </Form.Group>
+          ) : (
+            <Form.Group className="mb-4">
+              <Form.Label>Decay Constant(λ)</Form.Label>
+              <Form.Control
+                onChange={(e) => setDecayConstant(e.target.value)}
+                type="number"
+                placeholder={"Enter Decay Constant in s⁻¹"}
+                value={DecayConstant === null ? "" : DecayConstant}
+              />
+            </Form.Group>
+            
+          )}
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  };
+
 
   //adding the calculators togather
   function calC(key) {
@@ -326,6 +586,12 @@ function Calculator({ match }) {
         break;
       case "Q value":
         currentCall = Qvalue();
+        break;
+      case "Binding Energy":
+        currentCall = BindingEnergy();
+        break;
+      case "Half and Mean Lifetime":
+        currentCall = Lifetime();
         break;
       default:
         break;

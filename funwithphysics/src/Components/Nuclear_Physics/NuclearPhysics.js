@@ -59,6 +59,36 @@ export default function NuclearPhysics() {
       formula: "Q = Δm x c²",
       dimension: "Q = M¹ L² T⁻², Δm = M¹, c = L¹T⁻¹",
     },
+
+    {
+      topic: "Binding Energy",
+      details: `Binding energy is the smallest amount of energy required to remove a particle from a system of particles or to disassemble a system of particles into individual parts.`,
+      siunit: [
+        "Energy  : Joule",
+        <br />,
+        "Mass Defect : Kg",
+        <br />,
+      ],
+      process:
+        "To find the Binding Energy(B.E) value, we need to know the the mass defect(Δm) of the particular reaction and for Binding Energy per nucleon we also need to know the mass number(A). The Speed of Light = 3 x 10⁸ m/s .",
+      formula: "B.E = Δm x c², B.E per Nucleon = (Δm x c²) / A",
+      dimension: "B.E = M¹ L² T⁻², Δm = M¹, c = L¹T⁻¹",
+    },
+
+    {
+      topic: "Half and Mean Lifetime",
+      details: `Binding energy is the smallest amount of energy required to remove a particle from a system of particles or to disassemble a system of particles into individual parts.`,
+      siunit: [
+        "Energy  : Joule",
+        <br />,
+        "Mass Defect : Kg",
+        <br />,
+      ],
+      process:
+        "To find the Binding Energy(B.E) value, we need to know the the mass defect(Δm) of the particular reaction and for Binding Energy per nucleon we also need to know the mass number(A). The Speed of Light = 3 x 10⁸ m/s .",
+      formula: "B.E = Δm x c², B.E per Nucleon = (Δm x c²) / A",
+      dimension: "B.E = M¹ L² T⁻², Δm = M¹, c = L¹T⁻¹",
+    },
   ];
 
   return (
