@@ -19,7 +19,7 @@ export default function Thermodynamics() {
         {
           topic: "First law",
           details: "The first law of thermodynamics states that the change in internal energy (ΔU) of the thermodynamics system is equal to the difference between the amount of heat (Q) applied to the system and the worked done by the system (W) due to this.",
-          formula: "ΔU = Q − W",
+          formula: "ΔU = Q - W",
           process:"Basically this is used to find the work done by the thermodynamics system (w) for which we need to be know change in energy (ΔU) after applied the some amount of heat (Q), by putting these values in formula we can easily find any of these.",
           siunit :"joule",
           dimension:"[M L² / T²]"
@@ -48,7 +48,7 @@ export default function Thermodynamics() {
           topic:"Third law",
           details:"As the temperature approaches absolute zero, the Third Law of Thermodynamics is concerned with the limiting behaviour of systems. Because most thermodynamics calculations rely solely on entropy differences, the entropy scale's zero point is frequently overlooked. The Third Law, on the other hand, is discussed for completeness' sake because it depicts the state of zero entropy.",
           formula:"S=kB log W",
-          process:"Where S is the entropy, kB is Boltzmann constant and its value is 1.38×10−²³ J/K and W is no. of micro states, Put the value of micro states.",
+          process:"Where S is the entropy, kB is Boltzmann constant and its value is 1.38x10−²³ J/K and W is no. of micro states, Put the value of micro states.",
           siunit:"Entropy: Joules per kelvin",
           dimension:"Entropy: [M L² K/ T²]"
         }

@@ -136,7 +136,8 @@ function shm_Calculator({ match }) {
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control
-              as="select"
+              as="select" 
+              className="select-custom-res"
               onChange={(e) => setChoice(e.target.value)}
             >
               <option value="wave length">λ : wave length</option>
@@ -207,14 +208,15 @@ function shm_Calculator({ match }) {
           </Form.Group>
 
           {/* Buttons */}
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            <Button variant="dark" onClick={handle_reset} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={handle_reset} type="reset">
-          Reset
-        </Button>
       </React.Fragment>
     );
   }
@@ -311,7 +313,8 @@ function shm_Calculator({ match }) {
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control
-              as="select"
+              as="select" 
+              className="select-custom-res"
               onChange={(e) => setChoiceOsc(e.target.value)}
             >
               <option value="shm">General Equation: SHM</option>
@@ -412,13 +415,14 @@ function shm_Calculator({ match }) {
           </Form.Group>
         </Form>
         {/* Buttons */}
-        <Button variant="primary" onClick={handleClick}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={handle_reset} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          <Button variant="dark" onClick={handle_reset} type="reset">
+            Reset
+          </Button>
+        </div>
       </React.Fragment>
     );
   }

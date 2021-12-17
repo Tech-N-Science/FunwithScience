@@ -57,7 +57,7 @@ function Login() {
             <p className="loghead">Login</p>
             <div className="logdiv">
               <span>
-                <i class="fas fa-envelope"></i>
+                <i className="fas fa-envelope"></i>
               </span>
               <input
                 type="email"
@@ -74,7 +74,7 @@ function Login() {
             </div>
             <div className="signdiv">
               <span>
-                <i class="fas fa-key"></i>
+                <i className="fas fa-key"></i>
               </span>
               <input
                 type="password"

@@ -81,8 +81,8 @@ function rotation_Calculator({ match }) {
               placeholder="Enter Force applied to an object in newtons"
             />
           </Form.Group>
-          <Form.Label> Angular Accelearation (in m/s²)</Form.Label>
           <Form.Group className="mb-3" controlId="displacement">
+            <Form.Label> Angular Accelearation (in m/s²)</Form.Label>
             <Form.Control
               onChange={(e) => setDisp(e.target.value)}
               type="number"
@@ -100,13 +100,15 @@ function rotation_Calculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -134,8 +136,8 @@ function rotation_Calculator({ match }) {
               placeholder="Enter Force applied to an object in newtons"
             />
           </Form.Group>
-          <Form.Label> Angular Displacement (in degrees)</Form.Label>
           <Form.Group className="mb-3" controlId="displacement">
+            <Form.Label> Angular Displacement (in degrees)</Form.Label>
             <Form.Control
               onChange={(e) => setDisp(e.target.value)}
               type="number"
@@ -153,13 +155,15 @@ function rotation_Calculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -187,8 +191,8 @@ function rotation_Calculator({ match }) {
               placeholder="Enter work done in joules"
             />
           </Form.Group>
-          <Form.Label> Angular velocity</Form.Label>
           <Form.Group className="mb-3" controlId="time">
+            <Form.Label> Angular velocity</Form.Label>
             <Form.Control
               onChange={(e) => settime(e.target.value)}
               type="number"
@@ -206,13 +210,15 @@ function rotation_Calculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -240,8 +246,8 @@ function rotation_Calculator({ match }) {
               placeholder="Enter work done in joules"
             />
           </Form.Group>
-          <Form.Label> Angular velocity</Form.Label>
           <Form.Group className="mb-3" controlId="time">
+            <Form.Label> Angular velocity</Form.Label>
             <Form.Control
               onChange={(e) => settime(e.target.value)}
               type="number"
@@ -259,13 +265,15 @@ function rotation_Calculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );

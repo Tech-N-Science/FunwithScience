@@ -59,8 +59,8 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <div onClick={handleToggle} ref={menuBtnRef} class="menu-btn ">
-              <div class="menu-btn__burger"></div>
+            <div onClick={handleToggle} ref={menuBtnRef} className="menu-btn ">
+              <div className="menu-btn__burger"></div>
             </div>
           </button>
           <img src={logo} alt="logo" height="10%" width="10%" />

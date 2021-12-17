@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../AtomicPhysics.css";
+import '../../../Responsive/style.css';
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 
@@ -76,13 +77,15 @@ function Calculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   };
