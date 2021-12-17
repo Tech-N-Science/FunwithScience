@@ -94,6 +94,21 @@ function Calculator({ match }) {
       formula: "Half Life = ln2/λ, Mean Life = 1/λ",
       dimension: "Half Life = T, Mean Life = T, λ = T⁻¹",
     },
+
+    {
+      topic: "Carbon Dating",
+      details: `Carbon Dating is a method for determining the age of an object containing organic material by using the properties of radiocarbon, a radioactive isotope of carbon. `,
+      siunit: [
+        "Amount of ¹⁴C  : Grams",
+        <br />,
+        "Time : Seconds",
+        <br />,
+      ],
+      process:
+        "To find the Initial amount of ¹⁴C, Final Amount of ¹⁴C, and the time taken to reach the final amount of ¹⁴C, we need at least two known quantities to find the third quantity.",
+      formula: "Initial Amount of ¹⁴C = Final Amount of ¹⁴C x e⁽⁻⁰·⁰⁰⁰¹²¹⁶ ˣ ᵀⁱᵐᵉ⁾",
+      dimension: "Amount of ¹⁴C = M¹, Time = T¹",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -466,14 +481,11 @@ function Calculator({ match }) {
   const Lifetime = () => {
     const [choice, setChoice] = useState("Half Life");
     const [DecayConstant, setDecayConstant] = useState(null);
-    // const [MassNumber, setMassNumber] = useState(null);
     const [result, setResult] = useState(null);
     const reset = () => {
       setDecayConstant(null);
-      // setMassDefect(null);
       setResult(null);
     };
-    // const C = 3 * Math.pow(10, 8);
 
     const handleChange = (e) => {
       setChoice(e.target.value);
@@ -570,6 +582,138 @@ function Calculator({ match }) {
     );
   };
 
+  //Carbon Dating Calculator
+  function CarbonDating() {
+    const [result, setResult] = useState(null);
+    const [initialamt, setInitialamt] = useState(null);
+    const [finalamt, setFinalamt] = useState(null);
+    const [time, setTime] = useState(null);
+    const [choice, setChoice] = useState("initialamt");
+    function handleChange(e) {
+      console.log(e.target.value);
+      setResult(null);
+      setInitialamt(null);
+      setFinalamt(null);
+      setTime(null);
+      setChoice(e.target.value);
+      choiceData();
+    }
+    const calcResult = () => {
+      let res;
+      let A = 0.0001216*time;
+      if (choice === "initialamt") {
+        res = (finalamt)*(Math.exp(A));
+      } else if (choice === "finalamt") {
+        res = (initialamt)/(Math.exp(A));
+      } else if (choice === "time") {
+        res = (Math.log(initialamt/finalamt)/0.0001216);
+      }
+      setResult(res);
+    };
+    function reset() {
+      setResult(null);
+      setInitialamt(null);
+      setFinalamt(null);
+      setTime(null);
+    }
+    const choiceData = () => {
+      if (choice === "initialamt")
+        return {
+          name: "Initial Amount",
+          mainunit: "grams",
+          quantities: ["Final Amount of ¹⁴C", "Time"],
+          subunits: ["grams", "Years"],
+          setters: [setFinalamt, setTime],
+          getters: [finalamt, time],
+        };
+      else if (choice === "finalamt")
+        return {
+          name: "Final Amount",
+          mainunit: "grams",
+          quantities: ["Initial Amount of ¹⁴C", "Time"],
+          subunits: ["grams", "Years"],
+          setters: [setInitialamt, setTime],
+          getters: [initialamt, time],
+        };
+      else if (choice === "time")
+        return {
+          name: "Time",
+          mainunit: "years",
+          quantities: ["Initial Amount of ¹⁴C", "Final Amount of ¹⁴C"],
+          subunits: ["grams", "grams"],
+          setters: [setInitialamt, setFinalamt],
+          getters: [initialamt, finalamt],
+        };
+    };
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+              {/* <option value="displacement">∆x : Displacement</option> */}
+              <option value="initialamt">Initial Amount</option>
+              <option value="finalamt">Final Amount</option>
+              <option value="time">Time</option>
+              {/* <option value="acceleration">a : Constant Acceleration</option> */}
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[0]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[0](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[0]}
+              value={
+                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+              }
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>{choiceData().quantities[1]}</Form.Label>
+            <Form.Control
+              onChange={(e) => choiceData().setters[1](e.target.value)}
+              type="number"
+              placeholder={"Enter in " + choiceData().subunits[1]}
+              value={
+                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null
+                  ? "Result"
+                  : result + " " + choiceData().mainunit
+              }
+            />
+          </Form.Group>
+        </Form>
+        <Button variant="primary" onClick={calcResult}>
+          Calculate
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button variant="dark" onClick={() => reset()} type="reset">
+          Reset
+        </Button>
+      </>
+    );
+  }
+
 
   //adding the calculators togather
   function calC(key) {
@@ -592,6 +736,9 @@ function Calculator({ match }) {
         break;
       case "Half and Mean Lifetime":
         currentCall = Lifetime();
+        break;
+      case "Carbon Dating":
+        currentCall = CarbonDating();
         break;
       default:
         break;

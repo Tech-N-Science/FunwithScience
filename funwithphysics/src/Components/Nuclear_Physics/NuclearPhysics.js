@@ -89,6 +89,21 @@ export default function NuclearPhysics() {
       formula: "B.E = Δm x c², B.E per Nucleon = (Δm x c²) / A",
       dimension: "B.E = M¹ L² T⁻², Δm = M¹, c = L¹T⁻¹",
     },
+
+    {
+      topic: "Carbon Dating",
+      details: `Carbon Dating is a method for determining the age of an object containing organic material by using the properties of radiocarbon, a radioactive isotope of carbon. `,
+      siunit: [
+        "Amount of ¹⁴C  : Grams",
+        <br />,
+        "Time : Seconds",
+        <br />,
+      ],
+      process:
+        "To find the Initial amount of ¹⁴C, Final Amount of ¹⁴C, and the time taken to reach the final amount of ¹⁴C, we need at least two known quantities to find the third quantity.",
+      formula: "Initial Amount of ¹⁴C = Final Amount of ¹⁴C x e⁽⁻⁰·⁰⁰⁰¹²¹⁶ ˣ ᵀⁱᵐᵉ⁾",
+      dimension: "Amount of ¹⁴C = M¹, Time = T¹",
+    },
   ];
 
   return (
