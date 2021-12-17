@@ -11,7 +11,6 @@ const Navbar = () => {
   const { state, dispatch } = useContext(Context);
   const [clicked, setClicked] = useState(false);
   const user = localStorage.getItem('user');
-
   const toggle = (index) => {
     if (clicked === index) {
       return setClicked(null);
@@ -38,7 +37,6 @@ const Navbar = () => {
     });
     localStorage.setItem('user', null);
     console.log(user);
-    console.log(typeof user);
   };
   return (
     <React.Fragment>
@@ -68,7 +66,7 @@ const Navbar = () => {
             <NavLink to='/about' className='nav-item'>
               <span className='nav-link'>About</span>
             </NavLink>
-            {!state.user && user === 'null' ? (
+            {!state.user && (user === 'null' || !user) ? (
               <React.Fragment>
                 <NavLink to='/Signup' className='nav-item'>
                   <span className='nav-link'>SignUp</span>
