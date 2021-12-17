@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import algebra from "../../Images/algebra.webp";
-import trigonometry from "../../Images/trigonometry.webp";
+import trigonometry from "../../Images/trigonometry.jpg";
 import geometry from "../../Images/geometry.webp";
-import integration from "../../Images/integration.webp";
+import integration from "../../Images/integration.jpg";
 import "./styles.css";
 import { Helmet } from "react-helmet";
 
