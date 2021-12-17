@@ -28,7 +28,7 @@ function Calculator({ match }) {
       topic: "First law",
       details:
         "The first law of thermodynamics states that the change in internal energy (ΔU) of the thermodynamics system is equal to the difference between the amount of heat (Q) applied to the system and the worked done by the system (W) due to this.",
-      formula: "ΔU = Q − W",
+      formula: "ΔU = Q - W",
       process:
         "Basically this is used to find the work done by the thermodynamics system (w) for which we need to be know change in energy (ΔU) after applied the some amount of heat (Q), by putting these values in formula we can easily find any of these.",
       siunit: "joule",
@@ -121,13 +121,15 @@ function Calculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   };
@@ -211,6 +213,7 @@ function Calculator({ match }) {
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control
               as="select"
+              className="select-custom-res"
               onChange={(e) => {
                 handleChange(e);
               }}
@@ -267,13 +270,15 @@ function Calculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   };
@@ -345,7 +350,7 @@ function Calculator({ match }) {
         <Form>
           <Form.Group className="mb-3" controlId="choice2">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="entropy">dS: Change in Entropy</option>
               <option value="heat">dQ : Heat transfer</option>
               <option value="temperature">T :Tempreature</option>
@@ -396,13 +401,15 @@ function Calculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   };
@@ -471,7 +478,7 @@ function Calculator({ match }) {
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="energy">∆U : Change in energy</option>
               <option value="heat">Q: Amount of heat</option>
               <option value="work">W: Work done by system</option>
@@ -520,13 +527,15 @@ function Calculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   };
@@ -670,7 +679,7 @@ function Calculator({ match }) {
         <Form>
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="ke">
                 KE : Total translational kinetic energy of gas
               </option>
@@ -740,13 +749,15 @@ function Calculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" type="reset" onClick={() => reset()}>
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" type="reset" onClick={() => reset()}>
+            Reset
+          </Button>
+        </div>
       </>
     );
   }

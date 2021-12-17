@@ -37,7 +37,7 @@ export function LearnMore() {
             <p>Maths</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
-            <div class="dropdown">
+            <div className="dropdown">
               <Link className="plus" to="/">
                 <img
                   src={addCircleSvg}
@@ -45,7 +45,7 @@ export function LearnMore() {
                   alt="AddCircle"
                 />
               </Link>
-              <div class="dropdown-content">
+              <div className="dropdown-content">
                 <Link to="/maths">Calculator</Link>
                 <Link to="/">Questions</Link>
               </div>
@@ -55,7 +55,7 @@ export function LearnMore() {
             <p>Physics</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
-            <div class="dropdown">
+            <div className="dropdown">
               <Link className="plus" to="/">
                 <img
                   src={addCircleSvg}
@@ -63,7 +63,7 @@ export function LearnMore() {
                   alt="AddCircle"
                 />
               </Link>
-              <div class="dropdown-content">
+              <div className="dropdown-content">
                 <Link to="/physics">Calculator</Link>
                 <Link to="/questions">Questions</Link>
                 <Link to="/quiz">Quiz</Link>
@@ -73,21 +73,21 @@ export function LearnMore() {
         </ul>
       </article>
       <p className="FAQ">Frequently Asked Questions</p>
-      <div class="faq">
+      <div className="faq">
         <input id="faq-a" type="checkbox" />
         <label for="faq-a">
-          <p class="faq-heading">What is this Website for?</p>
-          <div class="faq-arrow"></div>
-          <p class="faq-text">
+          <p className="faq-heading">What is this Website for?</p>
+          <div className="faq-arrow"></div>
+          <p className="faq-text">
             This website is to make your physics easy. Just enter the values
             into the formula and you will get the answer with the procedure.!
           </p>
         </label>
         <input id="faq-b" type="checkbox" />
         <label for="faq-b">
-          <p class="faq-heading">How to use this Website?</p>
-          <div class="faq-arrow"></div>
-          <p class="faq-text">
+          <p className="faq-heading">How to use this Website?</p>
+          <div className="faq-arrow"></div>
+          <p className="faq-text">
             Just click on the Learn button on the homepage. Then choose the
             branch of physics and click on it. Next on the contents page choose
             the topic and then enjoy with the calculator.
@@ -95,9 +95,9 @@ export function LearnMore() {
         </label>
         <input id="faq-c" type="checkbox" />
         <label for="faq-c">
-          <p class="faq-heading">How to contact us?</p>
-          <div class="faq-arrow"></div>
-          <p class="faq-text">
+          <p className="faq-heading">How to contact us?</p>
+          <div className="faq-arrow"></div>
+          <p className="faq-text">
             on the navbar click on contact us and then write your queries or
             follow us on our social media handles.
           </p>

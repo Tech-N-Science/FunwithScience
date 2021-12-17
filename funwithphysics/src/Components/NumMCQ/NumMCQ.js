@@ -187,18 +187,18 @@ const NumMCQ = () => {
               onClick={(e) => handlefilterclk(e)}
               ref={btnref}
             >
-              <i class="fas fa-filter"></i>
+              <i className="fas fa-filter"></i>
             </button>
           </div>
           <div className="filter-box" ref={filterref}>
             <div>
               <span>Apply filter :</span>
               <span className="cancel" onClick={handlecross}>
-                <i class="fas fa-times"></i>
+                <i className="fas fa-times"></i>
               </span>
             </div>
             <h5 className="heading">Type</h5>
-            <label class="container">
+            <label className="container">
               Numerical
               <input type="hidden" name="Numerical" value="false" />
               <input
@@ -207,9 +207,9 @@ const NumMCQ = () => {
                 value="Numerical"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               Multiple Correct
               <input type="hidden" name="Multiple Correct" value="false" />
               <input
@@ -218,10 +218,10 @@ const NumMCQ = () => {
                 value="Multiple Correct"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
             <h5 className="heading">Difficulty</h5>
-            <label class="container">
+            <label className="container">
               Easy
               <input type="hidden" name="Easy" value="false" />
               <input
@@ -229,9 +229,9 @@ const NumMCQ = () => {
                 value="Easy"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               Medium
               <input type="hidden" name="Medium" value="false" />
               <input
@@ -239,9 +239,9 @@ const NumMCQ = () => {
                 value="Medium"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               Hard
               <input type="hidden" name="Hard" value="false" />
               <input
@@ -249,10 +249,10 @@ const NumMCQ = () => {
                 value="Hard"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
             <h5 className="heading">Topic</h5>
-            <label class="container">
+            <label className="container">
               Thermo-dynamics
               <input type="hidden" name="Thermodynamics" value="false" />
               <input
@@ -260,9 +260,9 @@ const NumMCQ = () => {
                 value="Thermo-dynamics"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               Mechanics
               <input type="hidden" name="Mechanics" value="false" />
               <input
@@ -270,61 +270,61 @@ const NumMCQ = () => {
                 value="Mechanics"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               Relativity
               <input
                 type="checkbox"
                 value="Relativity"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               Electro-magnetism
               <input
                 type="checkbox"
                 value="Electro-magnetism"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               Atomic Physics
               <input
                 type="checkbox"
                 value="Atomic Physics"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               Nuclear Physics
               <input
                 type="checkbox"
                 value="Nuclear Physics"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               Photonics
               <input
                 type="checkbox"
                 value="Photonics"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
-            <label class="container">
+            <label className="container">
               Statistical Mechanics
               <input
                 type="checkbox"
                 value="Statistical Mechanics"
                 onClick={(e) => handleClick(e)}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
           </div>
         </div>
