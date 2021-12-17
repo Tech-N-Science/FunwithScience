@@ -11,7 +11,6 @@ const Navbar = () => {
   const { state, dispatch } = useContext(Context);
   const [clicked, setClicked] = useState(false);
   const user = localStorage.getItem("user");
-
   const toggle = (index) => {
     if (clicked === index) {
       return setClicked(null);
