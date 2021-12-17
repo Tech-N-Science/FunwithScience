@@ -37,6 +37,7 @@ import NuclearPhysics from "./Components/Nuclear_Physics/NuclearPhysics";
 import CalcNuclear from "./Components/Nuclear_Physics/Topic/Calculator";
 import Photonics from "./Components/Photonics/Photonics";
 import CalcPhotonics from "./Components/Photonics/Topic/Calculator";
+import Contact from "./Components/Contact/Contact";
 const Home = lazy(() => {
   return Promise.all([
     import("./Components/Home/Home"),
@@ -88,7 +89,7 @@ const App = () => {
               <Home />
             </Suspense>
           </Route>
-          <Route exact path="/contact" component={Home}>
+          <Route exact path="/contact">
             <Suspense
               fallback={
                 <div className="loadingdiv">
@@ -96,7 +97,7 @@ const App = () => {
                 </div>
               }
             >
-              <Home />
+              <Contact />
             </Suspense>
           </Route>
           <Route exact path="/classicalmechanics">
