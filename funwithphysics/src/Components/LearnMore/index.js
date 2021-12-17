@@ -46,7 +46,7 @@ export function LearnMore() {
                 />
               </Link>
               <div class="dropdown-content">
-                <Link to="/">Calculator</Link>
+                <Link to="/maths">Calculator</Link>
                 <Link to="/">Questions</Link>
               </div>
             </div>
