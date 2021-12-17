@@ -88,7 +88,7 @@ const App = () => {
               <Home />
             </Suspense>
           </Route>
-          <Route exact path='/contact' component={Home}>
+          <Route exact path='/contact'>
             <Suspense
               fallback={
                 <div className='loadingdiv'>
