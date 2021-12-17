@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import signimg from "../../Images/girl.jpg";
 import Navbar from "../Navbar/Navbar";
 import "./Signup.css";
+import ImageLoad from "../imageLoad";
 import axios from "axios";
 
 export default class Signup extends Component {
@@ -65,7 +66,8 @@ export default class Signup extends Component {
         <div className="signup">
           <div className="signmain">
             <figure>
-              <img src={signimg} alt="" className="signimg" />
+              {/* <img src={signimg} alt="" className="signimg" /> */}
+              <ImageLoad className="signimg" main={"./Images-public/girl.jpg"} placeholder={"./Images-public/girl-small.jpg"} alt={"telephone"} />
               <p className="figtext">
                 Designed by <a href="https://www.freepik.com/">Freepik</a>
               </p>
