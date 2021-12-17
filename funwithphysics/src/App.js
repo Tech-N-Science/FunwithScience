@@ -13,6 +13,7 @@ import CalcThermo from "./Components/Thermodynamics/Topics/Calculator";
 import WPECalculator from "./Components/Classical_Mechanics/Topics/wpe_Calculator";
 import GravitationCalculator from "./Components/Classical_Mechanics/Topics/gravitation_Calculator";
 import PhysicsTopic from "./Components/PhysicsTopic";
+import MathsTopic from "./Components/MathsTopic";
 import MOICalculator from "./Components/Classical_Mechanics/Topics/moi_Calulator";
 import shm_Calculator from "./Components/Classical_Mechanics/Topics/shm_Calculator";
 import rotation_Calculator from "./Components/Classical_Mechanics/Topics/rotation_Calculator";
@@ -109,6 +110,10 @@ const App = () => {
           <Route exact path="/physics">
             <Navbar />
             <PhysicsTopic />
+          </Route>
+          <Route exact path="/maths">
+            <Navbar />
+            <MathsTopic />
           </Route>
           <Route exact path="/Signup" component={Signup}></Route>
           <Route exact path="/Login">
