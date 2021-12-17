@@ -1,0 +1,103 @@
+@media all and (max-width: 900px) {
+  .contactMain {
+    flex-direction: column;
+    height: max-content !important;
+  }
+  .contactForm,
+  .contactTXT {
+    width: 90% !important;
+  }
+}
+.contactMain {
+  /* min-height: max-content; */
+  /* max-height: max-content; */
+  height: 90vh;
+  width: 100%;
+  background-color: #fff;
+  /* filter: brightness(300%); */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contactForm {
+  width: 25%;
+  height: 70%;
+  /* background: var(--footer-bg-hex); */
+  background-color: #2c3e50;
+
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  padding: 5vh 5vh 10vh;
+}
+.contactForm > h2 {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: cyan;
+  margin-top: 2vh;
+}
+.contactForm > *:is(input, textarea) {
+  padding: 0.5vh 0.5vw;
+  background-color: rgb(219, 219, 219);
+  transition: 0.15s;
+  border: none;
+  margin-bottom: 2vh;
+}
+.contactForm > textarea {
+  min-height: 8vh;
+}
+.contactForm > *:is(input, textarea):focus {
+  outline: 2px cyan;
+  border: none;
+  background-color: #fff;
+  /* border: none; */
+}
+.contactBTN {
+  border: none;
+  border-radius: 5px;
+  margin-top: 4vh;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  background-color: rgb(0, 255, 255);
+  color: #2c3e50;
+  cursor: pointer;
+  border: 2px solid cyan;
+  position: relative;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: 0.25s ease-out;
+}
+.contactBTN:hover {
+  background-color: #2c3e50;
+  color: cyan;
+}
+
+.contactTXT {
+  width: 25%;
+  height: 70%;
+  /* background: var(--footer-bg-hex); */
+  background-color: transparent;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  padding: 5vh 5vh 10vh;
+}
+.contactTXT > h5 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  text-align: right;
+}
+.contactTXT > h1 {
+  text-align: right;
+  width: 100%;
+}
