@@ -125,13 +125,15 @@ function FluidCalculator({ match }) {
               Enter the above values to calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={handleReset} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={handleReset} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -184,13 +186,15 @@ function FluidCalculator({ match }) {
               Enter the above values to calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={handleReset} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={handleReset} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -243,13 +247,15 @@ function FluidCalculator({ match }) {
               Enter the above values to calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={handleReset} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={handleReset} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -319,7 +325,7 @@ function FluidCalculator({ match }) {
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="area">Area</option>
               <option value="velocity">Velocity</option>
             </Form.Control>
@@ -377,13 +383,15 @@ function FluidCalculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   }
@@ -447,13 +455,15 @@ function FluidCalculator({ match }) {
               Enter the above values to calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={handleReset} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={handleReset} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -536,7 +546,7 @@ function FluidCalculator({ match }) {
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="pressure">Pressure difference</option>
               <option value="flowrate">Volumetric flow rate</option>
             </Form.Control>
@@ -620,13 +630,15 @@ function FluidCalculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   }
@@ -801,7 +813,7 @@ function FluidCalculator({ match }) {
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="pressure">Final Pressure(P₂)</option>
               <option value="velocity">Final Velocity(V₂)</option>
               <option value="height">Final Height(h₂)</option>
@@ -904,13 +916,15 @@ function FluidCalculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   };

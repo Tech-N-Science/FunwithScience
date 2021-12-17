@@ -85,12 +85,12 @@ function Calculator({ match }) {
     },
     {
       topic: "Friction",
-      details: `Friction is a force that resists the sliding or rolling of one solid object over another.
-          Surface of an object is microscopically irreguler, thats why, when any two objects in contact try to be in motion relatively with the another one, a force apears at their contact point resisting the motion, this force is opposite to the direction of motion.`,
-      formula: "F = μN",
-      process: `F, is the frictional force, N is the normal force. The the friction is calculated by F = μN.
-          
-          μ is the coefficient of friction, when the two objects are in relative motion, we call it coefficient of kinetic friction and when they are static, it is called the static friction coefficient.`,
+      details: `Friction is a force that resists the sliding or rolling of one solid object over another.
+Surface of an object is microscopically irreguler, thats why, when any two objects in contact try to be in motion relatively with the another one, a force apears at their contact point resisting the motion, this force is opposite to the direction of motion.`,
+      formula: "F = μN",
+      process: `F, is the frictional force, N is the normal force. The the friction is calculated by F = μN.
+  
+  μ is the coefficient of friction, when the two objects are in relative motion, we call it coefficient of kinetic friction and when they are static, it is called the static friction coefficient.`,
       siunit: "Friction: kg · m/s²",
       dimension: "Friction: ML/T²",
     },
@@ -213,24 +213,24 @@ function Calculator({ match }) {
     {
       topic: "Energy",
       details: [
-        `In simple words, Energy is known as the capacity of doing work, it could exist in various forms, like heat energy, kinetic energy, thermal energy, electrical energy, gravitational energy, electromagnetic energy etc.`,
+        `In simple words, Energy is known as the capacity of doing work, it could exist in various forms, like heat energy, kinetic energy, thermal energy, electrical energy, gravitational energy, electromagnetic energy etc.`,
         <br />,
-        "All these forms of Energy, are categories as Kinetic energy and Potential Energy.",
+        "All these forms of Energy, are categories as Kinetic energy and Potential Energy.",
       ],
       formula: [
-        "K.E = 1/2 x m x v²",
-        <span> &nbsp; &nbsp; </span>,
-        "P.E = m x g x h",
+        "K.E = 1/2 x m x v²",
+        <span> &nbsp; &nbsp; </span>,
+        "P.E = m x g x h",
       ],
       process: [
-        "To summerize in a single line,",
+        "To summerize in a single line,",
         <br />,
-        <b>Energy = Power x Time</b>,
+        <b>Energy = Power x Time</b>,
         <br />,
-        "here, K.E is kinetic energy, P.E is potential energy, 'm' is mass, 'v' is velocity and 'h' is height",
+        "here, K.E is kinetic energy, P.E is potential energy, 'm' is mass, 'v' is velocity and 'h' is height",
       ],
       siunit: "joule",
-      dimension: "M L² T⁻²",
+      dimension: "M L² T⁻²",
     },
   ];
 
@@ -310,7 +310,7 @@ function Calculator({ match }) {
         "The kinetic energy of a rigid body rotating around a fixed axis is calculated by adding the kinetic energy of each particle in the rigid body.",
       ],
       siunit: "joule",
-      dimension: "M L² T⁻²",
+      dimension: "M L² T⁻²",
     },
   ];
 
@@ -414,7 +414,7 @@ function Calculator({ match }) {
     {
       topic: "Solid Cylinder",
       details: `Moment of Inertia of a solid cylinder is calculated about its center with mass 'M' and Radius 'R'.`,
-      formula: "M.O.I = 1/2 × Mass × Radius² = 1/2 × M × R²",
+      formula: "M.O.I = 1/2 x Mass x Radius² = 1/2 x M x R²",
       process:
         "Here the moment of inertia of solid cylinder is given by the formula 1/2MR². Here 'M' is the mass of the solid cylinder and 'R' is radius of cylinder.",
       siunit: "kilogram-metre square",
@@ -423,7 +423,7 @@ function Calculator({ match }) {
     {
       topic: "Rectangular Plate",
       details: `Moment of inertia of a rectangular plate is calculated using the axis which passes through its length(x-axis) and another axis which passes through its breadth(y-axis).`,
-      formula: "I=1/12×Mass×(Length²+Width²)=1/12 × m × (a²+b²)",
+      formula: "I=1/12xMassx(Length²+Width²)=1/12 x m x (a²+b²)",
       process:
         "Here the moment of inertia of rectangular plate is given by the formula 1/12m(a²+b²). Where 'm' is the mass of plate, 'a' is the length and 'b' is breadth of the plate. ",
       siunit: "kilogram-metre square",
@@ -432,7 +432,7 @@ function Calculator({ match }) {
     {
       topic: "Solid Sphere",
       details: `The moment of inertia of a solid sphere is calculated about its central axis. The moment of inertia can also be calculated about its axis on the surface whose formula is (7/5)MR². `,
-      formula: "M.O.I = 2/5 × Mass × Radius² = 2/5 × M × R²",
+      formula: "M.O.I = 2/5 x Mass x Radius² = 2/5 x M x R²",
       process:
         "Here the moment of inertia of solid sphere is given by the formula 2/5MR². Where 'M' is the mass of plateand 'R' is the radius of solid sphere.",
       siunit: "kilogram-metre square",
@@ -441,7 +441,7 @@ function Calculator({ match }) {
     {
       topic: "Rod",
       details: `The moment of inertia of the rod can be calculated about the axis passing through its center. Moment of inertia can aslo be calculated about the axis passing through its end whose formula is (1/3)ML². `,
-      formula: "M.O.I = 1/12 × Mass × Length² = 1/12 × M × L²",
+      formula: "M.O.I = 1/12 x Mass x Length² = 1/12 x M x L²",
       process:
         "Here the moment of inertia of rod is given by the formula 1/12ML². Where 'M' is the mass of plate and 'L' is length of the rod.",
       siunit: "kilogram-metre square",
@@ -450,7 +450,7 @@ function Calculator({ match }) {
     {
       topic: "Spherical Shell",
       details: `The moment of inertia of the Spherical Shell can be calculated about the axis passing through its center.`,
-      formula: "M.O.I = 2/3 × Mass × Radius² = 2/3 × M × R²",
+      formula: "M.O.I = 2/3 x Mass x Radius² = 2/3 x M x R²",
       process:
         "Here the moment of inertia of spherical shell is given by the formula 2/3MR². Where 'M' is the mass of shell and 'R' is radius of the shell.",
       siunit: "kilogram-metre square",
@@ -598,7 +598,7 @@ function Calculator({ match }) {
         <Form>
           <Form.Group className="mb-3" controlId="choice2">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="range">R : Range or Distance</option>
               <option value="time">T : Time of flight</option>
               <option value="max-height">H : Maximum-Height</option>
@@ -646,14 +646,15 @@ function Calculator({ match }) {
               }
             />
           </Form.Group>
-          <Button variant="primary" onClick={calcResult}>
-            Calculate
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={calcResult}>
+              Calculate
+            </Button>
+            <Button variant="dark" onClick={() => reset()} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
       </>
     );
   };
@@ -695,16 +696,18 @@ function Calculator({ match }) {
               placeholder={result === null ? "Result" : result + " kg.m/s"}
             />
             <Form.Text className="text-muted">
-              Enter Mass & Velocity to Calculate the Momentum.
+              Enter Mass &amp; Velocity to Calculate the Momentum.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -732,8 +735,8 @@ function Calculator({ match }) {
               placeholder="Enter mass of an object in kilograms"
             />
           </Form.Group>
-          <Form.Label> Acceleration (in m/s²)</Form.Label>
           <Form.Group className="mb-3" controlId="acceleration">
+            <Form.Label> Acceleration (in m/s²)</Form.Label>
             <Form.Control
               onChange={(e) => setAcce(e.target.value)}
               type="number"
@@ -753,13 +756,15 @@ function Calculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -806,13 +811,15 @@ function Calculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -880,21 +887,23 @@ function Calculator({ match }) {
               Enter measured and actual values to calculate result .
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button
-            variant="dark"
-            onClick={() => {
-              setResultAbs(null);
-              setResultPer(null);
-              setResultRel(null);
-            }}
-            type="reset"
-          >
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button
+              variant="dark"
+              onClick={() => {
+                setResultAbs(null);
+                setResultPer(null);
+                setResultRel(null);
+              }}
+              type="reset"
+            >
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -923,16 +932,16 @@ function Calculator({ match }) {
               placeholder="Enter force applied"
             />
           </Form.Group>
-          <Form.Label> Distance (in meter)</Form.Label>
           <Form.Group className="mb-3" controlId="distance">
+            <Form.Label> Distance (in meter)</Form.Label>
             <Form.Control
               onChange={(e) => setDist(e.target.value)}
               type="number"
               placeholder="Enter distance covered"
             />
           </Form.Group>
-          <Form.Label> Angle (in degree)</Form.Label>
           <Form.Group className="mb-3" controlId="angle">
+            <Form.Label> Angle (in degree)</Form.Label>
             <Form.Control
               onChange={(e) => setAngle(e.target.value)}
               type="number"
@@ -950,13 +959,15 @@ function Calculator({ match }) {
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -1065,13 +1076,15 @@ function Calculator({ match }) {
             </Col>
           </Row>
           {/* Submit Btn */}
-          <Button variant="primary" onClick={handleSubmit}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={handleReset} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleSubmit}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={handleReset} type="reset">
+              Reset
+            </Button>
+            </div>
         </Form>
       </>
     );
@@ -1178,7 +1191,7 @@ function Calculator({ match }) {
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="displacement">∆x : Displacement</option>
               <option value="time">t : Time interval</option>
               <option value="velocity_ini">v₀​ : Initial velocity</option>
@@ -1241,13 +1254,15 @@ function Calculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   }
@@ -1347,7 +1362,7 @@ function Calculator({ match }) {
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="circumference">
                 C : Circumference of Circular Path
               </option>
@@ -1406,13 +1421,15 @@ function Calculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   }
@@ -1473,7 +1490,7 @@ function Calculator({ match }) {
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="stress">Stress</option>
               <option value="strain">Strain</option>
             </Form.Control>
@@ -1528,13 +1545,15 @@ function Calculator({ match }) {
             />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   }

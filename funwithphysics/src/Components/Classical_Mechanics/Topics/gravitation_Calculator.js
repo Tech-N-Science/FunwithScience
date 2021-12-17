@@ -123,16 +123,18 @@ function GravitationCalculator({ match }) {
               placeholder={result === null ? "Result" : result + " Newton"}
             />
             <Form.Text className="text-muted">
-              Enter masses & distance to Calculate the Gravitational Force .
+              Enter masses &amp; distance to Calculate the Gravitational Force .
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -184,16 +186,18 @@ function GravitationCalculator({ match }) {
               placeholder={result === null ? "Result" : result + " N/kg"}
             />
             <Form.Text className="text-muted">
-              Enter mass & distance to Calculate the Gravitational Field .
+              Enter mass &amp; distance to Calculate the Gravitational Field .
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -256,17 +260,19 @@ function GravitationCalculator({ match }) {
               placeholder={result === null ? "Result" : result + " N/kg"}
             />
             <Form.Text className="text-muted">
-              Enter mass & height to Calculate the Gravitational Potential
+              Enter mass &amp; height to Calculate the Gravitational Potential
               Energy .
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -319,16 +325,18 @@ function GravitationCalculator({ match }) {
               placeholder={result === null ? "Result" : result + " m/s"}
             />
             <Form.Text className="text-muted">
-              Enter mass & radius to calculate the Escape Velocity .
+              Enter mass &amp; radius to calculate the Escape Velocity .
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -384,13 +392,15 @@ function GravitationCalculator({ match }) {
               Enter all the above fields to calculate the angular momentum.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" onClick={handleClick}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
-            Reset
-          </Button>
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
       </React.Fragment>
     );
@@ -459,7 +469,7 @@ function GravitationCalculator({ match }) {
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" onChange={(e) => handleChange(e)}>
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="timeperiod">Time Period</option>
               <option value="semimajoraxis">Semi-major axis</option>
             </Form.Control>
@@ -517,13 +527,15 @@ function GravitationCalculator({ match }) {
             </Form.Text>
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={calcResult}>
-          Calculate
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button variant="dark" onClick={() => reset()} type="reset">
-          Reset
-        </Button>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   }
