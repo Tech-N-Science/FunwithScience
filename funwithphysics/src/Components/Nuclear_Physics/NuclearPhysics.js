@@ -29,6 +29,36 @@ export default function NuclearPhysics() {
       formula: "E=mc²",
       dimension: "E = M¹L²T⁻², m = M¹ , c = LT⁻¹",
     },
+    {
+      topic: "Radius of Nucleus",
+      details: `The mass and energy equivalence shows that the mass and energy are inter-convertible. It means if you have mass you have got energy inside that body. Whenver that body loses mass or has a mass defect it releases some amount of energy. This relation was given by Physicist Albert Einstein.`,
+      siunit: [
+        "Energy  : Joules",
+        <br />,
+        "Mass : Kilograms",
+        <br />,
+        "Velocity : meter/sec",
+        <br />,
+      ],
+      process:
+        "To find the Energy(E), we need to know the the mass defect of the particular Substance and speed of light which is c = 3x10⁸ m/s.",
+      formula: "E=mc²",
+      dimension: "E = M¹L²T⁻², m = M¹ , c = LT⁻¹",
+    },
+    {
+      topic: "Q value",
+      details: `In nuclear physics, the Q value for a reaction is the amount of energy absorbed or released during the nuclear reaction, it can be positive and as well as negative. The value relates to the enthalpy of a chemical reaction or the energy of radioactive decay products. It can be determined from the masses of reactants and products.`,
+      siunit: [
+        "Q value  : MeV",
+        <br />,
+        "Mass Defect : amu",
+        <br />,
+      ],
+      process:
+        "To find the Q value, we need to know the the mass defect of the particular reaction and the energy released when 1 amu is converted to energy which is equal to 931.5 MeV. Speed of Light = 3 x 10⁸ m/s .",
+      formula: "Q = Δm x c²",
+      dimension: "Q = M¹ L² T⁻², Δm = M¹, c = L¹T⁻¹",
+    },
   ];
 
   return (

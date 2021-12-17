@@ -32,6 +32,36 @@ function Calculator({ match }) {
       formula: "E=mc²",
       dimension: "E = M¹L²T⁻², m = M¹ , c = LT⁻¹",
     },
+
+    {
+      topic: "Radius of Nucleus",
+      details: `The nucleus of an atom has no sharply defined boundaries and, although it can be considered spherical in form, care must be taken when speaking of its ‘radius’. These radii can be obtained experimentally by deflection experiments using fast neutrons. The results show that the nuclear radius is proportional to ∛A where A is the mass number.`,
+      siunit: [
+        "Radius  : Meter",
+        <br />,
+        "Mass Number : Dimensionless",
+        <br />,
+      ],
+      process:
+        "To find the Radius of Nucleus(R), we need to know the the mass Number(A) of the particular Substance and Proportionality constant(Rₒ) which is Rₒ = 1.2 x 10⁻¹⁵.",
+      formula: "R = Rₒ x ∛A",
+      dimension: "R = L¹, A = M⁰",
+    },
+
+    {
+      topic: "Q value",
+      details: `In nuclear physics, the Q value for a reaction is the amount of energy absorbed or released during the nuclear reaction, it can be positive and as well as negative. The value relates to the enthalpy of a chemical reaction or the energy of radioactive decay products. It can be determined from the masses of reactants and products.`,
+      siunit: [
+        "Q value  : MeV",
+        <br />,
+        "Mass Defect : amu",
+        <br />,
+      ],
+      process:
+        "To find the Q value, we need to know the the mass defect of the particular reaction and the energy released when 1 amu is converted to energy which is equal to 931.5 MeV. Speed of Light = 3 x 10⁸ m/s .",
+      formula: "Q = Δm x c²",
+      dimension: "Q = M¹ L² T⁻², Δm = M¹, c = L¹T⁻¹",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -127,7 +157,7 @@ function Calculator({ match }) {
     );
   };
 
-     // Mass-Energy Calculator
+  // Mass-Energy Calculator
   function MassEnergy() {
     const [result, setResult] = useState(null);
     const [mass, setmass] = useState(null);
@@ -174,6 +204,113 @@ function Calculator({ match }) {
     );
   }
 
+  //Radius of Nucleus Calculator
+  function Radius() {
+    const [result, setResult] = useState(null);
+    const [massnumber, setmassnumber] = useState(null);
+
+    const R0 = 1.2;
+    const handleClick = () => {
+      let res = (R0)*Math.pow(massnumber, 1/3 );  
+      setResult(res);
+    };
+
+    return (
+      <React.Fragment>
+        <Form>
+          <Form.Group className="mb-3" controlId="mass">
+            <Form.Label> Mass Number</Form.Label>
+            <Form.Control
+              onChange={(e) => setmassnumber(e.target.value)}
+              type="number"
+              placeholder="Enter the Mass Number"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>Proportionality Constant(Rₒ)</Form.Label>
+            <Form.Control readOnly type="number" placeholder={"1.2 x 10⁻¹⁵"} />
+          </Form.Group>
+          
+          <Form.Group className="mb-3" controlId="momentum">
+            <Form.Label>Radius of Nucleus</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null ? "Result" : result + " x 10⁻¹⁵ m"
+              }
+            />
+            <Form.Text className="text-muted">
+              Enter the above values to Calculate.
+            </Form.Text>
+          </Form.Group>
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            Reset
+          </Button>
+        </Form>
+      </React.Fragment>
+    );
+  }
+
+  //Q value
+  function Qvalue() {
+    const [result, setResult] = useState(null);
+    const [massdefect, setmassdefect] = useState(null);
+
+    const A = 931.5;//Energy released in Mev per amu.
+    const handleClick = () => {
+      let res = (massdefect)*931.5;  
+      setResult(res);
+    };
+
+    return (
+      <React.Fragment>
+        <Form>
+          <Form.Group className="mb-3" controlId="mass">
+            <Form.Label> Mass Defect (in amu)</Form.Label>
+            <Form.Control
+              onChange={(e) => setmassdefect(e.target.value)}
+              type="number"
+              placeholder="Enter the Mass Defect"
+            />
+          </Form.Group> 
+
+          <Form.Group className="mb-4">
+            <Form.Label>Speed of Light (c)</Form.Label>
+            <Form.Control readOnly type="number" placeholder={"3 x 10⁸ ms⁻¹"} />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="momentum">
+            <Form.Label>Q value</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                result === null ? "Result" : result + " MeV"
+              }
+            />
+            <Form.Text className="text-muted">
+              Enter the above values to Calculate.
+            </Form.Text>
+          </Form.Group>
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            Reset
+          </Button>
+        </Form>
+      </React.Fragment>
+    );
+  }
+
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -183,6 +320,12 @@ function Calculator({ match }) {
         break;
       case "Mass and Energy":
         currentCall = MassEnergy();
+        break;
+      case "Radius of Nucleus":
+        currentCall = Radius();
+        break;
+      case "Q value":
+        currentCall = Qvalue();
         break;
       default:
         break;
