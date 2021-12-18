@@ -38,13 +38,12 @@
   color: #000;
 }
 .card-text {
+  width: 100%;
   padding: 10px 2px;
 }
 
 .flex-column {
   width: 100%;
-  /* color: pink; */
-  /* background-color: aqua; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -124,8 +123,36 @@
   border-top: 9px solid #ffe7e6;
   border-bottom: 9px solid #ffe7e6;
 }
-@media (max-width: 320px) {
+@media (min-width:800px){
   .card-title {
+    width: 500px !important;
+  }
+  .card-body {
+    justify-content: space-between;
+  }
+  
+}
+@media (min-width:600px){
+  .card-title {
+    width: 250px !important;
+  }
+  .solve-question-btn {
+    /* flex: 4; */
+    width: 100px;
+    font-size: 12px;
+  }
+  .card-body {
+    justify-content: space-between;
+  }
+  
+}
+@media (max-width: 400px) {
+  .card-title {
+    width: 170px;
+    font-size: small;
+    margin-left: 20px;
+  }
+  .card-text{
     width: 170px;
     font-size: small;
     margin-left: 20px;
