@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Card, Button, Row, Col ,Modal} from "react-bootstrap";
+import { Form, Card, Button, Row, Col } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Link } from "react-router-dom";
-import Solution from "../../Solution/Solution";
 import { Helmet } from "react-helmet";
-import {constant} from '../../Solution/allConstants'
-import {SI} from '../../Solution/allSIUnits'
 import Navbar from "../../Navbar/Navbar";
 
 function Calculator({ match }) {
@@ -721,49 +718,14 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     const [result, setResult] = useState(null);
     const [mass, setMass] = useState(null);
     const [acceleration, setAcce] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [showSolution, setShowSolution] = useState(false);
-
-    const givenValues = {
-      mass: mass,
-      acceleration: acceleration,
-    };
-
-    const insertValues = `${mass}${SI["mass"]} * ${acceleration}${SI["acceleration"]}`;
 
     const handleClick = () => {
-      if(mass!=null && acceleration!=null)
-      {let res = mass * acceleration;
-      setShowSolution(true)
-      setResult(res);}
-      else{
-        setShowModal(true);
-
-      }
+      let res = mass * acceleration;
+      setResult(res);
     };
-
-    const resetForm=()=>{
-      setMass(null);
-      setAcce(null);
-      setShowSolution(false);
-      setResult(null);
-    }
 
     return (
       <React.Fragment>
-        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="mass">
             <Form.Label> Mass (in Kg)</Form.Label>
@@ -781,19 +743,6 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               placeholder="Enter acceleration in metre per second square [m/s²]"
             />
           </Form.Group>
-          {showSolution? 
-            <Form.Group className="mb-3" controlId="acceleration">
-              <Solution
-                givenValues={givenValues}
-                formula="mass*accerelation"
-                toFind="force"
-                insertValues={insertValues}
-                result={result}
-                // constants={constants}
-              />
-            </Form.Group>
-           : null }
-          
           <Form.Group className="mb-3" controlId="momentum">
             <Form.Label>Force (F)</Form.Label>
             <Form.Control
@@ -812,7 +761,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={resetForm} type="reset">
+            <Button variant="dark" onClick={() => setResult(null)} type="reset">
               Reset
             </Button>
           </div>
