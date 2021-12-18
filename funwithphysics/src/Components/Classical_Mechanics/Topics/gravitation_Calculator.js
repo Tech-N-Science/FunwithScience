@@ -3,7 +3,10 @@ import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
+import Solution from "../../Solution/Solution";
 import Navbar from "../../Navbar/Navbar";
+import {constant} from '../../Solution/allConstants'
+import {SI} from '../../Solution/allSIUnits'
 
 function GravitationCalculator({ match }) {
   // Gravitation_list
@@ -81,12 +84,47 @@ function GravitationCalculator({ match }) {
     const [mass_A, setMassA] = useState(null);
     const [mass_B, setMassB] = useState(null);
     const [distance, setDistance] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
 
-    const handleClick = () => {
+    // object of given values
+  const givenValues = {
+    mass_A: mass_A,
+    mass_B: mass_B,
+    distance: distance,
+  };
+
+  // defintion of insertValues
+  // how to add a variable  variable(their SI unit)
+  // example ${mass}${SI["mass"]}
+  // how to add constant
+  // example ${constant["G"]}
+
+  const insertValues = `${constant["G"]} * ${mass_A}${SI["mass"]} * ${mass_B}${SI["mass"]} / (${distance} ${SI["distance"]})² `;
+
+  // It Have List of all constant used in that formulae
+  const constants = ["G"];
+
+
+  //add these  validation also and also set setShowSolution
+  const handleClick = () => {
+    if (mass_A != null && mass_B != null && distance != null) {
       let res =
         (6.67 * Math.pow(10, -11) * mass_A * mass_B) / (distance * distance);
+      setShowSolution(true);
       setResult(res);
-    };
+    } else {
+      alert("Please Enter all values to get Proper answer");
+    }
+  };
+
+  //reset function => to reset all states 
+  const resetForm = () => {
+    setMassA(null);
+    setMassB(null);
+    setDistance(null);
+    setShowSolution(false);
+    setResult(null);
+  };
     return (
       <React.Fragment>
         {/* <Navbar/> */}
@@ -115,6 +153,18 @@ function GravitationCalculator({ match }) {
               placeholder="Enter Distance in SI unit"
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="GMm/d²"
+              toFind="Gravitational Force"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-3" controlId="Gravitational_Force">
             <Form.Label>Gravitational Force (F)</Form.Label>
             <Form.Control
@@ -131,7 +181,7 @@ function GravitationCalculator({ match }) {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
