@@ -67,7 +67,7 @@ export default class Signup extends Component {
           <div className="signmain">
             <figure>
               {/* <img src={signimg} alt="" className="signimg" /> */}
-              <ImageLoad className="signimg" main={"./Images-public/girl.jpg"} placeholder={"./Images-public/girl-small.jpg"} alt={"telephone"} />
+              <ImageLoad className="signimg" main={"./Images-public/girl.webp"} placeholder={"./Images-public/girl-small.jpg"} alt={"signup"} />
               <p className="figtext">
                 Designed by <a href="https://www.freepik.com/">Freepik</a>
               </p>

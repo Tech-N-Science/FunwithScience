@@ -50,7 +50,7 @@ function Login() {
         <div className="loginmain">
           <figure>
             {/* <img src={logimg} alt="" className="logimg" /> */}
-            <ImageLoad className="logimg" main={"./Images-public/group1.jpg"} placeholder={"./Images-public/group1-small.jpg"} alt={"telephone"} />
+            <ImageLoad className="logimg" main={"./Images-public/group1.webp"} placeholder={"./Images-public/group1-small.jpg"} alt={"login"} />
             <p className="figtext">
               Designed by <a href="https://www.freepik.com/">Freepik</a>
             </p>
