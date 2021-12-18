@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import logimg from "../../Images/group1.jpg";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
+import ImageLoad from "../imageLoad";
 import axios from "axios";
 import { Context } from "../../App";
 function Login() {
@@ -48,7 +49,8 @@ function Login() {
       <div className="login">
         <div className="loginmain">
           <figure>
-            <img src={logimg} alt="" className="logimg" />
+            {/* <img src={logimg} alt="" className="logimg" /> */}
+            <ImageLoad className="logimg" main={"./Images-public/group1.webp"} placeholder={"./Images-public/group1-small.jpg"} alt={"login"} />
             <p className="figtext">
               Designed by <a href="https://www.freepik.com/">Freepik</a>
             </p>

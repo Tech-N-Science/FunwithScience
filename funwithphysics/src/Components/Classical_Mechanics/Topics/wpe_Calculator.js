@@ -216,6 +216,7 @@ function WPECalculator({ match }) {
                 <Form.Label>Mass(m)</Form.Label>
                 <Form.Control
                   className="customInp"
+                  id="customInp"
                   onChange={(e) => setMassKE(e.target.value)}
                   type="number"
                   placeholder="Enter the mass"
@@ -227,6 +228,7 @@ function WPECalculator({ match }) {
                 <Form.Label>Mass(m)</Form.Label>
                 <Form.Control
                   className="customInp"
+                  id="customInp"
                   onChange={(e) => setMassPE(e.target.value)}
                   type="number"
                   placeholder="Enter the mass"
@@ -240,6 +242,7 @@ function WPECalculator({ match }) {
                 <Form.Label>Velocity(v)</Form.Label>
                 <Form.Control
                   className="customInp"
+                  id="customInp"
                   onChange={(e) => setVel(e.target.value)}
                   type="number"
                   placeholder="Enter the velocity"
@@ -251,6 +254,7 @@ function WPECalculator({ match }) {
                 <Form.Label>Height(h)</Form.Label>
                 <Form.Control
                   className="customInp"
+                  id="customInp"
                   onChange={(e) => setHeight(e.target.value)}
                   type="number"
                   placeholder="Enter the height"
@@ -265,6 +269,7 @@ function WPECalculator({ match }) {
                 <Form.Label>Gravitational Acceleration(g)</Form.Label>
                 <Form.Control
                   className="customInp"
+                  id="customInp"
                   onChange={(e) => setG(e.target.value)}
                   type="number"
                   placeholder={g === 9.8 ? "9.8 m/s^2" : " "}
@@ -278,6 +283,7 @@ function WPECalculator({ match }) {
                 <Form.Label>Kinetic Energy(KE)</Form.Label>
                 <Form.Control
                   className="customInp"
+                  id="customInp"
                   readOnly
                   onChange={(e) => setKinetic(e.target.value)}
                   type="number"
@@ -290,6 +296,7 @@ function WPECalculator({ match }) {
                 <Form.Label>Potential Energy(PE)</Form.Label>
                 <Form.Control
                   className="customInp"
+                  id="customInp"
                   readOnly
                   onChange={(e) => setPotential(e.target.value)}
                   type="number"
