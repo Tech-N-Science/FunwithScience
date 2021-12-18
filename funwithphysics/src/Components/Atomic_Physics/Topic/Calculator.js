@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import "../AtomicPhysics.css";
-import '../../../Responsive/style.css';
+import "../../../Responsive/style.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 
@@ -18,6 +18,16 @@ function Calculator({ match }) {
       process:
         "To find the (λ) wavelength of the emitted EM radiation we need to know the value of initial state (ni) and the final excitation state (nf) where R is the Rydberg constant, and it's value is determined by an experiment 1.097 × 10^7 / m (or m⁻¹)",
       dimension: "[L]",
+    },
+    {
+      topic: "Einstein's photoelectric equation",
+      formula: "E=φ+KEmax",
+      siunit: "Electron-volt: eV",
+      details:
+        "Einstein's photoelectric equation is used to obtain the energy of photon using the photon picture of electromagnetic radiation. A photon of energy hv is absorbed by the electron of the metal surface, then the energy is used to liberate the electron from the surface and rest of the energy becomes the kinetic energy of the electron.",
+      process:
+        "So The Energy(E) of a photon can be obtained by using the work function(φ) and the maximum kinetic energy of the ejected electrons from the metal surface. Where E is the incident energy of photons with the formula E=hv and h represents the Planck constant, v represents the frequency of incident radiation, φ is the work function of metal and KEmax is the maximum kinetic energy of electrons.",
+      dimension: "M1L2T-2",
     },
   ];
 
@@ -60,7 +70,7 @@ function Calculator({ match }) {
             <Form.Label>Final Excitation State (nf)</Form.Label>
             <Form.Control
               onChange={(e) => setFinal(e.target.value)}
-              type="number" 
+              type="number"
               placeholder="Enter the Final state (nf)"
               value={final === null ? "" : final}
             />
@@ -90,12 +100,75 @@ function Calculator({ match }) {
     );
   };
 
+  // Einstein's Photo Electric equation (Energy calculator)
+  const PhotoElectricCalci = () => {
+    const [workFunction, setWorkFunction] = useState(null);
+    const [KEmax, setKEmax] = useState(null);
+    const [result, setResult] = useState(null);
+
+    const reset = () => {
+      setWorkFunction(null);
+      setKEmax(null);
+      setResult(null);
+    };
+    const calcResult = () => {
+      let res;
+      res = parseFloat(workFunction) + parseFloat(KEmax);
+
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Work Function</Form.Label>
+            <Form.Control
+              onChange={(e) => setWorkFunction(e.target.value)}
+              type="number"
+              placeholder="Enter the work function(φ)"
+              value={workFunction === null ? "" : workFunction}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Kinetic Energy Max (KEmax)</Form.Label>
+            <Form.Control
+              onChange={(e) => setKEmax(e.target.value)}
+              type="number"
+              placeholder="Enter the Maximum Kinectic Energy"
+              value={KEmax === null ? "" : KEmax}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " eV"}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
+  };
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
     switch (key) {
       case "Bohr's model":
         currentCall = BohrModel();
+        break;
+      case "Einstein's photoelectric equation":
+        currentCall = PhotoElectricCalci();
         break;
       default:
         break;
