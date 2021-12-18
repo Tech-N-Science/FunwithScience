@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Card, Button, Row, Col } from "react-bootstrap";
+import { Form, Card, Button, Row, Col ,Modal} from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Link } from "react-router-dom";
 import Solution from "../../Solution/Solution";
@@ -721,7 +721,8 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     const [result, setResult] = useState(null);
     const [mass, setMass] = useState(null);
     const [acceleration, setAcce] = useState(null);
-    const [showSolution, setShowSolution] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showSolution, setShowSolution] = useState(false);
 
     const givenValues = {
       mass: mass,
@@ -736,7 +737,8 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
       setShowSolution(true)
       setResult(res);}
       else{
-        alert("Please Enter all values to get Proper answer")
+        setShowModal(true);
+
       }
     };
 
@@ -749,6 +751,19 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="mass">
             <Form.Label> Mass (in Kg)</Form.Label>

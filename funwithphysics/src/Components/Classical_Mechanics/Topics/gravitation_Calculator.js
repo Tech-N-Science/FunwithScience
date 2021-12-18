@@ -7,6 +7,7 @@ import Solution from "../../Solution/Solution";
 import Navbar from "../../Navbar/Navbar";
 import {constant} from '../../Solution/allConstants'
 import {SI} from '../../Solution/allSIUnits'
+import Modal from "react-bootstrap/Modal";
 
 function GravitationCalculator({ match }) {
   // Gravitation_list
@@ -85,6 +86,7 @@ function GravitationCalculator({ match }) {
     const [mass_B, setMassB] = useState(null);
     const [distance, setDistance] = useState(null);
     const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     // object of given values
   const givenValues = {
@@ -113,7 +115,7 @@ function GravitationCalculator({ match }) {
       setShowSolution(true);
       setResult(res);
     } else {
-      alert("Please Enter all values to get Proper answer");
+      setShowModal(true)
     }
   };
 
@@ -127,6 +129,10 @@ function GravitationCalculator({ match }) {
   };
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+      <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+      <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+    </Modal>
         {/* <Navbar/> */}
         <Form>
           <Form.Group className="mb-3" controlId="mass_A">
