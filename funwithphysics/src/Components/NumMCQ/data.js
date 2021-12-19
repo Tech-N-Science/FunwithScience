@@ -28,6 +28,7 @@ export const data = [
       },
     ],
     difficulty: "Easy",
+    image:""
   },
   {
     id: 2,
@@ -53,6 +54,7 @@ export const data = [
       },
     ],
     difficulty: "Easy",
+    image:""
   },
   {
     id: 3,
@@ -69,6 +71,7 @@ export const data = [
       { answerText: "D)  A ⃗ .B ⃗ = 1", isCorrect: false },
     ],
     difficulty: "Easy",
+    image:""
   },
   {
     id: 4,
@@ -78,6 +81,7 @@ export const data = [
     topic: "Kinematics",
     answer: 47.5,
     difficulty: "Medium",
+    image:""
   },
   {
     id: 5,
@@ -87,6 +91,7 @@ export const data = [
     topic: "Kinematics",
     answer: 4,
     difficulty: "Easy",
+    image:""
   },
   {
     id: 6,
@@ -96,6 +101,7 @@ export const data = [
     topic: "Kinematics",
     answer: 30,
     difficulty: "Medium",
+    image:""
   },
   {
     id: 7,
@@ -105,8 +111,8 @@ export const data = [
 
     topic: "Waves",
     answer: 24,
-
     difficulty: "Medium",
+    image:""
   },
   {
     id: 8,
@@ -130,6 +136,7 @@ export const data = [
       },
     ],
     difficulty: "Medium",
+    image:""
   },
   {
     id: 9,
@@ -153,6 +160,7 @@ export const data = [
       },
     ],
     difficulty: "Hard",
+    image:""
   },
   {
     id: 10,
@@ -176,5 +184,6 @@ export const data = [
       },
     ],
     difficulty: "Hard",
+    image:""
   },
 ];
