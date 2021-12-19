@@ -21,6 +21,9 @@ const Home = () => {
       }
     }, 4000);
   }, []);
+  const bookReaderStyle = {
+    color:'black', margin:'0', paddingRight:'9px'
+  };
   return (
     <React.Fragment>
       <Navbar />
@@ -48,19 +51,22 @@ const Home = () => {
             Unsplash
           </a>
         </p>
-
-        <h2 className="banner_text col-md-8 col-sm-8 auto pt-5">
+        <div className="banner_container">
+        <div className="blur-background">
+        <h2 className="banner_text auto pt-5">
           We at Tech N Science try to bring all sciences under one roof by
           providing JEE level questions and also calculators for different
           science formulas.
           <br />
           So, keep Exploring!!.
         </h2>
+        </div>
         <div className="banner_button">
           <Button href="#learn" className="btn btn-light">
             {" "}
-            Learn
-          </Button>
+            Learn<i style={bookReaderStyle} className="fas fa-book-reader"></i>
+          </Button> 
+          </div>
         </div>
       </div>
       <div>

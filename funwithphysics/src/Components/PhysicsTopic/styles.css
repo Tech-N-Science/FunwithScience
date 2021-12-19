@@ -32,8 +32,8 @@
 }
 
 .banner {
-    padding-left: 5vw;
-    padding-top: 30vh;
+    /* padding-left: 5vw;
+    padding-top: 30vh; */
 }
 
 .banner_text {
@@ -41,47 +41,39 @@
 }
 
 .banner_button * {
-    margin-left: 20px;
-    width: 120px;
+    /* margin-left: 20px; */
+    /* width: 120px; */
 }
 
 @media (max-width: 600px) {
     .banner {
-        padding-top: 25vh;
+        /* padding-top: 25vh; */
     }
-    .banner h2 {
-        font-size: 25px;
-    }
+
 }
 
 @media (max-width: 768px) {
     .banner {
-        padding-top: 27vh;
+        /* padding-top: 27vh; */
     }
-    .banner h2 {
-        font-size: 30px;
-    }
+
 }
 
 @media (max-height: 500px) {
     .banner {
         padding-top: 0vh;
     }
-    .banner h2 {
-        font-size: 20px;
-    }
+
 }
 
 @media (max-width: 320px) {
     .banner {
-        padding-top: 25vh;
-        height: calc(100vh - 50px);
+        /* padding-top: 25vh; */
+        /* height: calc(100vh - 50px); */
     }
-    .banner h2 {
-        font-size: 20px;
-    }
+
     .banner_button * {
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
     }
     .gotopbtn {
         left: calc(80vw - 10px);
