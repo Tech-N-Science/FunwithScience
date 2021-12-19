@@ -1,5 +1,5 @@
 :root {
-  --footer-bg-hex: #00212C ;
+  --footer-bg-hex: #2c3e50;
   /* #2c3e50 */
 }
 footer {
@@ -31,17 +31,16 @@ footer {
 
 .box .content:before {
   position: absolute;
-  content: '';
+  content: "";
   top: -10px;
   height: 2px;
   width: 100%;
-  background: #00D8E5;
-
+  background: #00d8e5;
 }
 
 .box .content:after {
   position: absolute;
-  content: '';
+  content: "";
   height: 2px;
   width: 15%;
   background: white;
@@ -69,7 +68,8 @@ footer {
   cursor: pointer;
   text-align: center;
   transition: 0.5s;
-  box-shadow: rgba(0, 0, 0, 0.199) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.199) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .center .icons li a {
@@ -125,7 +125,7 @@ footer {
   font-size: 17px;
   font-weight: 500;
   padding-left: 10px;
-  color: #00D8E5;
+  color: #00d8e5;
 }
 
 .center .center-bottom .about-us span {
@@ -174,7 +174,7 @@ footer {
   font-size: 17px;
   font-weight: 500;
   padding-left: 10px;
-  color: #00D8E5;
+  color: #00d8e5;
 }
 
 .right .content .place span {
@@ -216,7 +216,7 @@ footer {
 
 .right form button {
   display: inline-block;
-  background: #00D8E5;
+  background: #00d8e5;
   color: #000;
   font-size: 20px;
   padding: 0 10px;
@@ -224,7 +224,7 @@ footer {
   margin-left: 5px;
   font-weight: 400;
   border-radius: 6px;
-  border: 2px solid #00D8E5;
+  border: 2px solid #00d8e5;
   transition: all 0.3s ease;
   cursor: pointer;
   width: 346px;
