@@ -1,5 +1,6 @@
 :root {
   --footer-bg-hex: #2c3e50;
+  /* #2c3e50 */
 }
 footer {
   position: relative;
@@ -14,7 +15,7 @@ footer {
 
 .main-content .box {
   flex-basis: 50%;
-  padding: 70px 30px 70px;
+  padding: 30px 30px 30px;
 }
 
 .box h2 {
@@ -30,22 +31,27 @@ footer {
 
 .box .content:before {
   position: absolute;
-  content: '';
+  content: "";
   top: -10px;
   height: 2px;
   width: 100%;
-  background: cyan;
+  background: #00d8e5;
 }
 
 .box .content:after {
   position: absolute;
-  content: '';
+  content: "";
   height: 2px;
   width: 15%;
   background: white;
   top: -10px;
 }
-
+.left {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
 .center .icons {
   display: flex;
 }
@@ -53,8 +59,8 @@ footer {
 .center .icons li {
   position: relative;
   list-style: none;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   margin: 0 10px;
   border-radius: 50%;
   margin-top: 30px;
@@ -62,12 +68,13 @@ footer {
   cursor: pointer;
   text-align: center;
   transition: 0.5s;
-  box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px #ffffff73;
+  box-shadow: rgba(0, 0, 0, 0.199) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .center .icons li a {
   line-height: 50px;
-  font-size: 30px;
+  font-size: 27px;
   color: #000;
 }
 
@@ -92,11 +99,11 @@ footer {
 }
 
 .center .fas {
-  font-size: 24px;
+  font-size: 20px;
   background: white;
   color: black;
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   line-height: 45px;
   text-align: center;
   border-radius: 50%;
@@ -106,19 +113,19 @@ footer {
 }
 
 .center .fas:hover {
-  background: #f12020;
+  background: #00dae5a1;
   color: white;
 }
 
 .center .additional {
-  margin-top: 90px;
+  margin-top: 48px;
 }
 
 .center .text {
   font-size: 17px;
   font-weight: 500;
   padding-left: 10px;
-  color: cyan;
+  color: #00d8e5;
 }
 
 .center .center-bottom .about-us span {
@@ -132,13 +139,12 @@ footer {
 .left .footer-logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .left .footer-logo img {
   height: 150px;
   width: 150px;
-  border: 4px solid cyan;
   border-radius: 50%;
 }
 
@@ -146,12 +152,12 @@ footer {
   margin-top: 0px;
 }
 
-.left .content .fas {
-  font-size: 24px;
+.right .content .fas {
+  font-size: 20px;
   background: white;
   color: black;
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   line-height: 45px;
   text-align: center;
   border-radius: 50%;
@@ -159,23 +165,23 @@ footer {
   cursor: pointer;
 }
 
-.left .content .fas:hover {
-  background: #f12020;
+.right .content .fas:hover {
+  background: #00dae5a1;
   color: white;
 }
 
-.left .content .text {
+.right .content .text {
   font-size: 17px;
   font-weight: 500;
   padding-left: 10px;
-  color: cyan;
+  color: #00d8e5;
 }
 
-.left .content .place span {
+.right .content .place span {
   margin-top: 30px;
 }
 
-.left .content .phone {
+.right .content .phone {
   margin: 15px 0;
 }
 
@@ -210,7 +216,7 @@ footer {
 
 .right form button {
   display: inline-block;
-  background: cyan;
+  background: #00d8e5;
   color: #000;
   font-size: 20px;
   padding: 0 10px;
@@ -218,7 +224,7 @@ footer {
   margin-left: 5px;
   font-weight: 400;
   border-radius: 6px;
-  border: 2px solid cyan;
+  border: 2px solid #00d8e5;
   transition: all 0.3s ease;
   cursor: pointer;
   width: 346px;

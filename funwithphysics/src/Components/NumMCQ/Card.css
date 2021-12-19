@@ -123,16 +123,15 @@
   border-top: 9px solid #ffe7e6;
   border-bottom: 9px solid #ffe7e6;
 }
-@media (min-width:800px){
+@media (min-width: 800px) {
   .card-title {
     width: 500px !important;
   }
   .card-body {
     justify-content: space-between;
   }
-  
 }
-@media (min-width:600px){
+@media (min-width: 600px) {
   .card-title {
     width: 250px !important;
   }
@@ -144,7 +143,6 @@
   .card-body {
     justify-content: space-between;
   }
-  
 }
 @media (max-width: 400px) {
   .card-title {
@@ -152,7 +150,7 @@
     font-size: small;
     margin-left: 20px;
   }
-  .card-text{
+  .card-text {
     width: 170px;
     font-size: small;
     margin-left: 20px;

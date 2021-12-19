@@ -263,20 +263,101 @@ const NumMCQ = () => {
               <span className="checkmark"></span>
             </label>
             <label className="container">
-              Mechanics
-              <input type="hidden" name="Mechanics" value="false" />
+              Kinematics
+              <input type="hidden" name="Kinematics" value="false" />
               <input
                 type="checkbox"
-                value="Mechanics"
+                value="Kinematics"
                 onClick={(e) => handleClick(e)}
               />
               <span className="checkmark"></span>
             </label>
             <label className="container">
-              Relativity
+              Laws of Motion
+              <input type="hidden" name="Laws of Motion" value="false" />
               <input
                 type="checkbox"
-                value="Relativity"
+                value="Laws of Motion"
+                onClick={(e) => handleClick(e)}
+              />
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">
+              Work,Power,Energy
+              <input type="hidden" name="Work,Power,Energy" value="false" />
+              <input
+                type="checkbox"
+                value="Work,Power,Energy"
+                onClick={(e) => handleClick(e)}
+              />
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">
+              Circular motion
+              <input type="hidden" name="Circular motion" value="false" />
+              <input
+                type="checkbox"
+                value="Circular motion"
+                onClick={(e) => handleClick(e)}
+              />
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">
+              Center of mass
+              <input type="hidden" name="Center of mass" value="false" />
+              <input
+                type="checkbox"
+                value="Center of mass"
+                onClick={(e) => handleClick(e)}
+              />
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">
+              Rotational Mechanics
+              <input type="hidden" name="Rotational Mechanics" value="false" />
+              <input
+                type="checkbox"
+                value="Rotational Mechanics"
+                onClick={(e) => handleClick(e)}
+              />
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">
+              Gravitation
+              <input type="hidden" name="Gravitation" value="false" />
+              <input
+                type="checkbox"
+                value="Gravitation"
+                onClick={(e) => handleClick(e)}
+              />
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">
+              Waves
+              <input type="hidden" name="Waves" value="false" />
+              <input
+                type="checkbox"
+                value="Waves"
+                onClick={(e) => handleClick(e)}
+              />
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">
+              Fluid Mechanics
+              <input type="hidden" name="Fluid Mechanics" value="false" />
+              <input
+                type="checkbox"
+                value="Fluid Mechanics"
+                onClick={(e) => handleClick(e)}
+              />
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">
+              Stress,Strain
+              <input type="hidden" name="Stress,Strain" value="false" />
+              <input
+                type="checkbox"
+                value="Stress,Strain"
                 onClick={(e) => handleClick(e)}
               />
               <span className="checkmark"></span>
