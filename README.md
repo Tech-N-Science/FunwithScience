@@ -1,16 +1,13 @@
 # Fun With Science
 
-
 Are you bored solving the questions using the tough physics formulas?? 😩
 Are you bored of long calculations?? 😩
 Then here is a solution to your problems. 😃
 This project is a Physics calculator where the user just needs to enter the values and the project calculates the result using the formula.
 
-
 It really is that easy!
 
 And the best part of it? **FunwithScience is open source!** 🤩
-
 
 **The website is live and can be visited on https://technscience.com/**
 
@@ -35,9 +32,9 @@ Also join the discord channel for discussion **https://discord.gg/UfhRBpbQXN**
 <a href="https://github.com/Tech-N-Science/FunwithScience/issues"><img src="https://img.shields.io/github/issues/Amit366/FunwithPhysics?color=0059b3"></a>
 <a href="https://github.com/Tech-N-Science/FunwithScience/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed-raw/Tech-N-Science/FunwithScience?color=yellow"></a>
 <a href="https://github.com/Tech-N-Science/FunwithScience/pulls"><img src="https://img.shields.io/github/issues-pr/Amit366/FunwithPhysics?color=brightgreen"></a>
-<a href="https://github.com/Tech-N-Science/FunwithScience/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/Amit366/FunwithPhysics?color=0059b3"></a> 
-</div>
+<a href="https://github.com/Tech-N-Science/FunwithScience/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/Amit366/FunwithPhysics?color=0059b3"></a>
 
+</div>
 
 ### How does it differ from other problem-solving projects?
 
@@ -50,8 +47,6 @@ Also join the discord channel for discussion **https://discord.gg/UfhRBpbQXN**
 ### Tech Used
 
 <img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/> <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/> <img alt="React" src="https://img.shields.io/badge/react%20-%23323330.svg?&style=for-the-badge&logo=react&logoColor=%#61DBFB"/> <img alt="Bootstrap**" src="https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white"/>
-
-
 
 # How to Contribute
 
@@ -145,16 +140,19 @@ Wait for your submission to be accepted and your PR to be merged by a maintainer
 # How to run the webpage on your local system
 
 1. Go to the `funwithpysics` directory.
+
 ```
 cd funwithpysics
 ```
 
 2. Write the command.
+
 ```
 npm install react-scripts --save
 ```
 
 3. Write the command.
+
 ```
 yarn start
 ```
@@ -177,12 +175,10 @@ If you have any doubts, please let us know in the comments.
 
 ---
 
-
 <h1 align=center> Project Admin ❤️ </h1>
 
-  
   <p align="center">
-  <a href="https://github.com/Amit366"><img src="https://avatars.githubusercontent.com/u/60662775?v=4" width="16%" /></a> 
+  <a href="https://github.com/Amit366"><img src="https://avatars.githubusercontent.com/u/60662775?v=4" width="16%" /></a>
 
   <p align="center">
   <a target="_blank"href="https://www.linkedin.com/in/amit-mishra-28122a193/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -190,9 +186,7 @@ If you have any doubts, please let us know in the comments.
   <a href="https://www.instagram.com/alipun2002/"><img src="https://img.shields.io/badge/instagram-%23D14836.svg?&style=for-the-badge&logo=instagram&logoColor=pink" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
-
 ## Project Maintainers 😃
-
 
 ## Contributors ✨
 
@@ -236,6 +230,8 @@ Thanks goes to these wonderful people :
   <td align="center"><a href="https://github.com/pragyamittal0"><img src="https://avatars.githubusercontent.com/u/69578414?v=4" width="100px;" alt=""/><br /><sub><b>Pragya Mittal</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=pragyamittal0" title="Code">💻</a></td>
   <td align="center"><a href="https://github.com/ganeshbirajdar09"><img src="https://avatars.githubusercontent.com/u/89690784?v=4" width="100px;" alt=""/><br /><sub><b>Ganesh Birajdar</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=ganeshbirajdar09" title="Code">💻</a></td>
   <td align="center"><a href="https://github.com/ps6067966"><img src="https://avatars.githubusercontent.com/u/26248740?v=4" width="100px;" alt=""/><br /><sub><b>Pratap Singh</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=ps6067966" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/SharadinduPaul"><img src="https://avatars.githubusercontent.com/u/85161694?v=4" width="100px;" alt=""/><br /><sub><b>Sharadindu Paul</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=SharadinduPaul" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/SayanDeveloper"><img src="https://avatars.githubusercontent.com/u/67837886?v=4" width="100px;" alt=""/><br /><sub><b>Sayan Samanta</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=SayanDeveloper" title="Code">💻</a></td>
  </tr>
 </table>
 
