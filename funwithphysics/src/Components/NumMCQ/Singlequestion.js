@@ -115,7 +115,10 @@ const Singlequestion = () => {
                       onClick={(e) => handleClick(e)}
                       value={ansOptions.answerText}
                     >
-                      <span className="numbering">{ansOptions.answerText.slice(0,1)}</span>{ansOptions.answerText.slice(2,)}
+                      <span className="numbering">
+                        {ansOptions.answerText.slice(0, 1)}
+                      </span>
+                      {ansOptions.answerText.slice(2)}
                     </button>
                   </div>
                 );
@@ -140,11 +143,7 @@ const Singlequestion = () => {
   } else if (type === "Numerical") {
     const handleSubmit = () => {
       // eslint-disable-next-line
-      if (
-        result === answer ||
-        result === answer + 0.2 ||
-        result === answer - 0.2
-      ) {
+      if (answer - 0.2 < result <= answer + 0.2) {
         alert("Correct Answer");
         handleNext();
       } else {
