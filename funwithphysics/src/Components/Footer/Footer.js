@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.css";
 import logo from "../../Images/Logo/logo.webp";
 import { Link } from "react-router-dom";
-import Form from "../Form/Form";
+// import Form from "../Form/Form";
 const Footer = () => {
   return (
     <React.Fragment>
@@ -11,26 +11,6 @@ const Footer = () => {
           <div className="left box">
             <div className="footer-logo">
               <img src={logo} alt="logo" />
-            </div>
-            <h2>Address</h2>
-            <div className="content">
-              <div className="place">
-                <span className="fas fa-map-marker-alt"></span>
-                <span className="text">India</span>
-              </div>
-              <div className="phone">
-                <span className="fas fa-phone"></span>
-                <span className="text">+91 1234567890</span>
-              </div>
-              <div className="email">
-                <Link
-                  to={{ pathname: "mailto:example123@gmail.com" }}
-                  target="_blank"
-                >
-                  <span className="fas fa-envelope"></span>
-                </Link>
-                <span className="text">example123@gmail.com</span>
-              </div>
             </div>
           </div>
 
@@ -95,9 +75,25 @@ const Footer = () => {
           </div>
 
           <div className="right box">
-            <h2>Contact us</h2>
+          <h2>Address</h2>
             <div className="content">
-              <Form />
+              <div className="place">
+                <span className="fas fa-map-marker-alt"></span>
+                <span className="text">India</span>
+              </div>
+              <div className="phone">
+                <span className="fas fa-phone"></span>
+                <span className="text">+91 1234567890</span>
+              </div>
+              <div className="email">
+                <Link
+                  to={{ pathname: "mailto:example123@gmail.com" }}
+                  target="_blank"
+                >
+                  <span className="fas fa-envelope"></span>
+                </Link>
+                <span className="text">example123@gmail.com</span>
+              </div>
             </div>
           </div>
         </div>
