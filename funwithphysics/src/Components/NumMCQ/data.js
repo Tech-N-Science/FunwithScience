@@ -28,7 +28,7 @@ export const data = [
       },
     ],
     difficulty: "Easy",
-    image:""
+    image: "",
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ export const data = [
       },
     ],
     difficulty: "Easy",
-    image:""
+    image: "",
   },
   {
     id: 3,
@@ -71,7 +71,7 @@ export const data = [
       { answerText: "D)  A ⃗ .B ⃗ = 1", isCorrect: false },
     ],
     difficulty: "Easy",
-    image:""
+    image: "",
   },
   {
     id: 4,
@@ -81,7 +81,7 @@ export const data = [
     topic: "Kinematics",
     answer: 47.5,
     difficulty: "Medium",
-    image:""
+    image: "",
   },
   {
     id: 5,
@@ -91,7 +91,7 @@ export const data = [
     topic: "Kinematics",
     answer: 4,
     difficulty: "Easy",
-    image:""
+    image: "",
   },
   {
     id: 6,
@@ -101,7 +101,7 @@ export const data = [
     topic: "Kinematics",
     answer: 30,
     difficulty: "Medium",
-    image:""
+    image: "",
   },
   {
     id: 7,
@@ -112,7 +112,7 @@ export const data = [
     topic: "Waves",
     answer: 24,
     difficulty: "Medium",
-    image:""
+    image: "",
   },
   {
     id: 8,
@@ -136,7 +136,7 @@ export const data = [
       },
     ],
     difficulty: "Medium",
-    image:""
+    image: "",
   },
   {
     id: 9,
@@ -160,30 +160,16 @@ export const data = [
       },
     ],
     difficulty: "Hard",
-    image:""
+    image: "",
   },
   {
     id: 10,
-    type: "Multiple Correct",
+    type: "Numerical",
     question:
-      "The bob in a simple pendulum of length 'l' is released at t=0 from the position of small angular displacement θ. Linear displacement of the bob at any time 't' from the mean position is:",
+      "A particle of mass 2kg moves in SHM and its potential energy U varies with position x as shown. The period of oscillation of the particle is n𝛑/5 second. Find value of 'n'.",
     topic: "Waves",
-    answer: [
-      { answerText: "A)  lθcos√(g/l) * t", isCorrect: true },
-      {
-        answerText: "B)  l√(g/l) * tcosθ",
-        isCorrect: false,
-      },
-      {
-        answerText: "C)  lgsinθ",
-        isCorrect: false,
-      },
-      {
-        answerText: "D)  lθsin√(g/l) * t",
-        isCorrect: false,
-      },
-    ],
+    answer: 4,
     difficulty: "Hard",
-    image:""
+    image: "funwithphysics/src/Images/id-10.webp",
   },
 ];

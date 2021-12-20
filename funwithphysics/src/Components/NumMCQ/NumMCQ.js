@@ -177,6 +177,7 @@ const NumMCQ = () => {
                       key={card.id}
                       id={card.id}
                       difficulty={card.difficulty}
+                      image={card.image}
                     />
                     &nbsp;&nbsp;&nbsp;&nbsp;
                   </div>

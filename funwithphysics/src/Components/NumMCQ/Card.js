@@ -39,6 +39,7 @@ const Singlecard = (props) => {
               state: {
                 type: props.type,
                 ques: props.question,
+                img: props.image,
                 ans: props.answer,
               },
             }}
