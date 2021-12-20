@@ -38,13 +38,12 @@
   color: #000;
 }
 .card-text {
+  width: 100%;
   padding: 10px 2px;
 }
 
 .flex-column {
   width: 100%;
-  /* color: pink; */
-  /* background-color: aqua; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
