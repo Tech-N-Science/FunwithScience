@@ -101,7 +101,7 @@ function WPECalculator({ match }) {
             <Button variant="primary" onClick={handleClick}>
               Calculate
             </Button>
-            
+
             <Button variant="dark" onClick={() => setResult(null)} type="reset">
               Reset
             </Button>
@@ -157,7 +157,7 @@ function WPECalculator({ match }) {
           <Button variant="primary" onClick={handleClick}>
             Calculate
           </Button>
-          
+
           <Button variant="dark" onClick={() => setResult(null)} type="reset">
             Reset
           </Button>
@@ -272,7 +272,7 @@ function WPECalculator({ match }) {
                   id="customInp"
                   onChange={(e) => setG(e.target.value)}
                   type="number"
-                  placeholder={g === 9.8 ? "9.8 m/s^2" : " "}
+                  placeholder="Enter Gravitational Acceleration(g)"
                 />
               </Form.Group>
             </Col>
