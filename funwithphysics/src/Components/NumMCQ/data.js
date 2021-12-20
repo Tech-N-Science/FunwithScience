@@ -1,3 +1,4 @@
+import i from "../../Images/id-10.webp"
 export const data = [
   {
     id: 1,
@@ -160,7 +161,7 @@ export const data = [
       },
     ],
     difficulty: "Hard",
-    image: "",
+    image: "https://images.pexels.com/photos/8480055/pexels-photo-8480055.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
   },
   {
     id: 10,
@@ -170,6 +171,6 @@ export const data = [
     topic: "Waves",
     answer: 4,
     difficulty: "Hard",
-    image: "funwithphysics/src/Images/id-10.webp",
+    image: i,
   },
 ];

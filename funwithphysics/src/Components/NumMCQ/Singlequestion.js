@@ -7,7 +7,7 @@ import { useLocation } from "react-router";
 import { data } from "./data";
 const Singlequestion = () => {
   const location = useLocation();
-  var { type, ques, ans } = location.state;
+  var { type, ques, ans,img} = location.state;
   const [question, setquestion] = useState(ques);
   const [answer, setanswer] = useState(ans);
   const [result, setResult] = useState([]);
@@ -197,6 +197,7 @@ const Singlequestion = () => {
         <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">
+            {img && <img  src={img} alt="" className="quesimg"/>}
             <h4 className="question">{question}</h4>
             <div className="answer-box">
               <input
