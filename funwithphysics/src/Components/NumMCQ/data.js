@@ -1,4 +1,4 @@
-import i from "../../Images/id-10.webp"
+import i from "../../Images/id-10.webp";
 export const data = [
   {
     id: 1,
@@ -161,7 +161,7 @@ export const data = [
       },
     ],
     difficulty: "Hard",
-    image: "https://images.pexels.com/photos/8480055/pexels-photo-8480055.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    image: "",
   },
   {
     id: 10,

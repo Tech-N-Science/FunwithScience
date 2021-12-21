@@ -233,6 +233,11 @@ Thanks goes to these wonderful people :
   <td align="center"><a href="https://github.com/SharadinduPaul"><img src="https://avatars.githubusercontent.com/u/85161694?v=4" width="100px;" alt=""/><br /><sub><b>Sharadindu Paul</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=SharadinduPaul" title="Code">💻</a></td>
   <td align="center"><a href="https://github.com/SayanDeveloper"><img src="https://avatars.githubusercontent.com/u/67837886?v=4" width="100px;" alt=""/><br /><sub><b>Sayan Samanta</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=SayanDeveloper" title="Code">💻</a></td>
  </tr>
+  <td align="center"><a href="https://github.com/AnuragParashar2000"><img src="https://avatars.githubusercontent.com/u/73629391?v=4" width="100px;" alt=""/><br /><sub><b>Anurag Parashar</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=AnuragParashar2000" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/goutham109"><img src="https://avatars.githubusercontent.com/u/68989526?v=4" width="100px;" alt=""/><br /><sub><b>Goutham Katipelly</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=goutham109" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/kartikeyjangir"><img src="https://avatars.githubusercontent.com/u/72850375?v=4" width="100px;" alt=""/><br /><sub><b>Kartikey Jangir</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=kartikeyjangir" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/arpita221b"><img src="https://avatars.githubusercontent.com/u/56889637?v=4" width="100px;" alt=""/><br /><sub><b>Arpita Naval</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=arpita221b" title="Code">🎨</a></td>
+ </tr>
 </table>
 
 <!-- markdownlint-restore -->
