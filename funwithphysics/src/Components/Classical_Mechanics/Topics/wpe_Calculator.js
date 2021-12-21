@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button, Col, Row } from "react-bootstrap";
+import { Form, Button, Col, Row,Modal } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
+import Solution from "../../Solution/Solution";
+import {constant} from '../../Solution/allConstants'
+import {SI} from '../../Solution/allSIUnits'
 import Navbar from "../../Navbar/Navbar";
 
 function WPECalculator({ match }) {
@@ -60,15 +63,50 @@ function WPECalculator({ match }) {
     const [result, setResult] = useState(null);
     const [force, setForce] = useState(null);
     const [displacement, setDisp] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      force: force,
+      displacement: displacement,
+    };
+
+    const insertValues = `${force}${SI["force"]} * ${displacement}${SI["displacement"]}`;
 
     const handleClick = () => {
+      if(force!=null && displacement!=null)
+    {
       let res = force * displacement;
       setResult(res);
+      setShowSolution(true)
+    }
+     else{
+        setShowModal(true);
+      }
     };
+
+    const resetForm=()=>{
+      setForce(null);
+      setDisp(null);
+      setShowSolution(false);
+      setResult(null);
+    }
 
     return (
       <React.Fragment>
-        {/* <Navbar/> */}
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Force (in Newtons)</Form.Label>
@@ -86,6 +124,19 @@ function WPECalculator({ match }) {
               placeholder="Enter displacement in metre"
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="force*displacement"
+                toFind="work"
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+           : null }
+
           <Form.Group className="mb-3" controlId="work">
             <Form.Label>Work Done (W)</Form.Label>
             <Form.Control
@@ -102,7 +153,7 @@ function WPECalculator({ match }) {
               Calculate
             </Button>
             
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
@@ -116,14 +167,50 @@ function WPECalculator({ match }) {
     const [result, setResult] = useState(null);
     const [workdone, setworkdone] = useState(null);
     const [time, settime] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      "work": workdone,
+      time: time,
+    };
+
+    const insertValues = `${workdone} ${SI["work"]} / ${time} ${SI["time"]}`;
 
     const handleClick = () => {
+      if(workdone!=null && time!=null)
+{
       let res = workdone / time;
       setResult(res);
-    };
+      setShowSolution(true)
+    }
+    else{
+      setShowModal(true);
+    }
+  };
+
+  const resetForm=()=>{
+    setworkdone(null);
+    settime(null);
+    setShowSolution(false);
+    setResult(null);
+  }
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="workdone">
             <Form.Label> Work Done (in Joules)</Form.Label>
@@ -141,6 +228,18 @@ function WPECalculator({ match }) {
               placeholder="Enter time taken in seconds"
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="work Done / time"
+                toFind="power"
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-3" controlId="power">
             <Form.Label>Power (P)</Form.Label>
             <Form.Control
@@ -158,7 +257,7 @@ function WPECalculator({ match }) {
             Calculate
           </Button>
           
-          <Button variant="dark" onClick={() => setResult(null)} type="reset">
+          <Button variant="dark" onClick={resetForm} type="reset">
             Reset
           </Button>
         </div>
