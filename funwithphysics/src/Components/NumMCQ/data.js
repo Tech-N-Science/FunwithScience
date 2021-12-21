@@ -110,7 +110,7 @@ export const data = [
     question:
       "Two particles of medium disturbed by the wave propagation are at x₁ = 0 and x₂ = 1cm. The respective displacements (in cm) of the particles can be given by the equations:  y₁ = 2sin3𝛑t  ,     y₂ = 2sin(3𝛑t-𝛑/8). The wave velocity is:",
 
-    topic: "Waves",
+    topic: "Simple Harmonic",
     answer: 24,
     difficulty: "Medium",
     image: "",
@@ -120,7 +120,7 @@ export const data = [
     type: "Multiple Correct",
     question:
       "Two particles P and Q describe S.H.M of same amplitude 'a', same frequency 'f' along the same straight line. The maximum distance between the two particles is a √2. The initial phase difference between the particle is:",
-    topic: "Waves",
+    topic: "Simple Harmonic",
     answer: [
       { answerText: "A)  Zero", isCorrect: false },
       {
@@ -144,7 +144,7 @@ export const data = [
     type: "Multiple Correct",
     question:
       "The bob in a simple pendulum of length 'l' is released at t=0 from the position of small angular displacement θ. Linear displacement of the bob at any time 't' from the mean position is:",
-    topic: "Waves",
+    topic: "Simple Harmonic",
     answer: [
       { answerText: "A)  lθcos√(g/l) * t", isCorrect: true },
       {
@@ -168,9 +168,129 @@ export const data = [
     type: "Numerical",
     question:
       "A particle of mass 2kg moves in SHM and its potential energy U varies with position x as shown. The period of oscillation of the particle is n𝛑/5 second. Find value of 'n'.",
-    topic: "Waves",
+    topic: "Simple Harmonic",
     answer: 4,
     difficulty: "Hard",
     image: i,
+  },
+  {
+    id: 11,
+    type: "Multiple Correct",
+    question:
+      "An object of mass m is moving in uniform circular motion in xy-plane. The circler has radius R and object is moving clockwise around the circle with speed v. The motion is projected onto the x-axis where it appears as Simple harmonic motion according to x(t)=R cos (ωt+Φ). The motion starts from point of co-ordinates (0,R). In this projection Φ is:",
+    topic: "Circular Motion",
+    answer: [
+      { answerText: "A)  𝛑/2", isCorrect: true },
+      {
+        answerText: "B)  𝛑",
+        isCorrect: false,
+      },
+      {
+        answerText: "C)  3𝛑/2",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  0",
+        isCorrect: false,
+      },
+    ],
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 12,
+    type: "Multiple Correct",
+    question:
+      "Two particles A and B are performing SHM along x and y-axis respectively with equal amplitude and frequency of 2cm and 1Hz respectively. Equilibrium positions of the particless A and B are at the co-ordinates (3cm,0) and (0,4cm) respectively. At t=0, B is at its eqiulibrium position and moving towards the origin, while A is nearest to the origin and moving away from origin. Equation of motion of particle A :",
+    topic: "Simple Harmonic",
+    answer: [
+      { answerText: "A)  x=(2cm) cos (2𝛑t)", isCorrect: false },
+      {
+        answerText: "B)  x=(3cm) - (2cm) cos (2𝛑t)",
+        isCorrect: true,
+      },
+      {
+        answerText: "C)  x=(2cm) sin (2𝛑t)",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  x=(3cm) - (2cm) sin (2𝛑t)",
+        isCorrect: false,
+      },
+    ],
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 13,
+    type: "Multiple Correct",
+    question:
+      "Two particles A and B are performing SHM along x and y-axis respectively with equal amplitude and frequency of 2cm and 1Hz respectively. Equilibrium positions of the particless A and B are at the co-ordinates (3cm,0) and (0,4cm) respectively. At t=0, B is at its eqiulibrium position and moving towards the origin, while A is nearest to the origin and moving away from origin. Equation of motion of particle B :",
+    topic: "Simple Harmonic",
+    answer: [
+      { answerText: "A)  y=(2cm) cos (2𝛑t)", isCorrect: false },
+      {
+        answerText: "B)  y=(4cm) - (2cm) cos (2𝛑t)",
+        isCorrect: false,
+      },
+      {
+        answerText: "C)  y=(2cm) sin (2𝛑t)",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  y=(4cm) - (2cm) sin (2𝛑t)",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 14,
+    type: "Multiple Correct",
+    question:
+      "Two particles A and B are performing SHM along x and y-axis respectively with equal amplitude and frequency of 2cm and 1Hz respectively. Equilibrium positions of the particless A and B are at the co-ordinates (3cm,0) and (0,4cm) respectively. At t=0, B is at its eqiulibrium position and moving towards the origin, while A is nearest to the origin and moving away from origin. Equation of motion of particle A :",
+    topic: "Simple Harmonic",
+    answer: [
+      { answerText: "A)  x=(2cm) cos (2𝛑t)", isCorrect: false },
+      {
+        answerText: "B)  x=(3cm) - (2cm) cos (2𝛑t)",
+        isCorrect: true,
+      },
+      {
+        answerText: "C)  x=(2cm) sin (2𝛑t)",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  x=(3cm) - (2cm) sin (2𝛑t)",
+        isCorrect: false,
+      },
+    ],
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 15,
+    type: "Multiple Correct",
+    question:
+      "Two ships are resting on sea surface at distances a and b from the fixed point O respectively. They start moving towards the point O with constant velocities v1 and v2 respectively. If the ships subtend an angle θ at O, find the shortest distance of their separation. (θ=𝛑/2)",
+    topic: "Kinematics",
+    answer: [
+      { answerText: "A)  (av₂ + bv₁)/√(v₁²+v₂²)", isCorrect: false },
+      {
+        answerText: "B)  (av₂ + bv₁)/√(v₁²-v₂²)",
+        isCorrect: false,
+      },
+      {
+        answerText: "C)  (bv₂ + av₁)/√(v₁²+v₂²)",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  (av₂ - bv₁)/√(v₁²+v₂²)",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Hard",
+    image: "",
   },
 ];
