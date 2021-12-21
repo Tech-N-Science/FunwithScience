@@ -86,6 +86,11 @@
   position: absolute;
   display: none;
 }
+.quesimg{
+  width: 200px;
+  height: 200px;
+  margin-right: 50px;
+}
 .numbering{
   border-radius: 50%;
   border: 2px solid black;

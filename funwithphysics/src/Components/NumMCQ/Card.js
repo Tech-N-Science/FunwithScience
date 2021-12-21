@@ -28,7 +28,7 @@ const Singlecard = (props) => {
       </Card.Header>
 
       <Card.Body className="card-body">
-        <div classname="flex-column">
+        <div className="flex-column">
           <Card.Title className="card-title">{props.question}</Card.Title>
           <Card.Text className="card-text">{props.topic}</Card.Text>
         </div>
@@ -39,6 +39,7 @@ const Singlecard = (props) => {
               state: {
                 type: props.type,
                 ques: props.question,
+                img: props.image,
                 ans: props.answer,
               },
             }}

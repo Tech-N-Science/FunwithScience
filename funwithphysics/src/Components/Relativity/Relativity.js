@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import "./Relativity.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Footer from "../Footer/Footer";
 
 export default function Relativity() {
   // topics_data
@@ -65,6 +66,7 @@ export default function Relativity() {
   ];
 
   return (
+   <>
     <div className="mech__main">
       <Helmet>
         <title>Relativity | physics | Tech N Science</title>
@@ -119,5 +121,8 @@ export default function Relativity() {
         ))}
       </div>
     </div>
+     <Footer/>
+   </>
+   
   );
 }

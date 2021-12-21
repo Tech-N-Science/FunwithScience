@@ -22,6 +22,7 @@ footer {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
+  color: white;
 }
 
 .box .content {
@@ -48,9 +49,9 @@ footer {
 }
 .left {
   display: flex;
-  align-content: center;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 .center .icons {
   display: flex;
@@ -128,11 +129,13 @@ footer {
   color: #00d8e5;
 }
 
-.center .center-bottom .about-us span {
+.center-bottom{
+  padding-top: 28px;
+}
+.center1 .center-bottom .about-us span {
   margin-top: 30px;
 }
-
-.center .center-bottom .contact {
+.center1 .center-bottom .contact {
   margin: 15px 0;
 }
 
@@ -151,6 +154,73 @@ footer {
 .left h2 {
   margin-top: 0px;
 }
+
+
+
+.left .content .fas {
+  font-size: 20px;
+  background: white;
+  color: black;
+  height: 40px;
+  width: 40px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 50%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.left .content .fas:hover {
+  background: #00dae5a1;
+  color: white;
+}
+
+.left .content .text {
+  font-size: 17px;
+  font-weight: 500;
+  padding-left: 10px;
+  color: #00D8E5;
+}
+
+.left .content .place span {
+  margin-top: 30px;
+}
+
+
+.center1 .content .fas {
+  font-size: 20px;
+  background: white;
+  color: black;
+  height: 40px;
+  width: 40px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 50%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.center1 .content .fas:hover {
+  background: #00dae5a1;
+  color: white;
+}
+
+.center1 .content .text {
+  font-size: 17px;
+  font-weight: 500;
+  padding-left: 10px;
+  color: #00D8E5;
+}
+
+.center1 .content .place span {
+  margin-top: 30px;
+}
+
+.center1 .content .phone {
+  margin: 15px 0;
+}
+
+
 
 .right .content .fas {
   font-size: 20px;
@@ -260,7 +330,7 @@ footer {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1147px) {
   footer {
     position: relative;
     bottom: 0px;

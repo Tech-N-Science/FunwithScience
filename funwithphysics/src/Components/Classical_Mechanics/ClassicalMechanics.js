@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import "./classicalMechanics.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Footer from "../Footer/Footer";
 
 export default function ClassicalMechanics() {
   //topics_data
@@ -251,6 +252,7 @@ export default function ClassicalMechanics() {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

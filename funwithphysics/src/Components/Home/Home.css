@@ -107,7 +107,7 @@ h2 {
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 987px) {
     .banner_container{
         align-items: center;
     }

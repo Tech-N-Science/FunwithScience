@@ -4,6 +4,7 @@ import Singlecard from "./Card";
 import { useEffect, useState } from "react";
 import { data } from "./data";
 import { Helmet } from "react-helmet";
+import Footer from "../Footer/Footer";
 
 var v = 0;
 const NumMCQ = () => {
@@ -177,6 +178,7 @@ const NumMCQ = () => {
                       key={card.id}
                       id={card.id}
                       difficulty={card.difficulty}
+                      image={card.image}
                     />
                     &nbsp;&nbsp;&nbsp;&nbsp;
                   </div>
@@ -333,11 +335,11 @@ const NumMCQ = () => {
               <span className="checkmark"></span>
             </label>
             <label className="container">
-              Waves
-              <input type="hidden" name="Waves" value="false" />
+              Simple Harmonic
+              <input type="hidden" name="Simple Harmonic" value="false" />
               <input
                 type="checkbox"
-                value="Waves"
+                value="Simple Harmonic"
                 onClick={(e) => handleClick(e)}
               />
               <span className="checkmark"></span>
@@ -410,6 +412,7 @@ const NumMCQ = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </React.Fragment>
   );
 };
