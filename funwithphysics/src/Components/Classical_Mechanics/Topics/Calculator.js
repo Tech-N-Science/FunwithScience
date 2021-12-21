@@ -1038,14 +1038,53 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     const [force, setForce] = useState(null);
     const [distance, setDist] = useState(null);
     const [angle, setAngle] = useState(null);
+      const [showModal, setShowModal] = useState(false);
+  const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      force:force,
+      distance:distance,
+      angle:angle,
+    };
+
+    const insertValues = `${force}${SI["force"]} * ${distance}${SI["distance"]}*sin(${angle})`;
+
 
     const handleClick = () => {
+      if(force!=null && distance!=null && angle!=null)
+    {
       let res = force * distance * Math.sin((angle * Math.PI) / 180);
       setResult(res);
+      setShowSolution(true)
+    }
+   else{
+     setShowModal(true);
+   }
     };
+
+    const resetForm=()=>{
+      setResult(null);
+      setForce(null);
+      setDist(null);
+      setAngle(null);
+      setShowSolution(false);
+    }
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Force (in Newton)</Form.Label>
@@ -1071,6 +1110,18 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               placeholder="Enter angle (sin θ)"
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="force*distance*sinθ"
+                toFind="torque"
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-3" controlId="torque">
             <Form.Label>Torque (T)</Form.Label>
             <Form.Control
@@ -1087,7 +1138,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
