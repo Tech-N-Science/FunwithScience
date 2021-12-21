@@ -197,8 +197,8 @@ const Singlequestion = () => {
         <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">
-            {img && <img src={img} alt="" className="quesimg" />}
             <h4 className="question">{question}</h4>
+            {img && <img src={img} alt="" className="quesimg" />}
             <div className="answer-box">
               <input
                 type="number"
