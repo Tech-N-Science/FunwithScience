@@ -20,4 +20,5 @@ export const SI = {
   distance: "m",
   displacement: "m",
   time: "sec",
+  angle: "°",
 };
