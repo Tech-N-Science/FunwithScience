@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import "./Electromagnetism.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Footer from "../Footer/Footer";
 
 export default function Electromagnetism() {
   //topics_data
@@ -206,6 +207,7 @@ export default function Electromagnetism() {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
