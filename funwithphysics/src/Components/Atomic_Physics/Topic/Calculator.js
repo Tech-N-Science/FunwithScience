@@ -21,23 +21,23 @@ function Calculator({ match }) {
     },
     {
       topic: "Einstein's photoelectric equation",
-      formula: "E=φ+KEmax",
+      formula: "E=φ+KEₘₐₓ",
       siunit: "Electron-volt: eV",
       details:
         "Einstein's photoelectric equation is used to obtain the energy of photon using the photon picture of electromagnetic radiation. A photon of energy hv is absorbed by the electron of the metal surface, then the energy is used to liberate the electron from the surface and rest of the energy becomes the kinetic energy of the electron.",
       process:
-        "So The Energy(E) of a photon can be obtained by using the work function(φ) and the maximum kinetic energy of the ejected electrons from the metal surface. Where E is the incident energy of photons with the formula E=hv and h represents the Planck constant, v represents the frequency of incident radiation, φ is the work function of metal and KEmax is the maximum kinetic energy of electrons.",
-      dimension: "M1L2T-2",
+        "So The Energy(E) of a photon can be obtained by using the work function(φ) and the maximum kinetic energy of the ejected electrons from the metal surface. Where E is the incident energy of photons with the formula E=hv and h represents the Planck constant, v represents the frequency of incident radiation, 'φ' is the work function of metal and 'KEₘₐₓ' is the maximum kinetic energy of electrons.",
+      dimension: "ML²T⁻²",
     },
     {
       topic: "Angular momentum",
       formula: "mvr=nh/2π",
-      siunit: "kg m2/s",
+      siunit: "kg m²/s",
       details:
         "The Bohr's atomic model says that the angular momentum of electrons in different orbits around the nucleus is quantized.He also stated that the electrons move only in those orbits where the angular momentum of an electron is an integral multiple of h/2.",
       process:
-        "The angular momentum of an electron can be calculated by using mvr or nh/2π (where v is the velocity, n is the orbit in which electron is, m is mass of the electron, and r is the radius of the nth orbit). h is the planck's constant with the value 6.62607004 × 10-34 and pi which is approximately equal to 3.14159.",
-      dimension: "ML2T-1",
+        "The angular momentum of an electron can be calculated by using mvr or nh/2π (where v is the velocity, n is the orbit in which electron is, m is mass of the electron, and r is the radius of the nth orbit). h is the planck's constant with the value 6.62607004 × 10⁻³⁴ and pi which is approximately equal to 3.14159.",
+      dimension: "ML²T⁻¹",
     },
   ];
 
@@ -87,7 +87,7 @@ function Calculator({ match }) {
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Label>Rydberg constant(R)</Form.Label>
-            <Form.Control readOnly placeholder="1.097 × 10^7 / m (or m⁻¹)" />
+            <Form.Control readOnly placeholder="1.097 × 10⁷ / m (or m⁻¹)" />
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Control
@@ -140,7 +140,7 @@ function Calculator({ match }) {
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Kinetic Energy Max (KEmax)</Form.Label>
+            <Form.Label>Kinetic Energy Max (KEₘₐₓ)</Form.Label>
             <Form.Control
               onChange={(e) => setKEmax(e.target.value)}
               type="number"
@@ -278,7 +278,7 @@ function Calculator({ match }) {
             <Form.Control
               onChange={(e) => choiceData().setters[0](e.target.value)}
               type="number"
-              placeholder={"Enter in " + choiceData().subunits[0]}
+              placeholder={"Enter orbit number "}
               value={
                 choiceData().getters[0] === null ? "" : choiceData().getters[0]
               }
@@ -304,7 +304,7 @@ function Calculator({ match }) {
 
           <Form.Group hidden={choiceData().hidden} className="mb-4">
             <Form.Label>Planck's constant(h)</Form.Label>
-            <Form.Control readOnly placeholder={h} />
+            <Form.Control readOnly placeholder="6.62607004 × 10⁻³⁴ m² kg / s" />
           </Form.Group>
 
           <Form.Group className="mb-4">
@@ -314,7 +314,7 @@ function Calculator({ match }) {
 
           <Form.Group className="mb-4">
             <Form.Label>Mass(m)</Form.Label>
-            <Form.Control readOnly placeholder={m} />
+            <Form.Control readOnly placeholder="9.10938356 x 10⁻³¹ kg" />
           </Form.Group>
         </Form>
 

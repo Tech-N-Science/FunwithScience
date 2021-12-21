@@ -56,8 +56,8 @@ function MathsTopic() {
               image={algebra}
             >
               <p>
-                Algebra is a discipline of mathematics that deals with symbols
-                and the rules that govern their manipulation.
+                Algebra is a mathematical science that deals with symbols and
+                the rules that govern their manipulation.
               </p>
               <p id="credit">
                 Photo by{" "}
@@ -77,8 +77,8 @@ function MathsTopic() {
               image={trigonometry}
             >
               <p>
-                Trigonometry is a field of mathematics that focus on the
-                relationship between triangle side lengths and angles.{" "}
+                Trigonometry is a branch of mathematics concerned with the
+                relationship of triangle side lengths and angles.{" "}
               </p>
               <p id="credit">
                 Image by{" "}
@@ -98,8 +98,8 @@ function MathsTopic() {
               image={geometry}
             >
               <p>
-                Geometry is a discipline of mathematics that explores how things
-                are measured in terms of their sizes, forms, angles, and
+                Geometry is a branch of mathematics that studies how objects are
+                measured in terms of their sizes, shapes, angles, and
                 dimensions.
               </p>
               <p id="credit">
@@ -124,9 +124,9 @@ function MathsTopic() {
               image={integration}
             >
               <p>
-                Integration is a way of finding the whole by summing the
-                parts.Differentiation is a technique for determining a
-                function's derivative.
+                Integration is a method of determining the whole by adding the
+                parts. Differentiation is a method for calculating the
+                derivative of a function.
               </p>
               <p id="credit">
                 Photo by{" "}
