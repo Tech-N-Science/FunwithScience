@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import "./NuclearPhysics.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Footer from "../Footer/Footer";
 
 export default function NuclearPhysics() {
   // topics_data
@@ -97,7 +98,8 @@ export default function NuclearPhysics() {
   ];
 
   return (
-    <div className="mech__main">
+    <>
+      <div className="mech__main">
       <Helmet>
         <title>Nuclear | physics | Tech N Science</title>
         <meta name="description" content="Explore the Relativity calculator" />
@@ -151,5 +153,7 @@ export default function NuclearPhysics() {
         ))}
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }

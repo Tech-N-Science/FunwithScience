@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import "./Photonics.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Footer from "../Footer/Footer";
 
 export default function Photonics() {
   // topics_data
@@ -20,7 +21,8 @@ export default function Photonics() {
   ];
 
   return (
-    <div className="mech__main">
+    <>
+        <div className="mech__main">
       <Helmet>
         <title>Atomic | physics | Tech N Science</title>
         <meta
@@ -77,5 +79,8 @@ export default function Photonics() {
         ))}
       </div>
     </div>
+    <Footer/>
+    </>
+  
   );
 }

@@ -4,6 +4,7 @@ import Singlecard from "./Card";
 import { useEffect, useState } from "react";
 import { data } from "./data";
 import { Helmet } from "react-helmet";
+import Footer from "../Footer/Footer";
 
 var v = 0;
 const NumMCQ = () => {
@@ -411,6 +412,7 @@ const NumMCQ = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </React.Fragment>
   );
 };
