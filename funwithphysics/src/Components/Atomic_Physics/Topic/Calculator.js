@@ -30,7 +30,7 @@ function Calculator({ match }) {
       dimension: "M1L2T-2",
     },
     {
-      topic: "Angular momentum,Velocity,Radius of electron",
+      topic: "Angular momentum",
       formula: "mvr=nh/2π",
       siunit: "kg m2/s",
       details:
@@ -350,7 +350,7 @@ function Calculator({ match }) {
       case "Einstein's photoelectric equation":
         currentCall = PhotoElectricCalci();
         break;
-      case "Angular momentum,Velocity,Radius of electron":
+      case "Angular momentum":
         currentCall = AngularMomentumCalci();
         break;
       default:

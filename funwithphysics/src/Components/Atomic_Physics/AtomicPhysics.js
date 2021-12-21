@@ -28,7 +28,7 @@ export default function AtomicPhysics() {
       dimension: "M1L2T-2",
     },
     {
-      topic: "Angular momentum,Velocity,Radius of electron",
+      topic: "Angular momentum",
       formula: "mvr=nh/2π",
       siunit: "kg m2/s",
       details:
