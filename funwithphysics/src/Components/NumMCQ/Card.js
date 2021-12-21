@@ -28,7 +28,6 @@ const Singlecard = (props) => {
       </Card.Header>
 
       <Card.Body className="card-body">
-        {props.image && <img src={props.image} alt="" className="quesimg"/>}
         <div className="flex-column">
           <Card.Title className="card-title">{props.question}</Card.Title>
           <Card.Text className="card-text">{props.topic}</Card.Text>
