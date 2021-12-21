@@ -366,4 +366,97 @@ export const data = [
     difficulty: "Medium",
     image: "",
   },
+  {
+    id: 19,
+    type: "Multiple Correct",
+    question:
+      "A ship 'A' is travelling due east at 10km/hr and at 9 am is 30km south-west of another ship 'B'. If 'B' travels at 15km/hr so as to intercept 'A' then which are correct:",
+    topic: "Kinematics",
+    answer: [
+      {
+        answerText: "A)  Direction of B is 28°",
+        isCorrect: true,
+      },
+      {
+        answerText: "B)  Direction of B is 56°",
+        isCorrect: false,
+      },
+      {
+        answerText: "C)  time of interception is 1.48 hr.",
+        isCorrect: true,
+      },
+      {
+        answerText: "D)  time of interception is 2.48 hr.",
+        isCorrect: false,
+      },
+    ],
+    difficulty: "Medium",
+    image: "",
+  },
+  {
+    id: 20,
+    type: "Numerical",
+    question:
+      "A motorboat going downstream overcame a raft at point O. After an hour it turned back and met the raft again at a distance 6km from O. Find river velocity in terms of km/hr.",
+    topic: "Kinematics",
+    answer: 3,
+    difficulty: "Medium",
+    image: "",
+  },
+  {
+    id: 21,
+    type: "Multiple Correct",
+    question:
+      "A river 400m wide is flowing at a rate of 2m/s. A boat is sailing at a velocity of 10m/s with respect to water, in a direction perpendicular to the river. Which of the following are correct.",
+    topic: "Kinematics",
+    answer: [
+      {
+        answerText: "A)  time = 30s",
+        isCorrect: false,
+      },
+      {
+        answerText:
+          "B)  Distance between the point directly opposite to the starting point and the point reached by the boat on the opposite bank is 80m",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "C)  Distance between the point directly opposite to the starting point and the point reached by the boat on the opposite bank is 60m",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  time = 40s",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Medium",
+    image: "",
+  },
+  {
+    id: 22,
+    type: "Multiple Correct",
+    question:
+      "A man standing on a road has to hold his umbrella at 30° with the vertical to keep the rain away. He throws the umbrella and starts running at 10km/hr. He finds that raindrops are hitting his head vertically. Which are correct:",
+    topic: "Kinematics",
+    answer: [
+      {
+        answerText: "A)  V₍ᵣ,g₎ = 10√3 km/hr",
+        isCorrect: false,
+      },
+      {
+        answerText: "B)  V₍ᵣ,m₎ = 10√3 km/hr",
+        isCorrect: true,
+      },
+      {
+        answerText: "C)  V₍ᵣ,g₎ = 20 km/hr",
+        isCorrect: true,
+      },
+      {
+        answerText: "D)  V₍ᵣ,m₎ = 40 km/hr",
+        isCorrect: false,
+      },
+    ],
+    difficulty: "Medium",
+    image: "",
+  },
 ];
