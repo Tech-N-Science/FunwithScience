@@ -1,4 +1,5 @@
-import i from "../../Images/id-10.webp";
+import i from "../../Images/Questions/id-10.webp";
+import i1 from "../../Images/Questions/id-14.webp";
 export const data = [
   {
     id: 1,
@@ -247,27 +248,13 @@ export const data = [
   },
   {
     id: 14,
-    type: "Multiple Correct",
+    type: "Numerical",
     question:
-      "Two particles A and B are performing SHM along x and y-axis respectively with equal amplitude and frequency of 2cm and 1Hz respectively. Equilibrium positions of the particless A and B are at the co-ordinates (3cm,0) and (0,4cm) respectively. At t=0, B is at its eqiulibrium position and moving towards the origin, while A is nearest to the origin and moving away from origin. Equation of motion of particle A :",
-    topic: "Simple Harmonic",
-    answer: [
-      { answerText: "A)  x=(2cm) cos (2𝛑t)", isCorrect: false },
-      {
-        answerText: "B)  x=(3cm) - (2cm) cos (2𝛑t)",
-        isCorrect: true,
-      },
-      {
-        answerText: "C)  x=(2cm) sin (2𝛑t)",
-        isCorrect: false,
-      },
-      {
-        answerText: "D)  x=(3cm) - (2cm) sin (2𝛑t)",
-        isCorrect: false,
-      },
-    ],
+      "Two particles are simultaneously thrown from the roofs of two high buildings as shown. Their velocities are vₐ = 2m/s and v₀=14m/s respectively. Calculate the minimum distance between the particles in the process of their motion. ",
+    topic: "Kinematics",
+    answer: 6,
     difficulty: "Hard",
-    image: "",
+    image: i1,
   },
   {
     id: 15,
@@ -291,6 +278,92 @@ export const data = [
       },
     ],
     difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 16,
+    type: "Multiple Correct",
+    question:
+      "A balloon starts rising from the surface of Earth. the ascending rate is constant and equal to v₀. Due to the wind the ballon gathers the horizontal velocitycomponent vₓ=ay, where 'a' is a constant and 'y' is height of ascent. Which of the following are correct depending on the height of ascent:",
+    topic: "Kinematics",
+    answer: [
+      {
+        answerText: "A)  horizontal drift of ballon x(y): x = (a/2v₀)y²",
+        isCorrect: true,
+      },
+      {
+        answerText: "B)  total acceleration of ballon = av₀",
+        isCorrect: true,
+      },
+      {
+        answerText: "C)  tangential acceleration = a²v₀/√(v₀²+a²y²)",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  normal acceleration = av₀²/√(v₀²+a²y²)",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 17,
+    type: "Multiple Correct",
+    question:
+      "If velocity of the particle is given by v=√x, where x denotes the position of the particle and initial particle was at x=4, then which of the following are incorrect:",
+    topic: "Kinematics",
+    answer: [
+      {
+        answerText: "A)  at t=2sec, the position of the particle is at x=9",
+        isCorrect: false,
+      },
+      {
+        answerText: "B)  particle acceleration at t=2sec, is 1m/s²",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "C)  particle acceleration is 0.5m/s² throughout the motion",
+        isCorrect: false,
+      },
+      {
+        answerText:
+          "D)  Particle will at some point go in negative direction from it's starting position.",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 18,
+    type: "Multiple Correct",
+    question: "Which of the following are correct:",
+    topic: "Kinematics",
+    answer: [
+      {
+        answerText:
+          "A)  Average spped of particle in a given time is never less than the magnitude of average velocity",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "B)  It is possible to have a situation in which |dv/dt| ≠ 0 but d|v|/dt = 0",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "C)  the average velocity of a particle is zero in a time interval. It is possible that the instantaneous velocity is never zero in the interval.",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "D)  Average velocity of a particle moving in a straight line is zero in a time interval. It is possible that the instantaneous velocity is never zero in the interval. (infinite acceleration are not allowed)",
+        isCorrect: false,
+      },
+    ],
+    difficulty: "Medium",
     image: "",
   },
 ];
