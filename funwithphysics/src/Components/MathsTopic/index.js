@@ -6,6 +6,7 @@ import geometry from "../../Images/geometry.webp";
 import integration from "../../Images/integration.jpg";
 import "./styles.css";
 import { Helmet } from "react-helmet";
+import Footer from "../Footer/Footer";
 
 function MathsTopicItem(props) {
   return (
@@ -146,6 +147,7 @@ function MathsTopic() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

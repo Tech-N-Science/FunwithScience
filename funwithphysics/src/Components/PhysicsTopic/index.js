@@ -10,6 +10,7 @@ import photonics from "../../Images/photonics.webp"
 import statistical from "../../Images/statistical.webp";
 import './styles.css';
 import {Helmet} from "react-helmet";
+import Footer from '../Footer/Footer';
 
 function PhysicsTopicItem(props) {
 	return (
@@ -80,6 +81,7 @@ function PhysicsTopic() {
 					</div>
 				</div>
 			</div>
+			<Footer/>
         </div>
     )
 }
