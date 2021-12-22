@@ -1,5 +1,9 @@
 import i from "../../Images/Questions/id-10.webp";
 import i1 from "../../Images/Questions/id-14.webp";
+import i2 from "../../Images/Questions/id-24.webp";
+import i3 from "../../Images/Questions/id-25.webp";
+import i4 from "../../Images/Questions/id-26.webp";
+import i5 from "../../Images/Questions/id-29.webp";
 export const data = [
   {
     id: 1,
@@ -457,6 +461,204 @@ export const data = [
       },
     ],
     difficulty: "Medium",
+    image: "",
+  },
+  {
+    id: 23,
+    type: "Multiple Correct",
+    question:
+      "If the tension in the cable supporting an elevator is equal to the weight of the elevator, the elevator may be:",
+    topic: "Laws of Motion",
+    answer: [
+      {
+        answerText: "A)  going up with increasing speed",
+        isCorrect: false,
+      },
+      {
+        answerText: "B)  going down with increasing speed",
+        isCorrect: false,
+      },
+      {
+        answerText: "C)  going up with uniform speed",
+        isCorrect: true,
+      },
+      {
+        answerText: "D)  going down with uniform speed",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 24,
+    type: "Multiple Correct",
+    question:
+      "In the pulley system, the movable pulleys A,B and C are of mass 1kg each. D and E fixed pulleys. The strings are light and inextensible. Which are correct:",
+    topic: "Laws of Motion",
+    answer: [
+      {
+        answerText: "A)  Tension in the string is 6.5N",
+        isCorrect: true,
+      },
+      {
+        answerText: "B)  acceleration of pulley A is g/3 downward",
+        isCorrect: true,
+      },
+      {
+        answerText: "C)  acceleration of pulley B is g/6 upward",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  acceleration of pulley C is g/3 upward",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Medium",
+    image: i2,
+  },
+  {
+    id: 25,
+    type: "Multiple Correct",
+    question:
+      "In the pulley system, all pulleys are smooth and massless. When the system is released from rest, accelerations of blocks 2 and 3 relative to 1 are 1m/s² downwards and 5m/s² downwards. Acceleration of block 3 relative to 4 is zero. Which absolute acceleration of blocks is/are correct:",
+    topic: "Laws of Motion",
+    answer: [
+      {
+        answerText: "A)  acceleration of block 1 is 2m/s² upward",
+        isCorrect: true,
+      },
+      {
+        answerText: "B)  acceleration of block 2 is 1m/s² downward",
+        isCorrect: false,
+      },
+      {
+        answerText: "C)  acceleration of block 3 is 3m/s² upward",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  acceleration of block 4 is 3m/s² downward",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Hard",
+    image: i3,
+  },
+  {
+    id: 26,
+    type: "Multiple Correct",
+    question:
+      "In the fig. assume that there is no friction between block B and the surface on which it moves and the coefficient of friction between blocks A and B is μ. Which is/are correct.",
+    topic: "Laws of Motion",
+    answer: [
+      {
+        answerText:
+          "A)  Minimum value of M so that block A starts sliding over B is [5μ/(4+μ)] m ",
+        isCorrect: false,
+      },
+      {
+        answerText:
+          "B)  Minimum value of M so that block A starts sliding over B is [5μ/(4-μ)] m ",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "C)  If the obtained value of M is made two times, then the time when A topples from B is √[28(9μ²+4)l/(20μg-5μ²g)]",
+        isCorrect: false,
+      },
+      {
+        answerText:
+          "D)  If the obtained value of M is made two times, then the time when A topples from B is √[28(9μ+4)l/(20μg-5μ²g)]",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Hard",
+    image: i4,
+  },
+  {
+    id: 27,
+    type: "Numerical",
+    question:
+      "A pendulum of mass 50g is suspended from the ceiling of an elevator. Find the tension in the string if the elevator goesz down with acceleration 1.2m/s²",
+    topic: "Laws of Motion",
+    answer: 0.43,
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 28,
+    type: "Multiple Correct",
+    question:
+      "A monkey of mass 15kg is climbing on a rope with one end fixed to the ceiling. If it wishes to go up with an acceleration of 1m/s², then choose the incorrect option(s):",
+    topic: "Laws of Motion",
+    answer: [
+      {
+        answerText: "A)   Force applied by the monkey on the rope is 165N",
+        isCorrect: false,
+      },
+      {
+        answerText: "B)  Force applied by the monkey on the rope is 155N ",
+        isCorrect: true,
+      },
+      {
+        answerText: "C)  Time taken to reach the ceiling is √10s",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  Time taken to reach the ceiling is √5s",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Medium",
+    image: "",
+  },
+  {
+    id: 29,
+    type: "Numerical",
+    question:
+      "A wedge of mass M = 4kg with a smooth quarter circular plane is kept on a rough horizontal plane. A particle of mass m = 2kg is released from restfrom the top of the wedge as shown. Find the minimumvalue of coefficient of friction between the wedge and horizontal plane so that the wedge does not move during complete journey of the particle:",
+    topic: "Laws of Motion",
+    answer: 0.47,
+    difficulty: "Medium",
+    image: i5,
+  },
+  {
+    id: 30,
+    type: "Numerical",
+    question:
+      "Two blocks of mass m1 = 10kg and m2 = 5kg connected to each other by a massless inextensible string of length 0.3m are placed along a diameter of turn table. The coefficient of friction between the table and m1 is 0.5 while there is no friction between m2 and the table. The table is rotating with an angular velocity of 10rad/s about a vertical axis passing through its center O. The masses are placed along the diameter of the table on either side of the center O such that the mass m1 is placed at a distance of 0.124m from O. The masses are observed to be at rest with respect to an observer on the turn table. (g=9.8m/s²). Find the frictional force on m1.",
+    topic: "Laws of Motion",
+    answer: 36,
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 31,
+    type: "Numerical",
+    question:
+      "A car travelling at 28m/s has no tendency to slip on a truck of radius 200m banked at an angle θ. When the speed is increased to 35m/s, the car is just on the point of slipping up the track. Calculate the coefficient of friction between the car and the track.(g=9.8m/s²)",
+    topic: "Laws of Motion",
+    answer: 0.18,
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 32,
+    type: "Numerical",
+    question:
+      "Two blocks of mass m1 = 10kg and m2 = 5kg connected to each other by a massless inextensible string of length 0.3m are placed along a diameter of turn table. The coefficient of friction between the table and m1 is 0.5 while there is no friction between m2 and the table. The table is rotating with an angular velocity of 10rad/s about a vertical axis passing through its center O. The masses are placed along the diameter of the table on either side of the center O such that the mass m1 is placed at a distance of 0.124m from O. The masses are observed to be at rest with respect to an observer on the turn table. (g=9.8m/s²). What should be the minimum angular speed of the turn table so that the masses will slip from this position?",
+    topic: "Rotational Mechanics",
+    answer: 11.67,
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 33,
+    type: "Numerical",
+    question: "",
+    topic: "Work,Power,Energy",
+    answer: "",
+    difficulty: "Hard",
     image: "",
   },
 ];

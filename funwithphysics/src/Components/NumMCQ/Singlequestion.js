@@ -96,6 +96,9 @@ const Singlequestion = () => {
         <div className="singlequestion">
           <div className="maincontent">
             <h4 className="question">{question}</h4>
+            {img && <img src={img} alt="" className="quesimg" />}
+            <br />
+            <br />
             <Helmet>
               <title>{question}</title>
               <meta name="description" content="{question}" />
