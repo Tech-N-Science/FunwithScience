@@ -1,0 +1,119 @@
+.Calculator__main {
+  margin: auto;
+  padding: 3em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "header header"
+    "details formula"
+    "details process"
+    "calc calc";
+  column-gap: 3em;
+  row-gap: 1.5em;
+  max-width: 100%;
+}
+.K_energy {
+  background-color: white !important;
+}
+
+.Calculator__header {
+  grid-area: header;
+  align-self: center;
+  text-align: center;
+  font-size: 1.8em;
+  color: #e84545;
+  font-weight: 900;
+}
+
+.Calculator__details {
+  grid-area: details;
+  align-self: center;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  justify-self: center;
+  word-wrap: break-word;
+  width: 30em;
+}
+
+.Calculator__formula {
+  grid-area: formula;
+  font-family: cursive;
+}
+
+.Calculator__calc {
+  grid-area: calc;
+}
+
+.Calculator__calc hr {
+  width: auto;
+  border: 1px dashed red;
+}
+
+.Calculator__calc h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #e84545;
+  text-align: center;
+}
+
+.Calculator__process {
+  grid-area: process;
+  word-wrap: break-word;
+  width: 37.5em;
+  font-size: 1.2rem;
+  padding-right: 2vh;
+}
+
+@media only screen and (max-width: 992px) {
+  .Calculator__main {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header header" "details details" "formula formula " "process process " "calc calc";
+    row-gap: 3em;
+  }
+
+  .Calculator__header,
+  .Calculator__details,
+  .Calculator__formula,
+  .Calculator__calc h3,
+  .Calculator__process {
+    text-align: center;
+    max-width: 100%;
+  }
+  .Calculator__formula h3 {
+    margin-left: -20px;
+  }
+}
+
+@media only screen and (max-width: 668px) {
+  .Calculator__header,
+  .Calculator__details,
+  .Calculator__formula,
+  .Calculator__calc h3,
+  .Calculator__process {
+    max-width: 100%;
+  }
+  .Calculator__main {
+    padding: 1.5rem;
+  }
+  .Calculator__calc hr {
+    max-width: 100%;
+  }
+  .Calculator__details,
+  .Calculator__process p {
+    text-align: justify;
+  }
+  .Calculator__process {
+    padding: 1rem;
+  }
+  input {
+    width: 100%;
+  }
+  .Calculator__calc hr {
+    width: 100%;
+    margin: 0px auto 0px auto;
+  }
+  .Calculator__calc form {
+    padding: 1rem;
+  }
+}

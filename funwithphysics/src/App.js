@@ -38,6 +38,8 @@ import CalcNuclear from "./Components/Nuclear_Physics/Topic/Calculator";
 import Photonics from "./Components/Photonics/Photonics";
 import CalcPhotonics from "./Components/Photonics/Topic/Calculator";
 import Contact from "./Components/Contact/Contact";
+import Algebra from "./Components/Algebra/algebra";
+import Calpermutation from "./Components/Algebra/Topic/Calculator";
 const Home = lazy(() => {
   return Promise.all([
     import("./Components/Home/Home"),
@@ -116,6 +118,11 @@ const App = () => {
             <Navbar />
             <MathsTopic />
           </Route>
+          <Route exact path="/algebra">
+            <Navbar />
+            <Algebra />
+          </Route>
+
           <Route exact path="/Signup" component={Signup}></Route>
           <Route exact path="/Login">
             <Navbar />
@@ -129,6 +136,11 @@ const App = () => {
             {/* <Navbar/> */}
             {/* <CalcClassic/> */}
           </Route>
+          <Route
+            exact
+            path="/algebra/calc/:topic"
+            component={Calpermutation}
+          ></Route>
           <Route
             exact
             path="/thermodynamics/calc/:topic"

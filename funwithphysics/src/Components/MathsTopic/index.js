@@ -52,7 +52,7 @@ function MathsTopic() {
           <div className="row">
             <MathsTopicItem
               name="Algebra"
-              link="/"
+              link="/algebra"
               icon="icon-shop"
               image={algebra}
             >
@@ -147,7 +147,7 @@ function MathsTopic() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
