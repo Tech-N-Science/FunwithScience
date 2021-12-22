@@ -13,8 +13,6 @@ function Calculator({ match }) {
       formula: 'P = n!/(n-r)!',
       process:
         'To find the permutation, first we need to find the value of n factorial and n - r factorial, then we need to devide them.',
-      siunit: 'Unitless',
-      dimension: 'dimmensionless',
     },
     {
       topic: 'Combination',
@@ -22,8 +20,6 @@ function Calculator({ match }) {
       formula: 'C = n!/r!(n-r)!',
       process:
         'To calculate combinations, we will use the formula nCr = n! / r! * (n - r)!, where n represents the number of items, and r represents the number of items being chosen at a time.',
-      siunit: 'Unitless',
-      dimension: 'dimmensionless',
     },
   ];
 
