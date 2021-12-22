@@ -155,9 +155,7 @@ const NumMCQ = () => {
                   typ &&
                   searchTerm.includes(value.type.toLowerCase())
                 ) {
-                  {
                     return value;
-                  }
                 } else if (searchTerm.includes(value.topic.toLowerCase())) {
                   return value;
                 } else if (

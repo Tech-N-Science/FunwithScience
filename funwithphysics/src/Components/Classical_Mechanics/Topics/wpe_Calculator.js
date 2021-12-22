@@ -4,7 +4,6 @@ import { Form, Button, Col, Row,Modal } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
 import Solution from "../../Solution/Solution";
-import {constant} from '../../Solution/allConstants'
 import {SI} from '../../Solution/allSIUnits'
 import Navbar from "../../Navbar/Navbar";
 

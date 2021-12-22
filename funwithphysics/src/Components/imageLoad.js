@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ProgressiveImage from 'react-progressive-image';
 
 function ImageLoad({className, main, placeholder, alt}) {

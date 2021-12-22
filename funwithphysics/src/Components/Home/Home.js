@@ -20,7 +20,7 @@ const Home = () => {
         });
       }
     }, 4000);
-  }, []);
+  }, [dispatch]);
   const bookReaderStyle = {
     color:'black', margin:'0', paddingRight:'9px'
   };
