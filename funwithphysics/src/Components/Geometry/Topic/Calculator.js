@@ -23,8 +23,6 @@ function Calculator({ match }) {
 
   //Mass Energy Relation calculator
   const StraightLine = () => {
-    const [n, setn] = useState(null);
-    const [r, setr] = useState(null);
     const [x1, setX1] = useState("");
     const [x2, setX2] = useState(null);
     const [y1, setY1] = useState(null);
@@ -35,7 +33,7 @@ function Calculator({ match }) {
       setX2("");
       setY1("");
       setY2("");
-      setr(null);
+
       setResult(null);
     };
 
