@@ -124,7 +124,9 @@
 .formulae tr:nth-child(even) {
   background: lightblue;
 }
-
+.formulae section h3 {
+  white-space: nowrap;
+}
 @media only screen and (max-width: 992px) {
   .Calculator__main {
     grid-template-columns: 1fr;
