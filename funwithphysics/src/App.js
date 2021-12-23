@@ -1,6 +1,8 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
 import reducer, { initialstate } from "./reducer";
+import FPassword from "./Components/Forgot_Password/fpassword" 
+import RPassword from "./Components/Forgot_Password/resetpassword" 
 import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Loginpage/Login";
@@ -102,6 +104,10 @@ const App = () => {
               <Contact />
             </Suspense>
           </Route>
+          <Route exact path="/fpass">
+            <Navbar />
+            <FPassword/>
+          </Route>
           <Route exact path="/classicalmechanics">
             <Navbar />
             <ClassicalMechanics />
@@ -124,6 +130,10 @@ const App = () => {
           </Route>
 
           <Route exact path="/Signup" component={Signup}></Route>
+          <Route exact path="/resetpassword">
+            <Navbar />
+            <RPassword />
+          </Route>
           <Route exact path="/Login">
             <Navbar />
             <Login />

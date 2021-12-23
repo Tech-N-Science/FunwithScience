@@ -101,6 +101,7 @@ function Login() {
                 }}
               />
               <label className="remem">Remember me</label>
+              <p><a href="/fpass">Forgot Password?</a></p>
             </div>
             <button
               type="submit"
