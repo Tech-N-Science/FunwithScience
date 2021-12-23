@@ -41,7 +41,9 @@ import Photonics from "./Components/Photonics/Photonics";
 import CalcPhotonics from "./Components/Photonics/Topic/Calculator";
 import Contact from "./Components/Contact/Contact";
 import Algebra from "./Components/Algebra/algebra";
+import Geometry from "./Components/Geometry/geometry";
 import Calpermutation from "./Components/Algebra/Topic/Calculator";
+import Calstraightline from "./Components/Geometry/Topic/Calculator";
 const Home = lazy(() => {
   return Promise.all([
     import("./Components/Home/Home"),
@@ -128,6 +130,10 @@ const App = () => {
             <Navbar />
             <Algebra />
           </Route>
+          <Route exact path="/geometry">
+            <Navbar />
+            <Geometry />
+          </Route>
 
           <Route exact path="/Signup" component={Signup}></Route>
           <Route exact path="/resetpassword">
@@ -150,6 +156,11 @@ const App = () => {
             exact
             path="/algebra/calc/:topic"
             component={Calpermutation}
+          ></Route>
+          <Route
+            exact
+            path="/geometry/calc/:topic"
+            component={Calstraightline}
           ></Route>
           <Route
             exact
