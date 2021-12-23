@@ -11,7 +11,7 @@ function Calculator({ match }) {
   const Topics = [
     {
       topic: "Straight Line",
-      details: `A straight line is an endless one-dimensional figure that has no width. It is a combination of endless points joined on both sides of a point`,
+      details: `A straight line is an infinitely long line with no bends. A straight line can also be constructed between two locations, but both ends stretch to infinity. It might be horizontal, vertical, or inclined. If we draw an angle between any two locations on a straight line, we will always get a 180-degree angle.`,
       formula:
         "Two point form: (y2 - y1)x + (x1 - x2)y - (x1 * y2) + (x2 * y1) = 0 ",
       process: [

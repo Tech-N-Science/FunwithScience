@@ -21,7 +21,10 @@ export default function Algebra() {
         <Helmet>
           <title>Geometry | Math | Tech N Science</title>
           <meta name="description" content="Explore the Algebra calculator" />
-          <meta name="keywords" content="Algebra" />
+          <meta
+            name="keywords"
+            content="Algebra, Geometry, straightlines, Straight Lines, Pair of Straight Lines"
+          />
         </Helmet>
         <div className="mech__header">
           <h1>Geometry-Topics</h1>
