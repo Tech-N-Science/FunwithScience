@@ -4,6 +4,7 @@ import i2 from "../../Images/Questions/id-24.webp";
 import i3 from "../../Images/Questions/id-25.webp";
 import i4 from "../../Images/Questions/id-26.webp";
 import i5 from "../../Images/Questions/id-29.webp";
+import i6 from "../../Images/Questions/id-38.webp";
 export const data = [
   {
     id: 1,
@@ -654,10 +655,192 @@ export const data = [
   },
   {
     id: 33,
-    type: "Numerical",
-    question: "",
+    type: "Multiple Correct",
+    question:
+      "A particle of mass m is projected with velocity u at an angle α with horizontal. During the period when the particle descends from highest point to the position where its velocity vector makes an angle α/2 with horizontal. Work done by gravity force is :",
     topic: "Work,Power,Energy",
-    answer: "",
+    answer: [
+      {
+        answerText: "A)   1/2mu²tan²α",
+        isCorrect: false,
+      },
+      {
+        answerText: "B)  1/2mu²tan²(α/2)",
+        isCorrect: false,
+      },
+      {
+        answerText: "C)  1/2mu² cos²α tan²(α/2)",
+        isCorrect: true,
+      },
+      {
+        answerText: "D)  1/2mu² cos²(α/2) sin²α",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Medium",
+    image: "",
+  },
+  {
+    id: 34,
+    type: "Multiple Correct",
+    question:
+      "A river is flowing with a velocity vᵣ = 4i m/s. A boat is moving with a velocity of vbᵣ = (-2i + 4j)m/s relative to the river. The width of the river is 100m along y-direction. Choose the correct alternative(s)",
+    topic: "Kinematics",
+    answer: [
+      {
+        answerText: "A)   The boatman will cross the river in 25s",
+        isCorrect: true,
+      },
+      {
+        answerText: "B)  Absolute velocity of boatman is 2√5 m/s",
+        isCorrect: true,
+      },
+      {
+        answerText: "C)  The boatman can never cross the river",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  Drift of the boatman along the river current is 50m",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 35,
+    type: "Multiple Correct",
+    question:
+      "A particle of mass m moves along a circle of radius R with a normal acceleration varying with time as wₙ = at², where 'a' is a constant. Find the time dependence of the power developed by all the forces acting on the particle.",
+    topic: "Work,Power,Energy",
+    answer: [
+      {
+        answerText: "A)   mRa",
+        isCorrect: false,
+      },
+      {
+        answerText: "B)  mRat",
+        isCorrect: true,
+      },
+      {
+        answerText: "C)  atm",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  mRt",
+        isCorrect: false,
+      },
+    ],
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 36,
+    type: "Numerical",
+    question:
+      "The potential energy (in Si unit) of a particle of mass 2kg in a conservative field is U = 6x-8y. If the initial velocity of the particle is u= -1.5i +2j then find the total distance travelled by the particle in first two seconds.",
+    topic: "Work,Power,Energy",
+    answer: 15,
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 37,
+    type: "Numerical",
+    question:
+      "Power delivered to a body varies as P=3t². Find out the change in kinetic energy of the body from t=2 to t=4 sec.",
+    topic: "Work,Power,Energy",
+    answer: 56,
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 38,
+    type: "Numerical",
+    question:
+      "A horizontal plane supports a plank with a bar of mass m =1kg placed on it and attached by a light elastic non-deformed cord of length l₀=40cm to a point O. The coefficient of friction between the bar and plank equals 0.2. The plank is slowly shifted to the right until the bar starts sliding over it. It occurs at the moment when the cord deviates from the vertical by an angle θ=30⁰. Find the work that has been performed by that moment by the friction force acting on the bar in the reference frame fixed to the plane.",
+    topic: "Work,Power,Energy",
+    answer: 0.092,
+    difficulty: "Hard",
+    image: i6,
+  },
+  {
+    id: 39,
+    type: "Numerical",
+    question:
+      "A projectile is fired from the top of a 40m high cliff with an initial speed of 50m/s at an unknown angle. Find its speed when it hits the ground.",
+    topic: "Work,Power,Energy",
+    answer: 58,
+    difficulty: "Medium",
+    image: i6,
+  },
+  {
+    id: 40,
+    type: "Numerical",
+    question:
+      "A block of mass 250g is kept on a vertical spring of spring constant 100N/m fixed from below. The spring is now compressed to have a length 10cm shorter than its natural length and the system is released from this position. How high does the block rise? (g=10m/s²) Give ur answer in SI unit.",
+    topic: "Work,Power,Energy",
+    answer: 0.2,
+    difficulty: "Medium",
+    image: i6,
+  },
+  {
+    id: 41,
+    type: "Multiple Correct",
+    question:
+      "A heavy particle is suspended by a 1.5m long string. It is given a horizontal velocity of √57 m/s. Which is/are correct? (g=10m/s²)",
+    topic: "Circular Motion",
+    answer: [
+      {
+        answerText:
+          "A)  53⁰ is the angle made by the string with the upward vertical,when it becomes slack. ",
+        isCorrect: true,
+      },
+      {
+        answerText: "B)  Speed of particle at the instant is 3m/s",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "C)  34⁰ is the angle made by the string with the upward vertical,when it becomes slack.",
+        isCorrect: false,
+      },
+      {
+        answerText:
+          "D)  Max height reached by the particle over the point of suspension is 1.3m",
+        isCorrect: false,
+      },
+    ],
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 42,
+    type: "Multiple Correct",
+    question:
+      "A heavy particle is suspended by a 1.5m long string. It is given a horizontal velocity of √57 m/s. Which is/are correct? (g=10m/s²)",
+    topic: "Work,Power,Energy",
+    answer: [
+      {
+        answerText:
+          "A)  53⁰ is the angle made by the string with the upward vertical,when it becomes slack. ",
+        isCorrect: true,
+      },
+      {
+        answerText: "B)  Speed of particle at the instant is 3m/s",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "C)  34⁰ is the angle made by the string with the upward vertical,when it becomes slack.",
+        isCorrect: false,
+      },
+      {
+        answerText:
+          "D)  Max height reached by the particle over the point of suspension is 1.3m",
+        isCorrect: false,
+      },
+    ],
     difficulty: "Hard",
     image: "",
   },
