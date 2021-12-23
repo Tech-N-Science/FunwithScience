@@ -12,9 +12,25 @@ function Calculator({ match }) {
     {
       topic: "Straight Line",
       details: `A straight line is an endless one-dimensional figure that has no width. It is a combination of endless points joined on both sides of a point`,
-      formula: "Two point form:(x - x1)/(x2 - x1) = (y - y1)/(y2 - y1)",
-      process:
-        "To find the equation of line using the two-point formula(also called as point-point form) we will be needing co-ordinates of two points",
+      formula:
+        "Two point form: (y2 - y1)x + (x1 - x2)y - (x1 * y2) + (x2 * y1) = 0 ",
+      process: [
+        "To find the equation of line using the two-point formula we will be needing co-ordinates of two points.",
+        <br />,
+        <b>E.g. </b>,
+        "Find the equation of a line passing through (-2, 4) and (3, 1).",
+        <br />,
+        <b>Solution: </b>,
+
+        "Substituting the coordinates in the above two-point formula",
+        <br />,
+        "(1-4)x + (-2-3)y - (-2*1) + (3*4) = 0",
+        <br />,
+        "-3x + (-5)y - (-2) + (12) = 0",
+        <br />,
+        <b>3x + 5y -14=0 </b>,
+        " Hence, this is the required equation of a line passing through the given points.",
+      ],
     },
   ];
 
