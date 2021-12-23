@@ -94,7 +94,7 @@ function MathsTopic() {
             </MathsTopicItem>
             <MathsTopicItem
               name="Geometry"
-              link="/"
+              link="/geometry"
               icon="icon-lab2"
               image={geometry}
             >
