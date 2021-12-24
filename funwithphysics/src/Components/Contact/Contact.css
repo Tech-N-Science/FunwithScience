@@ -112,6 +112,9 @@ padding: 20px;
   /* justify-content: center; */
   align-items: center;
 }
+.contact-img{
+  width: 400px;
+}
 .contactInfo p{
  margin: 10px;
 

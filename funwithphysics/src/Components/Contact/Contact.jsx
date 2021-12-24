@@ -3,7 +3,7 @@ import "./Contact.css";
 import Navbar from "../Navbar/Navbar";
 import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
-import ContactSVG from "./ContactSVG";
+import ImageLoad from "../imageLoad";
 
 export default function Contact() {
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function Contact() {
       <div className="contactMain">
         <div className="contactDetails">
           <div className="contactSVG">
-            <ContactSVG />
+          <ImageLoad className="contact-img" main={'./Images-public/contact.webp'}/>
           </div>
           <div className="contactTXT">
             <div className="contactInfo">
