@@ -10,6 +10,7 @@ const Singlequestion = () => {
   var { type, ques, ans, img } = location.state;
   const [question, setquestion] = useState(ques);
   const [answer, setanswer] = useState(ans);
+  const [imag, setimag] = useState(img);
   const [result, setResult] = useState([]);
   const [multinext, setmultinext] = useState(1);
   const [numericalnext, setnumericalnext] = useState(1);
@@ -30,6 +31,7 @@ const Singlequestion = () => {
       console.log(multicorrect[multinext]);
       setquestion(multicorrect[multinext].question);
       setanswer(multicorrect[multinext].answer);
+      setimag(multicorrect[multinext].image)
       // console.log(result);
       if (multinext === multicorrect.length - 1) {
         setmultinext(0);
@@ -96,7 +98,7 @@ const Singlequestion = () => {
         <div className="singlequestion">
           <div className="maincontent">
             <h4 className="question">{question}</h4>
-            {img && <img src={img} alt="" className="quesimg" />}
+            {imag && <img src={imag} alt="" className="quesimg" />}
             <br />
             <br />
             <Helmet>
@@ -163,6 +165,7 @@ const Singlequestion = () => {
       console.log(numerical[numericalnext]);
       setquestion(numerical[numericalnext].question);
       setanswer(numerical[numericalnext].answer);
+      setimag(numerical[numericalnext].image);
       if (numericalnext === numerical.length - 1) {
         setnumericalnext(0);
       } else {
@@ -201,7 +204,7 @@ const Singlequestion = () => {
         <div className="singlequestion">
           <div className="maincontent">
             <h4 className="question">{question}</h4>
-            {img && <img src={img} alt="" className="quesimg" />}
+            {imag && <img src={imag} alt="" className="quesimg" />}
             <div className="answer-box">
               <input
                 type="number"

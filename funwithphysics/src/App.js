@@ -7,7 +7,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Loginpage/Login";
 import Loadingimg from "./Images/Logo/logo.webp";
-import React, { Suspense, lazy, useReducer } from "react";
+import React, { Suspense, lazy, useReducer, useState } from "react";
 import ClassicalMechanics from "./Components/Classical_Mechanics/ClassicalMechanics";
 import Thermodynamics from "./Components/Thermodynamics/Thermodynamics";
 import CalcClassic from "./Components/Classical_Mechanics/Topics/Calculator";
@@ -53,6 +53,11 @@ const Home = lazy(() => {
 export const Context = React.createContext();
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialstate);
+  const [searchTerm,setsearchTerm]=useState([]);
+  const [typ, settyp] = useState(false);
+  const [top, settop] = useState(false);
+  const [difficult, setdifficult] = useState(false);
+
   return (
     <React.Fragment>
       <Helmet>
@@ -71,7 +76,7 @@ const App = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
       </Helmet>
-      <Context.Provider value={{ state, dispatch }}>
+      <Context.Provider value={{ state, dispatch,searchTerm,setsearchTerm,typ,settyp,settop,top,setdifficult,difficult}}>
         <Switch>
           <Route exact path="/">
             <Suspense
