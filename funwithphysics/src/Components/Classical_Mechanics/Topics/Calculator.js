@@ -5,7 +5,6 @@ import "../classicalMechanics.css";
 import { Link } from "react-router-dom";
 import Solution from "../../Solution/Solution";
 import { Helmet } from "react-helmet";
-import {constant} from '../../Solution/allConstants'
 import {SI} from '../../Solution/allSIUnits'
 import Navbar from "../../Navbar/Navbar";
 

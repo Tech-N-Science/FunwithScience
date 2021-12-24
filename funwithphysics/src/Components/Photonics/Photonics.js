@@ -18,69 +18,84 @@ export default function Photonics() {
                The Brewster angle, θ., is a unique incidence angle that results in a 90ᴼ angle between the reflected and refracted rays. A quick calculation reveals that tan(θ) = n₂/n₁.`,
       dimension: "M⁰ L⁰ T⁰ ",
     },
+    {
+      topic: "Mirror Formula",
+      formula: "(1/v) + (1/u) = 1/f ",
+      siunit: "metre",
+      process: `In order to find the focal length we should know the object distance(u) and image distance(v)`,
+      details: `The relation of object distance and image distance with focal length is known as a mirror equation. It is also known as a mirror formula. (u) is the Object distance.(v) is the Image distance.(f) is the Focal Length. It follows laws of reflection`,
+      dimension: "L¹ ",
+    },
+    {
+      topic: "Lens Formula",
+      formula: "(1/v) - (1/u) = 1/f ",
+      siunit: "metre",
+      process: `In order to find the focal length we should know the object distance(u) and image distance(v)`,
+      details: `The relation of object distance and image distance with focal length is known as a mirror equation. It is also known as a mirror formula. (u) is the Object distance.(v) is the Image distance.(f) is the Focal Length. It follows laws of refraction`,
+      dimension: "L¹ ",
+    },
   ];
 
   return (
     <>
-        <div className="mech__main">
-      <Helmet>
-        <title>Atomic | physics | Tech N Science</title>
-        <meta
-          name="description"
-          content="Explore the Atomic physics calculator"
-        />
-        <meta name="keywords" content="Atomic physics, Bohr's model" />
-      </Helmet>
-      <div className="mech__header">
-        <h1>Photonics-Topics</h1>
-      </div>
-      <div className="mech__topics-card">
-        {Topics.map((data) => (
-          <React.Fragment key={data.topic}>
-            <Card key={data.topic} style={{ width: "18rem" }}>
-              <Card.Body>
-                {data.details === undefined ? (
-                  <Link
-                    className="btn"
-                    disabled={true}
-                    to={`/photonics/calc/${data.topic}`}
-                    variant="outline-dark"
-                  >
-                    {" "}
-                    {data.topic}
-                  </Link>
-                ) : (
-                  <Link
-                    className="btn"
-                    to={`/photonics/calc/${data.topic}`}
-                    variant="outline-dark"
-                  >
-                    {" "}
-                    {data.topic}
-                  </Link>
-                )}
-                <div style={{ padding: "0.3em" }}>
+      <div className="mech__main">
+        <Helmet>
+          <title>Photonics | physics | Tech N Science</title>
+          <meta
+            name="description"
+            content="Explore the Photonics physics calculator"
+          />
+          <meta name="keywords" content="Atomic physics, Bohr's model" />
+        </Helmet>
+        <div className="mech__header">
+          <h1>Photonics-Topics</h1>
+        </div>
+        <div className="mech__topics-card">
+          {Topics.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Card key={data.topic} style={{ width: "18rem" }}>
+                <Card.Body>
                   {data.details === undefined ? (
-                    <Card.Text>
+                    <Link
+                      className="btn"
+                      disabled={true}
+                      to={`/photonics/calc/${data.topic}`}
+                      variant="outline-dark"
+                    >
                       {" "}
-                      Will be{" "}
-                      <span style={{ fontWeight: "bold", color: "#19165b" }}>
-                        available
-                      </span>{" "}
-                      soon...
-                    </Card.Text>
+                      {data.topic}
+                    </Link>
                   ) : (
-                    <Card.Text> </Card.Text>
+                    <Link
+                      className="btn"
+                      to={`/photonics/calc/${data.topic}`}
+                      variant="outline-dark"
+                    >
+                      {" "}
+                      {data.topic}
+                    </Link>
                   )}
-                </div>
-              </Card.Body>
-            </Card>
-          </React.Fragment>
-        ))}
+                  <div style={{ padding: "0.3em" }}>
+                    {data.details === undefined ? (
+                      <Card.Text>
+                        {" "}
+                        Will be{" "}
+                        <span style={{ fontWeight: "bold", color: "#19165b" }}>
+                          available
+                        </span>{" "}
+                        soon...
+                      </Card.Text>
+                    ) : (
+                      <Card.Text> </Card.Text>
+                    )}
+                  </div>
+                </Card.Body>
+              </Card>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
-  
   );
 }

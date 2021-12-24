@@ -2,7 +2,7 @@ export const initialstate = {
   user: null,
 };
 
-export default (initialState, action) => {
+export default function r(initialState, action){
   if (action.type === "Login") {
     return {
       ...initialState,

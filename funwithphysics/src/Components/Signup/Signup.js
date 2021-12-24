@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import signimg from "../../Images/girl.jpg";
 import Navbar from "../Navbar/Navbar";
 import "./Signup.css";
 import ImageLoad from "../imageLoad";
