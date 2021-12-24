@@ -6,6 +6,7 @@ footer {
   position: relative;
   bottom: 0px;
   width: 100%;
+  margin-top: 100px;
   background: var(--footer-bg-hex);
 }
 
