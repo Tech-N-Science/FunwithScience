@@ -18,6 +18,22 @@ function Calculator({ match }) {
                The Brewster angle, θ., is a unique incidence angle that results in a 90ᴼ angle between the reflected and refracted rays. A quick calculation reveals that tan(θ) = n₂/n₁.`,
       dimension: "M⁰ L⁰ T⁰ ",
     },
+    {
+      topic: "Mirror Formula",
+      formula: "(1/v) + (1/u) = 1/f ",
+      siunit: "metre",
+      process: `In order to find the focal length we should know the object distance(u) and image distance(v)`,
+      details: `The relation of object distance and image distance with focal length is known as a mirror equation. It is also known as a mirror formula. (u) is the Object distance.(v) is the Image distance.(f) is the Focal Length. It follows laws of reflection`,
+      dimension: "M⁰ L¹ T⁰ ",
+    },
+    {
+      topic: "Lens Formula",
+      formula: "(1/v) - (1/u) = 1/f ",
+      siunit: "metre",
+      process: `In order to find the focal length we should know the object distance(u) and image distance(v)`,
+      details: `The relation of object distance and image distance with focal length is known as a mirror equation. It is also known as a mirror formula. (u) is the Object distance.(v) is the Image distance.(f) is the Focal Length. It follows laws of refraction`,
+      dimension: "M⁰ L¹ T⁰ ",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -73,7 +89,126 @@ function Calculator({ match }) {
           <Button variant="primary" onClick={calcResult}>
             Calculate
           </Button>
-          
+
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
+  };
+  //Mirror Formula
+  const MirrorFormula = () => {
+    const [n1, setN1] = useState(null);
+    const [n2, setN2] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setResult(null);
+      setN2(null);
+      setN1(null);
+    };
+    const objDist = 1 / n1;
+    const imgDist = 1 / n2;
+    const calcResult = () => {
+      let res;
+      res = (1 / (objDist + imgDist)).toFixed(2);
+
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Object distance(u)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of u"
+              onChange={(e) => setN1(e.target.value)}
+              value={n1 === null ? "" : n1}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Image distance (v)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of v"
+              onChange={(e) => setN2(e.target.value)}
+              value={n2 === null ? "" : n2}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + "m"}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
+  };
+
+  //Lens Formula
+  const LensFormula = () => {
+    const [n1, setN1] = useState(null);
+    const [n2, setN2] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setResult(null);
+      setN2(null);
+      setN1(null);
+    };
+    const objDist = 1 / n1;
+    const imgDist = 1 / n2;
+    const calcResult = () => {
+      let res;
+      res = (1 / (objDist - imgDist)).toFixed(2);
+
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Object distance(u)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of u"
+              onChange={(e) => setN1(e.target.value)}
+              value={n1 === null ? "" : n1}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Image distance (v)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of v"
+              onChange={(e) => setN2(e.target.value)}
+              value={n2 === null ? "" : n2}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + "m"}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+
           <Button variant="dark" onClick={() => reset()} type="reset">
             Reset
           </Button>
@@ -88,6 +223,12 @@ function Calculator({ match }) {
     switch (key) {
       case "Brewster's Angle":
         currentCall = BrewsterAngle();
+        break;
+      case "Mirror Formula":
+        currentCall = MirrorFormula();
+        break;
+      case "Lens Formula":
+        currentCall = LensFormula();
         break;
       default:
         break;
