@@ -5,6 +5,7 @@ import "../classicalMechanics.css";
 import { Link } from "react-router-dom";
 import Solution from "../../Solution/Solution";
 import { Helmet } from "react-helmet";
+import {constant} from '../../Solution/allConstants'
 import {SI} from '../../Solution/allSIUnits'
 import Navbar from "../../Navbar/Navbar";
 
@@ -717,9 +718,9 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
   // Force Calculator
   function CalculatorForce() {
-    const [result, setResult] = useState(null);
-    const [mass, setMass] = useState(null);
-    const [acceleration, setAcce] = useState(null);
+    const [result, setResult] = useState("");
+    const [mass, setMass] = useState("");
+    const [acceleration, setAcce] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
 
@@ -731,7 +732,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     const insertValues = `${mass}${SI["mass"]} * ${acceleration}${SI["acceleration"]}`;
 
     const handleClick = () => {
-      if(mass!=null && acceleration!=null)
+      if(mass!="" && acceleration!="")
       {let res = mass * acceleration;
       setShowSolution(true)
       setResult(res);}
@@ -741,10 +742,10 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     };
 
     const resetForm=()=>{
-      setMass(null);
-      setAcce(null);
+      setMass("");
+      setAcce("");
       setShowSolution(false);
-      setResult(null);
+      setResult("");
     }
 
     return (
@@ -767,6 +768,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Form.Label> Mass (in Kg)</Form.Label>
             <Form.Control
               onChange={(e) => setMass(e.target.value)}
+              value={mass}
               type="number"
               placeholder="Enter mass of an object in kilograms"
             />
@@ -776,6 +778,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Form.Control
               onChange={(e) => setAcce(e.target.value)}
               type="number"
+              value={acceleration}
               placeholder="Enter acceleration in metre per second square [m/s²]"
             />
           </Form.Group>
@@ -876,11 +879,11 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
   // Error Measurement Calculator
   function CalculatorErrorMeasurement() {
-    const [absolute, setResultAbs] = useState(null);
-    const [relative, setResultRel] = useState(null);
-    const [percentage, setResultPer] = useState(null);
-    const [x_measured, setXM] = useState(null);
-    const [x_actual, setXA] = useState(null);
+    const [absolute, setResultAbs] = useState("");
+    const [relative, setResultRel] = useState("");
+    const [percentage, setResultPer] = useState("");
+    const [x_measured, setXM] = useState("");
+    const [x_actual, setXA] = useState("");
     const [showModal, setShowModal] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
 
@@ -894,7 +897,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
   const insertPer=`|${relative} * 100 %|`
 
     const handleClick = () => {
-      if(x_measured!=null && x_actual!=null)
+      if(x_measured!="" && x_actual!="")
       {
         let res_abs = Math.abs(x_measured - x_actual);
         let res_rel = res_abs / x_actual;
@@ -910,11 +913,11 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     };
 
       const resetForm=()=>{
-        setXM(null);
-        setXA(null);
-        setResultAbs(null);
-        setResultRel(null);
-        setResultPer(null);
+        setXM("");
+        setXA("");
+        setResultAbs("");
+        setResultRel("");
+        setResultPer("");
         setShowSolution(false);
       }
      
@@ -939,6 +942,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Form.Control
               onChange={(e) => setXM(e.target.value)}
               type="number"
+              value={x_measured}
               placeholder="Enter Measured Value"
             />
           </Form.Group>
@@ -946,6 +950,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Form.Label>X Actual (XA)</Form.Label>
             <Form.Control
               onChange={(e) => setXA(e.target.value)}
+              value={x_actual}
               type="number"
               placeholder="Enter Actual Value"
             />
@@ -967,6 +972,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Form.Control
               readOnly
               type="number"
+              value={absolute}
               placeholder={absolute === null ? "Result" : absolute}
             />
           </Form.Group>
@@ -986,6 +992,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Form.Label>Relative Error (ER)</Form.Label>
             <Form.Control
               readOnly
+              value={relative}
               type="number"
               placeholder={relative === null ? "Result" : relative}
             />
@@ -1007,6 +1014,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Form.Control
               readOnly
               type="number"
+              value={percentage}
               placeholder={percentage === null ? "Result" : percentage}
             />
             <Form.Text className="text-muted">
@@ -1033,10 +1041,10 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
   //Torque Calculator
   function CalculatorTorque() {
-    const [result, setResult] = useState(null);
-    const [force, setForce] = useState(null);
-    const [distance, setDist] = useState(null);
-    const [angle, setAngle] = useState(null);
+    const [result, setResult] = useState("");
+    const [force, setForce] = useState("");
+    const [distance, setDist] = useState("");
+    const [angle, setAngle] = useState("");
       const [showModal, setShowModal] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
 
@@ -1050,7 +1058,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
 
     const handleClick = () => {
-      if(force!=null && distance!=null && angle!=null)
+      if(force!="" && distance!="" && angle!="")
     {
       let res = force * distance * Math.sin((angle * Math.PI) / 180);
       setResult(res);
@@ -1062,10 +1070,10 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     };
 
     const resetForm=()=>{
-      setResult(null);
-      setForce(null);
-      setDist(null);
-      setAngle(null);
+      setResult("");
+      setForce("");
+      setDist("");
+      setAngle("");
       setShowSolution(false);
     }
 
@@ -1090,6 +1098,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Form.Control
               onChange={(e) => setForce(e.target.value)}
               type="number"
+              value={force}
               placeholder="Enter force applied"
             />
           </Form.Group>
@@ -1098,6 +1107,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Form.Control
               onChange={(e) => setDist(e.target.value)}
               type="number"
+              value={distance}
               placeholder="Enter distance covered"
             />
           </Form.Group>
@@ -1105,6 +1115,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Form.Label> Angle (in degree)</Form.Label>
             <Form.Control
               onChange={(e) => setAngle(e.target.value)}
+              value={angle}
               type="number"
               placeholder="Enter angle (sin θ)"
             />
@@ -1148,12 +1159,12 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
   //Collision Calculator
   function CalculatorCollision() {
-    const [massOne, setMassOne] = useState(null);
-    const [massTwo, setMassTwo] = useState(null);
-    const [initialVelOne, setInitialVelOne] = useState(null);
-    const [initialVelTwo, setInitialVelTwo] = useState(null);
-    const [finalVelOne, setFinalVelOne] = useState(null);
-    const [finalVelTwo, setFinalVelTwo] = useState(null);
+    const [massOne, setMassOne] = useState("");
+    const [massTwo, setMassTwo] = useState("");
+    const [initialVelOne, setInitialVelOne] = useState("");
+    const [initialVelTwo, setInitialVelTwo] = useState("");
+    const [finalVelOne, setFinalVelOne] = useState("");
+    const [finalVelTwo, setFinalVelTwo] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
   
@@ -1169,7 +1180,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
       const insertValues = `(${massOne}${SI["mass"]} * ${initialVelOne}${SI["velocity"]} + ${massTwo}${SI["mass"]} * ${initialVelTwo}${SI["velocity"]} - ${massOne}${SI["mass"]} * ${finalVelOne}${SI["velocity"]}) / ${massTwo}${SI["mass"]}`;
   
     const handleSubmit = () => {
-      if(massOne!=null && massTwo!=null && initialVelOne!=null && initialVelTwo!=null && finalVelOne!=null )
+      if(massOne!="" && massTwo!="" && initialVelOne!="" && initialVelTwo!="" && finalVelOne!="" )
       {let result =
         (parseFloat(massOne) * parseFloat(initialVelOne) +
           parseFloat(massTwo) * parseFloat(initialVelTwo) -
@@ -1184,13 +1195,13 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
       
     };
     const handleReset = () => {
-      setMassOne(null);
-      setMassTwo(null);
-      setInitialVelOne(null);
-      setInitialVelTwo(null);
+      setMassOne("");
+      setMassTwo("");
+      setInitialVelOne("");
+      setInitialVelTwo("");
       setShowSolution(false);
-      setFinalVelOne(null);
-      setFinalVelTwo(null);
+      setFinalVelOne("");
+      setFinalVelTwo("");
     };
 
     return (
@@ -1217,6 +1228,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
                 <Form.Control
                   onChange={(e) => setMassOne(e.target.value)}
                   type="number"
+                  value={massOne}
                   placeholder="Enter mass of the first object"
                 />
               </Form.Group>
@@ -1226,6 +1238,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
                 <Form.Label> Mass Two (m2) </Form.Label>
                 <Form.Control
                   onChange={(e) => setMassTwo(e.target.value)}
+                  value={massTwo}
                   type="number"
                   placeholder="Enter mass of the second object"
                 />
@@ -1239,6 +1252,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
                 <Form.Label> Initial Velocity One (u1) </Form.Label>
                 <Form.Control
                   onChange={(e) => setInitialVelOne(e.target.value)}
+                  value={initialVelOne}
                   type="number"
                   placeholder="Enter Initial Velocity of the first object"
                 />
@@ -1249,6 +1263,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
                 <Form.Label> Initial Velocity Two (u2) </Form.Label>
                 <Form.Control
                   onChange={(e) => setInitialVelTwo(e.target.value)}
+                  value={initialVelTwo}
                   type="number"
                   placeholder="Enter Initial Velocity of the second object"
                 />
@@ -1275,6 +1290,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
                 <Form.Label> Final Velocity One (v1) </Form.Label>
                 <Form.Control
                   onChange={(e) => setFinalVelOne(e.target.value)}
+                  value={finalVelOne}
                   type="number"
                   placeholder="Enter Final Velocity of the first object"
                 />
