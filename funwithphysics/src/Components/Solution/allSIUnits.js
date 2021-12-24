@@ -21,4 +21,5 @@ export const SI = {
   displacement: "m",
   time: "sec",
   angle: "°",
+  microstates: "N",
 };
