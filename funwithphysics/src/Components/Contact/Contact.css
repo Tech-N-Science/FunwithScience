@@ -9,6 +9,10 @@
   }
  
 }
+.contact-heading{
+  text-align: center;
+  margin-top: 20px;
+}
 .contactMain {
   /* min-height: max-content; */
   /* max-height: max-content; */

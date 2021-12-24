@@ -24,7 +24,7 @@ export default function Contact() {
           content='Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science, Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science'
         />
       </Helmet>
-      <h1>Contact Us</h1> 
+      <h1 className='contact-heading'>Contact Us</h1> 
       <div className='contactMain'>
    
         <div className='contactSVG'>
