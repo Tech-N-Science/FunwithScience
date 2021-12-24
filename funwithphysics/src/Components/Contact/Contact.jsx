@@ -3,6 +3,7 @@ import './Contact.css';
 import Navbar from '../Navbar/Navbar';
 import { Helmet } from 'react-helmet';
 import Footer from '../Footer/Footer';
+import ContactSVG from './ContactSVG';
 
 export default function Contact() {
   useEffect(() => {
@@ -23,17 +24,18 @@ export default function Contact() {
           content='Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science, Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science'
         />
       </Helmet>
+      <h1 className='contact-heading'>Contact Us</h1> 
       <div className='contactMain'>
+   
+        <div className='contactSVG'>
+        <ContactSVG/>   
         <div className='contactTXT'>
-          <h1>Contact Us</h1>
-          <h5>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et saepe
-            nesciunt optio quidem, maxime id provident facere quis voluptatibus
-            ipsum sed exercitationem quae, ea consequatur officiis eveniet, quod
-            reprehenderit error. Molestiae, perspiciatis, esse voluptas quas
-            numquam nihil eos rem fugiat voluptatibus enim officia culpa
-            quisquam expedita iusto animi, laborum ipsa!
-          </h5>
+        <div className='contactInfo'>
+        <i class="fas fa-map-marker-alt"></i><p>India</p></div>
+
+        <div className='contactInfo'><i class="fas fa-phone"></i><p>+91 1234567890</p></div>
+        <div className='contactInfo'><i class="fas fa-envelope"></i><p>example@email.com</p></div>
+      </div>    
         </div>
         <div className='contactForm'>
           <h2>Name</h2>
@@ -45,6 +47,7 @@ export default function Contact() {
           <div className='contactBTN'>Send</div>
         </div>
       </div>
+      
       <Footer />
     </>
   );
