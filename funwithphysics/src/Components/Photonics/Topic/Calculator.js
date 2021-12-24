@@ -172,6 +172,7 @@ function Calculator({ match }) {
     const calcResult = () => {
       let res;
       res = (1 / (imgDist - objDist)).toFixed(2);
+
       setResult(res);
     };
     return (
