@@ -167,11 +167,11 @@ function Calculator({ match }) {
       setN2(null);
       setN1(null);
     };
-    const imgDist = 1 / n1;
-    const objDist = 1 / n2;
+    const objDist = 1 / n1;
+    const imgDist = 1 / n2;
     const calcResult = () => {
       let res;
-      res = (1 / (objDist - imgDist)).toFixed(2);
+      res = (1 / (imgDist - objDist)).toFixed(2);
 
       setResult(res);
     };
