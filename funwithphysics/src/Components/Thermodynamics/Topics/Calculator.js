@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import "../thermodynamics.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
-
+import { SI } from "../../Solution/allSIUnits";
+import { constant } from "../../Solution/allConstants";
+import Solution from "../../Solution/Solution";
 function Calculator({ match }) {
   // topics_data
   const Topics = [
@@ -74,25 +76,53 @@ function Calculator({ match }) {
   const details = page[0];
 
   //Third law of thermodynamics
-  const CalculatorThirdLaw = () => {
+  function CalculatorThirdLaw() {
     const [result, setResult] = useState(null);
     const [microstates, setMicrostates] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
     // const [boltzmann, setBoltzmann] = useState(1.38 *Math.pow(10,-23))
 
     const boltzmann = 1.38 * Math.pow(10, -23);
-    const reset = () => {
+
+    const givenValues = {
+      microstates: microstates,
+      boltzmann: boltzmann,
+    };
+    const constants = ["boltzmann"];
+    const insertValues = `${constant["boltzmann"]} * log(${microstates})${SI["microstates"]} `;
+
+    const handleClick = () => {
+      if (microstates != null) {
+        let res = boltzmann * Math.log(microstates);
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
+    };
+    const resetForm = () => {
       setMicrostates(null);
       setResult(null);
-    };
-    const calcResult = () => {
-      let res;
-      res = boltzmann * Math.log(microstates);
-      setResult(res);
+      setShowSolution(false);
     };
     return (
-      <>
+      <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
-          <Form.Group>
+          <Form.Group className="mb-3" controlId="microstates">
             <Form.Label>Number of microstates:</Form.Label>
             <Form.Control
               onChange={(e) => setMicrostates(e.target.value)}
@@ -101,17 +131,24 @@ function Calculator({ match }) {
               value={microstates === null ? "" : microstates}
             />
           </Form.Group>
-          <Form.Group>
+          <Form.Group className="mb-3" controlId="boltzmann">
             <Form.Label>Boltzmann Constant:</Form.Label>
-            <Form.Control
-              readOnly
-              // type="number"
-              value={boltzmann}
-              // placeholder="The value of Boltzmann costant is 1.38×10^−23 J/K"
-            />
+            <Form.Control readOnly placeholder="1.38×10⁻²³ J/K" />
           </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>The entropy is:</Form.Label>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="S=kB * log W"
+                toFind="entropy"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+          <Form.Group className="mb-4" controlId="entropy">
+            <Form.Label> Entropy (S)</Form.Label>
             <Form.Control
               readOnly
               type="number"
@@ -119,20 +156,24 @@ function Calculator({ match }) {
                 result === null ? "Result" : result + " Joules per kelvin"
               }
             />
+            <Form.Text className="text-muted">
+              Enter the above values to Calculate.
+            </Form.Text>
           </Form.Group>
+
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={handleClick}>
+              Calculate
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={resetForm} type="reset">
+              Reset
+            </Button>
+          </div>
         </Form>
-        <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcResult}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => reset()} type="reset">
-            Reset
-          </Button>
-        </div>
-      </>
+      </React.Fragment>
     );
-  };
+  }
 
   //Thermal efficiency (ηth) calculator
   const CalculatorEfficiency = () => {
@@ -350,7 +391,11 @@ function Calculator({ match }) {
         <Form>
           <Form.Group className="mb-3" controlId="choice2">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              onChange={(e) => handleChange(e)}
+            >
               <option value="entropy">dS: Change in Entropy</option>
               <option value="heat">dQ : Heat transfer</option>
               <option value="temperature">T :Tempreature</option>
@@ -478,7 +523,11 @@ function Calculator({ match }) {
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              onChange={(e) => handleChange(e)}
+            >
               <option value="energy">∆U : Change in energy</option>
               <option value="heat">Q: Amount of heat</option>
               <option value="work">W: Work done by system</option>
@@ -679,7 +728,11 @@ function Calculator({ match }) {
         <Form>
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              onChange={(e) => handleChange(e)}
+            >
               <option value="ke">
                 KE : Total translational kinetic energy of gas
               </option>
