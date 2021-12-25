@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import "../NuclearPhysics.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import Solution from "../../Solution/Solution";
+import { constant } from "../../Solution/allConstants";
+import { SI } from "../../Solution/allSIUnits";
 
 function Calculator({ match }) {
   // topics_data
@@ -102,29 +105,58 @@ function Calculator({ match }) {
 
   //Mass defect calculator
   const MassDefect = () => {
-    const [atomicNumber, setAtomicNumber] = useState(null);
-    const [massNumber, setMassNumber] = useState(null);
-    const [matom, setMatom] = useState(null);
-    const [result, setResult] = useState(null);
+    const [atomicNumber, setAtomicNumber] = useState("");
+    const [massNumber, setMassNumber] = useState("");
+    const [matom, setMatom] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      Z: atomicNumber,
+     "mass number": massNumber,
+    };
+
     const reset = () => {
-      setAtomicNumber(null);
-      setMassNumber(null);
-      setMatom(null);
-      setResult(null);
+      setAtomicNumber("");
+      setMassNumber("");
+      setMatom("");
+      setShowSolution(false);
+      setResult("");
     };
     const Melectron = 0.000548597;
     const Mptoton = 1.007277;
     const Mneutron = 1.008665;
+    const constants=["me","mp","mn"];
+    const insertValues = `[${atomicNumber} * ( ${Mptoton} + ${Melectron} ) + (${massNumber} - ${atomicNumber})* ${Mneutron} ] - ${matom}`;
     const calcResult = () => {
-      let res;
-      res =
-        atomicNumber * (Mptoton + Melectron) +
-        (massNumber - atomicNumber) * Mneutron -
-        matom;
-      setResult(res);
+      if (atomicNumber != "" && massNumber != "" && matom != "") {
+        let res;
+        res =
+          atomicNumber * (Mptoton + Melectron) +
+          (massNumber - atomicNumber) * Mneutron -
+          matom;
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
     return (
       <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>
@@ -171,6 +203,18 @@ function Calculator({ match }) {
             <Form.Label>Masss of Neutron (mₙ)</Form.Label>
             <Form.Control type="number" readOnly placeholder="(1.008665 amu)" />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="[Z(mp+me)+(A-Z)mn]-matom"
+                toFind="Mass defect"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -183,7 +227,7 @@ function Calculator({ match }) {
           <Button variant="primary" onClick={calcResult}>
             Calculate
           </Button>
-          &nbsp;&nbsp;&nbsp;
+
           <Button variant="dark" onClick={() => reset()} type="reset">
             Reset
           </Button>
