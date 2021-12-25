@@ -34,6 +34,30 @@ function Calculator({ match }) {
       details: `The relation of object distance and image distance with focal length is known as a mirror equation. It is also known as a mirror formula. (u) is the Object distance.(v) is the Image distance.(f) is the Focal Length. It follows laws of refraction.`,
       dimension: "L¹ ",
     },
+    {
+      topic: "Magnification of Mirror",
+      formula: "m = h2 / h1",
+      siunit: "No unit",
+      process: `In order to find the magnification(m) we must know the height of image(h2) and the height of object(h1)`,
+      details: `The linear magnification of a mirror(m) can be defined as the ratio of the height of the image(h2) formed by the mirror so that of the height of the object.(h1)`,
+      dimension: "M⁰ L⁰ T⁰ ",
+    },
+    {
+      topic: "Magnification of Lens",
+      formula: "m = h2 / h1",
+      siunit: "No unit",
+      process: `In order to find the magnification(m) we must know the height of image(h2) and the height of object(h1)`,
+      details: `The linear magnification of a lens(m) can be defined as the ratio of the height of the image(h2) formed by the mirror so that of the height of the object.(h1)`,
+      dimension: "M⁰ L⁰ T⁰ ",
+    },
+    {
+      topic: "Power of Lens",
+      formula: "P = 1 / f ",
+      siunit: ["meter", <sup>-1</sup>, ` or also known as "diopter"`],
+      process: `In order to find the power of lens we need to know the focal lenght of the lens(f)`,
+      details: `Power of a lens is defined as the ability of the lens to converge or diverge the ray of light falling on it.`,
+      dimension: "M⁰ L¹ T⁰",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === match.params.topic);
@@ -217,6 +241,167 @@ function Calculator({ match }) {
     );
   };
 
+  //Magnification of Mirror
+  const MirrorMag = () => {
+    const [n1, setN1] = useState(null);
+    const [n2, setN2] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setResult(null);
+      setN2(null);
+      setN1(null);
+    };
+    const calcResult = () => {
+      let res = n1 / n2;
+
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Height of Image(h2)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of h2"
+              onChange={(e) => setN1(e.target.value)}
+              value={n1 === null ? "" : n1}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Height of Object(h1)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of h1"
+              onChange={(e) => setN2(e.target.value)}
+              value={n2 === null ? "" : n2}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " "}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
+  };
+  //Magnification of Lens
+  const LensMag = () => {
+    const [n1, setN1] = useState(null);
+    const [n2, setN2] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setResult(null);
+      setN2(null);
+      setN1(null);
+    };
+    const calcResult = () => {
+      let res = n1 / n2;
+
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Height of Image(h2)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of h2"
+              onChange={(e) => setN1(e.target.value)}
+              value={n1 === null ? "" : n1}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Height of Object(h1)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of h1"
+              onChange={(e) => setN2(e.target.value)}
+              value={n2 === null ? "" : n2}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " "}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
+  };
+  //Power of Lens
+  const PowerLens = () => {
+    const [n1, setN1] = useState(null);
+
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setResult(null);
+
+      setN1(null);
+    };
+    const calcResult = () => {
+      let res = 1 / n1;
+
+      setResult(res);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Focal length of the lens(f)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of f"
+              onChange={(e) => setN1(e.target.value)}
+              value={n1 === null ? "" : n1}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " diopter"}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
+  };
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -229,6 +414,15 @@ function Calculator({ match }) {
         break;
       case "Lens Formula":
         currentCall = LensFormula();
+        break;
+      case "Magnification of Mirror":
+        currentCall = MirrorMag();
+        break;
+      case "Magnification of Lens":
+        currentCall = LensMag();
+        break;
+      case "Power of Lens":
+        currentCall = PowerLens();
         break;
       default:
         break;
