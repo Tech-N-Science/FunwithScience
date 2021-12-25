@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button,Modal} from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import "../Photonics.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
-import Solution from "../../Solution/Solution";
-import {constant} from '../../Solution/allConstants'
-import {SI} from '../../Solution/allSIUnits'
 
 function Calculator({ match }) {
   // topics_data
@@ -44,53 +41,23 @@ function Calculator({ match }) {
 
   //adding Brewster's Angle calcular
   const BrewsterAngle = () => {
-    const [n1, setN1] = useState("");
-    const [n2, setN2] = useState("");
-    const [result, setResult] = useState(""); 
-    const [showModal, setShowModal] = useState(false);
-    const [showSolution, setShowSolution] = useState(false);
-
-    const givenValues = {
-      n1: n1,
-      n2: n2,
-    };
-
-    const insertValues = `tan−¹(${n2}/${n1})`;
-
+    const [n1, setN1] = useState(null);
+    const [n2, setN2] = useState(null);
+    const [result, setResult] = useState(null);
     const reset = () => {
-      setResult("");
-      setN2("");
-      setShowSolution(false);
-      setN1("");
+      setResult(null);
+      setN2(null);
+      setN1(null);
     };
     const calcResult = () => {
-      if(n2!="" && n1!="")
-      {let res;
+      let res;
       let r1 = n2 / n1;
       let r2 = Math.atan(r1);
       res = (r2 * 180) / Math.PI;
       setResult(res);
-      setShowSolution(true);
-    }
-    else{
-      setShowModal(true);
-    }
     };
     return (
       <>
-       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>refractive index of the initial medium (n₁)</Form.Label>
@@ -110,18 +77,6 @@ function Calculator({ match }) {
               value={n2 === null ? "" : n2}
             />
           </Form.Group>
-          {showSolution? 
-            <Form.Group className="mb-3" controlId="acceleration">
-              <Solution
-                givenValues={givenValues}
-                formula="tan-¹(n2/n1)"
-                toFind="Brewster's angle"
-                insertValues={insertValues}
-                result={result}
-                // constants={constants}
-              />
-            </Form.Group>
-           : null }
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -134,7 +89,7 @@ function Calculator({ match }) {
           <Button variant="primary" onClick={calcResult}>
             Calculate
           </Button>
-          
+
           <Button variant="dark" onClick={() => reset()} type="reset">
             Reset
           </Button>
