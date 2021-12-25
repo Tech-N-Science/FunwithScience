@@ -657,6 +657,35 @@ export const data = [
     id: 33,
     type: "Multiple Correct",
     question:
+      "A person applies a constant force F on a particle of mass m and finds that the particle moves in a circle of radius r with a uniform speed v as seen from an inertial frame of reference.",
+    topic: "Circular Motion",
+    answer: [
+      {
+        answerText: "A)  This is not possible. ",
+        isCorrect: false,
+      },
+      {
+        answerText: "B)  There are other forces on the particle",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "C)  The resultant of the other forces is mv²/r towards the center.",
+        isCorrect: false,
+      },
+      {
+        answerText:
+          "D)  The resultant of the other forces varies in magnitude as well as in direction.",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 34,
+    type: "Multiple Correct",
+    question:
       "A particle of mass m is projected with velocity u at an angle α with horizontal. During the period when the particle descends from highest point to the position where its velocity vector makes an angle α/2 with horizontal. Work done by gravity force is :",
     topic: "Work,Power,Energy",
     answer: [
@@ -681,7 +710,7 @@ export const data = [
     image: "",
   },
   {
-    id: 34,
+    id: 35,
     type: "Multiple Correct",
     question:
       "A river is flowing with a velocity vᵣ = 4i m/s. A boat is moving with a velocity of vbᵣ = (-2i + 4j)m/s relative to the river. The width of the river is 100m along y-direction. Choose the correct alternative(s)",
@@ -708,7 +737,7 @@ export const data = [
     image: "",
   },
   {
-    id: 35,
+    id: 36,
     type: "Multiple Correct",
     question:
       "A particle of mass m moves along a circle of radius R with a normal acceleration varying with time as wₙ = at², where 'a' is a constant. Find the time dependence of the power developed by all the forces acting on the particle.",
@@ -735,7 +764,7 @@ export const data = [
     image: "",
   },
   {
-    id: 36,
+    id: 37,
     type: "Numerical",
     question:
       "The potential energy (in Si unit) of a particle of mass 2kg in a conservative field is U = 6x-8y. If the initial velocity of the particle is u= -1.5i +2j then find the total distance travelled by the particle in first two seconds.",
@@ -745,7 +774,7 @@ export const data = [
     image: "",
   },
   {
-    id: 37,
+    id: 38,
     type: "Numerical",
     question:
       "Power delivered to a body varies as P=3t². Find out the change in kinetic energy of the body from t=2 to t=4 sec.",
@@ -755,7 +784,7 @@ export const data = [
     image: "",
   },
   {
-    id: 38,
+    id: 39,
     type: "Numerical",
     question:
       "A horizontal plane supports a plank with a bar of mass m =1kg placed on it and attached by a light elastic non-deformed cord of length l₀=40cm to a point O. The coefficient of friction between the bar and plank equals 0.2. The plank is slowly shifted to the right until the bar starts sliding over it. It occurs at the moment when the cord deviates from the vertical by an angle θ=30⁰. Find the work that has been performed by that moment by the friction force acting on the bar in the reference frame fixed to the plane.",
@@ -765,7 +794,7 @@ export const data = [
     image: i6,
   },
   {
-    id: 39,
+    id: 40,
     type: "Numerical",
     question:
       "A projectile is fired from the top of a 40m high cliff with an initial speed of 50m/s at an unknown angle. Find its speed when it hits the ground.",
@@ -775,7 +804,7 @@ export const data = [
     image: i6,
   },
   {
-    id: 40,
+    id: 41,
     type: "Numerical",
     question:
       "A block of mass 250g is kept on a vertical spring of spring constant 100N/m fixed from below. The spring is now compressed to have a length 10cm shorter than its natural length and the system is released from this position. How high does the block rise? (g=10m/s²) Give ur answer in SI unit.",
@@ -785,11 +814,41 @@ export const data = [
     image: i6,
   },
   {
-    id: 41,
+    id: 42,
+    type: "Multiple Correct",
+    question:
+      "A circular road of radius r is banked for a speed v=40km/hr. A car of mass m attempts to go on the circular road. The friction coefficient between the tyre and the road is negligible.",
+    topic: "Circular Motion",
+    answer: [
+      {
+        answerText: "A)  The car cannot make a turn without skidding. ",
+        isCorrect: false,
+      },
+      {
+        answerText:
+          "B)  If the car turns at a speed less than 40km/hr, it will slip down.",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "C)  If the car turns at the correct speed of 40km/hr, the force by the road on the car is equal to mv²/r",
+        isCorrect: false,
+      },
+      {
+        answerText:
+          "D)  If the car turns at the correct speed of 40km/hr, the force by the road on the car is greater than mg as wella s greater than mv²/r",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 43,
     type: "Multiple Correct",
     question:
       "A heavy particle is suspended by a 1.5m long string. It is given a horizontal velocity of √57 m/s. Which is/are correct? (g=10m/s²)",
-    topic: "Circular Motion",
+    topic: "Work,Power,Energy",
     answer: [
       {
         answerText:
@@ -815,29 +874,169 @@ export const data = [
     image: "",
   },
   {
-    id: 42,
+    id: 44,
     type: "Multiple Correct",
     question:
-      "A heavy particle is suspended by a 1.5m long string. It is given a horizontal velocity of √57 m/s. Which is/are correct? (g=10m/s²)",
-    topic: "Work,Power,Energy",
+      "A block of mass m moves on a horizontal circle against the wall of a cylindrical room of radius R. The floor of the room on which the block moves is smooth but the friction coefficient between the wall and the block is μ. The block is given an initial speed v₀. As a function of speed v, which is/are correct: ",
+    topic: "Circular Motion",
+    answer: [
+      {
+        answerText: "A)  normal force by the wall on the block is mv²/R ",
+        isCorrect: true,
+      },
+      {
+        answerText: "B)  frictional force by the wall is μmv/R",
+        isCorrect: false,
+      },
+      {
+        answerText: "C)  tangential acceleration of the block is -μmv²/R",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  tangential acceleration of the block is -μv²/R",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 45,
+    type: "Numerical",
+    question:
+      "In a children's park a heavy rod is pivoted at the centre and is made to rotate about the pivot so that the rod always remains horizontal. Two kids each of 15kg hold the rod near the ends and thus rotate with the rod. The distance between the points of the rod where the two kids hold it be 3m and suppose that the rod rotates at the rate of 20 revolutions per minute. Find the force of friction exerted by the rod on one of the kids.",
+    topic: "Circular Motion",
+    answer: 98.69,
+    difficulty: "Hard",
+    image: "",
+  },
+  {
+    id: 46,
+    type: "Multiple Correct",
+    question:
+      "A particle moves in a circle of radius 1cm at a speed given by v=2t where v is in cm/s ant t in seconds. Which is/are correct: ",
+    topic: "Circular Motion",
     answer: [
       {
         answerText:
-          "A)  53⁰ is the angle made by the string with the upward vertical,when it becomes slack. ",
-        isCorrect: true,
-      },
-      {
-        answerText: "B)  Speed of particle at the instant is 3m/s",
+          "A)  radial acceleration of the particle at t=1s is 4 cm/s²",
         isCorrect: true,
       },
       {
         answerText:
-          "C)  34⁰ is the angle made by the string with the upward vertical,when it becomes slack.",
+          "B)  tangential acceleration of the particle at t=1s is 2cm/s²",
+        isCorrect: true,
+      },
+      {
+        answerText: "C)  magnitude of the acceleration at t=1s is √20 cm/s²",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "D)  The particle has both tangential and radial acceleration at t=1s.",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Medium",
+    image: "",
+  },
+  {
+    id: 47,
+    type: "Multiple Correct",
+    question:
+      "A nonzero external force acts on a system of particles. The velocity and the acceleration of the center of mass are found to be v₀ and a₀at an instant t. It is possible that: ",
+    topic: "Circular Motion",
+    answer: [
+      {
+        answerText: "A)  v₀=0, a₀=0",
+        isCorrect: false,
+      },
+      {
+        answerText: "B)  v₀=0, a₀≠0",
+        isCorrect: true,
+      },
+      {
+        answerText: "C)  v₀≠0, a₀=0",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  v₀≠0, a₀≠0",
+        isCorrect: false,
+      },
+    ],
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 48,
+    type: "Multiple Correct",
+    question:
+      "Consider the following: A) Linear momentum of the system remains constant. B) Center of mass of the system remains at rest.",
+    topic: "Center of mass",
+    answer: [
+      {
+        answerText: "A)  A implies B and B implies A",
+        isCorrect: false,
+      },
+      {
+        answerText: "B)  A does not imply B and B does not imply A",
+        isCorrect: false,
+      },
+      {
+        answerText: "C)  A implies B but B does not imply A",
+        isCorrect: false,
+      },
+      {
+        answerText: "D)  B implies A but A does not imply B",
+        isCorrect: true,
+      },
+    ],
+    difficulty: "Easy",
+    image: "",
+  },
+  {
+    id: 49,
+    type: "Numerical",
+    question:
+      "A person fires 50g bullets from a machine gun, each at a speed of 1km/s. If he fires 20 bullets in 4s, what average force does he exert against the machine gun during this period.",
+    topic: "Center of mass",
+    answer: 250,
+    difficulty: "Medium",
+    image: "",
+  },
+  {
+    id: 50,
+    type: "Numerical",
+    question:
+      "A projectile is fired at a speed of 100m/s at an angle of 37⁰ above the horizontal. At the highest point, the projectile breaks into two parts of mass ratio 1:3, the smaller coming to rest. Find the distance from the launching point to the point where the heavier piece lands.",
+    topic: "Center of mass",
+    answer: 1120,
+    difficulty: "Medium",
+    image: "",
+  },
+  {
+    id: 51,
+    type: "Multiple Correct",
+    question:
+      "Two identical smooth balls are projected towards each other from points A and B on the horizontal ground with same speed of projection. The angle of projection in each case is 30⁰. The distance between A and B is 100m in balls collide in air and return to their respective points of projection. If coefficient of resistance is e=0.7, (g=10m/s²) then:",
+    topic: "Center of mass",
+    answer: [
+      {
+        answerText: "A)  speed of projection of either ball is 37.5m/s",
+        isCorrect: true,
+      },
+      {
+        answerText:
+          "B)  coordinates of point whit respect to A where the balls collide is (17m,50m)",
         isCorrect: false,
       },
       {
         answerText:
-          "D)  Max height reached by the particle over the point of suspension is 1.3m",
+          "C)  coordinates of point whit respect to A where the balls collide is (50m,17m)",
+        isCorrect: true,
+      },
+      {
+        answerText: "D)  speed of projection of either ball is 30.5m/s",
         isCorrect: false,
       },
     ],
