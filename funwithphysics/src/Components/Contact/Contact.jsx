@@ -1,14 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Contact.css';
 import Navbar from '../Navbar/Navbar';
 import { Helmet } from 'react-helmet';
 import Footer from '../Footer/Footer';
 import ContactSVG from './ContactSVG';
+import axios from 'axios';
 
 export default function Contact() {
+  const [name,setname]=useState()
+  const [message,setmessage]=useState()
+  const [email,setemail]=useState()
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    if(name && message && email)
+    {
+      axios.post("http://localhost/funwithscience_backend/sendemail.php", {name,email,message}).then((res) => {
+        if (res.data === 1) {
+          alert("Message sent Successfully");
+          setname("");
+          setemail("");
+          setmessage("");
+        }
+        else{
+          alert("Some error occured");
+        }
+        console.log(res.data);
+      });
+    }
+    else{
+      alert("Please fill the form properly");
+    }
+  }
   return (
     <>
       <Navbar />
@@ -39,12 +64,12 @@ export default function Contact() {
         </div>
         <div className='contactForm'>
           <h2>Name</h2>
-          <input type='text' placeholder='Enter your name' />
+          <input type='text' placeholder='Enter your name' onChange={(e)=>{setname(e.target.value)}} value={name}/>
           <h2>Email</h2>
-          <input type='email' placeholder='Enter your email' />
+          <input type='email' placeholder='Enter your email' value={email} onChange={(e)=>{setemail(e.target.value)}}/>
           <h2>Message</h2>
-          <textarea placeholder='Enter your message' />
-          <div className='contactBTN'>Send</div>
+          <textarea placeholder='Enter your message' value={message} onChange={(e)=>{setmessage(e.target.value)}}/>
+          <div className='contactBTN' onClick={handleSubmit}>Send</div>
         </div>
       </div>
       
