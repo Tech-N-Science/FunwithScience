@@ -6,6 +6,7 @@ footer {
   position: relative;
   bottom: 0px;
   width: 100%;
+  margin-top: 100px;
   background: var(--footer-bg-hex);
 }
 
@@ -52,6 +53,7 @@ footer {
   justify-content: center;
   align-items: center;
   margin: 10px;
+  padding: 20px;
 }
 .center .icons {
   display: flex;
@@ -146,8 +148,8 @@ footer {
 }
 
 .left .footer-logo img {
-  height: 150px;
-  width: 150px;
+  /* height: 150px; */
+  width: 223px;
   border-radius: 50%;
 }
 
