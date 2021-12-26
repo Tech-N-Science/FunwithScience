@@ -34,6 +34,31 @@ export default function Photonics() {
       details: `The relation of object distance and image distance with focal length is known as a mirror equation. It is also known as a mirror formula. (u) is the Object distance.(v) is the Image distance.(f) is the Focal Length. It follows laws of refraction`,
       dimension: "L¹ ",
     },
+    {
+      topic: "Magnification of Mirror",
+      formula: "m = h2 / h1",
+      siunit: "No unit",
+      process: `In order to find the magnification(m) we must know the image size(h2) and the object size(h1)`,
+      details: `The linear magnification of a mirror(m) can be defined as the ratio of the size of the image(h2) formed by the mirror so that of the size of the object.(h1)`,
+      dimension: "d ",
+    },
+    {
+      topic: "Magnification of Lens",
+      formula: "m = h2 / h1",
+      siunit: "No unit",
+      process: `In order to find the magnification(m) we must know the image size(h2) and the object size(h1)`,
+      details: `The linear magnification of a lens(m) can be defined as the ratio of the size of the image(h2) formed by the mirror so that of the size of the object.(h1)`,
+      dimension: "d ",
+    },
+
+    {
+      topic: "Power of Lens",
+      formula: "P = 1 / f ",
+      siunit: ["meter", <sup>-1s</sup>, "diopter"],
+      process: `In order to find the power of lens we need to know the focal lenght of the lens(f)`,
+      details: `Power of a lens is defined as the ability of the lens to converge or diverge the ray of light falling on it.`,
+      dimension: "L¹ ",
+    },
   ];
 
   return (
