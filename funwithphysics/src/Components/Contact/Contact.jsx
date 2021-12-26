@@ -31,19 +31,9 @@ export default function Contact() {
           <ImageLoad className='contact-img' main={'./Images-public/contact.webp'}/>
           </div>
           <div className='contactTXT'>
-            <div className='contactInfo'>
-              <i class='fas fa-map-marker-alt'></i>
-              <p>India</p>
-            </div>
-
-            <div className='contactInfo'>
-              <i class='fas fa-phone'></i>
-              <p>+91 1234567890</p>
-            </div>
-            <div className='contactInfo'>
-              <i class='fas fa-envelope'></i>
-              <p>example@email.com</p>
-            </div>
+            <div className='contactInfo'><i class="fas fa-map-marker-alt"></i><p>India</p></div>
+            <div className='contactInfo'><i class="fas fa-phone"></i><p>+91 1234567890</p></div>
+            <div className='contactInfo'><i class="fas fa-envelope"></i><p>example@email.com</p></div>
           </div>
         </div>
 
