@@ -1,14 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Contact.css';
 import Navbar from '../Navbar/Navbar';
 import { Helmet } from 'react-helmet';
 import Footer from '../Footer/Footer';
 import ImageLoad from '../imageLoad';
+import axios from 'axios';
 
 export default function Contact() {
+  const [name,setname]=useState()
+  const [message,setmessage]=useState()
+  const [email,setemail]=useState()
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    if(name && message && email)
+    {
+      axios.post("http://localhost/funwithscience_backend/sendemail.php", {name,email,message}).then((res) => {
+        if (res.data === 1) {
+          alert("Message sent Successfully");
+          setname("");
+          setemail("");
+          setmessage("");
+        }
+        else{
+          alert("Some error occured");
+        }
+        console.log(res.data);
+      });
+    }
+    else{
+      alert("Please fill the form properly");
+    }
+  }
   return (
     <>
       <Navbar />
