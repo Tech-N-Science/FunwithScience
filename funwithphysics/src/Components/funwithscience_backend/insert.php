@@ -48,15 +48,5 @@ else{
     }
   }
 }
-// $encry = password_hash($subscriber_password,PASSWORD_BCRYPT);
-// $sql = "INSERT INTO sign_up (username,email,pass)
-// VALUES ('$subscriber_fname','$subscriber_email','$encry');";
-// if ($conn->query($sql) === TRUE) {
-// 	echo "1";
-//  } 
-// else {
-//   echo "Error: " . $sql . "<br>" . $conn->error;
-// }
-
 $conn->close();
 ?>
