@@ -28,7 +28,7 @@ export default function Contact() {
       <div className="contactMain">
         <div className="contactDetails">
           <div className="contactSVG">
-          <ImageLoad className="contact-img" main={'./Images-public/contact.webp'}/>
+          <ImageLoad className="contact-img" main={"./Images-public/contact.webp"}/>
           </div>
           <div className="contactTXT">
             <div className="contactInfo">
