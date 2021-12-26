@@ -1,14 +1,3 @@
-@media all and (max-width: 900px) {
-  .contactMain {
-    flex-direction: column;
-    height: max-content !important;
-  }
-  .contactForm,
-  .contactTXT {
-    width: 90% !important;
-  }
- 
-}
 .contact-heading{
   text-align: center;
   margin-top: 20px;
@@ -90,18 +79,18 @@
   flex-direction: column;
 
 }
-.contactSVG {
-  min-width: 400px;
+/* .contactSVG {
+
   background-color: transparent;
 
   position: relative;
   display: flex;
-  /* align-items: center; */
+
   justify-content: space-evenly;
   flex-direction: column;
-padding: 20px;
-  /* padding: 5vh 5vh 10vh; */
-}
+  padding: 20px;
+
+} */
 .contactInfo{
   font-size: 1.2rem;
   margin-top: 10px;
@@ -136,3 +125,22 @@ padding: 20px;
   text-align: right;
   width: 100%;
 } */
+@media all and (max-width: 900px) {
+  .contactMain {
+    flex-direction: column;
+    height: max-content !important;
+  }
+  .contactForm,
+  .contactTXT {
+    width: 90% !important;
+  }
+ 
+}
+@media only screen and (max-width: 437px) {
+  .contact-img{
+    width: 300px;
+  }
+  .contactInfo{
+    margin-left: 50px;
+  }
+}
