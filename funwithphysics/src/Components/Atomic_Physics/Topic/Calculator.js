@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import "../AtomicPhysics.css";
 import "../../../Responsive/style.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import Solution from "../../Solution/Solution";
+import { constant } from "../../Solution/allConstants";
 
 function Calculator({ match }) {
   // topics_data
@@ -46,26 +48,55 @@ function Calculator({ match }) {
 
   //Mass Energy Relation calculator
   const BohrModel = () => {
-    const [initial, setInitial] = useState(null);
-    const [final, setFinal] = useState(null);
-    const [result, setResult] = useState(null);
+    const [initial, setInitial] = useState("");
+    const [final, setFinal] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      ni: initial,
+      nf: final,
+    };
+    const constants = ["R"];
+    const insertValues = `1/(${constant["R"]}[(1/${final}²)-(1/${initial}²)])`;
+
     const R = 1.097 * Math.pow(10, 7);
     const reset = () => {
-      setInitial(null);
-      setFinal(null);
-      setResult(null);
+      setInitial("");
+      setFinal("");
+      setShowSolution(false);
+      setResult("");
     };
     const calcResult = () => {
-      let res;
-      let r1 = 1 / (initial * initial);
-      let r2 = 1 / (final * final);
-      let r3 = R * (r2 - r1);
-      res = 1 / r3;
+      if (initial !== "" && final !== "") {
+        let res;
+        let r1 = 1 / (initial * initial);
+        let r2 = 1 / (final * final);
+        let r3 = R * (r2 - r1);
+        res = 1 / r3;
 
-      setResult(res);
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
     return (
       <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Initial State (ni)</Form.Label>
@@ -87,13 +118,25 @@ function Calculator({ match }) {
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Label>Rydberg constant(R)</Form.Label>
-            <Form.Control readOnly placeholder="1.097 × 10⁷ / m (or m⁻¹)" />
+            <Form.Control readOnly placeholder="1.097 × 10^7 / m (or m⁻¹)" />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="1/(R[(1/nf²)-(1/ni²)])"
+                toFind="wave Length"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " m"}
+              placeholder={result === "" ? "Result" : result + " m"}
             />
           </Form.Group>
         </Form>
