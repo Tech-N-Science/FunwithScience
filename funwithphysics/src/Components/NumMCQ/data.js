@@ -8,7 +8,7 @@ import i6 from "../../Images/Questions/id-38.webp";
 export const data = [
   {
     id: 1,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "Two vectors of magnitudes 5 units and 3 units are added. The angle between the vectors is θ.",
     topic: "Kinematics",
@@ -39,7 +39,7 @@ export const data = [
   },
   {
     id: 2,
-    type: "mcq",
+    type: "Multiple Correct",
     question: "Let A ⃗=10i ̂-8j ̂  and B ⃗=15i ̂-12j ̂",
     topic: "Kinematics",
     answer: [
@@ -65,7 +65,7 @@ export const data = [
   },
   {
     id: 3,
-    type: "mcq",
+    type: "Multiple Correct",
     question: "A ⃗=i ̂+j ̂+k ̂  and B ⃗=2i ̂-3k ̂  then",
     topic: "Kinematics",
     answer: [
@@ -123,7 +123,7 @@ export const data = [
   },
   {
     id: 8,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "Two particles P and Q describe S.H.M of same amplitude 'a', same frequency 'f' along the same straight line. The maximum distance between the two particles is a √2. The initial phase difference between the particle is:",
     topic: "Simple Harmonic",
@@ -147,7 +147,7 @@ export const data = [
   },
   {
     id: 9,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "The bob in a simple pendulum of length 'l' is released at t=0 from the position of small angular displacement θ. Linear displacement of the bob at any time 't' from the mean position is:",
     topic: "Simple Harmonic",
@@ -181,7 +181,7 @@ export const data = [
   },
   {
     id: 11,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "An object of mass m is moving in uniform circular motion in xy-plane. The circler has radius R and object is moving clockwise around the circle with speed v. The motion is projected onto the x-axis where it appears as Simple harmonic motion according to x(t)=R cos (ωt+Φ). The motion starts from point of co-ordinates (0,R). In this projection Φ is:",
     topic: "Circular Motion",
@@ -205,7 +205,7 @@ export const data = [
   },
   {
     id: 12,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "Two particles A and B are performing SHM along x and y-axis respectively with equal amplitude and frequency of 2cm and 1Hz respectively. Equilibrium positions of the particless A and B are at the co-ordinates (3cm,0) and (0,4cm) respectively. At t=0, B is at its eqiulibrium position and moving towards the origin, while A is nearest to the origin and moving away from origin. Equation of motion of particle A :",
     topic: "Simple Harmonic",
@@ -229,7 +229,7 @@ export const data = [
   },
   {
     id: 13,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "Two particles A and B are performing SHM along x and y-axis respectively with equal amplitude and frequency of 2cm and 1Hz respectively. Equilibrium positions of the particless A and B are at the co-ordinates (3cm,0) and (0,4cm) respectively. At t=0, B is at its eqiulibrium position and moving towards the origin, while A is nearest to the origin and moving away from origin. Equation of motion of particle B :",
     topic: "Simple Harmonic",
@@ -263,7 +263,7 @@ export const data = [
   },
   {
     id: 15,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "Two ships are resting on sea surface at distances a and b from the fixed point O respectively. They start moving towards the point O with constant velocities v1 and v2 respectively. If the ships subtend an angle θ at O, find the shortest distance of their separation. (θ=𝛑/2)",
     topic: "Kinematics",
@@ -287,7 +287,7 @@ export const data = [
   },
   {
     id: 16,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A balloon starts rising from the surface of Earth. the ascending rate is constant and equal to v₀. Due to the wind the ballon gathers the horizontal velocitycomponent vₓ=ay, where 'a' is a constant and 'y' is height of ascent. Which of the following are correct depending on the height of ascent:",
     topic: "Kinematics",
@@ -314,7 +314,7 @@ export const data = [
   },
   {
     id: 17,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "If velocity of the particle is given by v=√x, where x denotes the position of the particle and initial particle was at x=4, then which of the following are incorrect:",
     topic: "Kinematics",
@@ -343,7 +343,7 @@ export const data = [
   },
   {
     id: 18,
-    type: "mcq",
+    type: "Multiple Correct",
     question: "Which of the following are correct:",
     topic: "Kinematics",
     answer: [
@@ -373,7 +373,7 @@ export const data = [
   },
   {
     id: 19,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A ship 'A' is travelling due east at 10km/hr and at 9 am is 30km south-west of another ship 'B'. If 'B' travels at 15km/hr so as to intercept 'A' then which are correct:",
     topic: "Kinematics",
@@ -410,7 +410,7 @@ export const data = [
   },
   {
     id: 21,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A river 400m wide is flowing at a rate of 2m/s. A boat is sailing at a velocity of 10m/s with respect to water, in a direction perpendicular to the river. Which of the following are correct.",
     topic: "Kinematics",
@@ -439,7 +439,7 @@ export const data = [
   },
   {
     id: 22,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A man standing on a road has to hold his umbrella at 30° with the vertical to keep the rain away. He throws the umbrella and starts running at 10km/hr. He finds that raindrops are hitting his head vertically. Which are correct:",
     topic: "Kinematics",
@@ -466,7 +466,7 @@ export const data = [
   },
   {
     id: 23,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "If the tension in the cable supporting an elevator is equal to the weight of the elevator, the elevator may be:",
     topic: "Laws of Motion",
@@ -493,7 +493,7 @@ export const data = [
   },
   {
     id: 24,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "In the pulley system, the movable pulleys A,B and C are of mass 1kg each. D and E fixed pulleys. The strings are light and inextensible. Which are correct:",
     topic: "Laws of Motion",
@@ -520,7 +520,7 @@ export const data = [
   },
   {
     id: 25,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "In the pulley system, all pulleys are smooth and massless. When the system is released from rest, accelerations of blocks 2 and 3 relative to 1 are 1m/s² downwards and 5m/s² downwards. Acceleration of block 3 relative to 4 is zero. Which absolute acceleration of blocks is/are correct:",
     topic: "Laws of Motion",
@@ -547,7 +547,7 @@ export const data = [
   },
   {
     id: 26,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "In the fig. assume that there is no friction between block B and the surface on which it moves and the coefficient of friction between blocks A and B is μ. Which is/are correct.",
     topic: "Laws of Motion",
@@ -588,7 +588,7 @@ export const data = [
   },
   {
     id: 28,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A monkey of mass 15kg is climbing on a rope with one end fixed to the ceiling. If it wishes to go up with an acceleration of 1m/s², then choose the incorrect option(s):",
     topic: "Laws of Motion",
@@ -655,7 +655,7 @@ export const data = [
   },
   {
     id: 33,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A person applies a constant force F on a particle of mass m and finds that the particle moves in a circle of radius r with a uniform speed v as seen from an inertial frame of reference.",
     topic: "Circular Motion",
@@ -684,7 +684,7 @@ export const data = [
   },
   {
     id: 34,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A particle of mass m is projected with velocity u at an angle α with horizontal. During the period when the particle descends from highest point to the position where its velocity vector makes an angle α/2 with horizontal. Work done by gravity force is :",
     topic: "Work,Power,Energy",
@@ -711,7 +711,7 @@ export const data = [
   },
   {
     id: 35,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A river is flowing with a velocity vᵣ = 4i m/s. A boat is moving with a velocity of vbᵣ = (-2i + 4j)m/s relative to the river. The width of the river is 100m along y-direction. Choose the correct alternative(s)",
     topic: "Kinematics",
@@ -738,7 +738,7 @@ export const data = [
   },
   {
     id: 36,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A particle of mass m moves along a circle of radius R with a normal acceleration varying with time as wₙ = at², where 'a' is a constant. Find the time dependence of the power developed by all the forces acting on the particle.",
     topic: "Work,Power,Energy",
@@ -815,7 +815,7 @@ export const data = [
   },
   {
     id: 42,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A circular road of radius r is banked for a speed v=40km/hr. A car of mass m attempts to go on the circular road. The friction coefficient between the tyre and the road is negligible.",
     topic: "Circular Motion",
@@ -845,7 +845,7 @@ export const data = [
   },
   {
     id: 43,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A heavy particle is suspended by a 1.5m long string. It is given a horizontal velocity of √57 m/s. Which is/are correct? (g=10m/s²)",
     topic: "Work,Power,Energy",
@@ -875,7 +875,7 @@ export const data = [
   },
   {
     id: 44,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A block of mass m moves on a horizontal circle against the wall of a cylindrical room of radius R. The floor of the room on which the block moves is smooth but the friction coefficient between the wall and the block is μ. The block is given an initial speed v₀. As a function of speed v, which is/are correct: ",
     topic: "Circular Motion",
@@ -912,7 +912,7 @@ export const data = [
   },
   {
     id: 46,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A particle moves in a circle of radius 1cm at a speed given by v=2t where v is in cm/s ant t in seconds. Which is/are correct: ",
     topic: "Circular Motion",
@@ -942,7 +942,7 @@ export const data = [
   },
   {
     id: 47,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "A nonzero external force acts on a system of particles. The velocity and the acceleration of the center of mass are found to be v₀ and a₀at an instant t. It is possible that: ",
     topic: "Circular Motion",
@@ -969,7 +969,7 @@ export const data = [
   },
   {
     id: 48,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "Consider the following: A) Linear momentum of the system remains constant. B) Center of mass of the system remains at rest.",
     topic: "Center of mass",
@@ -1016,7 +1016,7 @@ export const data = [
   },
   {
     id: 51,
-    type: "mcq",
+    type: "Multiple Correct",
     question:
       "Two identical smooth balls are projected towards each other from points A and B on the horizontal ground with same speed of projection. The angle of projection in each case is 30⁰. The distance between A and B is 100m in balls collide in air and return to their respective points of projection. If coefficient of resistance is e=0.7, (g=10m/s²) then:",
     topic: "Center of mass",

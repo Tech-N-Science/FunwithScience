@@ -306,7 +306,7 @@ const App = () => {
           {/* <Route exact path="/questions/:id" component={Singlequestion}></Route> */}
           {/* New Question Routing Rules */}
           <Route exact path="/questions/:type/:id" component={Singlequestion}></Route>
-
+          
           <Redirect to="/" />
         </Switch>
       </Context.Provider>
