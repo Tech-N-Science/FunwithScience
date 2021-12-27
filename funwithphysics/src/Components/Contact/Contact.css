@@ -106,7 +106,7 @@ padding: 20px;
 }
 .contactTXT {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 20px;
@@ -131,8 +131,14 @@ padding: 20px;
   .contactTXT {
     width: 90% !important;
   }
+  .contactTXT{
+    flex-direction: row;
+  }
 }
 @media only screen and (max-width: 437px) {
+  .contactTXT{
+    flex-direction: row;
+  }
   .contact-img {
     width: 300px;
   }
