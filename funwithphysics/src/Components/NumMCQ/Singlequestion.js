@@ -160,7 +160,7 @@ const Singlequestion = () => {
       // eslint-disable-next-line
       if (answer - 0.2 < result <= answer + 0.2) {
         alert("Correct Answer");
-        handleNext();
+        handleOptions();
       } else {
         alert("Wrong Answer, Please try again !!");
       }
