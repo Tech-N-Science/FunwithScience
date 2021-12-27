@@ -1,8 +1,8 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./index.css";
 import reducer, { initialstate } from "./reducer";
-import FPassword from "./Components/Forgot_Password/fpassword" 
-import RPassword from "./Components/Forgot_Password/resetpassword" 
+import FPassword from "./Components/Forgot_Password/fpassword";
+import RPassword from "./Components/Forgot_Password/resetpassword";
 import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Loginpage/Login";
@@ -53,11 +53,11 @@ const Home = lazy(() => {
 export const Context = React.createContext();
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialstate);
-  const [searchTerm,setsearchTerm]=useState([]);
+  const [searchTerm, setsearchTerm] = useState([]);
   const [typ, settyp] = useState(false);
   const [top, settop] = useState(false);
   const [difficult, setdifficult] = useState(false);
-
+  localStorage.setItem("user", null);
   return (
     <React.Fragment>
       <Helmet>
@@ -76,7 +76,20 @@ const App = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
       </Helmet>
-      <Context.Provider value={{ state, dispatch,searchTerm,setsearchTerm,typ,settyp,settop,top,setdifficult,difficult}}>
+      <Context.Provider
+        value={{
+          state,
+          dispatch,
+          searchTerm,
+          setsearchTerm,
+          typ,
+          settyp,
+          settop,
+          top,
+          setdifficult,
+          difficult,
+        }}
+      >
         <Switch>
           <Route exact path="/">
             <Suspense
@@ -113,7 +126,7 @@ const App = () => {
           </Route>
           <Route exact path="/fpass">
             <Navbar />
-            <FPassword/>
+            <FPassword />
           </Route>
           <Route exact path="/classicalmechanics">
             <Navbar />
