@@ -7,6 +7,7 @@ import { Context } from "../../App";
 const Singlecard = (props) => {
   const { state } = useContext(Context);
   const user = localStorage.getItem("user");
+  // console.log(state.user,user);
   return (
     <Card className="singlecard">
       <Card.Header>
@@ -53,7 +54,7 @@ const Singlecard = (props) => {
             <Button
               variant="primary"
               className="solve-question-btn"
-              onClick={() => alert("You need to login first!!")}
+              onClick={() => {alert("You need to login first!!")}}
             >
               Solve Question
             </Button>

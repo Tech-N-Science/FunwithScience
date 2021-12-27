@@ -120,17 +120,12 @@ footer {
   color: white;
 }
 
-.center .additional {
-  margin-top: 48px;
-}
-
 .center .text {
   font-size: 17px;
   font-weight: 500;
   padding-left: 10px;
   color: #00d8e5;
 }
-
 .center-bottom {
   padding-top: 28px;
 }
@@ -144,7 +139,7 @@ footer {
 .left .footer-logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .left .footer-logo img {
@@ -383,9 +378,9 @@ footer {
     line-height: 40px;
   }
 
-  .additional {
+  /* .additional {
     margin-top: 50px;
-  }
+  } */
 
   .right form button {
     width: 87vh;
@@ -396,7 +391,9 @@ footer {
   .bottom * {
     font-size: 12px;
   }
-
+  /* .center1{
+    padding-top: 0px !important;
+  } */
   .right form button {
     width: 210px;
   }
