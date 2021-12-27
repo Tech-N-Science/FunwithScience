@@ -4,7 +4,7 @@ import { Form, Button, Col, Row,Modal } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
 import Solution from "../../Solution/Solution";
-import {SI} from '../../Solution/allSIUnits'
+import { SI } from "../../Solution/allSIUnits";
 import Navbar from "../../Navbar/Navbar";
 
 function WPECalculator({ match }) {
@@ -59,9 +59,9 @@ function WPECalculator({ match }) {
 
   // Work Calculator
   function CalculatorWork() {
-    const [result, setResult] = useState(null);
-    const [force, setForce] = useState(null);
-    const [displacement, setDisp] = useState(null);
+    const [result, setResult] = useState("");
+    const [force, setForce] = useState("");
+    const [displacement, setDisp] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
 
@@ -73,44 +73,43 @@ function WPECalculator({ match }) {
     const insertValues = `${force}${SI["force"]} * ${displacement}${SI["displacement"]}`;
 
     const handleClick = () => {
-      if(force!=null && displacement!=null)
-    {
-      let res = force * displacement;
-      setResult(res);
-      setShowSolution(true)
-    }
-     else{
+      if (force !== "" && displacement !== "") {
+        let res = force * displacement;
+        setResult(res);
+        setShowSolution(true);
+      } else {
         setShowModal(true);
       }
     };
 
-    const resetForm=()=>{
-      setForce(null);
-      setDisp(null);
+    const resetForm = () => {
+      setForce("");
+      setDisp("");
       setShowSolution(false);
-      setResult(null);
-    }
+      setResult("");
+    };
 
     return (
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Force (in Newtons)</Form.Label>
             <Form.Control
               onChange={(e) => setForce(e.target.value)}
+              value={force}
               type="number"
               placeholder="Enter Force applied to an object in newtons"
             />
@@ -120,10 +119,11 @@ function WPECalculator({ match }) {
             <Form.Control
               onChange={(e) => setDisp(e.target.value)}
               type="number"
+              value={displacement}
               placeholder="Enter displacement in metre"
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -134,14 +134,14 @@ function WPECalculator({ match }) {
                 // constants={constants}
               />
             </Form.Group>
-           : null }
+          ) : null}
 
           <Form.Group className="mb-3" controlId="work">
             <Form.Label>Work Done (W)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " Joules "}
+              placeholder={result === "" ? "Result" : result + " Joules "}
             />
             <Form.Text className="text-muted">
               Enter the above values to Calculate.
@@ -152,9 +152,7 @@ function WPECalculator({ match }) {
               Calculate
             </Button>
 
-            
             <Button variant="dark" onClick={resetForm} type="reset">
-
               Reset
             </Button>
           </div>
@@ -165,59 +163,58 @@ function WPECalculator({ match }) {
 
   // Power Calculator
   function CalculatorPower() {
-    const [result, setResult] = useState(null);
-    const [workdone, setworkdone] = useState(null);
-    const [time, settime] = useState(null);
+    const [result, setResult] = useState("");
+    const [workdone, setworkdone] = useState("");
+    const [time, settime] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
 
     const givenValues = {
-      "work": workdone,
+      work: workdone,
       time: time,
     };
 
     const insertValues = `${workdone} ${SI["work"]} / ${time} ${SI["time"]}`;
 
     const handleClick = () => {
-      if(workdone!=null && time!=null)
-{
-      let res = workdone / time;
-      setResult(res);
-      setShowSolution(true)
-    }
-    else{
-      setShowModal(true);
-    }
-  };
+      if (workdone !== "" && time !== "") {
+        let res = workdone / time;
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
+    };
 
-  const resetForm=()=>{
-    setworkdone(null);
-    settime(null);
-    setShowSolution(false);
-    setResult(null);
-  }
+    const resetForm = () => {
+      setworkdone("");
+      settime("");
+      setShowSolution(false);
+      setResult("");
+    };
 
     return (
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="workdone">
             <Form.Label> Work Done (in Joules)</Form.Label>
             <Form.Control
               onChange={(e) => setworkdone(e.target.value)}
               type="number"
+              value={workdone}
               placeholder="Enter work done in joules"
             />
           </Form.Group>
@@ -225,11 +222,12 @@ function WPECalculator({ match }) {
             <Form.Label> Time Taken (in sec)</Form.Label>
             <Form.Control
               onChange={(e) => settime(e.target.value)}
+              value={time}
               type="number"
               placeholder="Enter time taken in seconds"
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -240,13 +238,13 @@ function WPECalculator({ match }) {
                 // constants={constants}
               />
             </Form.Group>
-           : null }
+          ) : null}
           <Form.Group className="mb-3" controlId="power">
             <Form.Label>Power (P)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " W "}
+              placeholder={result === "" ? "Result" : result + " W "}
             />
             <Form.Text className="text-muted">
               Enter the above values to Calculate.
@@ -258,9 +256,7 @@ function WPECalculator({ match }) {
             Calculate
           </Button>
 
-          
           <Button variant="dark" onClick={resetForm} type="reset">
-
             Reset
           </Button>
         </div>
@@ -270,34 +266,67 @@ function WPECalculator({ match }) {
 
   //Energy Calculator
   function CalculatorEnergy() {
-    const [kinetic, setKinetic] = useState(null);
-    const [potential, setPotential] = useState(null);
-    const [massKE, setMassKE] = useState(null);
-    const [massPE, setMassPE] = useState(null);
-    const [vel, setVel] = useState(null);
-    const [height, setHeight] = useState(null);
+    const [kinetic, setKinetic] = useState("");
+    const [potential, setPotential] = useState("");
+    const [massKE, setMassKE] = useState("");
+    const [massPE, setMassPE] = useState("");
+    const [vel, setVel] = useState("");
+    const [height, setHeight] = useState("");
     const [g, setG] = useState(9.8);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolutionPE, setShowSolutionPE] = useState(false);
+    const [showSolutionKE, setShowSolutionKE] = useState(false);
+
+    const givenValuesKE = {
+      mass: massKE,
+      velocity: vel,
+    };
+    const insertValuesKE = `1/2 x ${massKE}${SI["mass"]} x (${vel}${SI["velocity"]})²`;
+    const givenValuesPE = {
+      mass: massPE,
+      height: height,
+    };
+    const insertValuesPE = `${massPE}${SI["mass"]} x ${g}${SI["g"]}x ${height}${SI["height"]}`;
+
     function handleSubmit() {
-      if (massPE !== null) {
-        if (g === null) setG(9.8);
+      if (massPE !== "" && height !== "") {
+        if (g === "") setG(9.8);
         let pe = massPE * g * height;
         setPotential(pe);
+        setShowSolutionPE(true);
       } // Calculating Potential Energy
-      if (massKE !== null) {
+      if (massKE !== "" && vel !== "") {
         let ke = massKE * Math.pow(vel, 2) * 0.5;
         setKinetic(ke);
-      } // Calculating Kinetic Energy
-      console.log(g);
-      console.log(massPE);
-      console.log(height);
+        setShowSolutionKE(true);
+      } // Calculating Kinetic Energy}
     }
     function handleReset() {
-      setKinetic(null);
-      setPotential(null);
+      setKinetic("");
+      setPotential("");
+      setMassKE("");
+      setMassPE("");
+      setVel("");
+      setShowSolutionKE(false);
+      setShowSolutionPE(false);
+      setHeight("");
       setG(9.8);
     }
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form className="energy-form">
           {/* Title */}
           <Row>
@@ -321,6 +350,7 @@ function WPECalculator({ match }) {
                   id="customInp"
                   onChange={(e) => setMassKE(e.target.value)}
                   type="number"
+                  value={massKE}
                   placeholder="Enter the mass"
                 />
               </Form.Group>
@@ -332,6 +362,7 @@ function WPECalculator({ match }) {
                   className="customInp"
                   id="customInp"
                   onChange={(e) => setMassPE(e.target.value)}
+                  value={massPE}
                   type="number"
                   placeholder="Enter the mass"
                 />
@@ -346,6 +377,7 @@ function WPECalculator({ match }) {
                   className="customInp"
                   id="customInp"
                   onChange={(e) => setVel(e.target.value)}
+                  value={vel}
                   type="number"
                   placeholder="Enter the velocity"
                 />
@@ -358,6 +390,7 @@ function WPECalculator({ match }) {
                   className="customInp"
                   id="customInp"
                   onChange={(e) => setHeight(e.target.value)}
+                  value={height}
                   type="number"
                   placeholder="Enter the height"
                 />
@@ -373,10 +406,41 @@ function WPECalculator({ match }) {
                   className="customInp"
                   id="customInp"
                   onChange={(e) => setG(e.target.value)}
+                  value={g}
                   type="number"
-                  placeholder="Enter Gravitational Acceleration(g)"
+                  placeholder={g === 9.8 ? "9.8 m/s^2" : " "}
                 />
               </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+             {showSolutionKE ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesKE}
+                formula="1/2 x m x v^2"
+                toFind="kinetic Energy"
+                insertValues={insertValuesKE}
+                result={kinetic}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+            </Col>
+            <Col>
+             {showSolutionPE ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesPE}
+                formula="mgh"
+                toFind="potential Energy"
+                insertValues={insertValuesPE}
+                result={potential}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
             </Col>
           </Row>
           <Row>
@@ -389,7 +453,7 @@ function WPECalculator({ match }) {
                   readOnly
                   onChange={(e) => setKinetic(e.target.value)}
                   type="number"
-                  placeholder={kinetic === null ? " " : kinetic}
+                  placeholder={kinetic === "" ? " " : `${kinetic} Joule`}
                 />
               </Form.Group>
             </Col>
@@ -402,7 +466,7 @@ function WPECalculator({ match }) {
                   readOnly
                   onChange={(e) => setPotential(e.target.value)}
                   type="number"
-                  placeholder={potential === null ? " " : potential}
+                  placeholder={potential === "" ? " " :  `${potential} Joule`}
                 />
               </Form.Group>
             </Col>

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button,Modal } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import "../AtomicPhysics.css";
 import "../../../Responsive/style.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import Solution from "../../Solution/Solution";
 import { constant } from "../../Solution/allConstants";
-
 
 function Calculator({ match }) {
   // topics_data
@@ -56,11 +55,11 @@ function Calculator({ match }) {
     const [showSolution, setShowSolution] = useState(false);
 
     const givenValues = {
-      ni :initial,
-     nf: final,
+      ni: initial,
+      nf: final,
     };
-    const constants=["R"];
-    const insertValues = `1/(${constant["R"]}[(1/${final}²)-(1/${initial}²)])`
+    const constants = ["R"];
+    const insertValues = `1/(${constant["R"]}[(1/${final}²)-(1/${initial}²)])`;
 
     const R = 1.097 * Math.pow(10, 7);
     const reset = () => {
@@ -70,22 +69,22 @@ function Calculator({ match }) {
       setResult("");
     };
     const calcResult = () => {
-      if(initial!="" && final!="")
-      {let res;
-      let r1 = 1 / (initial * initial);
-      let r2 = 1 / (final * final);
-      let r3 = R * (r2 - r1);
-      res = 1 / r3;
+      if (initial !== "" && final !== "") {
+        let res;
+        let r1 = 1 / (initial * initial);
+        let r2 = 1 / (final * final);
+        let r3 = R * (r2 - r1);
+        res = 1 / r3;
 
-      setResult(res);
-      setShowSolution(true);
-    } else {
-      setShowModal(true);
-    }
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
     return (
       <>
-       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header>
             Please Enter all values to get Proper answer
           </Modal.Header>
@@ -112,7 +111,7 @@ function Calculator({ match }) {
             <Form.Label>Final Excitation State (nf)</Form.Label>
             <Form.Control
               onChange={(e) => setFinal(e.target.value)}
-              type="number" 
+              type="number"
               placeholder="Enter the Final state (nf)"
               value={final === null ? "" : final}
             />
@@ -126,7 +125,7 @@ function Calculator({ match }) {
               <Solution
                 givenValues={givenValues}
                 formula="1/(R[(1/nf²)-(1/ni²)])"
-                toFind="Wave length"
+                toFind="wave Length"
                 insertValues={insertValues}
                 result={result}
                 constants={constants}
