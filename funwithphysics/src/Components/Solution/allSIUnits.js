@@ -21,5 +21,6 @@ export const SI = {
   displacement: "m",
   time: "sec",
   angle: "°",
+  "Brewster's angle": "°",
   microstates: "N",
 };

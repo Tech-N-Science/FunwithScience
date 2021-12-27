@@ -8,11 +8,11 @@ import Solution from "../../Solution/Solution";
 
 //Gravitational Force calculator
 function CalculatorGravitationalForce() {
-  const [result, setResult] = useState(null);
-  const [mass_A, setMassA] = useState(null);
-  const [mass_B, setMassB] = useState(null);
+  const [result, setResult] = useState("");
+  const [mass_A, setMassA] = useState("");
+  const [mass_B, setMassB] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const [distance, setDistance] = useState(null);
+  const [distance, setDistance] = useState("");
   //add
   const [showSolution, setShowSolution] = useState(false);
 
@@ -36,7 +36,7 @@ function CalculatorGravitationalForce() {
 
   //add these  validation also and also set setShowSolution
   const handleClick = () => {
-    if (mass_A != null && mass_B != null && distance != null) {
+    if (mass_A != "" && mass_B != "" && distance != "") {
       let res =
         (6.67 * Math.pow(10, -11) * mass_A * mass_B) / (distance * distance);
       setResult(res);
@@ -47,11 +47,11 @@ function CalculatorGravitationalForce() {
 
   //reset function => to reset all states
   const resetForm = () => {
-    setMassA(null);
-    setMassB(null);
-    setDistance(null);
+    setMassA("");
+    setMassB("");
+    setDistance("");
     setShowSolution(false);
-    setResult(null);
+    setResult("");
   };
   return (
     <React.Fragment>
@@ -110,7 +110,7 @@ function CalculatorGravitationalForce() {
           <Form.Control
             readOnly
             type="number"
-            placeholder={result === null ? "Result" : result + " Newton"}
+            placeholder={result === "" ? "Result" : result + " Newton"}
           />
           <Form.Text className="text-muted">
             Enter masses & distance to Calculate the Gravitational Force .
