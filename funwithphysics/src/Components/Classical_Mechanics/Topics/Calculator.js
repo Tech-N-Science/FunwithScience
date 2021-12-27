@@ -1269,20 +1269,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               </Form.Group>
             </Col>
           </Row>
-          {/* Solution */}
-          {showSolution? 
-            <Form.Group className="mb-3" controlId="acceleration">
-              <Solution
-                givenValues={givenValues}
-                formula="(m1u1 + m2u2 - m1v1) / m2"
-                toFind="final Velocity"
-                insertValues={insertValues}
-                result={finalVelTwo}
-                // constants={constants}
-              />
-            </Form.Group>
-           : null }
-          {/* Final Velocity */}
+          
           <Row>
             <Col>
               <Form.Group>
@@ -1311,7 +1298,18 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               </Form.Group>
             </Col>
           </Row>
-          
+          {/* Solution */}
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(m1u1 + m2u2 - m1v1) / m2"
+                toFind="final Velocity"
+                insertValues={insertValues}
+                result={finalVelTwo}
+              />
+            </Form.Group>
+           : null }
           {/* Submit Btn */}
           <div className="button-custom-grp">
             <Button variant="primary" onClick={handleSubmit}>
