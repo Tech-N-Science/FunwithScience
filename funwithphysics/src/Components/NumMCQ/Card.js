@@ -49,7 +49,7 @@ const Singlecard = (props) => {
           <Card.Title className="card-title">{props.question}</Card.Title>
           <Card.Text className="card-text">{props.topic}</Card.Text>
         </div>
-        state.user || user !== "null" ? (
+        {state.user || user !== "null" ? (
           <Link
             to={{
               pathname: `/questions/${props.type}/${uniqueIdCheck(props.type, props.id)}`,
