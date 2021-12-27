@@ -18,7 +18,7 @@ function Calculator({ match }) {
       details:
         "The Rydberg formula describes the various transition energies that occur between energy levels. A photon is released when an electron goes from a higher to a lower energy level. Depending on the beginning and ultimate energy levels of the transition, the hydrogen atom can produce different wavelengths of light. It emits a photon with an energy equal to the square of the energy levels of the final (nf) and initial (ni).",
       process:
-        "To find the (λ) wavelength of the emitted EM radiation we need to know the value of initial state (ni) and the final excitation state (nf) where R is the Rydberg constant, and it's value is determined by an experiment 1.097 × 10^7 / m (or m⁻¹)",
+        "To find the (λ) wavelength of the emitted EM radiation we need to know the value of initial state (ni) and the final excitation state (nf) where R is the Rydberg constant, and it's value is determined by an experiment 1.097 × 10⁷ / m (or m⁻¹)",
       dimension: "[L]",
     },
     {
@@ -118,7 +118,7 @@ function Calculator({ match }) {
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Label>Rydberg constant(R)</Form.Label>
-            <Form.Control readOnly placeholder="1.097 × 10^7 / m (or m⁻¹)" />
+            <Form.Control readOnly placeholder="1.097 × 10⁷ / m (or m⁻¹)" />
           </Form.Group>
           {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
