@@ -9,7 +9,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Autho
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "funwithscience";
+$dbname = "funwithscience_backend";
 $con = mysqli_connect($servername, $username, $password, $dbname);
 
 $postdata = file_get_contents("php://input");
