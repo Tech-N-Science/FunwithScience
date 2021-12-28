@@ -3,13 +3,11 @@ import "./Singlequestion.css";
 import { useState, useEffect } from "react";
 import Navbar from "./../Navbar/Navbar";
 import { Helmet } from "react-helmet";
-import { useLocation } from "react-router";
-import { Link, useParams, Redirect } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { data } from "./data";
 
 const Singlequestion = () => {
-
-  var {id, type} = useParams();
+  var { id, type } = useParams();
   id = parseInt(id);
   console.log(id);
 
@@ -26,16 +24,16 @@ const Singlequestion = () => {
   console.log(question);
   const [imag, setimag] = useState("");
   const [result, setResult] = useState([]);
-  
+
   useEffect(() => {
     setquestion(mcqAll[id].question);
     setanswer(mcqAll[id].answer);
     setimag(mcqAll[id].image);
-  })
+  });
 
   useEffect(() => {
     setResult([]);
-  }, [])
+  }, []);
 
   if (type === "mcq") {
     const handleOptions = () => {
@@ -140,15 +138,25 @@ const Singlequestion = () => {
             </div>
             <div className="btns-box">
               <button className="prev-btn" onClick={handleOptions}>
-                <Link to={`/questions/mcq/${id-1 >= 0 ? id-1 : mcqAll.length-1}`}> Previous</Link>
+                <Link
+                  to={`/questions/mcq/${
+                    id - 1 >= 0 ? id - 1 : mcqAll.length - 1
+                  }`}
+                >
+                  {" "}
+                  Previous
+                </Link>
               </button>
               <button className="submit-btn" onClick={handleSubmit}>
                 <span> Submit</span>
               </button>
               <button className="next-btn" onClick={handleOptions}>
-                <Link 
-                to={`/questions/mcq/${id+1 < mcqAll.length ? id+1 : 0}`}
-                > Next</Link>
+                <Link
+                  to={`/questions/mcq/${id + 1 < mcqAll.length ? id + 1 : 0}`}
+                >
+                  {" "}
+                  Next
+                </Link>
               </button>
             </div>
           </div>
@@ -216,15 +224,25 @@ const Singlequestion = () => {
             </div>
             <div className="btns-box">
               <button className="prev-btn" onClick={handleOptions}>
-                <Link to={`/questions/Numerical/${id-1 >= 0 ? id-1 : mcqAll.length-1}`}>Previous</Link>
+                <Link
+                  to={`/questions/Numerical/${
+                    id - 1 >= 0 ? id - 1 : mcqAll.length - 1
+                  }`}
+                >
+                  Previous
+                </Link>
               </button>
               <button className="submit-btn" onClick={handleSubmit}>
                 <span> Submit</span>
               </button>
               <button className="next-btn" onClick={handleOptions}>
-                <Link 
-                  to={`/questions/Numerical/${id+1 < mcqAll.length ? id+1 : 0}`}
-                >Next</Link>
+                <Link
+                  to={`/questions/Numerical/${
+                    id + 1 < mcqAll.length ? id + 1 : 0
+                  }`}
+                >
+                  Next
+                </Link>
               </button>
             </div>
           </div>
