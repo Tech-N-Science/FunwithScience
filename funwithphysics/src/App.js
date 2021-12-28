@@ -57,7 +57,7 @@ const App = () => {
   const [typ, settyp] = useState(false);
   const [top, settop] = useState(false);
   const [difficult, setdifficult] = useState(false);
-  localStorage.setItem("user", null);
+  //localStorage.setItem("user", null);
   return (
     <React.Fragment>
       <Helmet>
@@ -316,7 +316,11 @@ const App = () => {
             <NumMCQ />
           </Route>
 
-          <Route exact path="/questions/:type/:id" component={Singlequestion}></Route>
+          <Route
+            exact
+            path="/questions/:type/:id"
+            component={Singlequestion}
+          ></Route>
 
           <Redirect to="/" />
         </Switch>

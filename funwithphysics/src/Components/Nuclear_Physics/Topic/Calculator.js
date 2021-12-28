@@ -5,10 +5,9 @@ import "../NuclearPhysics.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import Solution from "../../Solution/Solution";
-import {constant} from '../../Solution/allConstants';
-import {SI} from '../../Solution/allSIUnits';
+import { constant } from "../../Solution/allConstants";
+import { SI } from "../../Solution/allSIUnits";
 import Modal from "react-bootstrap/Modal";
-
 
 function Calculator({ match }) {
   // topics_data
@@ -58,7 +57,7 @@ function Calculator({ match }) {
       details: `In nuclear physics, the Q value for a reaction is the amount of energy absorbed or released during the nuclear reaction, it can be positive and negative as well. The value relates to the enthalpy of a chemical reaction or the energy of radioactive decay products. It can be determined from the masses of reactants and products.`,
       siunit: ["Q value  : MeV", <br />, "Mass Defect : amu", <br />],
       process:
-        "To find the Q value, we need to know the the mass defect of the particular reaction and the energy released when 1 amu is converted to energy which is equal to 931.5 MeV. ",
+        "To find the Q value, we need to know the the mass defect of the particular reaction and the energy released when 1 amu is converted to energy which is equal to 931.5 MeV/amu. ",
       formula: "Q = (mᵣ-mₚ) x 931.5 MeV",
       dimension: "Q = M¹ L² T⁻², Δm = M¹, c = L¹T⁻¹",
     },
@@ -124,16 +123,16 @@ function Calculator({ match }) {
     const Mptoton = 1.007277;
     const Mneutron = 1.008665;
     const calcResult = () => {
-      if(atomicNumber!==null && massNumber!==null && matom!==null){
-      let res;
-      res =
-        atomicNumber * (Mptoton + Melectron) +
-        (massNumber - atomicNumber) * Mneutron -
-        matom;
-      setResult(res);
-      setShowSolution(true);
-      }else {
-        setShowModal(true)
+      if (atomicNumber !== null && massNumber !== null && matom !== null) {
+        let res;
+        res =
+          atomicNumber * (Mptoton + Melectron) +
+          (massNumber - atomicNumber) * Mneutron -
+          matom;
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
       }
     };
 
@@ -141,17 +140,25 @@ function Calculator({ match }) {
       Atomic_Number: atomicNumber,
       Mass_Number: massNumber,
       Mass_Atom: matom,
-    }
+    };
 
     const insertValues = `[${atomicNumber}${SI["number"]}(${constant["mass_proton"]} + ${constant["mass_electron"]}) + (${massNumber}${SI["number"]} - ${atomicNumber}${SI["number"]})${constant["mass_neutron"]}] - (${matom}${SI["atomic_mass"]})`;
-    const constants = ["mass_electron","mass_proton","mass_neutron"];
-
+    const constants = ["mass_electron", "mass_proton", "mass_neutron"];
 
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           <Form.Group className="mb-4">
@@ -200,17 +207,17 @@ function Calculator({ match }) {
             <Form.Control type="number" readOnly placeholder="(1.008665 amu)" />
           </Form.Group>
           {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-              givenValues={givenValues}
-              formula="[Z(mp+me)+(A-Z)mn]-matom"
-              toFind="Mass Defect"
-              insertValues={insertValues}
-              result={result}
-              constants={constants}
-            />
-          </Form.Group>
-        ) : null}
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="[Z(mp+me)+(A-Z)mn]-matom"
+                toFind="Mass Defect"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -239,14 +246,13 @@ function Calculator({ match }) {
     const [showSolution, setShowSolution] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
-
     const handleClick = () => {
-      if (mass!== ""){
-      let res = mass * (3*Math.pow(10,8))*(3*Math.pow(10,8));
-      setShowSolution(true);
-      setResult(res);
-      }else {
-        setShowModal(true)
+      if (mass !== "") {
+        let res = mass * (3 * Math.pow(10, 8)) * (3 * Math.pow(10, 8));
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowModal(true);
       }
     };
 
@@ -265,9 +271,18 @@ function Calculator({ match }) {
 
     return (
       <React.Fragment>
-         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="mass">
@@ -284,25 +299,23 @@ function Calculator({ match }) {
             <Form.Control readOnly type="number" placeholder={"3 x 10⁸ m/s"} />
           </Form.Group>
           {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-              givenValues={givenValues}
-              formula="mc²"
-              toFind="Energy Released"
-              insertValues={insertValues}
-              result={result}
-              constants={constants}
-            />
-          </Form.Group>
-        ) : null}
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="mc²"
+                toFind="Energy Released"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-3" controlId="momentum">
             <Form.Label>Energy Released(E)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={
-                result === "" ? "Result" : result + " Joule"
-              }
+              placeholder={result === "" ? "Result" : result + " Joule"}
             />
             <Form.Text className="text-muted">
               Enter the above values to Calculate.
@@ -331,33 +344,42 @@ function Calculator({ match }) {
 
     const R0 = 1.2 * Math.pow(10, -15);
     const handleClick = () => {
-      if(massnumber!==""){
-      let res = R0 * Math.pow(massnumber, 1 / 3);
-      setResult(res);
-      setShowSolution(true);
-  }else{
-    setShowModal(true)
-  }
-  };
+      if (massnumber !== "") {
+        let res = R0 * Math.pow(massnumber, 1 / 3);
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
+    };
 
-  const givenValues = {
-    MassNumber: massnumber,
-  };
+    const givenValues = {
+      MassNumber: massnumber,
+    };
 
-  const resetForm = () => {
-    setmassnumber("");
-    setShowSolution(false);
-    setResult("");
-  };
+    const resetForm = () => {
+      setmassnumber("");
+      setShowSolution(false);
+      setResult("");
+    };
 
-  const insertValues = `${constant["R₀"]} * ∛${massnumber}${SI["massnumber"]}`;
-  const constants = ["R₀"];
+    const insertValues = `${constant["R₀"]} * ∛${massnumber}${SI["massnumber"]}`;
+    const constants = ["R₀"];
 
     return (
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="mass">
@@ -372,21 +394,25 @@ function Calculator({ match }) {
 
           <Form.Group className="mb-4">
             <Form.Label>Proportionality Constant(Rₒ)</Form.Label>
-            <Form.Control readOnly type="number" placeholder={"1.2 x 10⁻¹⁵ m"} />
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={"1.2 x 10⁻¹⁵ m"}
+            />
           </Form.Group>
 
           {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-              givenValues={givenValues}
-              formula="Rₒ x ∛A"
-              toFind="Radius of Nucleus"
-              insertValues={insertValues}
-              result={result}
-              constants={constants}
-            />
-          </Form.Group>
-        ) : null}
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Rₒ x ∛A"
+                toFind="Radius of Nucleus"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-3" controlId="momentum">
             <Form.Label>Radius of Nucleus(R)</Form.Label>
@@ -423,12 +449,12 @@ function Calculator({ match }) {
 
     const A = 931.5; //Energy released in Mev per amu.
     const handleClick = () => {
-      if(massreact!=="" && massproduct !== ""){
-      let res = (massreact - massproduct) * A;
-      setResult(res);
-      setShowSolution(true);
-      }else{
-        setShowModal(true)
+      if (massreact !== "" && massproduct !== "") {
+        let res = (massreact - massproduct) * A;
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
       }
     };
 
@@ -450,8 +476,17 @@ function Calculator({ match }) {
     return (
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="mass">
@@ -475,20 +510,24 @@ function Calculator({ match }) {
 
           <Form.Group className="mb-4">
             <Form.Label>Constant</Form.Label>
-            <Form.Control readOnly type="number" placeholder={"931.5 MeV"} />
-          </Form.Group>
-          {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-          <Solution
-              givenValues={givenValues}
-              formula="(mᵣ-mₚ) x 931.5 MeV"
-              toFind="Q Value"
-              insertValues={insertValues}
-              result={result}
-              constants={constants}
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={"931.5 MeV/amu"}
             />
           </Form.Group>
-        ) : null}
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(mᵣ-mₚ) x 931.5 MeV"
+                toFind="Q Value"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-3" controlId="momentum">
             <Form.Label>Q value(Q)</Form.Label>
@@ -542,25 +581,29 @@ function Calculator({ match }) {
     const givenValues = () => {
       if (choice === "Binding Energy")
         return {
-      MassDefect: MassDefect,
+          MassDefect: MassDefect,
+        };
+      else
+        return {
+          MassDefect: MassDefect,
+          MassNumber: MassNumber,
+        };
     };
-    else
-    return{
-      MassDefect: MassDefect,
-      MassNumber: MassNumber,
-    };
-  };
 
     const calcResult = () => {
       let res;
-      if (choice === "Binding Energy" && MassDefect!=="") {
+      if (choice === "Binding Energy" && MassDefect !== "") {
         res = MassDefect * C * C;
         setShowSolution(true);
-      } else if (choice === "Binding Energy per Nucleon" && MassNumber !=="" && MassNumber !== "") {
+      } else if (
+        choice === "Binding Energy per Nucleon" &&
+        MassNumber !== "" &&
+        MassNumber !== ""
+      ) {
         res = (MassDefect * C * C) / MassNumber;
         setShowSolution(true);
-      }else {
-        setShowModal(true)
+      } else {
+        setShowModal(true);
       }
       setResult(res);
     };
@@ -569,8 +612,8 @@ function Calculator({ match }) {
       if (choice === "Binding Energy")
         return `${MassDefect}${SI["MassDefect"]} * (${constant["c"]})²`;
       else
-        return `(${MassDefect}${SI["MassDefect"]} * (${constant["c"]})²) / ${MassNumber}`; 
-    }
+        return `(${MassDefect}${SI["MassDefect"]} * (${constant["c"]})²) / ${MassNumber}`;
+    };
     const constants = ["c"];
 
     const choiceData = () => {
@@ -589,9 +632,18 @@ function Calculator({ match }) {
     };
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           {/* dropdown */}
@@ -653,25 +705,23 @@ function Calculator({ match }) {
             <Form.Control readOnly type="number" placeholder={"3 * 10⁸ m/s"} />
           </Form.Group>
           {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-          <Solution
-              givenValues={givenValues()}
-              formula={choiceData().formula}
-              toFind={choiceData().name}
-              insertValues={insertValues()}
-              result={result}
-              constants={constants}
-            />
-          </Form.Group>
-        ) : null}
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues()}
+                formula={choiceData().formula}
+                toFind={choiceData().name}
+                insertValues={insertValues()}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
               placeholder={
-                result === ""
-                  ? "Result"
-                  : result + " " + choiceData().mainunit
+                result === "" ? "Result" : result + " " + choiceData().mainunit
               }
             />
           </Form.Group>
@@ -712,26 +762,25 @@ function Calculator({ match }) {
     const givenValues = () => {
       return {
         DecayConstant: DecayConstant,
-      }
+      };
     };
 
     const insertValues = () => {
       if (choice === "Half Life")
         return `ln(2) / ${DecayConstant}${SI["DecayConstant"]}`;
-      else
-      return `1 / ${DecayConstant}${SI["DecayConstant"]}`;
-    }
+      else return `1 / ${DecayConstant}${SI["DecayConstant"]}`;
+    };
 
     const calcResult = () => {
       let res;
-      if (choice === "Half Life" && DecayConstant !=="") {
+      if (choice === "Half Life" && DecayConstant !== "") {
         res = Math.LN2 / DecayConstant;
         setShowSolution(true);
-      } else if (choice === "Mean Life" && DecayConstant !=="") {
+      } else if (choice === "Mean Life" && DecayConstant !== "") {
         res = 1 / DecayConstant;
         setShowSolution(true);
-      }else {
-        setShowModal(true)
+      } else {
+        setShowModal(true);
       }
       setResult(res);
     };
@@ -740,20 +789,29 @@ function Calculator({ match }) {
         return {
           name: "Half Life",
           mainunit: "s",
-          formula: "ln(2) / λ"
+          formula: "ln(2) / λ",
         };
       if (choice === "Mean Life")
         return {
           name: "Mean Life",
           mainunit: "s",
-          formula: "1 / λ"
+          formula: "1 / λ",
         };
     };
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           {/* dropdown */}
@@ -801,16 +859,16 @@ function Calculator({ match }) {
             </Form.Group>
           )}
           {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-              givenValues={givenValues()}
-              formula={choiceData().formula}
-              toFind={choiceData().name}
-              insertValues={insertValues()}
-              result={result}
-            />
-          </Form.Group>
-        ) : null}
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues()}
+                formula={choiceData().formula}
+                toFind={choiceData().name}
+                insertValues={insertValues()}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -858,17 +916,17 @@ function Calculator({ match }) {
     const calcResult = () => {
       let res;
       let A = -0.0001216 * timeyr;
-      if (choice === "initialamt" && finalamt !=="" && timeyr !=="") {
+      if (choice === "initialamt" && finalamt !== "" && timeyr !== "") {
         res = finalamt * Math.exp(A);
         setShowSolution(true);
-      } else if (choice === "finalamt" && initialamt!=="" && timeyr!=="") {
+      } else if (choice === "finalamt" && initialamt !== "" && timeyr !== "") {
         res = initialamt / Math.exp(A);
         setShowSolution(true);
-      } else if (choice === "timeyr" && initialamt!=="" && finalamt!=="") {
+      } else if (choice === "timeyr" && initialamt !== "" && finalamt !== "") {
         res = Math.log(initialamt / finalamt) / -0.0001216;
         setShowSolution(true);
-      }else {
-        setShowModal(true)
+      } else {
+        setShowModal(true);
       }
       setResult(res);
     };
@@ -876,19 +934,19 @@ function Calculator({ match }) {
     const givenValues = () => {
       if (choice === "initialamt")
         return {
-      Final_Amount: finalamt,
-      Time_year: timeyr,
-    };
-    else if( choice === "finalamt")
-    return{
-      Initial_Amount : initialamt,
-      Time_year: timeyr,
-    };
-    else
-    return{
-      Initial_Amount : initialamt,
-      Final_Amount: finalamt,
-    }
+          Final_Amount: finalamt,
+          Time_year: timeyr,
+        };
+      else if (choice === "finalamt")
+        return {
+          Initial_Amount: initialamt,
+          Time_year: timeyr,
+        };
+      else
+        return {
+          Initial_Amount: initialamt,
+          Final_Amount: finalamt,
+        };
     };
 
     function reset() {
@@ -902,11 +960,11 @@ function Calculator({ match }) {
     const insertValues = () => {
       if (choice === "initialamt")
         return `${finalamt}${SI["Final_Amount"]} * e^(-0.0001216 * ${timeyr}${SI["Time_year"]})`;
-      else if(choice === "finalamt")
-      return `${initialamt}${SI["Initial_Amount"]} / e^(-0.0001216 * ${timeyr}${SI["Time_year"]})`;
+      else if (choice === "finalamt")
+        return `${initialamt}${SI["Initial_Amount"]} / e^(-0.0001216 * ${timeyr}${SI["Time_year"]})`;
       else
-      return `ln(${finalamt}${SI["Final_Amount"]} / ${initialamt}${SI["Initial_Amount"]}) / 0.0001216`;
-    }
+        return `ln(${finalamt}${SI["Final_Amount"]} / ${initialamt}${SI["Initial_Amount"]}) / 0.0001216`;
+    };
 
     const choiceData = () => {
       if (choice === "initialamt")
@@ -933,7 +991,8 @@ function Calculator({ match }) {
         return {
           name: "Time_year",
           mainunit: "years",
-          formula: "ln(Final Amount of ¹⁴C / Initial Amount of ¹⁴C) / 0.0001216",
+          formula:
+            "ln(Final Amount of ¹⁴C / Initial Amount of ¹⁴C) / 0.0001216",
           quantities: ["Initial Amount of ¹⁴C", "Final Amount of ¹⁴C"],
           subunits: ["grams", "grams"],
           setters: [setInitialamt, setFinalamt],
@@ -942,9 +1001,18 @@ function Calculator({ match }) {
     };
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           {/* dropdown */}
@@ -994,16 +1062,16 @@ function Calculator({ match }) {
           </Form.Group>
 
           {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-              givenValues={givenValues()}
-              formula={choiceData().formula}
-              toFind={choiceData().name}
-              insertValues={insertValues()}
-              result={result}
-            />
-          </Form.Group>
-        ) : null}
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues()}
+                formula={choiceData().formula}
+                toFind={choiceData().name}
+                insertValues={insertValues()}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-4">
             <Form.Control
