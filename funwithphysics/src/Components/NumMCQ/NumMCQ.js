@@ -165,9 +165,9 @@ const NumMCQ = () => {
                 }
                 return false;
               })
-              .map((card) => {
+              .map((card, index) => {
                 return (
-                  <div className="single-card">
+                  <div className="single-card" key={index}>
                     <Singlecard
                       type={card.type}
                       question={card.question}
@@ -215,7 +215,7 @@ const NumMCQ = () => {
               <input
                 id="type2"
                 type="checkbox"
-                value="Multiple Correct"
+                value="mcq"
                 onClick={(e) => handleClick(e)}
               />
               <span className="checkmark"></span>

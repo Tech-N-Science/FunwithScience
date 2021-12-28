@@ -6,6 +6,7 @@ footer {
   position: relative;
   bottom: 0px;
   width: 100%;
+  margin-top: 100px;
   background: var(--footer-bg-hex);
 }
 
@@ -52,6 +53,7 @@ footer {
   justify-content: center;
   align-items: center;
   margin: 10px;
+  padding: 20px;
 }
 .center .icons {
   display: flex;
@@ -118,18 +120,13 @@ footer {
   color: white;
 }
 
-.center .additional {
-  margin-top: 48px;
-}
-
 .center .text {
   font-size: 17px;
   font-weight: 500;
   padding-left: 10px;
   color: #00d8e5;
 }
-
-.center-bottom{
+.center-bottom {
   padding-top: 28px;
 }
 .center1 .center-bottom .about-us span {
@@ -142,20 +139,18 @@ footer {
 .left .footer-logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .left .footer-logo img {
-  height: 150px;
   width: 150px;
+  height: 150px;
   border-radius: 50%;
 }
 
 .left h2 {
   margin-top: 0px;
 }
-
-
 
 .left .content .fas {
   font-size: 20px;
@@ -179,13 +174,12 @@ footer {
   font-size: 17px;
   font-weight: 500;
   padding-left: 10px;
-  color: #00D8E5;
+  color: #00d8e5;
 }
 
 .left .content .place span {
   margin-top: 30px;
 }
-
 
 .center1 .content .fas {
   font-size: 20px;
@@ -209,7 +203,7 @@ footer {
   font-size: 17px;
   font-weight: 500;
   padding-left: 10px;
-  color: #00D8E5;
+  color: #00d8e5;
 }
 
 .center1 .content .place span {
@@ -219,8 +213,6 @@ footer {
 .center1 .content .phone {
   margin: 15px 0;
 }
-
-
 
 .right .content .fas {
   font-size: 20px;
@@ -386,9 +378,9 @@ footer {
     line-height: 40px;
   }
 
-  .additional {
+  /* .additional {
     margin-top: 50px;
-  }
+  } */
 
   .right form button {
     width: 87vh;
@@ -399,7 +391,9 @@ footer {
   .bottom * {
     font-size: 12px;
   }
-
+  /* .center1{
+    padding-top: 0px !important;
+  } */
   .right form button {
     width: 210px;
   }
@@ -408,5 +402,24 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+  .left .footer-logo img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .left .footer-logo img {
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .left .footer-logo img {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
   }
 }
