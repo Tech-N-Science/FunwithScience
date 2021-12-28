@@ -166,16 +166,12 @@ const Singlequestion = () => {
   } else if (type === "Numerical") {
     const handleSubmit = () => {
       // eslint-disable-next-line
-      if (answer - 0.2 < result <= answer + 0.2) {
+      if (answer - 0.2 < result && result <= answer + 0.2) {
         alert("Correct Answer");
         handleOptions();
       } else {
         alert("Wrong Answer, Please try again !!");
       }
-      console.log(answer);
-      console.log(typeof answer);
-      console.log(typeof result);
-      console.log(result);
     };
 
     const handleOptions = () => {
@@ -219,6 +215,7 @@ const Singlequestion = () => {
               <input
                 type="number"
                 placeholder="Please enter answer here.."
+                value={result}
                 onChange={(e) => setResult(Number(e.target.value))}
               />
             </div>
