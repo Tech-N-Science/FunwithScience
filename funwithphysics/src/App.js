@@ -316,7 +316,7 @@ const App = () => {
             <NumMCQ />
           </Route>
 
-          <Route exact path="/questions/:id" component={Singlequestion}></Route>
+          <Route exact path="/questions/:type/:id" component={Singlequestion}></Route>
 
           <Redirect to="/" />
         </Switch>

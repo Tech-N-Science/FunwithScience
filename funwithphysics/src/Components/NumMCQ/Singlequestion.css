@@ -5,8 +5,8 @@
 }
 .maincontent {
   height: 100%;
-  width: 60%;
-  border: 1px solid #000;
+  width: 100%;
+  /* border: 1px solid #000; */
 }
 
 .editorial_discussionforum {
@@ -18,6 +18,19 @@
   padding-top: 1.2rem;
 }
 
+.answer-box.numerical {
+  padding-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.answer-box.numerical input {
+  width: 400px;
+  padding: 10px;
+  outline: none;
+  border-radius: 5px;
+}
+
 .answerOption {
   margin-top: 0.5rem;
 }
@@ -25,6 +38,7 @@
 .btns-box {
   padding-top: 1.5rem;
   margin-top: 20px;
+  position: relative;
   display: flex;
   justify-content: space-between;
 }
@@ -102,6 +116,8 @@
   padding: 0px 4px 1px 4px;
   margin-right:8px;
   margin-left: 2px;
+  width: 25px;
+  height: 25px;
 }
 
 .container input:checked ~ .checkmark:after {
@@ -163,13 +179,56 @@
   cursor: pointer;
   border-radius: 15px;
 }
-.next-btn span {
+.next-btn a {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
-.next-btn span:after {
+.next-btn a:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 25px;
+  transition: 0.5s;
+}
+.next-btn:hover a {
+  padding-right: 15px;
+}
+.next-btn:hover a::after {
+  opacity: 1;
+  right: 35px;
+}
+.next-btn:active, .prev-btn:active {
+  transform: scale(0.95);
+}
+
+/* Previous button */
+.prev-btn {
+  padding: 0rem 0.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 10rem;
+  font-weight: 600;
+  background: #35bdd0;
+  border: 1px solid transparent;
+  font-size: 15px;
+  margin: 0 1em 0.5em 1em;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #35bdd0;
+  color: #ffffff;
+  text-align: center;
+  font-size: 17px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.prev-btn a:after {
   content: "»";
   position: absolute;
   opacity: 0;
@@ -177,16 +236,44 @@
   right: -15px;
   transition: 0.5s;
 }
-.next-btn:hover span {
-  padding-right: 15px;
+.prev-btn a {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
 }
-.next-btn:hover span::after {
+.prev-btn a:after {
+  content: "«";
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -105px;
+  transition: 0.5s;
+}
+.prev-btn:hover a {
+  padding-left: 15px;
+}
+.prev-btn:hover a::after {
   opacity: 1;
-  right: 0;
+  left: -90px;
 }
-.next-btn:active {
-  transform: scale(0.95);
+.prev-btn, .next-btn {
+  position: relative;
 }
+.prev-btn a, .next-btn a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
 .submit-btn {
   font-size: 18px;
   border-radius: 15px;
@@ -244,13 +331,16 @@ input[type="number"] {
     display: none;
   }
   .answer-box {
-    width: fit-content;
-    margin-left: 10px;
+    width: 100%;
+    margin-left: 0px;
+  }
+  .answer-box .container {
+    padding-left: 15px;
   }
   .question {
     font-weight: normal;
-    font-size: 18px;
-    width: 300px;
+    font-size: 17px !important;
+    width: 100%;
     padding-left: 5px;
   }
   .maincontent {
@@ -259,6 +349,38 @@ input[type="number"] {
   .editorial-btn {
     margin-left: 30px;
     margin-bottom: 10px;
+  }
+  .singlequestion .maincontent {
+    width: 100%;
+  }
+  .answerOption {
+    width: 100% !important;
+  }
+  .btns-box {
+    height: 170px;
+    align-items: flex-end;
+  }
+  .btns-box .prev-btn, .btns-box .next-btn {
+    height: 50px;
+  }
+  .submit-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-60%);
+    top: 20px;
+  }
+  .submit-btn:hover {
+    transform: translateX(-60%) scale(1.1);
+  }
+
+  .submit-btn:active {
+    transform: translateX(-60%) scale(0.9);
+  }
+}
+
+@media (max-width: 360px) {
+  .question-type {
+    font-size: 25px !important;
   }
 }
 
@@ -274,5 +396,18 @@ input[type="number"] {
   }
   .question {
     font-size: small;
+  }
+  .prev-btn, .next-btn {
+    width: 95px !important;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 290px) {
+  .editorial-btn {
+    font-size: 16px;
+  }
+  .question-type {
+    font-size: 24px !important;
   }
 }
