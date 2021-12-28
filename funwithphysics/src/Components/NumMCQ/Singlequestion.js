@@ -12,7 +12,6 @@ const Singlequestion = () => {
   console.log(id);
 
   const [mcqAll, setMcqAll] = useState(data.filter((val) => val.type === type));
-  console.log(mcqAll);
 
   // var type = match.params.type;
 
@@ -25,6 +24,7 @@ const Singlequestion = () => {
   const [imag, setimag] = useState("");
   const [result, setResult] = useState([]);
 
+  // eslint-disable-next-line
   useEffect(() => {
     setquestion(mcqAll[id].question);
     setanswer(mcqAll[id].answer);
@@ -33,6 +33,8 @@ const Singlequestion = () => {
 
   useEffect(() => {
     setResult([]);
+    setMcqAll(data.filter((val) => val.type === type));
+    // eslint-disable-next-line
   }, []);
 
   if (type === "mcq") {
