@@ -4,6 +4,10 @@ import { Form, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import Solution from "../../Solution/Solution";
+import {constant} from '../../Solution/allConstants';
+import {SI} from '../../Solution/allSIUnits';
+import Modal from "react-bootstrap/Modal";
 
 export const electricpotential_calculator = ({ match }) => {
   const electricpotential_data = [
@@ -91,32 +95,64 @@ export const electricpotential_calculator = ({ match }) => {
     const [distance, setDistance] = useState(null);
     const [radius, setRadius] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const k = 8.99 * Math.pow(10, 9);
     const calcResult = () => {
       let res;
-      if (choice === "Inshell") {
+      if (choice === "Inshell" && charge!==null && radius!==null) {
         res = (k * charge) / radius;
+        setShowSolution(true);
       }
-      if (choice === "Outshell") {
+      else if (choice === "Outshell" && charge!==null && distance!==null) {
         res = (k * charge) / distance;
+        setShowSolution(true);
+      }else {
+        setShowModal(true)
       }
       setResult(res);
     };
+
     const reset = () => {
       setCharge(null);
       setDistance(null);
       setRadius(null);
       setResult(null);
+      setShowSolution(false);
+
     };
     const handleChange = (e) => {
       setChoice(e.target.value);
       reset();
     };
+
+    const givenValues = () => {
+      if (choice === "Inshell")
+        return {
+      Charge:charge,
+      Radius:radius,
+    };
+    else
+        return {
+      Charge:charge,
+      Distance:distance,
+    };
+  };
+
+    const insertValues = () =>{
+      if (choice === "Inshell")
+      return `(${constant["k"]} * ${charge}${SI["charge"]}) / ${radius}${SI["Radius"]}`;
+      else
+      return `(${constant["k"]} * ${charge}${SI["charge"]}) / ${distance}${SI["distance"]}`;
+    }
+    const constants = ["k"];
+
     const choiceData = () => {
       if (choice === "Outshell") {
         return {
           name: "Electric Potential for (outside) the Shell",
           mainunit: "volt",
+          formula:"KQ/r",
           quantities: ["Charge (Q)", "Distance (r)"],
           subunits: ["(C)", "(m)"],
           getters: [charge, distance],
@@ -126,6 +162,7 @@ export const electricpotential_calculator = ({ match }) => {
         return {
           name: "Electric Potential for (inside) the Shell",
           mainunit: "volt",
+          formula:"KQ/R",
           quantities: ["Charge (Q)", "Radius (R)"],
           subunits: ["(C)", "(m)"],
           getters: [charge, radius],
@@ -135,6 +172,10 @@ export const electricpotential_calculator = ({ match }) => {
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         {/* <Navbar/> */}
         <Form>
           {/* dropdown */}
@@ -190,6 +231,18 @@ export const electricpotential_calculator = ({ match }) => {
             <Form.Label>constant (k)</Form.Label>
             <Form.Control readOnly value={`${k}  N m²/C²`} />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues()}
+              formula={choiceData().formula}
+              toFind={choiceData().name}
+              insertValues={insertValues()}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -218,24 +271,54 @@ export const electricpotential_calculator = ({ match }) => {
     const [radius, setRadius] = useState(null);
     const [charge, setCharge] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const calcResult = () => {
       let res;
-      if (choice === "Outsphere") {
+      if (choice === "Outsphere" && charge!==null && distance!==null) {
         res = (k * charge) / distance;
-      } else if (choice === "Insphere") {
+        setShowSolution(true);
+      } else if (choice === "Insphere" && charge!==null && radius!==null) {
         res =
           k *
           (charge / Math.pow(radius, 3)) *
           ((3 * radius * radius) / 2 - (distance * distance) / 2);
+          setShowSolution(true);
+      }else {
+        setShowModal(true)
       }
       setResult(res);
     };
+
+    const givenValues = () => {
+      if (choice === "Outsphere")
+        return {
+      Charge:charge,
+      Distance:distance,
+    };
+    else
+        return {
+      Charge:charge,
+      Distance:distance,
+      Radius:radius,
+    };
+  };
+
+  const insertValues = () =>{
+    if (choice === "Outsphere")
+    return `(${constant["k"]} * ${charge}${SI["charge"]}) / ${distance}${SI["Distance"]}`;
+    else
+    return `(${constant["k"]} * ${charge}${SI["charge"]}) / (${radius}${SI["Radius"]})³[(3(${radius}${SI["Radius"]})² / 2) - ((${distance}${SI["distance"]})² / 2)]`;
+  }
+  const constants = ["k"];
+
     const reset = () => {
       setDistance(null);
       setResult(null);
       setRadius(null);
       setCharge(null);
+      setShowSolution(false);
     };
 
     const k = 8.99 * Math.pow(10, 9);
@@ -248,6 +331,7 @@ export const electricpotential_calculator = ({ match }) => {
         return {
           name: "Electric Potential for (Outside) the sphere",
           mainunit: "volt",
+          formula:"kQ/r",
           quantities: ["Charge (Q)", "Distance (r)"],
           subunits: ["(C)", "(m)"],
           getters: [charge, distance],
@@ -257,6 +341,7 @@ export const electricpotential_calculator = ({ match }) => {
         return {
           name: "Electric Potential for (Inside) the sphere",
           mainunit: "volt",
+          formula:"kQ/R³[(3R²/2)-(r²/2)]",
           quantities: ["Charge (Q)", "Distance (r)", "Radius (R)"],
           subunits: ["(C)", "(m)", "(m)"],
           getters: [charge, distance, radius],
@@ -265,6 +350,10 @@ export const electricpotential_calculator = ({ match }) => {
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -336,6 +425,18 @@ export const electricpotential_calculator = ({ match }) => {
             <Form.Label>constant (k)</Form.Label>
             <Form.Control readOnly value={`${k}  N m²/C²`} />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues()}
+              formula={choiceData().formula}
+              toFind={choiceData().name}
+              insertValues={insertValues()}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -363,13 +464,17 @@ export const electricpotential_calculator = ({ match }) => {
     const [radius, setRadius] = useState(null);
     const [density, setDensity] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const reset = () => {
       setDistance(null);
       setRadius(null);
       setDensity(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(radius!==null && distance!=null && density !==null){
       let res;
       res =
         density *
@@ -378,10 +483,28 @@ export const electricpotential_calculator = ({ match }) => {
         k *
         (Math.sqrt(distance * distance + radius * radius) - distance);
       setResult(res);
+      setShowSolution(true);
+      }else{
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Distance:distance,
+      Radius:radius,
+      Surface_charge_density:density,
+    };
+
+    const insertValues = `[${constant["k"]} * ${density}${SI["Surface_charge_density"]} * 2 * π * √((${radius}${SI["Radius"]})² + (${distance}${SI["Distance"]})²) - ${radius}${SI["Radius"]})]`;
+    const constants = ["k"];
+
     const k = 8.99 * Math.pow(10, 9);
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Distance (r)</Form.Label>
@@ -414,6 +537,18 @@ export const electricpotential_calculator = ({ match }) => {
             <Form.Label>constant (k)</Form.Label>
             <Form.Control readOnly value={`${k}  N m²/C²`} />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="kσ2π[√(R²+r²)-r]"
+              toFind="Electric Potential for disc"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -441,23 +576,43 @@ export const electricpotential_calculator = ({ match }) => {
     const [radius, setRadius] = useState(null);
     const [distance, setDistance] = useState(null);
     const [result, setResult] = useState(null);
-
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const reset = () => {
       setRadius(null);
       setResult(null);
       setDistance(null);
       setCharge(null);
+      setShowSolution(false);
     };
 
+    const givenValues = {
+      Charge:charge,
+      Radius:radius,
+      Distance:distance,
+    };
+
+    const insertValues = `(${constant["k"]} * ${charge}${SI["charge"]}) / √((${radius}${SI["Radius"]})² + (${distance}${SI["Distance"]})²)`;
+    const constants = ["k"];
+
     const calcResult = () => {
+      if(charge!==null && radius !==null && distance!==null){
       let res;
       res = (k * charge) / Math.sqrt(radius * radius + distance * distance);
       setResult(res);
+      setShowSolution(true);
+      }else{
+        setShowModal(true)
+      }
     };
 
     const k = 8.99 * Math.pow(10, 9);
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (Q)</Form.Label>
@@ -490,6 +645,18 @@ export const electricpotential_calculator = ({ match }) => {
             <Form.Label>constant (k)</Form.Label>
             <Form.Control readOnly value={`${k}  N m²/C²`} />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="kQ/√(R²+r²)"
+              toFind="Electric Potential for ring"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -516,19 +683,40 @@ export const electricpotential_calculator = ({ match }) => {
     const [charge, setCharge] = useState(null);
     const [distance, setDistance] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const k = 8.99 * Math.pow(10, 9);
 
     const reset = () => {
       setDistance(null);
       setCharge(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(distance!==null && charge!==null){
       let res = (k * charge) / distance;
       setResult(res);
+      setShowSolution(true);
+      }else{
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Charge:charge,
+      Distance:distance,
+    };
+
+    const insertValues = `(${constant["k"]} * ${charge}${SI["charge"]}) / ${distance}${SI["Distance"]}`;
+    const constants = ["k"];
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (Q)</Form.Label>
@@ -552,6 +740,18 @@ export const electricpotential_calculator = ({ match }) => {
             <Form.Label>constant (k)</Form.Label>
             <Form.Control readOnly value={`${k}  N m²/C²`} />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="kQ/r"
+              toFind="Electric Potential for point charge"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
