@@ -4,6 +4,11 @@ export const constant = {
   G: "6.67430 × 10⁻¹¹ N m²/kg²",
   h: "4.1356676969 × 10⁻¹⁵ eV s",
   k:"8990000000 N m²/C²",
+  e:"1.6 x 10⁻¹⁹ C",
+  K:"9 x 10⁹ N",
+  "ε₀":"8.854187817 × 10⁻¹²",
+  "plank's constant":"6.62607004 × 10⁻³⁴ m² kg / s",
+  R:"1.097 × 10⁷ m⁻¹",
   boltzmann: "1.38 × 10⁻²³ J/K",
   Propotionality: "1.2 × 10⁻¹⁵ m","R₀": "1.2 × 10⁻¹⁵ m",
   constant: "931.5 MeV",
@@ -14,4 +19,6 @@ export const constant = {
   mass_electron:"0.000548597 amu",
   mass_proton:"1.007277 amu",
   mass_neutron:"1.008665 amu",
+  "me²":"9.10938356 x 10⁻³¹ kg X (1.6 x 10⁻¹⁹ C)²",
+  "m":"9.10938356 x 10⁻³¹ kg",
 };

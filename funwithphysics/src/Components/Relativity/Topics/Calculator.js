@@ -500,7 +500,7 @@ function Calculator({ match }) {
 
     const calcResult = () => {
       let res;
-     if(time!="" && velocity!=="")
+     if(time!=="" && velocity!=="")
      {
       let vel = Math.sqrt(1 - Math.pow(velocity, 2) / Math.pow(c, 2));
       res = parseFloat(time / vel);
