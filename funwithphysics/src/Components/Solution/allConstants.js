@@ -10,8 +10,9 @@ export const constant = {
   "plank's constant":"6.62607004 × 10⁻³⁴ m² kg / s",
   R:"1.097 × 10⁷ m⁻¹",
   boltzmann: "1.38 × 10⁻²³ J/K",
-  Propotionality: "1.2 × 10⁻¹⁵ m","R₀": "1.2 × 10⁻¹⁵ m",
-  constant: "931.5 MeV",
+  Propotionality: "1.2 × 10⁻¹⁵ m",
+  "R₀": "1.2 × 10⁻¹⁵ m",
+  constant: "931.5 MeV/amu",
   coulomb_constant: "8.99 × 10⁹ N m²/C²",
   Magnetic_Permeability:"4π × 10⁻⁷ Henry/m",
   Vacuum_permittivity:"8.854 × 10⁻¹² F.m⁻¹",
@@ -21,4 +22,5 @@ export const constant = {
   mass_neutron:"1.008665 amu",
   "me²":"9.10938356 x 10⁻³¹ kg X (1.6 x 10⁻¹⁹ C)²",
   "m":"9.10938356 x 10⁻³¹ kg",
+
 };
