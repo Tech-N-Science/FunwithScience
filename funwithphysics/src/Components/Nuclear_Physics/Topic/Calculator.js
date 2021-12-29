@@ -441,7 +441,7 @@ function Calculator({ match }) {
 
   //Q value
   function Qvalue() {
-    const [result, setResult] = useState(null);
+    const [result, setResult] = useState("");
     const [massreact, setmassreact] = useState("");
     const [massproduct, setmassproduct] = useState("");
     const [showSolution, setShowSolution] = useState(false);

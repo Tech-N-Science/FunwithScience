@@ -1,13 +1,13 @@
 //Si units
 export const SI = {
-  MassDefect: " kg","mass":" Kg","Mass Defect":" amu","Mass":" Kg",
+  MassDefect: " kg","mass":" Kg","Mass Defect":" amu","Mass":" Kg","Mass defect":" amu",
   atomic_mass: " amu","Reactant_Mass":" amu","Product_Mass":" amu","Mass_Atom":" amu",
   carbondating_mass: "g","Initial_Amount":" g", "Final_Amount":" g","Initial Amount":"g","Final Amount":"g",
   Mass_A: "kg",
   Mass_B: "kg",
   m1: "kg",
   m2: "kg",
-  acceleration: "m/s²",α:"m/s²",a:"m/s²",t:"s",
+  acceleration: "m/s²",α:"m/s²",a:"m/s²",t:"s",g: "m/s²",
   L: "kg m²/s",I:"kg m²","M.O.I":"kg m²",τ:"N m",W:"joule",P:"watt","K.E.":"joule",
   velocity: " m/s","final Velocity": " m/s","relative velocity": " m/s","Escape Velocity": " m/s","Drift Velocity":" m/s","speed":" m/s","Speed":" m/s","Velocity":" m/s",ω:"m/s",
   u1: "m/s",
@@ -29,10 +29,10 @@ export const SI = {
   force: " N or Kg.m/s²","Force":"N","Magnetic Force":"Newtons",
   σ:"N/m² (Pa) ",friction:"kg m/s²",
   "Gravitational Force": " Newton",
-  distance:"m",Radius:"m",R:"m",s:"m",r1:"m",r2:"m",H:"m","Distance":" m",λ:"m",Length: "m","Relative Length": "m","wave Length": "m","Half_Length":" m",
   area:" m²","Area":" m²",
   displacement: " m",length:"m",width:"m",
-  angle: "°","Θ":"°",Theta:"°","Angle": "°","theta":"°",
+  angle: "°","Θ":"°",Theta:"°","Angle": "°","theta":"°","Brewster's angle" :"°",
+  distance:"m",Radius:"m",R:"m",s:"m",r1:"m",r2:"m",H:"m","Distance":" m",λ:"m",Length: "m","Relative Length": "m","wave Length": "m","Half_Length":" m","Image_Distance": " m","Object_Distance":" m","Focal Length":" m","Focal_Length":" m",
   microstates: "N",
   "Radius of Nucleus":" m",
   energy: " Joule","relative Kinetic Energy":"Joule","Energy Released": " Joule","Energy Potential Energy":" Joule","Binding Energy":" Joule","Binding Energy per Nucleon":" joule/nucleon",
@@ -59,5 +59,8 @@ export const SI = {
   Current_Density:" Am⁻²",
   electricfield: "N/C","Electric Field by charged Disc":"N/C","Electric Field by charged Ring":"N/C","Electric Field by charged Shell":"N/C","Electric Field by charged Sphere":"N/C","Electric field by line charge of finite length":" N/C","Electric Field by point charge":" N/C",
   magneticfield:" Tesla","magnetic":" weber","MagneticField":" Tesla","Magnetic_Field":" Tesla","Magnetic Field by the Solenoid":" T","Magnetic Field by the Toroid":" T","Magnetic Field by the Circular Coil":" T","Magnetic Field by the Infinite Sheet":" T","Magnetic Field by the Infinite Wire":" T","Magnetic Field by the Solid Cylinder":" T",
+  torque: " N.m",
+  work: "J",
+  power: "watt","potential Energy": "Joule","kinetic Energy": "Joule","Power of Lens":" diopter",
+  height: "m","Object_Height":" m","Image_Height":" m",
 };
-

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button,Modal } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import "../Photonics.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import Solution from "../../Solution/Solution";
+// import {constant} from '../../Solution/allConstants';
+import { SI } from "../../Solution/allSIUnits";
+// import Modal from "react-bootstrap/Modal";
 
 function Calculator({ match }) {
   // topics_data
@@ -68,7 +71,7 @@ function Calculator({ match }) {
   const BrewsterAngle = () => {
     const [n1, setN1] = useState("");
     const [n2, setN2] = useState("");
-    const [result, setResult] = useState(""); 
+    const [result, setResult] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
 
@@ -86,33 +89,32 @@ function Calculator({ match }) {
       setN1("");
     };
     const calcResult = () => {
-      if(n2!=="" && n1!=="")
-      {let res;
-      let r1 = n2 / n1;
-      let r2 = Math.atan(r1);
-      res = (r2 * 180) / Math.PI;
-      setResult(res);
-      setShowSolution(true);
-    }
-    else{
-      setShowModal(true);
-    }
+      if (n2 !== "" && n1 !== "") {
+        let res;
+        let r1 = n2 / n1;
+        let r2 = Math.atan(r1);
+        res = (r2 * 180) / Math.PI;
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
     return (
       <>
-       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>refractive index of the initial medium (n₁)</Form.Label>
@@ -132,7 +134,7 @@ function Calculator({ match }) {
               value={n2 === null ? "" : n2}
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -143,7 +145,7 @@ function Calculator({ match }) {
                 // constants={constants}
               />
             </Form.Group>
-           : null }
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -156,7 +158,7 @@ function Calculator({ match }) {
           <Button variant="primary" onClick={calcResult}>
             Calculate
           </Button>
-          
+
           <Button variant="dark" onClick={() => reset()} type="reset">
             Reset
           </Button>
@@ -169,27 +171,54 @@ function Calculator({ match }) {
     const [n1, setN1] = useState(null);
     const [n2, setN2] = useState(null);
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
     const reset = () => {
       setResult(null);
       setN2(null);
       setN1(null);
+      setShowSolution(false);
     };
     const objDist = 1 / n1;
     const imgDist = 1 / n2;
     const calcResult = () => {
-      let res;
-      res = (1 / (objDist + imgDist)).toFixed(2);
-
-      setResult(res);
+      if (n1 !== null && n2 !== null) {
+        let res;
+        res = (1 / (objDist + imgDist)).toFixed(2);
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowModal(true);
+      }
     };
+
+    const givenValues = {
+      Object_Distance: n1,
+      Image_Distance: n2,
+    };
+    const insertValues = `[(1 / ${n2}${SI["Distance"]}) + (1 / ${n1}${SI["Distance"]})]`;
+
     return (
       <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Object distance(u)</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of u"
+              placeholder="Enter the value of u in meter"
               onChange={(e) => setN1(e.target.value)}
               value={n1 === null ? "" : n1}
             />
@@ -198,16 +227,27 @@ function Calculator({ match }) {
             <Form.Label>Image distance (v)</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of v"
+              placeholder="Enter the value of v in meter"
               onChange={(e) => setN2(e.target.value)}
               value={n2 === null ? "" : n2}
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(1/v) + (1/u)"
+                toFind="Focal Length"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + "m"}
+              placeholder={result === null ? "Result" : result + " m"}
             />
           </Form.Group>
         </Form>
@@ -229,27 +269,55 @@ function Calculator({ match }) {
     const [n1, setN1] = useState(null);
     const [n2, setN2] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
     const reset = () => {
       setResult(null);
       setN2(null);
       setN1(null);
+      setShowSolution(false);
     };
     const objDist = 1 / n1;
     const imgDist = 1 / n2;
     const calcResult = () => {
-      let res;
-      res = (1 / (imgDist - objDist)).toFixed(2);
-
-      setResult(res);
+      if (n1 !== null && n2 !== null) {
+        let res;
+        res = (1 / (imgDist - objDist)).toFixed(2);
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowModal(true);
+      }
     };
+
+    const givenValues = {
+      Object_Distance: n1,
+      Image_Distance: n2,
+    };
+    const insertValues = `[(1 / ${n2}${SI["Distance"]}) - (1 / ${n1}${SI["Distance"]})]`;
+
     return (
       <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Object distance(u)</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of u"
+              placeholder="Enter the value of u in meter"
               onChange={(e) => setN1(e.target.value)}
               value={n1 === null ? "" : n1}
             />
@@ -258,16 +326,27 @@ function Calculator({ match }) {
             <Form.Label>Image distance (v)</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of v"
+              placeholder="Enter the value of v in meter"
               onChange={(e) => setN2(e.target.value)}
               value={n2 === null ? "" : n2}
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(1/v) - (1/u)"
+                toFind="Focal Length"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + "m"}
+              placeholder={result === null ? "Result" : result + " m"}
             />
           </Form.Group>
         </Form>
@@ -289,24 +368,54 @@ function Calculator({ match }) {
     const [n1, setN1] = useState(null);
     const [n2, setN2] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
     const reset = () => {
       setResult(null);
       setN2(null);
       setN1(null);
+      setShowSolution(false);
     };
-    const calcResult = () => {
-      let res = n1 / n2;
 
-      setResult(res);
+    const calcResult = () => {
+      if (n1 !== null && n2 !== null) {
+        let res = n1 / n2;
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowModal(true);
+      }
     };
+
+    const givenValues = {
+      Object_Height: n2,
+      Image_Height: n1,
+    };
+
+    const insertValues = `[${n1}${SI["Image_Height"]} / ${n2}${SI["Object_Height"]}]`;
+
     return (
       <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Height of Image(h2)</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of h2"
+              placeholder="Enter the value of h2 in meter"
               onChange={(e) => setN1(e.target.value)}
               value={n1 === null ? "" : n1}
             />
@@ -315,11 +424,22 @@ function Calculator({ match }) {
             <Form.Label>Height of Object(h1)</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of h1"
+              placeholder="Enter the value of h1 in meter"
               onChange={(e) => setN2(e.target.value)}
               value={n2 === null ? "" : n2}
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="h2 / h1"
+                toFind="Magnification"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -345,24 +465,53 @@ function Calculator({ match }) {
     const [n1, setN1] = useState(null);
     const [n2, setN2] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
     const reset = () => {
       setResult(null);
       setN2(null);
       setN1(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
-      let res = n1 / n2;
-
-      setResult(res);
+      if (n1 !== null && n2 !== null) {
+        let res = n1 / n2;
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowModal(true);
+      }
     };
+
+    const givenValues = {
+      Object_Height: n2,
+      Image_Height: n1,
+    };
+
+    const insertValues = `[${n1}${SI["Image_Height"]} / ${n2}${SI["Object_Height"]}]`;
+
     return (
       <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Height of Image(h2)</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of h2"
+              placeholder="Enter the value of h2 in meter"
               onChange={(e) => setN1(e.target.value)}
               value={n1 === null ? "" : n1}
             />
@@ -371,11 +520,22 @@ function Calculator({ match }) {
             <Form.Label>Height of Object(h1)</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of h1"
+              placeholder="Enter the value of h1 in meter"
               onChange={(e) => setN2(e.target.value)}
               value={n2 === null ? "" : n2}
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="h2 / h1"
+                toFind="Magnification"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -399,30 +559,69 @@ function Calculator({ match }) {
   //Power of Lens
   const PowerLens = () => {
     const [n1, setN1] = useState(null);
-
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
     const reset = () => {
       setResult(null);
-
+      setShowSolution(false);
       setN1(null);
     };
-    const calcResult = () => {
-      let res = 1 / n1;
 
-      setResult(res);
+    const calcResult = () => {
+      if (n1 !== null) {
+        let res = 1 / n1;
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowModal(true);
+      }
     };
+
+    const givenValues = {
+      Focal_Length: n1,
+    };
+
+    const insertValues = `[1 / ${n1}${SI["Focal_Length"]}]`;
+
     return (
       <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Focal length of the lens(f)</Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of f"
+              placeholder="Enter the value of f in meter"
               onChange={(e) => setN1(e.target.value)}
               value={n1 === null ? "" : n1}
             />
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="1 / f"
+                toFind="Power of Lens"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-4">
             <Form.Control
