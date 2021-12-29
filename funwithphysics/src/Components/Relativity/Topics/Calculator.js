@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button,Modal } from "react-bootstrap";
 import "../Relativity.css";
+import Solution from "../../Solution/Solution";
 import { Helmet } from "react-helmet";
+import {SI} from '../../Solution/allSIUnits'
+import { constant } from "../../Solution/allConstants";
 import Navbar from "../../Navbar/Navbar";
 
 function Calculator({ match }) {
@@ -71,13 +74,30 @@ function Calculator({ match }) {
   //Mass Energy Relation calculator
   const MassEnergyCalculator = () => {
     const [choice, setChoice] = useState("Energy");
-    const [mass, setMass] = useState(null);
-    const [energy, setEnergy] = useState(null);
-    const [result, setResult] = useState(null);
+    const [mass, setMass] = useState("");
+    const [energy, setEnergy] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+  const [showSolution, setShowSolution] = useState(false);
+
+
+  const constants = ["c"];
+
+    const givenValuesEnergy = {
+      mass: mass
+    };
+    const givenValuesMass = {
+      energy: energy,
+    };
+
+    const insertValuesEngery = `${mass}${SI["mass"]} * (${constant["c"]})²`;
+    const insertValuesMass = `${energy}${SI["energy"]} / (${constant["c"]})²`;
+
     const reset = () => {
-      setMass(null);
-      setEnergy(null);
-      setResult(null);
+      setShowSolution(false);
+      setMass("");
+      setEnergy("");
+      setResult("");
     };
     const C = 3 * Math.pow(10, 8);
 
@@ -88,11 +108,28 @@ function Calculator({ match }) {
     const calcResult = () => {
       let res;
       if (choice === "Energy") {
-        res = mass * C * C;
+        if(mass!=="")
+        {
+          res = mass * C * C;
+          setResult(res);
+          setShowSolution(true);
+        
+        }
+        else {
+          setShowModal(true);
+        }
       } else if (choice === "Mass") {
-        res = energy / (C * C);
-      }
+        if(energy!=="")
+        {res = energy / (C * C);
       setResult(res);
+      setShowSolution(true);
+    
+    }
+        else {
+          setShowModal(true);
+        }
+      }
+
     };
     const choiceData = () => {
       if (choice === "Energy")
@@ -108,6 +145,19 @@ function Calculator({ match }) {
     };
     return (
       <>
+       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -139,7 +189,7 @@ function Calculator({ match }) {
                 onChange={(e) => setMass(e.target.value)}
                 type="number"
                 placeholder={"Enter in kg"}
-                value={mass === null ? "" : mass}
+                value={mass === "" ? "" : mass}
               />
             </Form.Group>
           ) : (
@@ -149,10 +199,22 @@ function Calculator({ match }) {
                 onChange={(e) => setEnergy(e.target.value)}
                 type="number"
                 placeholder={"Enter in joule"}
-                value={energy === null ? "" : energy}
+                value={energy === "" ? "" : energy}
               />
             </Form.Group>
           )}
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={choice === "Energy" ?givenValuesEnergy:givenValuesMass}
+                formula={choice === "Energy" ?"mc²":"e/c²"}
+                toFind={choice === "Energy" ?"energy":"mass"}
+                insertValues={choice === "Energy" ?insertValuesEngery:insertValuesMass}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-4">
             <Form.Label>Speed of ligth (C)</Form.Label>
             <Form.Control readOnly type="number" placeholder={"3 * 10⁸ m/s"} />
@@ -162,7 +224,7 @@ function Calculator({ match }) {
               readOnly
               type="number"
               placeholder={
-                result === null
+                result === ""
                   ? "Result"
                   : result + " " + choiceData().mainunit
               }
@@ -183,24 +245,56 @@ function Calculator({ match }) {
   };
   //Relativistic kinetic energy
   const RelativeKECalculator = () => {
-    const [mass, setMass] = useState(null);
-    const [velocity, setVelocity] = useState(null);
-    const [result, setResult] = useState(null);
+    const [mass, setMass] = useState("");
+    const [velocity, setVelocity] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+  
+  
+    const constants = ["c"];
+  
+      const givenValues = {
+        mass: mass,
+        velocity:velocity,
+      };
+    const insertValues = `${mass}${SI["mass"]} * (${constant["c"]})²[√(1-((${velocity}${SI["velocity"]})/(${constant["c"]}))²)-1]`;
+
     const reset = () => {
-      setMass(null);
-      setVelocity(null);
-      setResult(null);
+      setShowSolution(false);
+      setMass("");
+      setVelocity("");
+      setResult("");
     };
     const c = 3 * Math.pow(10, 8);
 
     const calcResult = () => {
       let res;
-      let vel = Math.pow(velocity, 2) / Math.pow(c, 2);
+      if(mass!=="" && velocity!=="")
+      {let vel = Math.pow(velocity, 2) / Math.pow(c, 2);
       res = mass * Math.pow(c, 2) * [Math.sqrt(1 - vel) - 1];
       setResult(res);
+      setShowSolution(true);
+    }
+      else {
+        setShowModal(true);
+      }
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Mass (m₀)</Form.Label>
@@ -210,7 +304,7 @@ function Calculator({ match }) {
                 setMass(e.target.value);
               }}
               placeholder="Enter the mass of body"
-              value={mass === null ? "" : mass}
+              value={mass === "" ? "" : mass}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -221,7 +315,7 @@ function Calculator({ match }) {
                 setVelocity(e.target.value);
               }}
               placeholder="Enter the value of velocity"
-              value={velocity === null ? "" : velocity}
+              value={velocity === "" ? "" : velocity}
             />
           </Form.Group>
           <Form.Group>
@@ -232,11 +326,23 @@ function Calculator({ match }) {
               placeholder={"3 * 10⁸ m/s"}
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="m₀c² * [√(1- v²/c²) - 1]"
+                toFind="relative Kinetic Energy"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : `${result} T`}
+              placeholder={result === "" ? "Result" : `${result} T`}
             />
           </Form.Group>
         </Form>
@@ -254,25 +360,56 @@ function Calculator({ match }) {
   };
   // Relativistic velocity
   const RelativeVelocityCalculator = () => {
-    const [speed, setSpeed] = useState(null);
-    const [pspeed, setPSpeed] = useState(null);
-    const [result, setResult] = useState(null);
+    const [speed, setSpeed] = useState("");
+    const [pspeed, setPSpeed] = useState("");
+    const [result, setResult] = useState(""); 
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+  
+    const constants = ["c"];
+  
+      const givenValues = {
+        w: pspeed,
+        v:speed,
+      };
+    const insertValues = `(${speed}${SI["velocity"]} + ${pspeed}${SI["velocity"]}) / (1 + (${speed}${SI["velocity"]} * ${pspeed}${SI["velocity"]}) * (${constant["c"]})²)`;
+
     const reset = () => {
-      setSpeed(null);
-      setPSpeed(null);
-      setResult(null);
+      setShowSolution(false);
+      setSpeed("");
+      setPSpeed("");
+      setResult("");
     };
     const c = 3 * Math.pow(10, 8);
 
     const calcResult = () => {
       let res;
-      let vel = (speed * pspeed) / Math.pow(c, 2);
-      let add = parseFloat(speed) + parseFloat(pspeed);
-      res = add / (1 + parseFloat(vel));
-      setResult(res);
+      if(speed!=="" && pspeed!=="")
+      {let vel = (speed * pspeed) / Math.pow(c, 2);
+        let add = parseFloat(speed) + parseFloat(pspeed);
+        res = add / (1 + parseFloat(vel));
+        setResult(res);
+        setShowSolution(true);
+      }
+        else {
+          setShowModal(true);
+        }
     };
     return (
       <>
+       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Speed (v)</Form.Label>
@@ -282,7 +419,7 @@ function Calculator({ match }) {
                 setSpeed(e.target.value);
               }}
               placeholder="Enter the speed of object"
-              value={speed === null ? "" : speed}
+              value={speed === "" ? "" : speed}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -293,7 +430,7 @@ function Calculator({ match }) {
                 setPSpeed(e.target.value);
               }}
               placeholder="Enter the value of speed of projectile"
-              value={pspeed === null ? "" : pspeed}
+              value={pspeed === "" ? "" : pspeed}
             />
           </Form.Group>
           <Form.Group>
@@ -304,11 +441,23 @@ function Calculator({ match }) {
               placeholder={"3 * 10⁸ m/s"}
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(v+w)/(1+(v*w)/c²)"
+                toFind="relative velocity"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : `${result} m/s`}
+              placeholder={result === "" ? "Result" : `${result} m/s`}
             />
           </Form.Group>
         </Form>
@@ -326,24 +475,57 @@ function Calculator({ match }) {
   };
   // time dilation
   const TimeDilationCalculator = () => {
-    const [velocity, setVelocity] = useState(null);
-    const [time, setTime] = useState(null);
-    const [result, setResult] = useState(null);
+    const [velocity, setVelocity] = useState("");
+    const [time, setTime] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+  
+  
+    const constants = ["c"];
+  
+      const givenValues = {
+        "Δt₀": time,
+        v:velocity,
+      };
+    const insertValues = `${time}${SI["time"]} / (√(1-((${velocity}${SI["velocity"]})/(${constant["c"]}))²)`;
+
     const reset = () => {
-      setVelocity(null);
-      setTime(null);
-      setResult(null);
+      setShowSolution(false);
+      setVelocity("");
+      setTime("");
+      setResult("");
     };
     const c = 3 * Math.pow(10, 8);
 
     const calcResult = () => {
       let res;
+     if(time!=="" && velocity!=="")
+     {
       let vel = Math.sqrt(1 - Math.pow(velocity, 2) / Math.pow(c, 2));
       res = parseFloat(time / vel);
       setResult(res);
+      setShowSolution(true);
+    }
+      else {
+        setShowModal(true);
+      }
     };
     return (
       <>
+       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Velocity (v)</Form.Label>
@@ -353,7 +535,7 @@ function Calculator({ match }) {
                 setVelocity(e.target.value);
               }}
               placeholder="Enter the value of velocity"
-              value={velocity === null ? "" : velocity}
+              value={velocity === "" ? "" : velocity}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -364,7 +546,7 @@ function Calculator({ match }) {
                 setTime(e.target.value);
               }}
               placeholder="Enter the value of proper time"
-              value={time === null ? "" : time}
+              value={time === "" ? "" : time}
             />
           </Form.Group>
           <Form.Group>
@@ -379,9 +561,21 @@ function Calculator({ match }) {
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : `${result} sec`}
+              placeholder={result === "" ? "Result" : `${result} sec`}
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Δt₀ / √(1 - v²/c²)"
+                toFind="Δt"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+           : null }
         </Form>
         <div className="button-custom-grp">
           <Button variant="primary" onClick={calcResult}>
@@ -398,24 +592,57 @@ function Calculator({ match }) {
 
   //Length Contraction
   const LengthContractionCalculator = () => {
-    const [velocity, setVelocity] = useState(null);
-    const [length, setLength] = useState(null);
-    const [result, setResult] = useState(null);
+    const [velocity, setVelocity] = useState("");
+    const [length, setLength] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+  
+  
+    const constants = ["c"];
+  
+      const givenValues = {
+        Length:length,
+        v:velocity,
+      };
+    const insertValues = `${length}${SI["Length"]} * √(1-((${velocity}${SI["velocity"]})/(${constant["c"]}))²)`;
+
     const reset = () => {
-      setVelocity(null);
-      setLength(null);
-      setResult(null);
+      setShowSolution(false);
+      setVelocity("");
+      setLength("");
+      setResult("");
     };
     const c = 3 * Math.pow(10, 8);
 
     const calcResult = () => {
       let res;
-      let vel = Math.sqrt(1 - Math.pow(velocity, 2) / Math.pow(c, 2));
+      if(length!=="" && velocity!=="")
+      {
+        let vel = Math.sqrt(1 - Math.pow(velocity, 2) / Math.pow(c, 2));
       res = length * vel;
       setResult(res);
+      setShowSolution(true);
+    }
+      else {
+        setShowModal(true);
+      }
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Speed (v)</Form.Label>
@@ -425,7 +652,7 @@ function Calculator({ match }) {
                 setVelocity(e.target.value);
               }}
               placeholder="Enter the value of speed"
-              value={velocity === null ? "" : velocity}
+              value={velocity === "" ? "" : velocity}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -436,7 +663,7 @@ function Calculator({ match }) {
                 setLength(e.target.value);
               }}
               placeholder="Enter the value of length of object"
-              value={length === null ? "" : length}
+              value={length === "" ? "" : length}
             />
           </Form.Group>
           <Form.Group>
@@ -451,9 +678,21 @@ function Calculator({ match }) {
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : `${result} metres`}
+              placeholder={result === "" ? "Result" : `${result} metres`}
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="L * √(1 - v²/c²)"
+                toFind="Relative Length"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+           : null }
         </Form>
         <div className="button-custom-grp">
           <Button variant="primary" onClick={calcResult}>
