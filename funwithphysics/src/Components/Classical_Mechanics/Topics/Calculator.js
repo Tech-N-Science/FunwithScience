@@ -534,21 +534,37 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
   // Projectile Motion Calculator
   const CalculatorProjectileMotion = () => {
     const [choice, setChoice] = useState("range");
-    const [velocity, setVelocity] = useState(null);
-    const [angle, setAngle] = useState(null);
-    const [result, setResult] = useState(null);
+    const [velocity, setVelocity] = useState("");
+    const [angle, setAngle] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      u: velocity,
+      "θ": angle,
+    };
+
+    const insertValuesRange = `(${velocity}${SI["v"]})² * sin(2x${angle}${SI["Angle"]}) / 9.8${SI["acceleration"]}`;
+    const insertValuesHeight = `(${velocity}${SI["v"]})² * sin(${angle}${SI["Angle"]})² / (2 x 9.8${SI["acceleration"]})`;
+    const insertValuesTime = `2 x ${velocity}${SI["v"]} * sin(${angle}${SI["Angle"]}) / 9.8${SI["acceleration"]}`;
+
+
     const reset = () => {
-      setVelocity(null);
-      setAngle(null);
-      setResult(null);
+      setShowSolution(false);
+      setVelocity("");
+      setAngle("");
+      setResult("");
     };
 
     const handleChange = (e) => {
+      setShowSolution(false);
       setChoice(e.target.value);
       reset();
     };
     const calcResult = () => {
       let res;
+     if(velocity!=="" && angle!==""){
       if (choice === "range") {
         res =
           (2 *
@@ -568,6 +584,11 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
           19.6;
       }
       setResult(res);
+      setShowSolution(true)
+    }
+    else{
+      setShowModal(true);
+    }
     };
     const choiceData = () => {
       if (choice === "range")
@@ -597,6 +618,19 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     };
     return (
       <>
+       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="choice2">
             <Form.Label>Select the type of calculation</Form.Label>
@@ -622,7 +656,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               type="number"
               placeholder={"Enter in m/s"}
               value={
-                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+                choiceData().getters[0] === "" ? "" : choiceData().getters[0]
               }
             />
           </Form.Group>
@@ -633,16 +667,27 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               type="number"
               placeholder={"Enter in degree"}
               value={
-                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+                choiceData().getters[1] === "" ? "" : choiceData().getters[1]
               }
             />
+             {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula={choice==="range"?"u² * sin2θ/g":choice==="time"?"2u sin θ/g":"u² sin²θ/2g"}
+                toFind={choice==="range"?"R":choice==="time"?"T":"H"}
+                insertValues={choice==="range"?insertValuesRange:choice==="time"?insertValuesTime:insertValuesHeight}
+                result={result}
+              />
+            </Form.Group>
+           : null }
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
               placeholder={
-                result === null
+                result === ""
                   ? "Result"
                   : result + " " + choiceData().mainunit
               }
@@ -652,7 +697,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             <Button variant="primary" onClick={calcResult}>
               Calculate
             </Button>
-            <Button variant="dark" onClick={() => reset()} type="reset">
+            <Button variant="dark" onClick={reset} type="reset">
               Reset
             </Button>
           </div>
@@ -663,16 +708,49 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
   // Momentum Calculator
   function CalculatorMomentum() {
-    const [result, setResult] = useState(null);
-    const [mass, setMass] = useState(null);
-    const [vel, setVel] = useState(null);
-
+    const [result, setResult] = useState("");
+    const [mass, setMass] = useState("");
+    const [vel, setVel] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+  
+      const givenValues = {
+        mass: mass,
+        v: vel,
+      };
+  
+      const insertValues = `${mass}${SI["mass"]} * ${vel}${SI["v"]}`;
+      const resetForm=()=>{
+        setMass("");
+        setVel("");
+        setShowSolution(false);
+        setResult("");
+      }
     const handleClick = () => {
-      let res = mass * vel;
-      setResult(res);
+      if(mass!=="" && vel!==""){
+        let res = mass * vel;
+        setShowSolution(true)
+        setResult(res);}
+        else{
+          setShowModal(true);
+        }
     };
+    
     return (
       <React.Fragment>
+         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="mass">
             <Form.Label>Mass (M)</Form.Label>
@@ -690,12 +768,23 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               placeholder="Enter Velocity in SI unit"
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="mv"
+                toFind="p"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-3" controlId="momentum">
             <Form.Label>Momentum (P)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " kg.m/s"}
+              placeholder={result === "" ? "Result" : result + " kg.m/s"}
             />
             <Form.Text className="text-muted">
               Enter Mass &amp; Velocity to Calculate the Momentum.
@@ -706,7 +795,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
@@ -823,17 +912,49 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
   // Friction Calculator
   function CalculatorFriction() {
-    const [result, setResult] = useState(null);
-    const [force, setForce] = useState(null);
-    const [coeff, setCoeff] = useState(null);
+     const [result, setResult] = useState("");
+     const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const [force, setForce] = useState("");
+    const [coeff, setCoeff] = useState("");
+    const givenValues = {
+      force: force,
+      μ: coeff,
+    };
+    const insertValues = `${force}${SI["force"]} * ${coeff}`;
 
+    const resetForm=()=>{
+      setForce("");
+      setCoeff("");
+      setShowSolution(false);
+      setResult("");
+    }
     const handleClick = () => {
-      let res = force * coeff;
-      setResult(res);
+      if(force!=="" && coeff!=="")
+      {
+        let res = force * coeff;
+      setShowSolution(true)
+      setResult(res);}
+      else{
+        setShowModal(true);
+      }
     };
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Force applied (N)</Form.Label>
@@ -851,12 +972,23 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               placeholder="Enter coefficient of Friction (μ)"
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="μN"
+                toFind="friction"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-3" controlId="momentum">
             <Form.Label>Frictional Force (F)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " N"}
+              placeholder={result === "" ? "Result" : result + " N"}
             />
             <Form.Text className="text-muted">
               Enter the above values to Calculate.
@@ -867,7 +999,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
@@ -1327,51 +1459,122 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
   // Kinematics Calculator
   function CalculatorKinematics() {
-    const [result, setResult] = useState(null);
-    const [ivelocity, setiVelocity] = useState(null);
-    const [fvelocity, setfVelocity] = useState(null);
-    const [acceleration, setAcceleration] = useState(null);
-    const [time, setTime] = useState(null);
-    const [displacement, setDisplacement] = useState(null);
+     const [result, setResult] = useState("");
+     const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const [ivelocity, setiVelocity] = useState("");
+    const [fvelocity, setfVelocity] = useState("");
+    const [acceleration, setAcceleration] = useState("");
+    const [time, setTime] = useState("");
+    const [displacement, setDisplacement] = useState("");
     const [choice, setChoice] = useState("displacement");
+    const givenValuestime={
+      u:ivelocity,
+      v:fvelocity,
+      a:acceleration,
+    }
+    const givenValuesAcc={
+      u:ivelocity,
+      v:fvelocity,
+      s:displacement,
+    }
+
+    const givenValuesdisplacement={
+      u:ivelocity,
+      t:time,
+      a:acceleration,
+    }
+    const givenValuesinitialVelocity={
+      v:fvelocity,
+      t:time,
+      a:acceleration,
+    }
+    const givenValuesFinalVelocity={
+      u:ivelocity,
+      t:time,
+      a:acceleration,
+    }
+
+    const insertValuesAcc = `(( ${fvelocity}${SI["v"]} )² - ( ${ivelocity}${SI["v"]} )² *  (2 x ${displacement}${SI["displacement"]})`;
+    const insertValuesFinalVelocity=`${ivelocity}${SI["u"]} + ${acceleration}${SI["acceleration"]} x ${time}${SI["time"]}  `;
+    const insertValuesInititalVelocity=`${fvelocity}${SI["v"]} - ${acceleration}${SI["acceleration"]} x ${time}${SI["time"]}  `;
+    const insertValuesDisplacement=`${ivelocity}${SI["u"]} x ${time}${SI["time"]} + (1/2) x ${acceleration}${SI["acceleration"]} x (${time}${SI["time"]})²  `;
+    const insertValuesTime=`(${fvelocity}${SI["v"]} - ${ivelocity}${SI["u"]}) / ${acceleration}${SI["acceleration"]} `;
+
+
+
     function handleChange(e) {
       console.log(e.target.value);
-      setResult(null);
-      setiVelocity(null);
-      setfVelocity(null);
-      setAcceleration(null);
-      setTime(null);
-      setDisplacement(null);
+      setResult("");
+        setShowSolution(false);
+        setiVelocity("");
+      setfVelocity("");
+      setAcceleration("");
+      setTime("");
+      setDisplacement("");
       setChoice(e.target.value);
       choiceData();
     }
     const calcResult = () => {
       let res;
       if (choice === "displacement") {
-        res =
+        if(ivelocity!=="" && time!=="" && acceleration!=="")
+        {
+          res =
           ivelocity * Math.abs(time) +
           (1 / 2) * acceleration * Math.abs(time) * Math.abs(time);
+          setShowSolution(true)
+          setResult(res);}
+          else{
+            setShowModal(true);
+          }
       } else if (choice === "velocity_fin") {
-        res = parseFloat(ivelocity) + parseFloat(acceleration * Math.abs(time));
+        if(ivelocity!=="" && time!=="" && acceleration!=="")
+        {
+          res = parseFloat(ivelocity) + parseFloat(acceleration * Math.abs(time));
+          setShowSolution(true)
+          setResult(res);}
+          else{
+            setShowModal(true);
+          }
       } else if (choice === "velocity_ini") {
-        res = parseFloat(fvelocity) - parseFloat(acceleration * Math.abs(time));
+        if(fvelocity!=="" && time!=="" && acceleration!=="")
+        {
+          res = parseFloat(fvelocity) - parseFloat(acceleration * Math.abs(time));
+          setShowSolution(true)
+          setResult(res);}
+          else{
+            setShowModal(true);
+          }
       } else if (choice === "acceleration") {
-        res =
-          (fvelocity * fvelocity - ivelocity * ivelocity) / (2 * displacement);
+          if(fvelocity!=="" && ivelocity!=="" && displacement!=="")
+          {
+            res =
+            (fvelocity * fvelocity - ivelocity * ivelocity) / (2 * displacement);
+            setShowSolution(true)
+            setResult(res);}
+            else{
+              setShowModal(true);
+            }
       } else if (choice === "time") {
-        res = Math.abs((fvelocity - ivelocity) / acceleration);
+        if(fvelocity!=="" && ivelocity!=="" && acceleration!=="")
+        {
+          res = Math.abs((fvelocity - ivelocity) / acceleration);
+          setShowSolution(true)
+          setResult(res);}
+          else{
+            setShowModal(true);
+          }
       }
-      // console.log(res);
-      // console.log(time, ivelocity, fvelocity, acceleration, displacement);
-      setResult(res);
     };
     function reset() {
-      setResult(null);
-      setiVelocity(null);
-      setfVelocity(null);
-      setAcceleration(null);
-      setTime(null);
-      setDisplacement(null);
+      setResult("");
+        setShowSolution(false);
+        setiVelocity("");
+      setfVelocity("");
+      setAcceleration("");
+      setTime("");
+      setDisplacement("");
     }
     const choiceData = () => {
       if (choice === "displacement")
@@ -1422,6 +1625,19 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     };
     return (
       <>
+       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -1450,7 +1666,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               type="number"
               placeholder={"Enter in " + choiceData().subunits[0]}
               value={
-                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+                choiceData().getters[0] === "" ? "" : choiceData().getters[0]
               }
             />
           </Form.Group>
@@ -1462,7 +1678,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               type="number"
               placeholder={"Enter in " + choiceData().subunits[1]}
               value={
-                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+                choiceData().getters[1] === "" ? "" : choiceData().getters[1]
               }
             />
           </Form.Group>
@@ -1473,16 +1689,31 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               type="number"
               placeholder={"Enter in " + choiceData().subunits[2]}
               value={
-                choiceData().getters[2] === null ? "" : choiceData().getters[2]
+                choiceData().getters[2] === "" ? "" : choiceData().getters[2]
               }
             />
+            {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues=
+                {choice==="displacement"?givenValuesdisplacement:choice==="time"?givenValuestime:choice==="acceleration"?givenValuesAcc:choice==="velocity_ini"?givenValuesinitialVelocity:givenValuesFinalVelocity}
+                formula=
+                {choice==="displacement"?"ut + (1/2)at²":choice==="time"? "(v² - u²) / a":choice==="acceleration"?"(v² - u²)/2s":choice==="velocity_ini"?"v - at":"u + at"}
+                toFind=
+                {choice==="displacement"?"displacement":choice==="time"?"time":choice==="acceleration"?"acceleration":choice==="velocity_ini"?"u":"v"}
+                insertValues=
+                {choice==="displacement"?insertValuesDisplacement:choice==="time"?insertValuesTime:choice==="acceleration"?insertValuesAcc:choice==="velocity_ini"?insertValuesInititalVelocity:insertValuesFinalVelocity}
+                result={result}
+              />
+            </Form.Group>
+           : null }
           </Form.Group>
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
               placeholder={
-                result === null
+                result === ""
                   ? "Result"
                   : result + " " + choiceData().mainunit
               }
@@ -1494,7 +1725,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => reset()} type="reset">
+          <Button variant="dark" onClick={reset} type="reset">
             Reset
           </Button>
         </div>
@@ -1504,18 +1735,19 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
   //Circular Motion Calculator
   function CalculatorCircularMotion() {
-    const [result, setResult] = useState(null);
-    const [radius, setRadius] = useState(null);
-    const [time, setTime] = useState(null);
+     const [result, setResult] = useState("");const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const [radius, setRadius] = useState("");
+    const [time, setTime] = useState("");
     const [pi, setPi] = useState(Math.PI);
-    const [velocity, setVelocity] = useState(null);
+    const [velocity, setVelocity] = useState("");
     const [choice, setChoice] = useState("circumference");
     function handleChange(e) {
       console.log(e.target.value);
-      setResult(null);
-      setRadius(null);
-      setTime(null);
-      setVelocity(null);
+      setResult("");
+      setRadius("");
+      setTime("");
+      setVelocity("");
       setChoice(e.target.value);
       choiceData();
     }
@@ -1536,10 +1768,10 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
       setResult(res);
     };
     function reset() {
-      setResult(null);
-      setRadius(null);
-      setTime(null);
-      setVelocity(null);
+      setResult("");
+      setRadius("");
+      setTime("");
+      setVelocity("");
     }
     const choiceData = () => {
       if (choice === "circumference")
@@ -1593,6 +1825,19 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     };
     return (
       <>
+       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -1623,7 +1868,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               type="number"
               placeholder={"Enter in " + choiceData().subunits[0]}
               value={
-                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+                choiceData().getters[0] === "" ? "" : choiceData().getters[0]
               }
             />
           </Form.Group>
@@ -1639,7 +1884,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
                   : "Enter in " + choiceData().subunits[1]
               }
               value={
-                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+                choiceData().getters[1] === "" ? "" : choiceData().getters[1]
               }
               disabled={choiceData().disable}
             />
@@ -1649,7 +1894,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               readOnly
               type="number"
               placeholder={
-                result === null
+                result === ""
                   ? "Result"
                   : result + " " + choiceData().mainunit
               }
@@ -1671,31 +1916,62 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
   //Stress and Strain
   function Stress_Strain_calc() {
-    const [result, setResult] = useState(null);
+    const [result, setResult] = useState("");
     const [options, setOptions] = useState("stress");
-    const [force, setForce] = useState(null);
-    const [area, setArea] = useState(null);
-    const [delX, setDelX] = useState(null);
-    const [x, setX] = useState(null);
+    const [force, setForce] = useState("");
+    const [area, setArea] = useState("");
+    const [delX, setDelX] = useState("");
+    const [x, setX] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValuesStress = {
+      force:force,
+      area:area,
+    };
+    const givenValuesStrain = {
+      "ΔX" :delX,
+      X:x,
+    };
+    const insertValuesStress=`${force}${SI["force"]} / ${area}${SI["area"]} `;
+    const insertValuesStrain=`(${delX}${SI["X"]}) / (${x}${SI["X"]}) `;
 
     function handleChange(e) {
+      setShowSolution(false);
       console.log(e.target.value);
       setOptions(e.target.value);
     }
     const calcResult = () => {
       let res;
-      if (options === "stress") res = force / area;
-      else if (options === "strain") res = delX / x;
+      if (options === "stress") {
+        if(force!=="" && area!==""){
+          res=force/area;
+          setResult(res);
+          setShowSolution(true);
+        } else {
+          setShowModal(true);
+        }
+      }
+      else if (options === "strain") {
+        if(delX!=="" && x!=="")
+        {
+          res = delX / x;
+          setResult(res);
+          setShowSolution(true);
+        } else {
+          setShowModal(true);
+        }
+      }
 
-      setResult(res);
     };
 
     function reset() {
-      setResult(null);
-      setForce(null);
-      setArea(null);
-      setDelX(null);
-      setX(null);
+      setResult("");
+      setForce("");
+      setShowSolution(false);
+      setArea("");
+      setDelX("");
+      setX("");
     }
     const choiceData = () => {
       if (options === "stress")
@@ -1721,6 +1997,19 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
 
     return (
       <>
+       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -1747,7 +2036,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               type="number"
               placeholder={"Enter in " + choiceData().subunits[0]}
               value={
-                choiceData().getters[0] === null ? "" : choiceData().getters[0]
+                choiceData().getters[0] === "" ? "" : choiceData().getters[0]
               }
             />
           </Form.Group>
@@ -1763,22 +2052,36 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
                   : "Enter in " + choiceData().subunits[1]
               }
               value={
-                choiceData().getters[1] === null ? "" : choiceData().getters[1]
+                choiceData().getters[1] === "" ? "" : choiceData().getters[1]
               }
             />
           </Form.Group>
+
+          {showSolution ? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={options === "stress" ?givenValuesStress:givenValuesStrain}
+                toFind={options === "stress" ?"σ":"Strain"}
+                formula={options === "stress" ?"F/A":"ΔX/X"}
+                insertValues={options === "stress" ?insertValuesStress:insertValuesStrain}
+                result={result}
+              />
+            </Form.Group>
+           : null }
 
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
               placeholder={
-                result === null
+                result === ""
                   ? "Result"
                   : result + " " + choiceData().mainunit
               }
             />
           </Form.Group>
+
+
         </Form>
         <div className="button-custom-grp">
           <Button variant="primary" onClick={calcResult}>
