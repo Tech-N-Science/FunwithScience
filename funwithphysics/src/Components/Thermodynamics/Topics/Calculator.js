@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button, Modal } from "react-bootstrap";
+import {Form,Button,Modal } from "react-bootstrap";
 import "../thermodynamics.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
-import { SI } from "../../Solution/allSIUnits";
+import {SI} from '../../Solution/allSIUnits'
 import { constant } from "../../Solution/allConstants";
 import Solution from "../../Solution/Solution";
 function Calculator({ match }) {
@@ -80,10 +80,10 @@ function Calculator({ match }) {
     const [result, setResult] = useState(null);
     const [microstates, setMicrostates] = useState(null);
     const [showModal, setShowModal] = useState(false);
-    const [showSolution, setShowSolution] = useState(false);
+  const [showSolution, setShowSolution] = useState(false);
     // const [boltzmann, setBoltzmann] = useState(1.38 *Math.pow(10,-23))
 
-    const boltzmann = 1.38 * Math.pow(10, -23);
+    const boltzmann = 1.38 * Math.pow(10,-23);
 
     const givenValues = {
       microstates: microstates,
@@ -91,16 +91,16 @@ function Calculator({ match }) {
     };
     const constants = ["boltzmann"];
     const insertValues = `${constant["boltzmann"]} * log(${microstates})${SI["microstates"]} `;
-
+   
     const handleClick = () => {
-      if (microstates != null) {
-        let res = boltzmann * Math.log(microstates);
-        setResult(res);
-        setShowSolution(true);
-      } else {
-        setShowModal(true);
-      }
-    };
+      if(microstates!= null){
+       let res = boltzmann * Math.log(microstates);
+       setResult(res);
+       setShowSolution(true)
+     }
+     else{
+       setShowModal(true);
+     }};
     const resetForm = () => {
       setMicrostates(null);
       setResult(null);
@@ -108,19 +108,19 @@ function Calculator({ match }) {
     };
     return (
       <React.Fragment>
-        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header>
-            Please Enter all values to get Proper answer
-          </Modal.Header>
-          <Modal.Footer>
-            <Button
-              onClick={() => setShowModal(false)}
-              class="btn btn-primary btn-sm"
-            >
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="microstates">
             <Form.Label>Number of microstates:</Form.Label>
@@ -133,7 +133,12 @@ function Calculator({ match }) {
           </Form.Group>
           <Form.Group className="mb-3" controlId="boltzmann">
             <Form.Label>Boltzmann Constant:</Form.Label>
-            <Form.Control readOnly placeholder="1.38×10⁻²³ J/K" />
+            <Form.Control
+              readOnly
+              // type="number"
+              //value={boltzmann}
+               placeholder=" 1.38×10⁻²³ J/K "
+            />
           </Form.Group>
           {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
@@ -146,7 +151,7 @@ function Calculator({ match }) {
                 constants={constants}
               />
             </Form.Group>
-          ) : null}
+          ) : null }
           <Form.Group className="mb-4" controlId="entropy">
             <Form.Label> Entropy (S)</Form.Label>
             <Form.Control
@@ -156,20 +161,20 @@ function Calculator({ match }) {
                 result === null ? "Result" : result + " Joules per kelvin"
               }
             />
-            <Form.Text className="text-muted">
+             <Form.Text className="text-muted">
               Enter the above values to Calculate.
             </Form.Text>
           </Form.Group>
-
-          <div className="button-custom-grp">
-            <Button variant="primary" onClick={handleClick}>
-              Calculate
-            </Button>
-            &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={resetForm} type="reset">
-              Reset
-            </Button>
-          </div>
+        
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={handleClick}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={resetForm} type="reset">
+            Reset
+          </Button>
+        </div>
         </Form>
       </React.Fragment>
     );
@@ -186,8 +191,18 @@ function Calculator({ match }) {
     const [temphot, setTemphot] = useState(null);
     const [heatabsorb, setheatabsorb] = useState(null);
     const [heatrelease, setheatrelease] = useState(null);
-
-    const reset = () => {
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    
+    const givenValues = {
+      work: work,
+      tempcold: tempcold,
+      temphot: temphot,
+      heatabsorb: heatabsorb,
+      heatrelease: heatrelease,
+      heat: heat,
+    };
+    const resetForm = () => {
       setHeat(null);
       setTemphot(null);
       setTempcold(null);
@@ -196,17 +211,34 @@ function Calculator({ match }) {
       // setEfficiency(null)
       setWork(null);
       setResult(null);
+      setShowSolution(false);
     };
-    const calcResult = () => {
+    const handleClick = () => {
       let res;
       if (choice === "efficiency") {
-        res = work / heat;
+        if(work!= null && heat!=null){
+          res = work / heat;
+        }
+        else{
+          setShowModal(true);
+        }
       } else if (choice === "refrige") {
+        if(heatabsorb!= null && heatrelease != null ){
         res = heatabsorb / (heatrelease - heatabsorb);
+        }
+        else{
+          setShowModal(true);
+        }
       } else if (choice === "carnot") {
-        res = (temphot - tempcold) / temphot;
+        if(temphot!= null && tempcold != null){
+          res = (temphot - tempcold) / temphot;
+        }
+        else{
+          setShowModal(true);
+        }
       }
       setResult(res);
+      setShowSolution(true)
     };
     const choiceData = () => {
       if (choice === "efficiency")
@@ -217,6 +249,9 @@ function Calculator({ match }) {
           getters: [work, heat],
           setters: [setWork, setHeat],
           subunits: ["joule", "joule"],
+          formula : "work / heat",
+          insertValues: ` ${work}${SI["work"]} / ${heat}${SI["heat"]}`,
+
         };
       else if (choice === "refrige")
         return {
@@ -226,6 +261,8 @@ function Calculator({ match }) {
           getters: [heatabsorb, heatrelease],
           setters: [setheatabsorb, setheatrelease],
           subunits: ["joule", "joule"],
+          formula : "heatabsorb / (heatrelease - heatabsorb)",
+          insertValues: ` ${heatabsorb}${SI["heatabsorb"]} / (${heatrelease}${SI["heatrelease"]} - ${heatabsorb}${SI["heatabsorb"]})`,
         };
       else if (choice === "carnot")
         return {
@@ -238,16 +275,31 @@ function Calculator({ match }) {
           getters: [temphot, tempcold],
           setters: [setTemphot, setTempcold],
           subunits: ["kelvin", "kelvin"],
+          formula : "(temphot - tempcold) / temphot",
+          insertValues: ` (${temphot}${SI["temphot"]} - ${tempcold}${SI["tempcold"]}) / ${temphot}${SI["temphot"]}`,
         };
     };
 
     const handleChange = (e) => {
       setChoice(e.target.value);
-      reset();
+      resetForm();
     };
 
     return (
-      <>
+      <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -299,6 +351,17 @@ function Calculator({ match }) {
               }
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula= {choiceData().formula}
+                toFind= {choiceData().name}
+                insertValues={choiceData().insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null }
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -312,15 +375,15 @@ function Calculator({ match }) {
           </Form.Group>
         </Form>
         <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcResult}>
+          <Button variant="primary" onClick={handleClick}>
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => reset()} type="reset">
+          <Button variant="dark" onClick={() => resetForm()} type="reset">
             Reset
           </Button>
         </div>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -331,29 +394,51 @@ function Calculator({ match }) {
     const [temperature, setTemperature] = useState(null);
     const [heat, setHeat] = useState(null);
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
 
     const handleChange = (e) => {
       setChoice(e.target.value);
-      reset();
+      resetForm();
     };
-
-    const reset = () => {
+    const givenValues = {
+      entropy: entropy,
+      temperature: temperature,
+      heat: heat,
+    };
+    const resetForm = () => {
       setHeat(null);
       setEntropy(null);
       setTemperature(null);
       setResult(null);
+      setShowSolution(false);
     };
 
-    const calcResult = () => {
+    const handleClick = () => {
       let res;
       if (choice === "entropy") {
-        res = parseFloat(heat) / parseFloat(temperature);
+        if(heat!=null && temperature!=null){
+          res = parseFloat(heat) / parseFloat(temperature)
+        }else{
+          setShowModal(true);
+        }
+       
       } else if (choice === "heat") {
-        res = parseFloat(entropy) * parseFloat(temperature);
+             if(entropy!=null && temperature!=null){
+              res = parseFloat(entropy) * parseFloat(temperature);  
+            }
+            else{
+              setShowModal(true);
+            }
       } else if (choice === "temperature") {
-        res = parseFloat(heat) / parseFloat(entropy);
+        if(heat!=null && entropy!=null){
+          res = parseFloat(heat) / parseFloat(entropy); 
+        }else{
+          setShowModal(true);
+        }
       }
       setResult(res);
+      setShowSolution(true)
     };
     const choiceData = () => {
       if (choice === "entropy") {
@@ -364,6 +449,9 @@ function Calculator({ match }) {
           getters: [heat, temperature],
           setter: [setHeat, setTemperature],
           subunits: ["joules", "kelvin"],
+          formula : "heat / temperature" ,
+          insertValues: `${heat}${SI["heat"]} / ${temperature}${SI["temperature"]}`,
+    
         };
       } else if (choice === "heat") {
         return {
@@ -373,6 +461,8 @@ function Calculator({ match }) {
           getters: [entropy, temperature],
           setter: [setEntropy, setTemperature],
           subunits: ["joules per kelvin", "kelvin"],
+          formula : "entropy * temperature",
+          insertValues: `${entropy}${SI["entropy"]} * ${temperature}${SI["temperature"]}`,
         };
       } else if (choice === "temperature") {
         return {
@@ -382,20 +472,30 @@ function Calculator({ match }) {
           getters: [heat, entropy],
           setter: [setHeat, setEntropy],
           subunits: ["joules", "joules per kelvin"],
+          formula : "heat / entropy",
+          insertValues: `${heat}${SI["heat"]} / ${entropy}${SI["entropy"]}`,
         };
       }
     };
-
     return (
-      <>
+      <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="choice2">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control
-              as="select"
-              className="select-custom-res"
-              onChange={(e) => handleChange(e)}
-            >
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="entropy">dS: Change in Entropy</option>
               <option value="heat">dQ : Heat transfer</option>
               <option value="temperature">T :Tempreature</option>
@@ -434,6 +534,17 @@ function Calculator({ match }) {
               }
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula= {choiceData().formula}
+                toFind= {choiceData().name}
+                insertValues={choiceData().insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null }
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -447,15 +558,15 @@ function Calculator({ match }) {
           </Form.Group>
         </Form>
         <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcResult}>
+          <Button variant="primary" onClick={handleClick}>
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => reset()} type="reset">
+          <Button variant="dark" onClick={() => resetForm()} type="reset">
             Reset
           </Button>
         </div>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -466,29 +577,53 @@ function Calculator({ match }) {
     const [work, setWork] = useState(null);
     const [energy, setEnergy] = useState(null);
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
 
     const handleChange = (e) => {
       setChoice(e.target.value);
-      reset();
+      resetForm();
     };
 
-    const reset = () => {
+    const resetForm = () => {
       setEnergy(null);
       setHeat(null);
       setWork(null);
       setResult(null);
+      setShowSolution(false);
     };
-
-    const calcResult = () => {
+    
+    const givenValues = {
+      energy: energy,
+      work: work,
+      heat: heat,
+    };
+    const handleClick = () => {
       let res;
       if (choice === "energy") {
-        res = parseFloat(heat) - parseFloat(work);
+        if(heat!= null && work!= null ){
+          res = parseFloat(heat) - parseFloat(work);
+        }
+        else{
+          setShowModal(true);
+        }
       } else if (choice === "work") {
-        res = parseFloat(heat) - parseFloat(energy);
+        if(heat!= null && energy!= null){
+          res = parseFloat(heat) - parseFloat(energy);
+        }
+        else{
+          setShowModal(true);
+        }
       } else if (choice === "heat") {
-        res = parseFloat(energy) + parseFloat(work);
+        if(energy!=null && work!= null){
+          res = parseFloat(energy) + parseFloat(work);
+        }
+        else{
+          setShowModal(true);
+        }
       }
       setResult(res);
+      setShowSolution(true)
     };
 
     const choiceData = () => {
@@ -499,6 +634,8 @@ function Calculator({ match }) {
           mainunit: "joule",
           setters: [setHeat, setWork],
           getters: [heat, work],
+          formula: "heat - work",
+          insertValues: `${heat}${SI["heat"]} - ${work}${SI["work"]}`,
         };
       } else if (choice === "heat") {
         return {
@@ -507,6 +644,8 @@ function Calculator({ match }) {
           mainunit: "joule",
           setters: [setWork, setEnergy],
           getters: [work, energy],
+          formula: "energy + work",
+          insertValues: `${energy}${SI["energy"]} / ${work}${SI["work"]}`,
         };
       } else if (choice === "work")
         return {
@@ -515,19 +654,30 @@ function Calculator({ match }) {
           mainunit: "joule",
           setters: [setHeat, setEnergy],
           getters: [heat, energy],
+          formula: "heat - energy",
+          insertValues: `${heat}${SI["heat"]} - ${energy}${SI["energy"]}`,
         };
     };
     return (
-      <>
+      <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control
-              as="select"
-              className="select-custom-res"
-              onChange={(e) => handleChange(e)}
-            >
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="energy">∆U : Change in energy</option>
               <option value="heat">Q: Amount of heat</option>
               <option value="work">W: Work done by system</option>
@@ -564,6 +714,17 @@ function Calculator({ match }) {
               }
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula= {choiceData().formula}
+                toFind= {choiceData().name}
+                insertValues={choiceData().insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null }
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -577,15 +738,15 @@ function Calculator({ match }) {
           </Form.Group>
         </Form>
         <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcResult}>
+          <Button variant="primary" onClick={handleClick}>
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => reset()} type="reset">
+          <Button variant="dark" onClick={() => resetForm()} type="reset">
             Reset
           </Button>
         </div>
-      </>
+      </React.Fragment>
     );
   };
 
@@ -600,18 +761,22 @@ function Calculator({ match }) {
     const [molarMass, setMolarMass] = useState(null);
     const [freedom, setFreedom] = useState(null);
     const [choice, setChoice] = useState("ke");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+   
+    const givenValues = {
+      moles: moles,
+      temperature: temperature,
+      pressure: pressure,
+      volume: volume,
+      molarMass: molarMass ,
+      freedom: freedom,
+      gasCon: gasCon,
+    };
 
     function handleChange(e) {
-      setResult(null);
-      setMoles(null);
-      setTemperature(null);
-      setMolarMass(null);
-      setPressure(null);
-      setVolume(null);
-      setFreedom(null);
-      setGasCon(null);
+      resetForm();
       setChoice(e.target.value);
-      choiceData();
     }
 
     const choiceData = () => {
@@ -627,6 +792,8 @@ function Calculator({ match }) {
           subunits: ["mol", "K", "J.K¯¹⋅mol¯¹"],
           setters: [setMoles, setTemperature, setGasCon],
           getters: [moles, temperature, gasCon],
+          formula : "1.5 * gasCon * moles * temperature",
+          insertValues: `1.5 * 8.3145 * ${moles}${SI["moles"]} * ${temperature}${SI["temperature"]}`,
         };
       else if (choice === "rms")
         return {
@@ -636,6 +803,8 @@ function Calculator({ match }) {
           subunits: ["g⋅mol¯¹", "K", "J.K¯¹⋅mol¯¹"],
           setters: [setMolarMass, setTemperature, setGasCon],
           getters: [molarMass, temperature, gasCon],
+          formula: "((3 * gasCon * temperature) / molarMass) ** 0.5",
+          insertValues: `(3 * 8.3145 * ${temperature}${SI["temperature"]} / ${molarMass}${SI["molarMass"]}) ** 0.5`,
         };
       else if (choice === "av")
         return {
@@ -645,6 +814,8 @@ function Calculator({ match }) {
           subunits: ["g⋅mol¯¹", "K", "J.K¯¹⋅mol¯¹"],
           setters: [setMolarMass, setTemperature, setGasCon],
           getters: [molarMass, temperature, gasCon],
+          formula: "((8 * gasCon * temperature) / (Math.PI * molarMass)) ** 0.5",
+          insertValues: `(8 * 8.3145 * ${temperature}${SI["temperature"]} / Math.PI * ${molarMass}${SI["molarMass"]}) ** 0.5`,
         };
       else if (choice === "mp")
         return {
@@ -654,6 +825,8 @@ function Calculator({ match }) {
           subunits: ["g⋅mol¯¹", "K", "J.K¯¹⋅mol¯¹"],
           setters: [setMolarMass, setTemperature, setGasCon],
           getters: [molarMass, temperature, gasCon],
+          formula: "((2 * gasCon * temperature) / molarMass) ** 0.5",
+          insertValues: `(2 * 8.3145 * ${temperature}${SI["temperature"]} / ${molarMass}${SI["molarMass"]}) ** 0.5`,
         };
       else if (choice === "p")
         return {
@@ -663,6 +836,8 @@ function Calculator({ match }) {
           subunits: ["mol", "K", "m³"],
           setters: [setMoles, setTemperature, setVolume],
           getters: [moles, temperature, volume],
+          formula: "(8.3145 * moles * temperature) / volume",
+          insertValues: `(8.3145 * ${temperature}${SI["temperature"]}* ${moles}${SI["moles"]} / ${volume}${SI["volume"]})`,
         };
       else if (choice === "v")
         return {
@@ -672,6 +847,8 @@ function Calculator({ match }) {
           subunits: ["mol", "K", "Pa"],
           setters: [setMoles, setTemperature, setPressure],
           getters: [moles, temperature, pressure],
+          formula: "(8.3145 * moles * temperature) / pressure;",
+          insertValues: `(8.3145 * ${temperature}${SI["temperature"]}* ${moles}${SI["moles"]} / ${pressure}${SI["pressure"]})`,
         };
       else if (choice === "t")
         return {
@@ -681,6 +858,9 @@ function Calculator({ match }) {
           subunits: ["mol", "Pa", "m³"],
           setters: [setMoles, setPressure, setVolume],
           getters: [moles, pressure, volume],
+          formula: "(pressure * volume) / (moles * 8.3145)",
+          insertValues: `${pressure}${SI["pressure"]} * ${volume}${SI["volume"]} / 8.3145 * ${moles}${SI["moles"]}`,
+          
         };
       else if (choice === "u")
         return {
@@ -690,31 +870,77 @@ function Calculator({ match }) {
           subunits: ["NaN", "K", "mol"],
           setters: [setFreedom, setTemperature, setMoles],
           getters: [freedom, temperature, moles],
+          formula : "(freedom * moles * 8.3145 * temperature) / 2",
+          insertValues: `8.3145 * ${temperature}${SI["temperature"]}* ${moles}${SI["moles"]} * ${freedom}${SI["freedom"]} / 2`,
+          
         };
     };
 
-    const calcResult = () => {
+    const handleClick = () => {
       let res;
       // setGasCon(8.3145);
-      if (choice === "ke") res = 1.5 * gasCon * moles * temperature;
-      else if (choice === "rms")
-        res = (parseFloat(3 * gasCon * temperature) / molarMass) ** 0.5;
-      else if (choice === "av")
-        res =
-          (parseFloat(8 * gasCon * temperature) /
-            parseFloat(Math.PI * molarMass)) **
-          0.5;
-      else if (choice === "mp")
-        res = (parseFloat(2 * gasCon * temperature) / molarMass) ** 0.5;
-      else if (choice === "p") res = (8.3145 * moles * temperature) / volume;
-      else if (choice === "v") res = (8.3145 * moles * temperature) / pressure;
-      else if (choice === "t")
-        res = parseFloat(pressure * volume) / parseFloat(moles * 8.3145);
-      else if (choice === "u")
-        res = (freedom * moles * 8.3145 * temperature) / 2;
+      if (choice === "ke"){
+        if(moles!=null && temperature!=null){
+          res = 1.5 * gasCon * moles * temperature;
+        }else{
+          setShowModal(true);
+        }
+      }
+      else if (choice === "rms"){
+        if(temperature!= null && molarMass!= null){
+          res = (parseFloat(3 * gasCon * temperature) / molarMass) ** 0.5;
+        }else{
+          setShowModal(true);
+        }
+      }
+      else if (choice === "av"){
+        if(temperature!= null && molarMass!=null){
+          res =(parseFloat(8 * gasCon * temperature) / parseFloat(Math.PI * molarMass)) ** 0.5;
+        }
+        else{
+          setShowModal(true);
+        }
+      } 
+      else if (choice === "mp"){
+        if(temperature!= null && molarMass!= null){
+          res = (parseFloat(2 * gasCon * temperature) / molarMass) ** 0.5;
+        }else{
+          setShowModal(true);
+        }
+      }
+      else if (choice === "p"){
+        if(moles!= null && temperature!= null && volume!= null){
+          res = (8.3145 * moles * temperature) / volume;
+        }
+        else{
+          setShowModal(true);
+        }
+      }
+      else if (choice === "v"){
+        if(moles!= null && temperature!= null && pressure!= null){
+          res = (8.3145 * moles * temperature) / pressure;
+        }else{
+          setShowModal(true);
+        }
+      } 
+      else if (choice === "t"){
+        if(pressure!= null && volume!= null && moles!= null){
+          res = parseFloat(pressure * volume) / parseFloat(moles * 8.3145);
+        }else{
+          setShowModal(true);
+        }
+      }
+      else if (choice === "u"){
+        if(freedom!= null && moles!= null && temperature!= null){
+          res = (freedom * moles * 8.3145 * temperature) / 2;
+        }else{
+          setShowModal(true);
+        }
+      }
       setResult(res);
+      setShowSolution(true)
     };
-    function reset() {
+    function resetForm() {
       setResult(null);
       setMoles(null);
       setTemperature(null);
@@ -724,15 +950,24 @@ function Calculator({ match }) {
       setFreedom(null);
     }
     return (
-      <>
+      <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control
-              as="select"
-              className="select-custom-res"
-              onChange={(e) => handleChange(e)}
-            >
+            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
               <option value="ke">
                 KE : Total translational kinetic energy of gas
               </option>
@@ -790,6 +1025,17 @@ function Calculator({ match }) {
               }
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula= {choiceData().formula}
+                toFind= {choiceData().name}
+                insertValues={choiceData().insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null }
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -803,15 +1049,15 @@ function Calculator({ match }) {
           </Form.Group>
         </Form>
         <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcResult}>
+          <Button variant="primary" onClick={handleClick}>
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" type="reset" onClick={() => reset()}>
+          <Button variant="dark" type="reset" onClick={() => resetForm()}>
             Reset
           </Button>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 
