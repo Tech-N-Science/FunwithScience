@@ -577,12 +577,11 @@ function Calculator({ match }) {
     const [work, setWork] = useState(null);
     const [energy, setEnergy] = useState(null);
     const [result, setResult] = useState(null);
-    const [showModal, setShowModal] = useState(false);
-    const [showSolution, setShowSolution] = useState(false);
+    
 
     const handleChange = (e) => {
       setChoice(e.target.value);
-      resetForm();
+      reset();
     };
 
     const resetForm = () => {
@@ -590,30 +589,14 @@ function Calculator({ match }) {
       setHeat(null);
       setWork(null);
       setResult(null);
-      setShowSolution(false);
+    
     };
     
-    const givenValues = {
-      energy: energy,
-      work: work,
-      heat: heat,
-    };
     const handleClick = () => {
       let res;
       if (choice === "energy") {
-        if(heat!= null && work!= null ){
-          res = parseFloat(heat) - parseFloat(work);
-        }
-        else{
-          setShowModal(true);
-        }
-      } else if (choice === "work") {
-        if(heat!= null && energy!= null){
-          res = parseFloat(heat) - parseFloat(energy);
-        }
-        else{
-          setShowModal(true);
-        }
+      
+        } else if (choice === "work") {
       } else if (choice === "heat") {
         if(energy!=null && work!= null){
           res = parseFloat(energy) + parseFloat(work);
