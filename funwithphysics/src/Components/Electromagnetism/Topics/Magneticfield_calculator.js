@@ -4,6 +4,11 @@ import { Form, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import Solution from "../../Solution/Solution";
+import {constant} from '../../Solution/allConstants';
+import {SI} from '../../Solution/allSIUnits';
+import Modal from "react-bootstrap/Modal";
+
 
 function Magneticfield_calculator({ match }) {
   //magneticfield_data
@@ -96,20 +101,40 @@ function Magneticfield_calculator({ match }) {
     const [turns, setTurns] = useState(null);
     const [current, setCurrent] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const μ = 4 * Math.PI * Math.pow(10, -7);
     const reset = () => {
       setTurns(null);
       setCurrent(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(turns!==null && current !==null){
       let res;
       res = μ * turns * current;
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const insertValues = `(${constant["Magnetic_Permeability"]} * ${turns}${SI["number"]} * ${current}${SI["Current"]})`;
+    const constants = ["Magnetic_Permeability"];
+
+    const givenValues = {
+      Turns:turns,
+      Current:current,
+    }
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Number of turns(N)</Form.Label>
@@ -129,7 +154,7 @@ function Magneticfield_calculator({ match }) {
               onChange={(e) => {
                 setCurrent(e.target.value);
               }}
-              placeholder="Enter the no. of turns (N)"
+              placeholder="Enter the current in (Ampere)"
               value={current === null ? "" : current}
             />
           </Form.Group>
@@ -141,6 +166,18 @@ function Magneticfield_calculator({ match }) {
               placeholder={"4π*10⁻⁷ Henry/m"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="μ₀*N*I"
+              toFind="Magnetic Field by the Solenoid"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -167,21 +204,42 @@ function Magneticfield_calculator({ match }) {
     const [radius, setRadius] = useState(null);
     const [current, setCurrent] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const μ = 4 * Math.PI * Math.pow(10, -7);
     const reset = () => {
       setTurns(null);
       setRadius(null);
       setCurrent(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(turns!==null && current!==null && radius!==null){
       let res;
       res = (μ * turns * current) / (2 * radius);
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Current:current,
+      Turns:turns,
+      Radius:radius,
+    }
+
+    const insertValues = `(${constant["Magnetic_Permeability"]} * ${turns}${SI["number"]} * ${current}${SI["Current"]}) / (2 * ${radius}${SI["Radius"]})`;
+    const constants = ["Magnetic_Permeability"];
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Number of turns(N)</Form.Label>
@@ -224,6 +282,18 @@ function Magneticfield_calculator({ match }) {
               placeholder={"4π*10⁻⁷ Henry/m"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="μ₀NI/2r"
+              toFind="Magnetic Field by the Circular Coil"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -250,21 +320,42 @@ function Magneticfield_calculator({ match }) {
     const [radius, setRadius] = useState(null);
     const [current, setCurrent] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const μ = 4 * Math.PI * Math.pow(10, -7);
     const reset = () => {
       setTurns(null);
       setRadius(null);
       setCurrent(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(turns!==null && current!==null && radius!==null){
       let res;
       res = (μ * turns * current) / (2 * Math.PI * radius);
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Current:current,
+      Turns:turns,
+      Radius:radius,
+    }
+
+    const insertValues = `(${constant["Magnetic_Permeability"]} * ${turns}${SI["number"]} * ${current}${SI["Current"]}) / (2 * π * ${radius}${SI["Radius"]})`;
+    const constants = ["Magnetic_Permeability"];
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Number of turns(N)</Form.Label>
@@ -307,6 +398,18 @@ function Magneticfield_calculator({ match }) {
               placeholder={"4π*10⁻⁷ Henry/m"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="μ₀NI/2πr"
+              toFind="Magnetic Field by the Toroid"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -332,19 +435,38 @@ function Magneticfield_calculator({ match }) {
   const Infinite_sheet = () => {
     const [currentdensity, setCurrentDensity] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const μ = 4 * 3.14 * Math.pow(10, -7);
     const reset = () => {
       setResult(null);
       setCurrentDensity(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(currentdensity!==null){
       let res;
       res = (μ * currentdensity) / 2;
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Current_Density:currentdensity,
+    }
+
+    const insertValues = `(${constant["Magnetic_Permeability"]} * ${currentdensity}${SI["Current_Density"]}) / 2`;
+    const constants = ["Magnetic_Permeability"];
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Current Density (J₀)</Form.Label>
@@ -365,6 +487,18 @@ function Magneticfield_calculator({ match }) {
               placeholder={"4π*10⁻⁷ Henry/m"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="μ₀J₀/2"
+              toFind="Magnetic Field by the Infinite Sheet"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -393,12 +527,15 @@ function Magneticfield_calculator({ match }) {
     const [radius, setradius] = useState(null);
     const [distance, setDistance] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const μ = 4 * 3.14 * Math.pow(10, -7);
     const reset = () => {
       setResult(null);
       setCurrent(null);
       setradius(null);
       setDistance(null);
+      setShowSolution(false);
     };
     const handleChange = (e) => {
       setChoice(e.target.value);
@@ -406,16 +543,64 @@ function Magneticfield_calculator({ match }) {
     };
     const calcResult1 = () => {
       let res;
-      if (choice === "InCylinder") {
+      if (choice === "InCylinder" && current!==null && radius!==null && distance!==null) {
         res = (μ * current * distance) / (2 * Math.PI * Math.pow(radius, 2));
-      } else {
+        setShowSolution(true);
+      } else if(choice === "OutsideCylinder" && current!==null && distance!==null){
         res = (μ * current) / (2 * Math.PI * distance);
+        setShowSolution(true);
+      }else {
+        setShowModal(true)
       }
       setResult(res);
     };
 
+    const givenValues = () => {
+      if (choice === "InCylinder") {
+        return {
+          Current:current,
+          Radius:radius,
+          Distance:distance,
+        }
+      }
+      else{
+        return {
+          Current:current,
+          Distance:distance,
+      }
+    }
+    }
+
+    const formula = () => {
+      if (choice === "InCylinder") {
+        return {
+          value : "μ₀ir/2πR²",
+        }
+      }
+      else{
+        return {
+          value:"µ₀i/2πr",
+      }
+    }
+    }
+
+    const insertValues = () => {
+      if (choice === "InCylinder"){
+      return `(${constant["Magnetic_Permeability"]} * ${current}${SI["Current"]} * ${distance}${SI["Distance"]}) / (2 * π * ${radius}${SI["Radius"]}²)`;
+    }
+    else{
+      return `(${constant["Magnetic_Permeability"]} * ${current}${SI["Current"]}) / (2 * π * ${distance}${SI["Distance"]})`;
+    }
+  }
+  const constants = ["Magnetic_Permeability"];
+
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
@@ -494,6 +679,18 @@ function Magneticfield_calculator({ match }) {
               placeholder={"4π*10⁻⁷ Henry/m"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues()}
+              formula={formula().value}
+              toFind="Magnetic Field by the Solid Cylinder"
+              insertValues={insertValues()}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -520,20 +717,41 @@ function Magneticfield_calculator({ match }) {
     const [current, setCurrent] = useState(null);
     const [distance, setDistance] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const μ = 4 * 3.14 * Math.pow(10, -7);
+
     const reset = () => {
       setResult(null);
       setCurrent(null);
       setDistance(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(current!==null && distance!==null){
       let res;
       res = (μ * current) / (2 * Math.PI * distance);
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Distance:distance,
+      Current:current,
+    }
+
+    const insertValues = `(${constant["Magnetic_Permeability"]} * ${current}${SI["Current"]}) / (2 * π * ${distance}${SI["Distance"]})`;
+    const constants = ["Magnetic_Permeability"];
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label> Current (I)</Form.Label>
@@ -565,6 +783,18 @@ function Magneticfield_calculator({ match }) {
               placeholder={"4π*10⁻⁷ Henry/m"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="μ₀I/2πr"
+              toFind="Magnetic Field by the Infinite Wire"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly

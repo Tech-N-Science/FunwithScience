@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import signimg from "../../Images/girl.jpg";
 import Navbar from "../Navbar/Navbar";
 import "./Signup.css";
 import ImageLoad from "../imageLoad";
@@ -44,21 +43,24 @@ export default class Signup extends Component {
       .then((res) => {
         if (res.data === 1) {
           alert(" Registered Successfully");
+          this.setState({
+            username: "",
+            email: "",
+            pass: "",
+          });
           this.props.history.push("/login");
-          console.log(res.data);
-        } else {
-          alert("Some Error Occured");
-          console.log(res.data);
+        } else if(res.data === 2) {
+          alert("Username already exists");
         }
+        else if(res.data === 0) {
+          alert("Email already exists");
+        }
+        else{
+          alert("Some error occured");
+        }
+        console.log(res.data);
       });
-
-    this.setState({
-      username: "",
-      email: "",
-      pass: "",
-    });
   }
-
   render() {
     return (
       <>

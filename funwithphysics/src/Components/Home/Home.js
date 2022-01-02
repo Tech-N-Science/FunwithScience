@@ -18,11 +18,15 @@ const Home = () => {
           type: "Set",
           payload: user,
         });
+      } else {
+        localStorage.setItem("user", null);
       }
     }, 4000);
-  }, []);
+  }, [dispatch]);
   const bookReaderStyle = {
-    color:'black', margin:'0', paddingRight:'9px'
+    color: "black",
+    margin: "0",
+    paddingRight: "9px",
   };
   return (
     <React.Fragment>
@@ -52,20 +56,21 @@ const Home = () => {
           </a>
         </p>
         <div className="banner_container">
-        <div className="blur-background">
-        <h2 className="banner_text auto pt-5">
-          We at Tech N Science try to bring all sciences under one roof by
-          providing JEE level questions and also calculators for different
-          science formulas.
-          <br />
-          So, keep Exploring!!.
-        </h2>
-        </div>
-        <div className="banner_button">
-          <Button href="#learn" className="btn btn-light">
-            {" "}
-            Learn<i style={bookReaderStyle} className="fas fa-book-reader"></i>
-          </Button> 
+          <div className="blur-background">
+            <h2 className="banner_text auto pt-5">
+              We at Tech N Science try to bring all sciences under one roof by
+              providing JEE level questions and also calculators for different
+              science formulas.
+              <br />
+              So, keep Exploring!!.
+            </h2>
+          </div>
+          <div className="banner_button">
+            <Button href="#learn" className="btn btn-light">
+              {" "}
+              Learn
+              <i style={bookReaderStyle} className="fas fa-book-reader"></i>
+            </Button>
           </div>
         </div>
       </div>

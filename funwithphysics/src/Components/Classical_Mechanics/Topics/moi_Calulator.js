@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button,Modal } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import Solution from "../../Solution/Solution";
+import {SI} from '../../Solution/allSIUnits'
 
 function MOICalculator({ match }) {
   // MOI_list
@@ -93,12 +95,31 @@ function MOICalculator({ match }) {
 
   // Ring / Hollow Cylinder / Disc / solid cylinder / solid sphere / Rod Calculator
   function CalculatorMOI() {
-    const [result, setResult] = useState(null);
-    const [mass, setMass] = useState(null);
-    const [radius, setRadius] = useState(null);
+    const [result, setResult] = useState("");
+    const [mass, setMass] = useState("");
+    const [radius, setRadius] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+  const givenValues = {
+    mass: mass,
+    R: radius,
+  };
+  const insertValuesDisc=`0.5 x ${mass}${SI["mass"]} x (${radius}${SI["R"]})²`
+  const insertValuesRing=`${mass}${SI["mass"]} x (${radius}${SI["R"]})²`
+  const insertValuesSolidSphere=`0.4 x${mass}${SI["mass"]} x (${radius}${SI["R"]})²`
+  const insertValuesSphericalShell=`(2/3) x ${mass}${SI["mass"]} x (${radius}${SI["R"]})²`
+
+  const resetForm=()=>{
+    setMass("");
+    setRadius("");
+    setShowSolution(false);
+    setResult("");
+  }
 
     const handleClick = () => {
       console.log(details.topic);
+     if(mass!=="" && radius!==""){
       if (details.topic === "Disc" || details.topic === "Solid Cylinder") {
         let res = 0.5 * mass * Math.pow(radius, 2);
         setResult(res);
@@ -112,10 +133,28 @@ function MOICalculator({ match }) {
         let res = (2 / 3) * mass * Math.pow(radius, 2);
         setResult(res);
       }
+      setShowSolution(true)
+    }
+    else{
+      setShowModal(true);
+    }
     };
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         {/* <Navbar/> */}
         <Form>
           <Form.Group className="mb-3" controlId="force">
@@ -123,6 +162,7 @@ function MOICalculator({ match }) {
             <Form.Control
               onChange={(e) => setMass(e.target.value)}
               type="number"
+              value={mass}
               placeholder="Enter mass of the object in kilogram"
             />
           </Form.Group>
@@ -130,16 +170,28 @@ function MOICalculator({ match }) {
             <Form.Label> Radius (in m)</Form.Label>
             <Form.Control
               onChange={(e) => setRadius(e.target.value)}
+              value={radius}
               type="number"
               placeholder="Enter radius of the object in meter"
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula={details.topic === "Disc" || details.topic === "Solid Cylinder"?"1/2 × Mass × Radius² = 1/2 × M × R²" :details.topic === "Ring"? "Mass × Radius² =  M × R²":details.topic === "Solid Sphere"? "2/5 × Mass × Radius² = 2/5 × M × R²":" 2/3 × Mass × Radius² = 2/3 × M × R²"  }
+                toFind="M.O.I"
+                insertValues={details.topic === "Disc" || details.topic === "Solid Cylinder"? insertValuesDisc:details.topic === "Ring"? insertValuesRing:details.topic === "Solid Sphere"? insertValuesSolidSphere:  insertValuesSphericalShell}
+                result={result}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-3" controlId="work">
             <Form.Label>Moment of Inertia(I)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " Kg m² "}
+              placeholder={result === "" ? "Result" : result + " Kg m² "}
             />
             <Form.Text className="text-muted">
               Enter the above values to Calculate.
@@ -150,7 +202,7 @@ function MOICalculator({ match }) {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
@@ -161,21 +213,57 @@ function MOICalculator({ match }) {
 
   // Rod
   function CalculateRod() {
-    const [result, setResult] = useState(null);
-    const [mass, setMass] = useState(null);
-    const [length, setLength] = useState(null);
+    const [result, setResult] = useState("");
+    const [mass, setMass] = useState("");
+    const [length, setLength] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      mass: mass,
+      length: length,
+    };
+
+    const insertValues = `(1 / 12) * ${mass}${SI["mass"]} * (${length}${SI["length"]})²`;
 
     const handleClick = () => {
-      let res = (1 / 12) * mass * Math.pow(length, 2);
-      setResult(res);
+      if(mass!=="" && length!=="")
+      {
+        let res = (1 / 12) * mass * Math.pow(length, 2);
+      setShowSolution(true)
+      setResult(res);}
+      else{
+        setShowModal(true);
+      }
     };
+
+    const resetForm=()=>{
+      setMass("");
+      setLength("");
+      setShowSolution(false);
+      setResult("");
+    }
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Mass (in Kilogram)</Form.Label>
             <Form.Control
               onChange={(e) => setMass(e.target.value)}
+              value={mass}
               type="number"
               placeholder="Enter mass of the object in kilogram"
             />
@@ -184,16 +272,28 @@ function MOICalculator({ match }) {
             <Form.Label> Length (in m)</Form.Label>
             <Form.Control
               onChange={(e) => setLength(e.target.value)}
+              value={length}
               type="number"
               placeholder="Enter length of the object in meter"
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="1/12 × Mass × Length² = 1/12 × M × L²"
+                toFind="M.O.I"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-3" controlId="work">
             <Form.Label>Moment of Inertia(I)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " Kg m² "}
+              placeholder={result === "" ? "Result" : result + " Kg m² "}
             />
             <Form.Text className="text-muted">
               Enter the above values to Calculate.
@@ -204,7 +304,7 @@ function MOICalculator({ match }) {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
@@ -215,22 +315,62 @@ function MOICalculator({ match }) {
 
   // Hollow Cylinder
   function CalculateHollow() {
-    const [result, setResult] = useState(null);
-    const [mass, setMass] = useState(null);
-    const [inradius, setLength] = useState(null);
-    const [exradius, setWidth] = useState(null);
+    const [result, setResult] = useState("");
+    const [mass, setMass] = useState("");
+    const [inradius, setLength] = useState("");
+    const [exradius, setWidth] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const givenValues = {
+      mass: mass,
+      "r2": inradius,
+      "r1": exradius,
+
+    };
+
+    const insertValues = `(1 / 2) * ${mass}${SI["mass"]} * ((${exradius}${SI["r2"]})² + (${inradius}${SI["r2"]})² )`;
 
     const handleClick = () => {
-      let res = (mass * (Math.pow(inradius, 2) + Math.pow(exradius, 2))) / 2;
-      setResult(res);
+      if(mass!=="" && inradius!=="" && exradius!=="" )
+      {
+        let res = (mass * (Math.pow(inradius, 2) + Math.pow(exradius, 2))) / 2;
+
+      setShowSolution(true)
+      setResult(res);}
+      else{
+        setShowModal(true);
+      }
     };
+
+    const resetForm=()=>{
+      setMass("");
+      setLength("");
+      setWidth("")
+      setShowSolution(false);
+      setResult("");
+    }
+  
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Mass (in Kilogram)</Form.Label>
             <Form.Control
               onChange={(e) => setMass(e.target.value)}
+              value={mass}
               type="number"
               placeholder="Enter mass of the object in kilogram"
             />
@@ -240,6 +380,8 @@ function MOICalculator({ match }) {
             <Form.Control
               onChange={(e) => setLength(e.target.value)}
               type="number"
+              value={inradius}
+
               placeholder="Enter length of the object in meter"
             />
           </Form.Group>
@@ -248,15 +390,27 @@ function MOICalculator({ match }) {
             <Form.Control
               onChange={(e) => setWidth(e.target.value)}
               type="number"
+              value={exradius}
               placeholder="Enter width of the object in meter"
             />
           </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="1/2 x Mass ×(External Radius² + Internal radius²)"
+                toFind="M.O.I"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-3" controlId="work">
             <Form.Label>Moment of Inertia(I)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " Kg m² "}
+              placeholder={result === "" ? "Result" : result + " Kg m² "}
             />
             <Form.Text className="text-muted">
               Enter the above values to Calculate.
@@ -267,7 +421,7 @@ function MOICalculator({ match }) {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
@@ -278,24 +432,63 @@ function MOICalculator({ match }) {
 
   // Rectangular plate calculator
   function CalculatorMOIofRectPlate() {
-    const [result, setResult] = useState(null);
-    const [mass, setMass] = useState(null);
-    const [length, setLength] = useState(null);
-    const [width, setWidth] = useState(null);
+    const [result, setResult] = useState("");
+    const [mass, setMass] = useState("");
+    const [length, setLength] = useState("");
+    const [width, setWidth] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const givenValues = {
+      mass: mass,
+      length: length,
+      width: width,
+
+    };
+
+    const insertValues = `(1 / 12) * ${mass}${SI["mass"]} * ((${length}${SI["r2"]})² + (${width}${SI["r2"]})² )`;
 
     const handleClick = () => {
-      let res = (mass * (Math.pow(length, 2) + Math.pow(width, 2))) / 12;
-      setResult(res);
+      if(mass!=="" && length!=="" && width!=="")
+      {
+        let res = (mass * (Math.pow(length, 2) + Math.pow(width, 2))) / 12;
+      setShowSolution(true)
+      setResult(res);}
+      else{
+        setShowModal(true);
+      }
     };
+
+    const resetForm=()=>{
+      setMass("");
+      setWidth("");
+      setLength("");
+      setShowSolution(false);
+      setResult("");
+    }
+  
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Mass (in Kilogram)</Form.Label>
             <Form.Control
               onChange={(e) => setMass(e.target.value)}
               type="number"
+              value={mass}
               placeholder="Enter mass of the object in kilogram"
             />
           </Form.Group>
@@ -304,6 +497,7 @@ function MOICalculator({ match }) {
             <Form.Control
               onChange={(e) => setLength(e.target.value)}
               type="number"
+              value={length}
               placeholder="Enter length of the object in meter"
             />
           </Form.Group>
@@ -312,15 +506,27 @@ function MOICalculator({ match }) {
             <Form.Control
               onChange={(e) => setWidth(e.target.value)}
               type="number"
+              value={width}
               placeholder="Enter width of the object in meter"
             />
-          </Form.Group>
+          </Form.Group> 
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="1/12×Mass×(Length²+Width²)=1/12 × m × (a²+b²)"
+                toFind="M.O.I"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+           : null }
           <Form.Group className="mb-3" controlId="work">
             <Form.Label>Moment of Inertia(I)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " Kg m² "}
+              placeholder={result === "" ? "Result" : result + " Kg m² "}
             />
             <Form.Text className="text-muted">
               Enter the above values to Calculate.
@@ -331,7 +537,7 @@ function MOICalculator({ match }) {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>

@@ -5,6 +5,10 @@ import "../Electromagnetism.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import Solution from "../../Solution/Solution";
+import {constant} from '../../Solution/allConstants';
+import {SI} from '../../Solution/allSIUnits';
+import Modal from "react-bootstrap/Modal";
 
 const calculator = ({ match }) => {
   //topics_data
@@ -411,21 +415,46 @@ const calculator = ({ match }) => {
     const [charge2, setCharge2] = useState(null);
     const [distance, setDistance] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
     const k = 8.99 * Math.pow(10, 9);
+
     const reset = () => {
       setCharge1(null);
       setCharge2(null);
       setDistance(null);
       setResult(null);
+      setShowSolution(false);
     };
+
     const calcResult = () => {
+      if(charge1!==null && charge2!==null && distance!==null){
       let res;
       let r1 = (charge1 * charge2) / (distance * distance);
       res = k * r1;
       setResult(res);
+      setShowSolution(true);
+      }else{
+        setShowModal(true)
+      }
     };
+
+    const insertValues = `[(${constant["coulomb_constant"]} * ${charge1}${SI["Charge1"]} * ${charge2}${SI["Charge2"]}) / (${distance}${SI["Distance"]})²]`;
+    const constants = ["coulomb_constant"];
+
+    const givenValues = {
+      Charge1:charge1,
+      Charge2:charge2,
+      Distance:distance,
+    };
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge 1 (q1)</Form.Label>
@@ -462,11 +491,25 @@ const calculator = ({ match }) => {
               placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
+
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="k[(q1*q2)/r²]"
+              toFind="Force"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
+
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " (N)"}
+              placeholder={result === null ? "Result" : result + " N"}
             />
           </Form.Group>
         </Form>
@@ -489,20 +532,42 @@ const calculator = ({ match }) => {
     const [length, setLength] = useState(null);
     const [area, setArea] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const calcResult = () => {
+      if(length!==null && area!==null && resistance !== null){
       let res;
       res = (resistance * area) / length;
       setResult(res);
+      setShowSolution(true);
+    }else {
+      setShowModal(true)
+    }
+
     };
     const reset = () => {
       setResistance(null);
       setLength(null);
       setArea(null);
       setResult(null);
+      setShowSolution(false);
     };
+
+    const givenValues = {
+      Length: length,
+      Area: area,
+      Resistance: resistance,
+    };
+
+    const insertValues = `(${resistance}${SI["Resistance"]} * ${area}${SI["Area"]}) / ${length}${SI["Length"]}`;
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Resistance (R)</Form.Label>
@@ -531,11 +596,24 @@ const calculator = ({ match }) => {
               value={length === null ? "" : length}
             />
           </Form.Group>
+
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="ρ=RA/l"
+              toFind="Resistivity"
+              insertValues={insertValues}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
+
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " (Ω⋅m)"}
+              placeholder={result === null ? "Result" : result + " Ω⋅m"}
             />
           </Form.Group>
         </Form>
@@ -559,25 +637,52 @@ const calculator = ({ match }) => {
     const [current, setCurrent] = useState(null);
     const [resistance, setResistance] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const calcResult = () => {
       let res;
-      if (choice === "voltage") {
+      if (choice === "voltage" && current !==null && resistance!==null) {
         res = current * resistance;
+        setShowSolution(true);
       }
-      if (choice === "current") {
+      else if (choice === "current" && voltage !==null && resistance!==null) {
         res = voltage / resistance;
+        setShowSolution(true);
       }
-      if (choice === "resistance") {
+      else if (choice === "resistance" && current !==null && voltage!==null) {
         res = voltage / current;
+        setShowSolution(true);
+      }else {
+        setShowModal(true)
       }
       setResult(res);
     };
+
+    const givenValues = () => {
+      if (choice === "voltage")
+        return {
+      Current:current,
+      Resistance:resistance,
+    };
+    else if( choice === "current")
+    return{
+      Voltage:voltage,
+      Resistance:resistance,
+    };
+    else
+    return{
+      Current:current,
+      Voltage:voltage,
+    }
+    };
+
     const reset = () => {
       setCurrent(null);
       setVoltage(null);
       setResistance(null);
       setResult(null);
+      setShowSolution(false);
     };
 
     const handleChange = (e) => {
@@ -586,37 +691,54 @@ const calculator = ({ match }) => {
       setResistance(null);
       setVoltage(null);
     };
+
+    const insertValues = () => {
+      if (choice === "voltage")
+        return `${current}${SI["current"]} * ${resistance}${SI["Resistance"]}`;
+      else if(choice === "current")
+      return `${voltage}${SI["voltage"]} / ${resistance}${SI["Resistance"]}`;
+      else
+      return `${voltage}${SI["voltage"]} / ${current}${SI["current"]}`;
+    }
+
     const choiceData = () => {
       if (choice === "voltage")
         return {
-          name: "Voltage (V)",
-          mainunit: "(V)",
+          name: "Voltage",
+          mainunit: "Volt",
+          formula: "IR",
           quantities: ["Current", "Resistance"],
-          subunits: ["(A)", "(ohm)"],
+          subunits: ["A", "ohm"],
           getters: [current, resistance],
           setters: [setCurrent, setResistance],
         };
       if (choice === "current")
         return {
-          name: "Current (I)",
-          mainunit: "(A)",
+          name: "Current",
+          mainunit: "A",
+          formula: "V/R",
           quantities: ["Voltage", "Resistance"],
-          subunits: ["(V)", "(ohm)"],
+          subunits: ["Volt", "ohm"],
           getters: [voltage, resistance],
           setters: [setVoltage, setResistance],
         };
       if (choice === "resistance")
         return {
-          name: "Resistance (R)",
-          mainunit: "(ohm)",
+          name: "Resistance",
+          mainunit: "ohm",
+          formula: "V/I",
           quantities: ["Voltage", "Current"],
-          subunits: ["(V)", "(I)"],
+          subunits: ["Volt", "I"],
           getters: [voltage, current],
           setters: [setVoltage, setCurrent],
         };
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         {/* <Navbar/> */}
         <Form>
           {/* dropdown */}
@@ -670,6 +792,17 @@ const calculator = ({ match }) => {
               }
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues()}
+              formula={choiceData().formula}
+              toFind={choiceData().name}
+              insertValues={insertValues()}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -702,23 +835,52 @@ const calculator = ({ match }) => {
     const [charge, setCharge] = useState(null);
     const [magnet, setMagnet] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const calcResult = () => {
       let res;
-      if (choice === "Time") {
+      if (choice === "Time" && mass!==null & charge!==null && magnet!==null) {
         res = (2 * Math.PI * mass) / (charge * magnet);
+        setShowSolution(true);
       }
-      if (choice === "Frequency") {
+      else if (choice === "Frequency" && mass!==null & charge!==null && magnet!==null) {
         res = (charge * magnet) / (2 * Math.PI * mass);
+        setShowSolution(true);
+      }else {
+        setShowModal(true)
       }
-
       setResult(res);
     };
+
+    const givenValues = () => {
+      if (choice === "Time")
+        return {
+      Mass:mass,
+      Charge:charge,
+      Magnetic_Field:magnet,
+    };
+    else
+    return{
+      Mass:mass,
+      Charge:charge,
+      Magnetic_Field:magnet,
+    };
+    };
+
+    const insertValues = () => {
+      if (choice === "Time")
+        return `2 * π * ${mass}${SI["mass"]} / (${charge}${SI["charge"]} * ${magnet}${SI["magnet"]})`;
+      else
+      return `${charge}${SI["charge"]} * ${magnet}${SI["magnet"]} / (2 * π *${mass}${SI["mass"]})`;
+    }
+
     const reset = () => {
       setMass(null);
       setCharge(null);
       setMagnet(null);
       setResult(null);
+      setShowSolution(false);
     };
 
     const handleChange = (e) => {
@@ -730,25 +892,31 @@ const calculator = ({ match }) => {
     const choiceData = () => {
       if (choice === "Time")
         return {
-          name: "Time period (s)",
-          mainunit: "(s)",
+          name: "Time Period",
+          mainunit: "s",
+          formula:"2πm/(qB)",
           quantities: ["Mass", "Charge", "Magnetic field"],
-          subunits: ["(kg)", "(C)", "(Tesla)"],
+          subunits: ["kg", "C", "Tesla"],
           getters: [mass, charge, magnet],
           setters: [setMass, setCharge, setMagnet],
         };
       if (choice === "Frequency")
         return {
-          name: "Frequency (s⁻¹)",
-          mainunit: "(s⁻¹)",
+          name: "Frequency",
+          mainunit: "s⁻¹",
+          formula:"qB/(2πm)",
           quantities: ["Mass", "Charge", "Magnetic field"],
-          subunits: ["(kg)", "(C)", "(Tesla)"],
+          subunits: ["kg", "C", "Tesla"],
           getters: [mass, charge, magnet],
           setters: [setMass, setCharge, setMagnet],
         };
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         {/* <Navbar/> */}
         <Form>
           {/* dropdown */}
@@ -816,6 +984,17 @@ const calculator = ({ match }) => {
               }
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues()}
+              formula={choiceData().formula}
+              toFind={choiceData().name}
+              insertValues={insertValues()}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -848,6 +1027,8 @@ const calculator = ({ match }) => {
     const [number, setNumber] = useState(null);
     const [charge, setCharge] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const reset = () => {
       setCurrent(null);
@@ -855,14 +1036,35 @@ const calculator = ({ match }) => {
       setCharge(null);
       setResult(null);
       setArea(null);
+      setShowSolution(false);
+
     };
     const calcResult = () => {
+      if(current!==null && number!==null && charge!==null && area!==null){
       let res;
       res = current / (number * area * charge);
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Number:number,
+      Charge:charge,
+      Area:area,
+      Current:current,
+    };
+
+    const insertValues = `[(${current}${SI["current"]}) / (${number}${SI["number"]} * ${area}${SI["area"]} * ${charge}${SI["charge"]})]`;
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Current (I)</Form.Label>
@@ -900,11 +1102,24 @@ const calculator = ({ match }) => {
               value={charge === null ? "" : charge}
             />
           </Form.Group>
+
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="I/nAq"
+              toFind="Drift Velocity"
+              insertValues={insertValues}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
+
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " m/s²"}
+              placeholder={result === null ? "Result" : result + " m/s"}
             />
           </Form.Group>
         </Form>
@@ -927,20 +1142,41 @@ const calculator = ({ match }) => {
     const [number, setNumber] = useState(null);
     const [flux, setFlux] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const reset = () => {
       setCurrent(null);
       setNumber(null);
       setFlux(null);
       setResult(null);
+      setShowSolution(false);
     };
+
+    const givenValues = {
+      Current: current,
+      Number: number,
+      Magnetic_Flux:flux,
+    };
+
+    const insertValues = `(${number}${SI["number"]} * ${flux}${SI["Magnetic_Flux"]}) / ${current}${SI["current"]}`;
+
     const calcResult = () => {
+      if(current!==null && number!==null && flux !== null){
       let res;
       res = (number * flux) / current;
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
     return (
       <>
+       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Number of turns(N)</Form.Label>
@@ -969,7 +1205,17 @@ const calculator = ({ match }) => {
               value={current === null ? "" : current}
             />
           </Form.Group>
-
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="NΦ/I"
+              toFind="Self Inductance"
+              insertValues={insertValues}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -996,21 +1242,42 @@ const calculator = ({ match }) => {
     const [flux, setFlux] = useState(null);
     const [time, setTime] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const reset = () => {
       setTurns(null);
       setFlux(null);
       setTime(null);
       setResult(null);
+      setShowSolution(false);
     };
 
     const calcResult = () => {
+      if(turns!==null && flux!==null && time!==null){
       let res;
       res = -turns * (flux / time);
       setResult(res);
+      setShowSolution(true);
+    }else{
+      setShowModal(true)
+    }
     };
+
+    const givenValues = {
+      Turns: turns,
+      Flux: flux,
+      Time: time,
+    };
+
+    const insertValues = `- ${turns}${SI["number"]} * (${flux}${SI["flux"]} / ${time}${SI["time"]})`;
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Number of Turns(N)</Form.Label>
@@ -1045,6 +1312,17 @@ const calculator = ({ match }) => {
               value={time === null ? "" : time}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="-N * (ΔΦ /Δt)"
+              toFind="Induced EMF"
+              insertValues={insertValues}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -1065,27 +1343,50 @@ const calculator = ({ match }) => {
       </>
     );
   };
+
   //EMF Calculator
   const EmfCalculator = () => {
     const [velocity, setVelocity] = useState(null);
     const [magnetic, setMagnetic] = useState(null);
     const [length, setLength] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const reset = () => {
       setVelocity(null);
       setMagnetic(null);
       setLength(null);
       setResult(null);
+      setShowSolution(false);
     };
 
     const calcResult = () => {
+      if(velocity!==null && magnetic!==null && length!==null){
       let res;
       res = -(velocity * magnetic * length);
       setResult(res);
+      setShowSolution(true);
+      }else{
+        setShowModal(true);
+      }
     };
+
+      const givenValues = {
+        Velocity: velocity,
+        Magnetic_Field: magnetic,
+        Length: length,
+      };
+
+      const insertValues = `- ${magnetic}${SI["Magnetic_Field"]} * ${velocity}${SI["Velocity"]} * ${length}${SI["Length"]}`;
+
+    
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Magnetic Field(B)</Form.Label>
@@ -1116,10 +1417,23 @@ const calculator = ({ match }) => {
               onChange={(e) => {
                 setLength(e.target.value);
               }}
-              placeholder="Enter the internal resistance in (ohm)"
+              placeholder="Enter the length of conductor in m"
               value={length === null ? "" : length}
             />
           </Form.Group>
+
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="-Bvl"
+              toFind="Motional EMF"
+              insertValues={insertValues}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
+
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -1146,20 +1460,40 @@ const calculator = ({ match }) => {
     const [magneticfeild, setmagneticfeild] = useState(null);
     // const [Permeability, setPermeability] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const reset = () => {
       setmagneticfeild(null);
       // setPermeability(null)
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(magneticfeild!==null){
       let res;
       res =
         (magneticfeild * magneticfeild) / (2 * 4 * Math.PI * Math.pow(10, -7));
       setResult(res);
+      setShowSolution(true);
+    }else{
+      setShowModal(true)
+    }
     };
+
+    const givenValues = {
+      Magnetic_Field: magneticfeild,
+    };
+
+    const insertValues = `(${magneticfeild}${SI["MagneticField"]})² / (2 * ${constant["Magnetic_Permeability"]})`;
+    const constants = ["Magnetic_Permeability"];
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Magnetic Field(B)</Form.Label>
@@ -1178,6 +1512,18 @@ const calculator = ({ match }) => {
               placeholder={"4π*10⁻⁷ Henry/m"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="B²/2μ₀"
+              toFind="Energy Density Of Inductor"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
 
           <Form.Group className="mb-4">
             <Form.Control
@@ -1200,21 +1546,26 @@ const calculator = ({ match }) => {
       </>
     );
   };
+
   // power factor
   const Power_factorCalculator = () => {
     const [resistance, setResistance] = useState(null);
     const [inductance, setInductance] = useState(null);
     const [capacitive, setCapacitive] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const reset = () => {
       setResistance(null);
       setInductance(null);
       setCapacitive(null);
       setResult(null);
+      setShowSolution(false);
     };
 
     const calcResult = () => {
+      if(resistance!==null && inductance!==null && capacitive!==null){
       let res;
       let r = Math.pow(resistance, 2);
       let i = Math.pow(inductance - capacitive, 2);
@@ -1222,9 +1573,26 @@ const calculator = ({ match }) => {
       let impedance = Math.sqrt(sum);
       res = resistance / impedance;
       setResult(res);
+      setShowSolution(true);
+      }else{
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+     Resistance: resistance,
+     Capacitive:capacitive,
+     Inductive:inductance,
+    };
+
+    const insertValues = `${resistance}${SI["Resistance"]} / (√((${resistance}${SI["Resistance"]})² + (${inductance}${SI["inductance"]} - ${capacitive}${SI["Capacitive"]})²))`;
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Resistance(R)</Form.Label>
@@ -1233,7 +1601,7 @@ const calculator = ({ match }) => {
               onChange={(e) => {
                 setResistance(e.target.value);
               }}
-              placeholder="Enter the resistance of the circuit"
+              placeholder="Enter the resistance of the circuit in Ω"
               value={resistance === null ? "" : resistance}
             />
           </Form.Group>
@@ -1244,7 +1612,7 @@ const calculator = ({ match }) => {
               onChange={(e) => {
                 setInductance(e.target.value);
               }}
-              placeholder="Enter Inductive reactance"
+              placeholder="Enter Inductive reactance in Ω"
               value={inductance === null ? "" : inductance}
             />
           </Form.Group>
@@ -1255,10 +1623,21 @@ const calculator = ({ match }) => {
               onChange={(e) => {
                 setCapacitive(e.target.value);
               }}
-              placeholder="Enter Inductive reactance"
+              placeholder="Enter Capacitive reactance in Ω"
               value={capacitive === null ? "" : capacitive}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="R/√(R²+(XL - Xc)²)"
+              toFind="Power Factor"
+              insertValues={insertValues}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -1287,6 +1666,8 @@ const calculator = ({ match }) => {
     const [magneticfield, setMagneticfield] = useState(null);
     const [theta, setTheta] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const reset = () => {
       setCharge(null);
@@ -1294,14 +1675,34 @@ const calculator = ({ match }) => {
       setMagneticfield(null);
       setTheta(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(charge!==null && speed!==null && magneticfield!==null && theta!==null){
       let res;
       res = charge * speed * magneticfield * Math.sin(theta * (Math.PI / 180));
       setResult(res);
+      setShowSolution(true);
+      }else{
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Charge:charge,
+      Speed:speed,
+      Magnetic_Field:magneticfield,
+      Theta:theta,
+    };
+
+    const insertValues = `${charge}${SI["charge"]} * ${speed}${SI["speed"]} * ${magneticfield}${SI["MagneticField"]} * sin(${theta}${SI["theta"]})`;
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (q)</Form.Label>
@@ -1339,6 +1740,17 @@ const calculator = ({ match }) => {
               value={theta === null ? "" : theta}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="qvBsin(θ)"
+              toFind="Magnetic Force"
+              insertValues={insertValues}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -1364,28 +1776,47 @@ const calculator = ({ match }) => {
   const GaussLaw = () => {
     const [charge, setCharge] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const e = 8.854187817 * Math.pow(10, -12);
 
     const reset = () => {
       setCharge(null);
       setResult(null);
+      setShowSolution(false);
     };
 
     const calcResult = () => {
+      if(charge!==null){
       let res;
       res = charge / e;
       setResult(res);
+      setShowSolution(true);
+      }else{
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Charge: charge,
+    };
+
+    const insertValues = `${charge}${SI["Charge"]} / ${constant["Vacuum_permittivity"]}`;
+    const constants = ["Vacuum_permittivity"];
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Total Charge Enclosed (Q)</Form.Label>
             <Form.Control
               onChange={(e) => setCharge(e.target.value)}
               type="number"
-              placeholder={"Enter in coulombs"}
+              placeholder={"Enter charge in coulombs"}
               value={charge === null ? "" : charge}
             />
           </Form.Group>
@@ -1397,6 +1828,18 @@ const calculator = ({ match }) => {
               placeholder={"8.854 * 10⁻¹² F.m⁻¹"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="Q/ε₀"
+              toFind="Electric Flux"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly

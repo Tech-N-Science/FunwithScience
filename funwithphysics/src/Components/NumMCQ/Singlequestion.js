@@ -1,41 +1,50 @@
 import React from "react";
 import "./Singlequestion.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./../Navbar/Navbar";
 import { Helmet } from "react-helmet";
-import { useLocation } from "react-router";
+import { Link, useParams } from "react-router-dom";
 import { data } from "./data";
+
 const Singlequestion = () => {
-  const location = useLocation();
-  var { type, ques, ans, img } = location.state;
-  const [question, setquestion] = useState(ques);
-  const [answer, setanswer] = useState(ans);
+  var { id, type } = useParams();
+  id = parseInt(id);
+  console.log(id);
+
+  const [mcqAll, setMcqAll] = useState(data.filter((val) => val.type === type));
+
+  // var type = match.params.type;
+
+  const quest = mcqAll[id].question;
+  const answ = mcqAll[id].answer;
+  const [question, setquestion] = useState(quest);
+  const [answer, setanswer] = useState(answ);
+
+  console.log(question);
+  const [imag, setimag] = useState("");
   const [result, setResult] = useState([]);
-  const [multinext, setmultinext] = useState(1);
-  const [numericalnext, setnumericalnext] = useState(1);
-  const multicorrect = data.filter(
-    (value) => value.type === "Multiple Correct"
-  );
-  const numerical = data.filter((value) => value.type === "Numerical");
-  if (type === "Multiple Correct") {
-    const handleNext = () => {
+
+  // eslint-disable-next-line
+  useEffect(() => {
+    setquestion(mcqAll[id].question);
+    setanswer(mcqAll[id].answer);
+    setimag(mcqAll[id].image);
+  });
+
+  useEffect(() => {
+    setResult([]);
+    setMcqAll(data.filter((val) => val.type === type));
+    // eslint-disable-next-line
+  }, []);
+
+  if (type === "mcq") {
+    const handleOptions = () => {
       setResult([]);
       document.querySelectorAll(".answerOption").forEach((e) => {
-        console.log(e);
         e.style.backgroundColor = "white";
         e.style.color = "black";
+        console.log(e);
       });
-      console.log(".....", result);
-      console.log(multinext);
-      console.log(multicorrect[multinext]);
-      setquestion(multicorrect[multinext].question);
-      setanswer(multicorrect[multinext].answer);
-      // console.log(result);
-      if (multinext === multicorrect.length - 1) {
-        setmultinext(0);
-      } else {
-        setmultinext(multinext + 1);
-      }
     };
     const handleSubmit = () => {
       if (result.length === 0) {
@@ -54,9 +63,10 @@ const Singlequestion = () => {
           }
         }
         alert("Correct Answer");
-        handleNext();
+        handleOptions();
       }
     };
+
     function handleClick(e) {
       if (result.includes(e.target.value)) {
         const i = result.indexOf(e.target.value);
@@ -77,6 +87,7 @@ const Singlequestion = () => {
       <React.Fragment>
         <Navbar />
         <span
+          className="question-type"
           style={{
             display: "flex",
             fontSize: "2em",
@@ -86,7 +97,7 @@ const Singlequestion = () => {
             paddingRight: "2rem",
           }}
         >
-          {type} Question
+          Multiple Correct Question
         </span>
         <br />
         <br />
@@ -95,7 +106,10 @@ const Singlequestion = () => {
         <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">
-            <h4 className="question">{question}</h4>
+            <h4 className="question">Q. {question}</h4>
+            {imag && <img src={imag} alt="" className="quesimg" />}
+            <br />
+            <br />
             <Helmet>
               <title>{question}</title>
               <meta name="description" content="{question}" />
@@ -108,7 +122,7 @@ const Singlequestion = () => {
             <div className="answer-box">
               {answer.map((ansOptions, index) => {
                 return (
-                  <div className="container">
+                  <div className="container" key={index}>
                     <button
                       key={index}
                       className="answerOption"
@@ -125,17 +139,28 @@ const Singlequestion = () => {
               })}
             </div>
             <div className="btns-box">
+              <button className="prev-btn" onClick={handleOptions}>
+                <Link
+                  to={`/questions/mcq/${
+                    id - 1 >= 0 ? id - 1 : mcqAll.length - 1
+                  }`}
+                >
+                  {" "}
+                  Previous
+                </Link>
+              </button>
               <button className="submit-btn" onClick={handleSubmit}>
                 <span> Submit</span>
               </button>
-              <button className="next-btn" onClick={handleNext}>
-                <span> Next</span>
+              <button className="next-btn" onClick={handleOptions}>
+                <Link
+                  to={`/questions/mcq/${id + 1 < mcqAll.length ? id + 1 : 0}`}
+                >
+                  {" "}
+                  Next
+                </Link>
               </button>
             </div>
-          </div>
-          &emsp;&emsp;
-          <div className="editorial_discussionforum">
-            Editorial and Discussion forum
           </div>
         </div>
       </React.Fragment>
@@ -143,28 +168,16 @@ const Singlequestion = () => {
   } else if (type === "Numerical") {
     const handleSubmit = () => {
       // eslint-disable-next-line
-      if (answer - 0.2 < result <= answer + 0.2) {
+      if (answer - 0.2 <= result && result <= answer + 0.2) {
         alert("Correct Answer");
-        handleNext();
+        handleOptions();
       } else {
         alert("Wrong Answer, Please try again !!");
       }
-      console.log(answer);
-      console.log(typeof answer);
-      console.log(typeof result);
-      console.log(result);
     };
 
-    const handleNext = () => {
-      console.log(numericalnext);
-      console.log(numerical[numericalnext]);
-      setquestion(numerical[numericalnext].question);
-      setanswer(numerical[numericalnext].answer);
-      if (numericalnext === numerical.length - 1) {
-        setnumericalnext(0);
-      } else {
-        setnumericalnext(numericalnext + 1);
-      }
+    const handleOptions = () => {
+      setResult([]);
     };
 
     return (
@@ -179,6 +192,7 @@ const Singlequestion = () => {
           />
         </Helmet>
         <span
+          className="question-type"
           style={{
             display: "flex",
             fontSize: "2em",
@@ -197,27 +211,39 @@ const Singlequestion = () => {
         <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">
-            <h4 className="question">{question}</h4>
-            {img && <img src={img} alt="" className="quesimg" />}
-            <div className="answer-box">
+            <h4 className="question">Q. {question}</h4>
+            {imag && <img src={imag} alt="" className="quesimg" />}
+            <div className="answer-box numerical">
               <input
                 type="number"
                 placeholder="Please enter answer here.."
+                value={result}
                 onChange={(e) => setResult(Number(e.target.value))}
               />
             </div>
             <div className="btns-box">
+              <button className="prev-btn" onClick={handleOptions}>
+                <Link
+                  to={`/questions/Numerical/${
+                    id - 1 >= 0 ? id - 1 : mcqAll.length - 1
+                  }`}
+                >
+                  Previous
+                </Link>
+              </button>
               <button className="submit-btn" onClick={handleSubmit}>
                 <span> Submit</span>
               </button>
-              <button className="next-btn" onClick={handleNext}>
-                <span> Next</span>
+              <button className="next-btn" onClick={handleOptions}>
+                <Link
+                  to={`/questions/Numerical/${
+                    id + 1 < mcqAll.length ? id + 1 : 0
+                  }`}
+                >
+                  Next
+                </Link>
               </button>
             </div>
-          </div>
-          &emsp;&emsp;
-          <div className="editorial_discussionforum">
-            Editorial and Discussion forum
           </div>
         </div>
       </React.Fragment>

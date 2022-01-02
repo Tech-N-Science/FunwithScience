@@ -5,8 +5,8 @@ import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
 import Solution from "../../Solution/Solution";
 import Navbar from "../../Navbar/Navbar";
-import {constant} from '../../Solution/allConstants'
-import {SI} from '../../Solution/allSIUnits'
+import { constant } from "../../Solution/allConstants";
+import { SI } from "../../Solution/allSIUnits";
 import Modal from "react-bootstrap/Modal";
 
 function GravitationCalculator({ match }) {
@@ -81,58 +81,66 @@ function GravitationCalculator({ match }) {
 
   //Gravitational Force
   function CalculatorGravitationalForce() {
-    const [result, setResult] = useState(null);
-    const [mass_A, setMassA] = useState(null);
-    const [mass_B, setMassB] = useState(null);
-    const [distance, setDistance] = useState(null);
+    const [result, setResult] = useState("");
+    const [mass_A, setMassA] = useState("");
+    const [mass_B, setMassB] = useState("");
+    const [distance, setDistance] = useState("");
     const [showSolution, setShowSolution] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
     // object of given values
-  const givenValues = {
-    mass_A: mass_A,
-    mass_B: mass_B,
-    distance: distance,
-  };
+    const givenValues = {
+      Mass_A: mass_A,
+      Mass_B: mass_B,
+      Distance: distance,
+    };
 
-  // defintion of insertValues
-  // how to add a variable  variable(their SI unit)
-  // example ${mass}${SI["mass"]}
-  // how to add constant
-  // example ${constant["G"]}
+    // defintion of insertValues
+    // how to add a variable  variable(their SI unit)
+    // example ${mass}${SI["mass"]}
+    // how to add constant
+    // example ${constant["G"]}
 
-  const insertValues = `${constant["G"]} * ${mass_A}${SI["mass"]} * ${mass_B}${SI["mass"]} / (${distance} ${SI["distance"]})² `;
+    const insertValues = `(${constant["G"]} * ${mass_A}${SI["mass"]} * ${mass_B}${SI["mass"]}) / (${distance} ${SI["distance"]})² `;
 
-  // It Have List of all constant used in that formulae
-  const constants = ["G"];
+    // It Have List of all constant used in that formulae
+    const constants = ["G"];
 
+    //add these  validation also and also set setShowSolution
+    const handleClick = () => {
+      if (mass_A !== "" && mass_B !== "" && distance !== "") {
+        let res =
+          (6.67 * Math.pow(10, -11) * mass_A * mass_B) / (distance * distance);
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowModal(true);
+      }
+    };
 
-  //add these  validation also and also set setShowSolution
-  const handleClick = () => {
-    if (mass_A != null && mass_B != null && distance != null) {
-      let res =
-        (6.67 * Math.pow(10, -11) * mass_A * mass_B) / (distance * distance);
-      setShowSolution(true);
-      setResult(res);
-    } else {
-      setShowModal(true)
-    }
-  };
-
-  //reset function => to reset all states 
-  const resetForm = () => {
-    setMassA(null);
-    setMassB(null);
-    setDistance(null);
-    setShowSolution(false);
-    setResult(null);
-  };
+    //reset function => to reset all states
+    const resetForm = () => {
+      setMassA("");
+      setMassB("");
+      setDistance("");
+      setShowSolution(false);
+      setResult("");
+    };
     return (
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-      <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-      <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
-    </Modal>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         {/* <Navbar/> */}
         <Form>
           <Form.Group className="mb-3" controlId="mass_A">
@@ -140,6 +148,7 @@ function GravitationCalculator({ match }) {
             <Form.Control
               onChange={(e) => setMassA(e.target.value)}
               type="number"
+              value={mass_A}
               placeholder="Enter Mass of body A in SI unit"
             />
           </Form.Group>
@@ -148,6 +157,7 @@ function GravitationCalculator({ match }) {
             <Form.Control
               onChange={(e) => setMassB(e.target.value)}
               type="number"
+              value={mass_B}
               placeholder="Enter Mass of body B in SI unit"
             />
           </Form.Group>
@@ -156,27 +166,37 @@ function GravitationCalculator({ match }) {
             <Form.Control
               onChange={(e) => setDistance(e.target.value)}
               type="number"
+              value={distance}
               placeholder="Enter Distance in SI unit"
             />
           </Form.Group>
-          {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-              givenValues={givenValues}
-              formula="GMm/d²"
-              toFind="Gravitational Force"
-              insertValues={insertValues}
-              result={result}
-              constants={constants}
+          <Form.Group className="mb-3" controlId="Distance">
+            <Form.Label>Universal Gravitation Constant (G)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
             />
-          </Form.Group>
-        ) : null}
+            </Form.Group>
+            <br/>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="GMm/d²"
+                toFind="Gravitational Force"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-3" controlId="Gravitational_Force">
             <Form.Label>Gravitational Force (F)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " Newton"}
+              placeholder={result === "" ? "Result" : result + " Newton"}
             />
             <Form.Text className="text-muted">
               Enter masses &amp; distance to Calculate the Gravitational Force .
@@ -198,23 +218,60 @@ function GravitationCalculator({ match }) {
 
   //Gravitational Field
   function CalculatorGravitationalField() {
-    const [result, setResult] = useState(null);
-    const [mass, setMass] = useState(null);
-    const [distance, setDistance] = useState(null);
+    const [result, setResult] = useState("");
+    const [mass, setMass] = useState("");
+    const [distance, setDistance] = useState("");
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     // const [G, setG] = useState(Math.G);
 
     const handleClick = () => {
-      let res = (6.67 * Math.pow(10, -11) * mass) / (distance * distance);
-      setResult(res);
+      if (mass !== "" && distance !== "") {
+        let res = (6.67 * Math.pow(10, -11) * mass) / (distance * distance);
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowModal(true);
+      }
     };
+
+    const givenValues = {
+      Mass: mass,
+      Distance: distance,
+    };
+
+    const resetForm = () => {
+      setMass("");
+      setDistance("");
+      setShowSolution(false);
+      setResult("");
+    };
+
+    const insertValues = `(${constant["G"]} * ${mass}${SI["mass"]}) / (${distance} ${SI["distance"]})² `;
+    const constants = ["G"];
+
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="Mass">
             <Form.Label>Mass (M)</Form.Label>
             <Form.Control
               onChange={(e) => setMass(e.target.value)}
               type="number"
+              value={mass}
               placeholder="Enter Mass of body in SI unit"
             />
           </Form.Group>
@@ -223,6 +280,7 @@ function GravitationCalculator({ match }) {
             <Form.Control
               onChange={(e) => setDistance(e.target.value)}
               type="number"
+              value={distance}
               placeholder="Enter Distance in SI unit"
             />
           </Form.Group>
@@ -233,13 +291,26 @@ function GravitationCalculator({ match }) {
               type="number"
               placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
             />
+            <br/>
+            {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+               givenValues={givenValues}
+               formula="GM/r²"
+               toFind="Gravitational Field"
+               insertValues={insertValues}
+               result={result}
+               constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           </Form.Group>
           <Form.Group className="mb-3" controlId="Gravitational_Field">
             <Form.Label>Gravitational Field (g)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " N/kg"}
+              placeholder={result === "" ? "Result" : result + " N/kg"}
             />
             <Form.Text className="text-muted">
               Enter mass &amp; distance to Calculate the Gravitational Field .
@@ -250,7 +321,7 @@ function GravitationCalculator({ match }) {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
@@ -261,23 +332,53 @@ function GravitationCalculator({ match }) {
 
   //Gravitational Potential Energy
   function CalculatorGravitationalPotentialEnergy() {
-    const [result, setResult] = useState(null);
-    const [mass_A, setMassA] = useState(null);
-    const [mass_B, setMassB] = useState(null);
-    const [distance, setDistance] = useState(null);
+    const [result, setResult] = useState("");
+    const [mass_A, setMassA] = useState("");
+    const [mass_B, setMassB] = useState("");
+    const [distance, setDistance] = useState("");
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const handleClick = () => {
+      if (mass_A!== "" && mass_B!=="" && distance!==""){
       let res = -(6.67 * Math.pow(10, -11) * mass_A * mass_B) / distance;
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Mass_A: mass_A,
+      Mass_B: mass_B,
+      Distance: distance,
+    };
+
+    const resetForm = () => {
+      setMassA("");
+      setMassB("");
+      setDistance("");
+      setShowSolution(false);
+      setResult("");
+    };
+
+    const insertValues = `- (${constant["G"]} * ${mass_A}${SI["mass"]} * ${mass_B}${SI["mass"]}) / (${distance} ${SI["distance"]}) `;
+    const constants = ["G"];
+
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="Mass">
             <Form.Label>Mass (M)</Form.Label>
             <Form.Control
               onChange={(e) => setMassA(e.target.value)}
               type="number"
+              value={mass_A}
               placeholder="Enter Mass of body in SI unit"
             />
           </Form.Group>
@@ -286,6 +387,7 @@ function GravitationCalculator({ match }) {
             <Form.Control
               onChange={(e) => setMassB(e.target.value)}
               type="number"
+              value={mass_B}
               placeholder="Enter Mass of body in SI unit"
             />
           </Form.Group>
@@ -294,6 +396,7 @@ function GravitationCalculator({ match }) {
             <Form.Control
               onChange={(e) => setDistance(e.target.value)}
               type="number"
+              value={distance}
               placeholder="Enter Height in SI unit"
             />
           </Form.Group>
@@ -309,11 +412,23 @@ function GravitationCalculator({ match }) {
             className="mb-3"
             controlId="Gravitational_Potential_Energy"
           >
+            {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="-GMm/r"
+              toFind="Energy Potential Energy"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
             <Form.Label>Gravitational Potential Energy (U)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " N/kg"}
+              placeholder={result === "" ? "Result" : result + " Joules"}
             />
             <Form.Text className="text-muted">
               Enter mass &amp; height to Calculate the Gravitational Potential
@@ -325,7 +440,7 @@ function GravitationCalculator({ match }) {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
@@ -336,24 +451,50 @@ function GravitationCalculator({ match }) {
 
   // Escape Velocity Calculator
   function CalculatorEscapeVelocity() {
-    const [result, setResult] = useState(null);
-    const [mass, setMass] = useState(null);
-    const [radius, setRadius] = useState(null);
+    const [result, setResult] = useState("");
+    const [mass, setMass] = useState("");
+    const [radius, setRadius] = useState("");
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const handleClick = () => {
+      if (mass!== "" && radius!== ""){
       let res = Math.sqrt((2 * 6.67 * Math.pow(10, -11) * mass) / radius);
+      setShowSolution(true);
       setResult(res);
-      console.log(mass);
-      console.log(radius);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Mass: mass,
+      Radius: radius,
+    };
+
+    const resetForm = () => {
+      setMass("");
+      setRadius("");
+      setShowSolution(false);
+      setResult("");
+    };
+
+    const insertValues = ` √[(2 * ${constant["G"]} * ${mass}${SI["Mass"]}) / (${radius}${SI["Radius"]})]`;
+    const constants = ["G"];
+
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="Mass">
             <Form.Label>Mass (M)</Form.Label>
             <Form.Control
               onChange={(e) => setMass(e.target.value)}
               type="number"
+              value={mass}
               placeholder="Enter mass of body in kgs"
             />
           </Form.Group>
@@ -362,6 +503,7 @@ function GravitationCalculator({ match }) {
             <Form.Control
               onChange={(e) => setRadius(e.target.value)}
               type="number"
+              value={radius}
               placeholder="Enter distance of body from the center of gravity in metres"
             />
           </Form.Group>
@@ -373,12 +515,24 @@ function GravitationCalculator({ match }) {
               placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="√(2GM/R)"
+              toFind="Escape Velocity"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-3" controlId="Escape_velocity">
             <Form.Label>Escape Velocity (V)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " m/s"}
+              placeholder={result === "" ? "Result" : result + " m/s"}
             />
             <Form.Text className="text-muted">
               Enter mass &amp; radius to calculate the Escape Velocity .
@@ -389,7 +543,7 @@ function GravitationCalculator({ match }) {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
@@ -400,24 +554,52 @@ function GravitationCalculator({ match }) {
 
   // Kepler's Second Law
   function CalculatorKeplerSecondLaw() {
-    const [result, setResult] = useState(null);
-    const [area, setArea] = useState(null);
-    const [time, setTime] = useState(null);
-    const [mass, setMass] = useState(null);
+    const [result, setResult] = useState("");
+    const [area, setArea] = useState("");
+    const [time, setTime] = useState("");
+    const [mass, setMass] = useState("");
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const handleClick = () => {
+      if (mass!== "" && area!== "" && time!==""){
       let res = (mass * area * 2) / time;
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Mass: mass,
+      Area: area,
+      Time: time,
+    };
+
+    const resetForm = () => {
+      setMass("");
+      setArea("");
+      setTime("");
+      setShowSolution(false);
+      setResult("");
+    };
+
+    const insertValues = `(${area}${SI["area"]} / ${time}${SI["time"]}) * 2(${mass}${SI["mass"]})`;
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="Area">
             <Form.Label>Change in area (dA)</Form.Label>
             <Form.Control
               onChange={(e) => setArea(e.target.value)}
               type="number"
+              value={area}
               placeholder="Enter in metres squared"
             />
           </Form.Group>
@@ -426,6 +608,7 @@ function GravitationCalculator({ match }) {
             <Form.Control
               onChange={(e) => setTime(e.target.value)}
               type="number"
+              value={time}
               placeholder="Enter in seconds"
             />
           </Form.Group>
@@ -434,15 +617,27 @@ function GravitationCalculator({ match }) {
             <Form.Control
               onChange={(e) => setMass(e.target.value)}
               type="number"
+              value={mass}
               placeholder="Enter in kgs"
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="(dA/dt) x 2m"
+              toFind="Angular Momentum"
+              insertValues={insertValues}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-3" controlId="Angular_momentum">
             <Form.Label>Angular Momentum (L)</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " kg-m²/sec"}
+              placeholder={result === "" ? "Result" : result + " kg-m²/s"}
             />
             <Form.Text className="text-muted">
               Enter all the above fields to calculate the angular momentum.
@@ -453,7 +648,7 @@ function GravitationCalculator({ match }) {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => setResult(null)} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
@@ -464,11 +659,13 @@ function GravitationCalculator({ match }) {
 
   // Kepler's Third Law
   function CalculatorKeplerThirdLaw() {
-    const [result, setResult] = useState(null);
-    const [timeperiod, setTimeperiod] = useState(null);
-    const [mass, setMass] = useState(null);
-    const [sma, setSMA] = useState(null);
+    const [result, setResult] = useState("");
+    const [timeperiod, setTimeperiod] = useState("");
+    const [mass, setMass] = useState("");
+    const [sma, setSMA] = useState("");
     const [choice, setChoice] = useState("timeperiod");
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     function handleChange(e) {
       setChoice(e.target.value);
@@ -478,33 +675,60 @@ function GravitationCalculator({ match }) {
 
     const calcResult = () => {
       let res;
-      if (choice === "timeperiod") {
+      if (choice === "timeperiod" && mass!=="" && sma!=="") {
         res = Math.sqrt(
           (4 * Math.pow(Math.PI, 2) * Math.pow(sma, 3)) /
             (6.67 * Math.pow(10, -11) * mass)
         );
-      } else if (choice === "semimajoraxis") {
+        setShowSolution(true);
+      } else if (choice === "semimajoraxis" && mass!=="" && timeperiod!=="") {
         res = Math.cbrt(
           (6.67 * Math.pow(10, -11) * mass * Math.pow(timeperiod, 2)) /
             (4 * Math.pow(Math.PI, 2))
         );
+        setShowSolution(true);
+      }else {
+        setShowModal(true)
       }
       setResult(res);
     };
 
+    const givenValues = () => {
+      if (choice === "timeperiod")
+        return {
+      Mass: mass,
+      Semi_Major_Axis: sma,
+    };
+    else
+    return{
+      Mass: mass,
+      TimePeriod: timeperiod,
+    };
+    };
+
     function reset() {
-      setResult(null);
-      setTimeperiod(null);
-      setMass(null);
-      setSMA(null);
+      setResult("");
+      setTimeperiod("");
+      setMass("");
+      setSMA("");
+      setShowSolution(false);
     }
+
+    const insertValues = () => {
+      if (choice === "timeperiod")
+        return `√[(4 * π² *(${sma}${SI["sma"]})³) / (${constant["G"]} * ${mass}${SI["mass"]})]`;
+      else
+      return `∛[(${constant["G"]} * ${mass}${SI["mass"]} * (${timeperiod}${SI["TimePeriod"]})²) / (4 * π²)]`;
+    }
+    const constants = ["G"];
 
     const choiceData = () => {
       if (choice === "timeperiod")
         return {
           name: "Time Period",
+          formula: "√(4π²a³/GM)",
           mainunit: "s",
-          quantities: ["Mass", "Semi-major axis"],
+          quantities: ["Mass (M)", "Semi-major axis (a)"],
           subunits: ["kg", "m"],
           setters: [setMass, setSMA],
           getters: [mass, sma],
@@ -512,8 +736,9 @@ function GravitationCalculator({ match }) {
       else if (choice === "semimajoraxis")
         return {
           name: "Semi-major axis",
+          formula: "∛(GMT²/4π²)",
           mainunit: "m",
-          quantities: ["Mass", "Time Period"],
+          quantities: ["Mass (M)", "Time Period (T)"],
           subunits: ["kg", "s"],
           setters: [setMass, setTimeperiod],
           getters: [mass, timeperiod],
@@ -521,11 +746,19 @@ function GravitationCalculator({ match }) {
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control as="select" className="select-custom-res" onChange={(e) => handleChange(e)}>
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              onChange={(e) => handleChange(e)}
+            >
               <option value="timeperiod">Time Period</option>
               <option value="semimajoraxis">Semi-major axis</option>
             </Form.Control>
@@ -568,12 +801,24 @@ function GravitationCalculator({ match }) {
               placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues()}
+              formula={choiceData().formula}
+              toFind={choiceData().name}
+              insertValues={insertValues()}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
               type="number"
               placeholder={
-                result === null
+                result === ""
                   ? "Result"
                   : result + " " + choiceData().mainunit
               }

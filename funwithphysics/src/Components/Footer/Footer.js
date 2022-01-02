@@ -25,7 +25,7 @@ const Footer = () => {
                   <span className="text">About Us</span>
                 </div>
                 <div className="contact">
-                  <Link to="#contactUs">
+                  <Link to="/contact">
                     <span className="fas fa-comments"></span>
                   </Link>
                   <span className="text">Contact</span>
@@ -76,10 +76,7 @@ const Footer = () => {
                 <span className="fas fa-map-marker-alt"></span>
                 <span className="text">India</span>
               </div>
-              <div className="phone">
-                <span className="fas fa-phone"></span>
-                <span className="text">+91 1234567890</span>
-              </div>
+
               <div className="email">
                 <Link
                   to={{ pathname: "mailto:example123@gmail.com" }}

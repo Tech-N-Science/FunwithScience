@@ -4,6 +4,10 @@ import { Form, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import Solution from "../../Solution/Solution";
+import {constant} from '../../Solution/allConstants';
+import {SI} from '../../Solution/allSIUnits';
+import Modal from "react-bootstrap/Modal";
 
 function electricfield_calculator({ match }) {
   //electricfield_data
@@ -100,24 +104,46 @@ function electricfield_calculator({ match }) {
     const [density, setDensity] = useState(null);
     const [radius, setRadius] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const e = 8.854187817 * Math.pow(10, -12);
     const reset = () => {
       setDistance(null);
       setRadius(null);
       setResult(null);
       setDensity(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(distance!==null && density!==null && radius!==null){
       let res;
       let con = density / (2 * e);
       let back =
         1 - distance / Math.sqrt(distance * distance + radius * radius);
       res = con * back;
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Distance:distance,
+      Surface_charge_density:density,
+      Radius:radius,
+    }
+
+    const insertValues = `${density}${SI["Surface_charge_density"]} / [2 * ${constant["Epsilon"]} * ((1 - ${distance}${SI["Distance"]}) / √(${distance}${SI["Distance"]})² + (${radius}${SI["Radius"]})²)]`;
+    const constants = ["Epsilon"];
+
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         {/* <Navbar/> */}
         <Form>
           <Form.Group className="mb-4">
@@ -161,6 +187,18 @@ function electricfield_calculator({ match }) {
               placeholder={"8.854 * 10⁻¹² C²/N. m²"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="σ/2ε₀[1-x/√(x²+R²)]"
+              toFind="Electric Field by charged Disc"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -188,22 +226,44 @@ function electricfield_calculator({ match }) {
     const [distance, setDistance] = useState(null);
     const [radius, setRadius] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const k = 8.99 * Math.pow(10, 9);
     const reset = () => {
       setCharge(null);
       setDistance(null);
       setRadius(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(distance!==null && charge!==null && radius!==null){
       let res;
       let num = k * charge * distance;
       let den = Math.pow(distance * distance + radius * radius, 3 / 2);
       res = num / den;
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Distance:distance,
+      Charge:charge,
+      Radius:radius,
+    }
+
+    const insertValues = `(${constant["coulomb_constant"]} * ${charge}${SI["Charge"]} * ${distance}${SI["Distance"]})  / ((${distance}${SI["Distance"]})² + (${radius}${SI["Radius"]})²)³∕²]`;
+    const constants = ["coulomb_constant"];
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (Q)</Form.Label>
@@ -246,6 +306,18 @@ function electricfield_calculator({ match }) {
               placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="kQx/(x²+R²)⁽³/²⁾"
+              toFind="Electric Field by charged Ring"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -272,21 +344,41 @@ function electricfield_calculator({ match }) {
     const [charge, setCharge] = useState(null);
     const [distance, setDistance] = useState(null);
     const [result, setResult] = useState(null);
-
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const k = 8.99 * Math.pow(10, 9);
     const reset = () => {
       setCharge(null);
       setDistance(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(distance!==null && charge!==null){
       let res;
       res = (k * charge) / (distance * distance);
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Distance:distance,
+      Charge:charge,
+    }
+
+    const insertValues = `(${constant["coulomb_constant"]} * ${charge}${SI["Charge"]}) / (${distance}${SI["Distance"]})²`;
+    const constants = ["coulomb_constant"];
+
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Enter the Charge (q)</Form.Label>
@@ -319,6 +411,18 @@ function electricfield_calculator({ match }) {
               placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="kQ/r²"
+              toFind="Electric Field by charged Shell"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -346,6 +450,8 @@ function electricfield_calculator({ match }) {
     const [radius, setRadius] = useState(null);
     const [distance, setDistance] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const k = 8.99 * Math.pow(10, 9);
 
     const reset = () => {
@@ -353,15 +459,34 @@ function electricfield_calculator({ match }) {
       setCharge(null);
       setDistance(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(distance!==null && charge!==null && radius!==null){
       let res;
       res = (k * charge * distance) / (radius * radius * radius);
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Distance:distance,
+      Charge:charge,
+      Radius:radius,
+    }
+
+    const insertValues = `(${constant["coulomb_constant"]} * ${charge}${SI["Charge"]}) * ${distance}${SI["Distance"]}) / (${radius}${SI["Radius"]})³`;
+    const constants = ["coulomb_constant"];
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (q)</Form.Label>
@@ -404,6 +529,18 @@ function electricfield_calculator({ match }) {
               placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="kqr/R³"
+              toFind="Electric Field by charged Sphere"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -431,6 +568,8 @@ function electricfield_calculator({ match }) {
     const [distance, setDistance] = useState(null);
     const [halfLength, setHalfLength] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const k = 8.99 * Math.pow(10, 9);
     const reset = () => {
@@ -438,16 +577,36 @@ function electricfield_calculator({ match }) {
       setDistance(null);
       setHalfLength(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(distance!==null && charge!==null && halfLength!==null){
       let res;
       res =
         (k * charge) /
         (distance * Math.sqrt(distance * distance + halfLength * halfLength));
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const givenValues = {
+      Distance:distance,
+      Charge:charge,
+      Half_Length:halfLength,
+    }
+
+    const insertValues = `(${constant["coulomb_constant"]} * ${charge}${SI["Charge"]}) / (${distance}${SI["Distance"]} * √((${distance}${SI["Distance"]})² + (${halfLength}${SI["Half_Length"]})²)`;
+    const constants = ["coulomb_constant"];
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Charge (q)</Form.Label>
@@ -490,6 +649,18 @@ function electricfield_calculator({ match }) {
               placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="kq/x*√(x²+a²)"
+              toFind="Electric field by line charge of finite length"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -516,21 +687,41 @@ function electricfield_calculator({ match }) {
     const [charge, setCharge] = useState(null);
     const [distance, setDistance] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const k = 8.99 * Math.pow(10, 9);
     const reset = () => {
       setCharge(null);
       setDistance(null);
       setResult(null);
+      setShowSolution(false);
     };
     const calcResult = () => {
+      if(distance!==null && charge!==null){
       let res;
       res = (k * charge) / (distance * distance);
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const insertValues = `(${constant["coulomb_constant"]} * ${charge}${SI["Charge"]}) / (${distance}${SI["Distance"]})²`;
+    const constants = ["coulomb_constant"];
+
+    const givenValues = {
+      Distance:distance,
+      Charge:charge,
+    }
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Enter the Charge (Q)</Form.Label>
@@ -563,6 +754,18 @@ function electricfield_calculator({ match }) {
               placeholder={"8.99 * 10⁹ N m²/C²"}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="kQ/r²"
+              toFind="Electric Field by point charge"
+              insertValues={insertValues}
+              result={result}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly

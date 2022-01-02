@@ -1,30 +1,30 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import "./NumMCQ.css";
 import Singlecard from "./Card";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { data } from "./data";
 import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
-
+import { Context } from "../../App";
 var v = 0;
 const NumMCQ = () => {
   const cardref = useRef();
   const filterref = useRef();
   const btnref = useRef();
-
-  const [searchTerm, setsearchTerm] = useState([]);
-
-  const [typ, settyp] = useState(false);
-  const [top, settop] = useState(false);
-  const [difficult, setdifficult] = useState(false);
+  const {searchTerm,setsearchTerm,typ,settyp,settop,top,difficult,setdifficult}=useContext(Context)
   const dif = ["easy", "medium", "hard"];
   var tflag = 0;
   var dflag = 0;
   var vflag = 0;
   useEffect(() => {
-    settop(0);
-    settyp(0);
-    setdifficult(0);
+    document.querySelectorAll("input").forEach((e)=>{
+      if(e.type==="checkbox")
+      {
+        if(searchTerm.includes(e.value.toLowerCase())){
+          e.checked=true;
+        }
+      }
+    })
   }, [searchTerm]);
   function handleClick(e) {
     tflag = 0;
@@ -155,9 +155,7 @@ const NumMCQ = () => {
                   typ &&
                   searchTerm.includes(value.type.toLowerCase())
                 ) {
-                  {
                     return value;
-                  }
                 } else if (searchTerm.includes(value.topic.toLowerCase())) {
                   return value;
                 } else if (
@@ -167,9 +165,9 @@ const NumMCQ = () => {
                 }
                 return false;
               })
-              .map((card) => {
+              .map((card, index) => {
                 return (
-                  <div className="single-card">
+                  <div className="single-card" key={index}>
                     <Singlecard
                       type={card.type}
                       question={card.question}
@@ -217,7 +215,7 @@ const NumMCQ = () => {
               <input
                 id="type2"
                 type="checkbox"
-                value="Multiple Correct"
+                value="mcq"
                 onClick={(e) => handleClick(e)}
               />
               <span className="checkmark"></span>

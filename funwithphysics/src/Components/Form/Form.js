@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Toast } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 
-
 function Form() {
 	const [inputs, setInputs] = useState({});
 	const [show, setShow] = useState(false);
@@ -17,11 +16,13 @@ function Form() {
 	
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		
+		console.log(inputs);
 		if(inputs !== "") {
 			setInputs("");
 			setShow(true);
-
+			
+		
+			
 			fetch(`https://formsubmit.co/ajax/${sendEmail}`, {
 				method: "POST",
 				headers: { 

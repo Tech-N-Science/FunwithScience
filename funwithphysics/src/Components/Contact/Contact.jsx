@@ -1,13 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Contact.css';
 import Navbar from '../Navbar/Navbar';
 import { Helmet } from 'react-helmet';
 import Footer from '../Footer/Footer';
+import ContactSVG from './ContactSVG';
+import axios from 'axios';
 
 export default function Contact() {
+  const [name,setname]=useState()
+  const [message,setmessage]=useState()
+  const [email,setemail]=useState()
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    if(name && message && email)
+    {
+      axios.post("http://localhost/funwithscience_backend/sendemail.php", {name,email,message}).then((res) => {
+        if (res.data === 1) {
+          alert("Message sent Successfully");
+          setname("");
+          setemail("");
+          setmessage("");
+        }
+        else{
+          alert("Some error occured");
+        }
+        console.log(res.data);
+      });
+    }
+    else{
+      alert("Please fill the form properly");
+    }
+  }
   return (
     <>
       <Navbar />
@@ -23,28 +49,30 @@ export default function Contact() {
           content='Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science, Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science'
         />
       </Helmet>
+      <h1 className='contact-heading'>Contact Us</h1> 
       <div className='contactMain'>
+   
+        <div className='contactSVG'>
+        <ContactSVG/>   
         <div className='contactTXT'>
-          <h1>Contact Us</h1>
-          <h5>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et saepe
-            nesciunt optio quidem, maxime id provident facere quis voluptatibus
-            ipsum sed exercitationem quae, ea consequatur officiis eveniet, quod
-            reprehenderit error. Molestiae, perspiciatis, esse voluptas quas
-            numquam nihil eos rem fugiat voluptatibus enim officia culpa
-            quisquam expedita iusto animi, laborum ipsa!
-          </h5>
+        <div className='contactInfo'>
+        <i class="fas fa-map-marker-alt"></i><p>India</p></div>
+
+        <div className='contactInfo'><i class="fas fa-phone"></i><p>+91 1234567890</p></div>
+        <div className='contactInfo'><i class="fas fa-envelope"></i><p>example@email.com</p></div>
+      </div>    
         </div>
         <div className='contactForm'>
           <h2>Name</h2>
-          <input type='text' placeholder='Enter your name' />
+          <input type='text' placeholder='Enter your name' onChange={(e)=>{setname(e.target.value)}} value={name}/>
           <h2>Email</h2>
-          <input type='email' placeholder='Enter your email' />
+          <input type='email' placeholder='Enter your email' value={email} onChange={(e)=>{setemail(e.target.value)}}/>
           <h2>Message</h2>
-          <textarea placeholder='Enter your message' />
-          <div className='contactBTN'>Send</div>
+          <textarea placeholder='Enter your message' value={message} onChange={(e)=>{setmessage(e.target.value)}}/>
+          <div className='contactBTN' onClick={handleSubmit}>Send</div>
         </div>
       </div>
+      
       <Footer />
     </>
   );

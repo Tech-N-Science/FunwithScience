@@ -13,7 +13,7 @@ export function LearnMore() {
   }, [])
   return (
     <section className="learn-more">
-      <article className="list-computer">
+      {/* <article className="list-computer">
         <ul>
           <li data-aos="fade-in">
             <p>Networking</p>
@@ -34,7 +34,7 @@ export function LearnMore() {
             <Link to="/">+</Link>
           </li>
         </ul>
-      </article>
+  </article>*/}
 
       <article className="list-science">
         <ul>
@@ -53,6 +53,7 @@ export function LearnMore() {
               <div className="dropdown-content">
                 <Link to="/maths">Calculator</Link>
                 <Link to="/">Questions</Link>
+                <Link to="/quiz">Quiz</Link>
               </div>
             </div>
           </li>
@@ -72,6 +73,25 @@ export function LearnMore() {
                 <Link to="/physics">Calculator</Link>
                 <Link to="/questions">Questions</Link>
                 <Link to="/quiz">Quiz</Link>
+              </div>
+            </div>
+          </li>
+          <li className="science">
+            <p>Chemistry</p>
+            <small className="topic science-topic">Science</small>
+            <img src={blackboardSvg} alt="Icon" />
+            <div className="dropdown">
+              <Link className="plus" to="/">
+                <img
+                  src={addCircleSvg}
+                  className="lower-plus"
+                  alt="AddCircle"
+                />
+              </Link>
+              <div className="dropdown-content">
+                <Link to="/">Calculator</Link>
+                <Link to="/">Questions</Link>
+                <Link to="/">Quiz</Link>
               </div>
             </div>
           </li>

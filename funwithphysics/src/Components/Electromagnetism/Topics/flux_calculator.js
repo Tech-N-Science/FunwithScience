@@ -4,6 +4,9 @@ import { Form, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import Solution from "../../Solution/Solution";
+import {SI} from '../../Solution/allSIUnits';
+import Modal from "react-bootstrap/Modal";
 
 const flux_calculator = ({ match }) => {
   const flux_data = [
@@ -35,20 +38,42 @@ const flux_calculator = ({ match }) => {
     const [angle, setAngle] = useState(null);
     const [area, setArea] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const reset = () => {
       setMagneticfield(null);
       setAngle(null);
       setArea(null);
       setResult(null);
+      setShowSolution(false);
     };
+
+    const givenValues = {
+      Angle:angle,
+      Area:area,
+      Magnetic_Field: magneticfield,
+    };
+
     const calcResult = () => {
+      if(angle!==null && area!==null && magneticfield!==null){
       let res;
       res = magneticfield * area * Math.cos((angle * Math.PI) / 180);
       setResult(res);
+      setShowSolution(true);
+    }else {
+      setShowModal(true)
+    }
     };
+
+    const insertValues = ` ${magneticfield}${SI["magneticfield"]} * ${area}${SI["area"]} * cos(${angle}${SI["Angle"]})`;
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         {/* <Navbar/> */}
         <Form>
           <Form.Group className="mb-4">
@@ -78,6 +103,17 @@ const flux_calculator = ({ match }) => {
               value={angle === null ? "" : angle}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="B.A.cosθ"
+              toFind="Magnetic Flux"
+              insertValues={insertValues}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -104,20 +140,42 @@ const flux_calculator = ({ match }) => {
     const [angle, setAngle] = useState(null);
     const [area, setArea] = useState(null);
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const reset = () => {
       setElectricfield(null);
       setAngle(null);
       setArea(null);
       setResult(null);
+      setShowSolution(false);
     };
+
+    const givenValues = {
+      Angle:angle,
+      Area:area,
+      ElectricField: electricfield,
+    };
+
     const calcResult = () => {
+      if(angle!==null && area!==null && electricfield!==null){
       let res;
       res = electricfield * area * Math.cos((angle * Math.PI) / 180);
       setResult(res);
+      setShowSolution(true);
+      }else {
+        setShowModal(true)
+      }
     };
+
+    const insertValues = ` ${electricfield}${SI["ElectricField"]} * ${area}${SI["area"]} * cos(${angle}${SI["Angle"]})`;
+
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
+          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Electric Field(E)</Form.Label>
@@ -133,7 +191,7 @@ const flux_calculator = ({ match }) => {
             <Form.Control
               onChange={(e) => setArea(e.target.value)}
               type="number"
-              placeholder={"Enter in (m2)"}
+              placeholder={"Enter in (m²)"}
               value={area === null ? "" : area}
             />
           </Form.Group>
@@ -146,6 +204,17 @@ const flux_calculator = ({ match }) => {
               value={angle === null ? "" : angle}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues}
+              formula="E.S.cosθ"
+              toFind="electric flux"
+              insertValues={insertValues}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly

@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import logimg from "../../Images/group1.jpg";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
 import ImageLoad from "../imageLoad";
@@ -102,6 +101,7 @@ function Login() {
                 }}
               />
               <label className="remem">Remember me</label>
+              <p><a href="/fpass">Forgot Password?</a></p>
             </div>
             <button
               type="submit"
