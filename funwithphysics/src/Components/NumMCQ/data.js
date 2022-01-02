@@ -801,7 +801,7 @@ export const data = [
     topic: "Work,Power,Energy",
     answer: 58,
     difficulty: "Medium",
-    image: i6,
+    image: "",
   },
   {
     id: 41,
@@ -811,7 +811,7 @@ export const data = [
     topic: "Work,Power,Energy",
     answer: 0.2,
     difficulty: "Medium",
-    image: i6,
+    image: "",
   },
   {
     id: 42,
