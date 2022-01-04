@@ -17,10 +17,15 @@ const Singlequestion = () => {
 
   const quest = mcqAll[id].question;
   const answ = mcqAll[id].answer;
+  var allRight = [];
+  answ.forEach((each) => {
+    if (each.isCorrect === true) 
+      allRight.push(each.answerText)
+  });
   const [question, setquestion] = useState(quest);
   const [answer, setanswer] = useState(answ);
+  const [allRightAns, setAllRightAns] = useState(allRight);
 
-  console.log(question);
   const [imag, setimag] = useState("");
   const [result, setResult] = useState([]);
 
@@ -30,12 +35,21 @@ const Singlequestion = () => {
     setanswer(mcqAll[id].answer);
     setimag(mcqAll[id].image);
   });
-
+  
   useEffect(() => {
     setResult([]);
     setMcqAll(data.filter((val) => val.type === type));
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    var allRight = [];
+    mcqAll[id].answer.forEach((each) => {
+      if (each.isCorrect === true) 
+        allRight.push(each.answerText)
+    });
+    setAllRightAns(allRight);
+  }, [id]);
 
   if (type === "mcq") {
     const handleOptions = () => {
@@ -50,20 +64,24 @@ const Singlequestion = () => {
       if (result.length === 0) {
         alert("Please select the options");
       } else {
-        for (let e of result) {
-          for (let i of answer) {
-            if (i.answerText === e) {
-              if (i.isCorrect === false) {
-                alert("Wrong Answer");
-                return;
-              } else {
-                break;
-              }
-            }
-          }
+        // for (let e of result) {
+        //   for (let i of answer) {
+        //     if (i.answerText === e) {
+        //       if (i.isCorrect === false) {
+        //         alert("Wrong Answer");
+        //         return;
+        //       } else {
+        //         break;
+        //       }
+        //     }
+        //   }
+        // }
+        if (JSON.stringify(result.sort()) === JSON.stringify(allRightAns.sort())) {
+          alert("Correct Answer");
+          handleOptions();
+        } else {
+          alert("Wrong Answer");
         }
-        alert("Correct Answer");
-        handleOptions();
       }
     };
 
