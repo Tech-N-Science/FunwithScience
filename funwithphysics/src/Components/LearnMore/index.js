@@ -76,7 +76,7 @@ export function LearnMore() {
               </div>
             </div>
           </li>
-          <li className="science">
+          <li data-aos="fade-in" className="science">
             <p>Chemistry</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
