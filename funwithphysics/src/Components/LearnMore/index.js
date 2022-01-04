@@ -38,7 +38,7 @@ export function LearnMore() {
 
       <article className="list-science">
         <ul>
-          <li data-aos="fade-in" className="science">
+          <li className="science">
             <p>Maths</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
@@ -57,7 +57,7 @@ export function LearnMore() {
               </div>
             </div>
           </li>
-          <li data-aos="fade-in" className="science">
+          <li className="science">
             <p>Physics</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
@@ -76,7 +76,7 @@ export function LearnMore() {
               </div>
             </div>
           </li>
-          <li data-aos="fade-in" className="science">
+          <li className="science">
             <p>Chemistry</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
