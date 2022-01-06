@@ -22,6 +22,8 @@ import rotation_Calculator from "./Components/Classical_Mechanics/Topics/rotatio
 import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
 import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
+import Statistical from "./Components/Statistical/Statistical";
+import CalculatorStatistical from "./Components/Statistical/Topics/Calculator";
 import electricfield_calculator from "./Components/Electromagnetism/Topics/electricfield_calculator";
 import Magneticfield_calculator from "./Components/Electromagnetism/Topics/Magneticfield_calculator";
 import { electricpotential_calculator } from "./Components/Electromagnetism/Topics/electricpotential_calculator";
@@ -309,6 +311,16 @@ const App = () => {
             exact
             path="/electromagnetism/calc/electric_potential/:topic"
             component={electricpotential_calculator}
+          ></Route>
+
+          <Route exact path="/statistical">
+            <Navbar />
+            <Statistical />
+          </Route>
+          <Route
+            exact
+            path="/statistical/calc/:topic"
+            component={CalculatorStatistical}
           ></Route>
 
           <Route exact path="/questions">
