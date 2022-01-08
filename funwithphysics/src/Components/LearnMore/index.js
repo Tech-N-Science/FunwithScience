@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import blackboardSvg from "../../Images/blackboard-svg.svg";
 import computerSvg from "../../Images/computer-svg.svg";
 import addCircleSvg from "../../Images/add-circle.svg";
@@ -6,6 +6,24 @@ import { Link } from "react-router-dom";
 import "./styles.css";
 
 export function LearnMore() {
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  window.onresize = function () {
+    setWindowHeight(window.innerHeight);
+  };
+
+  window.onscroll = function () {
+    const animEl = document.querySelectorAll(".fade-in-transition");
+    animEl.forEach((el) => {
+      var pos = el.getBoundingClientRect();
+      if (pos.top < 0.72 * windowHeight) {
+        el.style.opacity = "1";
+      } else {
+        el.style.opacity = "0";
+      }
+    });
+  };
+
   return (
     <section className="learn-more">
       {/* <article className="list-computer">
@@ -33,7 +51,7 @@ export function LearnMore() {
 
       <article className="list-science">
         <ul>
-          <li className="science">
+          <li className="science fade-in-transition">
             <p>Maths</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
@@ -52,7 +70,7 @@ export function LearnMore() {
               </div>
             </div>
           </li>
-          <li className="science">
+          <li className="science fade-in-transition">
             <p>Physics</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
@@ -71,7 +89,7 @@ export function LearnMore() {
               </div>
             </div>
           </li>
-          <li className="science">
+          <li className="science fade-in-transition">
             <p>Chemistry</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
@@ -93,7 +111,7 @@ export function LearnMore() {
         </ul>
       </article>
       <p className="FAQ">Frequently Asked Questions</p>
-      <div className="faq">
+      <div className="faq fade-in-transition">
         <input id="faq-a" type="checkbox" />
         <label for="faq-a">
           <p className="faq-heading">What is this Website for?</p>
