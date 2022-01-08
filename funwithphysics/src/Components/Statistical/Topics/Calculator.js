@@ -14,9 +14,12 @@ function Calculator({ match }) {
   const Topics = [
     {
       topic: "Vernier Calliper",
-      details: `A vernier scale is a visual aid to take an accurate measurement reading between two graduation markings on a linear scale by using mechanical interpolation, thereby increasing resolution and reducing measurement uncertainty by using vernier acuity to reduce human estimation error.`,
-      formula:
-        "Least Count = Smallest Reading on main scale / Number of readings on vernier scale, Length  = MSR + (VSR x Least Count)",
+      details: `A vernier scale is a visual tool used to take an accurate measurement reading between two graduation markers on a linear scale by applying mechanical interpolation, therefore enhancing resolution and minimising measurement uncertainty by reducing human estimating error.`,
+      formula: [
+        "Least Count = Smallest Reading on main scale / Number of readings on vernier scale",
+        <br />,
+        "Length  = MSR + (VSR x Least Count)",
+      ],
       process:
         "To find the least count we have to know the smallest reading on the main scale reading and the number of readings on vernier scale. By dividing the first term with the second we can find the least count. For the reading of the vernier calliper or the length, we should have the MSR which is main scale reading , VSR which is vernier scale reading and the least count. Then we can use the formula MSR + (VSR x Least Count) to find the Length.",
       siunit: "(mm)",
@@ -33,7 +36,7 @@ function Calculator({ match }) {
     },
     {
       topic: "Young's Modulus",
-      details: `Young’s Modulus of Elasticity is defined as the ratio of normal stress to the longitudinal strain within the elastic limit.`,
+      details: `The ratio of normal stress to longitudinal strain inside the elastic limit is defined as Young's Modulus of Elasticity.`,
       formula: "Y = Normal Stress / longitudinal Strain, Y = (F x ΔL)/(L x A)",
       process: `The Young's Modulus can be found using two formulas, First is the ratio of normal stress to the Longitudinal Strain within the elastic limit. The second formula is the ratio of force times the change in length to the area of the cross section times the length.`,
       siunit: "(Pa)",
@@ -41,7 +44,7 @@ function Calculator({ match }) {
     },
     {
       topic: "Bulk Modulus",
-      details: `It is defined as the ratio of volumetric stress to the volumetric strain within the elastic limit.`,
+      details: `Bulk Modulus is defined as the volumetric stress to volumetric strain ratio inside the elastic limit.`,
       formula:
         "Y = Volumetric Stress / Volumetric Strain, Y = (F x ΔV)/(V x A)",
       process: `The Bulk Modulus can be found using two formulas, First is the ratio of Volumetric stress to the Volumetric Strain. The second formula is the ratio of force times the change in volume to the area of the cross section times the volume.`,
@@ -50,18 +53,18 @@ function Calculator({ match }) {
     },
     {
       topic: "Force Constant of Wire",
-      details: `Force required to produce unit elongation in a wire is called force constant of a material of wire. It is denoted by k.`,
+      details: `The force required to create one unit elongation in a wire is known as the force constant of a wire material. It is represented by the letter k.`,
       formula: "K = (Y x A) / L",
       process: `To calculate the force constant of a wire, we need to have the Young's modulus of the wire and the area of cross-section and the length of the wire. Then by putting these values in the formula K=(Y X A)/L, we can obtain the force constant of the wire.`,
       siunit: "Unitless",
-      dimension: "Dimensionless",
+      dimension: "NA",
     },
     {
       topic: "Thermal Expansion",
-      details: `It is a well-known phenomenon now that substances expand on heating and contract on cooling. If you heat a body, it alters its dimensions. Depending on the shape of the body.`,
+      details: `Thermal Expansion is a well-known phenomenon now that substances expand on heating and contract on cooling. If you heat a body, it alters its dimensions. Depending on the shape of the body.`,
       formula:
         "Length Expansion: L x αₗ x 	ΔT, Area Expansion: A x αₐ x 	ΔT, Volume Expansion: V x αᵥ x 	ΔT",
-      process: `To calculate the thermal expansion we have to know the length for length expansion, area for area expansion and volume for volume expansion. For all types of expansion their expansion coefficient has to be known and the temperature change also. Therefore putting these respective values in the formuala we can calculate the expansion in Length, Area and Volume.`,
+      process: `To calculate the thermal expansion we have to know the length for length expansion, area for area expansion and volume for volume expansion. For all types of expansion their expansion coefficient has to be known and the temperature change also. Therefore putting these respective values in the formuals we can calculate the expansion in Length, Area and Volume.`,
       siunit: "Length Expansion: m, Area Expansion: m², Volume Expansion: m³",
       dimension:
         "Length Expansion: L¹, Area Expansion: L², Volume Expansion: L³",
