@@ -14,7 +14,8 @@
 .banner {
     background-repeat: no-repeat;
     background-size: contain;
-    background: url("../../Images/earthWebp.webp") no-repeat center center fixed;
+    /* background: url("../../Images/earthWebp.webp") no-repeat center center fixed; */
+    background: url("../../Images/earthBg.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     width: 100%;

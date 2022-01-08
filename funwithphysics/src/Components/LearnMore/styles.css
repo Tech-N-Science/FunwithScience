@@ -93,9 +93,19 @@ a.plus:hover {
   color: #2c3e50;
 }
 
+.list-science ul li {
+  opacity: 0;
+  transition: 1.5s;
+}
+
 .learn-more ul .science-topic {
   background-color: #2c3e50;
   color: white;
+}
+@media screen and (max-width: 1080px) {
+  .faq {
+    width: 100% !important;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -242,6 +252,10 @@ a.plus:hover {
   justify-content: center;
   align-items: center;
 }
+.fade-in-transition {
+  opacity: 0;
+  transition: 1.5s;
+}
 
 @media only screen and (min-width: 769px) {
   .FAQ {
@@ -271,5 +285,16 @@ a.plus:hover {
     height: 50px;
     -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  p.FAQ {
+    padding: 30px !important;
+  }
+}
+@media screen and (max-width: 304px) {
+  p.FAQ {
+    height: 100px;
   }
 }
