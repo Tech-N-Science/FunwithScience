@@ -3,14 +3,9 @@ import blackboardSvg from "../../Images/blackboard-svg.svg";
 import computerSvg from "../../Images/computer-svg.svg";
 import addCircleSvg from "../../Images/add-circle.svg";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import "./styles.css";
-import Aos from "aos";
-import "aos/dist/aos.css"
+
 export function LearnMore() {
-  useEffect(() => {
-    Aos.init({duration: 2000});
-  }, [])
   return (
     <section className="learn-more">
       {/* <article className="list-computer">
