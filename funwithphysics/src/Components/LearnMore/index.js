@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "./styles.css";
 
 export function LearnMore() {
+
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   
   window.onresize = function() {
@@ -24,23 +25,24 @@ export function LearnMore() {
     })
   }
 
+
   return (
     <section className="learn-more">
       {/* <article className="list-computer">
         <ul>
-          <li>
+          <li data-aos="fade-in">
             <p>Networking</p>
             <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon" />
             <Link to="/">+</Link>
           </li>
-          <li>
+          <li data-aos="fade-in">
             <p>DBMS</p>
             <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon" />
             <Link to="/">+</Link>
           </li>
-          <li>
+          <li data-aos="fade-in">
             <p>Computational Physics</p>
             <small className="topic computer-topic">Computer</small>
             <img src={computerSvg} alt="Computer icon" />
