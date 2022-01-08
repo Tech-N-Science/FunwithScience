@@ -3,7 +3,7 @@ import './Contact.css';
 import Navbar from '../Navbar/Navbar';
 import { Helmet } from 'react-helmet';
 import Footer from '../Footer/Footer';
-import ContactSVG from './ContactSVG';
+import ImageLoad from '../imageLoad';
 import axios from 'axios';
 
 export default function Contact() {
@@ -49,19 +49,19 @@ export default function Contact() {
           content='Classical Mechanics, calculator, physics, Tech n science, technscience, tech and science, Physics formula, Physics calculator, IIT-JEE, NEET,Tech N Science, tech, science, questions, technscienceweb, technscience, tech and science, technscience.com, Tech N Science, technscience. com, tech n science'
         />
       </Helmet>
-      <h1 className='contact-heading'>Contact Us</h1> 
+      <h1 className='contact-heading'>Contact Us</h1>
       <div className='contactMain'>
-   
-        <div className='contactSVG'>
-        <ContactSVG/>   
-        <div className='contactTXT'>
-        <div className='contactInfo'>
-        <i class="fas fa-map-marker-alt"></i><p>India</p></div>
-
-        <div className='contactInfo'><i class="fas fa-phone"></i><p>+91 1234567890</p></div>
-        <div className='contactInfo'><i class="fas fa-envelope"></i><p>example@email.com</p></div>
-      </div>    
+        <div className='contactDetails'>
+          <div className='contactSVG'>
+          <ImageLoad className='contact-img' main={'./Images-public/contact.webp'}/>
+          </div>
+          <div className='contactTXT'>
+            <div className='contactInfo'><i class="fas fa-map-marker-alt"></i><p>India</p></div>
+            <div className='contactInfo'><i class="fas fa-phone"></i><p>+91 1234567890</p></div>
+            <div className='contactInfo'><i class="fas fa-envelope"></i><p>example@email.com</p></div>
+          </div>
         </div>
+
         <div className='contactForm'>
           <h2>Name</h2>
           <input type='text' placeholder='Enter your name' onChange={(e)=>{setname(e.target.value)}} value={name}/>
@@ -72,7 +72,7 @@ export default function Contact() {
           <div className='contactBTN' onClick={handleSubmit}>Send</div>
         </div>
       </div>
-      
+
       <Footer />
     </>
   );
