@@ -8,8 +8,10 @@ import Solution from "../../Solution/Solution";
 import {constant} from '../../Solution/allConstants';
 import {SI} from '../../Solution/allSIUnits';
 import Modal from "react-bootstrap/Modal";
+import { useParams } from "react-router-dom";
 
-export const electricpotential_calculator = ({ match }) => {
+export const Electricpotential_calculator = () => {
+  let {topic} = useParams();
   const electricpotential_data = [
     {
       topic: "Point Charge",
@@ -84,7 +86,7 @@ export const electricpotential_calculator = ({ match }) => {
     },
   ];
   const page = electricpotential_data.filter(
-    (data) => data.topic === match.params.topic
+    (data) => data.topic === topic
   );
   const details = page[0];
 

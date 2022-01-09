@@ -8,8 +8,10 @@ import Solution from "../../Solution/Solution";
 import {constant} from '../../Solution/allConstants';
 import {SI} from '../../Solution/allSIUnits';
 import Modal from "react-bootstrap/Modal";
+import { useParams } from "react-router-dom";
 
-function electricfield_calculator({ match }) {
+function Electricfield_calculator() {
+  let {topic} = useParams();
   //electricfield_data
   const electricfield_data = [
     {
@@ -94,7 +96,7 @@ function electricfield_calculator({ match }) {
   ];
 
   const page = electricfield_data.filter(
-    (data) => data.topic === match.params.topic
+    (data) => data.topic === topic
   );
   const details = page[0];
 
@@ -855,4 +857,4 @@ function electricfield_calculator({ match }) {
   );
 }
 
-export default electricfield_calculator;
+export default Electricfield_calculator;

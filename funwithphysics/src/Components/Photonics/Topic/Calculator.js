@@ -7,9 +7,11 @@ import Navbar from "../../Navbar/Navbar";
 import Solution from "../../Solution/Solution";
 // import {constant} from '../../Solution/allConstants';
 import { SI } from "../../Solution/allSIUnits";
+import { useParams } from "react-router-dom";
 // import Modal from "react-bootstrap/Modal";
 
-function Calculator({ match }) {
+function Calculator() {
+  let {topic} = useParams();
   // topics_data
   const Topics = [
     {
@@ -64,7 +66,7 @@ function Calculator({ match }) {
     },
   ];
 
-  const page = Topics.filter((data) => data.topic === match.params.topic);
+  const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
   //adding Brewster's Angle calcular

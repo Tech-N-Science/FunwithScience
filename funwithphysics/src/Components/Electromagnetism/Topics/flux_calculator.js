@@ -7,8 +7,10 @@ import Navbar from "../../Navbar/Navbar";
 import Solution from "../../Solution/Solution";
 import {SI} from '../../Solution/allSIUnits';
 import Modal from "react-bootstrap/Modal";
+import { useParams } from "react-router-dom";
 
-const flux_calculator = ({ match }) => {
+const Flux_calculator = () => {
+  let {topic} = useParams();
   const flux_data = [
     {
       topic: "Electric Flux",
@@ -29,7 +31,7 @@ const flux_calculator = ({ match }) => {
       details: `Magnetic Flux is given by the equation "ΦB=B.A.cosθ", where ΦB is the magnetic flux, B is the magnetic field, A is area and θ is the angle between the perpendicular vector to the area and magnetic field.`,
     },
   ];
-  const page = flux_data.filter((data) => data.topic === match.params.topic);
+  const page = flux_data.filter((data) => data.topic === topic);
   const details = page[0];
 
   //Magnetic Flux Calculator
@@ -291,4 +293,4 @@ const flux_calculator = ({ match }) => {
   );
 };
 
-export default flux_calculator;
+export default Flux_calculator;

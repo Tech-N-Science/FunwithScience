@@ -5,8 +5,10 @@ import Navbar from "../../Navbar/Navbar";
 import "./Calculator.css";
 import geometry_pair from "../../../Images/geometry_pair.png";
 import geometry_tan from "../../../Images/geometry_tan.png";
+import { useParams } from "react-router-dom";
 
-function Calculator({ match }) {
+function Calculator() {
+  let {topic} = useParams();
   // topics_data
   const Topics = [
     {
@@ -34,7 +36,7 @@ function Calculator({ match }) {
     },
   ];
 
-  const page = Topics.filter((data) => data.topic === match.params.topic);
+  const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
   //Mass Energy Relation calculator

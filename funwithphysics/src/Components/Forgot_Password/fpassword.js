@@ -1,10 +1,10 @@
 import React, {useState } from "react";
 import axios from "axios";
 import "./style.css";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function ForgotPassword() {
   const [email, setemail] = useState();
-  const history=useHistory();
+  const history=useNavigate();
   function onSubmit(e) {
     e.preventDefault();
     const ob = {

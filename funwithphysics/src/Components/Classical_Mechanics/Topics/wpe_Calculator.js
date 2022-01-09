@@ -6,8 +6,10 @@ import { Helmet } from "react-helmet";
 import Solution from "../../Solution/Solution";
 import { SI } from "../../Solution/allSIUnits";
 import Navbar from "../../Navbar/Navbar";
+import { useParams } from "react-router-dom";
 
-function WPECalculator({ match }) {
+function WPECalculator() {
+  let {topic} = useParams();
   // WPE_list
   const WPE_list = [
     {
@@ -52,7 +54,7 @@ function WPECalculator({ match }) {
     },
   ];
 
-  const page = WPE_list.filter((data) => data.topic === match.params.topic);
+  const page = WPE_list.filter((data) => data.topic === topic);
   const details = page[0];
   console.log(page);
   console.log(details.formula);
