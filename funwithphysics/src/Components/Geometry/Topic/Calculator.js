@@ -340,7 +340,10 @@ function Calculator() {
     const a = new Fraction(nume / denome);
 
     const calcParabola = () => {
-      let equation = `y=${a.toString()}(x-${h})² + ${k}`;
+      let equation = [
+        `Form1: y=${a.toString()}(x-${h})² + ${k}`,
+        `Form2: x=${a.toString()}(y-${k})² + ${h}`,
+      ];
       setResult(equation);
     };
     return (
@@ -408,10 +411,15 @@ function Calculator() {
 
           <Form.Group className="mb-4">
             <Form.Control
+              as="select"
+              className="select-custom-res"
               readOnly
               type="number"
-              placeholder={result === null ? "Result" : result + " "}
-            />
+              // placeholder={result === null ? "Result" : result + " "}
+            >
+              <option>{result === null ? "Form1 : " : result[0]}</option>
+              <option>{result === null ? "Form2 : " : result[1]}</option>
+            </Form.Control>
           </Form.Group>
         </Form>
         <div className="button-custom-grp mb-5">
