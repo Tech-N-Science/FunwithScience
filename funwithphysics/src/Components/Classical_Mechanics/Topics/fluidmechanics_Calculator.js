@@ -4,8 +4,10 @@ import { Form, Button } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import { useParams } from "react-router-dom";
 
-function FluidCalculator({ match }) {
+function FluidCalculator() {
+  let {topic} = useParams();
   //fluid_list
   const fluid_list = [
     {
@@ -74,7 +76,7 @@ function FluidCalculator({ match }) {
     },
   ];
 
-  const page = fluid_list.filter((data) => data.topic === match.params.topic);
+  const page = fluid_list.filter((data) => data.topic === topic);
   const details = page[0];
 
   // Density Calculator

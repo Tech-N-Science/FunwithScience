@@ -1,4 +1,5 @@
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import SlideRoutes from "react-slide-routes";
 import "./index.css";
 import reducer, { initialstate } from "./reducer";
 import FPassword from "./Components/Forgot_Password/fpassword";
@@ -7,7 +8,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Signup from "./Components/Signup/Signup";
 import Login from "./Components/Loginpage/Login";
 import Loadingimg from "./Images/Logo/logo.webp";
-import React, { Suspense, lazy, useReducer, useState } from "react";
+import React, { Suspense, lazy, useReducer, useState, useEffect } from "react";
 import ClassicalMechanics from "./Components/Classical_Mechanics/ClassicalMechanics";
 import Thermodynamics from "./Components/Thermodynamics/Thermodynamics";
 import CalcClassic from "./Components/Classical_Mechanics/Topics/Calculator";
@@ -17,22 +18,22 @@ import GravitationCalculator from "./Components/Classical_Mechanics/Topics/gravi
 import PhysicsTopic from "./Components/PhysicsTopic";
 import MathsTopic from "./Components/MathsTopic";
 import MOICalculator from "./Components/Classical_Mechanics/Topics/moi_Calulator";
-import shm_Calculator from "./Components/Classical_Mechanics/Topics/shm_Calculator";
-import rotation_Calculator from "./Components/Classical_Mechanics/Topics/rotation_Calculator";
+import ShmCalculator from "./Components/Classical_Mechanics/Topics/ShmCalculator";
+import RotationCalculator from "./Components/Classical_Mechanics/Topics/RotationCalculator";
 import Quiz from "./Components/Quiz/Quiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
 import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
 import Statistical from "./Components/Statistical/Statistical";
 import CalculatorStatistical from "./Components/Statistical/Topics/Calculator";
-import electricfield_calculator from "./Components/Electromagnetism/Topics/electricfield_calculator";
-import Magneticfield_calculator from "./Components/Electromagnetism/Topics/Magneticfield_calculator";
-import { electricpotential_calculator } from "./Components/Electromagnetism/Topics/electricpotential_calculator";
+import ElectricfieldCalculator from "./Components/Electromagnetism/Topics/ElectricfieldCalculator";
+import MagneticfieldCalculator from "./Components/Electromagnetism/Topics/MagneticfieldCalculator";
+import { ElectricpotentialCalculator } from "./Components/Electromagnetism/Topics/ElectricpotentialCalculator";
 import CalculatorElec from "./Components/Electromagnetism/Topics/calculator";
 import { Helmet } from "react-helmet";
 import NumMCQ from "./Components/NumMCQ/NumMCQ";
 import Singlequestion from "./Components/NumMCQ/Singlequestion";
 import { hydrate, render } from "react-dom";
-import flux_calculator from "./Components/Electromagnetism/Topics/flux_calculator";
+import FluxCalculator from "./Components/Electromagnetism/Topics/FluxCalculator";
 import Relativity from "./Components/Relativity/Relativity";
 import Calrelativity from "./Components/Relativity/Topics/Calculator";
 import AtomicPhysics from "./Components/Atomic_Physics/AtomicPhysics";
@@ -59,6 +60,10 @@ const App = () => {
   const [typ, settyp] = useState(false);
   const [top, settop] = useState(false);
   const [difficult, setdifficult] = useState(false);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   //localStorage.setItem("user", null);
   return (
     <React.Fragment>
@@ -92,250 +97,371 @@ const App = () => {
           difficult,
         }}
       >
-        <Switch>
-          <Route exact path="/">
-            <Suspense
-              fallback={
-                <div className="loadingdiv">
-                  <img className="loadingimg" src={Loadingimg} alt="" />
-                </div>
-              }
-            >
-              <Home />
-            </Suspense>
-          </Route>
-          <Route exact path="/about" component={Home}>
-            <Suspense
-              fallback={
-                <div className="loadingdiv">
-                  <img className="loadingimg" src={Loadingimg} alt="" />
-                </div>
-              }
-            >
-              <Home />
-            </Suspense>
-          </Route>
-          <Route exact path="/contact">
-            <Suspense
-              fallback={
-                <div className="loadingdiv">
-                  <img className="loadingimg" src={Loadingimg} alt="" />
-                </div>
-              }
-            >
-              <Contact />
-            </Suspense>
-          </Route>
-          <Route exact path="/fpass">
-            <Navbar />
-            <FPassword />
-          </Route>
-          <Route exact path="/classicalmechanics">
-            <Navbar />
-            <ClassicalMechanics />
-          </Route>
-          <Route exact path="/thermodynamics">
-            <Navbar />
-            <Thermodynamics />
-          </Route>
-          <Route exact path="/physics">
-            <Navbar />
-            <PhysicsTopic />
-          </Route>
-          <Route exact path="/maths">
-            <Navbar />
-            <MathsTopic />
-          </Route>
-          <Route exact path="/algebra">
-            <Navbar />
-            <Algebra />
-          </Route>
-          <Route exact path="/geometry">
-            <Navbar />
-            <Geometry />
-          </Route>
+        <SlideRoutes>
+          <Route
+            exact
+            path="/"
+            element={
+              <Suspense
+                fallback={
+                  <div className="loadingdiv">
+                    <img className="loadingimg" src={Loadingimg} alt="" />
+                  </div>
+                }
+              >
+                <Home />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/about"
+            element={
+              <>
+                <Suspense
+                  fallback={
+                    <div className="loadingdiv">
+                      <img className="loadingimg" src={Loadingimg} alt="" />
+                    </div>
+                  }
+                >
+                  <Home />
+                </Suspense>
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/contact"
+            element={
+              <Suspense
+                fallback={
+                  <div className="loadingdiv">
+                    <img className="loadingimg" src={Loadingimg} alt="" />
+                  </div>
+                }
+              >
+                <Contact />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/fpass"
+            element={
+              <>
+                <Navbar />
+                <FPassword />
+              </>
+            }
+          ></Route>
+          <Route exact path="/Signup" element={<Signup />}></Route>
+          <Route
+            exact
+            path="/resetpassword"
+            element={
+              <>
+                <Navbar />
+                <RPassword />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/Login"
+            element={
+              <>
+                <Navbar />
+                <Login />
+              </>
+            }
+          ></Route>
+        </SlideRoutes>
+        <Routes>
+          <Route
+            exact
+            path="/classicalmechanics"
+            element={
+              <>
+                <Navbar />
+                <ClassicalMechanics />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/thermodynamics"
+            element={
+              <>
+                <Navbar />
+                <Thermodynamics />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/physics"
+            element={
+              <>
+                <Navbar />
+                <PhysicsTopic />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/maths"
+            element={
+              <>
+                <Navbar />
+                <MathsTopic />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/algebra"
+            element={
+              <>
+                <Navbar />
+                <Algebra />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/geometry"
+            element={
+              <>
+                <Navbar />
+                <Geometry />
+              </>
+            }
+          ></Route>
 
-          <Route exact path="/Signup" component={Signup}></Route>
-          <Route exact path="/resetpassword">
-            <Navbar />
-            <RPassword />
-          </Route>
-          <Route exact path="/Login">
-            <Navbar />
-            <Login />
-          </Route>
           <Route
             exact
             path="/classicalmechanics/calc/:topic"
-            component={CalcClassic}
-          >
-            {/* <Navbar/> */}
-            {/* <CalcClassic/> */}
-          </Route>
+            element={<CalcClassic />}
+          ></Route>
           <Route
             exact
             path="/algebra/calc/:topic"
-            component={Calpermutation}
+            element={<Calpermutation />}
           ></Route>
           <Route
             exact
             path="/geometry/calc/:topic"
-            component={Calstraightline}
+            element={<Calstraightline />}
           ></Route>
           <Route
             exact
             path="/thermodynamics/calc/:topic"
-            component={CalcThermo}
+            element={<CalcThermo />}
           ></Route>
           <Route
             exact
             path="/classicalmechanics/calc/gravitation/:topic"
-            component={GravitationCalculator}
+            element={<GravitationCalculator />}
           ></Route>
           <Route
             exact
             path="/classicalmechanics/calc/moment_of_inertia/:topic"
-            component={MOICalculator}
+            element={<MOICalculator />}
           ></Route>
           <Route
             exact
             path="/classicalmechanics/calc/shm/:topic"
-            component={shm_Calculator}
+            element={<ShmCalculator />}
           ></Route>
           <Route
             exact
             path="/classicalmechanics/calc/work_power_energy/:topic"
-            component={WPECalculator}
+            element={<WPECalculator />}
           ></Route>
           <Route
             exact
             path="/classicalmechanics/calc/rotation/:topic"
-            component={rotation_Calculator}
+            element={<RotationCalculator />}
           ></Route>
-          <Route exact path="/electromagnetism">
-            <Navbar />
-            <Electromagnetism />
-          </Route>
+          <Route
+            exact
+            path="/electromagnetism"
+            element={
+              <>
+                <Navbar />
+                <Electromagnetism />
+              </>
+            }
+          ></Route>
           <Route
             exact
             path="/electromagnetism/calc/:topic"
-            component={CalculatorElec}
+            element={<CalculatorElec />}
           ></Route>
 
           <Route
             exact
             path="/electromagnetism/calc/electric_field/:topic"
-            component={electricfield_calculator}
+            element={<ElectricfieldCalculator />}
           ></Route>
           <Route
             exact
             path="/electromagnetism/calc/magnetic_field/:topic"
-            component={Magneticfield_calculator}
+            element={<MagneticfieldCalculator />}
           />
           {/* adding relativity calculator */}
 
-          <Route exact path="/relativity">
-            <Navbar />
-            <Relativity />
-          </Route>
+          <Route
+            exact
+            path="/relativity"
+            element={
+              <>
+                <Navbar />
+                <Relativity />
+              </>
+            }
+          ></Route>
           <Route
             exact
             path="/relativity/calc/:topic"
-            component={Calrelativity}
+            element={<Calrelativity />}
           />
 
           {/* adding atomic physics calculator */}
-          <Route exact path="/atomic">
-            <Navbar />
-            <AtomicPhysics />
-          </Route>
+          <Route
+            exact
+            path="/atomic"
+            element={
+              <>
+                <Navbar />
+                <AtomicPhysics />
+              </>
+            }
+          ></Route>
           <Route
             exact
             path="/atomicphysics/calc/:topic"
-            component={CalcAtomic}
+            element={<CalcAtomic />}
           />
 
           {/* adding nuclear physics calculator */}
-          <Route exact path="/nuclear">
-            <Navbar />
-            <NuclearPhysics />
-          </Route>
+          <Route
+            exact
+            path="/nuclear"
+            element={
+              <>
+                <Navbar />
+                <NuclearPhysics />
+              </>
+            }
+          ></Route>
           <Route
             exact
             path="/nuclearphysics/calc/:topic"
-            component={CalcNuclear}
+            element={<CalcNuclear />}
           />
 
           {/* adding photonics calculator */}
-          <Route exact path="/photonics">
-            <Navbar />
-            <Photonics />
-          </Route>
+          <Route
+            exact
+            path="/photonics"
+            element={
+              <>
+                <Navbar />
+                <Photonics />
+              </>
+            }
+          ></Route>
           <Route
             exact
             path="/photonics/calc/:topic"
-            component={CalcPhotonics}
+            element={<CalcPhotonics />}
           />
 
-          <Route exact path="/quiz">
-            <Navbar />
-            <Quiz />
-          </Route>
+          <Route
+            exact
+            path="/quiz"
+            element={
+              <>
+                <Navbar />
+                <Quiz />
+              </>
+            }
+          ></Route>
 
           <Route
             exact
             path="/classicalmechanics/calc/fluid_mechanics/:topic"
-            component={FluidCalculator}
+            element={<FluidCalculator />}
           ></Route>
-          <Route exact path="/electromagnetism">
-            <Navbar />
-            <Electromagnetism />
-          </Route>
+          <Route
+            exact
+            path="/electromagnetism"
+            element={
+              <>
+                <Navbar />
+                <Electromagnetism />
+              </>
+            }
+          ></Route>
           <Route
             exact
             path="/electromagnetism/calc/:topic"
-            component={CalculatorElec}
+            element={<CalculatorElec />}
           ></Route>
 
           <Route
             exact
             path="/electromagnetism/calc/electric_field/:topic"
-            component={electricfield_calculator}
+            element={<ElectricfieldCalculator />}
           ></Route>
           <Route
             exact
             path="/electromagnetism/calc/Flux/:topic"
-            component={flux_calculator}
+            element={<FluxCalculator />}
           />
           <Route
             exact
             path="/electromagnetism/calc/electric_potential/:topic"
-            component={electricpotential_calculator}
+            element={<ElectricpotentialCalculator />}
           ></Route>
 
-          <Route exact path="/statistical">
-            <Navbar />
-            <Statistical />
-          </Route>
+          <Route
+            exact
+            path="/statistical"
+            element={
+              <>
+                <Navbar />
+                <Statistical />
+              </>
+            }
+          ></Route>
           <Route
             exact
             path="/statistical/calc/:topic"
-            component={CalculatorStatistical}
+            element={<CalculatorStatistical />}
           ></Route>
 
-          <Route exact path="/questions">
-            <Navbar />
-            <NumMCQ />
-          </Route>
+          <Route
+            exact
+            path="/questions"
+            element={
+              <>
+                <Navbar />
+                <NumMCQ />
+              </>
+            }
+          ></Route>
 
           <Route
             exact
             path="/questions/:type/:id"
-            component={Singlequestion}
+            element={<Singlequestion />}
           ></Route>
 
-          <Redirect to="/" />
-        </Switch>
+          {/* <Redirect to="/" /> */}
+        </Routes>
       </Context.Provider>
     </React.Fragment>
   );

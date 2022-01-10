@@ -3,7 +3,8 @@ import { Form, Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import Navbar from '../../Navbar/Navbar';
 
-function Calculator({ match }) {
+function Calculator() {
+  let { topic } = useParams();
   // topics_data
   const Topics = [
     {
@@ -83,7 +84,7 @@ function Calculator({ match }) {
     },
   ];
 
-  const page = Topics.filter((data) => data.topic === match.params.topic);
+  const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
   //Permutationcalculator

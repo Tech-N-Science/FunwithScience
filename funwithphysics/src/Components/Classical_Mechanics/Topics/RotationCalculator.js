@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./Calculator.css";
-import { Form, Button,Modal } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import "../classicalMechanics.css";
 import Solution from "../../Solution/Solution";
 import { Helmet } from "react-helmet";
-import {SI} from '../../Solution/allSIUnits'
+import { SI } from "../../Solution/allSIUnits";
 import Navbar from "../../Navbar/Navbar";
+import { useParams } from "react-router-dom";
 
-function rotation_Calculator({ match }) {
+function RotationCalculator() {
+  let { topic } = useParams();
   // rotation_list
   const rotation_list = [
     {
@@ -57,17 +59,15 @@ function rotation_Calculator({ match }) {
     },
   ];
 
-  const page = rotation_list.filter(
-    (data) => data.topic === match.params.topic
-  );
+  const page = rotation_list.filter((data) => data.topic === topic);
   const details = page[0];
 
   function Calculator_torque() {
-       const [result, setResult] = useState("");
-       const [inertia, setForce] = useState("");
-       const [acceleration, setDisp] = useState("");
-       const [showModal, setShowModal] = useState(false);
-      const [showSolution, setShowSolution] = useState(false);
+    const [result, setResult] = useState("");
+    const [inertia, setForce] = useState("");
+    const [acceleration, setDisp] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
 
     const givenValues = {
       α: acceleration,
@@ -76,39 +76,38 @@ function rotation_Calculator({ match }) {
 
     const insertValues = `${inertia}${SI["I"]} * ${acceleration}${SI["acceleration"]}`;
 
-    const resetForm=()=>{
+    const resetForm = () => {
       setForce("");
       setDisp("");
       setShowSolution(false);
       setResult("");
-    }
+    };
 
     const handleClick = () => {
-      if(inertia!=="" && acceleration!==""){
-      let res = inertia * acceleration;
-      setResult(res);
-      setShowSolution(true)
-    }
-    else{
-      setShowModal(true);
-    }
+      if (inertia !== "" && acceleration !== "") {
+        let res = inertia * acceleration;
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
 
     return (
-     <React.Fragment>
+      <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Inertia (in kg m²)</Form.Label>
@@ -126,7 +125,7 @@ function rotation_Calculator({ match }) {
               placeholder="Enter displacement in metre"
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -136,7 +135,7 @@ function rotation_Calculator({ match }) {
                 result={result}
               />
             </Form.Group>
-           : null }
+          ) : null}
           <Form.Group className="mb-3" controlId="work">
             <Form.Label>Torque (τ)</Form.Label>
             <Form.Control
@@ -164,11 +163,11 @@ function rotation_Calculator({ match }) {
 
   //work
   function CalculatorWork() {
-       const [result, setResult] = useState("");
+    const [result, setResult] = useState("");
     const [torque, setForce] = useState("");
     const [angle, setDisp] = useState("");
- const [showModal, setShowModal] = useState(false);
-  const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
 
     const givenValues = {
       τ: torque,
@@ -177,40 +176,38 @@ function rotation_Calculator({ match }) {
 
     const insertValues = `${torque}${SI["τ"]} * ${angle}${SI["angle"]}`;
 
-    const resetForm=()=>{
+    const resetForm = () => {
       setForce("");
       setDisp("");
       setShowSolution(false);
       setResult("");
-    }
+    };
 
     const handleClick = () => {
-      if(torque!=="" && angle!==""){
+      if (torque !== "" && angle !== "") {
         let res = torque * angle;
         setResult(res);
-        setShowSolution(true)
-      }
-      else{
+        setShowSolution(true);
+      } else {
         setShowModal(true);
       }
-
     };
 
     return (
-     <React.Fragment>
+      <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Torque (in Newton-metre)</Form.Label>
@@ -228,7 +225,7 @@ function rotation_Calculator({ match }) {
               placeholder="Enter displacement in metre"
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -238,7 +235,7 @@ function rotation_Calculator({ match }) {
                 result={result}
               />
             </Form.Group>
-           : null }
+          ) : null}
           <Form.Group className="mb-3" controlId="work">
             <Form.Label>Work Done (W)</Form.Label>
             <Form.Control
@@ -266,11 +263,11 @@ function rotation_Calculator({ match }) {
 
   // Power Calculator
   function CalculatorPower() {
-       const [result, setResult] = useState("");
- const [showModal, setShowModal] = useState(false);
-  const [showSolution, setShowSolution] = useState(false);
-  const [workdone, setworkdone] = useState("");
-  const [time, settime] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const [workdone, setworkdone] = useState("");
+    const [time, settime] = useState("");
 
     const givenValues = {
       τ: workdone,
@@ -279,39 +276,37 @@ function rotation_Calculator({ match }) {
 
     const insertValues = `${workdone}${SI["τ"]} * ${time}${SI["ω"]}`;
 
-    const resetForm=()=>{
+    const resetForm = () => {
       setworkdone("");
       settime("");
       setShowSolution(false);
       setResult("");
-    }
+    };
     const handleClick = () => {
-    if(workdone!=="" && time!=="")
-    {
-      let res = workdone * time;
-      setResult(res);
-      setShowSolution(true)
-    }
-    else{
-      setShowModal(true);
-    }
+      if (workdone !== "" && time !== "") {
+        let res = workdone * time;
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
 
     return (
-     <React.Fragment>
+      <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="workdone">
             <Form.Label>Torque (in Newton-metre)</Form.Label>
@@ -329,7 +324,7 @@ function rotation_Calculator({ match }) {
               placeholder="Enter time taken in seconds"
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -339,7 +334,7 @@ function rotation_Calculator({ match }) {
                 result={result}
               />
             </Form.Group>
-           : null }
+          ) : null}
           <Form.Group className="mb-3" controlId="power">
             <Form.Label>Power (P)</Form.Label>
             <Form.Control
@@ -367,11 +362,11 @@ function rotation_Calculator({ match }) {
 
   // kinetic energy Calculator
   function CalculatorKinetic() {
-       const [result, setResult] = useState("");
-       const [moinertia, setworkdone] = useState("");
-       const [anvelocity, settime] = useState("");
- const [showModal, setShowModal] = useState(false);
-  const [showSolution, setShowSolution] = useState(false);
+    const [result, setResult] = useState("");
+    const [moinertia, setworkdone] = useState("");
+    const [anvelocity, settime] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
 
     const givenValues = {
       I: moinertia,
@@ -380,39 +375,38 @@ function rotation_Calculator({ match }) {
 
     const insertValues = `0.5 x ${moinertia}${SI["I"]} * (${anvelocity}${SI["ω"]})²`;
 
-    const resetForm=()=>{
+    const resetForm = () => {
       setworkdone("");
       settime("");
       setShowSolution(false);
       setResult("");
-    }
+    };
 
     const handleClick = () => {
-     if(moinertia!=="" && anvelocity!==""){
-      let res = 0.5 * moinertia * Math.pow(anvelocity, 2);
-      setResult(res);
-      setShowSolution(true)
-    }
-    else{
-      setShowModal(true);
-    }
+      if (moinertia !== "" && anvelocity !== "") {
+        let res = 0.5 * moinertia * Math.pow(anvelocity, 2);
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
 
     return (
-     <React.Fragment>
+      <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="workdone">
             <Form.Label>Moment of inertia (in kgm²)</Form.Label>
@@ -430,7 +424,7 @@ function rotation_Calculator({ match }) {
               placeholder="Enter time taken in seconds"
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -440,7 +434,7 @@ function rotation_Calculator({ match }) {
                 result={result}
               />
             </Form.Group>
-           : null }
+          ) : null}
           <Form.Group className="mb-3" controlId="power">
             <Form.Label>Kinetic Energy (KE)</Form.Label>
             <Form.Control
@@ -529,4 +523,4 @@ function rotation_Calculator({ match }) {
   );
 }
 
-export default rotation_Calculator;
+export default RotationCalculator;
