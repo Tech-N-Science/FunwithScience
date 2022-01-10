@@ -8,8 +8,10 @@ import Navbar from "../../Navbar/Navbar";
 import { constant } from "../../Solution/allConstants";
 import { SI } from "../../Solution/allSIUnits";
 import Modal from "react-bootstrap/Modal";
+import { useParams } from "react-router-dom";
 
-function GravitationCalculator({ match }) {
+function GravitationCalculator() {
+  let {topic} = useParams();
   // Gravitation_list
   const Gravitation_list = [
     {
@@ -75,7 +77,7 @@ function GravitationCalculator({ match }) {
   ];
 
   const page = Gravitation_list.filter(
-    (data) => data.topic === match.params.topic
+    (data) => data.topic === topic
   );
   const details = page[0];
 

@@ -6,8 +6,10 @@ import Solution from "../../Solution/Solution";
 import { Helmet } from "react-helmet";
 import {SI} from '../../Solution/allSIUnits'
 import Navbar from "../../Navbar/Navbar";
+import { useParams } from "react-router-dom";
 
-function rotation_Calculator({ match }) {
+function Rotation_Calculator() {
+  let {topic} = useParams();
   // rotation_list
   const rotation_list = [
     {
@@ -58,7 +60,7 @@ function rotation_Calculator({ match }) {
   ];
 
   const page = rotation_list.filter(
-    (data) => data.topic === match.params.topic
+    (data) => data.topic === topic
   );
   const details = page[0];
 
@@ -529,4 +531,4 @@ function rotation_Calculator({ match }) {
   );
 }
 
-export default rotation_Calculator;
+export default Rotation_Calculator;

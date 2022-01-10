@@ -60,7 +60,7 @@ const Navbar = () => {
         </p>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <ul style={{ fontSize: '20px' }} className='navbar-nav ml-auto mr-5'>
-            <NavLink to='/' exact={true} className='nav-item'>
+            <NavLink to='/' className='nav-item'>
               <span className='nav-link'>Home</span>
             </NavLink>
             <NavLink to='/about' className='nav-item'>

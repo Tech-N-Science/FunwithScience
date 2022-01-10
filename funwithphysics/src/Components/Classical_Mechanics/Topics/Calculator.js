@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Calculator.css";
+import { useParams } from "react-router";
 import { Form, Card, Button, Row, Col, Modal } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Link } from "react-router-dom";
@@ -8,7 +9,8 @@ import { Helmet } from "react-helmet";
 import { SI } from "../../Solution/allSIUnits";
 import Navbar from "../../Navbar/Navbar";
 
-function Calculator({ match }) {
+function Calculator() {
+  let {topic} = useParams();
   const Topics = [
     {
       topic: "Circular Motion",
@@ -528,7 +530,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     },
   ];
 
-  const page = Topics.filter((data) => data.topic === match.params.topic);
+  const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
   // Projectile Motion Calculator

@@ -8,9 +8,10 @@ import Solution from "../../Solution/Solution";
 import {constant} from '../../Solution/allConstants';
 import {SI} from '../../Solution/allSIUnits';
 import Modal from "react-bootstrap/Modal";
+import { useParams } from "react-router-dom";
 
-
-function Magneticfield_calculator({ match }) {
+function Magneticfield_calculator() {
+  let {topic} = useParams();
   //magneticfield_data
   const magneticfield_data = [
     {
@@ -92,7 +93,7 @@ function Magneticfield_calculator({ match }) {
   ];
 
   const page = magneticfield_data.filter(
-    (data) => data.topic === match.params.topic
+    (data) => data.topic === topic
   );
   const details = page[0];
 
