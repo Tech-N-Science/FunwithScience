@@ -6,7 +6,7 @@ import "../../../Responsive/style.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import Solution from "../../Solution/Solution";
-import {SI} from '../../Solution/allSIUnits'
+import { SI } from "../../Solution/allSIUnits";
 import { constant } from "../../Solution/allConstants";
 function Calculator({ match }) {
   // topics_data
@@ -90,6 +90,16 @@ function Calculator({ match }) {
       dimension: "M⁰L¹T⁰",
       process:
         "The de Broglie equation is used to calculate the wavelength of the moving particle. Where p is the momentum of the given particle and h is the planck's constant.",
+    },
+    {
+      topic: "Crompton wavelength",
+      formula: "λ = h/mc",
+      siunit: "metre",
+      details:
+        "Compton wavelength is defined as the wavelength of a photon, which has an energy value equal to the mass of that particle. It is a value used in calculation of crompton scattering and some other quantum-mechanical phenomena.",
+      dimension: "M⁰L¹T⁰",
+      process:
+        "The standard crompton wavelength equation is given by the equation as shown above. Where λ is the Compton wavelength, h is the Planck constant, m is the mass of the particle and c is the speed of light in vacuum",
     },
   ];
 
@@ -216,8 +226,8 @@ function Calculator({ match }) {
       KEmax: KEmax,
     };
 
-    const insertValues =`${workFunction}${SI["φ"]} + ${KEmax}${SI["KEmax"]} `
-    
+    const insertValues = `${workFunction}${SI["φ"]} + ${KEmax}${SI["KEmax"]} `;
+
     const reset = () => {
       setShowSolution(false);
       setWorkFunction("");
@@ -226,31 +236,29 @@ function Calculator({ match }) {
     };
     const calcResult = () => {
       let res;
-      if(workFunction!=="" && KEmax!=="")
-      {
+      if (workFunction !== "" && KEmax !== "") {
         res = parseFloat(workFunction) + parseFloat(KEmax);
-      setResult(res);
-      setShowSolution(true);
-    }
-      else {
+        setResult(res);
+        setShowSolution(true);
+      } else {
         setShowModal(true);
       }
     };
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Work Function</Form.Label>
@@ -270,7 +278,7 @@ function Calculator({ match }) {
               value={KEmax === "" ? "" : KEmax}
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -281,7 +289,7 @@ function Calculator({ match }) {
                 // constants={constants}
               />
             </Form.Group>
-           : null }
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -317,24 +325,23 @@ function Calculator({ match }) {
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
 
-    const constants=["plank's constant","m"];
+    const constants = ["plank's constant", "m"];
 
     const givenValuesL = {
       n: orbitNumber,
     };
-    const givenValuesR= {
+    const givenValuesR = {
       n: orbitNumber,
-      v:velocity, 
+      v: velocity,
     };
-    const givenValuesV= {
+    const givenValuesV = {
       n: orbitNumber,
-      r:radius, 
+      r: radius,
     };
 
-    const insertValuesL=`(${orbitNumber} x ${constant["plank's constant"]}) / (2 x 3.14)`
-    const insertValuesR=`(${L} / ${constant["m"]} x ${velocity})`
-    const insertValuesV=`(${L} / ${constant["m"]} x ${radius})`
-
+    const insertValuesL = `(${orbitNumber} x ${constant["plank's constant"]}) / (2 x 3.14)`;
+    const insertValuesR = `(${L} / ${constant["m"]} x ${velocity})`;
+    const insertValuesV = `(${L} / ${constant["m"]} x ${radius})`;
 
     function handleChange(e) {
       setResult("");
@@ -385,48 +392,48 @@ function Calculator({ match }) {
       setRadius("");
     };
     const calcResult = () => {
-      let res,L;
+      let res, L;
       switch (choice) {
         case "Angular momentum":
-        if(orbitNumber!==""){
+          if (orbitNumber !== "") {
             L = (orbitNumber * h) / (2 * Math.PI);
-        res = L;
-         setResult(res);
-          setShowSolution(true);
-        } else {
-          setShowModal(true);
-        }
+            res = L;
+            setResult(res);
+            setShowSolution(true);
+          } else {
+            setShowModal(true);
+          }
           break;
         case "Velocity":
-          if(orbitNumber!=="" && radius!==""){
+          if (orbitNumber !== "" && radius !== "") {
             L = (orbitNumber * h) / (2 * Math.PI);
             res = L / (m * radius);
-             setResult(res);
-              setShowSolution(true);
-            } else {
-              setShowModal(true);
-            }
-     
+            setResult(res);
+            setShowSolution(true);
+          } else {
+            setShowModal(true);
+          }
+
           break;
         case "Radius":
-      if(orbitNumber!=="" && velocity!==""){
-             L = (orbitNumber * h) / (2 * Math.PI);
+          if (orbitNumber !== "" && velocity !== "") {
+            L = (orbitNumber * h) / (2 * Math.PI);
             res = L / (m * velocity);
-             setResult(res);
-              setShowSolution(true);
-            } else {
-              setShowModal(true);
-            }
+            setResult(res);
+            setShowSolution(true);
+          } else {
+            setShowModal(true);
+          }
           break;
         default:
           break;
       }
-setL(L);
+      setL(L);
     };
 
     return (
       <>
-       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header>
             Please Enter all values to get Proper answer
           </Modal.Header>
@@ -520,30 +527,30 @@ setL(L);
           />
         </Form.Group>
 
-        {showSolution? 
-            <Form.Group className="mb-3" controlId="acceleration">
-              <Solution
-                givenValues={givenValuesL}
-                formula="nh/2π"
-                toFind="L"
-                insertValues={insertValuesL}
-                result={L}
-                constants={constants}
-              />
-            </Form.Group>
-           : null }
+        {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValuesL}
+              formula="nh/2π"
+              toFind="L"
+              insertValues={insertValuesL}
+              result={L}
+              constants={constants}
+            />
+          </Form.Group>
+        ) : null}
 
-        {showSolution && choice!=="Angular momentum"? 
-            <Form.Group className="mb-3" controlId="acceleration">
-              <Solution
-                givenValues={choice === "Radius" ?givenValuesR:givenValuesV}
-                toFind={choice === "Radius" ?"Radius":"velocity"}
-                formula={choice === "Radius" ?"L/mv":"L/mr"}
-                insertValues={choice === "Radius" ?insertValuesR:insertValuesV}
-                result={result}
-              />
-            </Form.Group>
-           : null }
+        {showSolution && choice !== "Angular momentum" ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={choice === "Radius" ? givenValuesR : givenValuesV}
+              toFind={choice === "Radius" ? "Radius" : "velocity"}
+              formula={choice === "Radius" ? "L/mv" : "L/mr"}
+              insertValues={choice === "Radius" ? insertValuesR : insertValuesV}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
 
         <div className="button-custom-grp">
           <Button variant="primary" onClick={calcResult}>
@@ -565,16 +572,15 @@ setL(L);
     const [result, setResult] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
-    
+
     const givenValues = {
       n: orbit,
       Z: protons,
     };
-    
-    const insertValues =`${orbit}²*${constant["plank's constant"]}² / 4 * (3.14)² * (${constant["me²"]})  X 1/${protons}`
-    
-    
-const constants=["plank's constant","me²"]
+
+    const insertValues = `${orbit}²*${constant["plank's constant"]}² / 4 * (3.14)² * (${constant["me²"]})  X 1/${protons}`;
+
+    const constants = ["plank's constant", "me²"];
     const reset = () => {
       setShowSolution(false);
       setOrbit("");
@@ -583,31 +589,30 @@ const constants=["plank's constant","me²"]
     };
     const calcResult = () => {
       let res;
-      if(orbit!=="" && protons!=="")
-      {
+      if (orbit !== "" && protons !== "") {
         res = (0.529 * (orbit * orbit)) / protons;
-      setResult(res);
-      setShowSolution(true);
-    } else {
-      setShowModal(true);
-    }
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
 
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>OrbitNumber (n)</Form.Label>
@@ -655,7 +660,7 @@ const constants=["plank's constant","me²"]
               placeholder={result === "" ? "Result" : result + " A°"}
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -666,7 +671,7 @@ const constants=["plank's constant","me²"]
                 constants={constants}
               />
             </Form.Group>
-           : null }
+          ) : null}
         </Form>
         <div className="button-custom-grp">
           <Button variant="primary" onClick={calcResult}>
@@ -688,16 +693,15 @@ const constants=["plank's constant","me²"]
     const [result, setResult] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
-    
+
     const givenValues = {
       n: orbit,
       Z: protons,
     };
-    
-    const insertValues =`(${orbit})²*(${constant["plank's constant"]})² / 4 * (3.14)² * (${constant["me²"]})  X 1/${protons}`
-    
-    
-const constants=["plank's constant","e","K"]
+
+    const insertValues = `(${orbit})²*(${constant["plank's constant"]})² / 4 * (3.14)² * (${constant["me²"]})  X 1/${protons}`;
+
+    const constants = ["plank's constant", "e", "K"];
     const reset = () => {
       setShowSolution(false);
       setOrbit("");
@@ -706,31 +710,30 @@ const constants=["plank's constant","e","K"]
     };
     const calcResult = () => {
       let res;
-      if(orbit!=="" && protons!=="")
-      {
+      if (orbit !== "" && protons !== "") {
         res = 2.18 * Math.pow(10, 6) * (protons / orbit);
-      setResult(res);
-      setShowSolution(true);
-    } else {
-      setShowModal(true);
-    }
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
 
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>OrbitNumber (n)</Form.Label>
@@ -778,7 +781,7 @@ const constants=["plank's constant","e","K"]
               placeholder={result === "" ? "Result" : result + " m/s"}
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -789,7 +792,7 @@ const constants=["plank's constant","e","K"]
                 constants={constants}
               />
             </Form.Group>
-           : null }
+          ) : null}
         </Form>
         <div className="button-custom-grp">
           <Button variant="primary" onClick={calcResult}>
@@ -808,18 +811,18 @@ const constants=["plank's constant","e","K"]
   const EnergyOfElectronCalci = () => {
     const [orbit, setOrbit] = useState("");
     const [protons, setProtons] = useState("");
-    const [result, setResult] = useState("");    
+    const [result, setResult] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
-    
+
     const givenValues = {
       n: orbit,
       Z: protons,
     };
-    
-    const insertValues =`-${constant["mass_e"]} x (${constant["e"]})⁴ x (${protons})² / 8 x (${constant["ε₀"]})² x (${orbit})² x (${constant["plank's constant"]})²  `
-    
-    const constants=["plank's constant","e","ε₀","m"]
+
+    const insertValues = `-${constant["mass_e"]} x (${constant["e"]})⁴ x (${protons})² / 8 x (${constant["ε₀"]})² x (${orbit})² x (${constant["plank's constant"]})²  `;
+
+    const constants = ["plank's constant", "e", "ε₀", "m"];
     const reset = () => {
       setShowSolution(false);
       setOrbit("");
@@ -828,31 +831,30 @@ const constants=["plank's constant","e","K"]
     };
     const calcResult = () => {
       let res;
-      if(orbit!=="" && protons!=="")
-      {
+      if (orbit !== "" && protons !== "") {
         res = -13.6 * ((protons * protons) / (orbit * orbit));
-      setResult(res);
-      setShowSolution(true);
-    } else {
-      setShowModal(true);
-    }
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
 
     return (
       <>
-       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>OrbitNumber (n)</Form.Label>
@@ -893,7 +895,7 @@ const constants=["plank's constant","e","K"]
             <Form.Control readOnly placeholder="8.854187817 × 10⁻¹²" />
           </Form.Group>
 
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -904,7 +906,7 @@ const constants=["plank's constant","e","K"]
                 constants={constants}
               />
             </Form.Group>
-           : null }
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -912,7 +914,6 @@ const constants=["plank's constant","e","K"]
               placeholder={result === "" ? "Result" : result + " ev"}
             />
           </Form.Group>
-          
         </Form>
         <div className="button-custom-grp">
           <Button variant="primary" onClick={calcResult}>
@@ -937,21 +938,20 @@ const constants=["plank's constant","e","K"]
     const [result, setResult] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
-    
+
     const givenValueswavelength = {
       n: n,
       "d(in A°)": d,
-      Θ :angle,
+      Θ: angle,
     };
-     const givenValuesd={
+    const givenValuesd = {
       n: n,
       "λ(in A°)": wavelength,
-      Θ :angle,
+      Θ: angle,
     };
-    
-    const insertValuesd =`(${n} x ${wavelength}) / 2 x sin(${angle}°)`;
-    const insertValuesEnergy =`( 2 x ${d} x sin(${angle}°) ) / ${n}`;
-    
+
+    const insertValuesd = `(${n} x ${wavelength}) / 2 x sin(${angle}°)`;
+    const insertValuesEnergy = `( 2 x ${d} x sin(${angle}°) ) / ${n}`;
 
     function handleChange(e) {
       setResult("");
@@ -1016,11 +1016,11 @@ const constants=["plank's constant","e","K"]
 
       switch (choice) {
         case "Wavelength":
-          if(angle!=="" && d!=="" && n!=="")
-          {const sineValue = Math.sin(angle * (Math.PI / 180));
+          if (angle !== "" && d !== "" && n !== "") {
+            const sineValue = Math.sin(angle * (Math.PI / 180));
             res = (2 * d * sineValue) / n;
-           setResult(res);
-           setShowSolution(true);
+            setResult(res);
+            setShowSolution(true);
           } else {
             setShowModal(true);
           }
@@ -1034,13 +1034,12 @@ const constants=["plank's constant","e","K"]
           const angleValue = Math.sin(angle * (Math.PI / 180)) * 2;
           res = (n * (wavelength * Math.pow(10, -10))) / angleValue;
           res = res * Math.pow(10, 10);
-          if(angle!=="" && wavelength!=="" && n!=="")
-          {
+          if (angle !== "" && wavelength !== "" && n !== "") {
             const angleValue = Math.sin(angle * (Math.PI / 180)) * 2;
             res = (n * (wavelength * Math.pow(10, -10))) / angleValue;
             res = res * Math.pow(10, 10);
-           setResult(res);
-           setShowSolution(true);
+            setResult(res);
+            setShowSolution(true);
           } else {
             setShowModal(true);
           }
@@ -1048,23 +1047,22 @@ const constants=["plank's constant","e","K"]
         default:
           break;
       }
-
     };
     return (
       <>
-       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -1147,17 +1145,19 @@ const constants=["plank's constant","e","K"]
           />
         </Form.Group>
 
-        {showSolution? 
-            <Form.Group className="mb-3" controlId="acceleration">
-              <Solution
-                givenValues={choice === "d" ?givenValuesd:givenValueswavelength}
-                toFind={choice === "d" ?"d(in A°)":"λ(in A°)"}
-                formula={choice === "d" ?"nλ/2sinΘ":"2dsinΘ/n"}
-                insertValues={choice === "d" ?insertValuesd:insertValuesEnergy}
-                result={result}
-              />
-            </Form.Group>
-           : null }
+        {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={
+                choice === "d" ? givenValuesd : givenValueswavelength
+              }
+              toFind={choice === "d" ? "d(in A°)" : "λ(in A°)"}
+              formula={choice === "d" ? "nλ/2sinΘ" : "2dsinΘ/n"}
+              insertValues={choice === "d" ? insertValuesd : insertValuesEnergy}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
 
         <div className="button-custom-grp">
           <Button variant="primary" onClick={calcResult}>
@@ -1178,14 +1178,14 @@ const constants=["plank's constant","e","K"]
     const [result, setResult] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
-    
+
     const givenValues = {
       v: velocity,
     };
-    
-    const insertValues =`(${constant["plank's constant"]}) / (${constant["m"]} x ${velocity})`;
-    
-    const constants=["plank's constant","m"]
+
+    const insertValues = `(${constant["plank's constant"]}) / (${constant["m"]} x ${velocity})`;
+
+    const constants = ["plank's constant", "m"];
     const reset = () => {
       setShowSolution(false);
       setResult("");
@@ -1194,30 +1194,30 @@ const constants=["plank's constant","e","K"]
 
     const calcResult = () => {
       let res;
-      if(velocity!=="")
-      {
-        res = (6.626 * Math.pow(10, -34)) / (9.11 * Math.pow(10, -31) * velocity);
-      setResult(res);
-      setShowSolution(true);
-    } else {
-      setShowModal(true);
-    }
+      if (velocity !== "") {
+        res =
+          (6.626 * Math.pow(10, -34)) / (9.11 * Math.pow(10, -31) * velocity);
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
     };
     return (
       <>
-       <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-        <Modal.Header>
-          Please Enter all values to get Proper answer
-        </Modal.Header>
-        <Modal.Footer>
-          <Button
-            onClick={() => setShowModal(false)}
-            class="btn btn-primary btn-sm"
-          >
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4">
             <Form.Label>Velocity</Form.Label>
@@ -1246,7 +1246,7 @@ const constants=["plank's constant","e","K"]
               placeholder={result === "" ? "Result" : result + " m"}
             />
           </Form.Group>
-          {showSolution? 
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues}
@@ -1257,7 +1257,107 @@ const constants=["plank's constant","e","K"]
                 constants={constants}
               />
             </Form.Group>
-           : null }
+          ) : null}
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
+  };
+
+  // Crompton Wavelength
+  const CromptonWavelength = () => {
+    const [mass, setMass] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      m: mass,
+    };
+
+    const insertValues = `(${constant["plank's constant"]}) / (${mass} x ${constant["c"]})`;
+    const constants = ["plank's constant", "c"];
+
+    const reset = () => {
+      setShowSolution(false);
+      setResult("");
+      setMass("");
+    };
+    const C = 3 * Math.pow(10, 8);
+
+    const calcResult = () => {
+      let res;
+      if (mass !== "") {
+        res = (6.626 * Math.pow(10, -34)) / (mass * C);
+        setResult(res);
+        setShowSolution(true);
+      } else {
+        setShowModal(true);
+      }
+    };
+    return (
+      <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Mass</Form.Label>
+            <Form.Control
+              onChange={(e) => setMass(e.target.value)}
+              type="number"
+              placeholder="Enter the Mass (m)"
+              value={mass === "" ? "" : mass}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>Planck's constant(h)</Form.Label>
+            <Form.Control readOnly placeholder="6.62607004 × 10⁻³⁴ " />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>Speed of light</Form.Label>
+            <Form.Control readOnly placeholder="3 x 10⁸ m/s" />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === "" ? "Result" : result + " m"}
+            />
+          </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="h/mc"
+                toFind="λ"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
         </Form>
         <div className="button-custom-grp">
           <Button variant="primary" onClick={calcResult}>
@@ -1299,6 +1399,9 @@ const constants=["plank's constant","e","K"]
         break;
       case "DeBroglie wavelength":
         currentCall = DeBroglieWavelength();
+        break;
+      case "Crompton wavelength":
+        currentCall = CromptonWavelength();
         break;
       default:
         break;
