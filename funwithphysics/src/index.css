@@ -76,3 +76,9 @@ body.modal-open .modal .modal-dialog {
     animation: rotation 4s ease;
   }
 }
+
+/* mod for slide */
+
+.slide-routes > .item {
+  min-height: 100vh;
+}

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./Login.css";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ImageLoad from "../imageLoad";
 import axios from "axios";
 import { Context } from "../../App";
@@ -9,7 +9,7 @@ function Login() {
   const [email, setemail] = useState();
   const [pass, setpass] = useState();
   const [remember, setRemember] = useState();
-  const history = useHistory();
+  const history = useNavigate();
   function onSubmit(e) {
     e.preventDefault();
     const ob = {

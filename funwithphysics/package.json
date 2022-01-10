@@ -17,9 +17,10 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-progressive-image": "^0.6.0",
-    "react-router": "^5.2.1",
-    "react-router-dom": "^5.3.0",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1",
     "react-scripts": "^4.0.3",
+    "react-slide-routes": "^2.0.0",
     "react-snap": "^1.23.0",
     "styled-components": "^5.3.0",
     "web-vitals": "^1.1.2"

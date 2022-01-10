@@ -6,8 +6,10 @@ import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import Solution from "../../Solution/Solution";
 import {SI} from '../../Solution/allSIUnits'
+import { useParams } from "react-router-dom";
 
-function MOICalculator({ match }) {
+function MOICalculator() {
+  let {topic} = useParams();
   // MOI_list
   const MOI_list = [
     {
@@ -88,7 +90,7 @@ function MOICalculator({ match }) {
     },
   ];
 
-  const page = MOI_list.filter((data) => data.topic === match.params.topic);
+  const page = MOI_list.filter((data) => data.topic === topic);
   const details = page[0];
   console.log(page);
   console.log(details.formula);

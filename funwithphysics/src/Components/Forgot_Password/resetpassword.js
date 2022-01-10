@@ -1,14 +1,14 @@
 import React, {useState } from "react";
 import axios from "axios";
 import "./style.css";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 
 function ResetPassword() {
     const location=useLocation();
   const [password, setpassword] = useState();
   const [confirmpassword, setconfpassword] = useState();
-  const history=useHistory();
+  const history=useNavigate();
   function onSubmit(e) {
       const ob={pass:password,email:location.state.email}
     e.preventDefault();

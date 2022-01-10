@@ -8,7 +8,10 @@ import Navbar from "../../Navbar/Navbar";
 import Solution from "../../Solution/Solution";
 import { SI } from "../../Solution/allSIUnits";
 import { constant } from "../../Solution/allConstants";
-function Calculator({ match }) {
+import { useParams } from "react-router-dom";
+
+function Calculator() {
+  let {topic} = useParams();
   // topics_data
   const Topics = [
     {
@@ -103,7 +106,7 @@ function Calculator({ match }) {
     },
   ];
 
-  const page = Topics.filter((data) => data.topic === match.params.topic);
+  const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
   //Mass Energy Relation calculator

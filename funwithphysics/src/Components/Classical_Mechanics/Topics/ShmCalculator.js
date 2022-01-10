@@ -4,8 +4,10 @@ import { Form, Button } from "react-bootstrap";
 import "../classicalMechanics.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import { useParams } from "react-router-dom";
 
-function shm_Calculator({ match }) {
+function ShmCalculator() {
+  let { topic } = useParams();
   // shm_list
   const shm_list = [
     {
@@ -37,7 +39,7 @@ function shm_Calculator({ match }) {
     },
   ];
 
-  const page = shm_list.filter((data) => data.topic === match.params.topic);
+  const page = shm_list.filter((data) => data.topic === topic);
   const details = page[0];
 
   // Wave Calculator
@@ -136,7 +138,7 @@ function shm_Calculator({ match }) {
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control
-              as="select" 
+              as="select"
               className="select-custom-res"
               onChange={(e) => setChoice(e.target.value)}
             >
@@ -313,7 +315,7 @@ function shm_Calculator({ match }) {
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control
-              as="select" 
+              as="select"
               className="select-custom-res"
               onChange={(e) => setChoiceOsc(e.target.value)}
             >
@@ -486,4 +488,4 @@ function shm_Calculator({ match }) {
   );
 }
 
-export default shm_Calculator;
+export default ShmCalculator;

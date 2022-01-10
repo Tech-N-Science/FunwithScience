@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Calculator.css";
 import { Form, Card, Button } from "react-bootstrap";
 import "../Electromagnetism.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import Solution from "../../Solution/Solution";
@@ -10,7 +10,8 @@ import {constant} from '../../Solution/allConstants';
 import {SI} from '../../Solution/allSIUnits';
 import Modal from "react-bootstrap/Modal";
 
-const calculator = ({ match }) => {
+const Calculator = () => {
+  let {topic} = useParams();
   //topics_data
   const Topics = [
     {
@@ -406,7 +407,7 @@ const calculator = ({ match }) => {
     },
   ];
 
-  const page = Topics.filter((data) => data.topic === match.params.topic);
+  const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
   //Coulomb's law Calculator
@@ -2083,4 +2084,4 @@ const calculator = ({ match }) => {
   }
 };
 
-export default calculator;
+export default Calculator;
