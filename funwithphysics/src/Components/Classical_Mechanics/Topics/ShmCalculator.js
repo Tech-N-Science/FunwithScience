@@ -6,8 +6,8 @@ import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router-dom";
 
-function Shm_Calculator() {
-  let {topic} = useParams();
+function ShmCalculator() {
+  let { topic } = useParams();
   // shm_list
   const shm_list = [
     {
@@ -138,7 +138,7 @@ function Shm_Calculator() {
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control
-              as="select" 
+              as="select"
               className="select-custom-res"
               onChange={(e) => setChoice(e.target.value)}
             >
@@ -315,7 +315,7 @@ function Shm_Calculator() {
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control
-              as="select" 
+              as="select"
               className="select-custom-res"
               onChange={(e) => setChoiceOsc(e.target.value)}
             >
@@ -488,4 +488,4 @@ function Shm_Calculator() {
   );
 }
 
-export default Shm_Calculator;
+export default ShmCalculator;
