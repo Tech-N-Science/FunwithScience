@@ -6,9 +6,10 @@ import "./Calculator.css";
 import geometry_pair from "../../../Images/geometry_pair.png";
 import geometry_tan from "../../../Images/geometry_tan.png";
 import { useParams } from "react-router-dom";
+var Fraction = require("fractional").Fraction;
 
 function Calculator() {
-  let {topic} = useParams();
+  let { topic } = useParams();
   // topics_data
   const Topics = [
     {
@@ -32,6 +33,60 @@ function Calculator() {
         <br />,
         <b>3x + 5y -14=0 </b>,
         " Hence, this is the required equation of a line passing through the given points.",
+      ],
+    },
+    {
+      topic: "Parabola",
+      details:
+        "A parabola is a type of conic section, which is an open curve formed by the intersection of a plane and a right circular cone. It can be defined as the set of points which are equidistant from a fixed point (the focus) and a fixed line (the directrix). The axis of a parabola is the line which passes through the focus and is perpendicular to the directrix. The vertex is the point where the axis crosses the parabola.",
+      formula: [
+        " If vertex : (0,0) & focus : (a,0) then y²=4ax",
+        <br />,
+        " If vertex : (0,0) & focus : (-a,0) then y²=-4ax",
+        <br />,
+        " If vertex : (0,0) & focus : (0,a) then x²=4ay",
+        <br />,
+        " If vertex : (0,0) & focus : (0,-a) then x²=-4ay",
+      ],
+      process: [
+        "The equation of parabola is given by",
+        <br />,
+        "(y-β)² = 4a(x-α) whose vertex is (α,β) and axis is parallel to the x-axis",
+        <br />,
+        "(x-α)² = 4a(y-β) whose vertex is (α,β) and axis is parallel to the y-axis",
+        <br />,
+        <b>E.g. </b>,
+        "Find the equation of the parabola given the vertex(2,3) and point(-1,6).",
+        <br />,
+        <b>Solution: </b>,
+        <br />,
+        "To find the equation of the parabola using the vertex and a point provided we can use :",
+        <br />,
+        <>
+          <b>Note: </b>
+          <span>
+            Here we are assuming that it is a vertical parabola then the
+            equation is given by
+          </span>
+        </>,
+        <br />,
+        "y = a(x-h)²+k",
+        <br />,
+        "where (h,k) is the vertex.",
+        <br />,
+        "Substituting the given vertex in the above formula. ",
+        <br />,
+        "y = a(x-2)²+3",
+        <br />,
+        "Knowing that (-1,6) lies on the parabola we can solve for 'a' by, ",
+        <br />,
+        "6 = a(-1-2)²+3",
+        <br />,
+        "6 = 9a+3",
+        <br />,
+        "a = 1/3",
+        <br />,
+        "Hence the required equation is : y = 1/3(x-2)²+3",
       ],
     },
   ];
@@ -266,12 +321,288 @@ function Calculator() {
     );
   };
 
+  const Parabola = () => {
+    const [h, setH] = useState("");
+    const [k, setK] = useState(null);
+    const [x, setX] = useState(null);
+    const [y, setY] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setH("");
+      setK("");
+      setX("");
+      setY("");
+
+      setResult(null);
+    };
+    const nume = y - k;
+    const denome = (x - h) * (x - h);
+    const a = new Fraction(nume / denome);
+
+    const calcParabola = () => {
+      let equation = [
+        `Form1: y=${a.toString()}(x-${h})² + ${k}`,
+        `Form2: x=${a.toString()}(y-${k})² + ${h}`,
+      ];
+      setResult(equation);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong> To find the equation of Parabola</strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group className="mb-4" controlId="text">
+            <div className="straight_calc">
+              <form name="first">
+                <div className="group">
+                  <div className="coordinate">
+                    <label>h</label>
+                    <input
+                      name="x1"
+                      type="text"
+                      className="easynumeric"
+                      onChange={(e) => setH(e.target.value)}
+                      value={h}
+                    />
+                  </div>
+
+                  <div className="coordinate">
+                    <label>k</label>
+                    <input
+                      name="x2"
+                      type="text"
+                      className="easynumeric"
+                      onChange={(e) => setK(e.target.value)}
+                      value={k}
+                    />
+                  </div>
+                </div>
+
+                <div className="group clearfix">
+                  <div className="coordinate">
+                    <label>x</label>
+                    <input
+                      name="y1"
+                      className="easynumeric"
+                      value={x}
+                      onChange={(e) => setX(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="coordinate">
+                    <label>y</label>
+                    <input
+                      name="y2"
+                      type="text"
+                      className="easynumeric"
+                      value={y}
+                      onChange={(e) => setY(e.target.value)}
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              readOnly
+              type="number"
+              // placeholder={result === null ? "Result" : result + " "}
+            >
+              <option>{result === null ? "Form1 : " : result[0]}</option>
+              <option>{result === null ? "Form2 : " : result[1]}</option>
+            </Form.Control>
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp mb-5">
+          <Button variant="primary" onClick={calcParabola}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3> Parabola </h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th>
+                  <strong>Form:</strong>
+                </th>
+                <th>
+                  <strong>
+                    y<sup>2</sup> = 4ax
+                  </strong>
+                  <p>(Right-hand)</p>
+                </th>
+                <th>
+                  <strong>
+                    y<sup>2</sup> = &#x2013; 4ax
+                  </strong>
+                  <p>(Left-hand)</p>
+                </th>
+                <th>
+                  <strong>
+                    x<sup>2</sup> = 4ay
+                  </strong>
+                  <p>(Upward)</p>
+                </th>
+                <th>
+                  <strong>
+                    x<sup>2</sup> = &#x2013; 4ay{" "}
+                  </strong>
+                  <p>(Downward)</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Focus:</td>
+                <td>(a, 0)</td>
+                <td>(-a, 0)</td>
+                <td>(0, a)</td>
+                <td>(0, -a)</td>
+              </tr>
+              <tr>
+                <td>Axis:</td>
+                <td>y = 0</td>
+                <td>y = 0</td>
+                <td>x = 0</td>
+                <td>x = 0</td>
+              </tr>
+              <tr>
+                <td>Directrix:</td>
+                <td>x = &#x2013; a</td>
+                <td>x = a</td>
+                <td>y = &#x2013; a</td>
+                <td>y = a</td>
+              </tr>
+              <tr>
+                <td>Vertex:</td>
+                <td>(0, 0)</td>
+                <td>(0,0)</td>
+                <td>(0, 0)</td>
+                <td>(0, 0)</td>
+              </tr>
+              <tr>
+                <td>Focal distance of point (x,y)</td>
+                <td>x+a</td>
+                <td>a-x</td>
+                <td>y+a</td>
+                <td>a-y</td>
+              </tr>
+              <tr>
+                <td>Tangent at the vertex:</td>
+                <td>x = 0</td>
+                <td>x = 0</td>
+                <td>y = 0</td>
+                <td>y = 0</td>
+              </tr>
+              <tr>
+                <td>Length of latus rectum:</td>
+                <td>4a</td>
+                <td>4a</td>
+                <td>4a</td>
+                <td>4a</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="formula-table">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                {" "}
+                <tr>
+                  <h3>Properties of Parabola</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th>
+                  <strong>Equation:</strong>
+                </th>
+                <th>
+                  <strong>
+                    y<sup>2</sup> = 4ax
+                  </strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tangent</td>
+                <td>
+                  <b>
+                    yy<sub>1</sub> = 2a(x+x<sub>1</sub>)
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Normal</td>
+                <td>
+                  <b>
+                    {" "}
+                    (y-y<sub>1</sub>)=(-y<sub>1</sub>/2a)(x-x<sub>1</sub>)
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Chord of contact</td>
+                <td>
+                  <b>
+                    yy<sub>1</sub>=2x(x+x<sub>1</sub>){" "}
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Parametric Coordinates</td>
+                <td>
+                  <b>
+                    (at<sup>2</sup>,2at)
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Pole and Polar</td>
+                <td>
+                  <b>
+                    {" "}
+                    yy<sub>1</sub>=2x(x+x<sub>1</sub>)
+                  </b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
+  };
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
     switch (key) {
       case "Straight Line":
         currentCall = StraightLine();
+        break;
+      case "Parabola":
+        currentCall = Parabola();
         break;
 
       default:
