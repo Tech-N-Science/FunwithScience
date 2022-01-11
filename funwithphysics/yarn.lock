@@ -6086,6 +6086,11 @@
   "resolved" "https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz"
   "version" "0.2.0"
 
+"fractional@^1.0.0":
+  "integrity" "sha1-2rFnovn4BM+QOL3fR6qbp/IH6rw="
+  "resolved" "https://registry.npmjs.org/fractional/-/fractional-1.0.0.tgz"
+  "version" "1.0.0"
+
 "fragment-cache@^0.2.1":
   "integrity" "sha1-QpD60n8T6Jvn8zeZxrxaCr//DRk="
   "resolved" "https://registry.npmjs.org/fragment-cache/-/fragment-cache-0.2.1.tgz"
