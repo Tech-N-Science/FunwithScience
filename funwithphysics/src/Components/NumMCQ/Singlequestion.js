@@ -49,6 +49,7 @@ const Singlequestion = () => {
         allRight.push(each.answerText)
     });
     setAllRightAns(allRight);
+    // eslint-disable-next-line
   }, [id]);
 
   if (type === "mcq") {
