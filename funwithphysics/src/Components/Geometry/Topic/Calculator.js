@@ -89,6 +89,56 @@ function Calculator() {
         "Hence the required equation is : y = 1/3(x-2)²+3",
       ],
     },
+    {
+      topic: "Ellipse",
+      details:
+        "An ellipse is the set of points in a plane such that the sum of the distances from any point on the ellipse to two other fixed points is constant. The two points are each called a focus. The plural of focus is foci. It has a fixed line called directrix and the constant ratio is eccentricity of ellipse. The eccentricity of ellipse lies between 0 to 1. 0≤e<1",
+      formula: [
+        "The standard form of the equation of an ellipse with center (h,k) and major axis which is",
+        <br />,
+        "Parallel to x-axis is:",
+        <br />,
+        "(x-h)²/a² + (y-k)²/b² = 1",
+        <br />,
+        "Parallel to y-axis is:",
+        <br />,
+        "(x-h)²/b² + (y-k)²/a² = 1",
+      ],
+      process: [
+        "To find the equation of an ellipse in the standard form with center (h,k) we need two vertices and foci",
+        <br />,
+        <b>E.g.</b>,
+        "Find the equation of ellipse that has vertices (-2,-8) and (-2,2) and foci (-2,-7) and (-2,1),",
+        <br />,
+        "First we find out the center(h,k) which is halfway between the vertices,(-2,-8) and (-2,2).",
+        <br />,
+        "Applying midpoint formula,we get:",
+        <br />,
+        "(h,k) = ( (-2-2)/2,(-8+2)/2 ) = (-2,-3)",
+        <br />,
+        "Next we find a².The length of major axis is 2a.We solve for 'a' by finding the distance between y-coordinates of vertices: ",
+        <br />,
+        "2a = 2 - (-8)",
+        <br />,
+        "a = 5 So, a² = 25",
+        <br />,
+        "Now we find c². The foci are given as (h,k-c)=(-2,-7) and (h,k+c)=(-2,1).We substitute k=-3 in either of these points",
+        <br />,
+        "k+c=1",
+        <br />,
+        "-3+c=1",
+        <br />,
+        "c=4 So, c²=16",
+        <br />,
+        "Next, we get b² by using the equation c²=a²-b². After substituting a and c we get",
+        <br />,
+        "b²=9",
+        <br />,
+        "Finally after substituting all the values we found into the standard form we get:",
+        <br />,
+        "(x+2)²/9 + (y+3)²/25 = 1",
+      ],
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
@@ -335,14 +385,14 @@ function Calculator() {
 
       setResult(null);
     };
-    const nume = y - k;
-    const denome = (x - h) * (x - h);
-    const a = new Fraction(nume / denome);
 
     const calcParabola = () => {
+      const nume = y - k;
+      const denome = (x - h) * (x - h);
+      const a = new Fraction(nume / denome);
       let equation = [
-        `Form1: y=${a.toString()}(x-${h})² + ${k}`,
-        `Form2: x=${a.toString()}(y-${k})² + ${h}`,
+        `y=${a.toString()}(x-${h})² + ${k}`,
+        `x=${a.toString()}(y-${k})² + ${h}`,
       ];
       setResult(equation);
     };
@@ -359,6 +409,10 @@ function Calculator() {
           <Form.Group className="mb-4" controlId="text">
             <div className="straight_calc">
               <form name="first">
+                <p>
+                  <strong>Vertex: </strong>(h,k) &nbsp; <strong>Point:</strong>
+                  (x,y)
+                </p>
                 <div className="group">
                   <div className="coordinate">
                     <label>h</label>
@@ -409,18 +463,32 @@ function Calculator() {
             </div>
           </Form.Group>
 
-          <Form.Group className="mb-4">
-            <Form.Control
-              as="select"
-              className="select-custom-res"
-              readOnly
-              type="number"
-              // placeholder={result === null ? "Result" : result + " "}
-            >
-              <option>{result === null ? "Form1 : " : result[0]}</option>
-              <option>{result === null ? "Form2 : " : result[1]}</option>
-            </Form.Control>
-          </Form.Group>
+          <div className="input-group mb-4">
+            <Form.Group className="mr-3" id="r1">
+              <Form.Label>
+                <b>
+                  Standard Form1 (x<sup>2</sup>=4ay):
+                </b>
+              </Form.Label>
+              <Form.Control
+                readOnly
+                type="number"
+                placeholder={result === null ? "Result1" : result[0] + " "}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label>
+                <b>
+                  Standard Form2 (y<sup>2</sup>=4ax):
+                </b>
+              </Form.Label>
+              <Form.Control
+                readOnly
+                type="number"
+                placeholder={result === null ? "Result2" : result[1] + " "}
+              ></Form.Control>
+            </Form.Group>
+          </div>
         </Form>
         <div className="button-custom-grp mb-5">
           <Button variant="primary" onClick={calcParabola}>
@@ -594,6 +662,353 @@ function Calculator() {
     );
   };
 
+  const Ellipse = () => {
+    const [v1, setV1] = useState(null);
+    const [v2, setV2] = useState(null);
+    const [v3, setV3] = useState(null);
+    const [v4, setV4] = useState(null);
+    const [c1, setC1] = useState(null);
+    const [c2, setC2] = useState(null);
+    const [c3, setC3] = useState(null);
+    const [c4, setC4] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setV1("");
+      setV2("");
+      setV3("");
+      setV4("");
+      setC1("");
+      setC2("");
+      setC3("");
+      setC4("");
+
+      setResult(null);
+    };
+    const calcEllipse = () => {
+      // Converting the values into integers.
+      let V1, V2, V3, V4, C1, C2, C3, C4;
+      [V1, V2, V3, V4, C1, C2, C3, C4] = [v1, v2, v3, v4, c1, c2, c3, c4].map(
+        (varr) => parseInt(varr)
+      );
+      let major_xaxis = false;
+      const [h, k] = [(V1 + V3) / 2, (V2 + V4) / 2];
+      if (V2 === 0 && V4 === 0 && C2 === 0 && C4 === 0) {
+        major_xaxis = true;
+      }
+      const a = major_xaxis ? Math.abs(V1) : (V4 - V2) / 2;
+      const c = major_xaxis ? Math.abs(C1) : C4 - k;
+      const [aSquare, cSquare] = [a * a, c * c];
+      const bSquare = aSquare - cSquare;
+
+      let equation = [
+        `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${aSquare} + (y${
+          k >= 0 ? "-" : "+"
+        }${k < 0 ? -k : k})²/${bSquare} = 1`,
+        `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${bSquare} + (y${
+          k >= 0 ? "-" : "+"
+        }${k < 0 ? -k : k})²/${aSquare} = 1`,
+      ];
+      setResult(equation);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong> To find the equation of Ellipse</strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group className="mb-4" controlId="text">
+            <div className="straight_calc">
+              <form name="first">
+                <p>
+                  <strong>Vertices: </strong>v1,v2,v3,v4 &nbsp;{" "}
+                  <strong>Foci:</strong>c1,c2,c3,c4
+                </p>
+                <div className="group">
+                  <div className="coordinate mb-2">
+                    <label>
+                      v<sub>1</sub>
+                    </label>
+                    <input
+                      name="x1"
+                      type="text"
+                      className="easynumeric"
+                      onChange={(e) => setV1(e.target.value)}
+                      value={v1}
+                    />
+                  </div>
+
+                  <div className="coordinate mb-2">
+                    <label>
+                      v<sub>2</sub>
+                    </label>
+                    <input
+                      name="x2"
+                      type="text"
+                      className="easynumeric"
+                      onChange={(e) => setV2(e.target.value)}
+                      value={v2}
+                    />
+                  </div>
+                </div>
+
+                <div className="group clearfix">
+                  <div className="coordinate mb-2">
+                    <label>
+                      v<sub>3</sub>
+                    </label>
+                    <input
+                      name="y1"
+                      type="text"
+                      className="easynumeric"
+                      value={v3}
+                      onChange={(e) => setV3(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="coordinate mb-2">
+                    <label>
+                      v<sub>4</sub>
+                    </label>
+                    <input
+                      name="y2"
+                      type="text"
+                      className="easynumeric"
+                      value={v4}
+                      onChange={(e) => setV4(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="group">
+                  <div className="coordinate mb-2">
+                    <label>
+                      c<sub>1</sub>
+                    </label>
+                    <input
+                      name="x1"
+                      type="text"
+                      className="easynumeric"
+                      onChange={(e) => setC1(e.target.value)}
+                      value={c1}
+                    />
+                  </div>
+
+                  <div className="coordinate mb-2">
+                    <label>
+                      c<sub>2</sub>
+                    </label>
+                    <input
+                      name="x2"
+                      type="text"
+                      className="easynumeric"
+                      onChange={(e) => setC2(e.target.value)}
+                      value={c2}
+                    />
+                  </div>
+                </div>
+
+                <div className="group clearfix">
+                  <div className="coordinate">
+                    <label>
+                      c<sub>3</sub>
+                    </label>
+                    <input
+                      name="y1"
+                      type="text"
+                      className="easynumeric"
+                      value={c3}
+                      onChange={(e) => setC3(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="coordinate">
+                    <label>
+                      c<sub>4</sub>
+                    </label>
+                    <input
+                      name="y2"
+                      type="text"
+                      className="easynumeric"
+                      value={c4}
+                      onChange={(e) => setC4(e.target.value)}
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </Form.Group>
+
+          <div className="input-group mb-4">
+            <Form.Group className="mr-3" id="r1">
+              <Form.Label>
+                <b>Standard Form1 [(x-h)²/a² + (y-k)²/b² = 1] :</b>
+              </Form.Label>
+              <Form.Control
+                readOnly
+                type="number"
+                placeholder={result === null ? "Result1" : result[0] + " "}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label>
+                <b>Standard Form2 [(x-h)²/b² + (y-k)²/a² = 1] :</b>
+              </Form.Label>
+              <Form.Control
+                readOnly
+                type="number"
+                placeholder={result === null ? "Result2" : result[1] + " "}
+              ></Form.Control>
+            </Form.Group>
+          </div>
+        </Form>
+        <div className="button-custom-grp mb-5">
+          <Button variant="primary" onClick={calcEllipse}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3> Ellipse </h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th>
+                  <strong>Equation</strong>
+                </th>
+                <th>
+                  <strong>x²/a² + y²/b² = 1</strong>
+                  <span> (a&gt;b)</span>
+                </th>
+                <th>
+                  <strong>x²/a² + y²/b² = 1</strong>
+                  <span> (a&lt;b)</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Equation of Major axis</td>
+                <td>y = 0</td>
+                <td>x = 0</td>
+              </tr>
+              <tr>
+                <td>Length of Major axis</td>
+                <td>2a</td>
+                <td>2b</td>
+              </tr>
+              <tr>
+                <td>Equation of Minor axis</td>
+                <td>x = 0</td>
+                <td>y = 0</td>
+              </tr>
+              <tr>
+                <td>Length of Minor axis</td>
+                <td>2b</td>
+                <td>2b</td>
+              </tr>
+              <tr>
+                <td>Vertices</td>
+                <td>(&#177;a,0)</td>
+                <td>(0,&#177;b)</td>
+              </tr>
+              <tr>
+                <td>Foci</td>
+                <td>(&#177;ae,0)</td>
+                <td>(0,&#177;be)</td>
+              </tr>
+              <tr>
+                <td>Directrix</td>
+                <td>x = &#177;(a/e)</td>
+                <td>y = &#177;(b/e)</td>
+              </tr>
+              <tr>
+                <td>Eccentricity</td>
+                <td>
+                  e = &#8730;1-(b<sup>2</sup>/a<sup>2</sup>)
+                </td>
+                <td>
+                  e = &#8730;1-(a<sup>2</sup>/b<sup>2</sup>)
+                </td>
+              </tr>
+              <tr>
+                <td>Length of Latus-rectum</td>
+                <td>
+                  2b<sup>2</sup>/a
+                </td>
+                <td>
+                  2a<sup>2</sup>/b
+                </td>
+              </tr>
+              <tr>
+                <td>Centre</td>
+                <td>(0,0)</td>
+                <td>(0,0)</td>
+              </tr>
+              <tr>
+                <td>Focal distances of any point(x,y)</td>
+                <td>a &#177; ex</td>
+                <td>b &#177; ey</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="formula-table">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                {" "}
+                <tr>
+                  <h3>Formulas of Ellipse</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th>
+                  <strong>Equation:</strong>
+                </th>
+                <th>
+                  <strong>x²/a² + y²/b² = 1</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Area of Ellipse</td>
+                <td>&pi;ab</td>
+              </tr>
+              <tr>
+                <td>Perimeter of Ellipse</td>
+                <td>
+                  2&pi;&#8730;(a<sup>2</sup>+b<sup>2</sup>)/2
+                </td>
+              </tr>
+              <tr>
+                <td>Volume of Ellipse</td>
+                <td>4/3&#215;&pi;&#215;a&#215;b&#215;c</td>
+              </tr>
+              <tr>
+                <td>Circumference of Ellipse</td>
+                <td>&pi;(a + b)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
+  };
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -603,6 +1018,9 @@ function Calculator() {
         break;
       case "Parabola":
         currentCall = Parabola();
+        break;
+      case "Ellipse":
+        currentCall = Ellipse();
         break;
 
       default:
