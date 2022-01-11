@@ -13,12 +13,6 @@ export default function Algebra() {
       formula: "Straight line formula",
       process: "Straight line process",
     },
-    {
-      topic: "Parabola",
-      details: "",
-      formula: "",
-      process: "",
-    },
   ];
 
   return (
