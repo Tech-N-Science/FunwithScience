@@ -29,6 +29,13 @@ export default function Algebra() {
       process:
         'To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.',
     },
+    {
+      topic: 'Statistics',
+      details: `A combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`,
+      formula: 'AP = N + d * (n-1) <br> GP = N * r ^ (n-1)',
+      process:
+        'To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.',
+    },
   ];
 
   return (
