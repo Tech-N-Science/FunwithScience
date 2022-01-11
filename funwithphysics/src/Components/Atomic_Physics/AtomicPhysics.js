@@ -88,16 +88,6 @@ export default function AtomicPhysics() {
       process:
         "The de Broglie equation is used to calculate the wavelength of the moving particle. Where p is the momentum of the given particle and h is the planck's constant.",
     },
-    {
-      topic: "Crompton wavelength",
-      formula: "λ = h/mc",
-      siunit: "metre",
-      details:
-        "Compton wavelength is defined as the wavelength of a photon, which has an energy value equal to the mass of that particle. It is a value used in calculation of crompton scattering and some other quantum-mechanical phenomena.",
-      dimension: "M⁰L¹T⁰",
-      process:
-        "The standard crompton wavelength equation is given by the equation as shown above. Where λ is the Compton wavelength, h is the Planck constant, m is the mass of the particle and c is the speed of light in vacuum",
-    },
   ];
 
   return (
