@@ -385,6 +385,7 @@ function Calculator() {
       statOBJ.smallest = numArr[1];
       numArr.map((item, index) => {
         statOBJ.sum += Number(item); //Sum of all items
+        return (<></>)
       });
       statOBJ.largest = numArr[statOBJ.count - 1]; //largest of all items
       statOBJ.smallest = numArr[0]; //smalles of all items
