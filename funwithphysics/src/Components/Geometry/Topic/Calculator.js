@@ -92,7 +92,7 @@ function Calculator() {
     {
       topic: "Ellipse",
       details:
-        "An ellipse is the set of points in a plane such that the sum of the distances from any point on the ellipse to two other fixed points is constant. The two points are each called a focus. The plural of focus is foci. It has a fixed line called directrix and the constant ratio is eccentricity of ellipse. The eccentricity of ellipse lies between 0 to 1. 0≤e<1",
+        "An ellipse is a set of points in a plane such that the total of the distances between any two points on the ellipse is constant. Each of the two spots is referred to as a focus. The singular form of focus is foci. It has a fixed line called the directrix, and the constant ratio is the ellipse's eccentricity. The eccentricity of an ellipse ranges from 0 to 1. 0≤e<1",
       formula: [
         "The standard form of the equation of an ellipse with center (h,k) and major axis which is",
         <br />,
@@ -687,9 +687,9 @@ function Calculator() {
     };
     const calcEllipse = () => {
       // Converting the values into integers.
-      let V1, V2, V3, V4, C1, C2, C3, C4;
-      [V1, V2, V3, V4, C1, C2, C3, C4] = [v1, v2, v3, v4, c1, c2, c3, c4].map(
-        (varr) => parseInt(varr)
+      let V1, V2, V3, V4, C1, C2, C4;
+      [V1, V2, V3, V4, C1, C2, C4] = [v1, v2, v3, v4, c1, c2, c4].map((varr) =>
+        parseInt(varr)
       );
       let major_xaxis = false;
       const [h, k] = [(V1 + V3) / 2, (V2 + V4) / 2];
