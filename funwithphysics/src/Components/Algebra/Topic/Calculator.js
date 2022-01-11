@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
-import { useParams } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
+import { useParams } from "react-router";
 
 function Calculator() {
-  let {topic} = useParams();
+  let { topic } = useParams();
   // topics_data
   const Topics = [
     {
@@ -62,6 +62,24 @@ function Calculator() {
         "nth term of a GP = a rn-1",
         <br />,
         "5th term of the GP = 2 * 2 ^ (5-1) = 32",
+        <br />,
+      ],
+    },
+    {
+      topic: "Statistics",
+      details: `Statistics is the branch of science that studies and develops methods for gathering, analysing, interpreting, and interpreting empirical data.`,
+      formula: "",
+      process: [
+        "To calculate the mean, median and mode, we have to use the formulae giving below",
+        <br />,
+        <b>E.g. </b>,
+        "Numbers given: 20 30 60 20 10 40 80 90",
+        <br />,
+        "Mean = Sum of all items/Total no. of items = 350/8 = 43.75",
+        <br />,
+        "Since total number of items is 6(even), Median = (n / 2)th = 3rd item = 30",
+        <br />,
+        "Mode = 20 (as 20 occured most number of times in the given set of numbers)",
         <br />,
       ],
     },
@@ -343,6 +361,208 @@ function Calculator() {
       </>
     );
   };
+  // Statistics calculator
+  const Statistics = () => {
+    let numArr = [];
+    let statOBJ = {
+      sort: [],
+      count: 0,
+      sum: 0,
+      largest: 0,
+      smallest: 0,
+      mean: 0,
+      median: 0,
+      mode: 0,
+    };
+    const [number, setNum] = useState(0);
+    const [statData, setStatData] = useState(statOBJ);
+
+    const calcStat = () => {
+      numArr = number.split(/[\s,]+/);
+      numArr = numArr.sort();
+      statOBJ.sort = numArr; //sorted numbers
+      statOBJ.count = numArr.length; //Number of items
+      statOBJ.smallest = numArr[1];
+      numArr.map((item, index) => {
+        statOBJ.sum += Number(item); //Sum of all items
+        return (<></>)
+      });
+      statOBJ.largest = numArr[statOBJ.count - 1]; //largest of all items
+      statOBJ.smallest = numArr[0]; //smalles of all items
+      statOBJ.mean = (statOBJ.sum / statOBJ.count).toFixed(2); //mean or average of all
+      let med = 0;
+      if (statOBJ.count % 2 === 0) {
+        med = statOBJ.count / 2;
+      } else {
+        med = (statOBJ.count + 1) / 2;
+      }
+      statOBJ.median = numArr[med - 1]; //median of all items
+      let repeatCount = 1;
+      let modeIndex = 0;
+      let maxRepeat = 0;
+      for (let i = 0; i < numArr.length; i++) {
+        if (numArr[i] === numArr[i + 1]) {
+          repeatCount = repeatCount + 1;
+          if (repeatCount > maxRepeat) {
+            maxRepeat = repeatCount;
+            modeIndex = i;
+          }
+        } else {
+          repeatCount = 0;
+        }
+      }
+      statOBJ.mode = numArr[modeIndex]; //mode of all items
+    };
+    const resetStat = () => {
+      setNum(0);
+    };
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>Enter the following values</strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter numbers sparated by a space or comma</Form.Label>
+            <Form.Control
+              onChange={(e) => setNum(e.target.value)}
+              type="text"
+              placeholder={"Enter the First Number"}
+              value={number === 0 ? "" : number}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Sorted Data</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                statData.count === 0
+                  ? "Numbers in ascending order"
+                  : statData.sort
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Total number of items</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={statData.count === 0 ? "Count" : statData.count}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Sum of all the items</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={statData.sum === 0 ? "Sum" : statData.sum}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Smallest of all the items</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                statData.smallest === 0 ? "Smallest" : statData.smallest
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Largest of all the items</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={
+                statData.largest === 0 ? "Largest" : statData.largest
+              }
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Mean(average) of all the items</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={statData.mean === 0 ? "Mean" : statData.mean}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Median of all the items</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={statData.median === 0 ? "Median" : statData.median}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Mode of all the items</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={statData.mode === 0 ? "Mode" : statData.mode}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button
+            variant="primary"
+            onClick={() => {
+              calcStat();
+              setStatData(statOBJ);
+            }}
+          >
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => resetStat()} type="reset">
+            Reset
+          </Button>
+        </div>
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <th className="row-1 row-ID  ">Folmulae used</th>
+                  <th className="row-2 row-name "></th>
+                </tr>
+              </section>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mean</td>
+                <td>
+                  <b>Sum of all items/Total no. of items</b>
+                </td>
+              </tr>
+              <tr>
+                <td>Median</td>
+                <td>
+                  <b>
+                    if total number of items is odd then [(n + 1) ÷ 2]th
+                    otherwise (n ÷2)th{" "}
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Mode</td>
+                <td>
+                  <b>
+                    The mode is the value that appears most often in a set of
+                    data values
+                  </b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
+  };
 
   //adding the calculators togather
   function calC(key) {
@@ -356,6 +576,9 @@ function Calculator() {
         break;
       case "Progression":
         currentCall = Progression();
+        break;
+      case "Statistics":
+        currentCall = Statistics();
         break;
       default:
         break;

@@ -371,6 +371,7 @@ function Calculator() {
     );
   };
 
+  //Parabola
   const Parabola = () => {
     const [h, setH] = useState("");
     const [k, setK] = useState(null);
