@@ -19,6 +19,12 @@ export default function Algebra() {
       formula: "",
       process: "",
     },
+    {
+      topic: "Ellipse",
+      details: "",
+      formula: "",
+      process: "",
+    },
   ];
 
   return (
