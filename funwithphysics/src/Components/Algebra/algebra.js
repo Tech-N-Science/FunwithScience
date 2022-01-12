@@ -36,6 +36,13 @@ export default function Algebra() {
       process:
         'To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.',
     },
+    {
+      topic: 'Quadratic-equation',
+      details: `For a quadratic equation ax2 + bx + c = 0, The roots are calculated using the formula, x = (-b ± √ (b² - 4ac) )/2a. Discriminant is, D = b2 - 4ac. If D > 0, then the equation has two real and distinct roots.`,
+      formula: 'x = (-b ± √ (b² - 4ac) )/2a',
+      process:
+        'To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.',
+    },
   ];
 
   return (
