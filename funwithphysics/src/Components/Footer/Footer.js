@@ -57,7 +57,7 @@ const Footer = () => {
                     <Link
                       to={{
                         pathname:
-                          "https://www.linkedin.com/in/amit-kumar-mishra-28122a193",
+                          "https://www.linkedin.com/company/tech-n-science",
                       }}
                       target="_blank"
                     >
@@ -74,17 +74,19 @@ const Footer = () => {
             <div className="content">
               <div className="place">
                 <span className="fas fa-map-marker-alt"></span>
-                <span className="text">India</span>
+                <span className="text">
+                  Anand Arcade,Block C(G-4),MSR Layout,Chandrampalem,VSKP,AP-48
+                </span>
               </div>
 
               <div className="email">
                 <Link
-                  to={{ pathname: "mailto:example123@gmail.com" }}
+                  to={{ pathname: "mailto:support@technscience.com" }}
                   target="_blank"
                 >
                   <span className="fas fa-envelope"></span>
                 </Link>
-                <span className="text">example123@gmail.com</span>
+                <span className="text">support@technscience.com</span>
               </div>
             </div>
           </div>

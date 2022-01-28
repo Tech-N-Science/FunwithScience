@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import "./Calculator.css";
 import geometry_pair from "../../../Images/geometry_pair.png";
-import geometry_tan from "../../../Images/geometry_tan.png";
+import geometry_tan from "../../../Images/geometry_tan.webp";
 import { useParams } from "react-router-dom";
 var Fraction = require("fractional").Fraction;
 
