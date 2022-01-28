@@ -98,7 +98,7 @@ const Footer = () => {
               <Link to="/">Tech N Science</Link> |{" "}
             </span>
             <span className="far fa-copyright"></span>
-            <span> 2021 All rights reserved.</span>
+            <span> 2022 All rights reserved.</span>
           </center>
         </div>
       </footer>
