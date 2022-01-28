@@ -18,7 +18,7 @@ function Login() {
       remember,
     };
     axios
-      .post("http://localhost/funwithscience_backend/login.php", ob)
+      .post("https://technscience.com/funwithscience_backend/login.php", ob)
       .then((res) => {
         if (res.data === 2) {
           alert("password incorrect");
@@ -49,7 +49,12 @@ function Login() {
         <div className="loginmain">
           <figure>
             {/* <img src={logimg} alt="" className="logimg" /> */}
-            <ImageLoad className="logimg" main={"./Images-public/group1.webp"} placeholder={"./Images-public/group1-small.jpg"} alt={"login"} />
+            <ImageLoad
+              className="logimg"
+              main={"./Images-public/group1.webp"}
+              placeholder={"./Images-public/group1-small.jpg"}
+              alt={"login"}
+            />
             <p className="figtext">
               Designed by <a href="https://www.freepik.com/">Freepik</a>
             </p>
@@ -101,7 +106,9 @@ function Login() {
                 }}
               />
               <label className="remem">Remember me</label>
-              <p><a href="/fpass">Forgot Password?</a></p>
+              <p>
+                <a href="/fpass">Forgot Password?</a>
+              </p>
             </div>
             <button
               type="submit"

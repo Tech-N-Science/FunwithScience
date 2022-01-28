@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
 import ImageLoad from "../imageLoad";
 import axios from "axios";
-import contactimage from "./Contact.webp"
+import contactimage from "./Contact.webp";
 
 export default function Contact() {
   const [name, setname] = useState();
@@ -18,7 +18,7 @@ export default function Contact() {
     e.preventDefault();
     if (name && message && email) {
       axios
-        .post("http://localhost/funwithscience_backend/sendemail.php", {
+        .post("https://technscience.com/funwithscience_backend/sendemail.php", {
           name,
           email,
           message,
@@ -57,10 +57,7 @@ export default function Contact() {
       <div className="contactMain">
         <div className="contactDetails">
           <div className="contactSVG">
-            <ImageLoad
-              className="contact-img"
-              main={contactimage}
-            />
+            <ImageLoad className="contact-img" main={contactimage} />
           </div>
           <div className="contactTXT">
             <div className="contactInfo">

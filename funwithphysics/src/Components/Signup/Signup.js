@@ -39,7 +39,7 @@ export default class Signup extends Component {
     };
 
     axios
-      .post("http://localhost/funwithscience_backend/insert.php", ob)
+      .post("https://technscience.com/funwithscience_backend/insert.php", ob)
       .then((res) => {
         if (res.data === 1) {
           alert(" Registered Successfully");
@@ -49,13 +49,11 @@ export default class Signup extends Component {
             pass: "",
           });
           this.props.history.push("/login");
-        } else if(res.data === 2) {
+        } else if (res.data === 2) {
           alert("Username already exists");
-        }
-        else if(res.data === 0) {
+        } else if (res.data === 0) {
           alert("Email already exists");
-        }
-        else{
+        } else {
           alert("Some error occured");
         }
         console.log(res.data);
@@ -69,7 +67,12 @@ export default class Signup extends Component {
           <div className="signmain">
             <figure>
               {/* <img src={signimg} alt="" className="signimg" /> */}
-              <ImageLoad className="signimg" main={"./Images-public/girl.webp"} placeholder={"./Images-public/girl-small.jpg"} alt={"signup"} />
+              <ImageLoad
+                className="signimg"
+                main={"./Images-public/girl.webp"}
+                placeholder={"./Images-public/girl-small.jpg"}
+                alt={"signup"}
+              />
               <p className="figtext">
                 Designed by <a href="https://www.freepik.com/">Freepik</a>
               </p>
