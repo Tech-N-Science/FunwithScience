@@ -49,26 +49,26 @@ const Singlecard = (props) => {
           <Card.Title className="card-title">{props.question}</Card.Title>
           <Card.Text className="card-text">{props.topic}</Card.Text>
         </div>
-        {state.user || user !== "null" ? (
-          <Link
-            to={{
-              pathname: `/questions/${props.type}/${uniqueIdCheck(
-                props.type,
-                props.id
-              )}`,
-              state: {
-                type: props.type,
-                ques: props.question,
-                img: props.image,
-                ans: props.answer,
-              },
-            }}
-          >
-            <Button variant="primary" className="solve-question-btn">
-              Solve Question
-            </Button>
-          </Link>
-        ) : (
+        {/*{state.user || user !== "null" ? (*/}
+        <Link
+          to={{
+            pathname: `/questions/${props.type}/${uniqueIdCheck(
+              props.type,
+              props.id
+            )}`,
+            state: {
+              type: props.type,
+              ques: props.question,
+              img: props.image,
+              ans: props.answer,
+            },
+          }}
+        >
+          <Button variant="primary" className="solve-question-btn">
+            Solve Question
+          </Button>
+        </Link>
+        {/*}) : (
           <Link to="/Login">
             <Button
               variant="primary"
@@ -80,7 +80,7 @@ const Singlecard = (props) => {
               Solve Question
             </Button>
           </Link>
-        )}
+            )}*/}
       </Card.Body>
     </Card>
   );
