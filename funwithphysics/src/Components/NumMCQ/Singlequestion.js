@@ -9,7 +9,6 @@ import { data } from "./data";
 const Singlequestion = () => {
   var { id, type } = useParams();
   id = parseInt(id);
-  console.log(id);
 
   const [mcqAll, setMcqAll] = useState(data.filter((val) => val.type === type));
 
@@ -18,10 +17,14 @@ const Singlequestion = () => {
   const quest = mcqAll[id].question;
   const answ = mcqAll[id].answer;
   var allRight = [];
-  answ.forEach((each) => {
-    if (each.isCorrect === true) 
-      allRight.push(each.answerText)
-  });
+  try {
+    answ.forEach((each) => {
+      if (each.isCorrect === true) 
+        allRight.push(each.answerText)
+    });
+  } catch(err) {
+    
+  }
   const [question, setquestion] = useState(quest);
   const [answer, setanswer] = useState(answ);
   const [allRightAns, setAllRightAns] = useState(allRight);
@@ -44,10 +47,14 @@ const Singlequestion = () => {
 
   useEffect(() => {
     var allRight = [];
-    mcqAll[id].answer.forEach((each) => {
-      if (each.isCorrect === true) 
-        allRight.push(each.answerText)
-    });
+    try {
+      mcqAll[id].answer.forEach((each) => {
+        if (each.isCorrect === true) 
+          allRight.push(each.answerText)
+      });
+    } catch(err) {
+      console.log("");
+    }
     setAllRightAns(allRight);
     // eslint-disable-next-line
   }, [id]);
@@ -237,7 +244,7 @@ const Singlequestion = () => {
                 type="number"
                 placeholder="Please enter answer here.."
                 value={result}
-                onChange={(e) => setResult(Number(e.target.value))}
+                onChange={(e) => setResult(e.target.value != "" ? Number(e.target.value) : "")}
               />
             </div>
             <div className="btns-box">
