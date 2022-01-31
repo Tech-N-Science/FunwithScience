@@ -19,12 +19,9 @@ const Singlequestion = () => {
   var allRight = [];
   try {
     answ.forEach((each) => {
-      if (each.isCorrect === true) 
-        allRight.push(each.answerText)
+      if (each.isCorrect === true) allRight.push(each.answerText);
     });
-  } catch(err) {
-    
-  }
+  } catch (err) {}
   const [question, setquestion] = useState(quest);
   const [answer, setanswer] = useState(answ);
   const [allRightAns, setAllRightAns] = useState(allRight);
@@ -38,7 +35,7 @@ const Singlequestion = () => {
     setanswer(mcqAll[id].answer);
     setimag(mcqAll[id].image);
   });
-  
+
   useEffect(() => {
     setResult([]);
     setMcqAll(data.filter((val) => val.type === type));
@@ -49,10 +46,9 @@ const Singlequestion = () => {
     var allRight = [];
     try {
       mcqAll[id].answer.forEach((each) => {
-        if (each.isCorrect === true) 
-          allRight.push(each.answerText)
+        if (each.isCorrect === true) allRight.push(each.answerText);
       });
-    } catch(err) {
+    } catch (err) {
       console.log("");
     }
     setAllRightAns(allRight);
@@ -84,7 +80,9 @@ const Singlequestion = () => {
         //     }
         //   }
         // }
-        if (JSON.stringify(result.sort()) === JSON.stringify(allRightAns.sort())) {
+        if (
+          JSON.stringify(result.sort()) === JSON.stringify(allRightAns.sort())
+        ) {
           alert("Correct Answer");
           handleOptions();
         } else {
@@ -244,7 +242,9 @@ const Singlequestion = () => {
                 type="number"
                 placeholder="Please enter answer here.."
                 value={result}
-                onChange={(e) => setResult(e.target.value != "" ? Number(e.target.value) : "")}
+                onChange={(e) =>
+                  setResult(e.target.value !== "" ? Number(e.target.value) : "")
+                }
               />
             </div>
             <div className="btns-box">
