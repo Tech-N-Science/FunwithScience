@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
 import ImageLoad from "../imageLoad";
 import axios from "axios";
-import contactimage from "./Contact.webp";
+import contactimage from "../../Images/Contact.webp";
 
 export default function Contact() {
   const [name, setname] = useState();
