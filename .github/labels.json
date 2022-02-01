@@ -1,5 +1,4 @@
 [
-  
   {
     "name": "hard",
     "description": "Points will be: 5(1st Phase), 8(2nd Phase). 4 days will be allotted.",
@@ -19,5 +18,5 @@
     "name": "JWOC",
     "description": "This issue/pull request will be considered for JWOC 2k22.",
     "color": "1d4cb0"
-  },
+  }
 ]
