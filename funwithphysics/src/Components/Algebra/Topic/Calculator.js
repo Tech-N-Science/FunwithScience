@@ -521,30 +521,36 @@ function Calculator() {
           <Button variant="dark" onClick={() => resetStat()} type="reset">
             Reset
           </Button>
-        </div>
+        </div>  
+        &nbsp; &nbsp;      
         <div className="formula-table mb-4">
           <table className="formulae">
             <thead>
               <section className="m-2">
                 <tr>
-                  <th className="row-1 row-ID  ">Folmulae used</th>
-                  <th className="row-2 row-name "></th>
+                  <h3>Statistical Formulae</h3>
                 </tr>
               </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Measures</th>
+                <th className="row-2 row-name ">Equation</th>
+              </tr>
+
             </thead>
             <tbody>
               <tr>
                 <td>Mean</td>
                 <td>
-                  <b>Sum of all items/Total no. of items</b>
+                  <b>Σx<sub>i</sub> / N</b> , where N is total number of values  
                 </td>
               </tr>
               <tr>
                 <td>Median</td>
                 <td>
                   <b>
-                    if total number of items is odd then [(n + 1) ÷ 2]th
-                    otherwise (n ÷2)th{" "}
+                    <div>((N+1)/2)<sup>th</sup> term, if N is odd</div>
+                    <div>((N/2)<sup>th</sup> term + (N/2+1)<sup>th</sup>term) / 2 , if N is even</div>
                   </b>
                 </td>
               </tr>
@@ -552,8 +558,39 @@ function Calculator() {
                 <td>Mode</td>
                 <td>
                   <b>
-                    The mode is the value that appears most often in a set of
-                    data values
+                   The value which appears most frequently
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Variance</td>
+                <td>
+                  <b>
+                        (Σ(x - Mean)<sup>2</sup>) / N
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Standard Deviation</td>
+                <td>
+                  <b>
+                      &radic; (Σ(x - Mean)<sup>2</sup>) / N
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>
+                  <b>
+                     Highest Value - Lowest Value in series
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Mean Deviation</td>
+                <td>
+                  <b>
+                  (Σ|x<sub>i</sub> - Mean|) / N
                   </b>
                 </td>
               </tr>
