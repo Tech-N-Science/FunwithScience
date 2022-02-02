@@ -1,6 +1,6 @@
-.contact-heading{
+.contact-heading {
   text-align: center;
- margin: 20px 0 40px 0;
+  margin: 20px 0 40px 0;
 }
 .contactMain {
   height: 90vh;
@@ -12,11 +12,11 @@
 }
 .contactForm {
   width: 30%;
-/* width: 30%;*/
-  height: 70%; 
+  /* width: 30%;*/
+  height: 70%;
   /* background: var(--footer-bg-hex); */
   /* background-color: #2c3e50; */
-  background: linear-gradient(180deg, #2C3E50 0%, rgba(0, 71, 142, 0.8) 100%);
+  background: linear-gradient(180deg, #2c3e50 0%, rgba(0, 71, 142, 0.8) 100%);
   /* border-radius: 20px; */
   position: relative;
   display: flex;
@@ -27,13 +27,13 @@
   padding: 5vh 5vh 10vh;
 }
 
-@media (max-width:1021px){
-  .contactForm{
-    width: 50%;
-      height: 75%;
+@media (max-width: 1021px) {
+  .contactForm {
+    width: 70%;
+    height: 50%;
     /* height: 90vh; */
   }
-  .contactMain{
+  .contactMain {
     height: 90vh;
     justify-content: space-around;
     align-items: center;
@@ -83,17 +83,16 @@
   background-color: #2c3e50;
   color: cyan;
 }
-.contactCircle{
+.contactCircle {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: rgba(124, 124, 124, 0.062);
 }
-.contactDetails{
-    display: flex;
+.contactDetails {
+  display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 /* .contactSVG {
 
@@ -107,7 +106,7 @@
   padding: 20px;
 
 } */
-.contactInfo{
+.contactInfo {
   font-size: 1.2rem;
   margin-top: 10px;
   margin-left: 84px;
@@ -117,19 +116,18 @@
   /* justify-content: center; */
   align-items: center;
 }
-.contact-img{
+.contact-img {
   width: 400px;
 }
-.contactInfo p{
- margin: 10px;
-
+.contactInfo p {
+  margin: 10px;
 }
-.contactTXT{
+.contactTXT {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top:20px;
+  margin-top: 20px;
   margin-bottom: 40px;
 }
 
@@ -151,13 +149,12 @@
   .contactTXT {
     width: 90% !important;
   }
- 
 }
 @media only screen and (max-width: 437px) {
-  .contact-img{
+  .contact-img {
     width: 300px;
   }
-  .contactInfo{
+  .contactInfo {
     margin-left: 50px;
   }
 }
