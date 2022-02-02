@@ -12,8 +12,8 @@
 }
 .contactForm {
   width: 30%;
-/* width: 30%;
-  height: 70%; */
+/* width: 30%;*/
+  height: 70%; 
   /* background: var(--footer-bg-hex); */
   /* background-color: #2c3e50; */
   background: linear-gradient(180deg, #2C3E50 0%, rgba(0, 71, 142, 0.8) 100%);
