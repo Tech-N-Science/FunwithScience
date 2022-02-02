@@ -30,11 +30,14 @@
 @media (max-width:1021px){
   .contactForm{
     width: 50%;
-    
+      height: 75%;
     /* height: 90vh; */
   }
   .contactMain{
-    height: 50%;
+    height: 90vh;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2%;
   }
 }
 .contactForm > h2 {
@@ -87,8 +90,9 @@
   background-color: rgba(124, 124, 124, 0.062);
 }
 .contactDetails{
-  display: flex;
+    display: flex;
   flex-direction: column;
+  align-items: center;
 
 }
 /* .contactSVG {
