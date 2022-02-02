@@ -38,7 +38,7 @@
 
 .Calculator__formula {
     grid-area: formula;
-    font-family: cursive;
+    font-family: math;
 }
 
 .Calculator__calc {
@@ -49,7 +49,6 @@
     width: auto;
     border: 1px dashed red;
 }
-
 .Calculator__calc h3 {
     font-size: 1.5em;
     font-weight: bold;
