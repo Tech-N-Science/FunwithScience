@@ -22,7 +22,7 @@
     align-self: center;
     text-align: center;
     font-size: 1.8em;
-    color: #4d2929;
+    color: #E84545;
     font-weight: 900;
 }
 
@@ -48,7 +48,7 @@
 
 .Calculator__calc hr {
     width: auto;
-    border: 1px dashed rgb(85, 37, 37);
+    border: 1px dashed red;
 }
 
 .Calculator__calc h3 {

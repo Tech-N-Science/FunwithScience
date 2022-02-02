@@ -18,7 +18,7 @@
   align-self: center;
   text-align: center;
   font-size: 1.8em;
-  color: #5f2323;
+  color: #e84545;
   font-weight: 900;
 }
 
@@ -50,7 +50,7 @@
 .Calculator__calc h3 {
   font-size: 1.5em;
   font-weight: bold;
-  color: #774d4d;
+  color: #e84545;
   text-align: center;
 }
 

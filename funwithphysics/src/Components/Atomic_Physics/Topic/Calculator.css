@@ -21,7 +21,7 @@
     align-self: center;
     text-align: center;
     font-size: 1.8em;
-    color: #181414;
+    color: #E84545;
     font-weight: 900;
 }
 
@@ -47,13 +47,12 @@
 
 .Calculator__calc hr {
     width: auto;
-    border: 1px dashed rgb(158, 41, 41);
+    border: 1px dashed red;
 }
-
 .Calculator__calc h3 {
     font-size: 1.5em;
     font-weight: bold;
-    color: #532020;
+    color: #E84545;
     text-align: center;
 }
 
