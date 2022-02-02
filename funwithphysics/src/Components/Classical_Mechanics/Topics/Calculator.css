@@ -35,7 +35,7 @@
 
 .Calculator__formula {
   grid-area: formula;
-  font-family: cursive;
+  font-family: math;
 }
 
 .Calculator__calc {
