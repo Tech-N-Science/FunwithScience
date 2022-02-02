@@ -18,7 +18,7 @@
   align-self: center;
   text-align: center;
   font-size: 1.8em;
-  color: #e84545;
+  color: #5f2323;
   font-weight: 900;
 }
 
@@ -35,7 +35,7 @@
 
 .Calculator__formula {
   grid-area: formula;
-  font-family: cursive;
+  font-family: math;
 }
 
 .Calculator__calc {
@@ -50,7 +50,7 @@
 .Calculator__calc h3 {
   font-size: 1.5em;
   font-weight: bold;
-  color: #e84545;
+  color: #774d4d;
   text-align: center;
 }
 
