@@ -139,7 +139,7 @@ Wait for your submission to be accepted and your PR to be merged by a maintainer
 
 # How to run the webpage on your local system
 
-1. Go to the `funwithpysics` directory.
+1. Go to the `funwithphysics` directory.
 
 ```
 cd funwithpysics
