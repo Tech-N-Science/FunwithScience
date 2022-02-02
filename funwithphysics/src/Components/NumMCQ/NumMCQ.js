@@ -18,12 +18,16 @@ const NumMCQ = () => {
   var vflag = 0;
   useEffect(() => {
     document.querySelectorAll("input").forEach((e)=>{
+      
+      window.scrollTo(0,0);
+      
       if(e.type==="checkbox")
       {
         if(searchTerm.includes(e.value.toLowerCase())){
           e.checked=true;
         }
       }
+
     })
   }, [searchTerm]);
   function handleClick(e) {
