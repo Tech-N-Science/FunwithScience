@@ -39,7 +39,7 @@ export default function Contact() {
     }
   };
   return (
-    <>
+    <React.Fragment>
       <Navbar />
       <Helmet>
         <title>Fun With Science - Tech N Science </title>
@@ -61,17 +61,17 @@ export default function Contact() {
           </div>
           <div className="contactTXT">
             <div className="contactInfo">
-              <i class="fas fa-map-marker-alt"></i>
+            <span className="fa fa-1x fa-map-marker-alt" />
               <p>
                 Anand Arcade,Block C(G-4),MSR Layout, Chandrampalem,VSKP,AP-48
               </p>
             </div>
             <div className="contactInfo">
-              <i class="fas fa-phone"></i>
+            <span className="fa fa-1x fa-phone" />
               <p>+91 8688785464</p>
             </div>
             <div className="contactInfo">
-              <i class="fas fa-envelope"></i>
+            <span className="fa fa-1x fa-envelope" />
               <p>support@technscience.com</p>
             </div>
           </div>
@@ -111,6 +111,6 @@ export default function Contact() {
       </div>
 
       <Footer />
-    </>
+      </React.Fragment>
   );
 }
