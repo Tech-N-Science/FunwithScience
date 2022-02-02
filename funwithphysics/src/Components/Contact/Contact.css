@@ -13,7 +13,7 @@
 .contactForm {
   width: 30%;
 /* width: 30%;*/
-  height: 70%; 
+  height: 28rem;
   /* background: var(--footer-bg-hex); */
   /* background-color: #2c3e50; */
   background: linear-gradient(180deg, #2C3E50 0%, rgba(0, 71, 142, 0.8) 100%);
@@ -30,14 +30,20 @@
 @media (max-width:1021px){
   .contactForm{
     width: 50%;
-      height: 75%;
+    height: 35rem;
+    justify-content: center;
+  
+    padding: 1vh 1vh 5vh;
     /* height: 90vh; */
   }
   .contactMain{
-    height: 90vh;
+    height: 70vh;
     justify-content: space-around;
     align-items: center;
     padding: 2%;
+  }
+  .contactForm > *:is(input, textarea) {
+    padding: 0.5vh 0.5vw;
   }
 }
 .contactForm > h2 {
@@ -90,10 +96,9 @@
   background-color: rgba(124, 124, 124, 0.062);
 }
 .contactDetails{
-    display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 /* .contactSVG {
 
