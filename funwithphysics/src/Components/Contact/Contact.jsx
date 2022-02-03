@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
 import ImageLoad from "../imageLoad";
 import axios from "axios";
-import contactimage from "../../Images/Contact.webp";
+
 
 export default function Contact() {
   const [name, setname] = useState();
@@ -57,7 +57,7 @@ export default function Contact() {
       <div className="contactMain">
         <div className="contactDetails">
           <div className="contactSVG">
-            <ImageLoad className="contact-img" main={contactimage} />
+            <ImageLoad className="contact-img" main= {"./Images-public/Contact.webp"} placeholder = {"./Images-public/Contact-small.webp"} alt = "contact" />
           </div>
           <div className="contactTXT">
             <div className="contactInfo">
