@@ -166,10 +166,15 @@ If you have any doubts, please let us know in the comments.
 <table>
     <tr>
 	<td>
-	<a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
-	<a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" width="25%"/></a>
-        <a href="https://winterofcode.com/"><img src="winter of code.png" width="35%"/></a>
+    <a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
+    <a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" width="25%"/></a>
+    <a href="https://winterofcode.com/"><img src="winter of code.png" width="35%"/></a>
 	</td>
+    <a href="https://jwoc.tech/"><img src="jwoc.png" width="35%"/></a>
+    <a href="https://diversion.tech/"><img src="diversion.png" width="35%"/></a>
+  <td>
+
+  </td>
     </tr>
 </table>
 
@@ -237,7 +242,14 @@ Thanks goes to these wonderful people :
   <td align="center"><a href="https://github.com/goutham109"><img src="https://avatars.githubusercontent.com/u/68989526?v=4" width="100px;" alt=""/><br /><sub><b>Goutham Katipelly</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=goutham109" title="Code">💻</a></td>
   <td align="center"><a href="https://github.com/kartikeyjangir"><img src="https://avatars.githubusercontent.com/u/72850375?v=4" width="100px;" alt=""/><br /><sub><b>Kartikey Jangir</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=kartikeyjangir" title="Code">💻</a></td>
   <td align="center"><a href="https://github.com/arpita221b"><img src="https://avatars.githubusercontent.com/u/56889637?v=4" width="100px;" alt=""/><br /><sub><b>Arpita Naval</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=arpita221b" title="Code">🎨</a></td>
+  <td align="center"><a href="https://github.com/SabariGanesh-K"><img src="https://avatars.githubusercontent.com/u/64348740?v=4" width="100px;" alt=""/><br /><sub><b>Sabari Ganesh</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?SabariGanesh-K" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/Kaggrov"><img src="https://avatars.githubusercontent.com/u/85993894?v=4" width="100px;" alt=""/><br /><sub><b>Kaggrov</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?Kaggrov" title="Code">💻</a></td>
  </tr>
+  <td align="center"><a href="https://github.com/whiteHatpro"><img src="https://avatars.githubusercontent.com/u/77486870?v=4" width="100px;" alt=""/><br /><sub><b>Mohak</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?whiteHatpro" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/raxvab"><img src="https://avatars.githubusercontent.com/u/63441521?v=4" width="100px;" alt=""/><br /><sub><b>Vaibhav Shukla</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?raxvab" title="Code">💻</a></td>
+ </tr>
+
+ 
 </table>
 
 <!-- markdownlint-restore -->
