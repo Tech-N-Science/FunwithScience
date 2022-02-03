@@ -32,6 +32,8 @@ import CalculatorElec from "./Components/Electromagnetism/Topics/calculator";
 import { Helmet } from "react-helmet";
 import NumMCQ from "./Components/NumMCQ/NumMCQ";
 import Singlequestion from "./Components/NumMCQ/Singlequestion";
+import MathMCQ from "./Components/MathMCQ/MathMCQ";
+import Quest from "./Components/MathMCQ/Singlequestion";
 import { hydrate, render } from "react-dom";
 import FluxCalculator from "./Components/Electromagnetism/Topics/FluxCalculator";
 import Relativity from "./Components/Relativity/Relativity";
@@ -458,6 +460,21 @@ const App = () => {
             exact
             path="/questions/:type/:id"
             element={<Singlequestion />}
+          ></Route>
+          <Route
+            exact
+            path="/MathQuestion"
+            element={
+              <>
+                <Navbar />
+                <MathMCQ/>
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/MathQuestion/:type/:id"
+            element={<Quest />}
           ></Route>
 
           {/* <Redirect to="/" /> */}
