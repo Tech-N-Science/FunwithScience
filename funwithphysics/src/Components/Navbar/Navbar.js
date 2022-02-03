@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import { Data } from '../FAQ/Data';
 import { IconContext } from 'react-icons';
+import { useEffect } from "react";
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import { Accordion, Card } from 'react-bootstrap';
 import logo from '../../Images/Logo/logo.webp';
@@ -18,6 +19,14 @@ const Navbar = () => {
 
     setClicked(index);
   };
+
+    useEffect(() => {
+      
+        window.scrollTo(0, 0);
+       
+     
+    }, );
+
 
   const menuBtnRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);

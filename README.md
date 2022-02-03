@@ -154,7 +154,7 @@ npm install react-scripts --save
 3. Write the command.
 
 ```
-yarn start
+yarn start / npm start
 ```
 
 If you have any doubts, please let us know in the comments.
@@ -166,10 +166,15 @@ If you have any doubts, please let us know in the comments.
 <table>
     <tr>
 	<td>
-	<a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
-	<a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" width="25%"/></a>
-        <a href="https://winterofcode.com/"><img src="winter of code.png" width="35%"/></a>
+    <a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
+    <a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" width="25%"/></a>
+    <a href="https://winterofcode.com/"><img src="winter of code.png" width="35%"/></a>
 	</td>
+  </tr>
+  <td>
+    <a href="https://jwoc.tech/"><img src="jwoc.png" width="17%"/></a>
+    <a href="https://diversion.tech/"><img src="diversion.png" width="17%"/></a>
+  </td>
     </tr>
 </table>
 
@@ -212,14 +217,14 @@ Thanks goes to these wonderful people :
 	<td align="center"><a href="https://github.com/Umesh-01"><img src="https://avatars.githubusercontent.com/u/83420185?v=4" width="100px;" alt=""/><br /><sub><b>Umesh Singh</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Umesh-01" title="Code">🐛</a></td>
 	<td align="center"><a href="https://github.com/nayabatir1"><img src="https://avatars.githubusercontent.com/u/91016903?v=4" width="100px;" alt=""/><br /><sub><b>Atir Nayab</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=nayabatir1" title="Code">💻</a></td>
  </tr>
-       <td align="center"><a href="https://github.com/kunalkumar007"><img src="https://avatars.githubusercontent.com/u/55233386?v=4" width="100px;" alt=""/><br /><sub><b>Kunal Kumar</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=kunalkumar007" title="Code">🐛</a></td>
-       <td align="center"><a href="https://github.com/Brkgng"><img src="https://avatars.githubusercontent.com/u/39705775?v=4" width="100px;" alt=""/><br /><sub><b>Berker Güngör</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Brkgng" title="Code">🎨</a></td>
-        <td align="center"><a href="https://github.com/KarishmaVanwari"><img src="https://avatars.githubusercontent.com/u/78212650?v=4" width="100px;" alt=""/><br /><sub><b>KarishmaVanwari</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=KarishmaVanwari" title="Code">🐛</a></td>
+  <td align="center"><a href="https://github.com/kunalkumar007"><img src="https://avatars.githubusercontent.com/u/55233386?v=4" width="100px;" alt=""/><br /><sub><b>Kunal Kumar</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=kunalkumar007" title="Code">🐛</a></td>
+  <td align="center"><a href="https://github.com/Brkgng"><img src="https://avatars.githubusercontent.com/u/39705775?v=4" width="100px;" alt=""/><br /><sub><b>Berker Güngör</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Brkgng" title="Code">🎨</a></td>
+  <td align="center"><a href="https://github.com/KarishmaVanwari"><img src="https://avatars.githubusercontent.com/u/78212650?v=4" width="100px;" alt=""/><br /><sub><b>KarishmaVanwari</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=KarishmaVanwari" title="Code">🐛</a></td>
 	<td align="center"><a href="https://github.com/Aniket-508"><img src="https://avatars.githubusercontent.com/u/71957423?v=4" width="100px;" alt=""/><br /><sub><b>Aniket Pawar</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Aniket-508" title="Code">💻</a></td>
 	<td align="center"><a href="https://github.com/OmGole"><img src="https://avatars.githubusercontent.com/u/90026187?v=4" width="100px;" alt=""/><br /><sub><b>OmGole</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=OmGole" title="Code">🎨</a></td>
 	<td align="center"><a href="https://github.com/akashsahu006"><img src="https://avatars.githubusercontent.com/u/82517683?v=4" width="100px;" alt=""/><br /><sub><b>Akash Sahu</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=akashsahu006" title="Code">💻</a></td>
  </tr>
-        <td align="center"><a href="https://github.com/Shoray2002"><img src="https://avatars.githubusercontent.com/u/76423272?v=4" width="100px;" alt=""/><br /><sub><b>Shoray Singhal</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Shoray2002" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/Shoray2002"><img src="https://avatars.githubusercontent.com/u/76423272?v=4" width="100px;" alt=""/><br /><sub><b>Shoray Singhal</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=Shoray2002" title="Code">💻</a></td>
 	<td align="center"><a href="https://github.com/souravseal99"><img src="https://avatars.githubusercontent.com/u/69809086?v=4" width="100px;" alt=""/><br /><sub><b>Sourav Seal </b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=souravseal99" title="Code">💻</a></td>
 	<td align="center"><a href="https://github.com/glebkema"><img src="https://avatars.githubusercontent.com/u/3881568?v=4" width="100px;" alt=""/><br /><sub><b>Gleb Kemarsky</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=glebkema" title="Code">💻</a></td>
 	<td align="center"><a href="https://github.com/rayanepimentel"><img src="https://avatars.githubusercontent.com/u/37915359?v=4" width="100px;" alt=""/><br /><sub><b>Rayane Pimentel</b></sub></a><br /><a href="https://github.com/Amit366/FunwithPhysics/commits?author=rayanepimentel" title="Code">💻</a></td>
@@ -237,7 +242,14 @@ Thanks goes to these wonderful people :
   <td align="center"><a href="https://github.com/goutham109"><img src="https://avatars.githubusercontent.com/u/68989526?v=4" width="100px;" alt=""/><br /><sub><b>Goutham Katipelly</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=goutham109" title="Code">💻</a></td>
   <td align="center"><a href="https://github.com/kartikeyjangir"><img src="https://avatars.githubusercontent.com/u/72850375?v=4" width="100px;" alt=""/><br /><sub><b>Kartikey Jangir</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=kartikeyjangir" title="Code">💻</a></td>
   <td align="center"><a href="https://github.com/arpita221b"><img src="https://avatars.githubusercontent.com/u/56889637?v=4" width="100px;" alt=""/><br /><sub><b>Arpita Naval</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?author=arpita221b" title="Code">🎨</a></td>
+  <td align="center"><a href="https://github.com/SabariGanesh-K"><img src="https://avatars.githubusercontent.com/u/64348740?v=4" width="100px;" alt=""/><br /><sub><b>Sabari Ganesh</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?SabariGanesh-K" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/Kaggrov"><img src="https://avatars.githubusercontent.com/u/85993894?v=4" width="100px;" alt=""/><br /><sub><b>Kaggrov</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?Kaggrov" title="Code">💻</a></td>
  </tr>
+  <td align="center"><a href="https://github.com/whiteHatpro"><img src="https://avatars.githubusercontent.com/u/77486870?v=4" width="100px;" alt=""/><br /><sub><b>Mohak</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?whiteHatpro" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/raxvab"><img src="https://avatars.githubusercontent.com/u/63441521?v=4" width="100px;" alt=""/><br /><sub><b>Vaibhav Shukla</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?raxvab" title="Code">💻</a></td>
+ </tr>
+
+ 
 </table>
 
 <!-- markdownlint-restore -->
