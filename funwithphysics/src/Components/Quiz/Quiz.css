@@ -24,26 +24,34 @@
   align-items: center;
 }
 
+.responsive{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
+}
+
 .question-section {
   width: 100%;
   position: relative;
-}
-
-.question-count {
-  margin-bottom: 20px;
+  display: grid;
+  grid-template-rows: 30% 70%;
 }
 
 .question-count span {
   font-size: 28px;
 }
 
+#total{
+  font-size: 16px;
+}
+
 .question-text {
-  margin-bottom: 12px;
-  padding: 20px;
+  padding: 0px 20px 0 20px;
+  font-size:16px;
+  align-self: center;
 }
 
 .answer-section {
-  margin-left: 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -79,3 +87,92 @@ button:focus {
 button svg {
   margin-right: 5px;
 }
+
+@media (max-width: 1000px){
+  .quiz-section{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    height: auto;
+    width: 80vw;
+  }
+
+  .score-section{
+    font-size: 18px;
+  }
+
+  .responsive{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 100%;
+    justify-items: center;
+    row-gap: 10px;
+    padding-bottom: 60px;
+  }
+
+  .question-section{
+    grid-template-rows: 40% 60%;
+  }
+
+  .question-count span{
+    font-size: 21px;
+  }
+
+  #total{
+    font-size: 9px;
+  }
+
+  .question-text{
+    padding: 0 5px 5px 5px;
+    font-size: 12px;
+  }
+
+  button{
+    font-size: 12px; 
+  }
+}
+
+/*@media(max-width: 500px){
+  .responsive{
+    row-gap: 20px;
+    padding-bottom: 40px;
+  }
+}*/
+
+/*@media (max-width: 700px){
+  .quiz-section{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    height: auto;
+  }
+
+  .responsive{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 100%;
+    justify-items: center;
+    row-gap: 10px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 1200px){
+  .quiz-section{
+    width: 80vw;
+  }
+}
+
+@media(max-width: 400px){
+  .responsive{
+    row-gap: 20px;
+  }
+  .question-section{
+    grid-template-rows: 30% 70%;
+  }
+  .answer-section{
+    align-self: center;
+  }
+}*/
