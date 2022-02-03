@@ -76,10 +76,10 @@ const Quiz = () => {
             You scored {score} out of {questions.length}
           </div>
         ) : (
-          <>
+          <div className="responsive">
             <div className="question-section">
               <div className="question-count">
-                <span>Question {currentQuestion + 1}</span>/{questions.length}
+                <span>Question {currentQuestion + 1}</span><span id = "total">/{questions.length}</span>
               </div>
               <div className="question-text">
                 {questions[currentQuestion].questionText}
@@ -107,7 +107,7 @@ const Quiz = () => {
                 )
               )}
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
