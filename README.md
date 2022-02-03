@@ -154,7 +154,7 @@ npm install react-scripts --save
 3. Write the command.
 
 ```
-yarn start
+yarn start / npm start
 ```
 
 If you have any doubts, please let us know in the comments.
@@ -170,10 +170,10 @@ If you have any doubts, please let us know in the comments.
     <a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" width="25%"/></a>
     <a href="https://winterofcode.com/"><img src="winter of code.png" width="35%"/></a>
 	</td>
+    
+  <td>
     <a href="https://jwoc.tech/"><img src="jwoc.png" width="35%"/></a>
     <a href="https://diversion.tech/"><img src="diversion.png" width="35%"/></a>
-  <td>
-
   </td>
     </tr>
 </table>
