@@ -172,8 +172,8 @@ If you have any doubts, please let us know in the comments.
 	</td>
   </tr>
   <td>
-    <a href="https://jwoc.tech/"><img src="jwoc.png" width="20%"/></a>
-    <a href="https://diversion.tech/"><img src="diversion.png" width="20%"/></a>
+    <a href="https://jwoc.tech/"><img src="jwoc.png" width="17%"/></a>
+    <a href="https://diversion.tech/"><img src="diversion.png" width="17%"/></a>
   </td>
     </tr>
 </table>
