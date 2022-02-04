@@ -150,3 +150,7 @@
     padding: 3px;
   }
 }
+
+.nav-logo:hover{
+  text-decoration: none!important;
+}

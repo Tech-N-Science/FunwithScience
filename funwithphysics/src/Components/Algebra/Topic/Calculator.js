@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router";
 import './Calculator.css';
-import MathsTopic from "../../MathsTopic";
 
 function Calculator() {
   let { topic } = useParams();
