@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router";
+import './Calculator.css';
 
 function Calculator() {
   let { topic } = useParams();
@@ -637,7 +638,178 @@ function Calculator() {
 
   //Complex Number Calculator
   const ComplexNumbers = () =>{
-    console.log("This is Complex Number Calculator");
+    const [result, setResult] = useState({x : null, y : null});
+    const [choice, setChoice] = useState("Add");
+    const [valueX, setX] = useState({ x1 : null, x2 : null});
+    const [valueY, setY] = useState({ y1 : null, y2 : null});
+
+    function handleChange(e) {
+      reset();
+      setChoice(e.target.value);
+      choiceData();
+    }
+    const calcResult = () => {      
+      let x,y,x1,x2,y1,y2;
+
+      // Assigning values for code reabability
+      x1=Number(valueX.x1);
+      x2=Number(valueX.x2);
+      y1=Number(valueY.y1);
+      y2=Number(valueY.y2);
+
+      if (choice === "Add") {
+         x = x1 + x2;
+         y = y1 + y2;
+      } 
+      else if (choice === "Sub") {
+        x = x1 - x2;
+        y = y1 - y2;
+      }
+      else if (choice === "Product") {        
+        x = x1 * x2;
+        y = y1 * y2;
+      }
+      else if (choice === "Divide") {        
+        x = Number(((x1 * x2) + (y1 * y2)) / ((x2 * x2) + (y1 + y2)));
+        y = Number(((x1 * x2) - (y1 * y2)) / ((x2 * x2) + (y1 + y2)));
+      }
+      setResult({x:x,y:y});
+    };
+    function reset() {
+      setResult({x : null, y : null});
+      setX({ x1 : null, x2 : null});
+      setY({ y1 : null, y2 : null});
+    }
+    const choiceData = () => {
+      if (choice === "Add")
+        return {
+          name: "Addition",
+          disable: true,
+        };
+      else if (choice === "Sub") {
+        return {
+          name: "Subtraction",
+        };
+      }
+      else if (choice === "Product") {
+        return {
+          name: "Multiplication",
+        };
+      }
+      else if (choice === "Div") {
+        return {
+          name: "Divide",
+        };
+      }
+    };
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of algebraic calculation</Form.Label>
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              onChange={(e) => handleChange(e)}
+            >
+              <option value="Add">Addition</option>
+              <option value="Sub">Subtraction</option>
+              <option value="Product">Multiplication</option>
+              <option value="Div">Division</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                To find the {choiceData().name} of two Complex Numbers, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+
+          {/* Equation One */}
+          <Form.Group className="mb-4">
+            <div className="complex-num-group">
+              <input 
+              type="text" 
+              className="form-control" 
+              placeholder="Value of First real number(x1)"
+              name="X1"
+              value={valueX.x1 === null ? "" : valueX.x1}
+              onChange={(e) => setX({x1:e.target.value})}
+               />
+
+              <span className="group-txt">+ i</span>
+
+              <input 
+              type="text" 
+              className="form-control" 
+              placeholder="Value of Second Real Number(y1)"
+              name="Y1"
+              value={valueY.y1 === null ? "" : valueY.y1}
+              onChange={(e) => setY({y1:e.target.value})}
+               />
+            </div>            
+          </Form.Group>
+
+          {/* Equation two */}
+          <Form.Group className="mb-4">
+            <div className="complex-num-group">
+              <input 
+              type="text" 
+              className="form-control" 
+              placeholder="Value of First real number(x2)"
+              name="X2"
+              value={valueX.x2 === null ? "" : valueX.x2}
+              onChange={(e) => setX({...valueX , x2:e.target.value})}
+                />
+
+              <span className="group-txt">+ i</span>
+
+              <input 
+              type="text" 
+              className="form-control" 
+              placeholder="Value of Second Real Number(y2)"
+              name="Y2"
+              value={valueY.y2 === null ? "" : valueY.y2}
+              onChange={(e) => setY({...valueY , y2:e.target.value})}
+               />
+            </div>            
+          </Form.Group>
+
+          {/* Result */} 
+          
+          <Form.Group className="mb-4">
+            <div className="complex-num-group">
+              <input 
+              readOnly
+              type="text" 
+              className="form-control" 
+              placeholder= {result.x === null ? "Result of X" : result.x}/>
+
+              <span className="group-txt">+ i</span>
+
+              <input
+              readOnly 
+              type="text" 
+              className="form-control" 
+              placeholder={result.y === null ? "Result of Y" : result.y} />
+            </div>            
+          </Form.Group>
+
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
   }
   //adding the calculators togather
   function calC(key) {
