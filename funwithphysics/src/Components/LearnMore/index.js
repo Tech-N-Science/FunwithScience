@@ -66,7 +66,7 @@ export function LearnMore() {
               </Link>
               <div className="dropdown-content">
                 <Link to="/maths">Calculator</Link>
-                <Link to="/">Questions</Link>
+                <Link to="/MathQuestion">Questions</Link>
                 <Link to="/quiz">Quiz</Link>
               </div>
             </div>
