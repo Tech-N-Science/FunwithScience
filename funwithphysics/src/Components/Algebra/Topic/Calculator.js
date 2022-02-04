@@ -808,6 +808,54 @@ function Calculator() {
             Reset
           </Button>
         </div>
+
+        {/* Conversion of Polar form to Cartesian form */}
+      <Form>
+        {/* dropdown */}
+        <Form.Group className="mb-4" controlId="choice">
+          <Form.Label>Conversion of Polar Form into Cartesian Form</Form.Label>
+        </Form.Group>
+        <Form.Group className="mb-4">
+            <div className="complex-num-group">
+
+              <input 
+              type="text" 
+              className="form-control" 
+              placeholder="Value of r"
+              name="r"
+               />
+
+              <span className="group-txt">(cos</span>
+              <input 
+              type="text" 
+              className="form-control" 
+              placeholder="Value of Q"
+              name="cosq"
+               />
+
+              <span className="group-txt">+ i sin</span>
+
+              <input 
+              type="text" 
+              className="form-control" 
+              placeholder="Value of Q"
+              name="sinq"
+               />
+               
+              <span className="group-txt">)</span>
+            </div>            
+          </Form.Group>
+          </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary">
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" type="reset">
+            Reset
+          </Button>
+        </div>
+
       </>
     );
   }
