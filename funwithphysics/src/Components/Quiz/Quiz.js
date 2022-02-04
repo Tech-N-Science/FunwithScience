@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Quiz.css";
+
 
 const Quiz = () => {
   const questions = [
@@ -48,16 +49,23 @@ const Quiz = () => {
   const [showAns, setshowAns] = useState(false);
   const [score, setScore] = useState(0);
   const [index, setIndex] = useState(-1);
+
+ const [timeOut, setTimeOut] = useState(false);
+
+
   const handleQuestion = () => {
     setshowAns(false);
     setIndex(-1);
     const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
+    if (nextQuestion < questions.length ) {
       setCurrentQuestion(nextQuestion);
     } else {
-      setShowScore(true);
+      setShowScore(true); 
+   
+
     }
   };
+
   const handleAnswerOptionClick = (isCorrect, index) => {
     if (isCorrect) {
       setScore(score + 1);
@@ -65,11 +73,43 @@ const Quiz = () => {
       setIndex(index);
     }
     setshowAns(true);
-    setTimeout(handleQuestion, 1000);
+
+    setTimeout(handleQuestion,1500);
   };
+
+ function Timer({ setTimeOut, questionNumber }) {
+
+   const [timer, setTimer]= useState(10);
+
+   useEffect(() => {
+     
+     if (timer === 0) 
+    { handleQuestion();
+         return setTimeout(true);
+   }
+     const interval = setInterval(() => {
+       setTimer((prev) => prev - 1);
+     }, 1000);
+  
+     return () => clearInterval(interval);
+   
+   }, [timer, setTimeOut]);
+
+   useEffect(() => {
+     setTimer(10);
+   }, [questionNumber]);
+   return timer;
+ }
+
+
+
+
   return (
     <div className="quiz">
       <h1>Quiz</h1>
+      <div className="timer">
+        <Timer setTimeOut={setTimeOut} questionNumber={currentQuestion} />
+      </div>
       <div className="quiz-section">
         {showScore ? (
           <div className="score-section">
