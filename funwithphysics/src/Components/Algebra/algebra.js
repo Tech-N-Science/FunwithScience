@@ -36,6 +36,13 @@ export default function Algebra() {
       process:
         'To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.',
     },
+    {
+      topic: 'Complex Numbers',
+      details: `what is complex numbers`,
+      formula: 'formula of complex numbers',
+      process:
+        'solving process of complex numbers',
+    },
   ];
 
   return (
