@@ -20,6 +20,7 @@
     "react-progressive-image": "^0.6.0",
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
+    "react-script": "^2.0.5",
     "react-scripts": "^4.0.3",
     "react-slide-routes": "^2.0.0",
     "react-snap": "^1.23.0",
