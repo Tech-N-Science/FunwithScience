@@ -39,7 +39,7 @@ function Login() {
           alert("Login Successful");
           localStorage.setItem("user", JSON.stringify(res.data));
           console.log(res.data);
-          history.push("/");
+          history("/");
         }
       });
   }
