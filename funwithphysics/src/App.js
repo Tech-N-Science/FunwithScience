@@ -49,6 +49,8 @@ import Algebra from "./Components/Algebra/algebra";
 import Geometry from "./Components/Geometry/geometry";
 import Calpermutation from "./Components/Algebra/Topic/Calculator";
 import Calstraightline from "./Components/Geometry/Topic/Calculator";
+
+import { useNavigate } from "react-router-dom";
 const Home = lazy(() => {
   return Promise.all([
     import("./Components/Home/Home"),
@@ -157,7 +159,7 @@ const App = () => {
               </>
             }
           ></Route>
-          <Route exact path="/Signup" element={<Signup />}></Route>
+          <Route exact path="/Signup" element={<Signup history={useNavigate()} />}></Route>
           <Route
             exact
             path="/resetpassword"

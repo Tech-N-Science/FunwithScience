@@ -5,6 +5,7 @@ import ImageLoad from "../imageLoad";
 import axios from "axios";
 
 export default class Signup extends Component {
+
   constructor(props) {
     super(props);
     this.onChangeUsername = this.onChangeUsername.bind(this);
@@ -12,12 +13,13 @@ export default class Signup extends Component {
     this.onChangePassword = this.onChangePassword.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     console.log(this.props);
-
+    console.log(props);
     this.state = {
       username: "",
       email: "",
       pass: "",
     };
+    
   }
 
   onChangeUsername(e) {
@@ -48,7 +50,7 @@ export default class Signup extends Component {
             email: "",
             pass: "",
           });
-          this.props.history.push("/login");
+          this.props.history("/login");
         } else if (res.data === 2) {
           alert("Username already exists");
         } else if (res.data === 0) {
