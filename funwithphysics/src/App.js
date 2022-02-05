@@ -49,7 +49,6 @@ import Algebra from "./Components/Algebra/algebra";
 import Geometry from "./Components/Geometry/geometry";
 import Calpermutation from "./Components/Algebra/Topic/Calculator";
 import Calstraightline from "./Components/Geometry/Topic/Calculator";
-
 import { useNavigate } from "react-router-dom";
 const Home = lazy(() => {
   return Promise.all([
