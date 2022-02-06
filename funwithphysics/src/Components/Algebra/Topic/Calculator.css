@@ -85,6 +85,21 @@
   }
 }
 
+/* Complex number calculator text box group */
+
+.complex-num-group{  
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.group-txt{
+  width:7%;
+  margin:0 1%;
+}
+
+
 @media only screen and (max-width: 668px) {
   .Calculator__header,
   .Calculator__details,
