@@ -65,6 +65,21 @@
   padding-right: 2vh;
 }
 
+/* Complex number calculator text box group */
+
+.complex-num-group{  
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.group-txt{
+  width:10%;
+  margin:0 1%;
+}
+
+
 @media only screen and (max-width: 992px) {
   .Calculator__main {
     grid-template-columns: 1fr;
