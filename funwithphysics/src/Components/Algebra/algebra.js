@@ -38,10 +38,10 @@ export default function Algebra() {
     },
     {
       topic: 'Complex Numbers',
-      details: `what is complex numbers`,
-      formula: 'formula of complex numbers',
+      details: `A number of the form x + iy, where x and y are real numbers, is called a complex number, x is called real part and y is called imaginary part of the complex number i.e. Re(Z) = x and Im(Z) = y.`,
+      formula: 'Z = x + iy',
       process:
-        'solving process of complex numbers',
+        'Addition = (x1 + x2) + i (y1 + y2)',
     },
   ];
 
