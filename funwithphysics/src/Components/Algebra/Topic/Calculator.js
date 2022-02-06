@@ -639,15 +639,40 @@ function Calculator() {
   //Complex Number Calculator
   const ComplexNumbers = () =>{
     const [result, setResult] = useState({x : null, y : null});
+    const [cartesianResult, setCartesianResult] = useState({x : null, y : null});
     const [choice, setChoice] = useState("Add");
     const [valueX, setX] = useState({ x1 : null, x2 : null});
     const [valueY, setY] = useState({ y1 : null, y2 : null});
+    const [polarX, setPolarX] = useState(null);
+    const [polarY, setPolarY] = useState(null);
+    const [polarR, setPolarR] = useState(null);
 
     function handleChange(e) {
       reset();
       setChoice(e.target.value);
       choiceData();
     }
+
+    // Function for converting polar form into cartesian form
+    const convertPolar = () => {
+      let r,x,y;
+      r = Number(polarR);
+      x = Number(polarX);
+      y = Number(polarY);
+
+      x = Math.round(r * Math.cos(x));
+      y = Math.round(r * Math.sin(y));
+
+      setCartesianResult({x:x,y:y});
+    }
+
+    function reset2() {
+      setCartesianResult({x : null, y : null});
+      setPolarR(null);
+      setPolarX(null);
+      setPolarY(null);
+    }
+
     const calcResult = () => {      
       let x,y,x1,x2,y1,y2;
 
@@ -813,7 +838,10 @@ function Calculator() {
       <Form>
         {/* dropdown */}
         <Form.Group className="mb-4" controlId="choice">
-          <Form.Label>Conversion of Polar Form into Cartesian Form</Form.Label>
+        <br /> <br />
+          <Form.Label>
+          <strong>Conversion of Polar Form into Cartesian Form</strong>
+          </Form.Label>
         </Form.Group>
         <Form.Group className="mb-4">
             <div className="complex-num-group">
@@ -823,6 +851,8 @@ function Calculator() {
               className="form-control" 
               placeholder="Value of r"
               name="r"
+              value={polarR === null ? "" : polarR}
+              onChange={(e) => setPolarR(e.target.value)}
                />
 
               <span className="group-txt">(cos</span>
@@ -831,6 +861,8 @@ function Calculator() {
               className="form-control" 
               placeholder="Value of Q"
               name="cosq"
+              value={polarX === null ? "" : polarX}
+              onChange={(e) => setPolarX(e.target.value)}
                />
 
               <span className="group-txt">+ i sin</span>
@@ -840,18 +872,39 @@ function Calculator() {
               className="form-control" 
               placeholder="Value of Q"
               name="sinq"
+              value={polarY === null ? "" : polarY}
+              onChange={(e) => setPolarY(e.target.value)}
                />
 
               <span className="group-txt">)</span>
             </div>            
           </Form.Group>
+          {/* Result */} 
+
+          <Form.Group className="mb-4">
+            <div className="complex-num-group">
+              <input 
+              readOnly
+              type="text" 
+              className="form-control" 
+              placeholder= {cartesianResult.x === null ? "Cartesian Form of X" : cartesianResult.x}/>
+
+              <span className="group-txt">+ i</span>
+
+              <input
+              readOnly 
+              type="text" 
+              className="form-control" 
+              placeholder={cartesianResult.y === null ? "Cartesian Form of Y" : cartesianResult.y} />
+            </div>            
+          </Form.Group>
           </Form>
         <div className="button-custom-grp">
-          <Button variant="primary">
+          <Button variant="primary" onClick={convertPolar}>
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" type="reset">
+          <Button variant="dark" onClick={() => reset2()} type="reset">
             Reset
           </Button>
         </div>
