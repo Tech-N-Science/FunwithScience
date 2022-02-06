@@ -601,6 +601,11 @@ function Calculator() {
     );
   };
 
+  //Complex Number Calculator
+  const ComplexNumbers = () =>{
+    console.log("This is Complex Number Calculator");
+  }
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -616,6 +621,9 @@ function Calculator() {
         break;
       case "Statistics":
         currentCall = Statistics();
+        break;
+      case "Complex Numbers":
+        currentCall = ComplexNumbers();
         break;
       default:
         break;
