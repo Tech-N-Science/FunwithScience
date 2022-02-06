@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import blackboardSvg from "../../Images/blackboard-svg.svg";
 // eslint-disable-next-line
 import computerSvg from "../../Images/computer-svg.svg";
-import explorerBtn from "../../Images/explorer.png";
+import addCircleSvg from "../../Images/add-circle.svg";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
@@ -58,10 +58,11 @@ export function LearnMore() {
             <img src={blackboardSvg} alt="Icon" />
             <div className="dropdown">
               <Link className="plus" to="/">
-              <span className="explore-btn">
-                Explore
-                <i class="fa fa-plus add-icon" aria-hidden="true"></i>
-              </span>
+                <img
+                  src={addCircleSvg}
+                  className="lower-plus"
+                  alt="AddCircle"
+                />
               </Link>
               <div className="dropdown-content">
                 <Link to="/maths">Calculator</Link>
@@ -75,11 +76,12 @@ export function LearnMore() {
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
             <div className="dropdown">
-              <Link className="plus" to="/">                
-              <span className="explore-btn">
-                Explore
-                <i class="fa fa-plus add-icon" aria-hidden="true"></i>
-              </span>
+              <Link className="plus" to="/">
+                <img
+                  src={addCircleSvg}
+                  className="lower-plus"
+                  alt="AddCircle"
+                />
               </Link>
               <div className="dropdown-content">
                 <Link to="/physics">Calculator</Link>
@@ -93,11 +95,12 @@ export function LearnMore() {
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
             <div className="dropdown">
-              <Link className="plus" to="/">                
-              <span className="explore-btn">
-                Explore
-                <i class="fa fa-plus add-icon" aria-hidden="true"></i>
-              </span>
+              <Link className="plus" to="/">
+                <img
+                  src={addCircleSvg}
+                  className="lower-plus"
+                  alt="AddCircle"
+                />
               </Link>
               <div className="dropdown-content">
                 <Link to="/">Calculator</Link>

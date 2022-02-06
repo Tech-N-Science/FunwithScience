@@ -70,24 +70,11 @@
 } */
 a.plus {
   /* pointer-events:stroke; */
-  text-decoration: none;
   pointer-events: none;
-  background-color: black;
-  color:white;
-  padding: 10% 20%;
-  border-radius: 5%;
-  width: 100%;
+  cursor: default;
 }
 a.plus:hover {
   filter: invert(70%);
-}
-.add-icon{
-  font-size: 1.1rem;
- color:white;
- padding-left: 0.5rem;
-}
-.explore-btn{
-  display:inline-block;
 }
 
 .learn-more ul p {

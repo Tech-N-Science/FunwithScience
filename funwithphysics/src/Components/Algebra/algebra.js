@@ -36,13 +36,6 @@ export default function Algebra() {
       process:
         'To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.',
     },
-    {
-      topic: 'Complex Numbers',
-      details: `A number of the form x + iy, where x and y are real numbers, is called a complex number, x is called real part and y is called imaginary part of the complex number i.e. Re(Z) = x and Im(Z) = y.`,
-      formula: 'Z = x + iy',
-      process:
-        'Addition = (x1 + x2) + i (y1 + y2)',
-    },
   ];
 
   return (
