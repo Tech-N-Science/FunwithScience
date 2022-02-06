@@ -64,11 +64,8 @@ const Navbar = () => {
               <div className="menu-btn__burger"></div>
             </div>
           </button>
-
-          <NavLink to="/" className='nav-logo'>
-            <img src={logo} alt='logo' height='10%' width='10%' />
-            &ensp; Tech N Science
-          </NavLink>
+          <img src={logo} alt='logo' height='10%' width='10%' />
+          &ensp; Tech N Science
         </p>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <ul style={{ fontSize: '20px' }} className='navbar-nav ml-auto mr-5'>
