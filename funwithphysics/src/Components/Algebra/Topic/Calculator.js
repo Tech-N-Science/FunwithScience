@@ -909,6 +909,147 @@ function Calculator() {
           </Button>
         </div>
 
+        <br></br>
+
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Properties of Addition </h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Property Name</th>
+                <th className="row-2 row-name ">Representation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Commutative</td>
+                <td>
+                  <b>z1 + z2 = z2 + z1</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Associative</td>
+                <td>
+                  <b>z1 + (z2 + z3) = (z1 + z2) + z3</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Additive identity</td>
+                <td>
+                  <b>z + 0 = z = 0 + z</b>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+        <div className="formula-table">
+        
+        <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Properties of Multiplication </h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Property Name</th>
+                <th className="row-2 row-name ">Representation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Commutative</td>
+                <td>
+                  <b>z1z2 = z2z1</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Associative</td>
+                <td>
+                  <b>z1(z2z3) = (z1z2)z3</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Multiplicative identity</td>
+                <td>
+                  <b>z . 1 = z = 1 . z</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Distributive law</td>
+                <td>
+                  <b>z1(z2 + z3) = z1z2 + z1z3</b>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+
+        <br></br>
+        <div className="formula-table">
+        
+        <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Algebraic Identities </h3>
+                </tr>
+              </section>
+              <tr>
+                <th className="row-1 row-ID  "> Identity</th>
+                <th className="row-2 row-name ">Representation</th>
+              </tr>
+
+            </thead>
+            <tbody>
+              <tr>
+                <td>(z1 + z2)<sup>2</sup></td>
+                <td>
+                  <b>z1<sup>2</sup> + 2z1z2 + z2<sup>2</sup></b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>(z1 - z2)<sup>2</sup></td>
+                <td>z1<sup>2</sup> - 2z1z2 + z2<sup>2</sup></td>
+              </tr>
+
+              <tr>
+                <td>(z1 + z2)<sup>3</sup></td>
+                <td>z1<sup>3</sup> + 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> + z2<sup>3</sup></td>
+              </tr>
+              
+              <tr>
+                <td>(z1 - z2)<sup>3</sup></td>
+                <td>z1<sup>3</sup> - 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> - z2<sup>3</sup></td>
+              </tr>
+
+              <tr>
+                <td>(z1 + z2)(z1 - z2)</td>
+                <td>z1<sup>2</sup> - z2<sup>2</sup></td>
+              </tr>
+
+              <tr>
+                <td>(z1 +z2 + z3)<sup>2</sup></td>
+                <td>z1<sup>2</sup> + z2<sup>2</sup> + z3<sup>2</sup> + 2z1z2 + 2z2z3 +2z3z1</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
       </>
     );
   }

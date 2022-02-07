@@ -99,6 +99,15 @@
   margin:0 1%;
 }
 
+@media only screen and (max-width: 668px) {
+
+  .complex-num-group{ 
+    width:fit-content;
+  }
+  .group-txt{
+    width:15%;
+  }
+}
 
 @media only screen and (max-width: 668px) {
   .Calculator__header,
