@@ -46,6 +46,8 @@ function Calculator() {
       ],
       formula: ["AP = a + d * (n-1)", <br />, "GP = a * r ^ (n-1)"],
       process: [
+        "To find the Arithmetic progression of nᵗʰ term, we use the formula a + d * (n-1) where, 'a' is the first term of the series and 'd' is the common difference between any two numbers in the series found by taking the difference. To find the Geometric progression of nᵗʰ term, we use the formula a + r ⁽ⁿ⁻¹⁾ where, 'a' is the first term of the series and 'r' is the common difference between any two numbers in the series found by taking the ratio.",
+        <br />,
         <b>E.g. </b>,
         "2,4,6,8.. is an AP because difference between any two consecutive terms in the series (common difference) is same (4 – 2 = 6 – 4 = 8 – 6 = 2).",
         <br />,
@@ -420,7 +422,7 @@ function Calculator() {
       statOBJ.smallest = numArr[1];
       numArr.map((item, index) => {
         statOBJ.sum += Number(item); //Sum of all items
-        return (<></>)
+        return <></>;
       });
       statOBJ.largest = numArr[statOBJ.count - 1]; //largest of all items
       statOBJ.smallest = numArr[0]; //smalles of all items
@@ -556,8 +558,8 @@ function Calculator() {
           <Button variant="dark" onClick={() => resetStat()} type="reset">
             Reset
           </Button>
-        </div>  
-        &nbsp; &nbsp;      
+        </div>
+        &nbsp; &nbsp;
         <div className="formula-table mb-4">
           <table className="formulae">
             <thead>
@@ -571,37 +573,42 @@ function Calculator() {
                 <th className="row-1 row-ID  "> Measures</th>
                 <th className="row-2 row-name ">Equation</th>
               </tr>
-
             </thead>
             <tbody>
               <tr>
                 <td>Mean</td>
                 <td>
-                  <b>Σx<sub>i</sub> / N</b> , where N is total number of values  
+                  <b>
+                    Σx<sub>i</sub> / N
+                  </b>{" "}
+                  , where N is total number of values
                 </td>
               </tr>
               <tr>
                 <td>Median</td>
                 <td>
                   <b>
-                    <div>((N+1)/2)<sup>th</sup> term, if N is odd</div>
-                    <div>((N/2)<sup>th</sup> term + (N/2+1)<sup>th</sup>term) / 2 , if N is even</div>
+                    <div>
+                      ((N+1)/2)<sup>th</sup> term, if N is odd
+                    </div>
+                    <div>
+                      ((N/2)<sup>th</sup> term + (N/2+1)<sup>th</sup>term) / 2 ,
+                      if N is even
+                    </div>
                   </b>
                 </td>
               </tr>
               <tr>
                 <td>Mode</td>
                 <td>
-                  <b>
-                   The value which appears most frequently
-                  </b>
+                  <b>The value which appears most frequently</b>
                 </td>
               </tr>
               <tr>
                 <td>Variance</td>
                 <td>
                   <b>
-                        (Σ(x - Mean)<sup>2</sup>) / N
+                    (Σ(x - Mean)<sup>2</sup>) / N
                   </b>
                 </td>
               </tr>
@@ -609,23 +616,21 @@ function Calculator() {
                 <td>Standard Deviation</td>
                 <td>
                   <b>
-                      &radic; (Σ(x - Mean)<sup>2</sup>) / N
+                    &radic; (Σ(x - Mean)<sup>2</sup>) / N
                   </b>
                 </td>
               </tr>
               <tr>
                 <td>Range</td>
                 <td>
-                  <b>
-                     Highest Value - Lowest Value in series
-                  </b>
+                  <b>Highest Value - Lowest Value in series</b>
                 </td>
               </tr>
               <tr>
                 <td>Mean Deviation</td>
                 <td>
                   <b>
-                  (Σ|x<sub>i</sub> - Mean|) / N
+                    (Σ|x<sub>i</sub> - Mean|) / N
                   </b>
                 </td>
               </tr>
