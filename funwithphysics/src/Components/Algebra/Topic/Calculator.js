@@ -678,7 +678,7 @@ function Calculator() {
       setPolarY(null);
     }
 
-    const calcResult = () => {      
+    const calcComplexNumber = () => {      
       let x,y,x1,x2,y1,y2;
 
       // Assigning values for code reabability
@@ -830,7 +830,7 @@ function Calculator() {
 
         </Form>
         <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcResult}>
+          <Button variant="primary" onClick={calcComplexNumber}>
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;

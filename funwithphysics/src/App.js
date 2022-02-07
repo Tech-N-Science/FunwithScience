@@ -48,6 +48,7 @@ import Contact from "./Components/Contact/Contact";
 import Algebra from "./Components/Algebra/algebra";
 import Geometry from "./Components/Geometry/geometry";
 import Calpermutation from "./Components/Algebra/Topic/Calculator";
+import calcComplexNumber from "./Components/Algebra/Topic/Calculator";
 import Calstraightline from "./Components/Geometry/Topic/Calculator";
 import { useNavigate } from "react-router-dom";
 const Home = lazy(() => {
@@ -251,6 +252,11 @@ const App = () => {
             exact
             path="/algebra/calc/:topic"
             element={<Calpermutation />}
+          ></Route>
+          <Route
+            exact
+            path="/algebra/calc/:topic"
+            element={<calcComplexNumber />}
           ></Route>
           <Route
             exact
