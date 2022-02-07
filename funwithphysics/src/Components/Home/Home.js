@@ -8,11 +8,9 @@ import Navbar from "../Navbar/Navbar";
 import { Context } from "../../App";
 
 const Home = () => {
-  const [loading, setloading] = useState(true);
   const { dispatch } = useContext(Context);
   useEffect(() => {
     setTimeout(() => {
-      setloading(false);
       const user = JSON.parse(localStorage.getItem("user"));
       if (user !== null) {
         dispatch({
@@ -86,12 +84,10 @@ const bookReaderStyle = {
       <LearnMore />
       <Footer />
       {/* <!-- Back to top button --> */}
-      {!loading && (
-        <button className="gotopbtn" onClick={scroll}>
+        <button className="gotopbtn" onClick={() => scroll()}>
           {" "}
           <i className="fas fa-arrow-up"></i>{" "}
         </button>
-      )}
     </React.Fragment>
   );
 };
