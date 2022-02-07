@@ -7,6 +7,7 @@
     "header header"
     "details formula"
     "details process"
+    "example example"
     "calc calc";
   column-gap: 3em;
   row-gap: 1.5em;
@@ -39,6 +40,12 @@
 .Calculator__formula {
   grid-area: formula;
   font-family: math;
+}
+
+.Calculator__example {
+  grid-area: example;
+  align-self: center;
+  text-align: center;
 }
 
 .Calculator__calc {
