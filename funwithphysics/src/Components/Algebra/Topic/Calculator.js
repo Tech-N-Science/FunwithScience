@@ -961,7 +961,7 @@ function Calculator() {
             <thead>
               <section className="m-2">
                 <tr>
-                  <h3>Properties of Multiplication </h3>
+                  <h3>Properties of Multiplication</h3>
                 </tr>
               </section>
 
@@ -1029,27 +1029,32 @@ function Calculator() {
 
               <tr>
                 <td>(z1 - z2)<sup>2</sup></td>
-                <td>z1<sup>2</sup> - 2z1z2 + z2<sup>2</sup></td>
+                <td>
+                <b>z1<sup>2</sup> - 2z1z2 + z2<sup>2</sup></b>
+                </td>
               </tr>
 
               <tr>
                 <td>(z1 + z2)<sup>3</sup></td>
-                <td>z1<sup>3</sup> + 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> + z2<sup>3</sup></td>
+                <td>
+                <b>
+                z1<sup>3</sup> + 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> + z2<sup>3</sup></b>
+                </td>
               </tr>
               
               <tr>
                 <td>(z1 - z2)<sup>3</sup></td>
-                <td>z1<sup>3</sup> - 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> - z2<sup>3</sup></td>
+                <td><b>z1<sup>3</sup> - 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> - z2<sup>3</sup></b></td>
               </tr>
 
               <tr>
                 <td>(z1 + z2)(z1 - z2)</td>
-                <td>z1<sup>2</sup> - z2<sup>2</sup></td>
+                <td><b>z1<sup>2</sup> - z2<sup>2</sup></b></td>
               </tr>
 
               <tr>
                 <td>(z1 +z2 + z3)<sup>2</sup></td>
-                <td>z1<sup>2</sup> + z2<sup>2</sup> + z3<sup>2</sup> + 2z1z2 + 2z2z3 +2z3z1</td>
+                <td><b>z1<sup>2</sup> + z2<sup>2</sup> + z3<sup>2</sup> + 2z1z2 + 2z2z3 +2z3z1</b></td>
               </tr>
 
             </tbody>
