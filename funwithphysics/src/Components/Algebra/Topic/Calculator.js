@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router";
-import './Calculator.css';
+import "./Calculator.css";
 
 function Calculator() {
   let { topic } = useParams();
@@ -89,15 +89,23 @@ function Calculator() {
     {
       topic: "Complex Numbers",
       details: [
+        "A complex number is an element of a number system that includes the real numbers as well as a specific element denoted i known as the imaginary unit, and satisfying the equation i² = -1. Furthermore, every complex number may be written as a + bi, where a and b are real values. René Descartes referred i as an imaginary number since no real number satisfies the above equation. The set of complex numbers is represented by the symbol C.",
+      ],
+      formula: [
+        "Addition = (x1 + x2) + i (y1 + y2)",
+        <br />,
+        "Polar form = r(cosθ + isinθ)",
+        <br />,
+        "Cartesian form = a + bi",
+      ],
+      process: [
         `A number of the form x + iy, where x and y are real numbers, is called a complex number, x is called real part and y is called imaginary part of the complex number i.e. Re(Z) = x and Im(Z) = y.`,
         <br />,
-        <br />,
+
         "A complex number Z = x + iy is a purely real if its imaginary part is 0, i.e. Im(z) = 0 and purely imaginary if its real part is 0 i.e. Re (z) = 0.",
-      ],
-      formula: ["Addition = (x1 + x2) + i (y1 + y2)", <br />, "Polar form = r(cosθ + isinθ)",
-      <br />, "Cartesian form = a + bi"],
-      process: [
+        <br />,
         <b>E.g. </b>,
+
         "z1 = 2 + 3i is first complex number equation",
         <br />,
         "z2 = 5 + 10i is second complex number equation",
@@ -642,12 +650,15 @@ function Calculator() {
   };
 
   //Complex Number Calculator
-  const ComplexNumbers = () =>{
-    const [result, setResult] = useState({x : null, y : null});
-    const [cartesianResult, setCartesianResult] = useState({x : null, y : null});
+  const ComplexNumbers = () => {
+    const [result, setResult] = useState({ x: null, y: null });
+    const [cartesianResult, setCartesianResult] = useState({
+      x: null,
+      y: null,
+    });
     const [choice, setChoice] = useState("Add");
-    const [valueX, setX] = useState({ x1 : null, x2 : null});
-    const [valueY, setY] = useState({ y1 : null, y2 : null});
+    const [valueX, setX] = useState({ x1: null, x2: null });
+    const [valueY, setY] = useState({ y1: null, y2: null });
     const [polarX, setPolarX] = useState(null);
     const [polarY, setPolarY] = useState(null);
     const [polarR, setPolarR] = useState(null);
@@ -660,7 +671,7 @@ function Calculator() {
 
     // Function for converting polar form into cartesian form
     const convertPolar = () => {
-      let r,x,y;
+      let r, x, y;
       r = Number(polarR);
       x = Number(polarX);
       y = Number(polarY);
@@ -668,11 +679,11 @@ function Calculator() {
       x = Math.round(r * Math.cos(x));
       y = Math.round(r * Math.sin(y));
 
-      setCartesianResult({x:x,y:y});
-    }
+      setCartesianResult({ x: x, y: y });
+    };
 
     function reset2() {
-      setCartesianResult({x : null, y : null});
+      setCartesianResult({ x: null, y: null });
       setPolarR(null);
       setPolarX(null);
       setPolarY(null);
@@ -680,35 +691,31 @@ function Calculator() {
 
     const calcComplexNumber = () => {      
       let x,y,x1,x2,y1,y2;
-
       // Assigning values for code reabability
-      x1=Number(valueX.x1);
-      x2=Number(valueX.x2);
-      y1=Number(valueY.y1);
-      y2=Number(valueY.y2);
+      x1 = Number(valueX.x1);
+      x2 = Number(valueX.x2);
+      y1 = Number(valueY.y1);
+      y2 = Number(valueY.y2);
 
       if (choice === "Add") {
-         x = x1 + x2;
-         y = y1 + y2;
-      } 
-      else if (choice === "Sub") {
+        x = x1 + x2;
+        y = y1 + y2;
+      } else if (choice === "Sub") {
         x = x1 - x2;
         y = y1 - y2;
-      }
-      else if (choice === "Product") {        
+      } else if (choice === "Product") {
         x = x1 * x2;
         y = y1 * y2;
+      } else if (choice === "Divide") {
+        x = Number((x1 * x2 + y1 * y2) / (x2 * x2 + (y1 + y2)));
+        y = Number((x1 * x2 - y1 * y2) / (x2 * x2 + (y1 + y2)));
       }
-      else if (choice === "Divide") {        
-        x = Number(((x1 * x2) + (y1 * y2)) / ((x2 * x2) + (y1 + y2)));
-        y = Number(((x1 * x2) - (y1 * y2)) / ((x2 * x2) + (y1 + y2)));
-      }
-      setResult({x:x,y:y});
+      setResult({ x: x, y: y });
     };
     function reset() {
-      setResult({x : null, y : null});
-      setX({ x1 : null, x2 : null});
-      setY({ y1 : null, y2 : null});
+      setResult({ x: null, y: null });
+      setX({ x1: null, x2: null });
+      setY({ y1: null, y2: null });
     }
     const choiceData = () => {
       if (choice === "Add")
@@ -720,13 +727,11 @@ function Calculator() {
         return {
           name: "Subtraction",
         };
-      }
-      else if (choice === "Product") {
+      } else if (choice === "Product") {
         return {
           name: "Multiplication",
         };
-      }
-      else if (choice === "Div") {
+      } else if (choice === "Div") {
         return {
           name: "Divide",
         };
@@ -752,7 +757,8 @@ function Calculator() {
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
               <strong>
-                To find the {choiceData().name} of two Complex Numbers, Enter the following values
+                To find the {choiceData().name} of two Complex Numbers, Enter
+                the following values
               </strong>
               <br />
             </Form.Text>
@@ -761,73 +767,74 @@ function Calculator() {
           {/* Equation One */}
           <Form.Group className="mb-4">
             <div className="complex-num-group">
-              <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Value of First real number(x1)"
-              name="X1"
-              value={valueX.x1 === null ? "" : valueX.x1}
-              onChange={(e) => setX({x1:e.target.value})}
-               />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Value of First real number(x1)"
+                name="X1"
+                value={valueX.x1 === null ? "" : valueX.x1}
+                onChange={(e) => setX({ x1: e.target.value })}
+              />
 
               <span className="group-txt">+ i</span>
 
-              <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Value of Second Real Number(y1)"
-              name="Y1"
-              value={valueY.y1 === null ? "" : valueY.y1}
-              onChange={(e) => setY({y1:e.target.value})}
-               />
-            </div>            
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Value of Second Real Number(y1)"
+                name="Y1"
+                value={valueY.y1 === null ? "" : valueY.y1}
+                onChange={(e) => setY({ y1: e.target.value })}
+              />
+            </div>
           </Form.Group>
 
           {/* Equation two */}
           <Form.Group className="mb-4">
             <div className="complex-num-group">
-              <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Value of First real number(x2)"
-              name="X2"
-              value={valueX.x2 === null ? "" : valueX.x2}
-              onChange={(e) => setX({...valueX , x2:e.target.value})}
-                />
-
-              <span className="group-txt">+ i</span>
-
-              <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Value of Second Real Number(y2)"
-              name="Y2"
-              value={valueY.y2 === null ? "" : valueY.y2}
-              onChange={(e) => setY({...valueY , y2:e.target.value})}
-               />
-            </div>            
-          </Form.Group>
-
-          {/* Result */} 
-
-          <Form.Group className="mb-4">
-            <div className="complex-num-group">
-              <input 
-              readOnly
-              type="text" 
-              className="form-control" 
-              placeholder= {result.x === null ? "Result of X" : result.x}/>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Value of First real number(x2)"
+                name="X2"
+                value={valueX.x2 === null ? "" : valueX.x2}
+                onChange={(e) => setX({ ...valueX, x2: e.target.value })}
+              />
 
               <span className="group-txt">+ i</span>
 
               <input
-              readOnly 
-              type="text" 
-              className="form-control" 
-              placeholder={result.y === null ? "Result of Y" : result.y} />
-            </div>            
+                type="text"
+                className="form-control"
+                placeholder="Value of Second Real Number(y2)"
+                name="Y2"
+                value={valueY.y2 === null ? "" : valueY.y2}
+                onChange={(e) => setY({ ...valueY, y2: e.target.value })}
+              />
+            </div>
           </Form.Group>
 
+          {/* Result */}
+
+          <Form.Group className="mb-4">
+            <div className="complex-num-group">
+              <input
+                readOnly
+                type="text"
+                className="form-control"
+                placeholder={result.x === null ? "Result of X" : result.x}
+              />
+
+              <span className="group-txt">+ i</span>
+
+              <input
+                readOnly
+                type="text"
+                className="form-control"
+                placeholder={result.y === null ? "Result of Y" : result.y}
+              />
+            </div>
+          </Form.Group>
         </Form>
         <div className="button-custom-grp">
           <Button variant="primary" onClick={calcComplexNumber}>
@@ -840,70 +847,79 @@ function Calculator() {
         </div>
 
         {/* Conversion of Polar form to Cartesian form */}
-      <Form>
-        {/* dropdown */}
-        <Form.Group className="mb-4" controlId="choice">
-        <br /> <br />
-          <Form.Label>
-          <strong>Conversion of Polar Form into Cartesian Form</strong>
-          </Form.Label>
-        </Form.Group>
-        <Form.Group className="mb-4">
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <br /> <br />
+            <Form.Label>
+              <strong>Conversion of Polar Form into Cartesian Form</strong>
+            </Form.Label>
+          </Form.Group>
+          <Form.Group className="mb-4">
             <div className="complex-num-group">
-
-              <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Value of r"
-              name="r"
-              value={polarR === null ? "" : polarR}
-              onChange={(e) => setPolarR(e.target.value)}
-               />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Value of r"
+                name="r"
+                value={polarR === null ? "" : polarR}
+                onChange={(e) => setPolarR(e.target.value)}
+              />
 
               <span className="group-txt">(cos</span>
-              <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Value of Q"
-              name="cosq"
-              value={polarX === null ? "" : polarX}
-              onChange={(e) => setPolarX(e.target.value)}
-               />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Value of Q"
+                name="cosq"
+                value={polarX === null ? "" : polarX}
+                onChange={(e) => setPolarX(e.target.value)}
+              />
 
               <span className="group-txt">+ i sin</span>
 
-              <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Value of Q"
-              name="sinq"
-              value={polarY === null ? "" : polarY}
-              onChange={(e) => setPolarY(e.target.value)}
-               />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Value of Q"
+                name="sinq"
+                value={polarY === null ? "" : polarY}
+                onChange={(e) => setPolarY(e.target.value)}
+              />
 
               <span className="group-txt">)</span>
-            </div>            
+            </div>
           </Form.Group>
-          {/* Result */} 
+          {/* Result */}
 
           <Form.Group className="mb-4">
             <div className="complex-num-group">
-              <input 
-              readOnly
-              type="text" 
-              className="form-control" 
-              placeholder= {cartesianResult.x === null ? "Cartesian Form of X" : cartesianResult.x}/>
+              <input
+                readOnly
+                type="text"
+                className="form-control"
+                placeholder={
+                  cartesianResult.x === null
+                    ? "Cartesian Form of X"
+                    : cartesianResult.x
+                }
+              />
 
               <span className="group-txt">+ i</span>
 
               <input
-              readOnly 
-              type="text" 
-              className="form-control" 
-              placeholder={cartesianResult.y === null ? "Cartesian Form of Y" : cartesianResult.y} />
-            </div>            
+                readOnly
+                type="text"
+                className="form-control"
+                placeholder={
+                  cartesianResult.y === null
+                    ? "Cartesian Form of Y"
+                    : cartesianResult.y
+                }
+              />
+            </div>
           </Form.Group>
-          </Form>
+        </Form>
         <div className="button-custom-grp">
           <Button variant="primary" onClick={convertPolar}>
             Calculate
@@ -951,13 +967,11 @@ function Calculator() {
                   <b>z + 0 = z = 0 + z</b>
                 </td>
               </tr>
-              
             </tbody>
           </table>
         </div>
         <div className="formula-table">
-        
-        <table className="formulae">
+          <table className="formulae">
             <thead>
               <section className="m-2">
                 <tr>
@@ -998,15 +1012,13 @@ function Calculator() {
                   <b>z1(z2 + z3) = z1z2 + z1z3</b>
                 </td>
               </tr>
-              
             </tbody>
           </table>
         </div>
 
         <br></br>
         <div className="formula-table">
-        
-        <table className="formulae">
+          <table className="formulae">
             <thead>
               <section className="m-2">
                 <tr>
@@ -1017,13 +1029,16 @@ function Calculator() {
                 <th className="row-1 row-ID  "> Identity</th>
                 <th className="row-2 row-name ">Representation</th>
               </tr>
-
             </thead>
             <tbody>
               <tr>
-                <td>(z1 + z2)<sup>2</sup></td>
                 <td>
-                  <b>z1<sup>2</sup> + 2z1z2 + z2<sup>2</sup></b>
+                  (z1 + z2)<sup>2</sup>
+                </td>
+                <td>
+                  <b>
+                    z1<sup>2</sup> + 2z1z2 + z2<sup>2</sup>
+                  </b>
                 </td>
               </tr>
 
@@ -1041,7 +1056,7 @@ function Calculator() {
                 z1<sup>3</sup> + 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> + z2<sup>3</sup></b>
                 </td>
               </tr>
-              
+
               <tr>
                 <td>(z1 - z2)<sup>3</sup></td>
                 <td><b>z1<sup>3</sup> - 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> - z2<sup>3</sup></b></td>
@@ -1056,13 +1071,12 @@ function Calculator() {
                 <td>(z1 +z2 + z3)<sup>2</sup></td>
                 <td><b>z1<sup>2</sup> + z2<sup>2</sup> + z3<sup>2</sup> + 2z1z2 + 2z2z3 +2z3z1</b></td>
               </tr>
-
             </tbody>
           </table>
         </div>
       </>
     );
-  }
+  };
 
   //adding the calculators togather
   function calC(key) {
