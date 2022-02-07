@@ -96,6 +96,14 @@
   transform: rotate(-45deg) translate(60px, 60px);
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
 @media (min-width: 291px) and (max-width: 600px) {
   .fa-book {
     display: none;
