@@ -150,3 +150,12 @@
     padding: 3px;
   }
 }
+.nav-logo{
+  color:black;
+  transition: 0.2s;
+}
+.nav-logo:hover{
+  transform:scale(1.05);
+  color:black;
+  text-decoration: none!important;
+}

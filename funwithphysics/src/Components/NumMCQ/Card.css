@@ -157,6 +157,8 @@
   }
   .card-body {
     justify-content: space-around;
+    display: flex!important;
+    flex-direction: column!important;
   }
   .solve-question-btn {
     width: 90px;

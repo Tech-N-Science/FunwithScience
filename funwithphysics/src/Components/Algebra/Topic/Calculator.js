@@ -689,9 +689,8 @@ function Calculator() {
       setPolarY(null);
     }
 
-    const calcResult = () => {
-      let x, y, x1, x2, y1, y2;
-
+    const calcComplexNumber = () => {      
+      let x,y,x1,x2,y1,y2;
       // Assigning values for code reabability
       x1 = Number(valueX.x1);
       x2 = Number(valueX.x2);
@@ -838,7 +837,7 @@ function Calculator() {
           </Form.Group>
         </Form>
         <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcResult}>
+          <Button variant="primary" onClick={calcComplexNumber}>
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
@@ -976,7 +975,7 @@ function Calculator() {
             <thead>
               <section className="m-2">
                 <tr>
-                  <h3>Properties of Multiplication </h3>
+                  <h3>Properties of Multiplication</h3>
                 </tr>
               </section>
 
@@ -1044,49 +1043,33 @@ function Calculator() {
               </tr>
 
               <tr>
+                <td>(z1 - z2)<sup>2</sup></td>
                 <td>
-                  (z1 - z2)<sup>2</sup>
-                </td>
-                <td>
-                  z1<sup>2</sup> - 2z1z2 + z2<sup>2</sup>
+                <b>z1<sup>2</sup> - 2z1z2 + z2<sup>2</sup></b>
                 </td>
               </tr>
 
               <tr>
+                <td>(z1 + z2)<sup>3</sup></td>
                 <td>
-                  (z1 + z2)<sup>3</sup>
-                </td>
-                <td>
-                  z1<sup>3</sup> + 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> + z2
-                  <sup>3</sup>
+                <b>
+                z1<sup>3</sup> + 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> + z2<sup>3</sup></b>
                 </td>
               </tr>
 
               <tr>
-                <td>
-                  (z1 - z2)<sup>3</sup>
-                </td>
-                <td>
-                  z1<sup>3</sup> - 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> - z2
-                  <sup>3</sup>
-                </td>
+                <td>(z1 - z2)<sup>3</sup></td>
+                <td><b>z1<sup>3</sup> - 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> - z2<sup>3</sup></b></td>
               </tr>
 
               <tr>
                 <td>(z1 + z2)(z1 - z2)</td>
-                <td>
-                  z1<sup>2</sup> - z2<sup>2</sup>
-                </td>
+                <td><b>z1<sup>2</sup> - z2<sup>2</sup></b></td>
               </tr>
 
               <tr>
-                <td>
-                  (z1 +z2 + z3)<sup>2</sup>
-                </td>
-                <td>
-                  z1<sup>2</sup> + z2<sup>2</sup> + z3<sup>2</sup> + 2z1z2 +
-                  2z2z3 +2z3z1
-                </td>
+                <td>(z1 +z2 + z3)<sup>2</sup></td>
+                <td><b>z1<sup>2</sup> + z2<sup>2</sup> + z3<sup>2</sup> + 2z1z2 + 2z2z3 +2z3z1</b></td>
               </tr>
             </tbody>
           </table>
