@@ -16,15 +16,12 @@ function Calculator() {
       formula: "nPr = n!/(n-r)!",
       process: [
         "To find the permutation, first we need to find the value of n factorial and n - r factorial, then we need to devide them.",
-        <br />],
-        example:[
-          <span>
+        <br />,
+        <b>E.g. </b>,
+        <span>
           10<b style={{ fontSize: 25 + "px" }}>P</b>5 = 10!/(10-5)! = 30240
-        </span>
-
-        ]
-        
-     
+        </span>,
+      ],
     },
     {
       topic: "Combination",
@@ -32,15 +29,12 @@ function Calculator() {
       formula: "C = n!/r!(n-r)!",
       process: [
         "To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.",
-        <br />],
-        example:[
-          <span>
+        <br />,
+        <b>E.g. </b>,
+        <span>
           10<b style={{ fontSize: 25 + "px" }}>C</b>5 = 10!/5!(10-5)! = 252
-        </span>
-
-        ]
-        
-      
+        </span>,
+      ],
     },
     {
       topic: "Progression",
@@ -53,28 +47,26 @@ function Calculator() {
       formula: ["AP = a + d * (n-1)", <br />, "GP = a * r ^ (n-1)"],
       process: [
         "To find the Arithmetic progression of nᵗʰ term, we use the formula a + d * (n-1) where, 'a' is the first term of the series and 'd' is the common difference between any two numbers in the series found by taking the difference. To find the Geometric progression of nᵗʰ term, we use the formula a + r ⁽ⁿ⁻¹⁾ where, 'a' is the first term of the series and 'r' is the common difference between any two numbers in the series found by taking the ratio.",
-        <br />],
-        example:[
-          "2,4,6,8.. is an AP because difference between any two consecutive terms in the series (common difference) is same (4 – 2 = 6 – 4 = 8 – 6 = 2).",
-          <br />,
-          "If ‘a’(2) is the first term and ‘d’(2) is the common difference,",
-          <br />,
-          "nth term of an AP = a + (n-1) d",
-          <br />,
-          "5th term of the AP = 2 + (5-1) * 2 = 10",
-          <br />,
-          <b>E.g. </b>,
-          "2,4,8,16 is a GP because ratio of any two consecutive terms in the series (common difference) is same (4 / 2 = 8 / 4 = 16 / 8 = 2)",
-          <br />,
-          "If ‘a’(2) is the first term and ‘r’(2) is the common ratio,",
-          <br />,
-          "nth term of a GP = a rn-1",
-          <br />,
-          "5th term of the GP = 2 * 2 ^ (5-1) = 32",
-          <br />
-
-        ]
-      
+        <br />,
+        <b>E.g. </b>,
+        "2,4,6,8.. is an AP because difference between any two consecutive terms in the series (common difference) is same (4 – 2 = 6 – 4 = 8 – 6 = 2).",
+        <br />,
+        "If ‘a’(2) is the first term and ‘d’(2) is the common difference,",
+        <br />,
+        "nth term of an AP = a + (n-1) d",
+        <br />,
+        "5th term of the AP = 2 + (5-1) * 2 = 10",
+        <br />,
+        <b>E.g. </b>,
+        "2,4,8,16 is a GP because ratio of any two consecutive terms in the series (common difference) is same (4 / 2 = 8 / 4 = 16 / 8 = 2)",
+        <br />,
+        "If ‘a’(2) is the first term and ‘r’(2) is the common ratio,",
+        <br />,
+        "nth term of a GP = a rn-1",
+        <br />,
+        "5th term of the GP = 2 * 2 ^ (5-1) = 32",
+        <br />,
+      ],
     },
     {
       topic: "Statistics",
@@ -82,20 +74,17 @@ function Calculator() {
       formula: "",
       process: [
         "To calculate the mean, median and mode, we have to use the formulae giving below",
-        <br />],
-        example:[
-          "Numbers given: 20 30 60 20 10 40 80 90",
-          <br />,
-          "Mean = Sum of all items/Total no. of items = 350/8 = 43.75",
-          <br />,
-          "Since total number of items is 6(even), Median = (n / 2)th = 3rd item = 30",
-          <br />,
-          "Mode = 20 (as 20 occured most number of times in the given set of numbers)",
-          <br />
-
-        ]
-       
-      
+        <br />,
+        <b>E.g. </b>,
+        "Numbers given: 20 30 60 20 10 40 80 90",
+        <br />,
+        "Mean = Sum of all items/Total no. of items = 350/8 = 43.75",
+        <br />,
+        "Since total number of items is 6(even), Median = (n / 2)th = 3rd item = 30",
+        <br />,
+        "Mode = 20 (as 20 occured most number of times in the given set of numbers)",
+        <br />,
+      ],
     },
     {
       topic: "Complex Numbers",
@@ -1156,10 +1145,6 @@ function Calculator() {
         <div className="Calculator__process">
           <h3> Process</h3>
           <p>{details.process}</p>
-        </div>
-        <div className="Calculator__example">
-          <h3>Example</h3>
-          <p>{details.example}</p>
         </div>
         <div className="Calculator__calc">
           <h3>{details.topic} Calculator</h3>
