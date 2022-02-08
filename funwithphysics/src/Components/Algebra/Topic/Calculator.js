@@ -84,6 +84,10 @@ function Calculator() {
         <br />,
         "Mode = 20 (as 20 occured most number of times in the given set of numbers)",
         <br />,
+        "Standar deviation is calculated by deviations of each data point from the mean, and square the result of each whole divided by total number of samples minus 1.Hence it is , = 29.73",
+        <br />,
+        "Variance is square of standard deviation.Hence it is = 883.92",
+        <br />,
       ],
     },
     {
@@ -651,7 +655,7 @@ function Calculator() {
                 <td>Variance</td>
                 <td>
                   <b>
-                    (Σ(x - Mean)<sup>2</sup>) / N
+                    (Σ(x - Mean)<sup>2</sup>) / N-1
                   </b>
                 </td>
               </tr>
@@ -663,14 +667,7 @@ function Calculator() {
                   </b>
                 </td>
               </tr>
-              <tr>
-                <td>Variance</td>
-                <td>
-                  <b>
-                    (Σ(x - Mean)<sup>2</sup>) / N-1
-                  </b>
-                </td>
-              </tr>
+
               <tr>
                 <td>Range</td>
                 <td>
