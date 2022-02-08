@@ -418,6 +418,8 @@ function Calculator() {
       mean: 0,
       median: 0,
       mode: 0,
+      stddeviation:"",
+      variance:"",
     };
     const [number, setNum] = useState(0);
     const [statData, setStatData] = useState(statOBJ);
@@ -457,7 +459,24 @@ function Calculator() {
         }
       }
       statOBJ.mode = numArr[modeIndex]; //mode of all items
+      
+   
+    let stddevnum = 0
+    for (let i = 0;i<numArr.length;i++){
+      stddevnum += ((numArr[i]-statOBJ.mean)**2)
+
+    }
+    if( stddevnum > 0){
+      statOBJ.stddeviation = Math.sqrt(stddevnum/(numArr.length-1))
+      statOBJ.variance = stddevnum/(numArr.length-1)
+    }
+    else{
+      statOBJ.stddeviation = Math.sqrt((-1*stddevnum)/(numArr.length-1))
+      statOBJ.variance = (-1*stddevnum)/(numArr.length-1)
+    }
+  
     };
+
     const resetStat = () => {
       setNum(0);
     };
@@ -551,6 +570,22 @@ function Calculator() {
               placeholder={statData.mode === 0 ? "Mode" : statData.mode}
             />
           </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Standard deviation</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={statData.stddeviation === "" ? "Standard deviation" : statData.stddeviation.toFixed(2)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Variance</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={statData.variance === "" ? "Variance" : statData.variance.toFixed(2)}
+            />
+          </Form.Group>
         </Form>
         <div className="button-custom-grp">
           <Button
@@ -624,7 +659,15 @@ function Calculator() {
                 <td>Standard Deviation</td>
                 <td>
                   <b>
-                    &radic; (Σ(x - Mean)<sup>2</sup>) / N
+                    &radic; (Σ(x - Mean)<sup>2</sup>) / N-1
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Variance</td>
+                <td>
+                  <b>
+                    (Σ(x - Mean)<sup>2</sup>) / N-1
                   </b>
                 </td>
               </tr>
