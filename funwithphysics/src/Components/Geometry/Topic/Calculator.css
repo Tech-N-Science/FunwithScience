@@ -42,11 +42,15 @@
   font-family: math;
 }
 
+
 .Calculator__example {
-  grid-area: example;
-  align-self: center;
-  text-align: center;
+    grid-area: example;
+    align-self: start;
+    text-align: left;
+    margin-left: 20px;
+    
 }
+
 
 .Calculator__calc {
   grid-area: calc;
