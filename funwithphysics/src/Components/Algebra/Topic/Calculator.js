@@ -659,8 +659,8 @@ function Calculator() {
     const [choice, setChoice] = useState("Add");
     const [valueX, setX] = useState({ x1: null, x2: null });
     const [valueY, setY] = useState({ y1: null, y2: null });
-    const [polarX, setPolarX] = useState(null);
-    const [polarY, setPolarY] = useState(null);
+    const [polarθ, setPolarθ] = useState(null);
+
     const [polarR, setPolarR] = useState(null);
 
     function handleChange(e) {
@@ -673,11 +673,11 @@ function Calculator() {
     const convertPolar = () => {
       let r, x, y;
       r = Number(polarR);
-      x = Number(polarX);
-      y = Number(polarY);
+      x = Number(polarθ);
+      y = Number(polarθ);
 
-      x = Math.round(r * Math.cos(x));
-      y = Math.round(r * Math.sin(y));
+      x = Math.round(r * Math.cos((x * Math.PI) / 180));
+      y = Math.round(r * Math.sin((y * Math.PI) / 180));
 
       setCartesianResult({ x: x, y: y });
     };
@@ -685,12 +685,11 @@ function Calculator() {
     function reset2() {
       setCartesianResult({ x: null, y: null });
       setPolarR(null);
-      setPolarX(null);
-      setPolarY(null);
+      setPolarθ(null);
     }
 
-    const calcComplexNumber = () => {      
-      let x,y,x1,x2,y1,y2;
+    const calcComplexNumber = () => {
+      let x, y, x1, x2, y1, y2;
       // Assigning values for code reabability
       x1 = Number(valueX.x1);
       x2 = Number(valueX.x2);
@@ -866,28 +865,15 @@ function Calculator() {
                 onChange={(e) => setPolarR(e.target.value)}
               />
 
-              <span className="group-txt">(cos</span>
+              <span className="group-txt">θ =</span>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Value of Q"
+                placeholder="Value of θ"
                 name="cosq"
-                value={polarX === null ? "" : polarX}
-                onChange={(e) => setPolarX(e.target.value)}
+                value={polarθ === null ? "" : polarθ}
+                onChange={(e) => setPolarθ(e.target.value)}
               />
-
-              <span className="group-txt">+ i sin</span>
-
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Value of Q"
-                name="sinq"
-                value={polarY === null ? "" : polarY}
-                onChange={(e) => setPolarY(e.target.value)}
-              />
-
-              <span className="group-txt">)</span>
             </div>
           </Form.Group>
           {/* Result */}
@@ -905,7 +891,7 @@ function Calculator() {
                 }
               />
 
-              <span className="group-txt">+ i</span>
+              <span className="group-txt"></span>
 
               <input
                 readOnly
@@ -1043,33 +1029,59 @@ function Calculator() {
               </tr>
 
               <tr>
-                <td>(z1 - z2)<sup>2</sup></td>
                 <td>
-                <b>z1<sup>2</sup> - 2z1z2 + z2<sup>2</sup></b>
+                  (z1 - z2)<sup>2</sup>
+                </td>
+                <td>
+                  <b>
+                    z1<sup>2</sup> - 2z1z2 + z2<sup>2</sup>
+                  </b>
                 </td>
               </tr>
 
               <tr>
-                <td>(z1 + z2)<sup>3</sup></td>
                 <td>
-                <b>
-                z1<sup>3</sup> + 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> + z2<sup>3</sup></b>
+                  (z1 + z2)<sup>3</sup>
+                </td>
+                <td>
+                  <b>
+                    z1<sup>3</sup> + 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> + z2
+                    <sup>3</sup>
+                  </b>
                 </td>
               </tr>
 
               <tr>
-                <td>(z1 - z2)<sup>3</sup></td>
-                <td><b>z1<sup>3</sup> - 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> - z2<sup>3</sup></b></td>
+                <td>
+                  (z1 - z2)<sup>3</sup>
+                </td>
+                <td>
+                  <b>
+                    z1<sup>3</sup> - 3z1<sup>2</sup>z2 + 3z1z2<sup>2</sup> - z2
+                    <sup>3</sup>
+                  </b>
+                </td>
               </tr>
 
               <tr>
                 <td>(z1 + z2)(z1 - z2)</td>
-                <td><b>z1<sup>2</sup> - z2<sup>2</sup></b></td>
+                <td>
+                  <b>
+                    z1<sup>2</sup> - z2<sup>2</sup>
+                  </b>
+                </td>
               </tr>
 
               <tr>
-                <td>(z1 +z2 + z3)<sup>2</sup></td>
-                <td><b>z1<sup>2</sup> + z2<sup>2</sup> + z3<sup>2</sup> + 2z1z2 + 2z2z3 +2z3z1</b></td>
+                <td>
+                  (z1 +z2 + z3)<sup>2</sup>
+                </td>
+                <td>
+                  <b>
+                    z1<sup>2</sup> + z2<sup>2</sup> + z3<sup>2</sup> + 2z1z2 +
+                    2z2z3 +2z3z1
+                  </b>
+                </td>
               </tr>
             </tbody>
           </table>

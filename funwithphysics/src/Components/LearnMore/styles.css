@@ -73,10 +73,10 @@ a.plus {
   text-decoration: none;
   pointer-events: none;
   background-color: black;
-  color:white;
+  color: white;
   padding: 10% 20%;
   border-radius: 5%;
-  width: 100%
+  width: 100%;
 }
 a.plus:hover {
   filter: invert(70%);
@@ -86,13 +86,13 @@ a.plus:hover {
   margin: 0;
 }
 
-.add-icon{
+.add-icon {
   font-size: 1.1rem;
- color:white;
- padding-left: 0.5rem;
+  color: white;
+  padding-left: 0.5rem;
 }
-.explore-btn{
-  display:inline-block;
+.explore-btn {
+  display: inline-block;
 }
 
 .learn-more ul .topic {
@@ -109,8 +109,8 @@ a.plus:hover {
 
 .list-science ul li {
   opacity: 0;
-  transition: 0.3s;
-  z-index:5;
+  transition: 0.7s;
+  z-index: 5;
 }
 
 .learn-more ul .science-topic {
@@ -314,7 +314,7 @@ a.plus:hover {
   }
 }
 
-.topic-card:hover{
+.topic-card:hover {
   cursor: pointer;
   transform: scale(1.1);
   box-shadow: none;
