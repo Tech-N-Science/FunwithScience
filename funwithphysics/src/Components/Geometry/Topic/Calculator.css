@@ -141,7 +141,7 @@
 @media only screen and (max-width: 992px) {
   .Calculator__main {
     grid-template-columns: 1fr;
-    grid-template-areas: "header header" "details details" "formula formula " "process process " "calc calc";
+    grid-template-areas: "header header" "details details" "formula formula " "process process " "example example" "calc calc";
     row-gap: 3em;
   }
 
@@ -178,6 +178,11 @@
   }
   .Calculator__process {
     padding: 1rem;
+  }
+  .Calculator__example {
+    text-align: center;
+    margin: 0;
+    
   }
   input {
     width: 100%;
