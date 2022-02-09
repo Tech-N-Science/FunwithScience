@@ -19,9 +19,9 @@ function Calculator() {
         "Two point form: (y2 - y1)x + (x1 - x2)y - (x1 * y2) + (x2 * y1) = 0 ",
       process: [
         "To find the equation of line using the two-point formula we will be needing co-ordinates of two points.",
-        <br />,
-        <b>E.g. </b>,
-        "Find the equation of a line passing through (-2, 4) and (3, 1).",
+        <br />],
+        example:[
+          "Find the equation of a line passing through (-2, 4) and (3, 1).",
         <br />,
         <b>Solution: </b>,
 
@@ -32,8 +32,10 @@ function Calculator() {
         "-3x + (-5)y - (-2) + (12) = 0",
         <br />,
         <b>3x + 5y -14=0 </b>,
-        " Hence, this is the required equation of a line passing through the given points.",
-      ],
+        " Hence, this is the required equation of a line passing through the given points."
+
+        ]
+        
     },
     {
       topic: "Parabola",
@@ -54,8 +56,9 @@ function Calculator() {
         "(y-β)² = 4a(x-α) whose vertex is (α,β) and axis is parallel to the x-axis",
         <br />,
         "(x-α)² = 4a(y-β) whose vertex is (α,β) and axis is parallel to the y-axis",
-        <br />,
-        <b>E.g. </b>,
+        <br />],
+        example:[
+          
         "Find the equation of the parabola given the vertex(2,3) and point(-1,6).",
         <br />,
         <b>Solution: </b>,
@@ -86,8 +89,10 @@ function Calculator() {
         <br />,
         "a = 1/3",
         <br />,
-        "Hence the required equation is : y = 1/3(x-2)²+3",
-      ],
+        "Hence the required equation is : y = 1/3(x-2)²+3"
+
+        ]
+      
     },
     {
       topic: "Ellipse",
@@ -106,9 +111,9 @@ function Calculator() {
       ],
       process: [
         "To find the equation of an ellipse in the standard form with center (h,k) we need two vertices and foci",
-        <br />,
-        <b>E.g.</b>,
-        "Find the equation of ellipse that has vertices (-2,-8) and (-2,2) and foci (-2,-7) and (-2,1),",
+        <br />],
+        example:[
+          "Find the equation of ellipse that has vertices (-2,-8) and (-2,2) and foci (-2,-7) and (-2,1),",
         <br />,
         "First we find out the center(h,k) which is halfway between the vertices,(-2,-8) and (-2,2).",
         <br />,
@@ -136,8 +141,11 @@ function Calculator() {
         <br />,
         "Finally after substituting all the values we found into the standard form we get:",
         <br />,
-        "(x+2)²/9 + (y+3)²/25 = 1",
-      ],
+        "(x+2)²/9 + (y+3)²/25 = 1"
+
+        ]
+        
+       
     },
   ];
 
@@ -1055,6 +1063,10 @@ function Calculator() {
         <div className="Calculator__process">
           <h3> Process</h3>
           <p>{details.process}</p>
+        </div>
+        <div className="Calculator__example">
+          <h3>Example</h3>
+          <p>{details.example}</p>
         </div>
         <div className="Calculator__calc">
           <h3>{details.topic} Calculator</h3>
