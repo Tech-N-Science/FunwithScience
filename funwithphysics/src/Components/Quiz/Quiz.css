@@ -6,6 +6,23 @@
 .quiz h1 {
   padding: 2%;
 }
+.cardWithTimer{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width:95vw;
+  
+  margin: auto;
+}
+.timerFrame{
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  align-items:flex-start;
+  justify-content:start;
+}
 .timer {
   width: 70px;
   height: 70px;
@@ -13,11 +30,9 @@
   border: 5px solid#2c3e50;
   display: flex;
   bottom:10px;
-  
   align-items: center;
   justify-content: center;
   position: relative;
-  left: 47.5%;
   font-size: 30px;
   font-weight: 700;
 }
@@ -28,7 +43,7 @@
   height: 50vh;
   border-radius: 15px;
   padding: 20px;
-  position:relative;
+  
   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
@@ -114,13 +129,13 @@ button svg {
 
 @media (max-width: 1000px){
   .quiz-section{
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%);
+   
     height: auto;
     width: 80vw;
   }
+  .timerFrame{
+    width: 80vw;
+  margin-bottom: 30px;}
 
   .score-section{
     font-size: 18px;
