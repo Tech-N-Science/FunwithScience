@@ -84,6 +84,10 @@ function Calculator() {
         <br />,
         "Mode = 20 (as 20 occured most number of times in the given set of numbers)",
         <br />,
+        "Standar deviation is calculated by deviations of each data point from the mean, and square the result of each whole divided by total number of samples minus 1.Hence it is , = 29.73",
+        <br />,
+        "Variance is square of standard deviation.Hence it is = 883.92",
+        <br />,
       ],
     },
     {
@@ -418,6 +422,8 @@ function Calculator() {
       mean: 0,
       median: 0,
       mode: 0,
+      stddeviation:"",
+      variance:"",
     };
     const [number, setNum] = useState(0);
     const [statData, setStatData] = useState(statOBJ);
@@ -457,7 +463,24 @@ function Calculator() {
         }
       }
       statOBJ.mode = numArr[modeIndex]; //mode of all items
+      
+   
+    let stddevnum = 0
+    for (let i = 0;i<numArr.length;i++){
+      stddevnum += ((numArr[i]-statOBJ.mean)**2)
+
+    }
+    if( stddevnum > 0){
+      statOBJ.stddeviation = Math.sqrt(stddevnum/(numArr.length-1))
+      statOBJ.variance = stddevnum/(numArr.length-1)
+    }
+    else{
+      statOBJ.stddeviation = Math.sqrt((-1*stddevnum)/(numArr.length-1))
+      statOBJ.variance = (-1*stddevnum)/(numArr.length-1)
+    }
+  
     };
+
     const resetStat = () => {
       setNum(0);
     };
@@ -551,6 +574,22 @@ function Calculator() {
               placeholder={statData.mode === 0 ? "Mode" : statData.mode}
             />
           </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Standard deviation</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={statData.stddeviation === "" ? "Standard deviation" : statData.stddeviation.toFixed(2)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Variance</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={statData.variance === "" ? "Variance" : statData.variance.toFixed(2)}
+            />
+          </Form.Group>
         </Form>
         <div className="button-custom-grp">
           <Button
@@ -616,7 +655,7 @@ function Calculator() {
                 <td>Variance</td>
                 <td>
                   <b>
-                    (Σ(x - Mean)<sup>2</sup>) / N
+                    (Σ(x - Mean)<sup>2</sup>) / N-1
                   </b>
                 </td>
               </tr>
@@ -624,10 +663,11 @@ function Calculator() {
                 <td>Standard Deviation</td>
                 <td>
                   <b>
-                    &radic; (Σ(x - Mean)<sup>2</sup>) / N
+                    &radic; (Σ(x - Mean)<sup>2</sup>) / N-1
                   </b>
                 </td>
               </tr>
+
               <tr>
                 <td>Range</td>
                 <td>
