@@ -114,9 +114,9 @@ function Calculator() {
         <br />,
       ],
       example: [
-        "z1 = 2 + 3i is first complex number equation, ",
+        "z₁ = 2 + 3i is first complex number equation, ",
 
-        "z2 = 5 + 10i is second complex number equation",
+        "z₂ = 5 + 10i is second complex number equation",
         <br />,
         "Sum of two complex numbers is = (2 + 5) + i(3 + 10)",
         <br />,
