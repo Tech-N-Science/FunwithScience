@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Calculator.css";
+import '../../PysicsStyles/physicscalculator.css'
 import { Form, Button } from "react-bootstrap";
-import "../classicalMechanics.css";
+
 import { Helmet } from "react-helmet";
 import Solution from "../../Solution/Solution";
 import Navbar from "../../Navbar/Navbar";
