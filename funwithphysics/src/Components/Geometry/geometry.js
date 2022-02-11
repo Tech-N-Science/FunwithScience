@@ -25,6 +25,12 @@ export default function Algebra() {
       formula: "",
       process: "",
     },
+    {
+      topic: "Circle",
+      details: "",
+      formula: "",
+      process: "",
+    }
   ];
 
   return (
@@ -35,7 +41,7 @@ export default function Algebra() {
           <meta name="description" content="Explore the Algebra calculator" />
           <meta
             name="keywords"
-            content="Algebra, Geometry, straightlines, Straight Lines, Pair of Straight Lines"
+            content="Algebra, Geometry, Circles, Straight Lines, Pair of Straight Lines"
           />
         </Helmet>
         <div className="mech__header">
