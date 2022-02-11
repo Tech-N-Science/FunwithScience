@@ -147,12 +147,34 @@ function Calculator() {
         
        
     },
+    {
+      topic: "Circle",
+      details: `A circle is a closed curve in which the set of all the points in the plane are equidistant from a given point known as the “center” of a circle. Radius is the distance from the centre of the circle to the outer line while Diameter is the line that divides the circle into two equal parts and the relation between diameter and radius is, diameter is equal to twice of the radius (D = 2r). A circle is also a special kind of ellipse in which the the two foci are coincident and eccentricity is zero. e = 0`,
+      formula:
+        "The Equation of Circle : (x-h)² + (y-k)² = r²",
+      process: [
+        "To find the standard equation of a circle, we will be needing the coordinates of the center of the circle (h,k) and its radius (r).",
+        <br />,
+        <b>E.g. </b>,
+        "Find the equation of a circle if point (1,2) is the center of the circle and it’s radius is equal to 4 cm.",
+        <br />,
+        <b>Solution: </b>,
+        <br />,
+        "(x-1)²+(y-2)² = 4²",
+        <br />,
+        "(x²−2x+1)+(y²−4y+4) =16",
+        <br />,
+        <b>x²+y²−2x−4y-11 = 0 </b>,
+        <br />,
+        "Hence, this is the required standard equation of the given circle."
+      ],
+    }
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
-  //Mass Energy Relation calculator
+  //Straight Line
   const StraightLine = () => {
     const [x1, setX1] = useState("");
     const [x2, setX2] = useState(null);
@@ -670,7 +692,7 @@ function Calculator() {
       </>
     );
   };
-
+  //Ellipse
   const Ellipse = () => {
     const [v1, setV1] = useState(null);
     const [v2, setV2] = useState(null);
@@ -1017,7 +1039,195 @@ function Calculator() {
       </>
     );
   };
+  //Circle
+  const Circle = () => {
+    const [h1, setH1] = useState("");
+    const [k1, setK1] = useState(null);
+    const [r1, setR1] = useState(null);
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setH1("");
+      setK1("");
+      setR1("");
 
+      setResult(null);
+    };
+    
+    const calcCircle = () => {
+      const sq=r1*r1;
+      let equation = `(x-${h1})² + (y-${k1})² = ${sq}`;
+      setResult(equation);
+    };
+
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong> To find the equation of a circle</strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+  
+          <Form.Group className="mb-4" controlId="text">
+            <div className="straight_calc">
+              <form name="first">
+              <p>
+                  <strong>Center: </strong>(h,k) &nbsp; <strong>Radius:</strong>
+                  &nbsp; r
+                </p>
+                <div className="group">
+                  <div className="coordinate">
+                    <label>
+                      h
+                    </label>
+                    <input
+                      name="h1"
+                      type="text"
+                      className="easynumeric"
+                      onChange={(e) => setH1(e.target.value)}
+                      value={h1}
+                    />
+                  </div>
+  
+                  <div className="coordinate">
+                    <label>
+                        k
+                    </label>
+                    <input
+                      name="k1"
+                      type="text"
+                      className="easynumeric"
+                      onChange={(e) => setK1(e.target.value)}
+                      value={k1}
+                    />
+                  </div>
+                </div>
+  
+                <div className="group clearfix">
+                  <div className="coordinate">
+                    <label>
+                      r
+                    </label>
+                    <input
+                      name="r1"
+                      className="easynumeric"
+                      value={r1}
+                      onChange={(e) => setR1(e.target.value)}
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </Form.Group>
+  
+          <Form.Group className="mb-4">
+          <Form.Label>
+                <b>
+                  Standard Form: (x - h)<sup>2</sup> + (y - k)<sup>2</sup>= r<sup>2</sup>
+                </b>
+          </Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " "}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp mb-5">
+          <Button variant="primary" onClick={calcCircle}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Circles </h3>
+                </tr>
+              </section>
+  
+              <tr>
+                <th className="row-1 row-ID  "> Circles</th>
+                <th className="row-2 row-name ">Equation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Standard Equation of a Circle</td>
+                <td>
+                  <b>(x - h)<sup>2</sup> + (y - k)<sup>2</sup> = r<sup>2</sup></b>
+                </td>
+              </tr>
+              <tr>
+                <td>General form</td>
+                <td>
+                  <b>x<sup>2</sup> + y<sup>2</sup> + 2hx + 2ky + C = 0</b>
+                </td>
+              </tr>
+              <tr>
+                <td>Parametric Equation</td>
+                <td>
+                  <b>x<sup>2</sup> + y<sup>2</sup> + 2hx + 2ky + C = 0</b> <p>where, (x = -h + rcosθ, y = -k + rsinθ)</p>
+                </td>
+              </tr>
+              <tr>
+                <td>Polar Equation</td>
+                <td>
+                  <b>r = p</b>
+                  <p>
+                    where, p is the radius of the circle
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="formula-table">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                {" "}
+                <tr>
+                  <h3>Formulas of Circle</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th>
+                  <strong>Equation:</strong>
+                </th>
+                <th>
+                  <strong>(x - h)<sup>2</sup> + (y - k)<sup>2</sup> = r<sup>2</sup></strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Diameter of Circle</td>
+                <td><b>2r</b></td>
+              </tr>
+              <tr>
+                <td>Area of Circle</td>
+                <td><b>&pi;r<sup>2</sup></b></td>
+              </tr>
+              <tr>
+                <td>Circumference of Circle</td>
+                <td>
+                  <b>2&pi;r</b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
+  };
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -1031,7 +1241,9 @@ function Calculator() {
       case "Ellipse":
         currentCall = Ellipse();
         break;
-
+      case "Circle":
+        currentCall = Circle();
+        break;
       default:
         break;
     }
