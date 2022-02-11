@@ -142,7 +142,7 @@ Wait for your submission to be accepted and your PR to be merged by a maintainer
 1. Go to the `funwithphysics` directory.
 
 ```
-cd funwithpysics
+cd funwithphysics
 ```
 
 2. Write the command.
