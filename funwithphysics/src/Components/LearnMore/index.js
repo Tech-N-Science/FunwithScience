@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import blackboardSvg from "../../Images/blackboard-svg.svg";
 // eslint-disable-next-line
 import computerSvg from "../../Images/computer-svg.svg";
-import addCircleSvg from "../../Images/add-circle.svg";
+import addCircleSvg from "../../Images/add-circle.svg";	
+import explorerBtn from "../../Images/explorer.png";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
@@ -52,17 +53,16 @@ export function LearnMore() {
 
       <article className="list-science">
         <ul>
-          <li className="science fade-in-transition">
+          <li className="science fade-in-transition topic-card">
             <p>Maths</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
             <div className="dropdown">
               <Link className="plus" to="/">
-                <img
-                  src={addCircleSvg}
-                  className="lower-plus"
-                  alt="AddCircle"
-                />
+                <span className="explore-btn">
+                  Explore
+                  <i class="fa fa-compass add-icon" aria-hidden="true"></i>
+                  </span>
               </Link>
               <div className="dropdown-content">
                 <Link to="/maths">Calculator</Link>
@@ -71,17 +71,16 @@ export function LearnMore() {
               </div>
             </div>
           </li>
-          <li className="science fade-in-transition">
+          <li className="science fade-in-transition topic-card">
             <p>Physics</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
             <div className="dropdown">
               <Link className="plus" to="/">
-                <img
-                  src={addCircleSvg}
-                  className="lower-plus"
-                  alt="AddCircle"
-                />
+                <span className="explore-btn">
+                  Explore
+                  <i class="fa fa-compass add-icon" aria-hidden="true"></i>
+                  </span>
               </Link>
               <div className="dropdown-content">
                 <Link to="/physics">Calculator</Link>
@@ -90,17 +89,16 @@ export function LearnMore() {
               </div>
             </div>
           </li>
-          <li className="science fade-in-transition">
+          <li className="science fade-in-transition topic-card">
             <p>Chemistry</p>
             <small className="topic science-topic">Science</small>
             <img src={blackboardSvg} alt="Icon" />
             <div className="dropdown">
               <Link className="plus" to="/">
-                <img
-                  src={addCircleSvg}
-                  className="lower-plus"
-                  alt="AddCircle"
-                />
+                <span className="explore-btn">
+                  Explore
+                  <i class="fa fa-compass add-icon" aria-hidden="true"></i>
+                  </span>
               </Link>
               <div className="dropdown-content">
                 <Link to="/">Calculator</Link>

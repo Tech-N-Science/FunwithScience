@@ -48,6 +48,7 @@ import Contact from "./Components/Contact/Contact";
 import Algebra from "./Components/Algebra/algebra";
 import Geometry from "./Components/Geometry/geometry";
 import Calpermutation from "./Components/Algebra/Topic/Calculator";
+import CalcComplexNumber from "./Components/Algebra/Topic/Calculator";
 import Calstraightline from "./Components/Geometry/Topic/Calculator";
 import CalCircle from "./Components/Geometry/Topic/Calculator";
 import { useNavigate } from "react-router-dom";
@@ -159,7 +160,11 @@ const App = () => {
               </>
             }
           ></Route>
-          <Route exact path="/Signup" element={<Signup history={useNavigate()} />}></Route>
+          <Route
+            exact
+            path="/Signup"
+            element={<Signup history={useNavigate()} />}
+          ></Route>
           <Route
             exact
             path="/resetpassword"
@@ -252,6 +257,11 @@ const App = () => {
             exact
             path="/algebra/calc/:topic"
             element={<Calpermutation />}
+          ></Route>
+          <Route
+            exact
+            path="/algebra/calc/:topic"
+            element={<CalcComplexNumber />}
           ></Route>
           <Route
             exact
@@ -474,7 +484,7 @@ const App = () => {
             element={
               <>
                 <Navbar />
-                <MathMCQ/>
+                <MathMCQ />
               </>
             }
           ></Route>

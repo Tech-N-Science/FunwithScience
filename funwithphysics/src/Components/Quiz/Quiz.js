@@ -96,9 +96,9 @@ const Quiz = () => {
    }, [timer, setTimeOut]);
 
    useEffect(() => {
-     setTimer(10);
-   }, [questionNumber]);
-   return timer;
+      setTimer(10); 
+  }, [questionNumber]);
+    return timer;
  }
 
 
@@ -107,15 +107,22 @@ const Quiz = () => {
   return (
     <div className="quiz">
       <h1>Quiz</h1>
-      <div className="timer">
-        <Timer setTimeOut={setTimeOut} questionNumber={currentQuestion} />
-      </div>
-      <div className="quiz-section">
+          
+      
         {showScore ? (
+          <div className="quiz-section">
           <div className="score-section">
             You scored {score} out of {questions.length}
           </div>
+          </div>
         ) : (
+          <div className="cardWithTimer">
+            <div className="timerFrame">
+             <div className="timer">
+              <Timer setTimeOut={setTimeOut} questionNumber={currentQuestion} />
+             </div>
+            </div>
+      <div className="quiz-section">
           <div className="responsive">
             <div className="question-section">
               <div className="question-count">
@@ -148,8 +155,10 @@ const Quiz = () => {
               )}
             </div>
           </div>
+          </div>
+           </div>
         )}
-      </div>
+      
     </div>
   );
 };

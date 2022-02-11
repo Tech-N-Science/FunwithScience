@@ -142,7 +142,7 @@ Wait for your submission to be accepted and your PR to be merged by a maintainer
 1. Go to the `funwithphysics` directory.
 
 ```
-cd funwithpysics
+cd funwithphysics
 ```
 
 2. Write the command.
@@ -247,6 +247,9 @@ Thanks goes to these wonderful people :
  </tr>
   <td align="center"><a href="https://github.com/whiteHatpro"><img src="https://avatars.githubusercontent.com/u/77486870?v=4" width="100px;" alt=""/><br /><sub><b>Mohak</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?whiteHatpro" title="Code">💻</a></td>
   <td align="center"><a href="https://github.com/raxvab"><img src="https://avatars.githubusercontent.com/u/63441521?v=4" width="100px;" alt=""/><br /><sub><b>Vaibhav Shukla</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?raxvab" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/Shruti025"><img src="https://avatars.githubusercontent.com/u/72005584?v=4" width="100px;" alt=""/><br /><sub><b>Shruti Goyal</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?Shruti025" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/dhruvtongia"><img src="https://avatars.githubusercontent.com/u/47056996?v=4" width="100px;" alt=""/><br /><sub><b>Dhruv Tongia</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?dhruvtongia" title="Code">💻</a></td>
+  <td align="center"><a href="https://github.com/03amir"><img src="https://avatars.githubusercontent.com/u/84488052?v=4" width="100px;" alt=""/><br /><sub><b>Amirul Sekh</b></sub></a><br /><a href="https://github.com/Tech-N-Science/FunwithScience/commits?03amir" title="Code">💻</a></td>
  </tr>
 
  
