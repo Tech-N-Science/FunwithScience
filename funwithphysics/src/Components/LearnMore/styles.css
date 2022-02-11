@@ -110,7 +110,6 @@ a.plus:hover {
 .list-science ul li {
   opacity: 0;
   transition: 0.7s;
-  z-index: 5;
 }
 
 .learn-more ul .science-topic {
@@ -318,4 +317,5 @@ a.plus:hover {
   cursor: pointer;
   transform: scale(1.1);
   box-shadow: none;
+  z-index:5;
 }
