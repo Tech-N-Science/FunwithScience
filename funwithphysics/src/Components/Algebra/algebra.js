@@ -55,6 +55,18 @@ export default function Algebra() {
       process:
         'Addition = (x1 + x2) + i (y1 + y2)',
     },
+    {
+      topic:"Exponents",
+      details:[
+        "Exponentiation refers to repeated multiplication of a given number with itself certain number of times.Square-Root of a given number is defined as the factor of the number which when multiplied with itself gives the given number.Cube-Root of a given number is the number which when multiplied thrice with itself gives the given number."
+      ],
+      formula:[
+        "(y)^n=(y)*(y)*(y)*(y)...n times"
+      ],
+      process:[
+        "To find x raised to the power n we need to multiply x with itself n times."
+      ],
+    },
   ];
 
   return (
