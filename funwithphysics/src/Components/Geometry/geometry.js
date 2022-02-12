@@ -25,6 +25,12 @@ export default function Algebra() {
       formula: "",
       process: "",
     },
+    {
+      topic: "Circle",
+      details: "",
+      formula: "",
+      process: "",
+    }
   ];
 
   return (
