@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "./Electromagnetism.css";
+
+import '../PysicsStyles/physicsmenustyle.css'
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
