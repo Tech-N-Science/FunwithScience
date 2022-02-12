@@ -30,7 +30,9 @@ export default function Algebra() {
       details: "",
       formula: "",
       process: "",
+
     },
+
   ];
 
   return (

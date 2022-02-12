@@ -273,6 +273,11 @@ const App = () => {
             path="/geometry/calc/:topic"
             element={<Calstraightline />}
           ></Route>
+           <Route
+            exact
+            path="/geometry/calc/:topic"
+            element={<CalCircle />}
+          ></Route>
           <Route
             exact
             path="/thermodynamics/calc/:topic"
