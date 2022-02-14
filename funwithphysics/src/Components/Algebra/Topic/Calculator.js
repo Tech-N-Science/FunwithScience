@@ -1533,6 +1533,7 @@ function Calculator() {
         break;
       case "Exponents":
         currentCall=Exponents();
+        break;
       case "Quadratic Equation":
         currentCall = QuadraticEquation();
         break;
