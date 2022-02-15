@@ -200,7 +200,7 @@ Thanks goes to these wonderful people :
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
+<!--<table>
   <tr>
     <td align="center"><a href="https://laisfrigerio.com.br/"><img src="https://avatars.githubusercontent.com/u/20709086?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lais Frigério</b></sub></a><br /><a href="#design-laisfrigerio" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/aakankshabhende"><img src="https://avatars.githubusercontent.com/u/63249668?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aakanksha Bhende</b></sub></a><br /><a href="#design-aakankshabhende" title="Design">🎨</a></td>
@@ -253,6 +253,15 @@ Thanks goes to these wonderful people :
  </tr>
 
  
+</table>-->
+<table>
+	<tr>
+		 <td>
+  <a href="https://github.com/Tech-N-Science/FunwithScience/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Tech-N-Science/FunwithScience" />
+  </a>
+		</td>
+	</tr>
 </table>
 
 <!-- markdownlint-restore -->
