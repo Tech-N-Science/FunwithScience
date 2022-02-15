@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router";
 import "./Calculator.css";
-import { useEffect } from "react";
 
 function Calculator() {
   let { topic } = useParams();
@@ -87,7 +85,53 @@ function Calculator() {
 
     return (
       <>
-      <h2>Hello</h2>
+      <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Algebra of Continuous Functions </h3>
+                </tr>
+              </section>   
+
+              <tr>
+                <th className="row-1 row-ID  "> Property Name</th>
+                <th className="row-2 row-name ">Representation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Addition Rules</td>
+                <td>
+                  <b>f(x) + g(x) is continuous at x = a</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Subtraction Rules</td>
+                <td>
+                  <b>f(x) – g(x) is continuous at x = a</b>
+                </td>
+              </tr>              
+                
+              <tr>
+                <td>Multiplication Rules</td>
+                <td>
+                  <b>f(x)*g(x) is continuous at x = a</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Division</td>
+                <td>
+                  <b>f(x)/g(x) is continuous at x = a; provided g(a) ≠0</b>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
       </>
     );
   };
