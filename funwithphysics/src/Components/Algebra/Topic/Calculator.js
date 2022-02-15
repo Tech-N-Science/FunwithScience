@@ -5,7 +5,6 @@ import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router";
 import "./Calculator.css";
 import { useEffect } from "react";
-  
 
 function Calculator() {
   let { topic } = useParams();
@@ -139,23 +138,21 @@ function Calculator() {
       ],
     },
     {
-      topic:"Exponents",
-      details:[
-        "Exponentiation refers to repeated multiplication of a given number with itself certain number of times.Square-Root of a given number is defined as the factor of the number which when multiplied with itself gives the given number.Cube-Root of a given number is the number which when multiplied thrice with itself gives the given number."
+      topic: "Exponents",
+      details: [
+        "Exponentiation refers to repeated multiplication of a given number with itself certain number of times. Square-Root of a given number is defined as the factor of the number which when multiplied with itself gives the given number. Cube-Root of a given number is the number which when multiplied thrice with itself gives the given number.",
       ],
-      formula:[
-        "(y)^n=(y)*(y)*(y)*(y)...n times"
+      formula: ["(y)ⁿ=(y)*(y)*(y)*(y)...n times"],
+      process: [
+        "To find x raised to the power n we need to multiply x with itself n times.",
       ],
-      process:[
-        "To find x raised to the power n we need to multiply x with itself n times."
-      ],
-      example:[
+      example: [
         "2 raised to the power 3 is simply 2*2*2=8",
-        <br/>,
+        <br />,
         "Square Root of 16 is a number(say a) such that a*a=16 ,which on computation gives 4.",
-        <br/>,
-        "Cube root of 125 is a number (say b) such that b*b*b=125, which on computation gives 5."
-      ]
+        <br />,
+        "Cube root of 125 is a number (say b) such that b*b*b=125, which on computation gives 5.",
+      ],
     },
     {
       topic: "Quadratic Equation",
@@ -483,65 +480,64 @@ function Calculator() {
     );
   };
 
-//Exponential Calculator
+  //Exponential Calculator
   const Exponents = () => {
     const [result, setResult] = useState(null);
     const [choice, setChoice] = useState("Power");
-    const [choiceData, setChoiceData] = useState
-    ({name: "Power",
-    quantities: ["Base", "Exponent"],
-    disabled: false});
+    const [choiceData, setChoiceData] = useState({
+      name: "Power",
+      quantities: ["Base", "Exponent"],
+      disabled: false,
+    });
     const [x, setX] = useState(null);
     const [n, setN] = useState(null);
-  
+
     useEffect(() => {
       if (choice === "Power") {
         return setChoiceData({
           name: "Power",
           quantities: ["Base", "Exponent"],
-          disabled: false
+          disabled: false,
         });
       } else if (choice === "SquareRoot") {
         setN(0.5);
         setChoiceData({
           name: "Square-Root",
           quantities: ["Base", "Exponent"],
-          disabled: true
+          disabled: true,
         });
       } else if (choice === "CubeRoot") {
         setN(0.3333);
         setChoiceData({
           name: "Cube-Root",
           quantities: ["Base", "Exponent"],
-          disabled: true
+          disabled: true,
         });
       }
     }, [choice]);
-  
+
     useEffect(() => {}, [choice, x, n, result]);
-  
+
     const calcResult = () => {
       let res = 1;
-      if (choice == "Power") 
-      res=Math.pow(x,n);
+      if (choice == "Power") res = Math.pow(x, n);
       else if (choice == "SquareRoot") res = Math.sqrt(x);
       else res = Math.cbrt(x);
-  
+
       setResult(res);
     };
-  
+
     const handleChange = (e) => {
       reset();
       setChoice(e.target.value);
     };
-  
+
     function reset() {
       setResult(null);
       setX(null);
-      if(choice=="Power")
-      setN(null);
+      if (choice == "Power") setN(null);
     }
-  
+
     return (
       <>
         <Form>
@@ -604,13 +600,6 @@ function Calculator() {
       </>
     );
   };
-
-
-
-
-
-
-
 
   // Statistics calculator
   const Statistics = () => {
@@ -896,7 +885,6 @@ function Calculator() {
       </>
     );
   };
-  
 
   //Complex Number Calculator
   const ComplexNumbers = () => {
@@ -1478,7 +1466,7 @@ function Calculator() {
             <Form.Control
               onChange={(e) => setx1(e.target.value)}
               type="number"
-              placeholder={"Enter the value of x1"}
+              placeholder={"Enter the value of x₁"}
               value={x1 === null ? "" : x1}
             />
           </Form.Group>
@@ -1487,7 +1475,7 @@ function Calculator() {
             <Form.Control
               onChange={(e) => setx2(e.target.value)}
               type="number"
-              placeholder={"Enter the value of x2"}
+              placeholder={"Enter the value of x₂"}
               value={x2 === null ? "" : x2}
             />
           </Form.Group>
@@ -1532,7 +1520,7 @@ function Calculator() {
         currentCall = ComplexNumbers();
         break;
       case "Exponents":
-        currentCall=Exponents();
+        currentCall = Exponents();
         break;
       case "Quadratic Equation":
         currentCall = QuadraticEquation();
