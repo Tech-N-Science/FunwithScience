@@ -113,7 +113,7 @@ function Calculator() {
         "To find the equation of an ellipse in the standard form with center (h,k) we need two vertices and foci",
         <br />,
       ],
-      example: [
+      example1: [
         "Find the equation of ellipse that has vertices (-2,-8) and (-2,2) and foci (-2,-7) and (-2,1),",
         <br />,
         "First we find out the center(h,k) which is halfway between the vertices,(-2,-8) and (-2,2).",
@@ -124,12 +124,15 @@ function Calculator() {
         <br />,
         "Next we find a².The length of major axis is 2a.We solve for 'a' by finding the distance between y-coordinates of vertices: ",
         <br />,
-        "2a = 2 - (-8)",
+        "2a = 2 - (-8)",        
         <br />,
         "a = 5 So, a² = 25",
         <br />,
         "Now we find c². The foci are given as (h,k-c)=(-2,-7) and (h,k+c)=(-2,1).We substitute k=-3 in either of these points",
-        <br />,
+        
+        
+      ],
+      example2: [
         "k+c=1",
         <br />,
         "-3+c=1",
