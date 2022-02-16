@@ -136,7 +136,7 @@ function Calculator() {
         "A complex number Z = x + iy is a purely real if its imaginary part is 0, i.e. Im(z) = 0 and purely imaginary if its real part is 0 i.e. Re (z) = 0.",
         <br />,
       ],
-      example: [
+      example1: [
         "z₁ = 2 + 3i is first complex number equation, ",
 
         "z₂ = 5 + 10i is second complex number equation",
@@ -147,7 +147,8 @@ function Calculator() {
         <br />,
         <b>E.g. </b>,
         "Polar Form: √17(cos(1.816) + isin(1.816))",
-        <br />,
+      ],
+      example2: [
         "For Cartesian Form:",
         <br />,
         "z  =  (√17 × cos(1.816))  +  i(√17 × sin(1.816))",
