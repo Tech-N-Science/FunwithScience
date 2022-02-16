@@ -13,7 +13,7 @@ function Calculator() {
     {
       topic: "Permutation And Combination",
       details:[ `A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
-      The word "permutation" also refers to the act or process of changing the linear order of an ordered set.`,
+      The word "permutation" also refers to the act or process of changing the linear order of an ordered set.It is denoted by nPr.`,
       <br />,
       `On the other hand,Combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`
       ],
@@ -30,10 +30,14 @@ function Calculator() {
       ],
       example: [
         <span>
+          To Calculate 10P5, substitute n=10 and r=5 in the formula for Permutation:
+          <br></br>
           10<b style={{ fontSize: 25 + "px" }}>P</b>5 = 10!/(10-5)! = 30240
         </span>,
         <br />,
         <span>
+           To Calculate 10C5, substitute n=10 and r=5 in the formula for Combination:
+          <br></br>
           10<b style={{ fontSize: 25 + "px" }}>C</b>5 = 10!/5!(10-5)! = 252
         </span>,
       ],

@@ -10,7 +10,7 @@ export default function Algebra() {
     {
       topic: "Permutation And Combination",
       details:[ `A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
-      The word "permutation" also refers to the act or process of changing the linear order of an ordered set.`,
+      The word "permutation" also refers to the act or process of changing the linear order of an ordered set.It is denoted by nPr.`,
       <br />,
       `On the other hand,Combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`
       ],
