@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router";
 import "./Calculator.css";
+import { Form, Button } from "react-bootstrap";
 import limits1 from "../../../Images/limits.png
 
 function Calculator() {
