@@ -11,34 +11,54 @@ function Calculator() {
   // topics_data
   const Topics = [
     {
-      topic: "Permutation",
-      details: `A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
-      The word "permutation" also refers to the act or process of changing the linear order of an ordered set.`,
-      formula: "nPr = n!/(n-r)!",
+      topic: "Permutation And Combination",
+      details:[ `A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
+      The word "permutation" also refers to the act or process of changing the linear order of an ordered set.It is denoted by nPr.`,
+      <br />,
+      `On the other hand,Combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`
+      ],
+      formula: [`nPr = n!/(n-r)!`,
+      <br/>,
+      `nCr = n!/r!(n-r)!`
+      ],
+
       process: [
         "To find the permutation, first we need to find the value of n factorial and n - r factorial, then we need to devide them.",
         <br />,
-      ],
-      example: [
-        <span>
-          10<b style={{ fontSize: 25 + "px" }}>P</b>5 = 10!/(10-5)! = 30240
-        </span>,
-      ],
-    },
-    {
-      topic: "Combination",
-      details: `A combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`,
-      formula: "C = n!/r!(n-r)!",
-      process: [
         "To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.",
         <br />,
       ],
       example: [
         <span>
-          10<b style={{ fontSize: 25 + "px" }}>C</b>5 = 10!/5!(10-5)! = 252
+           <b>How many different teams(each having 5 members) can be formed from 12 students?</b>
+           <br/>
+           Solution:
+           There is nothing that indicates that the order in which the team members are selected is important
+           <br/>
+            and therefore it is a combination problem. Hence the number of teams that can be formed
+           is the number of 
+           <br/>
+           ways of choosing 5 objects out 12 given by:
+           12 C 5 = 12! / [ (12 - 5)!5! ] = 792
+           <br/>
         </span>,
+        <span>
+          <b>How many 3 letter words can we make with the letters in the word ABCD(without repetition)?</b>
+          <br/>
+          Solution: There are 4 letters in the word ABCD and the number of 3-letter words is similar to number of ways 
+          <br/>
+          of arranging 3 objects out of 4.Order is important here since ABC and CAB are different words.Hence after
+          <br/>
+           choosing of 3 letters we need to arrange them.
+
+          <br/>
+          The number of words is given by
+          4 P 3 = 4! / (4 - 3)! = 24
+        </span>
+
       ],
     },
+   
     {
       topic: "Progression",
       details: [
@@ -206,58 +226,94 @@ function Calculator() {
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
-  //Permutationcalculator
-  const Permutation = () => {
-    const [n, setn] = useState(null);
-    const [r, setr] = useState(null);
-    const [result, setResult] = useState(null);
-    const reset = () => {
-      setn(null);
-      setr(null);
-      setResult(null);
-    };
-    function factorial(num) {
-      if (num === 0) {
-        return 1;
-      }
-      return num * factorial(num - 1);
-    }
-    const calcPermutation = () => {
-      let permutation = factorial(n) / factorial(n - r);
-      setResult(permutation);
-    };
 
+  //PnC calculator
+  const PnC = () => {
+    const [n, setN] = useState(null);
+    const [r, setR] = useState(null);
+    const [choice, setChoice] = useState("Permutation");
+    const [choiceData, setChoiceData] = useState({
+      name: "Permutation",
+    });
+    const [result, setResult] = useState(null);
+    const handleChange = (e) => {
+      reset();
+      setChoice(e.target.value);
+    }
+    function reset() {
+      setN(null);
+      setR(null);
+      setResult(null);
+    }
+    function factorial(x){
+      var result = 1;
+      for (let i = 1; i <= x; i++)
+        result *= i;
+      return result;
+    }
+    const calcResult = () => {
+      
+      if (choice == "Permutation") {
+        if(n>=r)
+          setResult(factorial(n) / factorial(n - r));
+        else
+        alert("The value of n should not be less than r.Please enter valid values for n and r");
+      }
+      else  if(choice=="Combination"){
+          if(n>=r)
+          setResult(factorial(n) / (factorial(r) * factorial(n - r)));
+          else
+          alert("The value of n should not be less than r.Please enter valid values for n and r");
+      }
+    }
+    useEffect(() => {
+      if (choice == "Permutation")
+        setChoiceData({ name:"Permutation" });
+      else
+        setChoiceData({ name:"Combination" });
+    }, [choice]);
+  
+    
     return (
       <>
         <Form>
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              onChange={(e) => handleChange(e)}
+            >
+              <option value="Permutation">Permutation</option>
+              <option value="Combination">Combination</option>
+            </Form.Control>
+          </Form.Group>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
               <strong>
-                {" "}
-                To find the Permutation, Enter the following values
+                To find the {choiceData.name}, Enter the following values
               </strong>
               <br />
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Value in a Set (n)</Form.Label>
+            <Form.Label>Value of N</Form.Label>
             <Form.Control
-              onChange={(e) => setn(e.target.value)}
+              onChange={(e) => setN(Number(e.target.value))}
               type="number"
               placeholder={"Enter the value of n"}
               value={n === null ? "" : n}
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Value in Sub-Set (r)</Form.Label>
+            <Form.Label>Value of R</Form.Label>
             <Form.Control
-              onChange={(e) => setr(e.target.value)}
+              onChange={(e) => setR(Number(e.target.value))}
               type="number"
               placeholder={"Enter the value of r"}
               value={r === null ? "" : r}
             />
           </Form.Group>
-
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -267,7 +323,7 @@ function Calculator() {
           </Form.Group>
         </Form>
         <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcPermutation}>
+          <Button variant="primary" onClick={calcResult}>
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
@@ -276,80 +332,14 @@ function Calculator() {
           </Button>
         </div>
       </>
-    );
-  };
-  //Combination
-  const Combination = () => {
-    const [n, setn] = useState(null);
-    const [r, setr] = useState(null);
-    const [result, setResult] = useState(null);
-    const reset = () => {
-      setn(null);
-      setr(null);
-      setResult(null);
-    };
-    function factorial(num) {
-      if (num === 0) {
-        return 1;
-      }
-      return num * factorial(num - 1);
-    }
-    const calcCombination = () => {
-      let Combination = factorial(n) / (factorial(r) * factorial(n - r));
-      setResult(Combination);
-    };
+    )
+  }
+ 
 
-    return (
-      <>
-        <Form>
-          <Form.Group className="mb-4" controlId="text">
-            <Form.Text className="text">
-              <strong>
-                {" "}
-                To find the Permutation, Enter the following values
-              </strong>
-              <br />
-            </Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Value in a Set (n)</Form.Label>
-            <Form.Control
-              onChange={(e) => setn(e.target.value)}
-              type="number"
-              placeholder={"Enter the value of n"}
-              value={n === null ? "" : n}
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Value in Sub-Set (r)</Form.Label>
-            <Form.Control
-              onChange={(e) => setr(e.target.value)}
-              type="number"
-              placeholder={"Enter the value of r"}
-              value={r === null ? "" : r}
-            />
-          </Form.Group>
+   
 
-          <Form.Group className="mb-4">
-            <Form.Control
-              readOnly
-              type="number"
-              placeholder={result === null ? "Result" : result + " "}
-            />
-          </Form.Group>
-        </Form>
-        <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcCombination}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => reset()} type="reset">
-            Reset
-          </Button>
-        </div>
-      </>
-    );
-  };
+          
+  
 
   //Pogression Calculator - AP/GP
   const Progression = () => {
@@ -516,7 +506,7 @@ function Calculator() {
       }
     }, [choice]);
 
-    useEffect(() => {}, [choice, x, n, result]);
+    useEffect(() => { }, [choice, x, n, result]);
 
     const calcResult = () => {
       let res = 1;
@@ -1504,11 +1494,8 @@ function Calculator() {
   function calC(key) {
     let currentCall;
     switch (key) {
-      case "Permutation":
-        currentCall = Permutation();
-        break;
-      case "Combination":
-        currentCall = Combination();
+      case "Permutation And Combination":
+        currentCall=PnC();
         break;
       case "Progression":
         currentCall = Progression();

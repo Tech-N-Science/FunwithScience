@@ -8,19 +8,23 @@ export default function Algebra() {
   // topics_data
   const Topics = [
     {
-      topic: "Permutation",
-      details: `A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
-      The word "permutation" also refers to the act or process of changing the linear order of an ordered set.`,
-      formula: "P = n!/(n-r)!",
-      process:
+      topic: "Permutation And Combination",
+      details:[ `A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
+      The word "permutation" also refers to the act or process of changing the linear order of an ordered set.It is denoted by nPr.`,
+      <br />,
+      `On the other hand,Combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`
+      ],
+      formula: [`nPr = n!/(n-r)!`,
+      <br/>,
+      `nCr = n!/r!(n-r)!`
+      ],
+
+      process: [
         "To find the permutation, first we need to find the value of n factorial and n - r factorial, then we need to devide them.",
-    },
-    {
-      topic: "Combination",
-      details: `A combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`,
-      formula: "C = n!/r!(n-r)!",
-      process:
+        <br />,
         "To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.",
+        <br />,
+      ],
     },
     {
       topic: "Progression",
