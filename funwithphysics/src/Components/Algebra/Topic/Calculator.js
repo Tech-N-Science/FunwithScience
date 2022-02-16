@@ -34,7 +34,7 @@ function Calculator() {
         </span>,
         <br />,
         <span>
-          10<b style={{ fontSize: 25 + "px" }}>P</b>5 = 10!/(10-5)! = 30240
+          10<b style={{ fontSize: 25 + "px" }}>C</b>5 = 10!/5!(10-5)! = 252
         </span>,
       ],
     },
