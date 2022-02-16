@@ -73,7 +73,7 @@ function Calculator() {
         "To find the Arithmetic progression of nᵗʰ term, we use the formula a + d * (n-1) where, 'a' is the first term of the series and 'd' is the common difference between any two numbers in the series found by taking the difference. To find the Geometric progression of nᵗʰ term, we use the formula a + r ⁽ⁿ⁻¹⁾ where, 'a' is the first term of the series and 'r' is the common difference between any two numbers in the series found by taking the ratio.",
         <br />,
       ],
-      example: [
+      example1: [
         "2,4,6,8.. is an AP because difference between any two consecutive terms in the series (common difference) is same (4 – 2 = 6 – 4 = 8 – 6 = 2).",
         <br />,
         "If ‘a’(2) is the first term and ‘d’(2) is the common difference,",
@@ -82,6 +82,8 @@ function Calculator() {
         <br />,
         "5th term of the AP = 2 + (5-1) * 2 = 10",
         <br />,
+      ],
+      example2: [
         <b>E.g. </b>,
         "2,4,8,16 is a GP because ratio of any two consecutive terms in the series (common difference) is same (4 / 2 = 8 / 4 = 16 / 8 = 2)",
         <br />,
