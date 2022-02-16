@@ -58,7 +58,7 @@ function Calculator() {
         "(x-α)² = 4a(y-β) whose vertex is (α,β) and axis is parallel to the y-axis",
         <br />,
       ],
-      example: [
+      example1: [
         "Find the equation of the parabola given the vertex(2,3) and point(-1,6).",
         <br />,
         <b>Solution: </b>,
@@ -78,7 +78,9 @@ function Calculator() {
         "where (h,k) is the vertex.",
         <br />,
         "Substituting the given vertex in the above formula. ",
-        <br />,
+        
+      ],
+      example2: [
         "y = a(x-2)²+3",
         <br />,
         "Knowing that (-1,6) lies on the parabola we can solve for 'a' by, ",
