@@ -30,16 +30,32 @@ function Calculator() {
       ],
       example: [
         <span>
-          To Calculate 10P5, substitute n=10 and r=5 in the formula for Permutation:
-          <br></br>
-          10<b style={{ fontSize: 25 + "px" }}>P</b>5 = 10!/(10-5)! = 30240
+           <b>How many different teams(each having 5 members) can be formed from 12 students?</b>
+           <br/>
+           Solution:
+           There is nothing that indicates that the order in which the team members are selected is important
+           <br/>
+            and therefore it is a combination problem. Hence the number of teams that can be formed
+           is the number of 
+           <br/>
+           ways of choosing 5 objects out 12 given by:
+           12 C 5 = 12! / [ (12 - 5)!5! ] = 792
+           <br/>
         </span>,
-        <br />,
         <span>
-           To Calculate 10C5, substitute n=10 and r=5 in the formula for Combination:
-          <br></br>
-          10<b style={{ fontSize: 25 + "px" }}>C</b>5 = 10!/5!(10-5)! = 252
-        </span>,
+          <b>How many 3 letter words can we make with the letters in the word ABCD(without repetition)?</b>
+          <br/>
+          Solution: There are 4 letters in the word ABCD and the number of 3-letter words is similar to number of ways 
+          <br/>
+          of arranging 3 objects out of 4.Order is important here since ABC and CAB are different words.Hence after
+          <br/>
+           choosing of 3 letters we need to arrange them.
+
+          <br/>
+          The number of words is given by
+          4 P 3 = 4! / (4 - 3)! = 24
+        </span>
+
       ],
     },
    
