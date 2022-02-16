@@ -200,7 +200,7 @@ function Calculator() {
         <br />,
         `For D < 0 the roots do not exist, or the roots are imaginary.`,
       ],
-      example: [
+      example1: [
         "Let the quadratic equation be x²-5x+6 = 0",
         <br />,
         "Comparing the equation with the general form ax² + bx + c = 0 gives ",
@@ -211,8 +211,9 @@ function Calculator() {
         <br />,
         "Substitute the values in the quadratic formula",
         <br />,
-        "x₁ = (-b + √b²-4ac)/2a",
-        <br />,
+        "x₁ = (-b + √b²-4ac)/2a",        
+      ],
+      example2: [
         "⇒ (5 + 1)/2",
         <br />,
         " = 3",
