@@ -21,13 +21,14 @@ function Calculator() {
         "To find the equation of line using the two-point formula we will be needing co-ordinates of two points.",
         <br />,
       ],
-      example: [
+      example1: [
         "Find the equation of a line passing through (-2, 4) and (3, 1).",
         <br />,
         <b>Solution: </b>,
 
         "Substituting the coordinates in the above two-point formula",
-        <br />,
+      ],
+      example2: [
         "(1-4)x + (-2-3)y - (-2*1) + (3*4) = 0",
         <br />,
         "-3x + (-5)y - (-2) + (12) = 0",
@@ -1285,8 +1286,16 @@ function Calculator() {
           <p>{details.process}</p>
         </div>
         <div className="Calculator__example">
-          <h3>Example</h3>
-          <p>{details.example}</p>
+          <h3>Example</h3>          
+          <div className="row">
+            <div className="col-sm-6 col-lg-6 ">
+              <p>{details.example1}</p>
+            </div>
+
+            <div className="col-sm-6 col-lg-6 ">
+              <p>{details.example2}</p>
+            </div>
+          </div>
         </div>
         <div className="Calculator__calc">
           <h3>{details.topic} Calculator</h3>
