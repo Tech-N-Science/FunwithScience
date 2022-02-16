@@ -21,7 +21,7 @@ function Calculator() {
         "The function f(x) is said to be continuous in the interval I = [x1,x2] if the three conditions mentioned above are satisfied for every point in the interval I.",
         <br />,
       ],
-      example: [
+      example1: [
         " Let a function be defined as f(x) =",<br />
         ,
         "5 – 2x for x < 1",<br />
@@ -32,7 +32,7 @@ function Calculator() {
         ,        
         "Is this function continuous for all x?",<br />
         ,        
-        <b>E.g. </b>,
+        <b>Answer </b>,
         "Since for x < 1 and x > 1, the function f(x) is defined by straight lines (that can be drawn continuously on a graph), the function will be continuous for all x ≠ 1. Now for x = 1, let us check all the three conditions:",<br />
         ,
         "–> f(1) = 3 (given)",<br />
@@ -51,6 +51,9 @@ function Calculator() {
         ,
         "=3",<br />
         ,
+        
+      ],
+      example2:[
         "–> Right-Hand Limit:",<br />
         ,
         "=Lim",
@@ -175,10 +178,21 @@ function Calculator() {
           <h3> Process</h3>
           <p>{details.process}</p>
         </div>
+
         <div className="Calculator__example">
           <h3>Example</h3>
-          <p>{details.example}</p>
+          <div className="row">
+
+            <div className="col-sm-6 col-lg-6 ">
+              <p>{details.example1}</p>
+            </div>
+
+            <div className="col-sm-6 col-lg-6 ">
+              <p>{details.example2}</p>
+            </div>
+          </div>
         </div>
+
         <div className="Calculator__calc">
           <h3>{details.topic} Calculator</h3>
           <hr />
