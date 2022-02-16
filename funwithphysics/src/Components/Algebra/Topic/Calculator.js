@@ -169,7 +169,7 @@ function Calculator() {
       process: [
         "To find x raised to the power n we need to multiply x with itself n times.",
       ],
-      example: [
+      example1: [
         "2 raised to the power 3 is simply 2*2*2=8",
         <br />,
         "Square Root of 16 is a number(say a) such that a*a=16 ,which on computation gives 4.",
