@@ -103,16 +103,15 @@ function Calculator() {
 
         <br />,
       ],
-      example: [
+      example1: [
         "Numbers given: 20 30 60 20 10 40 80 90",
         <br />,
         "Mean = Sum of all items/Total no. of items = 350/8 = 43.75",
         <br />,
-        "Since total number of items is 6(even), Median = (n / 2)th = 3rd item = 30",
-        <br />,
         "Mode = 20 (as 20 occured most number of times in the given set of numbers)",
-        <br />,
-        "Standar deviation is calculated by deviations of each data point from the mean, and square the result of each whole divided by total number of samples minus 1.Hence it is , = 29.73",
+      ],
+      example2: [
+        "Standard deviation is calculated by deviations of each data point from the mean, and square the result of each whole divided by total number of samples minus 1.Hence it is , = 29.73",
         <br />,
         "Variance is square of standard deviation.Hence it is = 883.92",
         <br />,
