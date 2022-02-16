@@ -120,7 +120,7 @@ function MathsTopic() {
 						</MathsTopicItem> */}
             <MathsTopicItem
               name="Integration/Differentiation"
-              link="/"
+              link="/integration"
               icon="icon-home-outline"
               image={integration}
             >

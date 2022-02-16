@@ -51,6 +51,9 @@ import CalcComplexNumber from "./Components/Algebra/Topic/Calculator";
 import Calstraightline from "./Components/Geometry/Topic/Calculator";
 import CalCircle from "./Components/Geometry/Topic/Calculator";
 import { useNavigate } from "react-router-dom";
+import Integration from "./Components/Integration/integration";
+import CalContinuity from "./Components/Integration/Topic/Calculator"
+
 const Home = lazy(() => {
   return Promise.all([
     import("./Components/Home/Home"),
@@ -241,6 +244,16 @@ const App = () => {
             <>
               <Navbar />
               <Geometry />
+            </>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/integration"
+          element={
+            <>
+              <Navbar />
+              <Integration />
             </>
           }
         ></Route>
@@ -494,6 +507,12 @@ const App = () => {
           exact
           path="/MathQuestion/:type/:id"
           element={<Quest />}
+        ></Route>
+        
+        <Route
+          exact
+          path="/integration/calc/:topic"
+          element={<CalContinuity />}
         ></Route>
 
         {/* <Redirect to="/" /> */}
