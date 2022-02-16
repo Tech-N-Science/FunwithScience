@@ -28,7 +28,7 @@ function Calculator() {
         "To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.",
         <br />,
       ],
-      example: [
+      example1: [
         <span>
            <b>How many different teams(each having 5 members) can be formed from 12 students?</b>
            <br/>
@@ -42,6 +42,8 @@ function Calculator() {
            12 C 5 = 12! / [ (12 - 5)!5! ] = 792
            <br/>
         </span>,
+      ],
+      example2: [
         <span>
           <b>How many 3 letter words can we make with the letters in the word ABCD(without repetition)?</b>
           <br/>
@@ -54,8 +56,7 @@ function Calculator() {
           <br/>
           The number of words is given by
           4 P 3 = 4! / (4 - 3)! = 24
-        </span>
-
+        </span>,
       ],
     },
    
@@ -1546,7 +1547,15 @@ function Calculator() {
         </div>
         <div className="Calculator__example">
           <h3>Example</h3>
-          <p>{details.example}</p>
+          <div className="row">
+            <div className="col-sm-6 col-lg-6 ">
+              <p>{details.example1}</p>
+            </div>
+
+            <div className="col-sm-6 col-lg-6 ">
+              <p>{details.example2}</p>
+            </div>
+          </div>
         </div>
         <div className="Calculator__calc">
           <h3>{details.topic} Calculator</h3>
