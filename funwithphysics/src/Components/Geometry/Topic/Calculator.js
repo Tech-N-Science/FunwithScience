@@ -128,8 +128,7 @@ function Calculator() {
         <br />,
         "a = 5 So, a² = 25",
         <br />,
-        "Now we find c². The foci are given as (h,k-c)=(-2,-7) and (h,k+c)=(-2,1).We substitute k=-3 in either of these points",
-        
+        "Now we find c². The foci are given as (h,k-c)=(-2,-7) and (h,k+c)=(-2,1).We substitute k=-3 in either of these points",        
         
       ],
       example2: [
@@ -156,14 +155,16 @@ function Calculator() {
         "To find the standard equation of a circle, we will be needing the coordinates of the center of the circle (h,k) and its radius (r).",
         <br />,
       ],
-      example: [
+      example1: [
         <b>E.g. </b>,
         "Find the equation of a circle if point (1,2) is the center of the circle and it’s radius is equal to 4 cm.",
         <br />,
         <b>Solution: </b>,
         <br />,
         "(x-1)²+(y-2)² = 4²",
-        <br />,
+        
+      ],      
+      example2: [
         "(x²−2x+1)+(y²−4y+4) =16",
         <br />,
         <b>x²+y²−2x−4y-11 = 0 </b>,
