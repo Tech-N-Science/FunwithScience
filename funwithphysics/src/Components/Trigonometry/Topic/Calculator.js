@@ -289,6 +289,82 @@ function Calculator() {
             </tbody>
           </table>
         </div>
+        <br />
+        <div className="formula-table">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Trigonometric Ratios</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Trigonometric Functions</th>
+                <th className="row-2 row-name ">0 °</th>
+                <th className="row-2 row-name ">30 °</th>
+                <th className="row-2 row-name ">45 °</th>
+                <th className="row-2 row-name ">60 °</th>
+                <th className="row-2 row-name ">90 °</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>sin  θ</td>
+                <td>0</td>
+                <td>1/2</td>
+                <td>1/√2</td>
+                <td>√3/2</td>
+                <td>1</td> 	
+              </tr>
+
+              <tr>
+                <td>cos  θ</td>
+                <td>1</td>
+                <td>√3/2</td>
+                <td>1/√2</td>
+                <td>1/2</td>
+                <td>0</td>			
+              </tr>
+
+              <tr>
+                <td>tan  θ</td>
+                <td>0</td>
+                <td>1/√3</td>
+                <td>1</td>
+                <td>√3</td>
+                <td>∞</td>		
+              </tr>
+
+              <tr>
+                <td>cosec  θ</td>
+                <td>∞</td>
+                <td>2</td>
+                <td>√2</td>
+                <td>2/√3</td>
+                <td>1</td>	
+              </tr>
+
+              <tr>
+                <td>sec  θ</td>
+                <td>1</td>
+                <td>2/√3</td>
+                <td>√2</td>
+                <td>2</td>
+                <td>∞</td>	
+              </tr>
+
+              <tr>
+                <td>cot  θ</td>
+                <td>∞</td>
+                <td>√3</td>
+                <td>1</td>
+                <td>1/√3</td>
+                <td>0</td>	
+              </tr>
+            </tbody>
+          </table>
+        </div>
         
       </>
     );
