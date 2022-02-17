@@ -51,7 +51,7 @@ function Calculator() {
         <br />,
         "= √3/2√2 + 1/2√2",
         <br />,
-        "= (√3+1)/2√2",
+        "= (√3+1)/2√2 OR 0.9659 (approx)",
         <br />,
       ],
     },
@@ -183,6 +183,72 @@ function Calculator() {
           <Button variant="dark" onClick={() => reset()} type="reset">
             Reset
           </Button>
+        </div>
+        
+        <br></br>
+
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Sum and Difference Identities </h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Identity</th>
+                <th className="row-2 row-name ">Representation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>sin(x+y)</td>
+                <td>
+                  <b>sin(x).cos(y)+cos(x).sin(y)</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>sin(x–y)</td>
+                <td>
+                  <b>sin(x).cos(y)–cos(x).sin(y)</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>cos(x+y)</td>
+                <td>
+                  <b>cosx.cosy–sinx.siny</b>
+                </td>
+              </tr>
+
+              
+              <tr>
+                <td>cos(x–y)</td>
+                <td>
+                  <b>cosx.cosy+sinx.siny</b>
+                </td>
+              </tr>
+
+              
+              <tr>
+                <td>tan(x+y)</td>
+                <td>
+                  <b>[tan(x)+tan(y)]/[1-tan(x)tan(y)]</b>
+                </td>
+              </tr>
+
+              
+              <tr>
+                <td>tan(x-y)</td>
+                <td>
+                  <b>[tan(x)-tan(y)]/[1+tan(x)tan(y)]</b>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
         </div>
       </>
     );
