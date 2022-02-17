@@ -178,6 +178,40 @@ function Calculator() {
       ],
     },
     {
+      topic:"Probability",
+      details:[`The probability of an event represents the likelihood of the occurence of the event.
+
+          For an unbiased event(where all outcomes are equally likely to occur), the probability of the event E is the number of outcomes in E divided by the number of outcomes in the Sample Space. 
+          The probability of an event is a number between 0 and 1, where  0 indicates impossibility of the occurence of the event and 1 indicates that the event will surely occur.     
+      
+            `],
+       formula:[`P(E) = n(E)/n(S)`,
+       <br/>,
+       `where n(E) is the number of times the event E occurs and n(S) is the total possible occurence`],
+       process: ["To calculate the probability of occurence of an equally-likely event,",
+       <br/>,"we need to determine the following quantities:",
+       <br/>,"n(E): Number of outcomes favoring the occurence of the event",
+       <br/>,"n(S): Total Number of outcomes",
+       <br/>,"Probability of occurence then becomes P(E)=n(E)/n(S)"
+      ],
+       example1 :[
+         "Consider the Probability of First Event is P(A)=0.4 and that of the Second Event is P(B)=0.3.",
+         <br/>,
+         "Also consider the Probability of occurence of either of them is P(A ∪ B)=0.5",
+         <br/>,
+        "P(A') = 1-P(A) ,P(A')=1-0.4=0.6",
+        <br />,
+        "P(B') = 1-P(B) ,P(B')=1-0.3=0.7",
+        <br />,
+        "P(A ∩ B) = P(A)+P(B)-P(A ∪ B) ,P(E)=0.4+0.3-0.5=0.2",
+        <br />,
+        "P(only A) = P(A)-P(A ∩ B) ,P(E)=0.4-0.2=0.2",
+        <br />,
+        "P(only B) = P(B)-P(A ∩ B) ,P(E)=0.3-0.2=0.1",
+        <br />,
+       ],
+    },
+    {
       topic: "Quadratic Equation",
       details: [
         "Quadratic equations are polynomial equations of degree 2 in one variable of the form f(x) = ax² + bx + c, where a, b, c, ∈ R and a ≠ 0. It is the general form of a quadratic equation in which 'a' is referred to as the leading coefficient and 'c' is referred to as the absolute term of f(x). The roots of the quadratic equation (α,β) are the values of 'x' that fulfil the quadratic equation. There will always be two roots to the quadratic equation. The nature of roots might be either real or fictitious.",
@@ -594,6 +628,180 @@ function Calculator() {
       </>
     );
   };
+
+  
+  //Probability Calculator
+  const Probability = () => {
+    const [a, setA] = useState();   //a is the probablity of first event.
+    const [b, setB] = useState();   // b is the probablity of second event.
+    const [union, setUnion] = useState();            //P(A | B)
+    const [aNotOccuring, setaNotOccuring] = useState(null);  //P(A')
+    const [bNotOccuring, setbNotOccuring] = useState(null);  //P(B')
+    const [bothOccuring, setBothOccuring] = useState(null);   //P(A & B)
+    const [onlyAOccurs, setOnlyAOccurs] = useState(null);
+    const [onlyBOccurs, setOnlyBOccurs] = useState(null);
+
+    function reset() {
+      setaNotOccuring(null);
+      setbNotOccuring(null);
+      setBothOccuring(null);
+      setOnlyAOccurs(null);
+      setOnlyBOccurs(null);
+    }
+    const calcResult = () => {
+      if(union<Math.max(a,b))
+      alert("The Probability of Occurence of either of 2 events should not be lesser than the Probaility of occurence of each of them");
+      else
+      {
+      setaNotOccuring(parseFloat((1-a).toFixed(10)));
+      setbNotOccuring(parseFloat((1-b).toFixed(10)));
+      setBothOccuring(parseFloat((a + b-union).toFixed(10)));
+      setOnlyAOccurs(parseFloat((union-b).toFixed(10)));
+      setOnlyBOccurs(parseFloat((union-a).toFixed(10)));
+      }
+    }
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter the Probablity of First Event</Form.Label>
+            <Form.Control
+              onChange={(e) => setA(Number(e.target.value))}
+              type="number"
+              value={a === 0 ? "" : a}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter the Probablity of Second Event</Form.Label>
+            <Form.Control
+              onChange={(e) => setB(Number(e.target.value))}
+              type="number"
+              value={b === 0 ? "" : b}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter the Probablity of Occurence of either of the events</Form.Label>
+            <Form.Control
+              onChange={(e) => setUnion(Number(e.target.value))}
+              type="number"
+              value={union === 0 ? "" : union}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Probablity of Non-Occurence of First Event</Form.Label>
+            <Form.Control
+              type="number"
+              disabled="true"
+              value={aNotOccuring === 0 ? "" : aNotOccuring}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Probablity of Non-Occurence of Second Event</Form.Label>
+            <Form.Control
+              type="number"
+              disabled="true"
+              value={bNotOccuring === 0 ? "" : bNotOccuring}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Probability of Occurence of Both Events</Form.Label>
+            <Form.Control
+              type="number"
+              disabled="true"
+              value={bothOccuring === 0 ? "" : bothOccuring}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Probability that only the first event occurs</Form.Label>
+            <Form.Control
+              type="number"
+              disabled="true"
+              value={onlyAOccurs === 0 ? "" :onlyAOccurs}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Probability that only the second event occurs</Form.Label>
+            <Form.Control
+              type="number"
+              disabled="true"
+              value={onlyBOccurs === 0 ? "" : onlyBOccurs}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+        &nbsp; &nbsp;
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Probability Formulae</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Quantities</th>
+                <th className="row-2 row-name ">Equation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>P(A')</td>
+                <td>
+                  <b>
+                   1-P(A)
+                  </b>{" "}
+                  , where P(A) is probability of occurence of A.
+                </td>
+              </tr>
+              <tr>
+                <td>P(B')</td>
+                <td>
+                    <div>
+                      <b>1-P(B)</b> , where P(B) is the probability of occurence of B.
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td>P(A ∩ B)</td>
+                <td>
+                  <b>P(A) + P(B) - P(A ∪ B)</b>, where A ∪ B represents occurence of either of the events
+                </td>
+              </tr>
+              <tr>
+                <td>P(only A occurs)</td>
+                <td>
+                  <b>
+                   P(A)-P(A ∩ B)
+                  </b>, where A ∩ B represents occurence of both events
+                </td>
+              </tr>
+              <tr>
+                <td>P(only B occurs)</td>
+                <td>
+                  <b>
+                   P(B)-P(A ∩ B)
+                  </b>, where A ∩ B represents occurence of both events
+                </td>
+              </tr>
+
+              
+               
+            </tbody>
+          </table>
+        </div>
+      </>);
+
+  }
+
 
   // Statistics calculator
   const Statistics = () => {
@@ -1500,6 +1708,9 @@ function Calculator() {
     switch (key) {
       case "Permutation And Combination":
         currentCall=PnC();
+        break;
+      case "Probability":
+        currentCall=Probability();
         break;
       case "Progression":
         currentCall = Progression();

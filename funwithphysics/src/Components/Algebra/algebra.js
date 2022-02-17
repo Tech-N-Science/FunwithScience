@@ -50,7 +50,22 @@ export default function Algebra() {
       topic: "Mathematical Induction",
     },
     {
-      topic: "Probability",
+      topic:"Probability",
+      details:[`The probability of an event represents the likelihood of the occurence of the event.
+
+          For an unbiased event(where all outcomes are equally likely to occur), the probability of the event E is the number of outcomes in E divided by the number of outcomes in the Sample Space. 
+          The probability of an event is a number between 0 and 1, where  0 indicates impossibility of the occurence of the event and 1 indicates that the event will surely occur.     
+      
+            `],
+       formula:[`P(E) = n(E)/n(S)`,
+       <br/>,
+       `where n(E) is the number of times the event E occurs and n(S) is the total possible occurence`],
+       process: ["To calculate the probability of occurence of an equally-likely event,",
+       <br/>,"we need to determine the following quantities:",
+       <br/>,"n(E): Number of outcomes favoring the occurence of the event",
+       <br/>,"n(S): Total Number of outcomes",
+       <br/>,"Probability of occurence then becomes P(E)=n(E)/n(S)"
+      ],
     },
     {
       topic: 'Complex Numbers',
