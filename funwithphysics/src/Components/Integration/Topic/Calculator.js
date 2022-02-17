@@ -99,11 +99,12 @@ function Calculator() {
       details: `A limit is the value that a function (or sequence) approaches as the input (or index) approaches some value. Limits are essential to calculus and mathematical analysis, and are used to define continuity, derivatives, and integrals.`,
       formula:
         "Limit at a point: (x -> a) lim [( f(x)-f(a) ) / (x-a)] ",
-      process: [
+   process: [
         "The limit of a function exists if and only if the left-hand limit is equal to the right-hand limit.And also the function must be defined and continuous in a given interval",
         <br />],
-        example:[
-          "Find the limit of the function 1/x at x -> a where a is 1.",
+      example1:[
+          <b>1)</b>,
+          "Find the limit of the function 1/x at x ->  where a is 1.",
         <br />,
         <b>Solution: </b>,
 
@@ -113,9 +114,25 @@ function Calculator() {
         <br />,
         "RHL : (x -> 1)lim [1/x] = 1/1.0000001 = ~1",
         <br />,
-        <b>1 </b>, <br/>,
-        " Hence,the limit of function at x -> 1 is 1."
-
+       <br/>,
+        " Hence,the limit of function at x -> 1 is 1.",
+        <b>1 </b>,
+     
+        ],
+        example2:[
+          <b>2) </b>,
+          "Find the limit of the function sin(x^2) at x -> a where a is 2 rad.",
+          <br />,
+          <b>Solution: </b>,
+    
+          "Finding the RHL and LHL we conclude , both are defined and ",
+          <br />,
+          "LHL : (x -> 2)sin(x^2) = sin(1.999999 ^2) = ~-0.75",
+          <br />,
+          "RHL : (x -> 2)sin(x^2) = sin(2.000001 ^2) = ~-0.751",
+          <br />,
+         <br/>,
+          " Hence,the limit of function at x -> 2  is -0.75."
         ]
         
     },
