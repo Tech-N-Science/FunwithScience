@@ -21,13 +21,14 @@ function Calculator() {
         "To find the equation of line using the two-point formula we will be needing co-ordinates of two points.",
         <br />,
       ],
-      example: [
+      example1: [
         "Find the equation of a line passing through (-2, 4) and (3, 1).",
         <br />,
         <b>Solution: </b>,
 
         "Substituting the coordinates in the above two-point formula",
-        <br />,
+      ],
+      example2: [
         "(1-4)x + (-2-3)y - (-2*1) + (3*4) = 0",
         <br />,
         "-3x + (-5)y - (-2) + (12) = 0",
@@ -57,7 +58,7 @@ function Calculator() {
         "(x-α)² = 4a(y-β) whose vertex is (α,β) and axis is parallel to the y-axis",
         <br />,
       ],
-      example: [
+      example1: [
         "Find the equation of the parabola given the vertex(2,3) and point(-1,6).",
         <br />,
         <b>Solution: </b>,
@@ -77,7 +78,9 @@ function Calculator() {
         "where (h,k) is the vertex.",
         <br />,
         "Substituting the given vertex in the above formula. ",
-        <br />,
+        
+      ],
+      example2: [
         "y = a(x-2)²+3",
         <br />,
         "Knowing that (-1,6) lies on the parabola we can solve for 'a' by, ",
@@ -110,7 +113,7 @@ function Calculator() {
         "To find the equation of an ellipse in the standard form with center (h,k) we need two vertices and foci",
         <br />,
       ],
-      example: [
+      example1: [
         "Find the equation of ellipse that has vertices (-2,-8) and (-2,2) and foci (-2,-7) and (-2,1),",
         <br />,
         "First we find out the center(h,k) which is halfway between the vertices,(-2,-8) and (-2,2).",
@@ -121,12 +124,14 @@ function Calculator() {
         <br />,
         "Next we find a².The length of major axis is 2a.We solve for 'a' by finding the distance between y-coordinates of vertices: ",
         <br />,
-        "2a = 2 - (-8)",
+        "2a = 2 - (-8)",        
         <br />,
         "a = 5 So, a² = 25",
         <br />,
-        "Now we find c². The foci are given as (h,k-c)=(-2,-7) and (h,k+c)=(-2,1).We substitute k=-3 in either of these points",
-        <br />,
+        "Now we find c². The foci are given as (h,k-c)=(-2,-7) and (h,k+c)=(-2,1).We substitute k=-3 in either of these points",        
+        
+      ],
+      example2: [
         "k+c=1",
         <br />,
         "-3+c=1",
@@ -150,14 +155,16 @@ function Calculator() {
         "To find the standard equation of a circle, we will be needing the coordinates of the center of the circle (h,k) and its radius (r).",
         <br />,
       ],
-      example: [
+      example1: [
         <b>E.g. </b>,
         "Find the equation of a circle if point (1,2) is the center of the circle and it’s radius is equal to 4 cm.",
         <br />,
         <b>Solution: </b>,
         <br />,
         "(x-1)²+(y-2)² = 4²",
-        <br />,
+        
+      ],      
+      example2: [
         "(x²−2x+1)+(y²−4y+4) =16",
         <br />,
         <b>x²+y²−2x−4y-11 = 0 </b>,
@@ -1285,8 +1292,16 @@ function Calculator() {
           <p>{details.process}</p>
         </div>
         <div className="Calculator__example">
-          <h3>Example</h3>
-          <p>{details.example}</p>
+          <h3>Example</h3>          
+          <div className="row">
+            <div className="col-sm-6 col-lg-6 ">
+              <p>{details.example1}</p>
+            </div>
+
+            <div className="col-sm-6 col-lg-6 ">
+              <p>{details.example2}</p>
+            </div>
+          </div>
         </div>
         <div className="Calculator__calc">
           <h3>{details.topic} Calculator</h3>

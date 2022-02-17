@@ -28,7 +28,7 @@ function Calculator() {
         "To calculate combinations, we will use the formula nCr = n! / (r! * (n - r)!), where n represents the number of items, and r represents the number of items being chosen at a time.",
         <br />,
       ],
-      example: [
+      example1: [
         <span>
            <b>How many different teams(each having 5 members) can be formed from 12 students?</b>
            <br/>
@@ -42,6 +42,8 @@ function Calculator() {
            12 C 5 = 12! / [ (12 - 5)!5! ] = 792
            <br/>
         </span>,
+      ],
+      example2: [
         <span>
           <b>How many 3 letter words can we make with the letters in the word ABCD(without repetition)?</b>
           <br/>
@@ -54,8 +56,7 @@ function Calculator() {
           <br/>
           The number of words is given by
           4 P 3 = 4! / (4 - 3)! = 24
-        </span>
-
+        </span>,
       ],
     },
    
@@ -72,7 +73,7 @@ function Calculator() {
         "To find the Arithmetic progression of nᵗʰ term, we use the formula a + d * (n-1) where, 'a' is the first term of the series and 'd' is the common difference between any two numbers in the series found by taking the difference. To find the Geometric progression of nᵗʰ term, we use the formula a + r ⁽ⁿ⁻¹⁾ where, 'a' is the first term of the series and 'r' is the common difference between any two numbers in the series found by taking the ratio.",
         <br />,
       ],
-      example: [
+      example1: [
         "2,4,6,8.. is an AP because difference between any two consecutive terms in the series (common difference) is same (4 – 2 = 6 – 4 = 8 – 6 = 2).",
         <br />,
         "If ‘a’(2) is the first term and ‘d’(2) is the common difference,",
@@ -81,6 +82,8 @@ function Calculator() {
         <br />,
         "5th term of the AP = 2 + (5-1) * 2 = 10",
         <br />,
+      ],
+      example2: [
         <b>E.g. </b>,
         "2,4,8,16 is a GP because ratio of any two consecutive terms in the series (common difference) is same (4 / 2 = 8 / 4 = 16 / 8 = 2)",
         <br />,
@@ -100,16 +103,15 @@ function Calculator() {
 
         <br />,
       ],
-      example: [
+      example1: [
         "Numbers given: 20 30 60 20 10 40 80 90",
         <br />,
         "Mean = Sum of all items/Total no. of items = 350/8 = 43.75",
         <br />,
-        "Since total number of items is 6(even), Median = (n / 2)th = 3rd item = 30",
-        <br />,
         "Mode = 20 (as 20 occured most number of times in the given set of numbers)",
-        <br />,
-        "Standar deviation is calculated by deviations of each data point from the mean, and square the result of each whole divided by total number of samples minus 1.Hence it is , = 29.73",
+      ],
+      example2: [
+        "Standard deviation is calculated by deviations of each data point from the mean, and square the result of each whole divided by total number of samples minus 1.Hence it is , = 29.73",
         <br />,
         "Variance is square of standard deviation.Hence it is = 883.92",
         <br />,
@@ -134,7 +136,7 @@ function Calculator() {
         "A complex number Z = x + iy is a purely real if its imaginary part is 0, i.e. Im(z) = 0 and purely imaginary if its real part is 0 i.e. Re (z) = 0.",
         <br />,
       ],
-      example: [
+      example1: [
         "z₁ = 2 + 3i is first complex number equation, ",
 
         "z₂ = 5 + 10i is second complex number equation",
@@ -145,7 +147,8 @@ function Calculator() {
         <br />,
         <b>E.g. </b>,
         "Polar Form: √17(cos(1.816) + isin(1.816))",
-        <br />,
+      ],
+      example2: [
         "For Cartesian Form:",
         <br />,
         "z  =  (√17 × cos(1.816))  +  i(√17 × sin(1.816))",
@@ -166,7 +169,7 @@ function Calculator() {
       process: [
         "To find x raised to the power n we need to multiply x with itself n times.",
       ],
-      example: [
+      example1: [
         "2 raised to the power 3 is simply 2*2*2=8",
         <br />,
         "Square Root of 16 is a number(say a) such that a*a=16 ,which on computation gives 4.",
@@ -197,7 +200,7 @@ function Calculator() {
         <br />,
         `For D < 0 the roots do not exist, or the roots are imaginary.`,
       ],
-      example: [
+      example1: [
         "Let the quadratic equation be x²-5x+6 = 0",
         <br />,
         "Comparing the equation with the general form ax² + bx + c = 0 gives ",
@@ -208,8 +211,9 @@ function Calculator() {
         <br />,
         "Substitute the values in the quadratic formula",
         <br />,
-        "x₁ = (-b + √b²-4ac)/2a",
-        <br />,
+        "x₁ = (-b + √b²-4ac)/2a",        
+      ],
+      example2: [
         "⇒ (5 + 1)/2",
         <br />,
         " = 3",
@@ -1546,7 +1550,15 @@ function Calculator() {
         </div>
         <div className="Calculator__example">
           <h3>Example</h3>
-          <p>{details.example}</p>
+          <div className="row">
+            <div className="col-sm-6 col-lg-6 ">
+              <p>{details.example1}</p>
+            </div>
+
+            <div className="col-sm-6 col-lg-6 ">
+              <p>{details.example2}</p>
+            </div>
+          </div>
         </div>
         <div className="Calculator__calc">
           <h3>{details.topic} Calculator</h3>
