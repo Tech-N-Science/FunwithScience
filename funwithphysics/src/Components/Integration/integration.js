@@ -18,6 +18,12 @@ export default function Integration() {
         <br />,
       ],
     },
+    {
+      topic: "Limits",
+      details: ``,
+      formula: "",
+      process: "",
+    },
   ];
 
   return (
