@@ -8,13 +8,27 @@ export default function Trigonometric() {
   const Topics = [
     {
       topic: "Trigonometric Functions",
-      details: `If the following three requirements are met, a function f(x) is said to be continuous at a point x = a, in its domain:
-        <br>1. f(a) exists (i.e. f(a) has a finite value)
-        <br>2. Limx→a f(x) exists (i.e. the right-hand limit = left-hand limit, and both are finite)
-        <br>3. Limx→a f(x) = f(a)`,
-      formula: "Prove LHS = RHS",
+      details: [        
+        "Trigonometric functions is used to find the value of unknown angle or side of a right angle triangle.",
+        <br />,
+        "There are three basic trigonometric functions such as Sine, Cosine and Tangent.",
+      ],
+      formula: [
+        "sin θ = Perpendicular / Hypotenuse",
+        <br />,
+        "cos θ = Base / Hypotenuse",
+        <br />,
+        "tan θ = Perpendicular / Base",
+        <br />,
+        "cot θ = Base / Perpendicular OR 1 / tan θ",
+        <br />,
+        "sec θ = Hypotenuse / Base OR 1 / cos θ",
+        <br />,
+        "cosec θ = Hypotenuse / Perpendicular OR 1 / sin θ",
+        <br />,
+    ],
       process: [
-        "The function f(x) is said to be continuous in the interval I = [x1,x2] if the three conditions mentioned above are satisfied for every point in the interval I.",
+        "Using the formulas we can find values of trigonometric functions ",
         <br />,
       ],
     },

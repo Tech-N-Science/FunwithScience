@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router";
@@ -61,9 +62,128 @@ function Calculator() {
 
   //TrigonometricFunctions calculator
   const TrigonometricFunctions = () => {
+    const [result, setResult] = useState(null);
+    const [choice, setChoice] = useState("sin");
+    const [value, setValue] = useState(null);
+    function handleChange(e) {
+      reset();
+      setChoice(e.target.value);
+      choiceData();
+    }
+    const CalTrigonometryFunctions = () => {
+      let res;
+      if (choice === "sin") {
+        res = Math.sin(value);
+      }
+      else if (choice === "cos") {
+        res = Math.cos(value);
+      }
+      else if (choice === "tan") {
+        res = Math.tan(value);
+      }
+      else if (choice === "cosec") {
+        res = Math.cosec(value);
+      }
+      else if (choice === "sec") {
+        res = Math.sec(value);
+      }
+      else if (choice === "cot") {
+        res = Math.cot(value);
+      }
+      setResult(res);
+    };
+    function reset() {
+      setResult(null);
+      setValue(null);
+    }
+    const choiceData = () => {
+      if (choice === "sin")
+        return {
+          name: "sin θ",
+          disable: true,
+        };
+      else if (choice === "cos") {
+        return {
+          name: "cos θ",
+        };
+      }
+      else if (choice === "tan") {
+        return {
+          name: "tan θ",
+        };
+      }
+      else if (choice === "cosec") {
+        return {
+          name: "cosec θ",
+        };
+      }
+      else if (choice === "sec") {
+        return {
+          name: "sec θ",
+        };
+      }
+      else if (choice === "cot") {
+        return {
+          name: "cot θ",
+        };
+      }
+    };
     return (
       <>
-      <h1>Trigonometric Function</h1>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the trigonometric function</Form.Label>
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              onChange={(e) => handleChange(e)}
+            >
+              <option value="sin">sin</option>
+              <option value="cos">cos</option>
+              <option value="tan">tan</option>
+              <option value="cosec">cosec</option>
+              <option value="sec">sec</option>
+              <option value="cot">cot</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                To find the {choiceData().name}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Value of θ </Form.Label>
+            <Form.Control
+              onChange={(e) => setValue(e.target.value)}
+              type="number"
+              placeholder={"Enter the value of θ"}
+              value={value === null ? "" : value}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>
+              Value of {choiceData().name}
+            </Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={CalTrigonometryFunctions}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
       </>
     );
   };
