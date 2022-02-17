@@ -250,6 +250,46 @@ function Calculator() {
             </tbody>
           </table>
         </div>
+
+        <div className="formula-table">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Pythagorean Identities</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Identity</th>
+                <th className="row-2 row-name ">Representation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>sin2 x + cos2 x</td>
+                <td>
+                  <b>1</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>1+tan2 x</td>
+                <td>
+                  <b>sec2 x</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>cosec2 x</td>
+                <td>
+                  <b>1 + cot2 x</b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
       </>
     );
   };
