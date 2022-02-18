@@ -73,7 +73,7 @@ function MathsTopic() {
             </MathsTopicItem>
             <MathsTopicItem
               name="Trigonometry"
-              link="/"
+              link="/trigonometry"
               icon="icon-heart4"
               image={trigonometry}
             >
