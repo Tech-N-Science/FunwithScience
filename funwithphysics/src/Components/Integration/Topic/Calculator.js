@@ -134,8 +134,47 @@ function Calculator() {
         " Hence,the limit of function at x -> 2  is -0.75.",
       ],
     },
-  ];
+    {
+      topic: "Derivative",
+      details: `The derivative of a function of a real variable measures the sensitivity to change of the function value with respect to a change in its argument.Geometrically, the derivative of a function can be interpreted as the slope of the tangent line at a point. `,
+      formula: "Derivative (Slope) at a point: (x -> a) of function is  infinitesmall  change in y axis divided by infinitesmall change in x axis at x = a. ",
+      process: [
+        "Infinite small change in y axis is computed  and is divided by small change in x axis (dy/dx)",
+        <br />,
+      ],
+      example1: [
+        <b>1)</b>,
+        "Find the derivative of the function sin(x^2) at x -> a  where a is 3.",
+        <br />,
+        <b>Solution: </b>,
 
+        "Finding the derivative of function we get ",
+        <br />,
+        "dy/dx =  2*x*cos(x^2)",
+        <br />,
+        "Further substituting x = 3,",
+        <br />,
+        <br />,
+        "Derivative is 6*cos9  :- ",
+        <b>-5.43 </b>,
+      ],
+      example2: [
+        <b>2)</b>,
+        "Find the derivative of the function (x^2) at x -> a  where a is 2.",
+        <br />,
+        <b>Solution: </b>,
+
+        "Finding the derivative of function we get ",
+        <br />,
+        "dy/dx =  2*x",
+        <br />,
+        "Further substituting x = 2,",
+        <br />,
+        <br />,
+        "Derivative is  :- ",
+        <b>2</b>,
+  ]}
+  ]
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
@@ -229,10 +268,10 @@ function Calculator() {
       f = f.split("e").join("Math.exp");
 
       f = f.split("log").join("Math.log");
-      console.log(f);
+  
 
       const exp = f.split("x").join(parseFloat(parameter));
-      console.log(exp);
+    
       return eval(exp);
     }
     function computewithvalue(value) {
@@ -255,7 +294,7 @@ function Calculator() {
       f = f.split("e").join("Math.exp");
 
       f = f.split("log").join("Math.log");
-      console.log(f);
+ 
       const exp = f.split("x").join(value);
       return eval(exp);
     }
@@ -414,6 +453,198 @@ function Calculator() {
       </>
     );
   };
+
+  const Derivative = () => {
+    const [parameter, setparameter] = useState("");
+    const [func, setfunc] = useState("");
+
+    const [result, setResult] = useState(null);
+    const reset = () => {
+      setparameter("");
+      setfunc("");
+      setResult(null);
+    };
+
+    function compute() {
+      let f = func;
+
+      f = f.split("^").join("**");
+
+      f = f.split("sin").join("Math.sin");
+
+      f = f.split("cos").join("Math.cos");
+
+      f = f.split("tan").join("Math.tan");
+
+      f = f.split("cosec").join("Math.cosec");
+
+      f = f.split("sec").join("Math.sec");
+
+      f = f.split("cot").join("Math.cot");
+
+      f = f.split("e").join("Math.exp");
+
+      f = f.split("log").join("Math.log");
+      console.log(f);
+
+      const exp = f.split("x").join(parseFloat(parameter));
+      console.log(exp);
+      return eval(exp);
+    }
+    function computewithvalue(value) {
+      let f = func;
+      let v = value;
+      if (v>-1 && v<1){
+        v = 0
+      }
+
+      f = f.split("^").join("**");
+
+      f = f.split("sin").join("Math.sin");
+
+      f = f.split("cos").join("Math.cos");
+
+      f = f.split("tan").join("Math.tan");
+
+      f = f.split("cosec").join("Math.cosec");
+
+      f = f.split("sec").join("Math.sec");
+
+      f = f.split("cot").join("Math.cot");
+
+      f = f.split("e").join("Math.exp");
+
+      f = f.split("log").join("Math.log");
+      console.log(f);
+      const exp = f.split("x").join(v);
+      console.log(exp ,v  )
+      return eval(exp);
+    }
+
+    function slope(x1, y1, x2, y2) {
+      return (y1 - y2) / (x1 - x2);
+  }
+
+    const calculateDerivative = () => {
+      var at = compute()
+      if (Math.abs(at) == Infinity || at !== at) {
+          setResult("Derivative went to infinity. Enter a valid function.");
+          return ""
+      }
+      var y1 = compute();
+      var x0 = parameter - 0.000000000000001;
+      var y0 = computewithvalue(x0);
+      var x2 = parameter + 0.000000000000001;
+      var y2 = computewithvalue(x2);
+      var slope1 = slope(x0, y0, parameter, y1);
+      var slope2 = slope(parameter, y1, x2, y2);
+      if (Math.abs(slope1 - slope2) > 0.1) {
+        console.log(slope1,slope2)
+          setResult(slope1)
+          return ""
+      }
+      setResult((slope1));
+      console.log(slope1,slope2)
+      return ""
+  }
+  
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong> To find the limit of function</strong>
+
+              <br />
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                [Trigonometric values should be enclosed in brackets (Eg:-
+                sin(x^2))]
+              </strong>
+              <br />
+            </Form.Text>
+            <div className="straight_calc">
+              <form name="first">
+                <div className="group">
+                  <div className="coordinate">
+                    <label>Limit at x =</label>
+                    <input
+                      name="parameter"
+                      type="text"
+                      className="easynumeric"
+                      onChange={(e) => setparameter(e.target.value)}
+                      value={parameter}
+                    />
+                  </div>
+
+                  <div className="coordinate">
+                    <label>
+                      Function
+                      <br />
+                      [w.r.t x]
+                    </label>
+                    <input
+                      name="function"
+                      type="text"
+                      className="easynumeric"
+                      onChange={(e) => setfunc(e.target.value)}
+                      value={func}
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result + " "}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp mb-5">
+          <Button variant="primary" onClick={calculateDerivative}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Limits</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Limit</th>
+                <th className="row-2 row-name ">Formula</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Limit of f(x) at x =&gt; a</td>
+                <td>
+                  <img src={limits1} alt="limit" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
+  };
+
   //adding the calculators together
   function calC(key) {
     let currentCall;
@@ -423,6 +654,8 @@ function Calculator() {
         break;
       case "Limits":
         currentCall = Limit();
+      case "Derivative":
+        currentCall = Derivative();
       default:
         break;
     }
