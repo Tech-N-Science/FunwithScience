@@ -11,7 +11,7 @@ function Calculator() {
   const Topics = [
     {
       topic: "Trigonometric Functions",
-      details: [        
+      details: [
         "Trigonometric functions is used to find the value of unknown angle or side of a right angle triangle.",
         <br />,
         "There are three basic trigonometric functions such as Sine, Cosine and Tangent.",
@@ -29,7 +29,7 @@ function Calculator() {
         <br />,
         "cosec θ = Hypotenuse / Perpendicular OR 1 / sin θ",
         <br />,
-    ],
+      ],
       process: [
         "Using the formulas we can find values of trigonometric functions ",
         <br />,
@@ -42,7 +42,7 @@ function Calculator() {
         "sin 105° can be written as sin (60° + 45°) which is similar to sin (A + B)",
         <br />,
         "We know that, the formula for sin (A + B) = sin A × cos B + cos A × sin B",
-        <br />, 
+        <br />,
       ],
       example2: [
         "Therefore, sin 105° = sin (60° + 45°) = sin 60° × cos 45° + cos 60° × sin 45°",
@@ -73,22 +73,17 @@ function Calculator() {
     const CalTrigonometryFunctions = () => {
       let res;
       if (choice === "sin") {
-        res = Math.sin(value);
-      }
-      else if (choice === "cos") {
-        res = Math.cos(value);
-      }
-      else if (choice === "tan") {
-        res = Math.tan(value);
-      }
-      else if (choice === "cosec") {
-        res = Math.cosec(value);
-      }
-      else if (choice === "sec") {
-        res = Math.sec(value);
-      }
-      else if (choice === "cot") {
-        res = Math.cot(value);
+        res = Math.sin((value * Math.PI) / 180);
+      } else if (choice === "cos") {
+        res = Math.cos((value * Math.PI) / 180);
+      } else if (choice === "tan") {
+        res = Math.tan((value * Math.PI) / 180);
+      } else if (choice === "cosec") {
+        res = Math.cosec((value * Math.PI) / 180);
+      } else if (choice === "sec") {
+        res = Math.sec((value * Math.PI) / 180);
+      } else if (choice === "cot") {
+        res = Math.cot((value * Math.PI) / 180);
       }
       setResult(res);
     };
@@ -106,23 +101,19 @@ function Calculator() {
         return {
           name: "cos θ",
         };
-      }
-      else if (choice === "tan") {
+      } else if (choice === "tan") {
         return {
           name: "tan θ",
         };
-      }
-      else if (choice === "cosec") {
+      } else if (choice === "cosec") {
         return {
           name: "cosec θ",
         };
-      }
-      else if (choice === "sec") {
+      } else if (choice === "sec") {
         return {
           name: "sec θ",
         };
-      }
-      else if (choice === "cot") {
+      } else if (choice === "cot") {
         return {
           name: "cot θ",
         };
@@ -165,9 +156,7 @@ function Calculator() {
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>
-              Value of {choiceData().name}
-            </Form.Label>
+            <Form.Label>Value of {choiceData().name}</Form.Label>
             <Form.Control
               readOnly
               type="number"
@@ -184,7 +173,7 @@ function Calculator() {
             Reset
           </Button>
         </div>
-        
+
         <br></br>
 
         <div className="formula-table mb-4">
@@ -223,7 +212,6 @@ function Calculator() {
                 </td>
               </tr>
 
-              
               <tr>
                 <td>cos(x–y)</td>
                 <td>
@@ -231,7 +219,6 @@ function Calculator() {
                 </td>
               </tr>
 
-              
               <tr>
                 <td>tan(x+y)</td>
                 <td>
@@ -239,14 +226,12 @@ function Calculator() {
                 </td>
               </tr>
 
-              
               <tr>
                 <td>tan(x-y)</td>
                 <td>
                   <b>[tan(x)-tan(y)]/[1+tan(x)tan(y)]</b>
                 </td>
               </tr>
-
             </tbody>
           </table>
         </div>
@@ -310,62 +295,61 @@ function Calculator() {
             </thead>
             <tbody>
               <tr>
-                <td>sin  θ</td>
+                <td>sin θ</td>
                 <td>0</td>
                 <td>1/2</td>
                 <td>1/√2</td>
                 <td>√3/2</td>
-                <td>1</td> 	
+                <td>1</td>
               </tr>
 
               <tr>
-                <td>cos  θ</td>
+                <td>cos θ</td>
                 <td>1</td>
                 <td>√3/2</td>
                 <td>1/√2</td>
                 <td>1/2</td>
-                <td>0</td>			
+                <td>0</td>
               </tr>
 
               <tr>
-                <td>tan  θ</td>
+                <td>tan θ</td>
                 <td>0</td>
                 <td>1/√3</td>
                 <td>1</td>
                 <td>√3</td>
-                <td>∞</td>		
+                <td>∞</td>
               </tr>
 
               <tr>
-                <td>cosec  θ</td>
+                <td>cosec θ</td>
                 <td>∞</td>
                 <td>2</td>
                 <td>√2</td>
                 <td>2/√3</td>
-                <td>1</td>	
+                <td>1</td>
               </tr>
 
               <tr>
-                <td>sec  θ</td>
+                <td>sec θ</td>
                 <td>1</td>
                 <td>2/√3</td>
                 <td>√2</td>
                 <td>2</td>
-                <td>∞</td>	
+                <td>∞</td>
               </tr>
 
               <tr>
-                <td>cot  θ</td>
+                <td>cot θ</td>
                 <td>∞</td>
                 <td>√3</td>
                 <td>1</td>
                 <td>1/√3</td>
-                <td>0</td>	
+                <td>0</td>
               </tr>
             </tbody>
           </table>
         </div>
-        
       </>
     );
   };
