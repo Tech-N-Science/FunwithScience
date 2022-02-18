@@ -20,12 +20,6 @@ const Navbar = () => {
     setClicked(index);
   };
 
-    useEffect(() => {
-      
-        window.scrollTo(0, 0);
-       
-     
-    }, );
 
 
   const menuBtnRef = useRef(null);
@@ -49,7 +43,7 @@ const Navbar = () => {
   };
   return (
     <React.Fragment>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light pt-3'>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light pt-3' style = {{position:'sticky',top:'0','z-index':'100'}}>
         <p className='navbar-brand'>
           <button
             className='navbar-toggler'
