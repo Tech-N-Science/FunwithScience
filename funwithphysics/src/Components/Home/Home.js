@@ -9,10 +9,8 @@ import { Context } from "../../App";
 
 const Home = () => {
   const [loading, setloading] = useState(true);
-  const [visible,setvisible] = useState(false)
   const { dispatch } = useContext(Context);
   useEffect(() => {
-    setvisible(true)
     setTimeout(() => {
       setloading(false);
       const user = JSON.parse(localStorage.getItem("user"));
@@ -31,29 +29,8 @@ const bookReaderStyle = {
     margin: "0",
     paddingRight: "9px",
   };
-
-  function scrollToTop() {
- 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
-}
-
-const onscrollclicked = () =>{
-  scrollToTop()
-}
   return (
     <React.Fragment>
-       {
-   visible && (
-    <button className="gotopbtn" onClick={onscrollclicked}>
-      {" "}
-      <i className="fas fa-arrow-up"></i>{" "}
-    </button>
-)
-       }
       <Navbar />
       <Helmet>
         <title>Fun With Science - Tech N Science </title>
@@ -108,10 +85,18 @@ const onscrollclicked = () =>{
       </div>
       <LearnMore />
       <Footer />
-
+      {/* <!-- Back to top button --> */}
+      {!loading && (
+        <button className="gotopbtn" onClick={scroll}>
+          {" "}
+          <i className="fas fa-arrow-up"></i>{" "}
+        </button>
+      )}
     </React.Fragment>
   );
 };
-
+const scroll = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 export default Home;
