@@ -640,14 +640,18 @@ function Calculator() {
     const [bothOccuring, setBothOccuring] = useState(null);   //P(A & B)
     const [onlyAOccurs, setOnlyAOccurs] = useState(null);
     const [onlyBOccurs, setOnlyBOccurs] = useState(null);
-
-    function reset() {
+    function reset(){
+      setA(null);
+      setB(null);
+      setUnion(null);
       setaNotOccuring(null);
       setbNotOccuring(null);
       setBothOccuring(null);
       setOnlyAOccurs(null);
       setOnlyBOccurs(null);
     }
+   
+   
     const calcResult = () => {
       if(union<Math.max(a,b))
       alert("The Probability of Occurence of either of 2 events should not be lesser than the Probaility of occurence of each of them");
@@ -668,7 +672,7 @@ function Calculator() {
             <Form.Control
               onChange={(e) => setA(Number(e.target.value))}
               type="number"
-              value={a === 0 ? "" : a}
+              value={a ==null ? "" : a}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -676,7 +680,7 @@ function Calculator() {
             <Form.Control
               onChange={(e) => setB(Number(e.target.value))}
               type="number"
-              value={b === 0 ? "" : b}
+              value={b ==null ? "" : b}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -684,7 +688,7 @@ function Calculator() {
             <Form.Control
               onChange={(e) => setUnion(Number(e.target.value))}
               type="number"
-              value={union === 0 ? "" : union}
+              value={union ==null ? "" : union}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -692,7 +696,7 @@ function Calculator() {
             <Form.Control
               type="number"
               disabled="true"
-              value={aNotOccuring === 0 ? "" : aNotOccuring}
+              value={aNotOccuring ==null ? "" : aNotOccuring}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -700,7 +704,7 @@ function Calculator() {
             <Form.Control
               type="number"
               disabled="true"
-              value={bNotOccuring === 0 ? "" : bNotOccuring}
+              value={bNotOccuring ==null ? "" : bNotOccuring}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -708,7 +712,7 @@ function Calculator() {
             <Form.Control
               type="number"
               disabled="true"
-              value={bothOccuring === 0 ? "" : bothOccuring}
+              value={bothOccuring ==null ? "" : bothOccuring}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -716,7 +720,7 @@ function Calculator() {
             <Form.Control
               type="number"
               disabled="true"
-              value={onlyAOccurs === 0 ? "" :onlyAOccurs}
+              value={onlyAOccurs ==null ? "" :onlyAOccurs}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -724,7 +728,7 @@ function Calculator() {
             <Form.Control
               type="number"
               disabled="true"
-              value={onlyBOccurs === 0 ? "" : onlyBOccurs}
+              value={onlyBOccurs ==null ? "" : onlyBOccurs}
             />
           </Form.Group>
         </Form>
@@ -733,7 +737,7 @@ function Calculator() {
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => reset()} type="reset">
+          <Button variant="dark" onClick={(e) =>reset()} type="reset">
             Reset
           </Button>
         </div>
