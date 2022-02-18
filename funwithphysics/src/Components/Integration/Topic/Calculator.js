@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import limits1 from "../../../Images/limits1.png";
+import derivative1 from "../../../Images/derivative1.png";
 
 function Calculator() {
   let { topic } = useParams();
@@ -431,7 +432,7 @@ function Calculator() {
             <thead>
               <section className="m-2">
                 <tr>
-                  <h3>Limits</h3>
+                  <h3>Derivative</h3>
                 </tr>
               </section>
 
@@ -442,9 +443,9 @@ function Calculator() {
             </thead>
             <tbody>
               <tr>
-                <td>Limit of f(x) at x =&gt; a</td>
+                <td>Derivative of f(x) </td>
                 <td>
-                  <img src={limits1} alt="limit" />
+                  <img src={derivative1} alt="limit" />
                 </td>
               </tr>
             </tbody>
