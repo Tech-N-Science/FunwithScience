@@ -407,17 +407,17 @@ function Calculator() {
     }
     const calcResult = () => {
       if (choice == "sin-Inverse")
-        setResult(Math.asin(x));
+        setResult(57.29578*Math.asin(x));
       else if (choice == "cos-Inverse")
-        setResult(Math.acos(x));
+        setResult(57.29578*Math.acos(x));
       else if (choice == "tan-Inverse")
-        setResult(Math.atan(x));
+        setResult(57.29578*Math.atan(x));
       else if (choice == "cosec-Inverse")
-        setResult(Math.asin(1/x));
+        setResult(57.29578*Math.asin(1/x));
       else if (choice == "cot-Inverse")
-        setResult(Math.atan(1/x));
+        setResult(57.29578*Math.atan(1/x));
       else if (choice == "sec-Inverse")
-        setResult(Math.acos(1/x));
+        setResult(57.29578*Math.acos(1/x));
     }
     const handleChange = (e) => {
       reset();
@@ -460,7 +460,7 @@ function Calculator() {
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Value of θ (in radians)</Form.Label>
+            <Form.Label>Value of θ (in degrees)</Form.Label>
             <Form.Control
               readOnly
               type="number"
