@@ -8,7 +8,7 @@ import { FiPlus, FiMinus } from 'react-icons/fi';
 import { Accordion, Card } from 'react-bootstrap';
 import logo from '../../Images/Logo/logo.webp';
 import { Context } from '../../App';
-const Navbar = (props) => {
+const Navbar = () => {
   const { state, dispatch } = useContext(Context);
   const [clicked, setClicked] = useState(false);
   const user = localStorage.getItem('user');
@@ -20,10 +20,13 @@ const Navbar = (props) => {
     setClicked(index);
   };
 
-  if (typeof(props.fromhome) === "undefined"){
-    console.log("yes",props.fromhome)
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+    useEffect(() => {
+      
+        window.scrollTo(0, 0);
+       
+     
+    }, );
+
 
   const menuBtnRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,7 +49,7 @@ const Navbar = (props) => {
   };
   return (
     <React.Fragment>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light pt-3' style = {{position:'sticky',top:'0','z-index':'100'}}>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light pt-3'>
         <p className='navbar-brand'>
           <button
             className='navbar-toggler'
