@@ -6,12 +6,10 @@ import { LearnMore } from "../LearnMore";
 import { Helmet } from "react-helmet";
 import Navbar from "../Navbar/Navbar";
 import { Context } from "../../App";
-import AboutUSImage from "../../Images/about-us-image.svg";
 
 const Home = () => {
   const [loading, setloading] = useState(true);
   const { dispatch } = useContext(Context);
-
   useEffect(() => {
     setTimeout(() => {
       setloading(false);
@@ -25,14 +23,12 @@ const Home = () => {
         localStorage.setItem("user", null);
       }
     }, 4000);
-  }, [dispatch]);
-
-  const bookReaderStyle = {
+ }, [dispatch]);
+const bookReaderStyle = {
     color: "black",
     margin: "0",
     paddingRight: "9px",
   };
-  
   return (
     <React.Fragment>
       <Navbar />
@@ -76,31 +72,6 @@ const Home = () => {
               Learn
               <i style={bookReaderStyle} className="fas fa-book-reader"></i>
             </Button>
-          </div>
-        </div>
-      </div>
-      <div>
-        <h3 className="aboutus-header" id="aboutus">
-          About Us
-        </h3>
-        <center>
-          <hr className="aboutus-underline" />
-        </center>
-        <div className="aboutus-container">
-          <div className="aboutus-text-container">
-            <h4 className="about-us-txt">
-              Preparing for competitive exams like JEE, NEET,etc. can be tough
-              and may involve a lot of tedious calculations everyday.
-            </h4>
-            <h4 className="aboutus-cta">Well, worry not !!</h4>
-            <h4 className="about-us-txt">
-              We too have gone through the same phase and being
-              Tech-enthusiasts, we decided to come up with this all-in-one
-              website to solve your problems.
-            </h4>
-          </div>
-          <div>
-            <img src={AboutUSImage} alt="about-us" className="aboutus-image" />
           </div>
         </div>
       </div>
