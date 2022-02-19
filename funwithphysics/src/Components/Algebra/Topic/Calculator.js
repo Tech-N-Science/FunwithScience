@@ -263,21 +263,20 @@ function Calculator() {
       topic: "Binomial",
       details: [
         <span>
-          The binomial theorem states the principle for expanding the algebraic expression (x + y)<sup>n</sup> and expresses it as a sum of the terms involving individual exponents of variables x and y.
-          <br />
-          Each term in a binomial expansion is associated with a numeric value which is called coefficient.
+         Binomial Theorem is an algebraic formula which is used to express the binomial expression raised to a certain power (i.e. (A + B)<sup>n</sup>) in the form of a series (called binomial expansion).
+Binomial Expression is an expression which consistes of two terms. <br />
+          Each term in a binomial expansion is associated with a numeric value which is called binomial coefficient.
           <br />
           <br />
          <h3><u>Important Points:</u></h3> 
-          1. The total number of terms in the expansion of (x+y)<sup>n</sup>  are (n+1)  <br />
-          2. The sum of exponents of x and y is always n  <br />
-          3. <sup>n</sup>C<sub>0</sub>, <sup>n</sup>C<sub>1</sub>, <sup>n</sup>C<sub>2</sub>, ...., <sup>n</sup>C<sub>n</sub> are called binomial coefficients and also represented by C<sub>0</sub>, C<sub>1</sub>, C<sub>2</sub>, ..., C<sub>n</sub>  <br />
-          4. The binomial coefficients which are equidistant from the beginning and from the ending are equal i.e. <sup>n</sup>C<sub>0</sub> = <sup>n</sup>C<sub>n</sub>, <sup>n</sup>C<sub>1</sub> = <sup>n</sup>C<sub>n-1</sub> , <sup>n</sup>C<sub>2</sub> = <sup>n</sup>C<sub>n-2</sub> ,.... etc.  <br />
+          1. Total number of terms in the expansion of (A + B)<sup>n</sup>  are (n+1)  <br />
+          2. <sup>n</sup>C<sub>0</sub>, <sup>n</sup>C<sub>1</sub>, <sup>n</sup>C<sub>2</sub>, ...., <sup>n</sup>C<sub>n</sub> are called binomial coefficients and also represented by C<sub>0</sub>, C<sub>1</sub>, C<sub>2</sub>, ..., C<sub>n</sub>  <br />
+          3. Binomial coefficients which are equidistant from the beginning and from the ending are equal i.e. <sup>n</sup>C<sub>0</sub> = <sup>n</sup>C<sub>n</sub>, <sup>n</sup>C<sub>1</sub> = <sup>n</sup>C<sub>n-1</sub> , <sup>n</sup>C<sub>2</sub> = <sup>n</sup>C<sub>n-2</sub> ,.... etc.  <br />
         </span>
       ],
       formula: [
         <span>
-          Binomial expansion of (x + y)<sup>n</sup> by using the binomial theorem is as follows,
+          Binomial expansion of (A + B)<sup>n</sup> by using the binomial theorem is as follows,
           <br />
           <strong>   (A+B)<sup>n</sup> = (<sup>n</sup>C<sub>0</sub>)(A<sup>n</sup>)(B<sup>0</sup>) + (<sup>n</sup>C<sub>1</sub>)(A<sup>n-1</sup>)(B<sup>1</sup>) + (<sup>n</sup>C<sub>2</sub>)(A<sup>n-2</sup>)(B<sup>2</sup>) +......+ (<sup>n</sup>C<sub>n</sub>)(A<sup>0</sup>)(B<sup>n</sup>)
           </strong>
@@ -286,7 +285,7 @@ function Calculator() {
           where <sup>n</sup>C<sub>r</sub> = (n!) / ((n-r)! * (r)!)
           <br />
           <br />
-          Below is the value of general term.
+          The general term of the binomial expansion is
           <br />
           <strong>T<sub>r+1</sub> = <sup>n</sup>C<sub>n-r</sub> (A<sup>n-r</sup>)(B<sup>n</sup>)</strong>
         </span>
@@ -2086,12 +2085,12 @@ function Calculator() {
                 </tr>
                 <tr>
                   <td>
-                    <strong>6. </strong>The number of terms in the expansion of (x + a)<sup>n</sup> + (x − a)<sup>n</sup> are <strong>(n+2)/2 if “n” is even</strong> or <strong>(n+1)/2 if “n” is odd</strong>.
+                    <strong>6. </strong>Number of terms in the expansion of (x + a)<sup>n</sup> + (x − a)<sup>n</sup> are <strong>(n+2)/2 if “n” is even</strong> or <strong>(n+1)/2 if “n” is odd</strong>.
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <strong>7.</strong> The number of terms in the expansion of (x + a)<sup>n</sup> − (x − a)<sup>n</sup>  are <strong>(n/2) if “n” is even</strong> or <strong>(n+1)/2 if “n” is odd</strong>.
+                    <strong>7. </strong>Number of terms in the expansion of (x + a)<sup>n</sup> − (x − a)<sup>n</sup>  are <strong>(n/2) if “n” is even</strong> or <strong>(n+1)/2 if “n” is odd</strong>.
                   </td>
                 </tr>
               </tbody>
