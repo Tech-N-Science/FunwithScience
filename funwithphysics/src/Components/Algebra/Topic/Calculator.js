@@ -2130,7 +2130,7 @@ Binomial Expression is an expression which consistes of two terms. <br />
                 </tr>
                 <tr>
                   <td>
-                    <strong>5. </strong> C<sub>1</sub> − 2C<sub>2</sub> + 3C<sub>3</sub> − 4C<sub>0</sub> + ... +(−1)<sup>n-1</sup> Cn<sub>n</sub> = <strong>0</strong> for n  1
+                    <strong>5. </strong> C<sub>1</sub> − 2C<sub>2</sub> + 3C<sub>3</sub> − 4C<sub>0</sub> + ... +(−1)<sup>n-1</sup> Cn<sub>n</sub> = <strong>0</strong> for n &gt; 1
                   </td>
                 </tr>
                 <tr>
