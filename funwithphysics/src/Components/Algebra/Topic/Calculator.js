@@ -291,6 +291,7 @@ function Calculator() {
           <strong>T<sub>r+1</sub> = <sup>n</sup>C<sub>n-r</sub> (A<sup>n-r</sup>)(B<sup>n</sup>)</strong>
         </span>
       ],
+
       process: [
         <span>
           To find the binomial expansion, first identify the values of A, B and n.
