@@ -10,9 +10,11 @@ import AboutUSImage from "../../Images/about-us-image.svg";
 
 const Home = () => {
   const [loading, setloading] = useState(true);
+  const [visible,setvisible] = useState(false)
   const { dispatch } = useContext(Context);
 
   useEffect(() => {
+    setvisible(true)
     setTimeout(() => {
       setloading(false);
       const user = JSON.parse(localStorage.getItem("user"));
@@ -35,7 +37,14 @@ const Home = () => {
   
   return (
     <React.Fragment>
-      <Navbar />
+            {/* <!-- Back to top button --> */}
+            {visible && (
+        <button className="gotopbtn" onClick={scroll}>
+          {" "}
+          <i className="fas fa-arrow-up"></i>{" "}
+        </button>
+      )}
+      <Navbar fromhome = "true" />
       <Helmet>
         <title>Fun With Science - Tech N Science </title>
         <meta
@@ -114,13 +123,7 @@ const Home = () => {
       </div>
       <LearnMore />
       <Footer />
-      {/* <!-- Back to top button --> */}
-      {!loading && (
-        <button className="gotopbtn" onClick={scroll}>
-          {" "}
-          <i className="fas fa-arrow-up"></i>{" "}
-        </button>
-      )}
+
     </React.Fragment>
   );
 };
