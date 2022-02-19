@@ -32,6 +32,33 @@ export default function Trigonometric() {
         <br />,
       ],
     },
+    {
+      topic: "Inverse Trigonometry",
+      details: [
+        `Inverse trigonometric ratios are the inverse of the trigonometric functions.They operate on the ratio of the sides of the triangle to find out the measure of the angles of the  triangle.
+         The inverse of a function is denoted by the superscript "-1" of the given trigonometric function. 
+         For example, the inverse of the cosine function will be cos-1. 
+         The inverse of the trigonometric function is also written as an "arc"-trigonometric function, for example, arcsin will be the inverse of the sine function.`
+      ],
+      formula: [
+        `sin`, <sup>-1</sup>, `[Opposite/Hypotenuse] =  θ`,
+        <br />,
+        `cos`, <sup>-1</sup>, `[Base/Hypotenuse] =  θ`,
+        <br />,
+        `tan`, <sup>-1</sup>, `[Opposite/Base] =  θ`,
+        <br />,
+        `cosec`, <sup>-1</sup>, `[Hypotenuse/Opposite] =  θ`,
+        <br />,
+        `sec`, <sup>-1</sup>, `[Hypotenuse/Base] =  θ`,
+        <br />,
+        `cot`, <sup>-1</sup>, `[Base/Opposite] =  θ`,
+        <br />,
+      ],
+      process: [
+        "Using the formulae, we can find Angles corresponding to a Trigonometric Function",
+        <br />,
+      ],
+    }
   ];
 
   return (

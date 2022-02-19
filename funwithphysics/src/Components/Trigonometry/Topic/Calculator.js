@@ -55,6 +55,39 @@ function Calculator() {
         <br />,
       ],
     },
+    {
+      topic: "Inverse Trigonometry",
+      details: [
+        `Inverse trigonometric ratios are the inverse of the trigonometric functions.They operate on the ratio of the sides of the triangle to find out the measure of the angles of the  triangle.
+         The inverse of a function is denoted by the superscript "-1" of the given trigonometric function. 
+         For example, the inverse of the cosine function will be cos-1. 
+         The inverse of the trigonometric function is also written as an "arc"-trigonometric function, for example, arcsin will be the inverse of the sine function.`
+      ],
+      formula: [
+        `sin`, <sup>-1</sup>, `[Opposite/Hypotenuse] =  θ`,
+        <br />,
+        `cos`, <sup>-1</sup>, `[Base/Hypotenuse] =  θ`,
+        <br />,
+        `tan`, <sup>-1</sup>, `[Opposite/Base] =  θ`,
+        <br />,
+        `cosec`, <sup>-1</sup>, `[Hypotenuse/Opposite] =  θ`,
+        <br />,
+        `sec`, <sup>-1</sup>, `[Hypotenuse/Base] =  θ`,
+        <br />,
+        `cot`, <sup>-1</sup>, `[Base/Opposite] =  θ`,
+        <br />,
+      ],
+      process: [
+        "Using the formulae, we can find Angles corresponding to a Trigonometric Function",
+        <br />,
+      ],
+      example1: [
+        "If sin(θ) is equal to 1/2, find sin(θ) + cos(θ)",
+        <br />, "The easiest way to solve this question is to first find the value of θ",
+        <br />, `Taking Inverse function of sine, we get θ=sin`, <sup>-1</sup>, "(1/2)=π/6",
+        <br />, `Now, sin(θ)+cos(θ)=sin(π/6)+cos(π/6) ,which on simplification gives 1.366`
+      ]
+    }
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
@@ -354,12 +387,253 @@ function Calculator() {
     );
   };
 
+
+
+
+
+
+
+
+
+  //Inverse Trignometry Calcualtor
+  const InvTrig = () => {
+    const [x, setX] = useState(null);
+    const [choice, setChoice] = useState("sin-Inverse");
+    const [result, setResult] = useState(null);
+    function reset() {
+      setX(null);
+      setResult(null);
+      setChoice(null);
+    }
+    const calcResult = () => {
+      if (choice == "sin-Inverse")
+        setResult(Math.asin(x));
+      else if (choice == "cos-Inverse")
+        setResult(Math.acos(x));
+      else if (choice == "tan-Inverse")
+        setResult(Math.atan(x));
+      else if (choice == "cosec-Inverse")
+        setResult(Math.asin(1/x));
+      else if (choice == "cot-Inverse")
+        setResult(Math.atan(1/x));
+      else if (choice == "sec-Inverse")
+        setResult(Math.acos(1/x));
+    }
+    const handleChange = (e) => {
+      reset();
+      setChoice(e.target.value);
+    }
+    return (
+      <>
+        <Form>
+          {/* dropdown */}
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the Inverse-Trigonometric function</Form.Label>
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              onChange={(e) => handleChange(e)}
+            >
+              <option value="sin-Inverse">sin</option>
+              <option value="cos-Inverse">cos</option>
+              <option value="tan-Inverse">tan</option>
+              <option value="cosec-Inverse">cosec</option>
+              <option value="sec-Inverse">sec</option>
+              <option value="cot-Inverse">cot</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                To find the {choice}, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Value of x</Form.Label>
+            <Form.Control
+              onChange={(e) => setX(Number(e.target.value))}
+              type="number"
+              placeholder={"Enter the value of x"}
+              value={x === null ? "" : x}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Value of θ (in radians)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === null ? "Result" : result}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+        <br />
+
+
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Sum Identities </h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Identity</th>
+                <th className="row-2 row-name ">Representation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>sin <sup>-1</sup>(x) + cos<sup>-1</sup>(x)</td>
+                <td>
+                  <b> π/2</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>tan<sup>-1</sup>(x) + cot<sup>-1</sup>(x)</td>
+                <td>
+                  <b> π/2</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>sec <sup>-1</sup>(x) + cosec<sup>-1</sup>(x)</td>
+                <td>
+                  <b>π/2</b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br />
+        <div className="formula-table">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Complement Identities</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Identity</th>
+                <th className="row-2 row-name ">Representation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>sin <sup>-1</sup>(-x)</td>
+                <td>
+                  <b>-sin <sup>-1</sup>(x)</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>cos<sup>-1</sup>(-x)</td>
+                <td>
+                  <b>π-cos<sup>-1</sup>(x)</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>tan<sup>-1</sup>(-x)</td>
+                <td>
+                  <b>-tan<sup>-1</sup>(x)</b>
+                </td>
+              </tr>
+              <tr>
+                <td>cot<sup>-1</sup>(-x)</td>
+                <td>
+                  <b>π-cot<sup>-1</sup>(x)</b>
+                </td>
+              </tr>
+              <tr>
+                <td>sec<sup>-1</sup>(-x)</td>
+                <td>
+                  <b>π-sec<sup>-1</sup>(x)</b>
+                </td>
+              </tr>
+              <tr>
+                <td>cosec<sup>-1</sup>(-x)</td>
+                <td>
+                  <b>-cosec<sup>-1</sup>(x)</b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br/><br/>
+        <div className="formula-table">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Reciprocal Identities</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Identity</th>
+                <th className="row-2 row-name ">Representation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>sin <sup>-1</sup>(1/x)</td>
+                <td>
+                  <b>cosec <sup>-1</sup>(x)</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>cos<sup>-1</sup>(1/x)</td>
+                <td>
+                  <b>sec<sup>-1</sup>(x)</b>
+                </td>
+              </tr>
+
+              <tr>
+                <td>tan<sup>-1</sup>(1/x)</td>
+                <td>
+                  <b>cot<sup>-1</sup>(x)</b>
+                </td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+      </>)
+
+  }
+
+
+
+
+
+
   //adding the calculators together
   function calC(key) {
     let currentCall;
     switch (key) {
       case "Trigonometric Functions":
         currentCall = TrigonometricFunctions();
+        break;
+      case "Inverse Trigonometry":
+        currentCall = InvTrig();
         break;
       default:
         break;
