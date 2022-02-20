@@ -12,14 +12,14 @@ function Calculator() {
   const Topics = [
     {
       topic: "Permutation And Combination",
-      details:[ `A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
+      details: [`A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
       The word "permutation" also refers to the act or process of changing the linear order of an ordered set.It is denoted by nPr.`,
-      <br />,
-      `On the other hand,Combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`
+        <br />,
+        `On the other hand,Combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`
       ],
       formula: [`nPr = n!/(n-r)!`,
-      <br/>,
-      `nCr = n!/r!(n-r)!`
+        <br />,
+        `nCr = n!/r!(n-r)!`
       ],
 
       process: [
@@ -30,36 +30,36 @@ function Calculator() {
       ],
       example1: [
         <span>
-           <b>How many different teams(each having 5 members) can be formed from 12 students?</b>
-           <br/>
-           Solution:
-           There is nothing that indicates that the order in which the team members are selected is important
-           <br/>
-            and therefore it is a combination problem. Hence the number of teams that can be formed
-           is the number of 
-           <br/>
-           ways of choosing 5 objects out 12 given by:
-           12 C 5 = 12! / [ (12 - 5)!5! ] = 792
-           <br/>
+          <b>How many different teams(each having 5 members) can be formed from 12 students?</b>
+          <br />
+          Solution:
+          There is nothing that indicates that the order in which the team members are selected is important
+          <br />
+          and therefore it is a combination problem. Hence the number of teams that can be formed
+          is the number of
+          <br />
+          ways of choosing 5 objects out 12 given by:
+          12 C 5 = 12! / [ (12 - 5)!5! ] = 792
+          <br />
         </span>,
       ],
       example2: [
         <span>
           <b>How many 3 letter words can we make with the letters in the word ABCD(without repetition)?</b>
-          <br/>
-          Solution: There are 4 letters in the word ABCD and the number of 3-letter words is similar to number of ways 
-          <br/>
+          <br />
+          Solution: There are 4 letters in the word ABCD and the number of 3-letter words is similar to number of ways
+          <br />
           of arranging 3 objects out of 4.Order is important here since ABC and CAB are different words.Hence after
-          <br/>
-           choosing of 3 letters we need to arrange them.
+          <br />
+          choosing of 3 letters we need to arrange them.
 
-          <br/>
+          <br />
           The number of words is given by
           4 P 3 = 4! / (4 - 3)! = 24
         </span>,
       ],
     },
-   
+
     {
       topic: "Progression",
       details: [
@@ -178,27 +178,27 @@ function Calculator() {
       ],
     },
     {
-      topic:"Probability",
-      details:[`The probability of an event represents the likelihood of the occurence of the event.
+      topic: "Probability",
+      details: [`The probability of an event represents the likelihood of the occurence of the event.
 
           For an unbiased event(where all outcomes are equally likely to occur), the probability of the event E is the number of outcomes in E divided by the number of outcomes in the Sample Space. 
           The probability of an event is a number between 0 and 1, where  0 indicates impossibility of the occurence of the event and 1 indicates that the event will surely occur.     
       
             `],
-       formula:[`P(E) = n(E)/n(S)`,
-       <br/>,
-       `where n(E) is the number of times the event E occurs and n(S) is the total possible occurence`],
-       process: ["To calculate the probability of occurence of an equally-likely event,",
-       <br/>,"we need to determine the following quantities:",
-       <br/>,"n(E): Number of outcomes favoring the occurence of the event",
-       <br/>,"n(S): Total Number of outcomes",
-       <br/>,"Probability of occurence then becomes P(E)=n(E)/n(S)"
+      formula: [`P(E) = n(E)/n(S)`,
+        <br />,
+        `where n(E) is the number of times the event E occurs and n(S) is the total possible occurence`],
+      process: ["To calculate the probability of occurence of an equally-likely event,",
+        <br />, "we need to determine the following quantities:",
+        <br />, "n(E): Number of outcomes favoring the occurence of the event",
+        <br />, "n(S): Total Number of outcomes",
+        <br />, "Probability of occurence then becomes P(E)=n(E)/n(S)"
       ],
-       example1 :[
-         "Consider the Probability of First Event is P(A)=0.4 and that of the Second Event is P(B)=0.3.",
-         <br/>,
-         "Also consider the Probability of occurence of either of them is P(A ∪ B)=0.5",
-         <br/>,
+      example1: [
+        "Consider the Probability of First Event is P(A)=0.4 and that of the Second Event is P(B)=0.3.",
+        <br />,
+        "Also consider the Probability of occurence of either of them is P(A ∪ B)=0.5",
+        <br />,
         "P(A') = 1-P(A) ,P(A')=1-0.4=0.6",
         <br />,
         "P(B') = 1-P(B) ,P(B')=1-0.3=0.7",
@@ -209,7 +209,7 @@ function Calculator() {
         <br />,
         "P(only B) = P(B)-P(A ∩ B) ,P(E)=0.3-0.2=0.1",
         <br />,
-       ],
+      ],
     },
     {
       topic: "Quadratic Equation",
@@ -245,7 +245,7 @@ function Calculator() {
         <br />,
         "Substitute the values in the quadratic formula",
         <br />,
-        "x₁ = (-b + √b²-4ac)/2a",        
+        "x₁ = (-b + √b²-4ac)/2a",
       ],
       example2: [
         "⇒ (5 + 1)/2",
@@ -263,12 +263,12 @@ function Calculator() {
       topic: "Binomial",
       details: [
         <span>
-         Binomial Theorem is an algebraic formula which is used to express the binomial expression raised to a certain power (i.e. (A + B)<sup>n</sup>) in the form of a series (called binomial expansion).
-Binomial Expression is an expression which consists of two terms. <br />
+          Binomial Theorem is an algebraic formula which is used to express the binomial expression raised to a certain power (i.e. (A + B)<sup>n</sup>) in the form of a series (called binomial expansion).
+          Binomial Expression is an expression which consists of two terms. <br />
           Each term in a binomial expansion is associated with a numeric value which is called binomial coefficient.
           <br />
           <br />
-         <h3><u>Important Points:</u></h3> 
+          <h3><u>Important Points:</u></h3>
           1. Total number of terms in the expansion of (A + B)<sup>n</sup>  are (n+1)  <br />
           2. <sup>n</sup>C<sub>0</sub>, <sup>n</sup>C<sub>1</sub>, <sup>n</sup>C<sub>2</sub>, ...., <sup>n</sup>C<sub>n</sub> are called binomial coefficients and also represented by C<sub>0</sub>, C<sub>1</sub>, C<sub>2</sub>, ..., C<sub>n</sub>  <br />
           3. Binomial coefficients which are equidistant from the beginning and from the ending are equal i.e. <sup>n</sup>C<sub>0</sub> = <sup>n</sup>C<sub>n</sub>, <sup>n</sup>C<sub>1</sub> = <sup>n</sup>C<sub>n-1</sub> , <sup>n</sup>C<sub>2</sub> = <sup>n</sup>C<sub>n-2</sub> ,.... etc.  <br />
@@ -311,7 +311,7 @@ Binomial Expression is an expression which consists of two terms. <br />
           Now apply the formula of binomial expansion i.e.
           <br />
           (A+B)<sup>n</sup> = (<sup>n</sup>C<sub>0</sub>)(A<sup>n</sup>)(B<sup>0</sup>) + (<sup>n</sup>C<sub>1</sub>)(A<sup>n-1</sup>)(B<sup>1</sup>) + (<sup>n</sup>C<sub>2</sub>)(A<sup>n-2</sup>)(B<sup>2</sup>) +......+ (<sup>n</sup>C<sub>n</sub>)(A<sup>0</sup>)(B<sup>n</sup>)
-          <br /><br/>
+          <br /><br />
           (√2 + 1)<sup>5</sup> = (<sup>5</sup>C<sub>0</sub>)(√2<sup>5</sup>)(1<sup>0</sup>) + (<sup>5</sup>C<sub>1</sub>)(√2<sup>4</sup>)(1<sup>1</sup>) + (<sup>5</sup>C<sub>2</sub>)(√2<sup>3</sup>)(1<sup>2</sup>) + (<sup>5</sup>C<sub>3</sub>)(√2<sup>2</sup>)(1<sup>3</sup>) + (<sup>5</sup>C<sub>4</sub>)(√2<sup>1</sup>)(1<sup>4</sup>) + (<sup>5</sup>C<sub>5</sub>)(√2<sup>5</sup>)(1<sup>5</sup>)
           <br />
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= (1)(4√2)(1) + (5)(4)(1) + (10)(2√2)(1) + (10)(2)(1) + (1)(1)(1)
@@ -321,17 +321,17 @@ Binomial Expression is an expression which consists of two terms. <br />
       ],
       example2: [
         <span>
-         <br/>
+          <br />
           <strong>2. Find the Binomial Expansion of (3x + 4y)<sup>5</sup>.</strong>
           <br />
           <br />
           <strong><u>Solution:</u></strong>
-          <br/>
+          <br />
           Apply the formula,
-          <br/>
+          <br />
           (ax + by)<sup>n</sup> = (<sup>n</sup>C<sub>0</sub>)(ax)<sup>n</sup> (by)<sup>0</sup> + (<sup>n</sup>C<sub>1</sub>)(ax)<sup>n-1</sup> (by)<sup>1</sup> + (<sup>n</sup>C<sub>2</sub>)(ax)<sup>n-2</sup> (by)<sup>2</sup> + ... + (<sup>n</sup>C<sub>n</sub>)(ax)<sup>0</sup> (by)<sup>n</sup>
-          <br/>
-          <br/>
+          <br />
+          <br />
           (3x + 5y)<sup>4</sup> = (<sup>4</sup>C<sub>0</sub>)(3x)<sup>4</sup> (5y)<sup>0</sup> + (<sup>4</sup>C<sub>1</sub>)(3x)<sup>3</sup> (5y)<sup>1</sup> + (<sup>4</sup>C<sub>2</sub>)(3x)<sup>2</sup> (5y)<sup>2</sup> + (<sup>4</sup>C<sub>3</sub>)(3x)<sup>1</sup> (5y)<sup>3</sup> + (<sup>4</sup>C<sub>4</sub>)(3x)<sup>0</sup> (5y)<sup>4</sup>
           <br />
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = (1)(81x<sup>4</sup>)(1) + (4)(27x<sup>3</sup>)(5y) + (6)(9x<sup>2</sup>)(25y<sup>2</sup>) + (4)(3x)(125y<sup>3</sup>) + (1)(1)(625y<sup>4</sup>)
@@ -364,35 +364,35 @@ Binomial Expression is an expression which consists of two terms. <br />
       setR(null);
       setResult(null);
     }
-    function factorial(x){
+    function factorial(x) {
       var result = 1;
       for (let i = 1; i <= x; i++)
         result *= i;
       return result;
     }
     const calcResult = () => {
-      
+
       if (choice == "Permutation") {
-        if(n>=r)
+        if (n >= r)
           setResult(factorial(n) / factorial(n - r));
         else
-        alert("The value of n should not be less than r.Please enter valid values for n and r");
+          alert("The value of n should not be less than r.Please enter valid values for n and r");
       }
-      else  if(choice=="Combination"){
-          if(n>=r)
+      else if (choice == "Combination") {
+        if (n >= r)
           setResult(factorial(n) / (factorial(r) * factorial(n - r)));
-          else
+        else
           alert("The value of n should not be less than r.Please enter valid values for n and r");
       }
     }
     useEffect(() => {
       if (choice == "Permutation")
-        setChoiceData({ name:"Permutation" });
+        setChoiceData({ name: "Permutation" });
       else
-        setChoiceData({ name:"Combination" });
+        setChoiceData({ name: "Combination" });
     }, [choice]);
-  
-    
+
+
     return (
       <>
         <Form>
@@ -453,12 +453,12 @@ Binomial Expression is an expression which consists of two terms. <br />
       </>
     )
   }
- 
 
-   
 
-          
-  
+
+
+
+
 
   //Pogression Calculator - AP/GP
   const Progression = () => {
@@ -710,7 +710,7 @@ Binomial Expression is an expression which consists of two terms. <br />
     );
   };
 
-  
+
   //Probability Calculator
   const Probability = () => {
     const [a, setA] = useState();   //a is the probablity of first event.
@@ -721,7 +721,7 @@ Binomial Expression is an expression which consists of two terms. <br />
     const [bothOccuring, setBothOccuring] = useState(null);   //P(A & B)
     const [onlyAOccurs, setOnlyAOccurs] = useState(null);
     const [onlyBOccurs, setOnlyBOccurs] = useState(null);
-    function reset(){
+    function reset() {
       setA(null);
       setB(null);
       setUnion(null);
@@ -731,18 +731,17 @@ Binomial Expression is an expression which consists of two terms. <br />
       setOnlyAOccurs(null);
       setOnlyBOccurs(null);
     }
-   
-   
+
+
     const calcResult = () => {
-      if(union<Math.max(a,b))
-      alert("The Probability of Occurence of either of 2 events should not be lesser than the Probaility of occurence of each of them");
-      else
-      {
-      setaNotOccuring(parseFloat((1-a).toFixed(10)));
-      setbNotOccuring(parseFloat((1-b).toFixed(10)));
-      setBothOccuring(parseFloat((a + b-union).toFixed(10)));
-      setOnlyAOccurs(parseFloat((union-b).toFixed(10)));
-      setOnlyBOccurs(parseFloat((union-a).toFixed(10)));
+      if (union < Math.max(a, b))
+        alert("The Probability of Occurence of either of 2 events should not be lesser than the Probaility of occurence of each of them");
+      else {
+        setaNotOccuring(parseFloat((1 - a).toFixed(10)));
+        setbNotOccuring(parseFloat((1 - b).toFixed(10)));
+        setBothOccuring(parseFloat((a + b - union).toFixed(10)));
+        setOnlyAOccurs(parseFloat((union - b).toFixed(10)));
+        setOnlyBOccurs(parseFloat((union - a).toFixed(10)));
       }
     }
     return (
@@ -753,7 +752,7 @@ Binomial Expression is an expression which consists of two terms. <br />
             <Form.Control
               onChange={(e) => setA(Number(e.target.value))}
               type="number"
-              value={a ==null ? "" : a}
+              value={a == null ? "" : a}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -761,7 +760,7 @@ Binomial Expression is an expression which consists of two terms. <br />
             <Form.Control
               onChange={(e) => setB(Number(e.target.value))}
               type="number"
-              value={b ==null ? "" : b}
+              value={b == null ? "" : b}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -769,7 +768,7 @@ Binomial Expression is an expression which consists of two terms. <br />
             <Form.Control
               onChange={(e) => setUnion(Number(e.target.value))}
               type="number"
-              value={union ==null ? "" : union}
+              value={union == null ? "" : union}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -777,7 +776,7 @@ Binomial Expression is an expression which consists of two terms. <br />
             <Form.Control
               type="number"
               disabled="true"
-              value={aNotOccuring ==null ? "" : aNotOccuring}
+              value={aNotOccuring == null ? "" : aNotOccuring}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -785,7 +784,7 @@ Binomial Expression is an expression which consists of two terms. <br />
             <Form.Control
               type="number"
               disabled="true"
-              value={bNotOccuring ==null ? "" : bNotOccuring}
+              value={bNotOccuring == null ? "" : bNotOccuring}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -793,7 +792,7 @@ Binomial Expression is an expression which consists of two terms. <br />
             <Form.Control
               type="number"
               disabled="true"
-              value={bothOccuring ==null ? "" : bothOccuring}
+              value={bothOccuring == null ? "" : bothOccuring}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -801,7 +800,7 @@ Binomial Expression is an expression which consists of two terms. <br />
             <Form.Control
               type="number"
               disabled="true"
-              value={onlyAOccurs ==null ? "" :onlyAOccurs}
+              value={onlyAOccurs == null ? "" : onlyAOccurs}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -809,7 +808,7 @@ Binomial Expression is an expression which consists of two terms. <br />
             <Form.Control
               type="number"
               disabled="true"
-              value={onlyBOccurs ==null ? "" : onlyBOccurs}
+              value={onlyBOccurs == null ? "" : onlyBOccurs}
             />
           </Form.Group>
         </Form>
@@ -818,7 +817,7 @@ Binomial Expression is an expression which consists of two terms. <br />
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={(e) =>reset()} type="reset">
+          <Button variant="dark" onClick={(e) => reset()} type="reset">
             Reset
           </Button>
         </div>
@@ -842,7 +841,7 @@ Binomial Expression is an expression which consists of two terms. <br />
                 <td>P(A')</td>
                 <td>
                   <b>
-                   1-P(A)
+                    1-P(A)
                   </b>{" "}
                   , where P(A) is probability of occurence of A.
                 </td>
@@ -850,9 +849,9 @@ Binomial Expression is an expression which consists of two terms. <br />
               <tr>
                 <td>P(B')</td>
                 <td>
-                    <div>
-                      <b>1-P(B)</b> , where P(B) is the probability of occurence of B.
-                    </div>
+                  <div>
+                    <b>1-P(B)</b> , where P(B) is the probability of occurence of B.
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -865,7 +864,7 @@ Binomial Expression is an expression which consists of two terms. <br />
                 <td>P(only A occurs)</td>
                 <td>
                   <b>
-                   P(A)-P(A ∩ B)
+                    P(A)-P(A ∩ B)
                   </b>, where A ∩ B represents occurence of both events
                 </td>
               </tr>
@@ -873,13 +872,13 @@ Binomial Expression is an expression which consists of two terms. <br />
                 <td>P(only B occurs)</td>
                 <td>
                   <b>
-                   P(B)-P(A ∩ B)
+                    P(B)-P(A ∩ B)
                   </b>, where A ∩ B represents occurence of both events
                 </td>
               </tr>
 
-              
-               
+
+
             </tbody>
           </table>
         </div>
@@ -1788,366 +1787,372 @@ Binomial Expression is an expression which consists of two terms. <br />
   };
 
 
-//Binomial Calculator
-const Binomial = () => {
-  const [a, setA] = useState(null);
-  const [x, setX] = useState(null);
-  const [n, setN] = useState(null);
-  const [result, setResult] = useState([]);
-  const reset = () => {
-    setA(null);
-    setX(null);
-    setN(null);
-    setResult([]);
-  };
+  //Binomial Calculator
+  const Binomial = () => {
+    const [a, setA] = useState(null);
+    const [x, setX] = useState(null);
+    const [n, setN] = useState(null);
+    const [result, setResult] = useState(null);
+    const [sum, setSum] = useState(null);
+    const reset = () => {
+      setA(null);
+      setX(null);
+      setN(null);
+      setResult(null);
+      setSum(null)
+    };
 
-  const calcBinomial = () => {
-    let term = Math.pow(a, n);
-    let results = [...result, term];
-
-    for (var i = 1; i <= n; i++) {
-      term = term * x * (n - i + 1) / (i * a);
-      results.push('+');
+    const calcBinomial = () => {
+      let term = Math.pow(a, n);
+      let results = [];
       results.push(term);
-    }
-    setResult(results);
-    console.log(result);
-  };
+      let sum1 = term;
+      for (var i = 1; i <= n; i++) {
+        term = term * x * (n - i + 1) / (i * a);
+        sum1 = sum1 + term;
+        results.push(' + ' + term);
+      }
+      setResult(results);
+      setSum(sum1);
+      // console.log(sum);
+    };
 
 
-  const [xValue, setXValue] = useState(null);
-  const [yValue, setYValue] = useState(null);
-  const [expo, setExpo] = useState(null);
-  const [resultExp, setResultExp] = useState(null);
-  const resetExpression = () => {
-    setXValue(null);
-    setYValue(null);
-    setExpo(null);
-    setResultExp(null);
-  };
+    const [xValue, setXValue] = useState(null);
+    const [yValue, setYValue] = useState(null);
+    const [expo, setExpo] = useState(null);
+    const [resultExp, setResultExp] = useState(null);
+    const resetExpression = () => {
+      setXValue(null);
+      setYValue(null);
+      setExpo(null);
+      setResultExp(null);
+    };
 
-  function factrial(n) {
-    if (n === 0 || n === 1)
-      return 1;
-    else
-      return n * factrial(n - 1);
-  }
-
-  function combination(n, r) {
-    return factrial(n) / (factrial(r) * factrial(n - r));
-  }
-
-  function coefficient(x, y, n, r) {
-    let ret = x * y * combination(n, r);
-    if (ret === 1) return ''; // if coefficient is 1 return nothing because we dont usually put 1 as coeffocient
-    else
-      return ret;
-  }
-
-  function Binomial_Sigma(x, y, n) {
-    let x_co;
-    let y_co;
-    let x_coeffcient = [];
-    let y_coeffcient = [];
-    let coefficients = [];
-    let result = [];
-    let x_power = [];
-    let y_power = [];
-    let ans = '';
-
-    n = Number(n); // converts n to an integer
-
-    if (x === 0) {
-      y_co = Math.pow(y, n);
-      let yPower = 'y^{' + n + '}';
-      return y_co + yPower;
+    function factrial(n) {
+      if (n === 0 || n === 1)
+        return 1;
+      else
+        return n * factrial(n - 1);
     }
 
-    else if (y === 0) {
-      x_co = Math.pow(x, n);
-      let xPower = 'x^{' + n + '}';
-      return x_co + xPower;
+    function combination(n, r) {
+      return factrial(n) / (factrial(r) * factrial(n - r));
     }
 
-    for (let j = 0; j < n + 1; j++) {
-      if (x !== 1) { // x is not 1
-        x_co = Math.pow(x, n - j);
-        x_coeffcient.push(x_co);
-      }
-      else {
-        x_coeffcient.push(1);
-      }
-      if (y !== 1) { // y is not 1
-        y_co = Math.pow(y, j);
-        y_coeffcient.push(y_co);
-      }
-      else {
-        y_coeffcient.push(1);
-      }
-      x_power.push(n - j);
-      y_power.push(j);
-      coefficients.push(coefficient(x_coeffcient[j], y_coeffcient[j], n, j));
+    function coefficient(x, y, n, r) {
+      let ret = x * y * combination(n, r);
+      if (ret === 1) return ''; // if coefficient is 1 return nothing because we dont usually put 1 as coeffocient
+      else
+        return ret;
     }
 
-    for (let i = 0; i < y_power.length; i++) { // convert it to latex syntax
-      let term, x, y;
-      if (x_power[i] === 0) x = "";
-      else if (x_power[i] === 1) x = "x";
-      else x = "x^" + '{' + x_power[i] + '}';
-      if (y_power[i] === 0) y = "";
-      else if (y_power[i] === 1) y = "y";
-      else y = "y^" + '{' + y_power[i] + '}';
-      let Coefficient = coefficient(x_coeffcient[i], y_coeffcient[i], n, i); // caluclates coefficient. Could use toFixed(0) but need to consoder a case where coefficient is ''
-      let operator = '';
-      if (Coefficient > 1) operator = '+'; // for positive values, use +
+    function Binomial_Sigma(x, y, n) {
+      let x_co;
+      let y_co;
+      let x_coeffcient = [];
+      let y_coeffcient = [];
+      let coefficients = [];
+      let result = [];
+      let x_power = [];
+      let y_power = [];
+      let ans = '';
 
+      n = Number(n); // converts n to an integer
 
-      if (i === 0) { // first term 
-        if (operator === '+') operator = '';
-        result.push(operator + Coefficient + x);
+      if (x === 0) {
+        y_co = Math.pow(y, n);
+        let yPower = 'y^{' + n + '}';
+        return y_co + yPower;
       }
 
-      else if (i === y_power.length - 1) { // last term
-        result.push(operator + Coefficient + y);
+      else if (y === 0) {
+        x_co = Math.pow(x, n);
+        let xPower = 'x^{' + n + '}';
+        return x_co + xPower;
       }
-      else { // terms in the middle
-        result.push(operator + Coefficient + x + y);
+
+      for (let j = 0; j < n + 1; j++) {
+        if (x !== 1) { // x is not 1
+          x_co = Math.pow(x, n - j);
+          x_coeffcient.push(x_co);
+        }
+        else {
+          x_coeffcient.push(1);
+        }
+        if (y !== 1) { // y is not 1
+          y_co = Math.pow(y, j);
+          y_coeffcient.push(y_co);
+        }
+        else {
+          y_coeffcient.push(1);
+        }
+        x_power.push(n - j);
+        y_power.push(j);
+        coefficients.push(coefficient(x_coeffcient[j], y_coeffcient[j], n, j));
       }
-      ans += result[i];
+
+      for (let i = 0; i < y_power.length; i++) { // convert it to latex syntax
+        let term, x, y;
+        if (x_power[i] === 0) x = "";
+        else if (x_power[i] === 1) x = "x";
+        else x = "x^" + '{' + x_power[i] + '}';
+        if (y_power[i] === 0) y = "";
+        else if (y_power[i] === 1) y = "y";
+        else y = "y^" + '{' + y_power[i] + '}';
+        let Coefficient = coefficient(x_coeffcient[i], y_coeffcient[i], n, i); // caluclates coefficient. Could use toFixed(0) but need to consoder a case where coefficient is ''
+        let operator = '';
+        if (Coefficient > 1) operator = '+'; // for positive values, use +
+
+
+        if (i === 0) { // first term 
+          if (operator === '+') operator = '';
+          result.push(operator + Coefficient + x);
+        }
+
+        else if (i === y_power.length - 1) { // last term
+          result.push(operator + Coefficient + y);
+        }
+        else { // terms in the middle
+          result.push(operator + Coefficient + x + y);
+        }
+        ans += result[i];
+      }
+      return ans;
     }
-    return ans;
-  }
 
-  const calcBinomialExp = () => {
-    const answer = Binomial_Sigma(xValue, yValue, expo);
-    console.log(Binomial_Sigma(xValue, yValue, expo));
-    setResultExp(answer);
-    console.log(answer);
-  }
+    const calcBinomialExp = () => {
+      const answer = Binomial_Sigma(xValue, yValue, expo);
+      console.log(Binomial_Sigma(xValue, yValue, expo));
+      setResultExp(answer);
+      console.log(answer);
+    }
 
-  return (
-    <>
-      <div>
+    return (
+      <>
         <div>
-          <Form>
-            <Form.Group className="mb-4" controlId="text">
-              <Form.Text className="text">
-                <strong>
-                  {" "}
+          <div>
+            <Form>
+              <Form.Group className="mb-4" controlId="text">
+                <Form.Text className="text">
+                  <strong>
+                    {" "}
 
-                  To find the Binomial Expansion of the form (A + B)<sup>n</sup>, Enter the following values
-                </strong>
-                <br />
-              </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-4">
-              <Form.Label>Value of A from the expression (A + B)<sup>n</sup> where A is interger or float</Form.Label>
-              <Form.Control
-                onChange={(e) => setA(e.target.value)}
-                type="number"
-                placeholder={"Enter the value of A e.g. 3 or 1.414"}
-                value={a === null ? "" : a}
-              />
-            </Form.Group>
-            <Form.Group className="mb-4">
-              <Form.Label>Value of B from the expression (A + B)<sup>n</sup> where B is interger or float</Form.Label>
-              <Form.Control
-                onChange={(e) => setX(e.target.value)}
-                type="number"
-                placeholder={"Enter the value of B e.g. 5 or 1.732"}
-                value={x === null ? "" : x}
-              />
-            </Form.Group>
-            <Form.Group className="mb-4">
-              <Form.Label>Value of n from the expression (A + B)<sup>n</sup> where n is interger or float</Form.Label>
-              <Form.Control
-                onChange={(e) => setN(e.target.value)}
-                type="number"
-                placeholder={"Enter the value of n e.g. 6 or 2.5"}
-                value={n === null ? "" : n}
-              />
-            </Form.Group>
-            <br />
-            <Form.Group className="mb-3">
-              <Form.Label >Binomial Expansion Terms of the expression (A + B)<sup>n</sup></Form.Label>
-              {
-                <div className="binomial_result">
-                  <p> <strong>{result.length === 0 ? "Result" : result.map((res) => (
-                    <span>{res}&nbsp;&nbsp;</span>
-                  ))}</strong> </p>
-                </div>
-              }
-            </Form.Group> <br /> <br />
-          </Form>
-          <div className="button-custom-grp">
-            <Button variant="primary" onClick={calcBinomial}>
-              Calculate
-            </Button>
-            &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => reset()} type="reset">
-              Reset
-            </Button>
+                    To find the Binomial Expansion of the form (A + B)<sup>n</sup>, Enter the following values
+                  </strong>
+                  <br />
+                </Form.Text>
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Value of A from the expression (A + B)<sup>n</sup> where A is interger or float</Form.Label>
+                <Form.Control
+                  onChange={(e) => setA(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of A e.g. 3 or 1.414"}
+                  value={a === null ? "" : a}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Value of B from the expression (A + B)<sup>n</sup> where B is interger or float</Form.Label>
+                <Form.Control
+                  onChange={(e) => setX(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of B e.g. 5 or 1.732"}
+                  value={x === null ? "" : x}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Value of n from the expression (A + B)<sup>n</sup> where n is interger or float</Form.Label>
+                <Form.Control
+                  onChange={(e) => setN(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of n e.g. 6 or 2.5"}
+                  value={n === null ? "" : n}
+                />
+              </Form.Group>
+              <br />
+              <Form.Group className="mb-3">
+                <Form.Label >Binomial Expansion Terms of the expression (A + B)<sup>n</sup></Form.Label>
+                {
+                  <div className="binomial_result">
+                    {
+                      result === null || sum === null ? <p><strong>Result</strong></p> :  <p> <strong> Terms of the binomial expansion (n+1): {result} 
+                      <br/> <br/> Sum of all the terms: {sum}
+                      </strong> </p>
+                    }
+                  </div>
+                }
+              </Form.Group> <br /> <br />
+            </Form>
+            <div className="button-custom-grp">
+              <Button variant="primary" onClick={calcBinomial}>
+                Calculate
+              </Button>
+              &nbsp;&nbsp;&nbsp;
+              <Button variant="dark" onClick={() => reset()} type="reset">
+                Reset
+              </Button>
+            </div>
+          </div>
+          <br /><br /><br /><br />
+          <div>
+            <Form>
+              <Form.Group className="mb-4" controlId="text">
+                <Form.Text className="text">
+                  <strong>
+                    {" "}
+
+                    To find the Binomial Expansion of the form (ax + by)<sup>n</sup>, Enter the following values
+                  </strong>
+                  <br />
+                </Form.Text>
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Coefficient of x from the expression (ax + by)<sup>n</sup></Form.Label>
+                <Form.Control
+                  onChange={(e) => setXValue(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of a"}
+                  value={xValue === null ? "" : xValue}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Coefficient of y from the expression (ax + by)<sup>n</sup></Form.Label>
+                <Form.Control
+                  onChange={(e) => setYValue(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of b"}
+                  value={yValue === null ? "" : yValue}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Value of n from the expression (ax + by)<sup>n</sup></Form.Label>
+                <Form.Control
+                  onChange={(e) => setExpo(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of n"}
+                  value={expo === null ? "" : expo}
+                />
+              </Form.Group>
+              <br />
+              <Form.Group className="mb-3">
+                <Form.Label >Binomial Expansion of the expression (ax + by)<sup>n</sup></Form.Label>
+                {
+                  <div className="binomial_result">
+                    <p> <strong>{resultExp === null ? "Result" : resultExp}</strong> </p>
+                  </div>
+                }
+              </Form.Group>
+            </Form><br /><br />
+            <div className="button-custom-grp">
+              <Button variant="primary" onClick={calcBinomialExp}>
+                Calculate
+              </Button>
+              &nbsp;&nbsp;&nbsp;
+              <Button variant="dark" onClick={() => resetExpression()} type="reset">
+                Reset
+              </Button>
+            </div>
+          </div>
+          <br /><br />
+          <div className="formula-table">
+            <table className="formulae">
+              <thead>
+                <section className="m-2">
+                  <tr>
+                    <h3>Some Useful Expansions</h3>
+                  </tr>
+                </section>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>1. (x + y)<sup>n</sup> + (x − y)<sup>n</sup> =</strong> 2[C<sub>0</sub> x<sup>n</sup> + C<sub>2</sub> x<sup>n-1</sup> y<sup>2</sup> + C<sub>4</sub> x<sup>n-4</sup> y<sup>4</sup> + ...]
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>2. (x + y)<sup>n</sup> – (x − y)<sup>n</sup> =</strong> 2[C<sub>1</sub> x<sup>n-1</sup> y + C<sub>3</sub> x<sup>n-3</sup> y<sup>3</sup> + C<sub>5</sub> x<sup>n-5</sup> y<sup>5</sup> + ...]
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>3. (1 + x)<sup>n</sup>  =</strong> <sup>n</sup>Σ<sub>r-0</sub> <sup>n</sup>C<sub>r</sub> . x<sup>r</sup> = [C<sub>0</sub> + C<sub>1</sub> x + C<sub>2</sub> x<sup>2</sup> + … C<sub>n</sub> x<sub>n</sub>]
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>4. (1 + x)<sup>n</sup> + (1 − x)<sup>n</sup> =</strong>  2[C<sub>0</sub> + C<sub>2</sub> x<sup>2</sup>+C<sub>4</sub> x<sup>4</sup> + ...]
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>5. (1 + x)<sup>n</sup> − (1 − x)<sup>n</sup> =</strong> 2[C<sub>1</sub> x + C<sub>3</sub> x<sup>3</sup> + C<sub>5</sub> x<sup>5</sup> + ...]
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>6. </strong>Number of terms in the expansion of (x + a)<sup>n</sup> + (x − a)<sup>n</sup> are <strong>(n+2)/2 if “n” is even</strong> or <strong>(n+1)/2 if “n” is odd</strong>.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>7. </strong>Number of terms in the expansion of (x + a)<sup>n</sup> − (x − a)<sup>n</sup>  are <strong>(n/2) if “n” is even</strong> or <strong>(n+1)/2 if “n” is odd</strong>.
+                  </td>
+                </tr>
+              </tbody>
+              <br />
+            </table>
+          </div>
+          <br /> <br />
+          <div className="formula-table">
+            <table className="formulae">
+              <thead>
+                <section className="m-2">
+                  <tr>
+                    <h3>Properties of Binomial Coefficients</h3>
+                  </tr>
+                </section>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>1. </strong> C<sub>0</sub> + C<sub>1</sub> + C<sub>2</sub> + ... + C<sub>n</sub> = <strong>2<sup>n</sup></strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>2. </strong> C<sub>0</sub> + C<sub>2</sub> + C<sub>4</sub> + ... = C<sub>1</sub> + C<sub>3</sub> + C<sub>5</sub> + ... = <strong>2<sup>n-1</sup></strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>3. </strong> C<sub>0</sub> – C<sub>1</sub> + C<sub>2</sub> – C<sub>3</sub> + ... +(−1)<sup>n</sup> . nC<sub>n</sub> = <strong>0</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>4. </strong>  <sup>n</sup>C<sub>1</sub> + 2.<sup>n</sup>C<sub>2</sub> + 3.<sup>n</sup>C<sub>3</sub> + ... + n.<sup>n</sup>C<sub>n</sub> = <strong>n.2<sup>n-1</sup></strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>5. </strong> C<sub>1</sub> − 2C<sub>2</sub> + 3C<sub>3</sub> − 4C<sub>0</sub> + ... +(−1)<sup>n-1</sup> Cn<sub>n</sub> = <strong>0</strong> for n &gt; 1
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>6. </strong>C<sub>0</sub><sup>2</sup> + C<sub>1</sub><sup>2</sup> + C<sub>2</sub><sup>2</sup> + ..... C<sub>n</sub><sup>2</sup> =  <strong>[(2n)!/ (n!)<sup>2</sup>]</strong>
+                  </td>
+                </tr>
+              </tbody>
+              <br />
+            </table>
           </div>
         </div>
-        <br /><br /><br /><br />
-        <div>
-          <Form>
-            <Form.Group className="mb-4" controlId="text">
-              <Form.Text className="text">
-                <strong>
-                  {" "}
-
-                  To find the Binomial Expansion of the form (ax + by)<sup>n</sup>, Enter the following values
-                </strong>
-                <br />
-              </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-4">
-              <Form.Label>Coefficient of x from the expression (ax + by)<sup>n</sup></Form.Label>
-              <Form.Control
-                onChange={(e) => setXValue(e.target.value)}
-                type="number"
-                placeholder={"Enter the value of a"}
-                value={xValue === null ? "" : xValue}
-              />
-            </Form.Group>
-            <Form.Group className="mb-4">
-              <Form.Label>Coefficient of y from the expression (ax + by)<sup>n</sup></Form.Label>
-              <Form.Control
-                onChange={(e) => setYValue(e.target.value)}
-                type="number"
-                placeholder={"Enter the value of b"}
-                value={yValue === null ? "" : yValue}
-              />
-            </Form.Group>
-            <Form.Group className="mb-4">
-              <Form.Label>Value of n from the expression (ax + by)<sup>n</sup></Form.Label>
-              <Form.Control
-                onChange={(e) => setExpo(e.target.value)}
-                type="number"
-                placeholder={"Enter the value of n"}
-                value={expo === null ? "" : expo}
-              />
-            </Form.Group>
-            <br />
-            <Form.Group className="mb-3">
-              <Form.Label >Binomial Expansion of the expression (ax + by)<sup>n</sup></Form.Label>
-              {
-                <div className="binomial_result">
-                  <p> <strong>{resultExp === null ? "Result" : resultExp}</strong> </p>
-                </div>
-              }
-            </Form.Group>
-          </Form><br /><br />
-          <div className="button-custom-grp">
-            <Button variant="primary" onClick={calcBinomialExp}>
-              Calculate
-            </Button>
-            &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={() => resetExpression()} type="reset">
-              Reset
-            </Button>
-          </div>
-        </div>
-        <br /><br />
-        <div className="formula-table">
-          <table className="formulae">
-            <thead>
-              <section className="m-2">
-                <tr>
-                  <h3>Some Useful Expansions</h3>
-                </tr>
-              </section>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <strong>1. (x + y)<sup>n</sup> + (x − y)<sup>n</sup> =</strong> 2[C<sub>0</sub> x<sup>n</sup> + C<sub>2</sub> x<sup>n-1</sup> y<sup>2</sup> + C<sub>4</sub> x<sup>n-4</sup> y<sup>4</sup> + ...]
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>2. (x + y)<sup>n</sup> – (x − y)<sup>n</sup> =</strong> 2[C<sub>1</sub> x<sup>n-1</sup> y + C<sub>3</sub> x<sup>n-3</sup> y<sup>3</sup> + C<sub>5</sub> x<sup>n-5</sup> y<sup>5</sup> + ...]
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>3. (1 + x)<sup>n</sup>  =</strong> <sup>n</sup>Σ<sub>r-0</sub> <sup>n</sup>C<sub>r</sub> . x<sup>r</sup> = [C<sub>0</sub> + C<sub>1</sub> x + C<sub>2</sub> x<sup>2</sup> + … C<sub>n</sub> x<sub>n</sub>]
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>4. (1 + x)<sup>n</sup> + (1 − x)<sup>n</sup> =</strong>  2[C<sub>0</sub> + C<sub>2</sub> x<sup>2</sup>+C<sub>4</sub> x<sup>4</sup> + ...]
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>5. (1 + x)<sup>n</sup> − (1 − x)<sup>n</sup> =</strong> 2[C<sub>1</sub> x + C<sub>3</sub> x<sup>3</sup> + C<sub>5</sub> x<sup>5</sup> + ...]
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>6. </strong>Number of terms in the expansion of (x + a)<sup>n</sup> + (x − a)<sup>n</sup> are <strong>(n+2)/2 if “n” is even</strong> or <strong>(n+1)/2 if “n” is odd</strong>.
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>7. </strong>Number of terms in the expansion of (x + a)<sup>n</sup> − (x − a)<sup>n</sup>  are <strong>(n/2) if “n” is even</strong> or <strong>(n+1)/2 if “n” is odd</strong>.
-                </td>
-              </tr>
-            </tbody>
-            <br />
-          </table>
-        </div>
-        <br /> <br />
-        <div className="formula-table">
-          <table className="formulae">
-            <thead>
-              <section className="m-2">
-                <tr>
-                  <h3>Properties of Binomial Coefficients</h3>
-                </tr>
-              </section>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <strong>1. </strong> C<sub>0</sub> + C<sub>1</sub> + C<sub>2</sub> + ... + C<sub>n</sub> = <strong>2<sup>n</sup></strong>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>2. </strong> C<sub>0</sub> + C<sub>2</sub> + C<sub>4</sub> + ... = C<sub>1</sub> + C<sub>3</sub> + C<sub>5</sub> + ... = <strong>2<sup>n-1</sup></strong>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>3. </strong> C<sub>0</sub> – C<sub>1</sub> + C<sub>2</sub> – C<sub>3</sub> + ... +(−1)<sup>n</sup> . nC<sub>n</sub> = <strong>0</strong>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>4. </strong>  <sup>n</sup>C<sub>1</sub> + 2.<sup>n</sup>C<sub>2</sub> + 3.<sup>n</sup>C<sub>3</sub> + ... + n.<sup>n</sup>C<sub>n</sub> = <strong>n.2<sup>n-1</sup></strong>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>5. </strong> C<sub>1</sub> − 2C<sub>2</sub> + 3C<sub>3</sub> − 4C<sub>0</sub> + ... +(−1)<sup>n-1</sup> Cn<sub>n</sub> = <strong>0</strong> for n &gt; 1
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>6. </strong>C<sub>0</sub><sup>2</sup> + C<sub>1</sub><sup>2</sup> + C<sub>2</sub><sup>2</sup> + ..... C<sub>n</sub><sup>2</sup> =  <strong>[(2n)!/ (n!)<sup>2</sup>]</strong>
-                </td>
-              </tr>
-            </tbody>
-            <br />
-          </table>
-        </div>
-      </div>
-    </>
-  );
-};
+      </>
+    );
+  };
 
 
 
@@ -2156,10 +2161,10 @@ const Binomial = () => {
     let currentCall;
     switch (key) {
       case "Permutation And Combination":
-        currentCall=PnC();
+        currentCall = PnC();
         break;
       case "Probability":
-        currentCall=Probability();
+        currentCall = Probability();
         break;
       case "Progression":
         currentCall = Progression();
@@ -2176,9 +2181,9 @@ const Binomial = () => {
       case "Quadratic Equation":
         currentCall = QuadraticEquation();
         break;
-        case "Binomial":
-          currentCall = Binomial();
-          break;
+      case "Binomial":
+        currentCall = Binomial();
+        break;
       default:
         break;
     }
