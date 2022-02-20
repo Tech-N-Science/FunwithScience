@@ -42,8 +42,6 @@ export default function Algebra() {
     },
     {
       topic: "Binomial",
-      details:"The binomial theorem states the principle for expanding the algebraic expression (x + y)<sup>n</sup> and expresses it as a sum of the terms involving individual exponents of variables x and y.",
-    
     },
     {
       topic: "Matrices and Determinants",
