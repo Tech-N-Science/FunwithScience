@@ -291,13 +291,13 @@ function Calculator() {
     }
     const calcResult = () => {
       
-      if (choice == "Permutation") {
+      if (choice === "Permutation") {
         if(n>=r)
           setResult(factorial(n) / factorial(n - r));
         else
         alert("The value of n should not be less than r.Please enter valid values for n and r");
       }
-      else  if(choice=="Combination"){
+      else  if(choice === "Combination"){
           if(n>=r)
           setResult(factorial(n) / (factorial(r) * factorial(n - r)));
           else
@@ -305,7 +305,7 @@ function Calculator() {
       }
     }
     useEffect(() => {
-      if (choice == "Permutation")
+      if (choice === "Permutation")
         setChoiceData({ name:"Permutation" });
       else
         setChoiceData({ name:"Combination" });
@@ -548,8 +548,8 @@ function Calculator() {
 
     const calcResult = () => {
       let res = 1;
-      if (choice == "Power") res = Math.pow(x, n);
-      else if (choice == "SquareRoot") res = Math.sqrt(x);
+      if (choice === "Power") res = Math.pow(x, n);
+      else if (choice === "SquareRoot") res = Math.sqrt(x);
       else res = Math.cbrt(x);
 
       setResult(res);
@@ -563,7 +563,7 @@ function Calculator() {
     function reset() {
       setResult(null);
       setX(null);
-      if (choice == "Power") setN(null);
+      if (choice === "Power") setN(null);
     }
 
     return (
@@ -1559,7 +1559,7 @@ function Calculator() {
       return 1;
     }
     const calcQuadratic = () => {
-      if (a == 0) {
+      if (a === 0) {
         setResult("Value of a cannot be zero.");
         return;
       }
