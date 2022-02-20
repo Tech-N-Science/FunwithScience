@@ -12,14 +12,14 @@ function Calculator() {
   const Topics = [
     {
       topic: "Permutation And Combination",
-      details:[ `A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
+      details: [`A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
       The word "permutation" also refers to the act or process of changing the linear order of an ordered set.It is denoted by nPr.`,
-      <br />,
-      `On the other hand,Combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`
+        <br />,
+        `On the other hand,Combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`
       ],
       formula: [`nPr = n!/(n-r)!`,
-      <br/>,
-      `nCr = n!/r!(n-r)!`
+        <br />,
+        `nCr = n!/r!(n-r)!`
       ],
 
       process: [
@@ -30,36 +30,50 @@ function Calculator() {
       ],
       example1: [
         <span>
-           <b>How many different teams(each having 5 members) can be formed from 12 students?</b>
-           <br/>
-           Solution:
-           There is nothing that indicates that the order in which the team members are selected is important
-           <br/>
-            and therefore it is a combination problem. Hence the number of teams that can be formed
-           is the number of 
-           <br/>
-           ways of choosing 5 objects out 12 given by:
-           12 C 5 = 12! / [ (12 - 5)!5! ] = 792
-           <br/>
+          <b>How many different teams(each having 5 members) can be formed from 12 students?</b>
+          <br />
+          Solution:
+          There is nothing that indicates that the order in which the team members are selected is important
+          <br />
+          and therefore it is a combination problem. Hence the number of teams that can be formed
+          is the number of
+          <br />
+          ways of choosing 5 objects out 12 given by:
+          12 C 5 = 12! / [ (12 - 5)!5! ] = 792
+          <br />
         </span>,
       ],
       example2: [
         <span>
           <b>How many 3 letter words can we make with the letters in the word ABCD(without repetition)?</b>
-          <br/>
-          Solution: There are 4 letters in the word ABCD and the number of 3-letter words is similar to number of ways 
-          <br/>
+          <br />
+          Solution: There are 4 letters in the word ABCD and the number of 3-letter words is similar to number of ways
+          <br />
           of arranging 3 objects out of 4.Order is important here since ABC and CAB are different words.Hence after
-          <br/>
-           choosing of 3 letters we need to arrange them.
+          <br />
+          choosing of 3 letters we need to arrange them.
 
-          <br/>
+          <br />
           The number of words is given by
           4 P 3 = 4! / (4 - 3)! = 24
         </span>,
       ],
     },
-   
+    {
+      topic: "Sets And Relations",
+      details: ["A Set is a well-defined collection of distinct objects denoted by capital letters like A, Q, R etc.",
+        "There are different kinds of sets like:Empty set, Equal set, Equivalence set. Sets are said to be empty if they contain no element.Sets are said to be equal if they contain the same elements and number elements are also the same.",
+        "A relation between two sets is a collection of ordered pairs containing one element from each set. If an element x is from the first set and the  element y is from the second set, then the elements are said to be related if the ordered pair (x,y) is present in the relation."],
+      formula: ["If the number of elements in a set is n,the number of subsets is given as  :  ",
+        2, <sup>n</sup>, <br />,
+        "If A  has  m elements and  B has n elements ,A x B has m x n elements and hence the number of different relations from A to B is ", 2, <sup>m*n</sup>],
+      process: ["Using the formulae given and using the concept of Venn Diagram, we can easily find different sets out of 2 sets A and B depending on the condition."],
+      example1: [<b>Example1:</b>, `Let A = (1,2,3,4) and Let B = (3,4,5) be 2 sets.`,
+        "Then find the Intersection of A and B.", <br />,
+        "Solution: Intersection of 2 sets refers to the common elements of both the sets.", <br />,
+        "The common elements of A and B are 3 and 4.Hence the Intersection of A and B is the set {3,4}"
+      ]
+    },
     {
       topic: "Progression",
       details: [
@@ -178,27 +192,27 @@ function Calculator() {
       ],
     },
     {
-      topic:"Probability",
-      details:[`The probability of an event represents the likelihood of the occurence of the event.
+      topic: "Probability",
+      details: [`The probability of an event represents the likelihood of the occurence of the event.
 
           For an unbiased event(where all outcomes are equally likely to occur), the probability of the event E is the number of outcomes in E divided by the number of outcomes in the Sample Space. 
           The probability of an event is a number between 0 and 1, where  0 indicates impossibility of the occurence of the event and 1 indicates that the event will surely occur.     
       
             `],
-       formula:[`P(E) = n(E)/n(S)`,
-       <br/>,
-       `where n(E) is the number of times the event E occurs and n(S) is the total possible occurence`],
-       process: ["To calculate the probability of occurence of an equally-likely event,",
-       <br/>,"we need to determine the following quantities:",
-       <br/>,"n(E): Number of outcomes favoring the occurence of the event",
-       <br/>,"n(S): Total Number of outcomes",
-       <br/>,"Probability of occurence then becomes P(E)=n(E)/n(S)"
+      formula: [`P(E) = n(E)/n(S)`,
+        <br />,
+        `where n(E) is the number of times the event E occurs and n(S) is the total possible occurence`],
+      process: ["To calculate the probability of occurence of an equally-likely event,",
+        <br />, "we need to determine the following quantities:",
+        <br />, "n(E): Number of outcomes favoring the occurence of the event",
+        <br />, "n(S): Total Number of outcomes",
+        <br />, "Probability of occurence then becomes P(E)=n(E)/n(S)"
       ],
-       example1 :[
-         "Consider the Probability of First Event is P(A)=0.4 and that of the Second Event is P(B)=0.3.",
-         <br/>,
-         "Also consider the Probability of occurence of either of them is P(A ∪ B)=0.5",
-         <br/>,
+      example1: [
+        "Consider the Probability of First Event is P(A)=0.4 and that of the Second Event is P(B)=0.3.",
+        <br />,
+        "Also consider the Probability of occurence of either of them is P(A ∪ B)=0.5",
+        <br />,
         "P(A') = 1-P(A) ,P(A')=1-0.4=0.6",
         <br />,
         "P(B') = 1-P(B) ,P(B')=1-0.3=0.7",
@@ -209,7 +223,7 @@ function Calculator() {
         <br />,
         "P(only B) = P(B)-P(A ∩ B) ,P(E)=0.3-0.2=0.1",
         <br />,
-       ],
+      ],
     },
     {
       topic: "Quadratic Equation",
@@ -245,7 +259,7 @@ function Calculator() {
         <br />,
         "Substitute the values in the quadratic formula",
         <br />,
-        "x₁ = (-b + √b²-4ac)/2a",        
+        "x₁ = (-b + √b²-4ac)/2a",
       ],
       example2: [
         "⇒ (5 + 1)/2",
@@ -283,35 +297,35 @@ function Calculator() {
       setR(null);
       setResult(null);
     }
-    function factorial(x){
+    function factorial(x) {
       var result = 1;
       for (let i = 1; i <= x; i++)
         result *= i;
       return result;
     }
     const calcResult = () => {
-      
+
       if (choice == "Permutation") {
-        if(n>=r)
+        if (n >= r)
           setResult(factorial(n) / factorial(n - r));
         else
-        alert("The value of n should not be less than r.Please enter valid values for n and r");
+          alert("The value of n should not be less than r.Please enter valid values for n and r");
       }
-      else  if(choice=="Combination"){
-          if(n>=r)
+      else if (choice == "Combination") {
+        if (n >= r)
           setResult(factorial(n) / (factorial(r) * factorial(n - r)));
-          else
+        else
           alert("The value of n should not be less than r.Please enter valid values for n and r");
       }
     }
     useEffect(() => {
       if (choice == "Permutation")
-        setChoiceData({ name:"Permutation" });
+        setChoiceData({ name: "Permutation" });
       else
-        setChoiceData({ name:"Combination" });
+        setChoiceData({ name: "Combination" });
     }, [choice]);
-  
-    
+
+
     return (
       <>
         <Form>
@@ -372,12 +386,23 @@ function Calculator() {
       </>
     )
   }
- 
 
-   
 
-          
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //Pogression Calculator - AP/GP
   const Progression = () => {
@@ -629,7 +654,7 @@ function Calculator() {
     );
   };
 
-  
+
   //Probability Calculator
   const Probability = () => {
     const [a, setA] = useState();   //a is the probablity of first event.
@@ -640,7 +665,7 @@ function Calculator() {
     const [bothOccuring, setBothOccuring] = useState(null);   //P(A & B)
     const [onlyAOccurs, setOnlyAOccurs] = useState(null);
     const [onlyBOccurs, setOnlyBOccurs] = useState(null);
-    function reset(){
+    function reset() {
       setA(null);
       setB(null);
       setUnion(null);
@@ -650,18 +675,17 @@ function Calculator() {
       setOnlyAOccurs(null);
       setOnlyBOccurs(null);
     }
-   
-   
+
+
     const calcResult = () => {
-      if(union<Math.max(a,b))
-      alert("The Probability of Occurence of either of 2 events should not be lesser than the Probaility of occurence of each of them");
-      else
-      {
-      setaNotOccuring(parseFloat((1-a).toFixed(10)));
-      setbNotOccuring(parseFloat((1-b).toFixed(10)));
-      setBothOccuring(parseFloat((a + b-union).toFixed(10)));
-      setOnlyAOccurs(parseFloat((union-b).toFixed(10)));
-      setOnlyBOccurs(parseFloat((union-a).toFixed(10)));
+      if (union < Math.max(a, b))
+        alert("The Probability of Occurence of either of 2 events should not be lesser than the Probaility of occurence of each of them");
+      else {
+        setaNotOccuring(parseFloat((1 - a).toFixed(10)));
+        setbNotOccuring(parseFloat((1 - b).toFixed(10)));
+        setBothOccuring(parseFloat((a + b - union).toFixed(10)));
+        setOnlyAOccurs(parseFloat((union - b).toFixed(10)));
+        setOnlyBOccurs(parseFloat((union - a).toFixed(10)));
       }
     }
     return (
@@ -672,7 +696,7 @@ function Calculator() {
             <Form.Control
               onChange={(e) => setA(Number(e.target.value))}
               type="number"
-              value={a ==null ? "" : a}
+              value={a == null ? "" : a}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -680,7 +704,7 @@ function Calculator() {
             <Form.Control
               onChange={(e) => setB(Number(e.target.value))}
               type="number"
-              value={b ==null ? "" : b}
+              value={b == null ? "" : b}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -688,7 +712,7 @@ function Calculator() {
             <Form.Control
               onChange={(e) => setUnion(Number(e.target.value))}
               type="number"
-              value={union ==null ? "" : union}
+              value={union == null ? "" : union}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -696,7 +720,7 @@ function Calculator() {
             <Form.Control
               type="number"
               disabled="true"
-              value={aNotOccuring ==null ? "" : aNotOccuring}
+              value={aNotOccuring == null ? "" : aNotOccuring}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -704,7 +728,7 @@ function Calculator() {
             <Form.Control
               type="number"
               disabled="true"
-              value={bNotOccuring ==null ? "" : bNotOccuring}
+              value={bNotOccuring == null ? "" : bNotOccuring}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -712,7 +736,7 @@ function Calculator() {
             <Form.Control
               type="number"
               disabled="true"
-              value={bothOccuring ==null ? "" : bothOccuring}
+              value={bothOccuring == null ? "" : bothOccuring}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -720,7 +744,7 @@ function Calculator() {
             <Form.Control
               type="number"
               disabled="true"
-              value={onlyAOccurs ==null ? "" :onlyAOccurs}
+              value={onlyAOccurs == null ? "" : onlyAOccurs}
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -728,7 +752,7 @@ function Calculator() {
             <Form.Control
               type="number"
               disabled="true"
-              value={onlyBOccurs ==null ? "" : onlyBOccurs}
+              value={onlyBOccurs == null ? "" : onlyBOccurs}
             />
           </Form.Group>
         </Form>
@@ -737,7 +761,7 @@ function Calculator() {
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={(e) =>reset()} type="reset">
+          <Button variant="dark" onClick={(e) => reset()} type="reset">
             Reset
           </Button>
         </div>
@@ -761,7 +785,7 @@ function Calculator() {
                 <td>P(A')</td>
                 <td>
                   <b>
-                   1-P(A)
+                    1-P(A)
                   </b>{" "}
                   , where P(A) is probability of occurence of A.
                 </td>
@@ -769,9 +793,9 @@ function Calculator() {
               <tr>
                 <td>P(B')</td>
                 <td>
-                    <div>
-                      <b>1-P(B)</b> , where P(B) is the probability of occurence of B.
-                    </div>
+                  <div>
+                    <b>1-P(B)</b> , where P(B) is the probability of occurence of B.
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -784,7 +808,7 @@ function Calculator() {
                 <td>P(only A occurs)</td>
                 <td>
                   <b>
-                   P(A)-P(A ∩ B)
+                    P(A)-P(A ∩ B)
                   </b>, where A ∩ B represents occurence of both events
                 </td>
               </tr>
@@ -792,13 +816,13 @@ function Calculator() {
                 <td>P(only B occurs)</td>
                 <td>
                   <b>
-                   P(B)-P(A ∩ B)
+                    P(B)-P(A ∩ B)
                   </b>, where A ∩ B represents occurence of both events
                 </td>
               </tr>
 
-              
-               
+
+
             </tbody>
           </table>
         </div>
@@ -1706,15 +1730,251 @@ function Calculator() {
     );
   };
 
+
+  //Sets and relation calulator
+  const SetsAndRelation = () => {
+    const [a, setA] = useState(null);
+    const [b, setB] = useState(null);
+    const [union, setUnion] = useState(null);
+    const [intersection, setIntersection] = useState(null);
+    const [relations, setRelations] = useState(null);
+    const [onlyA, setOnlyA] = useState(null);
+    const [onlyB, setOnlyB] = useState(null);
+    function reset() {
+      setA(null);
+      setB(null);
+      setOnlyA(null);
+      setOnlyB(null);
+      setUnion(null);
+      setIntersection(null);
+      setRelations(null);
+    }
+    const calcResult = () => {
+      var tempintersection = [];
+      console.log(a);
+      console.log(b);
+      for (var i = 0; i < a.length; i++) {
+        var found = false;
+        for (var j = 0; j < b.length; j++) {
+          if (b[j] == a[i]) {
+            found = true;
+            break;
+          }
+        }
+        if (found)
+          tempintersection.push(a[i]);
+      }
+      setIntersection(tempintersection);
+
+      var tempunion = [];
+      for (let i = 0; i < a.length; i++)
+        tempunion.push(a[i]);
+      for (let i = 0; i < b.length; i++) {
+        let found = false;
+        for (let j = 0; j < a.length; j++) {
+          if (a[j] == b[i]) {
+            found = true;
+            break;
+          }
+        }
+        if (!found)
+          tempunion.push(b[i]);
+      }
+      setUnion(tempunion);
+
+
+      var aonly = [];
+      for (let i = 0; i < a.length; i++) {
+        var found = false;
+        for (let j = 0; j < b.length; j++) {
+          if (b[j] == a[i]) {
+            found = true;
+            break;
+          }
+        }
+        if (!found)
+          aonly.push(a[i]);
+      }
+      setOnlyA(aonly);
+
+      var bonly = [];
+      for (let i = 0; i < b.length; i++) {
+        var found = false;
+        for (let j = 0; j < a.length; j++) {
+          if (b[i] == a[j]) {
+            found = true;
+            break;
+          }
+        }
+        if (!found)
+          bonly.push(b[i]);
+      }
+      setOnlyB(bonly);
+
+      setRelations(Math.pow(2, a.length * b.length));
+    }
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong> Enter All values seperated by a comma(,)</strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>Enter the elements of Set A</Form.Label>
+            <Form.Control
+              onChange={(e) => setA(e.target.value.split(","))}
+              type="text"
+              value={a == null ? "" : a}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter the elements of Set B</Form.Label>
+            <Form.Control
+              onChange={(e) => setB(e.target.value.split(","))}
+              type="text"
+              value={b == null ? "" : b}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Union of A and B</Form.Label>
+            <Form.Control
+              type="array"
+              disabled="true"
+              value={union == null ? "" : union}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Intersection of A and B</Form.Label>
+            <Form.Control
+              type="array"
+              disabled="true"
+              value={intersection == null ? "" : intersection}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Total Number of Different Relations from A to B</Form.Label>
+            <Form.Control
+              type="number"
+              disabled="true"
+              value={relations == null ? "" : relations}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>Elements in A but not in B</Form.Label>
+            <Form.Control
+              type="array"
+              disabled="true"
+              value={onlyA == null ? "" : onlyA}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Elements in B but not in A</Form.Label>
+            <Form.Control
+              type="array"
+              disabled="true"
+              value={onlyB == null ? "" : onlyB}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={(e) => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+        &nbsp; &nbsp;
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Sets And Relations Formulae</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Quantities</th>
+                <th className="row-2 row-name ">Equation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Number of Different Relations from A to B</td>
+                <td>
+                  <b>
+                    2<sup>n(A)*n(B)</sup>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Number of Elements not in A</td>
+                <td>
+                  <b>
+                    n(S)-n(A)
+                  </b>{" "}
+                  , n(S) is the total Sample Space
+                </td>
+              </tr>
+              <tr>
+                <td>Number of Elements not in B</td>
+                <td>
+                  <div>
+                    <b>
+                      n(S)-n(B)
+                    </b>, n(S) is the total Sample Space
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Number of Elements common to A and B</td>
+                <td>
+                  <b>n(A) + n(B) - n(A ∪ B)</b>, where A ∪ B represents elements in either A or B
+                </td>
+              </tr>
+              <tr>
+                <td>Number of Elements in A but not in B</td>
+                <td>
+                  <b>
+                    n(A)-n(A ∩ B)
+                  </b>, where A ∩ B  represents common elements of A and B
+                </td>
+              </tr>
+              <tr>
+                <td>Number of Elements in B but not in A</td>
+                <td>
+                  <b>
+                    n(B)-n(A ∩ B)
+                  </b>, where A ∩ B represents common elements of A and B
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
+  }
+
+
+
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
     switch (key) {
       case "Permutation And Combination":
-        currentCall=PnC();
+        currentCall = PnC();
         break;
       case "Probability":
-        currentCall=Probability();
+        currentCall = Probability();
         break;
       case "Progression":
         currentCall = Progression();
@@ -1727,6 +1987,9 @@ function Calculator() {
         break;
       case "Exponents":
         currentCall = Exponents();
+        break;
+      case "Sets And Relations":
+        currentCall = SetsAndRelation();
         break;
       case "Quadratic Equation":
         currentCall = QuadraticEquation();
