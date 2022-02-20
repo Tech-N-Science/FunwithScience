@@ -60,21 +60,33 @@ function Calculator() {
       details: [
         `Inverse trigonometric ratios are the inverse of the trigonometric functions.They operate on the ratio of the sides of the triangle to find out the measure of the angles of the  triangle.
          The inverse of a function is denoted by the superscript "-1" of the given trigonometric function. 
-         For example, the inverse of the cosine function will be cos-1. 
-         The inverse of the trigonometric function is also written as an "arc"-trigonometric function, for example, arcsin will be the inverse of the sine function.`
+         For example, the inverse of the cosine function will be cos⁻¹. 
+         The inverse of the trigonometric function is also written as an "arc"-trigonometric function, for example, arcsin will be the inverse of the sine function.`,
       ],
       formula: [
-        `sin`, <sup>-1</sup>, `[Opposite/Hypotenuse] =  θ`,
+        `sin`,
+        <sup>-1</sup>,
+        `[Opposite/Hypotenuse] =  θ`,
         <br />,
-        `cos`, <sup>-1</sup>, `[Base/Hypotenuse] =  θ`,
+        `cos`,
+        <sup>-1</sup>,
+        `[Base/Hypotenuse] =  θ`,
         <br />,
-        `tan`, <sup>-1</sup>, `[Opposite/Base] =  θ`,
+        `tan`,
+        <sup>-1</sup>,
+        `[Opposite/Base] =  θ`,
         <br />,
-        `cosec`, <sup>-1</sup>, `[Hypotenuse/Opposite] =  θ`,
+        `cosec`,
+        <sup>-1</sup>,
+        `[Hypotenuse/Opposite] =  θ`,
         <br />,
-        `sec`, <sup>-1</sup>, `[Hypotenuse/Base] =  θ`,
+        `sec`,
+        <sup>-1</sup>,
+        `[Hypotenuse/Base] =  θ`,
         <br />,
-        `cot`, <sup>-1</sup>, `[Base/Opposite] =  θ`,
+        `cot`,
+        <sup>-1</sup>,
+        `[Base/Opposite] =  θ`,
         <br />,
       ],
       process: [
@@ -83,11 +95,16 @@ function Calculator() {
       ],
       example1: [
         "If sin(θ) is equal to 1/2, find sin(θ) + cos(θ)",
-        <br />, "The easiest way to solve this question is to first find the value of θ",
-        <br />, `Taking Inverse function of sine, we get θ=sin`, <sup>-1</sup>, "(1/2)=π/6",
-        <br />, `Now, sin(θ)+cos(θ)=sin(π/6)+cos(π/6) ,which on simplification gives 1.366`
-      ]
-    }
+        <br />,
+        "The easiest way to solve this question is to first find the value of θ",
+        <br />,
+        `Taking Inverse function of sine, we get θ=sin`,
+        <sup>-1</sup>,
+        "(1/2)=π/6",
+        <br />,
+        `Now, sin(θ)+cos(θ)=sin(π/6)+cos(π/6) ,which on simplification gives 1.366`,
+      ],
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
@@ -387,14 +404,6 @@ function Calculator() {
     );
   };
 
-
-
-
-
-
-
-
-
   //Inverse Trignometry Calcualtor
   const InvTrig = () => {
     const [x, setX] = useState(null);
@@ -406,23 +415,18 @@ function Calculator() {
       setChoice(null);
     }
     const calcResult = () => {
-      if (choice == "sin-Inverse")
-        setResult(57.29578*Math.asin(x));
-      else if (choice == "cos-Inverse")
-        setResult(57.29578*Math.acos(x));
-      else if (choice == "tan-Inverse")
-        setResult(57.29578*Math.atan(x));
+      if (choice == "sin-Inverse") setResult(57.29578 * Math.asin(x));
+      else if (choice == "cos-Inverse") setResult(57.29578 * Math.acos(x));
+      else if (choice == "tan-Inverse") setResult(57.29578 * Math.atan(x));
       else if (choice == "cosec-Inverse")
-        setResult(57.29578*Math.asin(1/x));
-      else if (choice == "cot-Inverse")
-        setResult(57.29578*Math.atan(1/x));
-      else if (choice == "sec-Inverse")
-        setResult(57.29578*Math.acos(1/x));
-    }
+        setResult(57.29578 * Math.asin(1 / x));
+      else if (choice == "cot-Inverse") setResult(57.29578 * Math.atan(1 / x));
+      else if (choice == "sec-Inverse") setResult(57.29578 * Math.acos(1 / x));
+    };
     const handleChange = (e) => {
       reset();
       setChoice(e.target.value);
-    }
+    };
     return (
       <>
         <Form>
@@ -444,9 +448,7 @@ function Calculator() {
           </Form.Group>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
-              <strong>
-                To find the {choice}, Enter the following values
-              </strong>
+              <strong>To find the {choice}, Enter the following values</strong>
               <br />
             </Form.Text>
           </Form.Group>
@@ -479,7 +481,6 @@ function Calculator() {
         </div>
         <br />
 
-
         <div className="formula-table mb-4">
           <table className="formulae">
             <thead>
@@ -496,21 +497,27 @@ function Calculator() {
             </thead>
             <tbody>
               <tr>
-                <td>sin <sup>-1</sup>(x) + cos<sup>-1</sup>(x)</td>
+                <td>
+                  sin <sup>-1</sup>(x) + cos<sup>-1</sup>(x)
+                </td>
                 <td>
                   <b> π/2</b>
                 </td>
               </tr>
 
               <tr>
-                <td>tan<sup>-1</sup>(x) + cot<sup>-1</sup>(x)</td>
+                <td>
+                  tan<sup>-1</sup>(x) + cot<sup>-1</sup>(x)
+                </td>
                 <td>
                   <b> π/2</b>
                 </td>
               </tr>
 
               <tr>
-                <td>sec <sup>-1</sup>(x) + cosec<sup>-1</sup>(x)</td>
+                <td>
+                  sec <sup>-1</sup>(x) + cosec<sup>-1</sup>(x)
+                </td>
                 <td>
                   <b>π/2</b>
                 </td>
@@ -535,47 +542,72 @@ function Calculator() {
             </thead>
             <tbody>
               <tr>
-                <td>sin <sup>-1</sup>(-x)</td>
                 <td>
-                  <b>-sin <sup>-1</sup>(x)</b>
+                  sin <sup>-1</sup>(-x)
+                </td>
+                <td>
+                  <b>
+                    -sin <sup>-1</sup>(x)
+                  </b>
                 </td>
               </tr>
 
               <tr>
-                <td>cos<sup>-1</sup>(-x)</td>
                 <td>
-                  <b>π-cos<sup>-1</sup>(x)</b>
+                  cos<sup>-1</sup>(-x)
+                </td>
+                <td>
+                  <b>
+                    π-cos<sup>-1</sup>(x)
+                  </b>
                 </td>
               </tr>
 
               <tr>
-                <td>tan<sup>-1</sup>(-x)</td>
                 <td>
-                  <b>-tan<sup>-1</sup>(x)</b>
+                  tan<sup>-1</sup>(-x)
+                </td>
+                <td>
+                  <b>
+                    -tan<sup>-1</sup>(x)
+                  </b>
                 </td>
               </tr>
               <tr>
-                <td>cot<sup>-1</sup>(-x)</td>
                 <td>
-                  <b>π-cot<sup>-1</sup>(x)</b>
+                  cot<sup>-1</sup>(-x)
+                </td>
+                <td>
+                  <b>
+                    π-cot<sup>-1</sup>(x)
+                  </b>
                 </td>
               </tr>
               <tr>
-                <td>sec<sup>-1</sup>(-x)</td>
                 <td>
-                  <b>π-sec<sup>-1</sup>(x)</b>
+                  sec<sup>-1</sup>(-x)
+                </td>
+                <td>
+                  <b>
+                    π-sec<sup>-1</sup>(x)
+                  </b>
                 </td>
               </tr>
               <tr>
-                <td>cosec<sup>-1</sup>(-x)</td>
                 <td>
-                  <b>-cosec<sup>-1</sup>(x)</b>
+                  cosec<sup>-1</sup>(-x)
+                </td>
+                <td>
+                  <b>
+                    -cosec<sup>-1</sup>(x)
+                  </b>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <br/><br/>
+        <br />
+        <br />
         <div className="formula-table">
           <table className="formulae">
             <thead>
@@ -592,38 +624,43 @@ function Calculator() {
             </thead>
             <tbody>
               <tr>
-                <td>sin <sup>-1</sup>(1/x)</td>
                 <td>
-                  <b>cosec <sup>-1</sup>(x)</b>
+                  sin <sup>-1</sup>(1/x)
+                </td>
+                <td>
+                  <b>
+                    cosec <sup>-1</sup>(x)
+                  </b>
                 </td>
               </tr>
 
               <tr>
-                <td>cos<sup>-1</sup>(1/x)</td>
                 <td>
-                  <b>sec<sup>-1</sup>(x)</b>
+                  cos<sup>-1</sup>(1/x)
+                </td>
+                <td>
+                  <b>
+                    sec<sup>-1</sup>(x)
+                  </b>
                 </td>
               </tr>
 
               <tr>
-                <td>tan<sup>-1</sup>(1/x)</td>
                 <td>
-                  <b>cot<sup>-1</sup>(x)</b>
+                  tan<sup>-1</sup>(1/x)
+                </td>
+                <td>
+                  <b>
+                    cot<sup>-1</sup>(x)
+                  </b>
                 </td>
               </tr>
-
-
             </tbody>
           </table>
         </div>
-      </>)
-
-  }
-
-
-
-
-
+      </>
+    );
+  };
 
   //adding the calculators together
   function calC(key) {
