@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import "./Calculator.css";
 import { Form, Button } from "react-bootstrap";
 import limits1 from "../../../Images/limits1.png";
+/* eslint no-eval: 0 */
 
 function Calculator() {
   let { topic } = useParams();
@@ -262,24 +263,26 @@ function Calculator() {
 
     function canPlugin() {
       var at = compute();
-      return at === at && Math.abs(at) !== Infinity;
+      var at1 = at;
+      return at === at1 && Math.abs(at) !== Infinity;
     }
 
     function toInfinty() {
       if (parameter > 0) {
-        var pos1 = Number.MAX_VALUE * 0.99999;
-        var pos2 = Number.MAX_VALUE;
-        var dif = pos2 - pos1;
+        var pos_1 = Number.MAX_VALUE * 0.99999;
+        var pos_2 = Number.MAX_VALUE;
+        var dif = pos_2 - pos_1;
         if (dif > 0) {
           return Infinity;
         } else {
           return -1 * Infinity;
         }
-      } else {
+      } 
+      else {
         var pos1 = Number.MIN_VALUE;
         var pos2 = Number.MIN_VALUE * 0.99999;
-        var dif = pos2 - pos1;
-        if (dif < 0) {
+        var dif1 = pos2 - pos1;
+        if (dif1 < 0) {
           return Infinity;
         } else {
           return -1 * Infinity;
@@ -423,6 +426,7 @@ function Calculator() {
         break;
       case "Limits":
         currentCall = Limit();
+        break;
       default:
         break;
     }
