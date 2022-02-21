@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card } from "react-bootstrap";
 
 import '../PysicsStyles/physicsmenustyle.css'
@@ -7,6 +7,12 @@ import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
 
 export default function Electromagnetism() {
+  useEffect(() => {
+    
+    window.scrollTo(0, 0);
+   
+ 
+}, []);
   //topics_data
   const Topics = [
     {
