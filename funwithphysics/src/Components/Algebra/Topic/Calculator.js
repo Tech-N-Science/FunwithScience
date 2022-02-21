@@ -11,6 +11,21 @@ function Calculator() {
   // topics_data
   const Topics = [
     {
+      topic: "Sets And Relations",
+      details: ["A Set is a well-defined collection of distinct objects denoted by capital letters like A, Q, R etc.",
+        "There are different kinds of sets like:Empty set, Equal set, Equivalence set. Sets are said to be empty if they contain no element.Sets are said to be equal if they contain the same elements and number elements are also the same.",
+        "A relation between two sets is a collection of ordered pairs containing one element from each set. If an element x is from the first set and the  element y is from the second set, then the elements are said to be related if the ordered pair (x,y) is present in the relation."],
+      formula: ["If the number of elements in a set is n,the number of subsets is given as  :  ",
+        2, <sup>n</sup>, <br />,
+        "If A  has  m elements and  B has n elements ,A x B has m x n elements and hence the number of different relations from A to B is ", 2, <sup>m*n</sup>],
+      process: ["Using the formulae given and using the concept of Venn Diagram, we can easily find different sets out of 2 sets A and B depending on the condition."],
+      example1: [<b>Example1:</b>, `Let A = (1,2,3,4) and Let B = (3,4,5) be 2 sets.`,
+        "Then find the Intersection of A and B.", <br />,
+        "Solution: Intersection of 2 sets refers to the common elements of both the sets.", <br />,
+        "The common elements of A and B are 3 and 4.Hence the Intersection of A and B is the set {3,4}"
+      ]
+    },
+    {
       topic: "Permutation And Combination",
       details: [`A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
       The word "permutation" also refers to the act or process of changing the linear order of an ordered set.It is denoted by nPr.`,
@@ -59,7 +74,6 @@ function Calculator() {
         </span>,
       ],
     },
-
     {
       topic: "Progression",
       details: [
@@ -344,6 +358,243 @@ function Calculator() {
 
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
+
+  
+
+
+   //Sets and relation calulator
+   const SetsAndRelation = () => {
+    const [a, setA] = useState(null);
+    const [b, setB] = useState(null);
+    const [union, setUnion] = useState(null);
+    const [intersection, setIntersection] = useState(null);
+    const [relations, setRelations] = useState(null);
+    const [onlyA, setOnlyA] = useState(null);
+    const [onlyB, setOnlyB] = useState(null);
+    function reset() {
+      setA(null);
+      setB(null);
+      setOnlyA(null);
+      setOnlyB(null);
+      setUnion(null);
+      setIntersection(null);
+      setRelations(null);
+    }
+    const calcResult = () => {
+      var tempintersection = [];
+      console.log(a);
+      console.log(b);
+      for (var i = 0; i < a.length; i++) {
+        var found = false;
+        for (var j = 0; j < b.length; j++) {
+          if (b[j] == a[i]) {
+            found = true;
+            break;
+          }
+        }
+        if (found)
+          tempintersection.push(a[i]);
+      }
+      setIntersection(tempintersection);
+
+      var tempunion = [];
+      for (let i = 0; i < a.length; i++)
+        tempunion.push(a[i]);
+      for (let i = 0; i < b.length; i++) {
+        let found = false;
+        for (let j = 0; j < a.length; j++) {
+          if (a[j] == b[i]) {
+            found = true;
+            break;
+          }
+        }
+        if (!found)
+          tempunion.push(b[i]);
+      }
+      setUnion(tempunion);
+
+
+      var aonly = [];
+      for (let i = 0; i < a.length; i++) {
+        var found = false;
+        for (let j = 0; j < b.length; j++) {
+          if (b[j] == a[i]) {
+            found = true;
+            break;
+          }
+        }
+        if (!found)
+          aonly.push(a[i]);
+      }
+      setOnlyA(aonly);
+
+      var bonly = [];
+      for (let i = 0; i < b.length; i++) {
+        var found = false;
+        for (let j = 0; j < a.length; j++) {
+          if (b[i] == a[j]) {
+            found = true;
+            break;
+          }
+        }
+        if (!found)
+          bonly.push(b[i]);
+      }
+      setOnlyB(bonly);
+
+      setRelations(Math.pow(2, a.length * b.length));
+    }
+    return (
+      <>
+        <Form>
+        <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong> Enter All values seperated by a comma(,)</strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+       
+          <Form.Group className="mb-4">
+            <Form.Label>Enter the elements of Set A</Form.Label>
+            <Form.Control
+              onChange={(e) => setA(e.target.value.split(","))}
+              type="text"
+              value={a == null ? "" : a}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter the elements of Set B</Form.Label>
+            <Form.Control
+              onChange={(e) => setB(e.target.value.split(","))}
+              type="text"
+              value={b == null ? "" : b}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Union of A and B</Form.Label>
+            <Form.Control
+              type="array"
+              disabled="true"
+              value={union == null ? "" : union}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Intersection of A and B</Form.Label>
+            <Form.Control
+              type="array"
+              disabled="true"
+              value={intersection == null ? "" : intersection}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Total Number of Different Relations from A to B</Form.Label>
+            <Form.Control
+              type="number"
+              disabled="true"
+              value={relations == null ? "" : relations}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-4">
+            <Form.Label>Elements in A but not in B</Form.Label>
+            <Form.Control
+              type="array"
+              disabled="true"
+              value={onlyA == null ? "" : onlyA}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Elements in B but not in A</Form.Label>
+            <Form.Control
+              type="array"
+              disabled="true"
+              value={onlyB == null ? "" : onlyB}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={(e) => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+        &nbsp; &nbsp;
+        <div className="formula-table mb-4">
+          <table className="formulae">
+            <thead>
+              <section className="m-2">
+                <tr>
+                  <h3>Sets And Relations Formulae</h3>
+                </tr>
+              </section>
+
+              <tr>
+                <th className="row-1 row-ID  "> Quantities</th>
+                <th className="row-2 row-name ">Equation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Number of Different Relations from A to B</td>
+                <td>
+                  <b>
+                    2<sup>n(A)*n(B)</sup>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td>Number of Elements not in A</td>
+                <td>
+                  <b>
+                    n(S)-n(A)
+                  </b>{" "}
+                  , n(S) is the total Sample Space
+                </td>
+              </tr>
+              <tr>
+                <td>Number of Elements not in B</td>
+                <td>
+                  <div>
+                    <b>
+                      n(S)-n(B)
+                    </b>, n(S) is the total Sample Space
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Number of Elements common to A and B</td>
+                <td>
+                  <b>n(A) + n(B) - n(A ∪ B)</b>, where A ∪ B represents elements in either A or B
+                </td>
+              </tr>
+              <tr>
+                <td>Number of Elements in A but not in B</td>
+                <td>
+                  <b>
+                    n(A)-n(A ∩ B)
+                  </b>, where A ∩ B  represents common elements of A and B
+                </td>
+              </tr>
+              <tr>
+                <td>Number of Elements in B but not in A</td>
+                <td>
+                  <b>
+                    n(B)-n(A ∩ B)
+                  </b>, where A ∩ B represents common elements of A and B
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
+   }
+
+
 
 
   //PnC calculator
@@ -2177,6 +2428,9 @@ function Calculator() {
         break;
       case "Exponents":
         currentCall = Exponents();
+        break;
+      case "Sets And Relations":
+        currentCall = SetsAndRelation();
         break;
       case "Quadratic Equation":
         currentCall = QuadraticEquation();
