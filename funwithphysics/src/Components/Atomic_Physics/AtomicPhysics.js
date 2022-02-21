@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Card } from "react-bootstrap";
 import '../PysicsStyles/physicsmenustyle.css'
 import { Link } from "react-router-dom";
@@ -99,7 +99,12 @@ export default function AtomicPhysics() {
         "The standard crompton wavelength equation is given by the equation as shown above. Where λ is the Compton wavelength, h is the Planck constant, m is the mass of the particle and c is the speed of light in vacuum",
     },
   ];
-
+  useEffect(() => {
+    
+    window.scrollTo(0, 0);
+   
+ 
+}, []);
   return (
     <>
       <div className="mech__main">

@@ -9,14 +9,14 @@ export default function Algebra() {
   const Topics = [
     {
       topic: "Permutation And Combination",
-      details:[ `A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
+      details: [`A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
       The word "permutation" also refers to the act or process of changing the linear order of an ordered set.It is denoted by nPr.`,
-      <br />,
-      `On the other hand,Combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`
+        <br />,
+        `On the other hand,Combination is a mathematical technique for determining the number of possible arrangements in a group of objects where the order of the items is irrelevant. Selecting r objects out of the given n objects is given by using the factorials. It is denoted by nCr.`
       ],
       formula: [`nPr = n!/(n-r)!`,
-      <br/>,
-      `nCr = n!/r!(n-r)!`
+        <br />,
+        `nCr = n!/r!(n-r)!`
       ],
 
       process: [
@@ -42,6 +42,7 @@ export default function Algebra() {
     },
     {
       topic: "Binomial",
+      details:"The binomial theorem states the principle for expanding the algebraic expression (x + y)<sup>n</sup> and expresses it as a sum of the terms involving individual exponents of variables x and y.",
     },
     {
       topic: "Matrices and Determinants",
@@ -50,21 +51,21 @@ export default function Algebra() {
       topic: "Mathematical Induction",
     },
     {
-      topic:"Probability",
-      details:[`The probability of an event represents the likelihood of the occurence of the event.
+      topic: "Probability",
+      details: [`The probability of an event represents the likelihood of the occurence of the event.
 
           For an unbiased event(where all outcomes are equally likely to occur), the probability of the event E is the number of outcomes in E divided by the number of outcomes in the Sample Space. 
           The probability of an event is a number between 0 and 1, where  0 indicates impossibility of the occurence of the event and 1 indicates that the event will surely occur.     
       
             `],
-       formula:[`P(E) = n(E)/n(S)`,
-       <br/>,
-       `where n(E) is the number of times the event E occurs and n(S) is the total possible occurence`],
-       process: ["To calculate the probability of occurence of an equally-likely event,",
-       <br/>,"we need to determine the following quantities:",
-       <br/>,"n(E): Number of outcomes favoring the occurence of the event",
-       <br/>,"n(S): Total Number of outcomes",
-       <br/>,"Probability of occurence then becomes P(E)=n(E)/n(S)"
+      formula: [`P(E) = n(E)/n(S)`,
+        <br />,
+        `where n(E) is the number of times the event E occurs and n(S) is the total possible occurence`],
+      process: ["To calculate the probability of occurence of an equally-likely event,",
+        <br />, "we need to determine the following quantities:",
+        <br />, "n(E): Number of outcomes favoring the occurence of the event",
+        <br />, "n(S): Total Number of outcomes",
+        <br />, "Probability of occurence then becomes P(E)=n(E)/n(S)"
       ],
     },
     {
@@ -75,14 +76,14 @@ export default function Algebra() {
         'Addition = (x1 + x2) + i (y1 + y2)',
     },
     {
-      topic:"Exponents",
-      details:[
+      topic: "Exponents",
+      details: [
         "Exponentiation refers to repeated multiplication of a given number with itself certain number of times.Square-Root of a given number is defined as the factor of the number which when multiplied with itself gives the given number.Cube-Root of a given number is the number which when multiplied thrice with itself gives the given number."
       ],
-      formula:[
+      formula: [
         "(y)^n=(y)*(y)*(y)*(y)...n times"
       ],
-      process:[
+      process: [
         "To find x raised to the power n we need to multiply x with itself n times."
       ],
     },
@@ -90,12 +91,23 @@ export default function Algebra() {
       topic: "Quadratic Equation",
       details: `Quadratic equations are second-degree algebraic expressions and are of the form ax2 + bx + c = 0.`,
       formula: "For quadratic equation ax^2 +bx+c, the roots are <br/> x1,x2=[-b ± √(b² - 4ac)]/2a",
-      process:`The quadratic equation in its standard form is ax2 + bx + c = 0.
+      process: `The quadratic equation in its standard form is ax2 + bx + c = 0.
       The discriminant of the quadratic equation is D = b^2 - 4ac
       For D > 0 the roots are real and distinct.
       For D = 0 the roots are real and equal.
       For D < 0 the roots do not exist, or the roots are imaginary.`,
-    }
+    },
+    {
+      topic: "Sets And Relations",
+      details: ["A Set is a well-defined collection of distinct objects denoted by capital letters like A, Q, R etc.",
+        "There are different kinds of sets like:Empty set, Equal set, Equivalence set. Sets are said to be empty if they contain no element.Sets are said to be equal if they contain the same elements and number elements are also the same.",
+        "A relation between two sets is a collection of ordered pairs containing one element from each set. If an element x is from the first set and the  element y is from the second set, then the elements are said to be related if the ordered pair (x,y) is present in the relation."],
+      formula: ["If the number of elements in a set is n,the number of subsets is given as  :  ",
+        2, <sup>n</sup>, <br />,
+        "If A  has  m elements and  B has n elements ,A x B has m x n elements and hence the number of different relations from A to B is ", 2, <sup>m*n</sup>],
+      process: ["Using the formulae given and using the concept of Venn Diagram, we can easily find different sets out of 2 sets A and B depending on the condition."],
+
+    },
   ];
 
   return (
