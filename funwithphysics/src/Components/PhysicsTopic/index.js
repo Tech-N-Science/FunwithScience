@@ -60,6 +60,7 @@ function PhysicsTopic() {
               link="/classicalmechanics"
               icon="icon-shop"
               image={classicalMechanics}
+              onClick  = {()=>window.scrollTo(0, 0)}
             >
               <p>
                 Classical mechanics is a theory that describes the motion of
@@ -214,7 +215,9 @@ function PhysicsTopic() {
               link="/statistical"
               icon="icon-world"
               image={statistical}
+            
             >
+           
               <p>
                 General Measurements is a mathematical framework that applies
                 statistical methods and probability theory to large assemblies
