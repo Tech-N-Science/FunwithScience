@@ -24,6 +24,12 @@ export default function Integration() {
       formula: "",
       process: "",
     },
+    {
+      topic: "Derivative",
+      details: ``,
+      formula: "",
+      process: "",
+    },
   ];
 
   return (
