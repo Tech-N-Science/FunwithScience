@@ -11,7 +11,7 @@ import Modal from "react-bootstrap/Modal";
 import { useParams } from "react-router-dom";
 
 function GravitationCalculator() {
-  let {topic} = useParams();
+  let { topic } = useParams();
   // Gravitation_list
   const Gravitation_list = [
     {
@@ -23,6 +23,18 @@ function GravitationCalculator() {
         "The Force of Gravitation F , between two bodies / system of mass m and M , where d is the radius or distance between the two bodies and G is the constant of proportionality known as the universal gravitation constant ( 6.67 × 10⁻¹¹ Newton - meter² · kg⁻² ) , is equals to product of ( G , m and M ) divided by the ( d² ) . SI unit for gravitation force is Newton . SI unit for universal gravitational constant is Newton - meter² · Kg⁻² ",
       siunit: "F = kg·m/s² or N",
       dimension: "G = M L T⁻²",
+    },
+    {
+      topic: "Acceleration Due to Gravity",
+      details:
+        "Accelration due to gravity changes as one moves towards or away from the Earth's centre.This change can be understood and analysed using the Newton's Law of Gravitation.As altitude or height h increases above the earth’s surface, the value of acceleration due to gravity falls.Similarly as the depth into the earth's surface increases, the value of acceleration due to gravity decreases until it becomes zero at the Earth's centre.",
+      formula: [`g`, <sub>1</sub>, `=g(1-2h/R) , where h is height above Earth's surface`,
+        <br />,
+        `g`, <sub>2</sub>, `=g(1-d/R) ,  where d is depth below Earth's surface`],
+      process:
+        "The Acceleration due to Gravity(g) , at any height above or below the Earth's surface is calculated using the above formulae,where d is the distance above/below the earth's surface, and R is the earth's Radius",
+      siunit: "m/s² ",
+      dimension: [`G = L T`,<sup>-2</sup>],
     },
     {
       topic: "Gravitational Field",
@@ -80,6 +92,91 @@ function GravitationCalculator() {
     (data) => data.topic === topic
   );
   const details = page[0];
+
+
+
+
+
+
+
+  //Acceleration due to gravity
+  const Gravity = () => {
+    const [distance, setDistance] = useState(null);
+    const [aboveSurface, setAboveSurface] = useState(null);
+    const [belowSurface, setBelowSurface] = useState(null);
+    const gSurface = 9.78;
+    const earthRadius = 6378000;
+    const earthMass = 5.9722 * Math.pow(10, 24);
+
+    function reset() {
+      setDistance(null);
+      setAboveSurface(null);
+      setBelowSurface(null);
+    }
+    const calcResult = () => {
+      if (distance <= 1000)
+        setAboveSurface(gSurface * (1 - (2 * distance) / earthRadius));
+      else if (distance > 1000)
+        setAboveSurface(6.67 * Math.pow(10, -11) * earthMass * Math.pow(earthRadius + distance, -2));
+      setBelowSurface(gSurface * (1 - (distance / earthRadius)));
+    }
+
+
+
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-3" controlId="mass_A">
+            <Form.Label>Enter the Distance in Metres</Form.Label>
+            <Form.Control
+              onChange={(e) => setDistance(Number(e.target.value))}
+              type="number"
+              value={distance === null ? "" : distance}
+             
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="distance">
+            <Form.Label>Acceleration above Earth's Surface</Form.Label>
+            <Form.Control
+              type="number"
+              disabled="true"
+              value={aboveSurface === null ? "" : aboveSurface}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="Distance">
+            <Form.Label>Acceleration below Earth's Surface</Form.Label>
+            <Form.Control
+              disabled="true"
+              type="number"
+              value={belowSurface === null ? "" : belowSurface}
+              
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
   //Gravitational Force
   function CalculatorGravitationalForce() {
@@ -179,8 +276,8 @@ function GravitationCalculator() {
               type="number"
               placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
             />
-            </Form.Group>
-            <br/>
+          </Form.Group>
+          <br />
           {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
@@ -293,19 +390,19 @@ function GravitationCalculator() {
               type="number"
               placeholder="6.67 × 10⁻¹¹ Newton - meter² · kg⁻²"
             />
-            <br/>
+            <br />
             {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-               givenValues={givenValues}
-               formula="GM/r²"
-               toFind="Gravitational Field"
-               insertValues={insertValues}
-               result={result}
-               constants={constants}
-            />
-          </Form.Group>
-        ) : null}
+              <Form.Group className="mb-3" controlId="acceleration">
+                <Solution
+                  givenValues={givenValues}
+                  formula="GM/r²"
+                  toFind="Gravitational Field"
+                  insertValues={insertValues}
+                  result={result}
+                  constants={constants}
+                />
+              </Form.Group>
+            ) : null}
           </Form.Group>
           <Form.Group className="mb-3" controlId="Gravitational_Field">
             <Form.Label>Gravitational Field (g)</Form.Label>
@@ -342,11 +439,11 @@ function GravitationCalculator() {
     const [showModal, setShowModal] = useState(false);
 
     const handleClick = () => {
-      if (mass_A!== "" && mass_B!=="" && distance!==""){
-      let res = -(6.67 * Math.pow(10, -11) * mass_A * mass_B) / distance;
-      setResult(res);
-      setShowSolution(true);
-      }else {
+      if (mass_A !== "" && mass_B !== "" && distance !== "") {
+        let res = -(6.67 * Math.pow(10, -11) * mass_A * mass_B) / distance;
+        setResult(res);
+        setShowSolution(true);
+      } else {
         setShowModal(true)
       }
     };
@@ -372,7 +469,7 @@ function GravitationCalculator() {
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+          <Modal.Footer><Button onClick={() => setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
         </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="Mass">
@@ -415,17 +512,17 @@ function GravitationCalculator() {
             controlId="Gravitational_Potential_Energy"
           >
             {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-              givenValues={givenValues}
-              formula="-GMm/r"
-              toFind="Energy Potential Energy"
-              insertValues={insertValues}
-              result={result}
-              constants={constants}
-            />
-          </Form.Group>
-        ) : null}
+              <Form.Group className="mb-3" controlId="acceleration">
+                <Solution
+                  givenValues={givenValues}
+                  formula="-GMm/r"
+                  toFind="Energy Potential Energy"
+                  insertValues={insertValues}
+                  result={result}
+                  constants={constants}
+                />
+              </Form.Group>
+            ) : null}
             <Form.Label>Gravitational Potential Energy (U)</Form.Label>
             <Form.Control
               readOnly
@@ -460,11 +557,11 @@ function GravitationCalculator() {
     const [showModal, setShowModal] = useState(false);
 
     const handleClick = () => {
-      if (mass!== "" && radius!== ""){
-      let res = Math.sqrt((2 * 6.67 * Math.pow(10, -11) * mass) / radius);
-      setShowSolution(true);
-      setResult(res);
-      }else {
+      if (mass !== "" && radius !== "") {
+        let res = Math.sqrt((2 * 6.67 * Math.pow(10, -11) * mass) / radius);
+        setShowSolution(true);
+        setResult(res);
+      } else {
         setShowModal(true)
       }
     };
@@ -488,7 +585,7 @@ function GravitationCalculator() {
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+          <Modal.Footer><Button onClick={() => setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
         </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="Mass">
@@ -518,17 +615,17 @@ function GravitationCalculator() {
             />
           </Form.Group>
           {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-              givenValues={givenValues}
-              formula="√(2GM/R)"
-              toFind="Escape Velocity"
-              insertValues={insertValues}
-              result={result}
-              constants={constants}
-            />
-          </Form.Group>
-        ) : null}
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="√(2GM/R)"
+                toFind="Escape Velocity"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-3" controlId="Escape_velocity">
             <Form.Label>Escape Velocity (V)</Form.Label>
             <Form.Control
@@ -564,11 +661,11 @@ function GravitationCalculator() {
     const [showModal, setShowModal] = useState(false);
 
     const handleClick = () => {
-      if (mass!== "" && area!== "" && time!==""){
-      let res = (mass * area * 2) / time;
-      setResult(res);
-      setShowSolution(true);
-      }else {
+      if (mass !== "" && area !== "" && time !== "") {
+        let res = (mass * area * 2) / time;
+        setResult(res);
+        setShowSolution(true);
+      } else {
         setShowModal(true)
       }
     };
@@ -593,7 +690,7 @@ function GravitationCalculator() {
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+          <Modal.Footer><Button onClick={() => setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
         </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="Area">
@@ -624,16 +721,16 @@ function GravitationCalculator() {
             />
           </Form.Group>
           {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-              givenValues={givenValues}
-              formula="(dA/dt) x 2m"
-              toFind="Angular Momentum"
-              insertValues={insertValues}
-              result={result}
-            />
-          </Form.Group>
-        ) : null}
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(dA/dt) x 2m"
+                toFind="Angular Momentum"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-3" controlId="Angular_momentum">
             <Form.Label>Angular Momentum (L)</Form.Label>
             <Form.Control
@@ -677,19 +774,19 @@ function GravitationCalculator() {
 
     const calcResult = () => {
       let res;
-      if (choice === "timeperiod" && mass!=="" && sma!=="") {
+      if (choice === "timeperiod" && mass !== "" && sma !== "") {
         res = Math.sqrt(
           (4 * Math.pow(Math.PI, 2) * Math.pow(sma, 3)) /
-            (6.67 * Math.pow(10, -11) * mass)
+          (6.67 * Math.pow(10, -11) * mass)
         );
         setShowSolution(true);
-      } else if (choice === "semimajoraxis" && mass!=="" && timeperiod!=="") {
+      } else if (choice === "semimajoraxis" && mass !== "" && timeperiod !== "") {
         res = Math.cbrt(
           (6.67 * Math.pow(10, -11) * mass * Math.pow(timeperiod, 2)) /
-            (4 * Math.pow(Math.PI, 2))
+          (4 * Math.pow(Math.PI, 2))
         );
         setShowSolution(true);
-      }else {
+      } else {
         setShowModal(true)
       }
       setResult(res);
@@ -698,14 +795,14 @@ function GravitationCalculator() {
     const givenValues = () => {
       if (choice === "timeperiod")
         return {
-      Mass: mass,
-      Semi_Major_Axis: sma,
-    };
-    else
-    return{
-      Mass: mass,
-      TimePeriod: timeperiod,
-    };
+          Mass: mass,
+          Semi_Major_Axis: sma,
+        };
+      else
+        return {
+          Mass: mass,
+          TimePeriod: timeperiod,
+        };
     };
 
     function reset() {
@@ -720,7 +817,7 @@ function GravitationCalculator() {
       if (choice === "timeperiod")
         return `√[(4 * π² *(${sma}${SI["sma"]})³) / (${constant["G"]} * ${mass}${SI["mass"]})]`;
       else
-      return `∛[(${constant["G"]} * ${mass}${SI["mass"]} * (${timeperiod}${SI["TimePeriod"]})²) / (4 * π²)]`;
+        return `∛[(${constant["G"]} * ${mass}${SI["mass"]} * (${timeperiod}${SI["TimePeriod"]})²) / (4 * π²)]`;
     }
     const constants = ["G"];
 
@@ -748,9 +845,9 @@ function GravitationCalculator() {
     };
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+          <Modal.Footer><Button onClick={() => setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
         </Modal>
         <Form>
           {/* dropdown */}
@@ -804,17 +901,17 @@ function GravitationCalculator() {
             />
           </Form.Group>
           {showSolution ? (
-          <Form.Group className="mb-3" controlId="acceleration">
-            <Solution
-              givenValues={givenValues()}
-              formula={choiceData().formula}
-              toFind={choiceData().name}
-              insertValues={insertValues()}
-              result={result}
-              constants={constants}
-            />
-          </Form.Group>
-        ) : null}
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues()}
+                formula={choiceData().formula}
+                toFind={choiceData().name}
+                insertValues={insertValues()}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -862,6 +959,9 @@ function GravitationCalculator() {
         break;
       case "Kepler's Second Law":
         currentCall = CalculatorKeplerSecondLaw();
+        break;
+      case "Acceleration Due to Gravity":
+        currentCall = Gravity();
         break;
       case "Kepler's Third Law":
         currentCall = CalculatorKeplerThirdLaw();
