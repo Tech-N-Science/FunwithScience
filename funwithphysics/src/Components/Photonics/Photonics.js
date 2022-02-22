@@ -64,6 +64,15 @@ export default function Photonics() {
       details: `The power of a lens is defined as its ability to converge or diverge the beam of light that falls on it.`,
       dimension: "L¹",
     },
+    {
+      topic: "Refractive Index",
+      formula: "μ = sin(i) / sin(r), where i is the Angle of Incidence and r is the Angle of Refraction",
+      siunit: "No unit",
+      process: `In order to find the Refractive-Index of a medium relative to vacuum, we must know the angle of Incidence(i) and the angle of Refraction(r).Using these values in Snell's Law,we can easily find the Refractive Index of the medium.`,
+      details: `The Refractive-Index of a medium relative to vacuum, can be defined as the ratio of the speed of light in vacuum to the speed of light in the medium.Using Snell's Law of Refraction,it can be closely approximated to be equal to
+      the ratio of sine of angle of Incidence to the sine of angle of Refraction.Snell's Law describes how light bends when traveling from one medium to the next.`,
+      dimension: "NA ",
+    },
   ];
 
   return (
