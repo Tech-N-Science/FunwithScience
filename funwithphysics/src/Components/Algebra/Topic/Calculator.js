@@ -387,7 +387,7 @@ function Calculator() {
       for (var i = 0; i < a.length; i++) {
         var found = false;
         for (var j = 0; j < b.length; j++) {
-          if (b[j] == a[i]) {
+          if (b[j] === a[i]) {
             found = true;
             break;
           }
@@ -403,7 +403,7 @@ function Calculator() {
       for (let i = 0; i < b.length; i++) {
         let found = false;
         for (let j = 0; j < a.length; j++) {
-          if (a[j] == b[i]) {
+          if (a[j] === b[i]) {
             found = true;
             break;
           }
@@ -416,28 +416,28 @@ function Calculator() {
 
       var aonly = [];
       for (let i = 0; i < a.length; i++) {
-        var found = false;
+        var found1 = false;
         for (let j = 0; j < b.length; j++) {
-          if (b[j] == a[i]) {
-            found = true;
+          if (b[j] === a[i]) {
+            found1 = true;
             break;
           }
         }
-        if (!found)
+        if (!found1)
           aonly.push(a[i]);
       }
       setOnlyA(aonly);
 
       var bonly = [];
       for (let i = 0; i < b.length; i++) {
-        var found = false;
+        var found2 = false;
         for (let j = 0; j < a.length; j++) {
-          if (b[i] == a[j]) {
-            found = true;
+          if (b[i] === a[j]) {
+            found2 = true;
             break;
           }
         }
-        if (!found)
+        if (!found2)
           bonly.push(b[i]);
       }
       setOnlyB(bonly);
@@ -622,23 +622,23 @@ function Calculator() {
       return result;
     }
     const calcResult = () => {
-
-      if (choice == "Permutation") {
-        if (n >= r)
+      
+      if (choice === "Permutation") {
+        if(n>=r)
           setResult(factorial(n) / factorial(n - r));
         else
           alert("The value of n should not be less than r.Please enter valid values for n and r");
       }
-      else if (choice == "Combination") {
-        if (n >= r)
+      else  if(choice === "Combination"){
+          if(n>=r)
           setResult(factorial(n) / (factorial(r) * factorial(n - r)));
         else
           alert("The value of n should not be less than r.Please enter valid values for n and r");
       }
     }
     useEffect(() => {
-      if (choice == "Permutation")
-        setChoiceData({ name: "Permutation" });
+      if (choice === "Permutation")
+        setChoiceData({ name:"Permutation" });
       else
         setChoiceData({ name: "Combination" });
     }, [choice]);
@@ -880,8 +880,8 @@ function Calculator() {
 
     const calcResult = () => {
       let res = 1;
-      if (choice == "Power") res = Math.pow(x, n);
-      else if (choice == "SquareRoot") res = Math.sqrt(x);
+      if (choice === "Power") res = Math.pow(x, n);
+      else if (choice === "SquareRoot") res = Math.sqrt(x);
       else res = Math.cbrt(x);
 
       setResult(res);
@@ -895,7 +895,7 @@ function Calculator() {
     function reset() {
       setResult(null);
       setX(null);
-      if (choice == "Power") setN(null);
+      if (choice === "Power") setN(null);
     }
 
     return (
@@ -1890,7 +1890,7 @@ function Calculator() {
       return 1;
     }
     const calcQuadratic = () => {
-      if (a == 0) {
+      if (a === 0) {
         setResult("Value of a cannot be zero.");
         return;
       }
@@ -2144,13 +2144,15 @@ function Calculator() {
       }
 
       for (let i = 0; i < y_power.length; i++) { // convert it to latex syntax
-        let term, x, y;
+        let x, y;
         if (x_power[i] === 0) x = "";
         else if (x_power[i] === 1) x = "x";
-        else x = "x^" + '{' + x_power[i] + '}';
+        else {          
+          x = "x^{" + x_power[i] + "}";
+        }
         if (y_power[i] === 0) y = "";
         else if (y_power[i] === 1) y = "y";
-        else y = "y^" + '{' + y_power[i] + '}';
+        else y = "y^{"+ y_power[i] + "}";
         let Coefficient = coefficient(x_coeffcient[i], y_coeffcient[i], n, i); // caluclates coefficient. Could use toFixed(0) but need to consoder a case where coefficient is ''
         let operator = '';
         if (Coefficient > 1) operator = '+'; // for positive values, use +

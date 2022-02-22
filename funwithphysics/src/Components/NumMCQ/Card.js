@@ -1,14 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import "./Card.css";
-import { Context } from "../../App";
 import { data } from "./data";
+// import React, { useContext } from "react";
+// import { Context } from "../../App";
 
 const Singlecard = (props) => {
-  const { state } = useContext(Context);
-  const user = localStorage.getItem("user");
+  // const { state } = useContext(Context);
+  // const user = localStorage.getItem("user");
 
   // To give the cards unique url as per its mcq or numerical
   const uniqueIdCheck = (type, num) => {

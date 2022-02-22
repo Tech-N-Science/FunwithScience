@@ -415,13 +415,13 @@ function Calculator() {
       setChoice(null);
     }
     const calcResult = () => {
-      if (choice == "sin-Inverse") setResult(57.29578 * Math.asin(x));
-      else if (choice == "cos-Inverse") setResult(57.29578 * Math.acos(x));
-      else if (choice == "tan-Inverse") setResult(57.29578 * Math.atan(x));
-      else if (choice == "cosec-Inverse")
+      if (choice === "sin-Inverse") setResult(57.29578 * Math.asin(x));
+      else if (choice === "cos-Inverse") setResult(57.29578 * Math.acos(x));
+      else if (choice === "tan-Inverse") setResult(57.29578 * Math.atan(x));
+      else if (choice === "cosec-Inverse")
         setResult(57.29578 * Math.asin(1 / x));
-      else if (choice == "cot-Inverse") setResult(57.29578 * Math.atan(1 / x));
-      else if (choice == "sec-Inverse") setResult(57.29578 * Math.acos(1 / x));
+      else if (choice === "cot-Inverse") setResult(57.29578 * Math.atan(1 / x));
+      else if (choice === "sec-Inverse") setResult(57.29578 * Math.acos(1 / x));
     };
     const handleChange = (e) => {
       reset();

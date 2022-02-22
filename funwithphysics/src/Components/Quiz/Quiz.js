@@ -50,7 +50,9 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [index, setIndex] = useState(-1);
 
- const [timeOut, setTimeOut] = useState(false);
+  const [timeOut, setTimeOut] = useState(false);
+
+  console.log(timeOut); //Added only for removing the warning this can be removed later when this variable is geeting used somewhere
 
 
   const handleQuestion = () => {
@@ -61,7 +63,6 @@ const Quiz = () => {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true); 
-   
 
     }
   };
