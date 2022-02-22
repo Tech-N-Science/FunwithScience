@@ -86,9 +86,10 @@ function Calculator() {
     const [i, setI] = useState(null);
     const [n, setN] = useState(null);
     const [result, setResult] = useState(null);
-    const [i1,setI1]=useState(null);
-    const [r1,setR1]=useState(null);
-    const [result2,setResult2]=useState(null);
+    const [i1, setI1] = useState(null);
+    const [r1, setR1] = useState(null);
+    const [result2, setResult2] = useState(null);
+    const [choice, setChoice] = useState("Refractive-Index");
     function reset() {
       setResult(null);
       setI(null);
@@ -97,119 +98,121 @@ function Calculator() {
       setI1(null);
       setR1(null);
     }
+    const handleChange=(e)=>{
+      setChoice(e.target.value);
+      reset(); 
+    }
     const calcResult = () => {
-      if (i > 90 || n < 1 || i<0)
+      if (i > 90 || n < 1 || i < 0)
         alert("Please Enter valid values for Refractive Index and Angle of Incidence");
       else {
         var refraction_angle = Math.asin(Math.sin(i * 0.01745329) / n);
         setResult(57.29578 * refraction_angle);
       }
     }
-    const calcResult2=()=>{
-        if(i1>90 || r1>90 || i1<0 || r1<0)
+    const calcResult2 = () => {
+      if (i1 > 90 || r1 > 90 || i1 < 0 || r1 < 0)
         alert("Please Enter valid values for Angle of Refraction and Angle of Incidence");
-        else
-        setResult2(Math.sin( 0.01745329*i1)/Math.sin( 0.01745329*r1));
+      else
+        setResult2(Math.sin(0.01745329 * i1) / Math.sin(0.01745329 * r1));
     }
     return (
       <>
-        {/* <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header>
-            Please Enter all values to get Proper answer
-          </Modal.Header>
-          <Modal.Footer>
-            <Button
-              onClick={() => setShowModal(false)}
-              class="btn btn-primary btn-sm"
+         <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select the type of calculation</Form.Label>
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              onChange={(e) => handleChange(e)}
             >
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal> */}
-        <Form>
-          <Form.Group className="mb-4">
-            <Form.Label>Angle Of Incidence</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter the Angle of Incidence in degrees"
-              onChange={(e) => setI(Number(e.target.value))}
-              value={i === null ? "" : i}
-            />
+              <option value="Refractive-Index">Refractive Index</option>
+              <option value="Refractive-Angle">Angle Of Refraction</option>
+            </Form.Control>
           </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Refractive Index</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter the value of n"
-              onChange={(e) => setN(e.target.value)}
-              value={n === null ? "" : n}
-            />
-          </Form.Group>
+        {choice == "Refractive-Angle" &&
+          <>
+            <Form>
+              <Form.Group className="mb-4">
+                <Form.Label>Angle Of Incidence</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter the Angle of Incidence in degrees"
+                  onChange={(e) => setI(Number(e.target.value))}
+                  value={i === null ? "" : i}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Refractive Index</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter the value of n"
+                  onChange={(e) => setN(e.target.value)}
+                  value={n === null ? "" : n}
+                />
+              </Form.Group>
 
-          <Form.Group className="mb-4">
-            <Form.Label>Angle of Refraction</Form.Label>
-            <Form.Control
-              readOnly
-              type="number"
-              placeholder={result === null ? "Result" : result}
-            />
-          </Form.Group>
-        </Form>
-        <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcResult}>
-            Calculate
-          </Button>
+              <Form.Group className="mb-4">
+                <Form.Label>Angle of Refraction</Form.Label>
+                <Form.Control
+                  readOnly
+                  type="number"
+                  placeholder={result === null ? "Result" : result}
+                />
+              </Form.Group>
+            </Form>
+            <div className="button-custom-grp">
+              <Button variant="primary" onClick={calcResult}>
+                Calculate
+              </Button>
 
-          <Button variant="dark" onClick={() => reset()} type="reset">
-            Reset
-          </Button>
-        </div>
-        <br/>
-        <Form.Group className="mb-4" controlId="text">
-            <Form.Text className="text">
-              <strong> OR</strong>
-              <br />
-            </Form.Text>
-          </Form.Group>
-          <br></br>
-          <Form>
-          <Form.Group className="mb-4">
-            <Form.Label>Angle Of Incidence</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter the Angle of Incidence in degrees"
-              onChange={(e) => setI1(Number(e.target.value))}
-              value={i1 === null ? "" : i1}
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Angle Of Refraction</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter the Angle of Refraction in degrees"
-              onChange={(e) => setR1(e.target.value)}
-              value={r1 === null ? "" : r1}
-            />
-          </Form.Group>
+              <Button variant="dark" onClick={() => reset()} type="reset">
+                Reset
+              </Button>
+            </div>
+          </>
+        }
+        {choice == "Refractive-Index" &&
+          <>
+            <Form>
+              <Form.Group className="mb-4">
+                <Form.Label>Angle Of Incidence</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter the Angle of Incidence in degrees"
+                  onChange={(e) => setI1(Number(e.target.value))}
+                  value={i1 === null ? "" : i1}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Angle Of Refraction</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter the Angle of Refraction in degrees"
+                  onChange={(e) => setR1(e.target.value)}
+                  value={r1 === null ? "" : r1}
+                />
+              </Form.Group>
 
-          <Form.Group className="mb-4">
-            <Form.Label>Refractive Index</Form.Label>
-            <Form.Control
-              readOnly
-              type="number"
-              placeholder={result2 === null ? "Result" : result2}
-            />
-          </Form.Group>
-        </Form>
-        <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcResult2}>
-            Calculate
-          </Button>
+              <Form.Group className="mb-4">
+                <Form.Label>Refractive Index</Form.Label>
+                <Form.Control
+                  readOnly
+                  type="number"
+                  placeholder={result2 === null ? "Result" : result2}
+                />
+              </Form.Group>
+            </Form>
+            <div className="button-custom-grp">
+              <Button variant="primary" onClick={calcResult2}>
+                Calculate
+              </Button>
 
-          <Button variant="dark" onClick={() => reset()} type="reset">
-            Reset
-          </Button>
-        </div>
+              <Button variant="dark" onClick={() => reset()} type="reset">
+                Reset
+              </Button>
+            </div>
+          </>
+        }
 
       </>
     )
