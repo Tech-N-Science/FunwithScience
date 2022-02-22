@@ -1,9 +1,9 @@
 # Fun With Science
 
-Are you bored solving the questions using the tough physics formulas?? 😩
-Are you bored of long calculations?? 😩
-Then here is a solution to your problems. 😃
-This project is a Physics calculator where the user just needs to enter the values and the project calculates the result using the formula.
+Are you bored solving the questions using the tough physics formulas? 😩
+Are you bored of long calculations? 😩
+Then here is a solution to all your problems. 😃
+This project is a Physics Calculator where the user just needs to enter the values and the project calculates the result using the formula.
 
 It really is that easy!
 
