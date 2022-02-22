@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import blackboardSvg from "../../Images/blackboard-svg.svg";
 // eslint-disable-next-line
-import computerSvg from "../../Images/computer-svg.svg";
-import addCircleSvg from "../../Images/add-circle.svg";	
-import explorerBtn from "../../Images/explorer.png";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
