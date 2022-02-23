@@ -19,7 +19,8 @@ import MathsTopic from "./Components/MathsTopic";
 import MOICalculator from "./Components/Classical_Mechanics/Topics/moi_Calulator";
 import ShmCalculator from "./Components/Classical_Mechanics/Topics/ShmCalculator";
 import RotationCalculator from "./Components/Classical_Mechanics/Topics/RotationCalculator";
-import Quiz from "./Components/Quiz/Quiz";
+import MathsQuiz from "./Components/Quiz/mathsquiz";
+import PhysicsQuiz from "./Components/Quiz/physicsquiz";
 import FluidCalculator from "./Components/Classical_Mechanics/Topics/fluidmechanics_Calculator";
 import Electromagnetism from "./Components/Electromagnetism/Electromagnetism";
 import Statistical from "./Components/Statistical/Statistical";
@@ -433,11 +434,21 @@ const App = () => {
 
           <Route
             exact
-            path="/quiz"
+            path="/physicsquiz"
             element={
               <>
                 <Navbar />
-                <Quiz />
+                <PhysicsQuiz />
+              </>
+            }
+          ></Route>
+           <Route
+            exact
+            path="/mathsquiz"
+            element={
+              <>
+                <Navbar />
+                <MathsQuiz/>
               </>
             }
           ></Route>

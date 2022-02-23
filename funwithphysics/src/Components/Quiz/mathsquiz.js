@@ -2,44 +2,44 @@ import React, { useEffect, useState } from "react";
 import "./Quiz.css";
 
 
-const Quiz = () => {
+const MathsQuiz = () => {
   const questions = [
     {
-      questionText: "The alpha radiation is not used in radiotherapy because:",
+      questionText: "The sum of two numbers is 27 and product is 182. The numbers are:",
       answerOptions: [
-        { answerText: "It is an ionizing radiation", isCorrect: false },
-        { answerText: "It is unable to penetrate human skin", isCorrect: true },
-        { answerText: "It is toxic to human tissues", isCorrect: false },
-        { answerText: "It is not cost effectiven", isCorrect: false },
+        { answerText: "12 and 13", isCorrect: false },
+        { answerText: "13 and 14", isCorrect: true},
+        { answerText: "14 and 15", isCorrect: false },
+        { answerText: "16 and 11", isCorrect: false },
       ],
     },
     {
       questionText:
-        "You are sitting inside an open vehicle moving with uniform speed. When you throw a stone vertically upwards, the stone will fall__:",
+        "The altitude of a right triangle is 7 cm less than its base. If the hypotenuse is 13 cm, the other two sides of the triangle are equal to:",
       answerOptions: [
-        { answerText: "Ahead of you", isCorrect: false },
-        { answerText: "Behind you", isCorrect: false },
-        { answerText: "Over you", isCorrect: true },
-        { answerText: "Either ahead or behind of you", isCorrect: false },
+        { answerText: " Base=10cm and Altitude=5cm", isCorrect: false },
+        { answerText: " Base=12cm and Altitude=5cm", isCorrect: true},
+        { answerText: " Base=10cm and Altitude=6cm", isCorrect: false },
+        { answerText: " Base=13cm and Altitude=12cm", isCorrect: false },
       ],
     },
     {
       questionText:
-        "On heating a pure silicon circular disc with a circular hole at the centre, the diameter of the hole: ",
+        " The sum of the reciprocals of Rehman’s ages 3 years ago and 5 years from now is 1/3. The present age of Rehman is: ",
       answerOptions: [
-        { answerText: "will expand", isCorrect: false },
-        { answerText: "will contract", isCorrect: true },
-        { answerText: "will remain constant", isCorrect: false },
-        { answerText: "may expand or contract", isCorrect: false },
+        { answerText: "7", isCorrect: true },
+        { answerText: "10", isCorrect:false},
+        { answerText: "5", isCorrect: false },
+        { answerText: "6", isCorrect: false },
       ],
     },
     {
-      questionText: "Who gave the Theory of Relativity? ",
+      questionText: " The number of multiples of 4 between 10 and 250 is: ",
       answerOptions: [
-        { answerText: "Isaac Newton", isCorrect: false },
-        { answerText: "Archimedes", isCorrect: false },
-        { answerText: "Albert Einstein", isCorrect: true },
-        { answerText: "Galileo Galilei", isCorrect: false },
+        { answerText: "50", isCorrect: false },
+        { answerText: "40", isCorrect: false },
+        { answerText: "60", isCorrect: true },
+        { answerText: "30", isCorrect: false },
       ],
     },
   ];  
@@ -164,4 +164,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default MathsQuiz;

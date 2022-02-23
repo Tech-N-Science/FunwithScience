@@ -64,7 +64,7 @@ export function LearnMore() {
               <div className="dropdown-content">
                 <Link to="/maths">Calculator</Link>
                 <Link to="/MathQuestion">Questions</Link>
-                <Link to="/quiz">Quiz</Link>
+                <Link to="/mathsquiz">Quiz</Link>
               </div>
             </div>
           </li>
@@ -82,7 +82,7 @@ export function LearnMore() {
               <div className="dropdown-content">
                 <Link to="/physics">Calculator</Link>
                 <Link to="/questions">Questions</Link>
-                <Link to="/quiz">Quiz</Link>
+                <Link to="/physicsquiz">Quiz</Link>
               </div>
             </div>
           </li>

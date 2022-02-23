@@ -332,12 +332,14 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
     {
       topic: "Acceleration Due to Gravity",
       details:
-        "Accelration due to gravity changes as one moves towards or away from the Earth's centre.This change can be understood and analysed using the Newton's Law of Gravitation.As altitude or height h increases above the earth’s surface, the value of acceleration due to gravity falls.Similarly as the depth into the earth's surface increases, the value of acceleration due to gravity decreases to zero.",
-      formula: "g = GmMd⁻²",
+        "Accelration due to gravity changes as one moves towards or away from the Earth's centre.This change can be understood and analysed using the Newton's Law of Gravitation.As altitude or height h increases above the earth’s surface, the value of acceleration due to gravity falls.Similarly as the depth into the earth's surface increases, the value of acceleration due to gravity decreases until it becomes zero at the Earth's centre.",
+      formula: [`g`, <sub>1</sub>, `=g(1-2h/R) , where h is height above Earth's surface`,
+        <br />,
+        `g`, <sub>2</sub>, `=g(1-d/R) ,  where d is depth below Earth's surface`],
       process:
         "The Acceleration due to Gravity(g) , at any height above or below the Earth's surface is calculated using the above formulae,where d is the distance above/below the earth's surface, and R is the earth's Radius",
-      siunit: "F = kg·m/s² or N",
-      dimension: "G = M L T⁻²",
+      siunit: "m/s² ",
+      dimension: [`G = L T`,<sup>-2</sup>],
     },
     {
       topic: "Gravitational Field",
