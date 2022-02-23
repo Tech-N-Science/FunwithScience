@@ -68,5 +68,7 @@ export const SI = {
   SmallReading: " mm","Least Count":" mm","LeastCount":" mm" ,"Smallest_Reading":" mm","MSR":" mm","VSR":" mm","CSR":" mm","Least_Count":" mm","Distance_Moved":" mm","Pitch":" mm","Reading":" mm",
   Stress: " Pa","Young's Modulus":" Pa","Bulk Modulus":" Pa","Young_Modulus":" Pa","Pressure":" Pa","pressure":" Pa",
   TempChange: " K","Temperature_Change":" K","tempcold":" K","temphot":" K","temperature":" K","Temperature (T)":" Kelvin","Temperature":" k",
-  ExpansionCoeff:" K⁻¹","Expansion_Coeff":" K⁻¹"
+  ExpansionCoeff:" K⁻¹","Expansion_Coeff":" K⁻¹",
+  incidence:"°",
+  refraction:"°",
 };
