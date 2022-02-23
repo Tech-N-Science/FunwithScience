@@ -151,7 +151,7 @@ function Calculator() {
               <option value="Refractive-Angle">Angle Of Refraction</option>
             </Form.Control>
           </Form.Group>
-        {choice == "Refractive-Angle" &&
+        {choice === "Refractive-Angle" &&
           <>
             <Form>
               <Form.Group className="mb-4">
@@ -206,7 +206,7 @@ function Calculator() {
             </div>
           </>
         }
-        {choice == "Refractive-Index" &&
+        {choice === "Refractive-Index" &&
           <>
             <Form>
               <Form.Group className="mb-4">
