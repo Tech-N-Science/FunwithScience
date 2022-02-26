@@ -90,23 +90,6 @@ function Calculator() {
     const [r1, setR1] = useState(null);
     const [result2, setResult2] = useState(null);
     const [choice, setChoice] = useState("Refractive-Index");
-    const [showSolution1, setShowSolution1] = useState(false);
-    const [showSolution2, setShowSolution2] = useState(false);
-
-    const givenValues1 = {
-      i: i1,
-      r: r1,
-    };
-
-    const insertValues1 = `sin(${i1}) / sin(${r1})`;
-
-    const givenValues2 = {
-      i: i,
-      refractiveIndex: n,
-    };
-
-    const insertValues2 = `${n} / sin(${i})`;
-
     function reset() {
       setResult(null);
       setI(null);
@@ -114,8 +97,6 @@ function Calculator() {
       setResult2(null);
       setI1(null);
       setR1(null);
-      setShowSolution1(false);
-      setShowSolution2(false);
     }
     const handleChange=(e)=>{
       setChoice(e.target.value);
@@ -126,17 +107,14 @@ function Calculator() {
         alert("Please Enter valid values for Refractive Index and Angle of Incidence");
       else {
         var refraction_angle = Math.asin(Math.sin(i * 0.01745329) / n);
-        setShowSolution1(true);
         setResult(57.29578 * refraction_angle);
       }
     }
     const calcResult2 = () => {
       if (i1 > 90 || r1 > 90 || i1 < 0 || r1 < 0)
         alert("Please Enter valid values for Angle of Refraction and Angle of Incidence");
-      else{        
-        setShowSolution2(true);
+      else
         setResult2(Math.sin(0.01745329 * i1) / Math.sin(0.01745329 * r1));
-      }
     }
     return (
       <>
@@ -151,7 +129,7 @@ function Calculator() {
               <option value="Refractive-Angle">Angle Of Refraction</option>
             </Form.Control>
           </Form.Group>
-        {choice === "Refractive-Angle" &&
+        {choice == "Refractive-Angle" &&
           <>
             <Form>
               <Form.Group className="mb-4">
@@ -171,20 +149,7 @@ function Calculator() {
                   onChange={(e) => setN(e.target.value)}
                   value={n === null ? "" : n}
                 />
-              </Form.Group>              
-              
-              {showSolution1 ? (
-                <Form.Group className="mb-3" controlId="acceleration">
-                  <Solution
-                    givenValues={givenValues2}
-                    formula="μ / sin(i)"
-                    toFind="Angle of Refraction sin(r)"
-                    insertValues={insertValues2}
-                    result={result}
-                    // constants={constants}
-                  />
-                </Form.Group>
-              ) : null}
+              </Form.Group>
 
               <Form.Group className="mb-4">
                 <Form.Label>Angle of Refraction</Form.Label>
@@ -206,7 +171,7 @@ function Calculator() {
             </div>
           </>
         }
-        {choice === "Refractive-Index" &&
+        {choice == "Refractive-Index" &&
           <>
             <Form>
               <Form.Group className="mb-4">
@@ -227,19 +192,6 @@ function Calculator() {
                   value={r1 === null ? "" : r1}
                 />
               </Form.Group>
-
-              {showSolution2 ? (
-                <Form.Group className="mb-3" controlId="acceleration">
-                  <Solution
-                    givenValues={givenValues1}
-                    formula="sin(i) / sin(r)"
-                    toFind="Refractive Index (μ)"
-                    insertValues={insertValues1}
-                    result={result2}
-                    // constants={constants}
-                  />
-                </Form.Group>
-              ) : null}
 
               <Form.Group className="mb-4">
                 <Form.Label>Refractive Index</Form.Label>
