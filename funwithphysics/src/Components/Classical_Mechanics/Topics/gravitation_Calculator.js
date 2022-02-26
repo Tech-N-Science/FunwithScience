@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../../PysicsStyles/physicscalculator.css'
+import "../../PysicsStyles/physicscalculator.css";
 import { Form, Button } from "react-bootstrap";
 
 import { Helmet } from "react-helmet";
@@ -28,13 +28,19 @@ function GravitationCalculator() {
       topic: "Acceleration Due to Gravity",
       details:
         "Accelration due to gravity changes as one moves towards or away from the Earth's centre.This change can be understood and analysed using the Newton's Law of Gravitation.As altitude or height h increases above the earth’s surface, the value of acceleration due to gravity falls.Similarly as the depth into the earth's surface increases, the value of acceleration due to gravity decreases until it becomes zero at the Earth's centre.",
-      formula: [`g`, <sub>1</sub>, `=g(1-2h/R) , where h is height above Earth's surface`,
+      formula: [
+        `g`,
+        <sub>1</sub>,
+        `=g(1-2h/R) , where h is height above Earth's surface`,
         <br />,
-        `g`, <sub>2</sub>, `=g(1-d/R) ,  where d is depth below Earth's surface`],
+        `g`,
+        <sub>2</sub>,
+        `=g(1-d/R) ,  where d is depth below Earth's surface`,
+      ],
       process:
         "The Acceleration due to Gravity(g) , at any height above or below the Earth's surface is calculated using the above formulae,where d is the distance above/below the earth's surface, and R is the earth's Radius",
       siunit: "m/s² ",
-      dimension: [`G = L T`,<sup>-2</sup>],
+      dimension: [`G = L T`, <sup>-2</sup>],
     },
     {
       topic: "Gravitational Field",
@@ -88,23 +94,15 @@ function GravitationCalculator() {
     },
   ];
 
-  const page = Gravitation_list.filter(
-    (data) => data.topic === topic
-  );
+  const page = Gravitation_list.filter((data) => data.topic === topic);
   const details = page[0];
-
-
-
-
-
-
 
   //Acceleration due to gravity
   const Gravity = () => {
     const [distance, setDistance] = useState(null);
     const [aboveSurface, setAboveSurface] = useState(null);
     const [belowSurface, setBelowSurface] = useState(null);
-    const gSurface = 9.78;
+    const gSurface = 9.8;
     const earthRadius = 6378000;
     const earthMass = 5.9722 * Math.pow(10, 24);
 
@@ -117,11 +115,14 @@ function GravitationCalculator() {
       if (distance <= 1000)
         setAboveSurface(gSurface * (1 - (2 * distance) / earthRadius));
       else if (distance > 1000)
-        setAboveSurface(6.67 * Math.pow(10, -11) * earthMass * Math.pow(earthRadius + distance, -2));
-      setBelowSurface(gSurface * (1 - (distance / earthRadius)));
-    }
-
-
+        setAboveSurface(
+          6.67 *
+            Math.pow(10, -11) *
+            earthMass *
+            Math.pow(earthRadius + distance, -2)
+        );
+      setBelowSurface(gSurface * (1 - distance / earthRadius));
+    };
 
     return (
       <>
@@ -132,7 +133,6 @@ function GravitationCalculator() {
               onChange={(e) => setDistance(Number(e.target.value))}
               type="number"
               value={distance === null ? "" : distance}
-             
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="distance">
@@ -149,7 +149,6 @@ function GravitationCalculator() {
               disabled="true"
               type="number"
               value={belowSurface === null ? "" : belowSurface}
-              
             />
           </Form.Group>
         </Form>
@@ -164,19 +163,7 @@ function GravitationCalculator() {
         </div>
       </>
     );
-  }
-
-
-
-
-
-
-
-
-
-
-
-
+  };
 
   //Gravitational Force
   function CalculatorGravitationalForce() {
@@ -444,7 +431,7 @@ function GravitationCalculator() {
         setResult(res);
         setShowSolution(true);
       } else {
-        setShowModal(true)
+        setShowModal(true);
       }
     };
 
@@ -468,8 +455,17 @@ function GravitationCalculator() {
     return (
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={() => setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="Mass">
@@ -562,7 +558,7 @@ function GravitationCalculator() {
         setShowSolution(true);
         setResult(res);
       } else {
-        setShowModal(true)
+        setShowModal(true);
       }
     };
 
@@ -584,8 +580,17 @@ function GravitationCalculator() {
     return (
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={() => setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="Mass">
@@ -666,7 +671,7 @@ function GravitationCalculator() {
         setResult(res);
         setShowSolution(true);
       } else {
-        setShowModal(true)
+        setShowModal(true);
       }
     };
 
@@ -689,8 +694,17 @@ function GravitationCalculator() {
     return (
       <React.Fragment>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={() => setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="Area">
@@ -777,17 +791,21 @@ function GravitationCalculator() {
       if (choice === "timeperiod" && mass !== "" && sma !== "") {
         res = Math.sqrt(
           (4 * Math.pow(Math.PI, 2) * Math.pow(sma, 3)) /
-          (6.67 * Math.pow(10, -11) * mass)
+            (6.67 * Math.pow(10, -11) * mass)
         );
         setShowSolution(true);
-      } else if (choice === "semimajoraxis" && mass !== "" && timeperiod !== "") {
+      } else if (
+        choice === "semimajoraxis" &&
+        mass !== "" &&
+        timeperiod !== ""
+      ) {
         res = Math.cbrt(
           (6.67 * Math.pow(10, -11) * mass * Math.pow(timeperiod, 2)) /
-          (4 * Math.pow(Math.PI, 2))
+            (4 * Math.pow(Math.PI, 2))
         );
         setShowSolution(true);
       } else {
-        setShowModal(true)
+        setShowModal(true);
       }
       setResult(res);
     };
@@ -818,7 +836,7 @@ function GravitationCalculator() {
         return `√[(4 * π² *(${sma}${SI["sma"]})³) / (${constant["G"]} * ${mass}${SI["mass"]})]`;
       else
         return `∛[(${constant["G"]} * ${mass}${SI["mass"]} * (${timeperiod}${SI["TimePeriod"]})²) / (4 * π²)]`;
-    }
+    };
     const constants = ["G"];
 
     const choiceData = () => {
@@ -846,8 +864,17 @@ function GravitationCalculator() {
     return (
       <>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
-          <Modal.Header >Please Enter all values to get Proper answer</Modal.Header>
-          <Modal.Footer><Button onClick={() => setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
         </Modal>
         <Form>
           {/* dropdown */}
@@ -917,9 +944,7 @@ function GravitationCalculator() {
               readOnly
               type="number"
               placeholder={
-                result === ""
-                  ? "Result"
-                  : result + " " + choiceData().mainunit
+                result === "" ? "Result" : result + " " + choiceData().mainunit
               }
             />
             <Form.Text className="text-muted">
