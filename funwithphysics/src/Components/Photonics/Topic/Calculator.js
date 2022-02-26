@@ -91,6 +91,7 @@ function Calculator() {
     const [choice, setChoice] = useState("Refractive-Index");
     const [showSolution1, setShowSolution1] = useState(false);
     const [showSolution2, setShowSolution2] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const givenValues1 = {
       i: i1,
@@ -121,24 +122,47 @@ function Calculator() {
       reset(); 
     }
     const calcResult = () => {
-      if (i > 90 || n < 1 || i < 0)
-        alert("Please Enter valid values for Refractive Index and Angle of Incidence");
-      else {
-        var refraction_angle = Math.asin(Math.sin(i * 0.01745329) / n);
-        setShowSolution1(true);
-        setResult(57.29578 * refraction_angle);
+      if(i !== null && n !== null){
+        if (i > 90 || n < 1 || i < 0)
+          alert("Please Enter valid values for Refractive Index and Angle of Incidence");
+        else {
+          var refraction_angle = Math.asin(Math.sin(i * 0.01745329) / n);
+          setShowSolution1(true);
+          setResult(57.29578 * refraction_angle);
+        }
       }
+      else{
+        setShowModal(true);
+      }      
     }
     const calcResult2 = () => {
-      if (i1 > 90 || r1 > 90 || i1 < 0 || r1 < 0)
-        alert("Please Enter valid values for Angle of Refraction and Angle of Incidence");
-      else{        
-        setShowSolution2(true);
-        setResult2(Math.sin(0.01745329 * i1) / Math.sin(0.01745329 * r1));
-      }
+      if(i1 !== null && r1 !== null){
+        if (i1 > 90 || r1 > 90 || i1 < 0 || r1 < 0)
+          alert("Please Enter valid values for Angle of Refraction and Angle of Incidence");
+        else{        
+          setShowSolution2(true);
+          setResult2(Math.sin(0.01745329 * i1) / Math.sin(0.01745329 * r1));
+        }
+      }      
+      else{
+        setShowModal(true);
+      } 
     }
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
          <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
             <Form.Control
