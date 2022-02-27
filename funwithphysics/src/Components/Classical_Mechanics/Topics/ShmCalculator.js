@@ -61,6 +61,7 @@ function ShmCalculator() {
       setWave_length(null);
       setVelocity(null);
       setFreq(null);
+      setShowSolution(false);
     };
 
     const choice_data = () => {
@@ -88,6 +89,11 @@ function ShmCalculator() {
           setters: [setWave_length, setVelocity],
           getters: [wave_length, velocity],
           formula: "v / λ",
+          insertValues : `${velocity}${SI["Wave Velocity"]} / ${wave_length}${SI["Wave Length"]}`,
+          givenValues : {
+              velocity: velocity,
+              wavelength: wave_length,
+          },
         };
       else if (choice === "time period")
         return {
@@ -138,15 +144,14 @@ function ShmCalculator() {
             }  
             break;
           case "frequency":
-            if(velocity !== null && freq !== null){
-              res = velocity / freq;
+            if(velocity !== null && wave_length !== null){
+              res = velocity / wave_length;
               setShowSolution(true);
             }            
             else {
               setShowModal(true);
               return;
             }
-            res = velocity / wave_length;
             break;
           case "time period":
             if(freq !== null){

@@ -41,7 +41,7 @@ export const SI = {
   φ:"ev",KEmax:"ev",E:"ev",Eₙ:"ev",
   field: "N/Kg", "Gravitational Field" : "N/kg","ElectricField" : "V/m",
   time: " s",T: " s", "Time": " s", "TimePeriod":" s","Time Period":" s","Half Life":" s","Mean Life":" s","Time_year":" Year",
-  frequency:"s⁻¹",
+  frequency:"s⁻¹ or Hz",
   angular_momentum: "kg-m²/s", "Angular Momentum": "kg-m²/s",
   sma: " m", "Semi-major axis": " m", "Semi_Major_Axis": " m",
   massnumber: "",
