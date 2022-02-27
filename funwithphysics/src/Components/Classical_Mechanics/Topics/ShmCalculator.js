@@ -17,7 +17,7 @@ function ShmCalculator() {
       details: `Waves can be described as a dynamic disturbance of one or more than one quantities, which propagates through a medium.`,
       formula: "λ = v/f",
       process:
-        "λ is the wavelength here, v is the wave velocity, f is the frequency of the wave length.",
+        "λ is the wavelength here, v is the wave velocity, f is the frequency of the Wave Length.",
       siunit: "Wave Length: m, Frequency: 1/s, Time: s, velocity: m/s",
       dimension: "Wave Length: L, Frequency: 1/T, Time: T, velocity: L/T",
     },
@@ -50,19 +50,12 @@ function ShmCalculator() {
     const [wave_length, setWave_length] = useState(null);
     const [velocity, setVelocity] = useState(null);
     const [freq, setFreq] = useState(null);
-    const [choice, setChoice] = useState("wave length");
+    const [choice, setChoice] = useState("Wave Length");
     const [plank, setPlank] = useState(6.62607015 * Math.pow(10, -34));
     const [showModal, setShowModal] = useState(false);
-    const [showSolutionWaveLength, setShowSolutionWaveLength] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
 
-    const givenValuesWaveLength = {
-      velocity: velocity,
-      Frequency: freq,
-    };
-
-    const insertValuesWaveLength = `${velocity}${SI["Wave Velocity"]} / ${freq}${SI["Frequency"]}`;  
     
-
     const handle_reset = () => {
       setResult(null);
       setWave_length(null);
@@ -71,14 +64,20 @@ function ShmCalculator() {
     };
 
     const choice_data = () => {
-      if (choice === "wave length")
+      if (choice === "Wave Length")
         return {
-          name: "wave length",
+          name: "Wave Length",
           mainunit: "m",
           quantities: ["Wave Velocity", "Frequency"],
           subunits: ["m/s", "Hz"],
           setters: [setVelocity, setFreq],
           getters: [velocity, freq],
+          formula: "v / f",
+          insertValues : `${velocity}${SI["Wave Velocity"]} / ${freq}${SI["Frequency"]}`,
+          givenValues : {
+              velocity: velocity,
+              frequency: freq,
+          },
         };
       else if (choice === "frequency")
         return {
@@ -88,6 +87,7 @@ function ShmCalculator() {
           subunits: ["m", "m/s"],
           setters: [setWave_length, setVelocity],
           getters: [wave_length, velocity],
+          formula: "v / λ",
         };
       else if (choice === "time period")
         return {
@@ -97,6 +97,7 @@ function ShmCalculator() {
           subunits: ["Hz"],
           setters: [setFreq],
           getters: [freq],
+          formula: "1 / f",
         };
       else if (choice === "velocity")
         return {
@@ -106,6 +107,7 @@ function ShmCalculator() {
           subunits: ["m", "Hz"],
           setters: [setWave_length, setFreq],
           getters: [wave_length, freq],
+          formula: "λ * f",
         };
       else if (choice === "energy")
         return {
@@ -115,16 +117,20 @@ function ShmCalculator() {
           subunits: ["Hz", "m² kg / s"],
           setters: [setFreq, setPlank],
           getters: [freq, plank],
+          formula: "6.62607015 x 10^-34 * f",
         };
     };
+
+    const givenValues = choice_data().givenValues;
+    const insertValues = choice_data().insertValues;
 
     const handleClick = () => {
         let res;
         switch (choice) {
-          case "wave length":            
+          case "Wave Length":            
             if(velocity !== null && freq !== null){
               res = velocity / freq;
-              setShowSolutionWaveLength(true);
+              setShowSolution(true);
             }            
             else {
               setShowModal(true);
@@ -132,16 +138,45 @@ function ShmCalculator() {
             }  
             break;
           case "frequency":
+            if(velocity !== null && freq !== null){
+              res = velocity / freq;
+              setShowSolution(true);
+            }            
+            else {
+              setShowModal(true);
+              return;
+            }
             res = velocity / wave_length;
             break;
           case "time period":
-            res = 1 / freq;
+            if(freq !== null){
+              res = 1 / freq;
+              setShowSolution(true);
+            }            
+            else {
+              setShowModal(true);
+              return;
+            }
             break;
           case "velocity":
-            res = wave_length * freq;
+            if(wave_length !== null && freq !== null){
+              res = wave_length * freq;
+              setShowSolution(true);
+            }            
+            else {
+              setShowModal(true);
+              return;
+            }
             break;
           case "energy":
-            res = 6.62607015 * Math.pow(10, -34) * freq;
+            if(freq !== null){
+              res = 6.62607015 * Math.pow(10, -34) * freq;
+              setShowSolution(true);
+            }            
+            else {
+              setShowModal(true);
+              return;
+            }            
             break;
           default:
             break;
@@ -174,7 +209,7 @@ function ShmCalculator() {
               className="select-custom-res"
               onChange={(e) => setChoice(e.target.value)}
             >
-              <option value="wave length">λ : wave length</option>
+              <option value="Wave Length">λ : Wave Length</option>
               <option value="frequency">f : frequency </option>
               <option value="velocity">v : wave velocity</option>
               <option value="energy"> e: energy </option>
@@ -229,13 +264,13 @@ function ShmCalculator() {
             />
           </Form.Group>
 
-          {showSolutionWaveLength ? (
+          {showSolution ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
-                givenValues={givenValuesWaveLength}
-                formula="v/f"
-                toFind="wave Length"
-                insertValues={insertValuesWaveLength}
+                givenValues={givenValues}
+                formula={choice_data().formula}
+                toFind={choice_data().name}
+                insertValues={insertValues}
                 result={result}
               />
             </Form.Group>
