@@ -227,7 +227,7 @@ function ShmCalculator() {
               className="select-custom-res"
               onChange={(e) => {
                 setChoice(e.target.value);
-                setResult(false);
+                setResult(null);
                 setShowSolution(false)}
               }
             >
@@ -361,6 +361,7 @@ function ShmCalculator() {
         case "pendulum":
           if(length !== null){
             res = 2 * pi * Math.sqrt(length / g);
+            setShowSolution(true);
           }           
           else {
             setShowModal(true);
@@ -370,6 +371,7 @@ function ShmCalculator() {
         case "spring-mass":
           if(mass !== null && springConst !== null){
             res = 2 * pi * Math.sqrt(mass / springConst);
+            setShowSolution(true);
           }          
           else {
             setShowModal(true);
@@ -399,7 +401,7 @@ function ShmCalculator() {
     const choice_data = () => {
       if (choiceOsc === "shm")
         return {
-          name: "General Eqn: SHM",
+          name: "SHM",
           mainunit: "m",
           quantities: [
             "Amplitude",
@@ -410,6 +412,14 @@ function ShmCalculator() {
           subunits: ["m/s", "rad s^-1", "s", "rad"],
           setters: [setAmplitude, setOmega, setTime, setPhi],
           getters: [amplitude, omega, time, phi],
+          formula: "x = A sin(ωt + Φ)",
+          insertValues : `${amplitude}${SI["length"]} sin(${omega} * ${SI["ω"]}${time}${SI["time"]} + ${phi}${SI["φ"]})`,
+          givenValues : {
+              amplitude: amplitude,
+              ω: omega,
+              time: time,
+              φ: phi,
+          },
         };
       else if (choiceOsc === "pendulum")
         return {
@@ -430,6 +440,9 @@ function ShmCalculator() {
           getters: [mass, springConst],
         };
     };
+    
+    const givenValues = choice_data().givenValues;
+    const insertValues = choice_data().insertValues;
 
     return (
       <React.Fragment>
@@ -453,7 +466,12 @@ function ShmCalculator() {
             <Form.Control
               as="select"
               className="select-custom-res"
-              onChange={(e) => setChoiceOsc(e.target.value)}
+              onChange={(e) => 
+                {
+                  setChoiceOsc(e.target.value);
+                  setResult(null);
+                  setShowSolution(false)}
+                }
             >
               <option value="shm">General Equation: SHM</option>
               <option value="pendulum">Simple Pendulum </option>
@@ -538,8 +556,19 @@ function ShmCalculator() {
               }
               readOnly={choice_data().getters[3] === undefined ? true : false}
             />
-          </Form.Group>         
+          </Form.Group>
           
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula={choice_data().formula}
+                toFind={choice_data().name}
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-4">
             <Form.Control
