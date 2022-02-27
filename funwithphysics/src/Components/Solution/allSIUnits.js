@@ -36,7 +36,7 @@ export const SI = {
   distance:" m",Radius:" m",R:" m",s:" m",r1:" m",r2:" m",H:" m","Distance":" m",λ:"m",Length: " m","Relative Length": "m","Wave Length": "m","Half_Length":" m","Image_Distance": " m","Object_Distance":" m","Focal Length":" m","Focal_Length":" m","Change_Length":" m","Change_Volume":" m³",
   microstates: "N",
   "Radius of Nucleus":" m",
-  energy: " Joule","relative Kinetic Energy":"Joule","Energy Released": " Joule","Energy Potential Energy":" Joule","Binding Energy":" Joule","Binding Energy per Nucleon":" joule/nucleon","Heat transfered (dQ)":" Joule","Change in energy":" Joule","The amount of heat":" Joule","Work done by the system":" Joule","Kinetic Energy":" Joules","Internal Energy":" Joules",
+  energy: " Joule","relative Kinetic Energy":"Joule","Energy Released": " Joule","Energy Potential Energy":" Joule","Binding Energy":" Joule","Binding Energy per Nucleon":" joule/nucleon","Heat transfered (dQ)":" Joule","Change in energy":" Joule","The amount of heat":" Joule","Work done by the system":" Joule","Kinetic Energy":" Joules","Internal Energy":" Joules","Energy":" Joules",
   entropy:" joules per kelvin","Change in Entropy (dS)":" joules per kelvin",
   φ:"ev",KEmax:"ev",E:"ev",Eₙ:"ev",
   field: "N/Kg", "Gravitational Field" : "N/kg","ElectricField" : "V/m",

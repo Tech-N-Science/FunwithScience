@@ -133,6 +133,10 @@ function ShmCalculator() {
           setters: [setFreq, setPlank],
           getters: [freq, plank],
           formula: "6.62607015 x 10^-34 * f",
+          insertValues : `6.62607015 x 10^-34 * ${freq}${SI["frequency"]}`,
+          givenValues : {
+              frequency: freq,
+          },
         };
     };
 
