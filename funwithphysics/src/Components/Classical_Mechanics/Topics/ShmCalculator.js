@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import '../../PysicsStyles/physicscalculator.css'
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router-dom";
+import Solution from "../../Solution/Solution";
+import { SI } from "../../Solution/allSIUnits";
 
 function ShmCalculator() {
   let { topic } = useParams();
@@ -50,6 +52,16 @@ function ShmCalculator() {
     const [freq, setFreq] = useState(null);
     const [choice, setChoice] = useState("wave length");
     const [plank, setPlank] = useState(6.62607015 * Math.pow(10, -34));
+    const [showModal, setShowModal] = useState(false);
+    const [showSolutionWaveLength, setShowSolutionWaveLength] = useState(false);
+
+    const givenValuesWaveLength = {
+      velocity: velocity,
+      Frequency: freq,
+    };
+
+    const insertValuesWaveLength = `${velocity}${SI["Wave Velocity"]} / ${freq}${SI["Frequency"]}`;  
+    
 
     const handle_reset = () => {
       setResult(null);
@@ -107,32 +119,52 @@ function ShmCalculator() {
     };
 
     const handleClick = () => {
-      let res;
-      switch (choice) {
-        case "wave length":
-          res = velocity / freq;
-          break;
-        case "frequency":
-          res = velocity / wave_length;
-          break;
-        case "time period":
-          res = 1 / freq;
-          break;
-        case "velocity":
-          res = wave_length * freq;
-          break;
-        case "energy":
-          res = 6.62607015 * Math.pow(10, -34) * freq;
-          break;
-        default:
-          break;
-      }
-      setResult(res);
+        let res;
+        switch (choice) {
+          case "wave length":            
+            if(velocity !== null && freq !== null){
+              res = velocity / freq;
+              setShowSolutionWaveLength(true);
+            }            
+            else {
+              setShowModal(true);
+              return;
+            }  
+            break;
+          case "frequency":
+            res = velocity / wave_length;
+            break;
+          case "time period":
+            res = 1 / freq;
+            break;
+          case "velocity":
+            res = wave_length * freq;
+            break;
+          case "energy":
+            res = 6.62607015 * Math.pow(10, -34) * freq;
+            break;
+          default:
+            break;
+        }
+        setResult(res);
     };
 
     return (
       <React.Fragment>
         {/* <Navbar/> */}
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -196,6 +228,18 @@ function ShmCalculator() {
               }
             />
           </Form.Group>
+
+          {showSolutionWaveLength ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesWaveLength}
+                formula="v/f"
+                toFind="wave Length"
+                insertValues={insertValuesWaveLength}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-4">
             <Form.Control
