@@ -443,6 +443,12 @@ function ShmCalculator() {
           subunits: ["Hz", "N/m"],
           setters: [setMass, setSpringConst],
           getters: [mass, springConst],
+          formula: "T=2π√(m/k)",
+          insertValues : `2 * 3.14 √(${mass}${SI["mass"]} / ${springConst}${SI["k"]})`,
+          givenValues : {
+              mass : mass,
+              k : springConst
+          },
         };
     };
     
