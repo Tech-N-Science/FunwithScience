@@ -225,7 +225,11 @@ function ShmCalculator() {
             <Form.Control
               as="select"
               className="select-custom-res"
-              onChange={(e) => setChoice(e.target.value)}
+              onChange={(e) => {
+                setChoice(e.target.value);
+                setResult(false);
+                setShowSolution(false)}
+              }
             >
               <option value="Wave Length">λ : Wave Length</option>
               <option value="frequency">f : frequency </option>
