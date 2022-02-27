@@ -74,7 +74,7 @@ function ShmCalculator() {
           setters: [setVelocity, setFreq],
           getters: [velocity, freq],
           formula: "v / f",
-          insertValues : `${velocity}${SI["Wave Velocity"]} / ${freq}${SI["Frequency"]}`,
+          insertValues : `${velocity}${SI["Wave Velocity"]} / ${freq}${SI["frequency"]}`,
           givenValues : {
               velocity: velocity,
               frequency: freq,
@@ -104,6 +104,10 @@ function ShmCalculator() {
           setters: [setFreq],
           getters: [freq],
           formula: "1 / f",
+          insertValues : `1 / ${freq}${SI["frequency"]}`,
+          givenValues : {
+            frequency: freq,
+          },
         };
       else if (choice === "velocity")
         return {
