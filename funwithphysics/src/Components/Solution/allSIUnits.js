@@ -9,7 +9,7 @@ export const SI = {
   m2: "kg",
   acceleration: "m/s²",α:"m/s²",a:"m/s²",t:"s",g: "m/s²",
   L: "kg m²/s",I:"kg m²","M.O.I":"kg m²",τ:"N m",W:"joule",P:"watt","K.E.":"joule",
-  velocity: " m/s","final Velocity": " m/s","relative velocity": " m/s","Escape Velocity": " m/s","Drift Velocity":" m/s","speed":" m/s","Speed":" m/s","Velocity":" m/s",ω:"m/s","Wave Velocity": " m/s",
+  velocity: " m/s","final Velocity": " m/s","relative velocity": " m/s","Escape Velocity": " m/s","Drift Velocity":" m/s","speed":" m/s","Speed":" m/s","Velocity":" m/s",ω:"m/s","Wave Velocity": " m/s","Initial Velocity": " m/s",
   u1: "m/s",
   u2: "m/s",
   v1: "m/s",

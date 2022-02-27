@@ -118,6 +118,11 @@ function ShmCalculator() {
           setters: [setWave_length, setFreq],
           getters: [wave_length, freq],
           formula: "λ * f",
+          insertValues : `${wave_length}${SI["Wave Length"]} * ${freq}${SI["frequency"]}`,
+          givenValues : {
+              wavelength: wave_length,
+              frequency: freq,
+          },
         };
       else if (choice === "energy")
         return {
