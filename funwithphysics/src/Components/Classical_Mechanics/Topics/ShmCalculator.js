@@ -336,6 +336,8 @@ function ShmCalculator() {
     const [length, setLength] = useState(null);
     const [mass, setMass] = useState(null);
     const [springConst, setSpringConst] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
 
     const handleClick = () => {
       let res;
@@ -343,17 +345,36 @@ function ShmCalculator() {
       const g = 9.8;
       switch (choiceOsc) {
         case "shm":
-          res =
+          if(omega !== null && time !== null && phi !== null){            
+            res =
             amplitude *
             Math.sin(
               ((omega * parseFloat(time) + parseFloat(phi)) * Math.PI) / 180
             );
+            setShowSolution(true);
+          }            
+          else {
+            setShowModal(true);
+            return;
+          }
           break;
         case "pendulum":
-          res = 2 * pi * Math.sqrt(length / g);
+          if(length !== null){
+            res = 2 * pi * Math.sqrt(length / g);
+          }           
+          else {
+            setShowModal(true);
+            return;
+          }
           break;
         case "spring-mass":
-          res = 2 * pi * Math.sqrt(mass / springConst);
+          if(mass !== null && springConst !== null){
+            res = 2 * pi * Math.sqrt(mass / springConst);
+          }          
+          else {
+            setShowModal(true);
+            return;
+          }
           break;
         default:
           res = null;
@@ -370,7 +391,8 @@ function ShmCalculator() {
       setAmplitude(null);
       setLength(null);
       setMass(null);
-      setSpringConst(null);
+      setSpringConst(null);      
+      setShowSolution(false);
       // setChoiceOsc("shm");
     };
 
@@ -411,6 +433,19 @@ function ShmCalculator() {
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -503,7 +538,8 @@ function ShmCalculator() {
               }
               readOnly={choice_data().getters[3] === undefined ? true : false}
             />
-          </Form.Group>
+          </Form.Group>         
+          
 
           <Form.Group className="mb-4">
             <Form.Control
