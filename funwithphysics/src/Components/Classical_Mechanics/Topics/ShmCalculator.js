@@ -423,12 +423,17 @@ function ShmCalculator() {
         };
       else if (choiceOsc === "pendulum")
         return {
-          name: "Simple Pendulum",
+          name: "SimplePendulum",
           mainunit: "sec",
           quantities: ["Length of the pendulum"],
           subunits: ["m"],
           setters: [setLength],
           getters: [length],
+          formula: "T=2π√(l/g)",
+          insertValues : `2 * 3.14 √(${length}${SI["length"]} / 9.8)`,
+          givenValues : {
+              length : length,
+          },
         };
       else if (choiceOsc === "spring-mass")
         return {

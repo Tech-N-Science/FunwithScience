@@ -69,4 +69,5 @@ export const SI = {
   Stress: " Pa","Young's Modulus":" Pa","Bulk Modulus":" Pa","Young_Modulus":" Pa","Pressure":" Pa","pressure":" Pa",
   TempChange: " K","Temperature_Change":" K","tempcold":" K","temphot":" K","temperature":" K","Temperature (T)":" Kelvin","Temperature":" k",
   ExpansionCoeff:" K⁻¹","Expansion_Coeff":" K⁻¹",
+  SimplePendulum:"sec",
 };
