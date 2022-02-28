@@ -72,6 +72,14 @@ export default function Photonics() {
       the ratio of sine of angle of Incidence to the sine of angle of Refraction.Snell's Law describes how light bends when traveling from one medium to the next.`,
       dimension: "NA ",
     },
+    {
+      topic:"Refraction at Spherical Surface",
+      formula:['n',<sub>2</sub>,'/v-n',<sub>1</sub>,'/u=','n',<sub>2</sub>,'-n',<sub>1</sub>,'/R','where u is the object distance from a pole of a spherical surface v is the image distance from a pole of the spherical surface n1 is the refractive index of a medium from which rays are incident n2 is the refractive index of another medium'],
+      siunit:"metre",
+      process:`In order to find various quantities like Image-distance,magnification during refraction at spherical surface we make use of the above formula.`,
+      details:`the change in direction or bending of a light wave passing from one transparent medium to another caused by the change in wave’s speed is the Refraction.The laws of refraction hold good at every point on the spherical surface. The normal at the point of incidence is perpendicular to the tangent plane to the spherical surface at that point. Therefore, the normal always passes through its center of curvature.The study of refraction at single spherical surface paves way to the understanding of thin lenses which consist of two surfaces of which one or both must be spherical.`,
+      dimension:"NA"
+    }
   ];
 
   return (
