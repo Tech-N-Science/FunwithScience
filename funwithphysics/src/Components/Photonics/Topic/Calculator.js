@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Form, Button, Modal } from "react-bootstrap";
-import '../../PysicsStyles/physicscalculator.css'
+import "../../PysicsStyles/physicscalculator.css";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import Solution from "../../Solution/Solution";
@@ -33,11 +33,32 @@ function Calculator() {
     },
     {
       topic: "Refraction at Spherical Surface",
-      formula: ['n', <sub>2</sub>, '/v-n', <sub>1</sub>, '/u=', '(n', <sub>2</sub>, '-n', <sub>1</sub>, ')/R'],
+      formula: [
+        "n",
+        <sub>2</sub>,
+        "/v-n",
+        <sub>1</sub>,
+        "/u=",
+        "(n",
+        <sub>2</sub>,
+        "-n",
+        <sub>1</sub>,
+        ")/R",
+      ],
       siunit: "metre",
-      process: [`In the above formula, varoius terms refer to as described below:`,<br/>,'u is the object distance from a pole of a spherical surface' ,<br/>,' v is the image distance from a pole of the spherical surface',<br/> ,'n1 is the refractive index of a medium from which rays are incident',<br/>,' n2 is the refractive index of another medium'],
-      details: `The change in direction or bending of a light wave passing from one transparent medium to another caused by the change in wave’s speed is the Refraction.The laws of refraction hold good at every point on the spherical surface.The study of refraction at single spherical surface paves way to the understanding of thin lenses which consist of two surfaces of which one or both must be spherical.`,
-      dimension: "L¹"
+      process: [
+        `In the above formula, varoius terms refer to as described below:`,
+        <br />,
+        "u is the object distance from a pole of a spherical surface",
+        <br />,
+        " v is the image distance from a pole of the spherical surface",
+        <br />,
+        "n₁ is the refractive index of a medium from which rays are incident",
+        <br />,
+        " n₂ is the refractive index of another medium",
+      ],
+      details: `The change in direction or bending of a light wave passing from one transparent medium to another caused by the change in wave’s speed is the Refraction. The laws of refraction hold good at every point on the spherical surface. The study of refraction at single spherical surface paves way to the understanding of thin lenses which consist of two surfaces of which one or both must be spherical.`,
+      dimension: "L¹",
     },
     {
       topic: "Lens Formula",
@@ -73,7 +94,8 @@ function Calculator() {
     },
     {
       topic: "Refractive Index",
-      formula: "μ = sin(i) / sin(r), where i is the Angle of Incidence and r is the Angle of Refraction",
+      formula:
+        "μ = sin(i) / sin(r), where i is the Angle of Incidence and r is the Angle of Refraction",
       siunit: "No unit",
       process: `In order to find the Refractive-Index of a medium relative to vacuum, we must know the angle of Incidence(i) and the angle of Refraction(r).Using these values in Snell's Law,we can easily find the Refractive Index of the medium.`,
       details: `The Refractive-Index of a medium relative to vacuum, can be defined as the ratio of the speed of light in vacuum to the speed of light in the medium.Using Snell's Law of Refraction,it can be closely approximated to be equal to
@@ -84,9 +106,6 @@ function Calculator() {
 
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
-
-
-
 
   //Refractive index calculator
   const RefractiveIndex = () => {
@@ -128,34 +147,36 @@ function Calculator() {
     const handleChange = (e) => {
       setChoice(e.target.value);
       reset();
-    }
+    };
     const calcResult = () => {
       if (i !== null && n !== null) {
         if (i > 90 || n < 1 || i < 0)
-          alert("Please Enter valid values for Refractive Index and Angle of Incidence");
+          alert(
+            "Please Enter valid values for Refractive Index and Angle of Incidence"
+          );
         else {
           var refraction_angle = Math.asin(Math.sin(i * 0.01745329) / n);
           setShowSolution1(true);
           setResult(57.29578 * refraction_angle);
         }
-      }
-      else {
+      } else {
         setShowModal(true);
       }
-    }
+    };
     const calcResult2 = () => {
       if (i1 !== null && r1 !== null) {
         if (i1 > 90 || r1 > 90 || i1 < 0 || r1 < 0)
-          alert("Please Enter valid values for Angle of Refraction and Angle of Incidence");
+          alert(
+            "Please Enter valid values for Angle of Refraction and Angle of Incidence"
+          );
         else {
           setShowSolution2(true);
           setResult2(Math.sin(0.01745329 * i1) / Math.sin(0.01745329 * r1));
         }
-      }
-      else {
+      } else {
         setShowModal(true);
       }
-    }
+    };
     return (
       <>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
@@ -182,7 +203,7 @@ function Calculator() {
             <option value="Refractive-Angle">Angle Of Refraction</option>
           </Form.Control>
         </Form.Group>
-        {choice === "Refractive-Angle" &&
+        {choice === "Refractive-Angle" && (
           <>
             <Form>
               <Form.Group className="mb-4">
@@ -212,7 +233,7 @@ function Calculator() {
                     toFind="Angle of Refraction sin(r)"
                     insertValues={insertValues2}
                     result={result}
-                  // constants={constants}
+                    // constants={constants}
                   />
                 </Form.Group>
               ) : null}
@@ -236,8 +257,8 @@ function Calculator() {
               </Button>
             </div>
           </>
-        }
-        {choice === "Refractive-Index" &&
+        )}
+        {choice === "Refractive-Index" && (
           <>
             <Form>
               <Form.Group className="mb-4">
@@ -267,7 +288,7 @@ function Calculator() {
                     toFind="Refractive Index (μ)"
                     insertValues={insertValues1}
                     result={result2}
-                  // constants={constants}
+                    // constants={constants}
                   />
                 </Form.Group>
               ) : null}
@@ -291,18 +312,10 @@ function Calculator() {
               </Button>
             </div>
           </>
-        }
-
+        )}
       </>
-    )
-  }
-
-
-
-
-
-
-
+    );
+  };
 
   //adding Brewster's Angle calcular
   const BrewsterAngle = () => {
@@ -379,7 +392,7 @@ function Calculator() {
                 toFind="Brewster's angle"
                 insertValues={insertValues}
                 result={result}
-              // constants={constants}
+                // constants={constants}
               />
             </Form.Group>
           ) : null}
@@ -403,12 +416,6 @@ function Calculator() {
       </>
     );
   };
-
-
-
-
-
-
 
   //Mirror Formula
   const MirrorFormula = () => {
@@ -508,13 +515,6 @@ function Calculator() {
     );
   };
 
-
-
-
-
-
-
-
   //Spherical Refraction
   const SphericalRefraction = () => {
     const [n1, setN1] = useState(null);
@@ -531,14 +531,16 @@ function Calculator() {
       setR(null);
     }
     const calcResult = () => {
-      setV((u*R)/(u+((n1/n2)*(R-u))));
-    }
+      setV((u * R) / (u + (n1 / n2) * (R - u)));
+    };
     return (
       <>
         <Form>
-        <Form.Group className="mb-4" controlId="text">
+          <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
-              <strong>Enter the following values with appropriate Sign Convention.</strong>
+              <strong>
+                Enter the following values with appropriate Sign Convention.
+              </strong>
               <br />
             </Form.Text>
           </Form.Group>
@@ -552,10 +554,12 @@ function Calculator() {
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Refractive Index of medium with Incident rays(n1)</Form.Label>
+            <Form.Label>
+              Refractive Index of medium with Incident rays(n₁)
+            </Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of n1"
+              placeholder="Enter the value of n₁"
               onChange={(e) => setN1(Number(e.target.value))}
               value={n1 === null ? "" : n1}
             />
@@ -570,10 +574,12 @@ function Calculator() {
             />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Refractive Index of medium with Refracted rays(n2)</Form.Label>
+            <Form.Label>
+              Refractive Index of medium with Refracted rays(n₂)
+            </Form.Label>
             <Form.Control
               type="number"
-              placeholder="Enter the value of n2"
+              placeholder="Enter the value of n₂"
               onChange={(e) => setN2(Number(e.target.value))}
               value={n2 === null ? "" : n2}
             />
@@ -597,12 +603,7 @@ function Calculator() {
         </div>
       </>
     );
-  }
-
-
-
-
-
+  };
 
   //Lens Formula
   const LensFormula = () => {
@@ -702,8 +703,6 @@ function Calculator() {
       </>
     );
   };
-
-
 
   //Magnification of Mirror
   const MirrorMag = () => {
@@ -1009,7 +1008,7 @@ function Calculator() {
         currentCall = LensMag();
         break;
       case "Refraction at Spherical Surface":
-        currentCall=SphericalRefraction();
+        currentCall = SphericalRefraction();
         break;
       case "Power of Lens":
         currentCall = PowerLens();
