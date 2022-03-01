@@ -457,6 +457,7 @@ function ShmCalculator() {
 
     return (
       <React.Fragment>
+        {/* Modal for empty fields */}
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header>
             Please Enter all values to get Proper answer
