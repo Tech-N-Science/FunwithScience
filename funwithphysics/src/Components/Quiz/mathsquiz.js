@@ -85,9 +85,10 @@ const MathsQuiz = () => {
    useEffect(() => {
      
      if (timer === 0) 
-    { handleQuestion();
+    {    
+         handleQuestion();
          return setTimeout(true);
-   }
+    }
      const interval = setInterval(() => {
        setTimer((prev) => prev - 1);
      }, 1000);

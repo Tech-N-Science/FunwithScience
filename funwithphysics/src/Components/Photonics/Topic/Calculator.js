@@ -32,6 +32,14 @@ function Calculator() {
       dimension: "L¹ ",
     },
     {
+      topic: "Refraction at Spherical Surface",
+      formula: ['n', <sub>2</sub>, '/v-n', <sub>1</sub>, '/u=', '(n', <sub>2</sub>, '-n', <sub>1</sub>, ')/R'],
+      siunit: "metre",
+      process: [`In the above formula, varoius terms refer to as described below:`,<br/>,'u is the object distance from a pole of a spherical surface' ,<br/>,' v is the image distance from a pole of the spherical surface',<br/> ,'n1 is the refractive index of a medium from which rays are incident',<br/>,' n2 is the refractive index of another medium'],
+      details: `The change in direction or bending of a light wave passing from one transparent medium to another caused by the change in wave’s speed is the Refraction.The laws of refraction hold good at every point on the spherical surface.The study of refraction at single spherical surface paves way to the understanding of thin lenses which consist of two surfaces of which one or both must be spherical.`,
+      dimension: "L¹"
+    },
+    {
       topic: "Lens Formula",
       formula: "(1/v) - (1/u) = 1/f ",
       siunit: "metre",
@@ -117,12 +125,12 @@ function Calculator() {
       setShowSolution1(false);
       setShowSolution2(false);
     }
-    const handleChange=(e)=>{
+    const handleChange = (e) => {
       setChoice(e.target.value);
-      reset(); 
+      reset();
     }
     const calcResult = () => {
-      if(i !== null && n !== null){
+      if (i !== null && n !== null) {
         if (i > 90 || n < 1 || i < 0)
           alert("Please Enter valid values for Refractive Index and Angle of Incidence");
         else {
@@ -131,26 +139,26 @@ function Calculator() {
           setResult(57.29578 * refraction_angle);
         }
       }
-      else{
+      else {
         setShowModal(true);
-      }      
+      }
     }
     const calcResult2 = () => {
-      if(i1 !== null && r1 !== null){
+      if (i1 !== null && r1 !== null) {
         if (i1 > 90 || r1 > 90 || i1 < 0 || r1 < 0)
           alert("Please Enter valid values for Angle of Refraction and Angle of Incidence");
-        else{        
+        else {
           setShowSolution2(true);
           setResult2(Math.sin(0.01745329 * i1) / Math.sin(0.01745329 * r1));
         }
-      }      
-      else{
+      }
+      else {
         setShowModal(true);
-      } 
+      }
     }
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header>
             Please Enter all values to get Proper answer
           </Modal.Header>
@@ -163,17 +171,17 @@ function Calculator() {
             </Button>
           </Modal.Footer>
         </Modal>
-         <Form.Group className="mb-4" controlId="choice">
-            <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control
-              as="select"
-              className="select-custom-res"
-              onChange={(e) => handleChange(e)}
-            >
-              <option value="Refractive-Index">Refractive Index</option>
-              <option value="Refractive-Angle">Angle Of Refraction</option>
-            </Form.Control>
-          </Form.Group>
+        <Form.Group className="mb-4" controlId="choice">
+          <Form.Label>Select the type of calculation</Form.Label>
+          <Form.Control
+            as="select"
+            className="select-custom-res"
+            onChange={(e) => handleChange(e)}
+          >
+            <option value="Refractive-Index">Refractive Index</option>
+            <option value="Refractive-Angle">Angle Of Refraction</option>
+          </Form.Control>
+        </Form.Group>
         {choice === "Refractive-Angle" &&
           <>
             <Form>
@@ -194,8 +202,8 @@ function Calculator() {
                   onChange={(e) => setN(e.target.value)}
                   value={n === null ? "" : n}
                 />
-              </Form.Group>              
-              
+              </Form.Group>
+
               {showSolution1 ? (
                 <Form.Group className="mb-3" controlId="acceleration">
                   <Solution
@@ -204,7 +212,7 @@ function Calculator() {
                     toFind="Angle of Refraction sin(r)"
                     insertValues={insertValues2}
                     result={result}
-                    // constants={constants}
+                  // constants={constants}
                   />
                 </Form.Group>
               ) : null}
@@ -259,7 +267,7 @@ function Calculator() {
                     toFind="Refractive Index (μ)"
                     insertValues={insertValues1}
                     result={result2}
-                    // constants={constants}
+                  // constants={constants}
                   />
                 </Form.Group>
               ) : null}
@@ -395,6 +403,13 @@ function Calculator() {
       </>
     );
   };
+
+
+
+
+
+
+
   //Mirror Formula
   const MirrorFormula = () => {
     const [n1, setN1] = useState(null);
@@ -492,6 +507,102 @@ function Calculator() {
       </>
     );
   };
+
+
+
+
+
+
+
+
+  //Spherical Refraction
+  const SphericalRefraction = () => {
+    const [n1, setN1] = useState(null);
+    const [n2, setN2] = useState(null);
+    const [u, setU] = useState(null);
+    const [v, setV] = useState(null);
+    const [R, setR] = useState(null);
+
+    function reset() {
+      setV(null);
+      setU(null);
+      setN1(null);
+      setN2(null);
+      setR(null);
+    }
+    const calcResult = () => {
+      setV((u*R)/(u+((n1/n2)*(R-u))));
+    }
+    return (
+      <>
+        <Form>
+        <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>Enter the following values with appropriate Sign Convention.</strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Object distance(u)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of u in meter"
+              onChange={(e) => setU(Number(e.target.value))}
+              value={u === null ? "" : u}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Refractive Index of medium with Incident rays(n1)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of n1"
+              onChange={(e) => setN1(Number(e.target.value))}
+              value={n1 === null ? "" : n1}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Radius of Curvature of Surface(R)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of R in metres"
+              onChange={(e) => setR(Number(e.target.value))}
+              value={R === null ? "" : R}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Refractive Index of medium with Refracted rays(n2)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of n2"
+              onChange={(e) => setN2(Number(e.target.value))}
+              value={n2 === null ? "" : n2}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Value of Image Distance</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={v === null ? "" : v + " m"}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
+  }
+
+
+
+
+
 
   //Lens Formula
   const LensFormula = () => {
@@ -591,6 +702,8 @@ function Calculator() {
       </>
     );
   };
+
+
 
   //Magnification of Mirror
   const MirrorMag = () => {
@@ -894,6 +1007,9 @@ function Calculator() {
         break;
       case "Magnification of Lens":
         currentCall = LensMag();
+        break;
+      case "Refraction at Spherical Surface":
+        currentCall=SphericalRefraction();
         break;
       case "Power of Lens":
         currentCall = PowerLens();

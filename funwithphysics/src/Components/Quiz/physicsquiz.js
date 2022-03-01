@@ -108,8 +108,6 @@ const PhysicsQuiz = () => {
   return (
     <div className="quiz">
       <h1>Quiz</h1>
-          
-      
         {showScore ? (
           <div className="quiz-section">
           <div className="score-section">
