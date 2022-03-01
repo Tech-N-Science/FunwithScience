@@ -172,6 +172,9 @@ a.plus:hover {
   font-family: Lato;
   font-weight: 400;
   font-size: 19px;
+  font-family: 'Chivo', sans-serif;
+  margin-top: 12px;
+  /* font-weight: 400; */
   -webkit-transition: text-indent 0.2s;
   text-indent: 20px;
   color: #333;
@@ -183,7 +186,7 @@ a.plus:hover {
   color: #919191;
   width: 95%;
   padding-left: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .faq {
@@ -192,6 +195,7 @@ a.plus:hover {
   background: white;
   border-radius: 4px;
   position: relative;
+  top:10px;
   border: 1px solid #e1e1e1;
 }
 .faq label {
@@ -273,8 +277,15 @@ a.plus:hover {
 
 @media only screen and (min-width: 769px) {
   .FAQ {
+    margin-top: 60px;;
     border: none;
     font-size: 2rem;
+  }
+  #line{
+    position: relative;
+    top: 50px;
+    /* background-color: black; */
+   
   }
   .faq {
     width: 1000px;

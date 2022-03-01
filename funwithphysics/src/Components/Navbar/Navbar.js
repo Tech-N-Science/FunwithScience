@@ -65,14 +65,14 @@ const Navbar = () => {
             </div>
           </button>
           <NavLink to="/" className='nav-logo'>
-            <img src={logo} alt='logo' height='10%' width='10%' />
-            &ensp; Tech N Science
+            <img src={logo}  alt='logo' height='10%' width='10%' />
+            <span>&ensp; Tech<span>N</span>Science</span>
           </NavLink>
         </p>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-          <ul style={{ fontSize: '20px' }} className='navbar-nav ml-auto mr-5'>
+          <ul style={{ fontSize: '20px',alignItems:'center',marginBottom:'9px' }} className='navbar-nav ml-auto mr-5'>
             <NavLink to='/' className='nav-item'>
-              <span className='nav-link'>Home</span>
+              <span className='nav-link' >Home</span>
             </NavLink>
             <NavLink to='/about' className='nav-item'>
               <span className='nav-link'>About</span>
