@@ -31,7 +31,7 @@ export const SI = {
   "Gravitational Force": " Newton",
   area:" m²","Area":" m²","Area Expansion":" m²",
   Volume: " m³","Volume Expansion":" m³","volume": " m³",
-  displacement: " m",length:"m",width:"m","Final Length":" mm","Length Expansion":" m",
+  displacement: " m",length:"m",width:"m","Final Length":" mm","Length Expansion":" m","SHM":"m",
   angle: "°","Θ":"°",Theta:"°","Angle": "°","theta":"°","Brewster's angle" :"°",
   distance:" m",Radius:" m",R:" m",s:" m",r1:" m",r2:" m",H:" m","Distance":" m",λ:"m",Length: " m","Relative Length": "m","Wave Length": "m","Half_Length":" m","Image_Distance": " m","Object_Distance":" m","Focal Length":" m","Focal_Length":" m","Change_Length":" m","Change_Volume":" m³",
   microstates: "N",
@@ -68,5 +68,7 @@ export const SI = {
   SmallReading: " mm","Least Count":" mm","LeastCount":" mm" ,"Smallest_Reading":" mm","MSR":" mm","VSR":" mm","CSR":" mm","Least_Count":" mm","Distance_Moved":" mm","Pitch":" mm","Reading":" mm",
   Stress: " Pa","Young's Modulus":" Pa","Bulk Modulus":" Pa","Young_Modulus":" Pa","Pressure":" Pa","pressure":" Pa",
   TempChange: " K","Temperature_Change":" K","tempcold":" K","temphot":" K","temperature":" K","Temperature (T)":" Kelvin","Temperature":" k",
-  ExpansionCoeff:" K⁻¹","Expansion_Coeff":" K⁻¹"
+  ExpansionCoeff:" K⁻¹","Expansion_Coeff":" K⁻¹",
+  SimplePendulum:"sec",
+  k:"N/m"
 };
