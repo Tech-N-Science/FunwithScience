@@ -129,11 +129,35 @@ function Calculator() {
     {
       topic: "Statistics",
       details: `Statistics is the branch of science that studies and develops methods for gathering, analysing, interpreting, and interpreting empirical data.`,
-      formula: "",
+      formula: [
+        "Mean = Sum of all items/Total no. of items",
+
+        <br />,<br />,
+        "If total number of observations (n) are odd,",
+        <br />,
+        "Median = [(n + 1)/2]th term",
+        <br />,<br />,
+        "If total number of observations (n) are even,",
+        <br />,
+        "Median = [(n/2)th term + ((n/2) + 1)th term]/2",
+        <br />,<br />,
+        "Mode = element that occured most number of times"
+        ,<br />,
+        "Standard Deviation = ((Σ(Xi - Mean)²)/(N-1))^½",
+        <br />,
+        "Variance = (standard deviation)²"
+      ],
       process: [
-        "To calculate the mean, median and mode, we have to use the formulae giving below",
+        "To calculate the mean, median and mode, we have to use the formulae giving above.",
 
         <br />,
+        "To find the mean, we calculate sum of all the elements and divide it by total number of elements",
+        <br />,
+        "For median, we first arrange the data in ascending or descending order. Then count the total number of observations 'n', and apply the formula accordingly.",
+        <br />,
+        "Mode is the observation that occured most number of times.",
+        <br />,
+        "Standard deviation is calculated by deviations of each data point from the mean, and square the result of each whole divided by total number of samples minus 1. Variance is square of standard deviation."
       ],
       example1: [
         "Numbers given: 20 30 60 20 10 40 80 90",
