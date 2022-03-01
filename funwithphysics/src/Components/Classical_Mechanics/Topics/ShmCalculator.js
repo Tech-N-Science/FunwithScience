@@ -286,6 +286,11 @@ function ShmCalculator() {
                   ? true
                   : false
               }
+              className={
+                choice_data().name === 'time period'
+                ? "hide-text-box"
+                : ""
+              }
             />
           </Form.Group>
 
