@@ -228,7 +228,10 @@ function ShmCalculator() {
               onChange={(e) => {
                 setChoice(e.target.value);
                 setResult(null);
-                setShowSolution(false)}
+                setShowSolution(false);
+                setWave_length(null);
+                setVelocity(null);
+                setFreq(null);}
               }
             >
               <option value="Wave Length">λ : Wave Length</option>
@@ -282,6 +285,11 @@ function ShmCalculator() {
                 choice_data().getters[1] === plank
                   ? true
                   : false
+              }
+              className={
+                choice_data().name === 'time period'
+                ? "hide-text-box"
+                : ""
               }
             />
           </Form.Group>
