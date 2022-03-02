@@ -545,6 +545,11 @@ function ShmCalculator() {
                   : choice_data().getters[1]
               }
               readOnly={choice_data().getters[1] === undefined ? true : false}
+              className={
+                choice_data().name === 'SimplePendulum'
+                ? "hide-text-box"
+                : ""
+              }
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -563,6 +568,11 @@ function ShmCalculator() {
                   : choice_data().getters[2]
               }
               readOnly={choice_data().getters[2] === undefined ? true : false}
+              className={
+                choice_data().name === 'SimplePendulum'
+                ? "hide-text-box"
+                : ""
+              }
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -581,6 +591,11 @@ function ShmCalculator() {
                   : choice_data().getters[3]
               }
               readOnly={choice_data().getters[3] === undefined ? true : false}
+              className={
+                choice_data().name === 'SimplePendulum'
+                ? "hide-text-box"
+                : ""
+              }
             />
           </Form.Group>
           
