@@ -1,17 +1,14 @@
 import React, { useEffect } from "react";
 import { Card } from "react-bootstrap";
-import '../PysicsStyles/physicsmenustyle.css'
+import "../PysicsStyles/physicsmenustyle.css";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
 
 export default function Photonics() {
   useEffect(() => {
-    
     window.scrollTo(0, 0);
-   
- 
-}, []);
+  }, []);
   // topics_data
   const Topics = [
     {
@@ -65,20 +62,42 @@ export default function Photonics() {
     },
     {
       topic: "Refractive Index",
-      formula: "μ = sin(i) / sin(r), where i is the Angle of Incidence and r is the Angle of Refraction",
+      formula:
+        "μ = sin(i) / sin(r), where i is the Angle of Incidence and r is the Angle of Refraction",
       siunit: "No unit",
       process: `In order to find the Refractive-Index of a medium relative to vacuum, we must know the angle of Incidence(i) and the angle of Refraction(r).Using these values in Snell's Law,we can easily find the Refractive Index of the medium.`,
       details: `The Refractive-Index of a medium relative to vacuum, can be defined as the ratio of the speed of light in vacuum to the speed of light in the medium.Using Snell's Law of Refraction,it can be closely approximated to be equal to
       the ratio of sine of angle of Incidence to the sine of angle of Refraction.Snell's Law describes how light bends when traveling from one medium to the next.`,
-      dimension: "NA ",
+      dimension: "NA",
     },
     {
       topic: "Refraction at Spherical Surface",
-      formula: ['n', <sub>2</sub>, '/v-n', <sub>1</sub>, '/u=', '(n', <sub>2</sub>, '-n', <sub>1</sub>, ')/R'],
+      formula: [
+        "n",
+        <sub>2</sub>,
+        "/v-n",
+        <sub>1</sub>,
+        "/u=",
+        "(n",
+        <sub>2</sub>,
+        "-n",
+        <sub>1</sub>,
+        ")/R",
+      ],
       siunit: "metre",
-      process: [`In the above formula, varoius terms refer to as described below:`,<br/>,'u is the object distance from a pole of a spherical surface' ,<br/>,' v is the image distance from a pole of the spherical surface',<br/> ,'n1 is the refractive index of a medium from which rays are incident',<br/>,' n2 is the refractive index of another medium'],
+      process: [
+        `In the above formula, varoius terms refer to as described below:`,
+        <br />,
+        "u is the object distance from a pole of a spherical surface",
+        <br />,
+        " v is the image distance from a pole of the spherical surface",
+        <br />,
+        "n1 is the refractive index of a medium from which rays are incident",
+        <br />,
+        " n2 is the refractive index of another medium",
+      ],
       details: `The change in direction or bending of a light wave passing from one transparent medium to another caused by the change in wave’s speed is the Refraction.The laws of refraction hold good at every point on the spherical surface.The study of refraction at single spherical surface paves way to the understanding of thin lenses which consist of two surfaces of which one or both must be spherical.`,
-      dimension: "L¹"
+      dimension: "L¹",
     },
   ];
 
