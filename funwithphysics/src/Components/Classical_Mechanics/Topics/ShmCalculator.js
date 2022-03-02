@@ -496,7 +496,7 @@ function ShmCalculator() {
                 {
                   setChoiceOsc(e.target.value);
                   setResult(null);
-                  setShowSolution(false)}
+                  setShowSolution(false);}
                 }
             >
               <option value="shm">General Equation: SHM</option>
@@ -569,7 +569,7 @@ function ShmCalculator() {
               }
               readOnly={choice_data().getters[2] === undefined ? true : false}
               className={
-                choice_data().name === 'SimplePendulum'
+                choiceOsc === 'pendulum' || choiceOsc === 'spring-mass'
                 ? "hide-text-box"
                 : ""
               }
@@ -592,7 +592,7 @@ function ShmCalculator() {
               }
               readOnly={choice_data().getters[3] === undefined ? true : false}
               className={
-                choice_data().name === 'SimplePendulum'
+                choiceOsc === 'pendulum' || choiceOsc === 'spring-mass'
                 ? "hide-text-box"
                 : ""
               }
