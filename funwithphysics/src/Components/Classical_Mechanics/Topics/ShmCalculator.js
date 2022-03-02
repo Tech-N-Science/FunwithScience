@@ -496,7 +496,14 @@ function ShmCalculator() {
                 {
                   setChoiceOsc(e.target.value);
                   setResult(null);
-                  setShowSolution(false);}
+                  setShowSolution(false);
+                  setOmega(null);
+                  setTime(null);
+                  setPhi(null);
+                  setAmplitude(null);
+                  setLength(null);
+                  setMass(null);
+                  setSpringConst(null);}
                 }
             >
               <option value="shm">General Equation: SHM</option>
