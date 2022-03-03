@@ -1,0 +1,25 @@
+ <div class="contactForm">
+        <h2>Name</h2>
+        <input type="text" placeholder="Enter your name"  onkeyup="validate();" value="">
+        <h2>Email</h2>
+        <input type="email" placeholder="Enter your email" value="">
+        <h2>Message</h2>
+        <textarea placeholder="Enter your message">
+
+    </textarea>
+    <div class="contactBTN">Send</div>
+</div>
+<script>
+    function validate(){
+        const form = document.getElementById('form');
+        const email = document.getElementById('email').value;
+        const pattern = /^[^ ]*@[^ ]*\.[a-z]{2,3}$/
+        if(email.match(pattern)){
+            form.classlist.add('valid')
+        }
+        else{
+            form.classList.remove('valid')
+        }
+    }
+</script>
+         
