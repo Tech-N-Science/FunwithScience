@@ -68,6 +68,7 @@ function ShmCalculator() {
       if (choice === "Wave Length")
         return {
           name: "Wave Length",
+          optionname :"λ : Wave Length",
           mainunit: "m",
           quantities: ["Wave Velocity", "Frequency"],
           subunits: ["m/s", "Hz"],
@@ -83,6 +84,7 @@ function ShmCalculator() {
       else if (choice === "frequency")
         return {
           name: "frequency",
+          optionname :"f : frequency",
           mainunit: "Hz",
           quantities: ["Wave Length", "Wave Velocity"],
           subunits: ["m", "m/s"],
@@ -98,6 +100,7 @@ function ShmCalculator() {
       else if (choice === "time period")
         return {
           name: "time period",
+          optionname :"t: time period",
           mainunit: "s",
           quantities: ["Frequency"],
           subunits: ["Hz"],
@@ -112,6 +115,7 @@ function ShmCalculator() {
       else if (choice === "velocity")
         return {
           name: "Initial Velocity",
+          optionname :"v : wave velocity",
           mainunit: "m/s",
           quantities: ["Wave Length", "Frequency"],
           subunits: ["m", "Hz"],
@@ -127,6 +131,7 @@ function ShmCalculator() {
       else if (choice === "energy")
         return {
           name: "Energy",
+          optionname :"e: energy",
           mainunit: "Joule",
           quantities: ["Frequency", "Plank's constant"],
           subunits: ["Hz", "m² kg / s"],
@@ -234,6 +239,7 @@ function ShmCalculator() {
                 setFreq(null);}
               }
             >
+              <option selected hidden>{choice_data().optionname}</option>
               <option value="Wave Length">λ : Wave Length</option>
               <option value="frequency">f : frequency </option>
               <option value="velocity">v : wave velocity</option>
@@ -490,7 +496,14 @@ function ShmCalculator() {
                 {
                   setChoiceOsc(e.target.value);
                   setResult(null);
-                  setShowSolution(false)}
+                  setShowSolution(false);
+                  setOmega(null);
+                  setTime(null);
+                  setPhi(null);
+                  setAmplitude(null);
+                  setLength(null);
+                  setMass(null);
+                  setSpringConst(null);}
                 }
             >
               <option value="shm">General Equation: SHM</option>
@@ -539,6 +552,11 @@ function ShmCalculator() {
                   : choice_data().getters[1]
               }
               readOnly={choice_data().getters[1] === undefined ? true : false}
+              className={
+                choice_data().name === 'SimplePendulum'
+                ? "hide-text-box"
+                : ""
+              }
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -557,6 +575,11 @@ function ShmCalculator() {
                   : choice_data().getters[2]
               }
               readOnly={choice_data().getters[2] === undefined ? true : false}
+              className={
+                choiceOsc === 'pendulum' || choiceOsc === 'spring-mass'
+                ? "hide-text-box"
+                : ""
+              }
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -575,6 +598,11 @@ function ShmCalculator() {
                   : choice_data().getters[3]
               }
               readOnly={choice_data().getters[3] === undefined ? true : false}
+              className={
+                choiceOsc === 'pendulum' || choiceOsc === 'spring-mass'
+                ? "hide-text-box"
+                : ""
+              }
             />
           </Form.Group>
           
