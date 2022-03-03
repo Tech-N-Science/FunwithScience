@@ -49,7 +49,7 @@ const MathsQuiz = () => {
   const [showAns, setshowAns] = useState(false);
   const [score, setScore] = useState(0);
   const [index, setIndex] = useState(-1);
-
+  var [selected,setSelected]=useState(false);
   const [timeOut, setTimeOut] = useState(false);
 
   console.log(timeOut); //Added only for removing the warning this can be removed later when this variable is geeting used somewhere
@@ -57,6 +57,7 @@ const MathsQuiz = () => {
 
   const handleQuestion = () => {
     setshowAns(false);
+    setSelected(false);
     setIndex(-1);
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length ) {
@@ -68,7 +69,10 @@ const MathsQuiz = () => {
   };
 
   const handleAnswerOptionClick = (isCorrect, index) => {
-    if (isCorrect) {
+    setSelected(true);
+    if(selected)
+    setScore(score);
+    else if (isCorrect && !selected) {
       setScore(score + 1);
     } else {
       setIndex(index);
@@ -85,9 +89,10 @@ const MathsQuiz = () => {
    useEffect(() => {
      
      if (timer === 0) 
-    { handleQuestion();
+    {    
+         handleQuestion();
          return setTimeout(true);
-   }
+    }
      const interval = setInterval(() => {
        setTimer((prev) => prev - 1);
      }, 1000);

@@ -68,6 +68,7 @@ function ShmCalculator() {
       if (choice === "Wave Length")
         return {
           name: "Wave Length",
+          optionname :"λ : Wave Length",
           mainunit: "m",
           quantities: ["Wave Velocity", "Frequency"],
           subunits: ["m/s", "Hz"],
@@ -83,6 +84,7 @@ function ShmCalculator() {
       else if (choice === "frequency")
         return {
           name: "frequency",
+          optionname :"f : frequency",
           mainunit: "Hz",
           quantities: ["Wave Length", "Wave Velocity"],
           subunits: ["m", "m/s"],
@@ -98,6 +100,7 @@ function ShmCalculator() {
       else if (choice === "time period")
         return {
           name: "time period",
+          optionname :"t: time period",
           mainunit: "s",
           quantities: ["Frequency"],
           subunits: ["Hz"],
@@ -112,6 +115,7 @@ function ShmCalculator() {
       else if (choice === "velocity")
         return {
           name: "Initial Velocity",
+          optionname :"v : wave velocity",
           mainunit: "m/s",
           quantities: ["Wave Length", "Frequency"],
           subunits: ["m", "Hz"],
@@ -127,6 +131,7 @@ function ShmCalculator() {
       else if (choice === "energy")
         return {
           name: "Energy",
+          optionname :"e: energy",
           mainunit: "Joule",
           quantities: ["Frequency", "Plank's constant"],
           subunits: ["Hz", "m² kg / s"],
@@ -227,10 +232,14 @@ function ShmCalculator() {
               className="select-custom-res"
               onChange={(e) => {
                 setChoice(e.target.value);
-                setResult(false);
-                setShowSolution(false)}
+                setResult(null);
+                setShowSolution(false);
+                setWave_length(null);
+                setVelocity(null);
+                setFreq(null);}
               }
             >
+              <option selected hidden>{choice_data().optionname}</option>
               <option value="Wave Length">λ : Wave Length</option>
               <option value="frequency">f : frequency </option>
               <option value="velocity">v : wave velocity</option>
@@ -282,6 +291,11 @@ function ShmCalculator() {
                 choice_data().getters[1] === plank
                   ? true
                   : false
+              }
+              className={
+                choice_data().name === 'time period'
+                ? "hide-text-box"
+                : ""
               }
             />
           </Form.Group>
@@ -336,6 +350,8 @@ function ShmCalculator() {
     const [length, setLength] = useState(null);
     const [mass, setMass] = useState(null);
     const [springConst, setSpringConst] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
 
     const handleClick = () => {
       let res;
@@ -343,17 +359,38 @@ function ShmCalculator() {
       const g = 9.8;
       switch (choiceOsc) {
         case "shm":
-          res =
+          if(omega !== null && time !== null && phi !== null){            
+            res =
             amplitude *
             Math.sin(
               ((omega * parseFloat(time) + parseFloat(phi)) * Math.PI) / 180
             );
+            setShowSolution(true);
+          }            
+          else {
+            setShowModal(true);
+            return;
+          }
           break;
         case "pendulum":
-          res = 2 * pi * Math.sqrt(length / g);
+          if(length !== null){
+            res = 2 * pi * Math.sqrt(length / g);
+            setShowSolution(true);
+          }           
+          else {
+            setShowModal(true);
+            return;
+          }
           break;
         case "spring-mass":
-          res = 2 * pi * Math.sqrt(mass / springConst);
+          if(mass !== null && springConst !== null){
+            res = 2 * pi * Math.sqrt(mass / springConst);
+            setShowSolution(true);
+          }          
+          else {
+            setShowModal(true);
+            return;
+          }
           break;
         default:
           res = null;
@@ -370,14 +407,15 @@ function ShmCalculator() {
       setAmplitude(null);
       setLength(null);
       setMass(null);
-      setSpringConst(null);
+      setSpringConst(null);      
+      setShowSolution(false);
       // setChoiceOsc("shm");
     };
 
     const choice_data = () => {
       if (choiceOsc === "shm")
         return {
-          name: "General Eqn: SHM",
+          name: "SHM",
           mainunit: "m",
           quantities: [
             "Amplitude",
@@ -388,15 +426,28 @@ function ShmCalculator() {
           subunits: ["m/s", "rad s^-1", "s", "rad"],
           setters: [setAmplitude, setOmega, setTime, setPhi],
           getters: [amplitude, omega, time, phi],
+          formula: "x = A sin(ωt + Φ)",
+          insertValues : `${amplitude}${SI["length"]} sin(${omega} * ${SI["ω"]}${time}${SI["time"]} + ${phi}${SI["φ"]})`,
+          givenValues : {
+              amplitude: amplitude,
+              ω: omega,
+              time: time,
+              φ: phi,
+          },
         };
       else if (choiceOsc === "pendulum")
         return {
-          name: "Simple Pendulum",
+          name: "SimplePendulum",
           mainunit: "sec",
           quantities: ["Length of the pendulum"],
           subunits: ["m"],
           setters: [setLength],
           getters: [length],
+          formula: "T=2π√(l/g)",
+          insertValues : `2 * 3.14 √(${length}${SI["length"]} / 9.8)`,
+          givenValues : {
+              length : length,
+          },
         };
       else if (choiceOsc === "spring-mass")
         return {
@@ -406,11 +457,34 @@ function ShmCalculator() {
           subunits: ["Hz", "N/m"],
           setters: [setMass, setSpringConst],
           getters: [mass, springConst],
+          formula: "T=2π√(m/k)",
+          insertValues : `2 * 3.14 √(${mass}${SI["mass"]} / ${springConst}${SI["k"]})`,
+          givenValues : {
+              mass : mass,
+              k : springConst
+          },
         };
     };
+    
+    const givenValues = choice_data().givenValues;
+    const insertValues = choice_data().insertValues;
 
     return (
       <React.Fragment>
+        {/* Modal for empty fields */}
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -418,7 +492,19 @@ function ShmCalculator() {
             <Form.Control
               as="select"
               className="select-custom-res"
-              onChange={(e) => setChoiceOsc(e.target.value)}
+              onChange={(e) => 
+                {
+                  setChoiceOsc(e.target.value);
+                  setResult(null);
+                  setShowSolution(false);
+                  setOmega(null);
+                  setTime(null);
+                  setPhi(null);
+                  setAmplitude(null);
+                  setLength(null);
+                  setMass(null);
+                  setSpringConst(null);}
+                }
             >
               <option value="shm">General Equation: SHM</option>
               <option value="pendulum">Simple Pendulum </option>
@@ -466,6 +552,11 @@ function ShmCalculator() {
                   : choice_data().getters[1]
               }
               readOnly={choice_data().getters[1] === undefined ? true : false}
+              className={
+                choice_data().name === 'SimplePendulum'
+                ? "hide-text-box"
+                : ""
+              }
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -484,6 +575,11 @@ function ShmCalculator() {
                   : choice_data().getters[2]
               }
               readOnly={choice_data().getters[2] === undefined ? true : false}
+              className={
+                choiceOsc === 'pendulum' || choiceOsc === 'spring-mass'
+                ? "hide-text-box"
+                : ""
+              }
             />
           </Form.Group>
           <Form.Group className="mb-4">
@@ -502,8 +598,25 @@ function ShmCalculator() {
                   : choice_data().getters[3]
               }
               readOnly={choice_data().getters[3] === undefined ? true : false}
+              className={
+                choiceOsc === 'pendulum' || choiceOsc === 'spring-mass'
+                ? "hide-text-box"
+                : ""
+              }
             />
           </Form.Group>
+          
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula={choice_data().formula}
+                toFind={choice_data().name}
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-4">
             <Form.Control

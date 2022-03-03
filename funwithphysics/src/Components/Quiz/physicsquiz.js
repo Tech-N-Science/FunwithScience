@@ -49,7 +49,7 @@ const PhysicsQuiz = () => {
   const [showAns, setshowAns] = useState(false);
   const [score, setScore] = useState(0);
   const [index, setIndex] = useState(-1);
-
+  var [selected,setSelected]=useState(false);
   const [timeOut, setTimeOut] = useState(false);
 
   console.log(timeOut); //Added only for removing the warning this can be removed later when this variable is geeting used somewhere
@@ -57,22 +57,27 @@ const PhysicsQuiz = () => {
 
   const handleQuestion = () => {
     setshowAns(false);
+    setSelected(false);
     setIndex(-1);
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length ) {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true); 
-
     }
   };
 
   const handleAnswerOptionClick = (isCorrect, index) => {
-    if (isCorrect) {
+   
+    setSelected(true);
+    if(selected)
+    setScore(score);
+    else if (isCorrect && !selected) {
       setScore(score + 1);
-    } else {
-      setIndex(index);
     }
+    else 
+    setIndex(index);
+    
     setshowAns(true);
 
     setTimeout(handleQuestion,1500);
@@ -108,8 +113,6 @@ const PhysicsQuiz = () => {
   return (
     <div className="quiz">
       <h1>Quiz</h1>
-          
-      
         {showScore ? (
           <div className="quiz-section">
           <div className="score-section">

@@ -126,3 +126,7 @@
         padding: 1rem;
     }
 }
+
+.hide-text-box{
+    display: none!important;
+}
