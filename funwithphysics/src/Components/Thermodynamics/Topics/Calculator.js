@@ -10,7 +10,7 @@ import Solution from "../../Solution/Solution";
 import { useParams } from "react-router-dom";
 
 function Calculator() {
-  let { topic } = useParams();
+  let {topic} = useParams();
   // topics_data
   const Topics = [
     {
@@ -73,152 +73,10 @@ function Calculator() {
       siunit: "Entropy: Joules per kelvin",
       dimension: "Entropy: [M L² K/ T²]",
     },
-    
-      {
-        topic: "Thermal Expansion",
-        details:
-          "Thermal expansion is defined as change in the dimensions(length/area/volume) of a body due to changes in temperature. It can be expressed as the fractional change in length or area or volume per unit change in temperature.",
-        formula: ['For Thermal Expansion:  d',<sub>f</sub>,'=d',<sub>0</sub>,'(1+ξ(T',<sub>2</sub>,'-T',<sub>1</sub>,'))',
-                 ],
-        process:
-          ["To find the change in dimensions of a material due to temperature changes, we make use of the above formuale where the terms are described as follows:",
-          <br/>, 'd',<sub>f</sub>,'  is the final dimension',
-          <br/>, 'd',<sub>0</sub>,'  is the initial dimension',
-          <br/>, 'ξ','  is the expansion coefficient',
-          <br/>, 'T1 is the initial temperature',
-          <br/>, 'T2 is the initial temperature'],
-          
-        siunit: [<br/>,'For linear expansion:  m' ,<br/>,'For areal expansion:  m',<sup>2</sup>,<br/>,'For volume expansion:  m',<sup>3</sup>],
-        dimension:[<br/>,'For linear expansion: L ' ,<br/>,'For areal expansion:  L',<sup>2</sup>,<br/>,'For volume expansion:  L',<sup>3</sup>],
-      },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
-
-
-
-
-
-  //Thermal Expansion
-  const ThermalExpansion = () => {
-    const [result, setResult] = useState(null);
-    const [choice, setChoice] = useState("LinearExpansion");
-    const [initial, setInitial] = useState(null);
-    const [coefficient, setCoefficient] = useState(null);
-    const [T1, setT1] = useState(null);
-    const [T2, setT2] = useState(null);
-    function reset() {
-      setResult(null);
-      setChoice(null);
-      setInitial(null);
-      setCoefficient(null);
-      setT1(null);
-      setT2(null);
-    }
-    const handleChange = () => {
-      setInitial(null);
-      setCoefficient(null);
-      setT1(null);
-      setT2(null);
-      setResult(null);
-    }
-    const calcResult = () => {
-      setResult(initial + coefficient * (T2 - T1));
-    }
-    return (
-      <>
-        <Form>
-          <Form.Group className="mb-4" controlId="choice">
-            <Form.Label>Select the type of calculation</Form.Label>
-            <Form.Control
-              as="select"
-              className="select-custom-res"
-              onChange={(e) => handleChange(e)}
-            >
-              <option value="LinearExpansion">Linear Expansion</option>
-              <option value="ArealExpansion">Areal Expansion</option>
-              <option value="VolumetricExpansion">Volumetric Expansion</option>
-            </Form.Control>
-          </Form.Group>
-          <Form.Group className="mb-4" controlId="text">
-            <Form.Text className="text">
-              <strong>
-                To find the final dimension, Enter the following values
-              </strong>
-              <br />
-            </Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Initial Dimension</Form.Label>
-            <Form.Control
-              onChange={(e) => {
-                setInitial(Number(e.target.value));
-              }}
-              type="number"
-              value={initial === null ? "" : initial}
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Expansion Coefficient</Form.Label>
-            <Form.Control
-              onChange={(e) => {
-                setCoefficient(Number(e.target.value));
-              }}
-              type="number"
-              
-              value={coefficient === null ? "" : coefficient}
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Initial Temperature</Form.Label>
-            <Form.Control
-               value={T1 === null ? "" : T1}
-              type="number"
-              onChange={(e) => {
-                setT1(Number(e.target.value));
-              }}
-             
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Final Temperature</Form.Label>
-            <Form.Control
-              value={T2 === null ? "" : T2}
-              type="number"
-              onChange={(e) => {
-                setT2(Number(e.target.value));
-              }}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-4">
-            <Form.Control
-              disabled="true"
-              type="number"
-              placeholder={result === null ? "Result" : result}
-            />
-          </Form.Group>
-        </Form>
-        <div className="button-custom-grp">
-          <Button variant="primary" onClick={calcResult}>
-            Calculate
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => reset()} type="reset">
-            Reset
-          </Button>
-        </div>
-      </>
-    );
-  }
-
-
-
-
-
-
-
 
   //Third law of thermodynamics
   function CalculatorThirdLaw() {
@@ -1183,9 +1041,9 @@ function Calculator() {
             </Form.Text>
           </Form.Group>
           {choice === "p" ||
-            choice === "v" ||
-            choice === "t" ||
-            choice === "u" ? (
+          choice === "v" ||
+          choice === "t" ||
+          choice === "u" ? (
             <>
               <Form.Group className="mb-4">
                 <Form.Label>{choiceData().quantities[0]}</Form.Label>
@@ -1320,9 +1178,6 @@ function Calculator() {
         break;
       case "First law":
         currentCall = CalculatorFirstLaw();
-        break;
-      case "Thermal Expansion":
-        currentCall = ThermalExpansion(); 
         break;
       case "Second law":
         currentCall = CalculatorSecondLaw();
