@@ -62,14 +62,15 @@ const MathsQuiz = () => {
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length ) {
       setCurrentQuestion(nextQuestion);
-    } 
-    else 
-    setShowScore(true); 
+    } else {
+      setShowScore(true); 
+
+    }
   };
 
   const handleAnswerOptionClick = (isCorrect, index) => {
     setSelected(true);
-    if(selected) 
+    if(selected)
     setScore(score);
     else if (isCorrect && !selected) {
       setScore(score + 1);
