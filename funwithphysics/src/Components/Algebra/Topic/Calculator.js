@@ -707,6 +707,8 @@ function Calculator() {
       setN(null);
       setR(null);
       setResult(null);
+      setShowSolution1(null);
+      setShowSolution2(null);
     }
     function factorial(x) {
       var result = 1;
