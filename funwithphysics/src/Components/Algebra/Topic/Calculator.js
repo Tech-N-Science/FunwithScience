@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router";
 import "./Calculator.css";
 import { useEffect } from "react";
+import Solution from "../../Solution/Solution";
 
 function Calculator() {
   let { topic } = useParams();
@@ -783,6 +784,18 @@ function Calculator() {
     const [fr, setFR] = useState(null);
     const [nth, setNth] = useState(null);
     const [sum, setSum] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution1, setShowSolution1] = useState(false);
+
+    const givenValues1 = {
+      first_term: n,
+      d: fr,
+      n: nth,
+    };
+
+    const insertValues1 = `${n} + ${fr} * (${nth}-1)`;
+
+
     function handleChange(e) {
       reset();
       setChoice(e.target.value);
@@ -790,10 +803,18 @@ function Calculator() {
     }
     const calcResult = () => {
       let res, s;
+      
       if (choice === "AP") {
-        res = Number(n) + Number(fr * (nth - 1));
-        s = (nth / 2) * (Number(2 * n) + Number(fr * (nth - 1)));
-      } else if (choice === "GP") {
+        if(n !== null && fr !== null && nth !== null){          
+          res = Number(n) + Number(fr * (nth - 1));
+          s = (nth / 2) * (Number(2 * n) + Number(fr * (nth - 1)));
+          setShowSolution1(true);
+        }
+        else {
+          setShowModal(true);
+        }
+      } 
+      else if (choice === "GP") {
         res = Number(n) * Number(fr ** (nth - 1));
         s = (n * (fr ** nth - 1)) / (fr - 1);
       }
@@ -806,6 +827,7 @@ function Calculator() {
       setFR(null);
       setNth(null);
       setSum(null);
+      setShowSolution1(false);
     }
     const choiceData = () => {
       if (choice === "AP")
@@ -813,6 +835,7 @@ function Calculator() {
           name: "Arithmetic Progression",
           quantities: ["First Number", "Common diffrence"],
           disable: true,
+          formula: "a + d * (n-1)",
         };
       else if (choice === "GP") {
         return {
@@ -822,7 +845,20 @@ function Calculator() {
       }
     };
     return (
-      <>
+      <>      
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+            <Modal.Header>
+              Please Enter all values to get Proper answer
+            </Modal.Header>
+            <Modal.Footer>
+              <Button
+                onClick={() => setShowModal(false)}
+                class="btn btn-primary btn-sm"
+              >
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -872,6 +908,22 @@ function Calculator() {
               value={nth === null ? "" : nth}
             />
           </Form.Group>
+
+          
+          {showSolution1 ? (
+                <Form.Group className="mb-3" controlId="acceleration">
+                  <Solution
+                    givenValues={givenValues1}
+                    formula={choiceData().formula}
+                    toFind={choiceData().name}
+                    insertValues={insertValues1}
+                    result={result}
+                    // constants={constants}
+                  />
+                </Form.Group>
+              ) : null}
+            
+
           <Form.Group className="mb-4">
             <Form.Label>Number at {nth ? nth : "nth"} position</Form.Label>
             <Form.Control
