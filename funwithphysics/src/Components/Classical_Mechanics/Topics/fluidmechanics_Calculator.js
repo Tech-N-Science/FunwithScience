@@ -6,6 +6,10 @@ import { Form, Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router-dom";
+import Solution from "../../Solution/Solution";
+
+import { SI } from "../../Solution/allSIUnits";
+import Modal from "react-bootstrap/Modal";
 
 function FluidCalculator() {
   let {topic} = useParams();
@@ -147,20 +151,60 @@ function FluidCalculator() {
     const [result, setResult] = useState(null);
     const [force, setForce] = useState(null);
     const [area, setArea] = useState(null);
+    
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const handleClick = () => {
-      let res = force / area;
-      setResult(res);
+      if (force !== "" && area !== "") {
+        let res = force / area;
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowModal(true);
+      }
     };
 
-    const handleReset = () => {
-      setResult(null);
-      setForce(null);
-      setArea(null);
-    };
+      const givenValues = {
+        Force: force,
+        Area: area
+      };
+
+      const resetForm = () => {
+        setForce("");
+        setArea("");
+        setShowSolution(false);
+        setResult("");
+      };
+
+      const insertValues = ` ${force}${SI["Force"]} / ${area}${SI["Area"]}`;
+
+    // const handleClick = () => {
+    //   let res = force / area;
+    //   setResult(res);
+    // };
+
+    // const handleReset = () => {
+    //   setResult(null);
+    //   setForce(null);
+    //   setArea(null);
+    // };
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Force (in newtons)</Form.Label>
@@ -178,6 +222,17 @@ function FluidCalculator() {
               placeholder="Enter area of the object"
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="force / area"
+                toFind="Pressure"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-3" controlId="pressure">
             <Form.Label>Pressure</Form.Label>
             <Form.Control
@@ -194,7 +249,7 @@ function FluidCalculator() {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={handleReset} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
