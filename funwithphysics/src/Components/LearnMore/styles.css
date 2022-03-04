@@ -317,5 +317,5 @@ a.plus:hover {
   cursor: pointer;
   transform: scale(1.1);
   box-shadow: none;
-  z-index:5;
+  z-index:2;
 }

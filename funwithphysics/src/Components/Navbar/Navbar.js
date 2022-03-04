@@ -49,7 +49,7 @@ const Navbar = () => {
   };
   return (
     <React.Fragment>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light pt-3' style = {{position:'sticky',top:'0',zIndex:'1'}}>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light pt-3' style = {{position:'sticky',top:'0',zIndex:'3'}}>
         <p className='navbar-brand'>
           <button
             className='navbar-toggler'
