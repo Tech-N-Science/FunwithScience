@@ -9,10 +9,6 @@ import Solution from "../../Solution/Solution";
 import { SI } from "../../Solution/allSIUnits";
 import Modal from "react-bootstrap/Modal";
 import { useParams } from "react-router-dom";
-import Solution from "../../Solution/Solution";
-
-import { SI } from "../../Solution/allSIUnits";
-import Modal from "react-bootstrap/Modal";
 
 function FluidCalculator() {
   let {topic} = useParams();
@@ -181,17 +177,6 @@ function FluidCalculator() {
       };
 
       const insertValues = ` ${force}${SI["Force"]} / ${area}${SI["Area"]}`;
-
-    // const handleClick = () => {
-    //   let res = force / area;
-    //   setResult(res);
-    // };
-
-    // const handleReset = () => {
-    //   setResult(null);
-    //   setForce(null);
-    //   setArea(null);
-    // };
 
     return (
       <React.Fragment>
