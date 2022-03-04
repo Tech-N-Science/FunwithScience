@@ -5,6 +5,9 @@ import { Form, Button } from "react-bootstrap";
 
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
+import Solution from "../../Solution/Solution";
+import { SI } from "../../Solution/allSIUnits";
+import Modal from "react-bootstrap/Modal";
 import { useParams } from "react-router-dom";
 import Solution from "../../Solution/Solution";
 
@@ -457,24 +460,53 @@ function FluidCalculator() {
   // Viscosity calculator
   function CalculatorViscosity() {
     const [result, setResult] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const [force, setForce] = useState(null);
     const [area, setArea] = useState(null);
     const [rateofdeformation, setRateofdeformation] = useState(null);
 
     const handleClick = () => {
-      let res = force / area / rateofdeformation;
-      setResult(res);
+      if (force !== "" || area !== "" || rateofdeformation !== "") {
+        let res = force / (area*rateofdeformation);
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowModal(true);
+      }
     };
 
-    const handleReset = () => {
-      setResult(null);
-      setForce(null);
-      setArea(null);
-      setRateofdeformation(null);
+    const givenValues = {
+      Force: force,
+      Area: area,
+      Rateofdeformation: rateofdeformation,
     };
+
+    const resetForm = () => {
+      setForce("");
+      setArea("");
+      setRateofdeformation("");
+      setShowSolution(false);
+      setResult(null);
+    };
+
+    const insertValues = ` ${force}${SI["Force"]} / ((${area}${SI["Area"]}) * (${rateofdeformation}${SI["Rateofdeformation"]}))`;
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="force">
             <Form.Label> Force (in newtons)</Form.Label>
@@ -500,14 +532,23 @@ function FluidCalculator() {
               placeholder="Enter rate of shear deformation"
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Fy/Au"
+                toFind="Viscosity"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-3" controlId="pressure">
             <Form.Label>Viscosity</Form.Label>
             <Form.Control
               readOnly
               type="number"
-              placeholder={
-                result === null ? "Result" : result + " pascal-second "
-              }
+              placeholder={result === "" ? "Result" : result + " pascal-second "}
             />
             <Form.Text className="text-muted">
               Enter the above values to calculate.
@@ -518,7 +559,7 @@ function FluidCalculator() {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={handleReset} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>

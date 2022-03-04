@@ -275,7 +275,7 @@ function Calculator() {
         if (dif > 0) {
           return Infinity;
         } else {
-          return -1 * Infinity;
+          return -1 ;
         }
       } 
       else {
@@ -285,7 +285,7 @@ function Calculator() {
         if (dif1 < 0) {
           return Infinity;
         } else {
-          return -1 * Infinity;
+          return -1;
         }
       }
     }
