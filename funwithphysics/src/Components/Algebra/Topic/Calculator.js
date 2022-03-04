@@ -786,6 +786,7 @@ function Calculator() {
     const [sum, setSum] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showSolution1, setShowSolution1] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
 
     const givenValues1 = {
       first_term: n,
@@ -794,6 +795,13 @@ function Calculator() {
     };
 
     const insertValues1 = `${n} + ${fr} * (${nth}-1)`;
+
+    const givenValues2 = {
+      first_term: n,
+      d: fr,
+      n: nth,
+    };
+    const insertValues2 = `${n} * ${fr} ^ (${nth}-1)`;
 
 
     function handleChange(e) {
@@ -815,8 +823,14 @@ function Calculator() {
         }
       } 
       else if (choice === "GP") {
-        res = Number(n) * Number(fr ** (nth - 1));
-        s = (n * (fr ** nth - 1)) / (fr - 1);
+        if(n !== null && fr !== null && nth !== null){
+          res = Number(n) * Number(fr ** (nth - 1));
+          s = (n * (fr ** nth - 1)) / (fr - 1);
+          setShowSolution2(true);
+        }
+        else {
+          setShowModal(true);
+        }
       }
       setResult(res);
       setSum(s);
@@ -828,6 +842,7 @@ function Calculator() {
       setNth(null);
       setSum(null);
       setShowSolution1(false);
+      setShowSolution2(false);
     }
     const choiceData = () => {
       if (choice === "AP")
@@ -841,6 +856,7 @@ function Calculator() {
         return {
           name: "Geometric Progression",
           quantities: ["First Number", "Common ratio"],
+          formula:"a * r ^ (n-1)",
         };
       }
     };
@@ -917,6 +933,19 @@ function Calculator() {
                     formula={choiceData().formula}
                     toFind={choiceData().name}
                     insertValues={insertValues1}
+                    result={result}
+                    // constants={constants}
+                  />
+                </Form.Group>
+              ) : null}
+
+          {showSolution2 ? (
+                <Form.Group className="mb-3" controlId="acceleration">
+                  <Solution
+                    givenValues={givenValues2}
+                    formula={choiceData().formula}
+                    toFind={choiceData().name}
+                    insertValues={insertValues2}
                     result={result}
                     // constants={constants}
                   />
