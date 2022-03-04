@@ -788,6 +788,7 @@ function Calculator() {
     const [showSolution1, setShowSolution1] = useState(false);
     const [showSolution2, setShowSolution2] = useState(false);
     const [showSumSolution1, setShowSumSolution1] = useState(false);
+    const [showSumSolution2, setShowSumSolution2] = useState(false);
 
     const givenValues1 = {
       first_term: n,
@@ -810,6 +811,13 @@ function Calculator() {
       n: nth,
     };
     const insertSumValues1 = `${n}/2 (2 * ${n} + (${nth}-1) * ${fr})`;
+
+    const givenSumValues2 = {
+      first_term: n,
+      xommon_ratio: fr,
+      n: nth,
+    };
+    const insertSumValues2 = `${n} * (${fr} * (${nth}-1) / (${fr} - 1))`;
 
 
     function handleChange(e) {
@@ -836,6 +844,7 @@ function Calculator() {
           res = Number(n) * Number(fr ** (nth - 1));
           s = (n * (fr ** nth - 1)) / (fr - 1);
           setShowSolution2(true);
+          setShowSumSolution2(true);
         }
         else {
           setShowModal(true);
@@ -852,6 +861,8 @@ function Calculator() {
       setSum(null);
       setShowSolution1(false);
       setShowSolution2(false);
+      setShowSumSolution1(false);
+      setShowSumSolution2(false);
     }
     const choiceData = () => {
       if (choice === "AP")
@@ -978,6 +989,19 @@ function Calculator() {
                     formula= "n/2 (2a+(n−1)d)"
                     toFind= "sum of numbers"
                     insertValues={insertSumValues1}
+                    result={sum}
+                    // constants={constants}
+                  />
+                </Form.Group>
+              ) : null}
+
+          {showSumSolution2 ? (
+                <Form.Group className="mb-3" controlId="acceleration">
+                  <Solution
+                    givenValues={givenSumValues2}
+                    formula= "a(rn−1)r−1"
+                    toFind= "sum of numbers"
+                    insertValues={insertSumValues2}
                     result={sum}
                     // constants={constants}
                   />
