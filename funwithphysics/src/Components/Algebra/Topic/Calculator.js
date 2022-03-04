@@ -682,6 +682,7 @@ function Calculator() {
     });
     const [result, setResult] = useState(null);
     const [showSolution1, setShowSolution1] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
     const givenValues1 = {
@@ -690,6 +691,13 @@ function Calculator() {
     };
 
     const insertValues1 = `${n}! / (${n} - ${r})!`;
+
+    const givenValues2 = {
+      n: n,
+      r_: r,
+    };
+    
+    const insertValues2 = `${n}! / ${r}! (${n} - ${r})!`;
 
     const handleChange = (e) => {
       reset();
@@ -723,11 +731,19 @@ function Calculator() {
         } 
         
       } else if (choice === "Combination") {
-        if (n >= r) setResult(factorial(n) / (factorial(r) * factorial(n - r)));
-        else
-          alert(
-            "The value of n should not be less than r.Please enter valid values for n and r"
-          );
+        if(n !== null && r !== null){
+          if (n >= r) {
+            setResult(factorial(n) / (factorial(r) * factorial(n - r)));                        
+            setShowSolution2(true);
+          }
+          else
+            alert(
+              "The value of n should not be less than r.Please enter valid values for n and r"
+            );
+        }
+        else{
+          setShowModal(true);
+        }         
       }
     };
     useEffect(() => {
@@ -796,6 +812,19 @@ function Calculator() {
                 formula="n!/(n-r)!"
                 toFind="nPr"
                 insertValues={insertValues1}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
+        {showSolution2 ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues2}
+                formula="n!/r!(n-r)!"
+                toFind="nCr"
+                insertValues={insertValues2}
                 result={result}
                 // constants={constants}
               />
