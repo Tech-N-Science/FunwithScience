@@ -412,7 +412,7 @@ function FluidCalculator() {
     const [rateofdeformation, setRateofdeformation] = useState(null);
 
     const handleClick = () => {
-      if (force !== "" || area !== "" || rateofdeformation !== "") {
+      if (force !== "" && area !== "" && rateofdeformation !== "") {
         let res = force / (area*rateofdeformation);
         setShowSolution(true);
         setResult(res);
