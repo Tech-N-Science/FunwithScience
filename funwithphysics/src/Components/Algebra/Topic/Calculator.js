@@ -787,6 +787,7 @@ function Calculator() {
     const [showModal, setShowModal] = useState(false);
     const [showSolution1, setShowSolution1] = useState(false);
     const [showSolution2, setShowSolution2] = useState(false);
+    const [showSumSolution1, setShowSumSolution1] = useState(false);
 
     const givenValues1 = {
       first_term: n,
@@ -802,6 +803,13 @@ function Calculator() {
       n: nth,
     };
     const insertValues2 = `${n} * ${fr} ^ (${nth}-1)`;
+    
+    const givenSumValues1 = {
+      first_term: n,
+      d: fr,
+      n: nth,
+    };
+    const insertSumValues1 = `${n}/2 (2 * ${n} + (${nth}-1) * ${fr})`;
 
 
     function handleChange(e) {
@@ -817,6 +825,7 @@ function Calculator() {
           res = Number(n) + Number(fr * (nth - 1));
           s = (nth / 2) * (Number(2 * n) + Number(fr * (nth - 1)));
           setShowSolution1(true);
+          setShowSumSolution1(true);
         }
         else {
           setShowModal(true);
@@ -961,6 +970,21 @@ function Calculator() {
               placeholder={result === null ? "Result" : result}
             />
           </Form.Group>
+
+          {showSumSolution1 ? (
+                <Form.Group className="mb-3" controlId="acceleration">
+                  <Solution
+                    givenValues={givenSumValues1}
+                    formula= "n/2 (2a+(n−1)d)"
+                    toFind= "sum of numbers"
+                    insertValues={insertSumValues1}
+                    result={sum}
+                    // constants={constants}
+                  />
+                </Form.Group>
+              ) : null}
+
+
           <Form.Group className="mb-4">
             <Form.Label>
               Sum of numbers till {nth ? nth : "nth"} position
