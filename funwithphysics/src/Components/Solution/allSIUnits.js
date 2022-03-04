@@ -70,5 +70,7 @@ export const SI = {
   TempChange: " K","Temperature_Change":" K","tempcold":" K","temphot":" K","temperature":" K","Temperature (T)":" Kelvin","Temperature":" k",
   ExpansionCoeff:" K⁻¹","Expansion_Coeff":" K⁻¹",
   SimplePendulum:"sec",
-  k:"N/m"
+  Viscosity: "pascal-second",
+  k:"N/m",
+  Rateofdeformation: ""
 };
