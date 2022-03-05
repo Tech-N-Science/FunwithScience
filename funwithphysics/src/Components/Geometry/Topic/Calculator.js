@@ -1462,6 +1462,7 @@ function Calculator() {
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
 
     const givenValues = {
       h_:h,
@@ -1472,6 +1473,14 @@ function Calculator() {
 
     const insertValues = `(x-${h})²/${a}² - (y-${k})²/${b}² = 1`;
 
+    const givenValues2 = {
+      h_:h,
+      a_:a,
+      k_:k,
+      b:b,
+    };
+    const insertValues2 = `(y-${k})²/${a}² - (x-${h})²/${b}² = 1`;
+
     const reset = () => {
       setV11("");
       setV21("");
@@ -1481,9 +1490,14 @@ function Calculator() {
       setC21("");
       setC31("");
       setC41("");
+      setA("");
+      setB("");
+      setH("");
+      setK("");
 
       setResult(null);
       setShowSolution(false);
+      setShowSolution2(false);
     };
 
     const calcHyperbola = () => {
@@ -1524,6 +1538,7 @@ function Calculator() {
         ];
         setResult(equation);
         setShowSolution(true);
+        setShowSolution2(true);
       }          
       else{
         setShowModal(true);
@@ -1682,6 +1697,19 @@ function Calculator() {
                 toFind="Standard Form1"
                 insertValues={insertValues}
                 result={result[0]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
+          {showSolution2 ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues2}
+                formula="(y-k)²/a² - (x-h)²/b² = 1"
+                toFind="Standard Form2"
+                insertValues={insertValues2}
+                result={result[1]}
                 // constants={constants}
               />
             </Form.Group>
