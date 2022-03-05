@@ -404,15 +404,15 @@ function FluidCalculator() {
 
   // Viscosity calculator
   function CalculatorViscosity() {
-    const [result, setResult] = useState(null);
+    const [result, setResult] = useState("");
     const [showSolution, setShowSolution] = useState(false);
     const [showModal, setShowModal] = useState(false);
-    const [force, setForce] = useState(null);
-    const [area, setArea] = useState(null);
-    const [rateofdeformation, setRateofdeformation] = useState(null);
+    const [force, setForce] = useState("");
+    const [area, setArea] = useState("");
+    const [rateofdeformation, setRateofdeformation] = useState("");
 
     const handleClick = () => {
-      if (force !== "" || area !== "" || rateofdeformation !== "") {
+      if (force !== "" && area !== "" && rateofdeformation !== "") {
         let res = force / (area*rateofdeformation);
         setShowSolution(true);
         setResult(res);
@@ -435,7 +435,7 @@ function FluidCalculator() {
       setResult(null);
     };
 
-    const insertValues = ` ${force}${SI["Force"]} / ((${area}${SI["Area"]}) * (${rateofdeformation}${SI["Rateofdeformation"]}))`;
+    const insertValues = `${force}${SI["Force"]} / ((${area}${SI["Area"]}) * (${rateofdeformation}${SI["Rateofdeformation"]}))`;
 
     return (
       <React.Fragment>

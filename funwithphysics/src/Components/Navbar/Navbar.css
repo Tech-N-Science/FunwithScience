@@ -150,10 +150,18 @@
     padding: 3px;
   }
 }
-.nav-logo{
-  color:black;
+.nav-logo span{
+  font-family: 'Noto Sans HK', sans-serif;
+  color:rgb(0, 0, 0);
   transition: 0.2s;
 }
+.nav-logo span span{
+  font-family: 'Noto Sans HK', sans-serif;
+  color:rgb(0, 0, 0);
+  transition: 0.2s;
+  margin: 5px;
+}
+
 .nav-logo:hover{
   transform:scale(1.05);
   color:black;
