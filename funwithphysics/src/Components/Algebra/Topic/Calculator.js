@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import { useParams } from "react-router";
 import "./Calculator.css";
 import { useEffect } from "react";
+import Solution from "../../Solution/Solution";
 
 function Calculator() {
   let { topic } = useParams();
@@ -680,6 +681,24 @@ function Calculator() {
       name: "Permutation",
     });
     const [result, setResult] = useState(null);
+    const [showSolution1, setShowSolution1] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
+    const givenValues1 = {
+      n: n,
+      r_: r,
+    };
+
+    const insertValues1 = `${n}! / (${n} - ${r})!`;
+
+    const givenValues2 = {
+      n: n,
+      r_: r,
+    };
+    
+    const insertValues2 = `${n}! / ${r}! (${n} - ${r})!`;
+
     const handleChange = (e) => {
       reset();
       setChoice(e.target.value);
@@ -688,6 +707,8 @@ function Calculator() {
       setN(null);
       setR(null);
       setResult(null);
+      setShowSolution1(null);
+      setShowSolution2(null);
     }
     function factorial(x) {
       var result = 1;
@@ -696,17 +717,35 @@ function Calculator() {
     }
     const calcResult = () => {
       if (choice === "Permutation") {
-        if (n >= r) setResult(factorial(n) / factorial(n - r));
-        else
-          alert(
-            "The value of n should not be less than r.Please enter valid values for n and r"
-          );
+        if(n !== null && r !== null){
+          if (n >= r)
+          {
+            setResult(factorial(n) / factorial(n - r));            
+            setShowSolution1(true);
+          }
+          else
+            alert(
+              "The value of n should not be less than r.Please enter valid values for n and r"
+            );
+        }      
+        else{
+          setShowModal(true);
+        } 
+        
       } else if (choice === "Combination") {
-        if (n >= r) setResult(factorial(n) / (factorial(r) * factorial(n - r)));
-        else
-          alert(
-            "The value of n should not be less than r.Please enter valid values for n and r"
-          );
+        if(n !== null && r !== null){
+          if (n >= r) {
+            setResult(factorial(n) / (factorial(r) * factorial(n - r)));                        
+            setShowSolution2(true);
+          }
+          else
+            alert(
+              "The value of n should not be less than r.Please enter valid values for n and r"
+            );
+        }
+        else{
+          setShowModal(true);
+        }         
       }
     };
     useEffect(() => {
@@ -715,7 +754,20 @@ function Calculator() {
     }, [choice]);
 
     return (
-      <>
+      <>      
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
@@ -754,6 +806,33 @@ function Calculator() {
               value={r === null ? "" : r}
             />
           </Form.Group>
+
+          {showSolution1 ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues1}
+                formula="n!/(n-r)!"
+                toFind="nPr"
+                insertValues={insertValues1}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
+        {showSolution2 ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues2}
+                formula="n!/r!(n-r)!"
+                toFind="nCr"
+                insertValues={insertValues2}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
           <Form.Group className="mb-4">
             <Form.Control
               readOnly

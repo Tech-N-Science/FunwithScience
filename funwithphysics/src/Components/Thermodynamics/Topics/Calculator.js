@@ -10,7 +10,7 @@ import Solution from "../../Solution/Solution";
 import { useParams } from "react-router-dom";
 
 function Calculator() {
-  let { topic } = useParams();
+  let {topic} = useParams();
   // topics_data
   const Topics = [
     {
@@ -73,6 +73,7 @@ function Calculator() {
       siunit: "Entropy: Joules per kelvin",
       dimension: "Entropy: [M L² K/ T²]",
     },
+<<<<<<< HEAD
     
       {
         topic: "Thermal Expansion",
@@ -91,11 +92,14 @@ function Calculator() {
         siunit: [<br/>,'For linear expansion:  m' ,<br/>,'For areal expansion:  m',<sup>2</sup>,<br/>,'For volume expansion:  m',<sup>3</sup>],
         dimension:[<br/>,'For linear expansion: L ' ,<br/>,'For areal expansion:  L',<sup>2</sup>,<br/>,'For volume expansion:  L',<sup>3</sup>],
       },
+=======
+>>>>>>> 1877c578e8d6a0a991956695b43153bde25e7c00
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
+<<<<<<< HEAD
 
 
 
@@ -225,6 +229,8 @@ function Calculator() {
 
 
 
+=======
+>>>>>>> 1877c578e8d6a0a991956695b43153bde25e7c00
   //Third law of thermodynamics
   function CalculatorThirdLaw() {
     const [result, setResult] = useState(null);
@@ -1188,9 +1194,9 @@ function Calculator() {
             </Form.Text>
           </Form.Group>
           {choice === "p" ||
-            choice === "v" ||
-            choice === "t" ||
-            choice === "u" ? (
+          choice === "v" ||
+          choice === "t" ||
+          choice === "u" ? (
             <>
               <Form.Group className="mb-4">
                 <Form.Label>{choiceData().quantities[0]}</Form.Label>
@@ -1325,9 +1331,6 @@ function Calculator() {
         break;
       case "First law":
         currentCall = CalculatorFirstLaw();
-        break;
-      case "Thermal Expansion":
-        currentCall = ThermalExpansion(); 
         break;
       case "Second law":
         currentCall = CalculatorSecondLaw();

@@ -59,6 +59,7 @@ export default function Thermodynamics() {
           siunit:"Entropy: Joules per kelvin",
           dimension:"Entropy: [M L² K/ T²]"
         }
+<<<<<<< HEAD
       ,
       {
         topic: "Thermal Expansion",
@@ -77,6 +78,9 @@ export default function Thermodynamics() {
         siunit: [<br/>,'For linear expansion:  m' ,<br/>,'For areal expansion:  m',<sup>2</sup>,<br/>,'For volume expansion:  m',<sup>3</sup>],
         dimension:[<br/>,'For linear expansion: L ' ,<br/>,'For areal expansion:  L',<sup>2</sup>,<br/>,'For volume expansion:  L',<sup>3</sup>],
       },
+=======
+        
+>>>>>>> 1877c578e8d6a0a991956695b43153bde25e7c00
       
       ];
 
