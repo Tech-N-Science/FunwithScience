@@ -862,6 +862,42 @@ function Calculator() {
     const [fr, setFR] = useState(null);
     const [nth, setNth] = useState(null);
     const [sum, setSum] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution1, setShowSolution1] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
+    const [showSumSolution1, setShowSumSolution1] = useState(false);
+    const [showSumSolution2, setShowSumSolution2] = useState(false);
+
+    const givenValues1 = {
+      first_term: n,
+      d: fr,
+      n: nth,
+    };
+
+    const insertValues1 = `${n} + ${fr} * (${nth}-1)`;
+
+    const givenValues2 = {
+      first_term: n,
+      d: fr,
+      n: nth,
+    };
+    const insertValues2 = `${n} * ${fr} ^ (${nth}-1)`;
+    
+    const givenSumValues1 = {
+      first_term: n,
+      d: fr,
+      n: nth,
+    };
+    const insertSumValues1 = `${n}/2 (2 * ${n} + (${nth}-1) * ${fr})`;
+
+    const givenSumValues2 = {
+      first_term: n,
+      xommon_ratio: fr,
+      n: nth,
+    };
+    const insertSumValues2 = `${n} * (${fr} * (${nth}-1) / (${fr} - 1))`;
+
+
     function handleChange(e) {
       reset();
       setChoice(e.target.value);
@@ -869,12 +905,28 @@ function Calculator() {
     }
     const calcResult = () => {
       let res, s;
+      
       if (choice === "AP") {
-        res = Number(n) + Number(fr * (nth - 1));
-        s = (nth / 2) * (Number(2 * n) + Number(fr * (nth - 1)));
-      } else if (choice === "GP") {
-        res = Number(n) * Number(fr ** (nth - 1));
-        s = (n * (fr ** nth - 1)) / (fr - 1);
+        if(n !== null && fr !== null && nth !== null){          
+          res = Number(n) + Number(fr * (nth - 1));
+          s = (nth / 2) * (Number(2 * n) + Number(fr * (nth - 1)));
+          setShowSolution1(true);
+          setShowSumSolution1(true);
+        }
+        else {
+          setShowModal(true);
+        }
+      } 
+      else if (choice === "GP") {
+        if(n !== null && fr !== null && nth !== null){
+          res = Number(n) * Number(fr ** (nth - 1));
+          s = (n * (fr ** nth - 1)) / (fr - 1);
+          setShowSolution2(true);
+          setShowSumSolution2(true);
+        }
+        else {
+          setShowModal(true);
+        }
       }
       setResult(res);
       setSum(s);
@@ -885,6 +937,10 @@ function Calculator() {
       setFR(null);
       setNth(null);
       setSum(null);
+      setShowSolution1(false);
+      setShowSolution2(false);
+      setShowSumSolution1(false);
+      setShowSumSolution2(false);
     }
     const choiceData = () => {
       if (choice === "AP")
@@ -892,16 +948,31 @@ function Calculator() {
           name: "Arithmetic Progression",
           quantities: ["First Number", "Common diffrence"],
           disable: true,
+          formula: "a + d * (n-1)",
         };
       else if (choice === "GP") {
         return {
           name: "Geometric Progression",
           quantities: ["First Number", "Common ratio"],
+          formula:"a * r ^ (n-1)",
         };
       }
     };
     return (
-      <>
+      <>      
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+            <Modal.Header>
+              Please Enter all values to get Proper answer
+            </Modal.Header>
+            <Modal.Footer>
+              <Button
+                onClick={() => setShowModal(false)}
+                class="btn btn-primary btn-sm"
+              >
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -951,6 +1022,35 @@ function Calculator() {
               value={nth === null ? "" : nth}
             />
           </Form.Group>
+
+          
+          {showSolution1 ? (
+                <Form.Group className="mb-3" controlId="acceleration">
+                  <Solution
+                    givenValues={givenValues1}
+                    formula={choiceData().formula}
+                    toFind={choiceData().name}
+                    insertValues={insertValues1}
+                    result={result}
+                    // constants={constants}
+                  />
+                </Form.Group>
+              ) : null}
+
+          {showSolution2 ? (
+                <Form.Group className="mb-3" controlId="acceleration">
+                  <Solution
+                    givenValues={givenValues2}
+                    formula={choiceData().formula}
+                    toFind={choiceData().name}
+                    insertValues={insertValues2}
+                    result={result}
+                    // constants={constants}
+                  />
+                </Form.Group>
+              ) : null}
+            
+
           <Form.Group className="mb-4">
             <Form.Label>Number at {nth ? nth : "nth"} position</Form.Label>
             <Form.Control
@@ -959,6 +1059,34 @@ function Calculator() {
               placeholder={result === null ? "Result" : result}
             />
           </Form.Group>
+
+          {showSumSolution1 ? (
+                <Form.Group className="mb-3" controlId="acceleration">
+                  <Solution
+                    givenValues={givenSumValues1}
+                    formula= "n/2 (2a+(n−1)d)"
+                    toFind= "sum of numbers"
+                    insertValues={insertSumValues1}
+                    result={sum}
+                    // constants={constants}
+                  />
+                </Form.Group>
+              ) : null}
+
+          {showSumSolution2 ? (
+                <Form.Group className="mb-3" controlId="acceleration">
+                  <Solution
+                    givenValues={givenSumValues2}
+                    formula= "a(rn−1)r−1"
+                    toFind= "sum of numbers"
+                    insertValues={insertSumValues2}
+                    result={sum}
+                    // constants={constants}
+                  />
+                </Form.Group>
+              ) : null}
+
+
           <Form.Group className="mb-4">
             <Form.Label>
               Sum of numbers till {nth ? nth : "nth"} position
