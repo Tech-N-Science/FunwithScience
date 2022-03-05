@@ -122,7 +122,7 @@ function Calculator() {
       setResult(null);
     }
     const calcResult = () => {
-      setResult(initial + coefficient * (T2 - T1));
+      setResult(initial*(1 + coefficient * (T2 - T1)));
     }
     return (
       <>
