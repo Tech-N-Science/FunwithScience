@@ -869,8 +869,24 @@ function Calculator() {
     const [c2, setC2] = useState(null);
     const [c3, setC3] = useState(null);
     const [c4, setC4] = useState(null);
+    const [a, setA] = useState(null);
+    const [b, setB] = useState(null);
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      vertice1:v1,
+      vertice2_:v2,      
+      vertice3:v3,      
+      vertice4:v4,
+      c1:c1,      
+      c2:c2,      
+      c3:c3,      
+      c4:c4,      
+    };
+
+    const insertValues = `(x-((${v1} + ${v2})/2 ))²/${a}² + (y-((${v3} + ${v4})/2 ))²/${b}² = 1  `;
 
     const reset = () => {
       setV1("");
@@ -901,7 +917,8 @@ function Calculator() {
         const c = major_xaxis ? Math.abs(C1) : C4 - k;
         const [aSquare, cSquare] = [a * a, c * c];
         const bSquare = aSquare - cSquare;
-  
+        setA(aSquare);
+        setB(bSquare);
         let equation = [
           `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${aSquare} + (y${
             k >= 0 ? "-" : "+"
@@ -911,6 +928,7 @@ function Calculator() {
           }${k < 0 ? -k : k})²/${aSquare} = 1`,
         ];
         setResult(equation);
+        setShowSolution(true);
       } 
       else{
         setShowModal(true);
@@ -1061,6 +1079,19 @@ function Calculator() {
               </form>
             </div>
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(x-h)²/a² + (y-k)²/b² = 1"
+                toFind="Standard Form1"
+                insertValues={insertValues}
+                result={result[0]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <div className="input-group mb-4">
             <Form.Group className="mr-3" id="r1">
