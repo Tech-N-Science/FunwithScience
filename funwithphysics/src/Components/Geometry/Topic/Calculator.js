@@ -503,27 +503,46 @@ function Calculator() {
     const [x, setX] = useState(null);
     const [y, setY] = useState(null);
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    
     const reset = () => {
       setH("");
       setK("");
       setX("");
       setY("");
-
       setResult(null);
     };
 
     const calcParabola = () => {
-      const nume = y - k;
-      const denome = (x - h) * (x - h);
-      const a = new Fraction(nume / denome);
-      let equation = [
-        `y=${a.toString()}(x-${h})² + ${k}`,
-        `x=${a.toString()}(y-${k})² + ${h}`,
-      ];
-      setResult(equation);
+      if(h !== null && k !== null && x !== null && y !== null){
+        const nume = y - k;
+        const denome = (x - h) * (x - h);
+        const a = new Fraction(nume / denome);
+        let equation = [
+          `y=${a.toString()}(x-${h})² + ${k}`,
+          `x=${a.toString()}(y-${k})² + ${h}`,
+        ];
+        setResult(equation);
+      }    
+      else{
+        setShowModal(true);
+      } 
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
