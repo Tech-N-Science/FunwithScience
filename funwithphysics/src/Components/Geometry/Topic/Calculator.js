@@ -647,7 +647,7 @@ function Calculator() {
             </Form.Group>
           ) : null}
 
-          {showSolution ? (
+          {showSolution2 ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValues2}
