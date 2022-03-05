@@ -870,6 +870,8 @@ function Calculator() {
     const [c3, setC3] = useState(null);
     const [c4, setC4] = useState(null);
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+
     const reset = () => {
       setV1("");
       setV2("");
@@ -883,33 +885,53 @@ function Calculator() {
       setResult(null);
     };
     const calcEllipse = () => {
-      // Converting the values into integers.
-      let V1, V2, V3, V4, C1, C2, C4;
-      [V1, V2, V3, V4, C1, C2, C4] = [v1, v2, v3, v4, c1, c2, c3, c4].map(
-        (varr) => parseInt(varr)
-      );
-      let major_xaxis = false;
-      const [h, k] = [(V1 + V3) / 2, (V2 + V4) / 2];
-      if (V2 === 0 && V4 === 0 && C2 === 0 && C4 === 0) {
-        major_xaxis = true;
-      }
-      const a = major_xaxis ? Math.abs(V1) : (V4 - V2) / 2;
-      const c = major_xaxis ? Math.abs(C1) : C4 - k;
-      const [aSquare, cSquare] = [a * a, c * c];
-      const bSquare = aSquare - cSquare;
 
-      let equation = [
-        `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${aSquare} + (y${
-          k >= 0 ? "-" : "+"
-        }${k < 0 ? -k : k})²/${bSquare} = 1`,
-        `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${bSquare} + (y${
-          k >= 0 ? "-" : "+"
-        }${k < 0 ? -k : k})²/${aSquare} = 1`,
-      ];
-      setResult(equation);
+      if(v1!== null && v2!== null && v3!== null && v4!== null && c1!== null && c2!== null && c3!== null && c4 !== null ){
+        // Converting the values into integers.
+        let V1, V2, V3, V4, C1, C2, C4;
+        [V1, V2, V3, V4, C1, C2, C4] = [v1, v2, v3, v4, c1, c2, c3, c4].map(
+          (varr) => parseInt(varr)
+        );
+        let major_xaxis = false;
+        const [h, k] = [(V1 + V3) / 2, (V2 + V4) / 2];
+        if (V2 === 0 && V4 === 0 && C2 === 0 && C4 === 0) {
+          major_xaxis = true;
+        }
+        const a = major_xaxis ? Math.abs(V1) : (V4 - V2) / 2;
+        const c = major_xaxis ? Math.abs(C1) : C4 - k;
+        const [aSquare, cSquare] = [a * a, c * c];
+        const bSquare = aSquare - cSquare;
+  
+        let equation = [
+          `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${aSquare} + (y${
+            k >= 0 ? "-" : "+"
+          }${k < 0 ? -k : k})²/${bSquare} = 1`,
+          `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${bSquare} + (y${
+            k >= 0 ? "-" : "+"
+          }${k < 0 ? -k : k})²/${aSquare} = 1`,
+        ];
+        setResult(equation);
+      } 
+      else{
+        setShowModal(true);
+      }
+      
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
