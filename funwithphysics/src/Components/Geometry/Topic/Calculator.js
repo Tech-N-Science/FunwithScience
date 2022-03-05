@@ -874,6 +874,7 @@ function Calculator() {
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
 
     const givenValues = {
       vertice1:v1,
@@ -886,7 +887,20 @@ function Calculator() {
       c4:c4,      
     };
 
-    const insertValues = `(x-((${v1} + ${v2})/2 ))²/${a}² + (y-((${v3} + ${v4})/2 ))²/${b}² = 1  `;
+    const insertValues = `(x-((${v1} + ${v3})/2 ))²/${a}² + (y-((${v2} + ${v4})/2 ))²/${b}² = 1  `;
+
+    const givenValues2 = {
+      vertice1:v1,
+      vertice2_:v2,      
+      vertice3:v3,      
+      vertice4:v4,
+      c1:c1,      
+      c2:c2,      
+      c3:c3,      
+      c4:c4,      
+    };
+
+    const insertValues2 = `(x-((${v1} + ${v3})/2 ))²/${b}² + (y-((${v2} + ${v4})/2 ))²/${a}² = 1  `;
 
     const reset = () => {
       setV1("");
@@ -899,6 +913,10 @@ function Calculator() {
       setC4("");
 
       setResult(null);
+      setShowSolution(false);
+      setShowSolution2(false);
+      setA(null);
+      setB(null);
     };
     const calcEllipse = () => {
 
@@ -929,6 +947,7 @@ function Calculator() {
         ];
         setResult(equation);
         setShowSolution(true);
+        setShowSolution2(true);
       } 
       else{
         setShowModal(true);
@@ -1088,6 +1107,19 @@ function Calculator() {
                 toFind="Standard Form1"
                 insertValues={insertValues}
                 result={result[0]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
+          {showSolution2 ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues2}
+                formula="(x-h)²/b² + (y-k)²/a² = 1"
+                toFind="Standard Form2"
+                insertValues={insertValues2}
+                result={result[1]}
                 // constants={constants}
               />
             </Form.Group>
