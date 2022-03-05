@@ -502,15 +502,27 @@ function Calculator() {
     const [k, setK] = useState(null);
     const [x, setX] = useState(null);
     const [y, setY] = useState(null);
+    const [a, setA] = useState("");
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
-    
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      a_: a,
+      y: y,
+      k_: k,
+      h: h,
+    };
+
+    const insertValues = `${a} (x - ${h})² + ${k}`;
+
     const reset = () => {
       setH("");
       setK("");
       setX("");
       setY("");
       setResult(null);
+      setShowSolution(false);
     };
 
     const calcParabola = () => {
@@ -518,11 +530,13 @@ function Calculator() {
         const nume = y - k;
         const denome = (x - h) * (x - h);
         const a = new Fraction(nume / denome);
+        setA(a.toString());
         let equation = [
           `y=${a.toString()}(x-${h})² + ${k}`,
           `x=${a.toString()}(y-${k})² + ${h}`,
         ];
         setResult(equation);
+        setShowSolution(true);
       }    
       else{
         setShowModal(true);
@@ -607,6 +621,19 @@ function Calculator() {
               </form>
             </div>
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="a * (x - h)² + k"
+                toFind="Standard Form1"
+                insertValues={insertValues}
+                result={result[0]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <div className="input-group mb-4">
             <Form.Group className="mr-3" id="r1">
