@@ -1455,8 +1455,22 @@ function Calculator() {
     const [c21, setC21] = useState("");
     const [c31, setC31] = useState("");
     const [c41, setC41] = useState("");
+    const [h,setH] = useState("");
+    const [k,setK] = useState("");
+    const [a,setA] = useState("");
+    const [b,setB] = useState("");
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      h_:h,
+      a_:a,
+      k_:k,
+      b:b,
+    };
+
+    const insertValues = `(x-${h})²/${a}² - (y-${k})²/${b}² = 1`;
 
     const reset = () => {
       setV11("");
@@ -1469,8 +1483,9 @@ function Calculator() {
       setC41("");
 
       setResult(null);
+      setShowSolution(false);
     };
-    
+
     const calcHyperbola = () => {
       if(v11 !== "" && v21 !== "" && v31 !== "" && v41 !== "" && c11 !== "" && c21 !== "" && c31 !== "" && c41 !== ""){
         // Converting the values into integers.
@@ -1494,6 +1509,11 @@ function Calculator() {
         const c = major_xaxis ? Math.abs(C11) : C31 - h;
         const [aSquare, cSquare] = [a * a, c * c];
         const bSquare = cSquare - aSquare;
+        let tempb = Math.sqrt(bSquare);
+        setA(a);
+        setB(tempb);
+        setH(h);
+        setK(k);
         let equation = [
           `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${aSquare} - (y${
             k >= 0 ? "-" : "+"
@@ -1503,6 +1523,7 @@ function Calculator() {
           }${h < 0 ? -h : h})²/${bSquare} = 1`,
         ];
         setResult(equation);
+        setShowSolution(true);
       }          
       else{
         setShowModal(true);
@@ -1652,6 +1673,19 @@ function Calculator() {
               </form>
             </div>
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(x-h)²/a² - (y-k)²/b² = 1"
+                toFind="Standard Form1"
+                insertValues={insertValues}
+                result={result[0]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <div className="input-group mb-4">
             <Form.Group className="mr-3" id="r1">
