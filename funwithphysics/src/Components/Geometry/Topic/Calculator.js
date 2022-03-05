@@ -506,6 +506,7 @@ function Calculator() {
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
 
     const givenValues = {
       a_: a,
@@ -516,6 +517,15 @@ function Calculator() {
 
     const insertValues = `${a} (x - ${h})² + ${k}`;
 
+    const givenValues2 = {
+      a_: a,
+      y: y,
+      k_: k,
+      h: h,
+    };
+
+    const insertValues2 = `${a} (y - ${k})² + ${h}`;
+
     const reset = () => {
       setH("");
       setK("");
@@ -523,6 +533,7 @@ function Calculator() {
       setY("");
       setResult(null);
       setShowSolution(false);
+      setShowSolution2(false);
     };
 
     const calcParabola = () => {
@@ -537,6 +548,7 @@ function Calculator() {
         ];
         setResult(equation);
         setShowSolution(true);
+        setShowSolution2(true);
       }    
       else{
         setShowModal(true);
@@ -630,6 +642,19 @@ function Calculator() {
                 toFind="Standard Form1"
                 insertValues={insertValues}
                 result={result[0]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues2}
+                formula="a * (y - k)² + h"
+                toFind="Standard Form2"
+                insertValues={insertValues2}
+                result={result[1]}
                 // constants={constants}
               />
             </Form.Group>
