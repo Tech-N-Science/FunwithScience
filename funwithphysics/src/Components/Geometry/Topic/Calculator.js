@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button , Modal } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import "./Calculator.css";
 import geometry_pair from "../../../Images/geometry_pair.png";
 import geometry_tan from "../../../Images/geometry_tan.webp";
 import { useParams } from "react-router-dom";
+import Solution from "../../Solution/Solution";
+
 var Fraction = require("fractional").Fraction;
 
 function Calculator() {
@@ -229,13 +231,25 @@ function Calculator() {
     const [y1, setY1] = useState(null);
     const [y2, setY2] = useState(null);
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      x1: x1,
+      y1: y1,
+      x2: x2,
+      y2: y2,
+    };
+
+    const insertValues = `(${y2} - ${y1})x + (${x1} - ${x2})y - (${x1} * ${y2}) + (${x2} * ${y1})`;
+
     const reset = () => {
       setX1("");
       setX2("");
       setY1("");
       setY2("");
-
       setResult(null);
+      setShowSolution(false);
     };
 
     const suby = y2 - y1;
@@ -243,13 +257,33 @@ function Calculator() {
     const mul1 = x1 * y2;
     const mul2 = x2 * y1;
     const mul = mul1 - mul2;
-    const calcStraightLine = () => {
-      let equation = `(${suby}x) + (${subx}y) - (${mul}) = 0`;
-      setResult(equation);
+
+    const calcStraightLine = () => {      
+      if(x1 !== null && x2 !== null && y1 !== null && y2 !== null) {
+        let equation = `(${suby}x) + (${subx}y) - (${mul}) = 0`;
+        setResult(equation);
+        setShowSolution(true);
+      }    
+      else{
+        setShowModal(true);
+      } 
     };
 
     return (
-      <>
+      <>  
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
@@ -318,6 +352,19 @@ function Calculator() {
               </form>
             </div>
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(y2 - y1)x + (x1 - x2)y - (x1 * y2) + (x2 * y1)"
+                toFind="Straight Line Equation"
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-4">
             <Form.Control
