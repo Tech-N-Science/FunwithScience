@@ -1298,22 +1298,53 @@ function Calculator() {
     const [k1, setK1] = useState(null);
     const [r1, setR1] = useState(null);
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      h_:h1,
+      k_:k1,
+      r_:r1,     
+    };
+
+    const insertValues = `(x-${h1})² + (y-${k1})² = ${r1}²`;
+
     const reset = () => {
       setH1("");
       setK1("");
       setR1("");
 
       setResult(null);
+      setShowSolution(false);
     };
 
     const calcCircle = () => {
-      const sq = r1 * r1;
-      let equation = `(x-${h1})² + (y-${k1})² = ${sq}`;
-      setResult(equation);
+      if(h1 !== null && k1 !== null && r1 !== null){
+        const sq = r1 * r1;
+        let equation = `(x-${h1})² + (y-${k1})² = ${sq}`;
+        setResult(equation);
+        setShowSolution(true);
+      } 
+      else{
+        setShowModal(true);
+      }
     };
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
@@ -1367,6 +1398,19 @@ function Calculator() {
               </form>
             </div>
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(x-h)² + (y-k)² = r²"
+                toFind="Standard Form"
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-4">
             <Form.Label>
