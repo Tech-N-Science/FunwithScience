@@ -147,8 +147,8 @@ function FluidCalculator() {
 
   // Pressure Calculator
   function CalculatorPressure() {
-    const [result, setResult] = useState(null);
-    const [force, setForce] = useState(null);
+    const [result, setResult] = useState("");
+    const [force, setForce] = useState("");
     const [area, setArea] = useState(null);
     
     const [showSolution, setShowSolution] = useState(false);
