@@ -861,14 +861,14 @@ function Calculator() {
 
   //Ellipse
   const Ellipse = () => {
-    const [v1, setV1] = useState(null);
-    const [v2, setV2] = useState(null);
-    const [v3, setV3] = useState(null);
-    const [v4, setV4] = useState(null);
-    const [c1, setC1] = useState(null);
-    const [c2, setC2] = useState(null);
-    const [c3, setC3] = useState(null);
-    const [c4, setC4] = useState(null);
+    const [v1, setV1] = useState("");
+    const [v2, setV2] = useState("");
+    const [v3, setV3] = useState("");
+    const [v4, setV4] = useState("");
+    const [c1, setC1] = useState("");
+    const [c2, setC2] = useState("");
+    const [c3, setC3] = useState("");
+    const [c4, setC4] = useState("");
     const [a, setA] = useState(null);
     const [b, setB] = useState(null);
     const [result, setResult] = useState(null);
@@ -878,7 +878,7 @@ function Calculator() {
 
     const givenValues = {
       vertice1:v1,
-      vertice2_:v2,      
+      vertice2:v2,      
       vertice3:v3,      
       vertice4:v4,
       c1:c1,      
@@ -891,7 +891,7 @@ function Calculator() {
 
     const givenValues2 = {
       vertice1:v1,
-      vertice2_:v2,      
+      vertice2:v2,      
       vertice3:v3,      
       vertice4:v4,
       c1:c1,      
@@ -920,7 +920,7 @@ function Calculator() {
     };
     const calcEllipse = () => {
 
-      if(v1!== null && v2!== null && v3!== null && v4!== null && c1!== null && c2!== null && c3!== null && c4 !== null ){
+      if(v1!== "" && v2!== "" && v3!== "" && v4!== "" && c1!== "" && c2!== "" && c3!== "" && c4 !== "" ){
         // Converting the values into integers.
         let V1, V2, V3, V4, C1, C2, C4;
         [V1, V2, V3, V4, C1, C2, C4] = [v1, v2, v3, v4, c1, c2, c3, c4].map(
@@ -1295,8 +1295,8 @@ function Calculator() {
   //Circle
   const Circle = () => {
     const [h1, setH1] = useState("");
-    const [k1, setK1] = useState(null);
-    const [r1, setR1] = useState(null);
+    const [k1, setK1] = useState("");
+    const [r1, setR1] = useState("");
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
@@ -1319,7 +1319,7 @@ function Calculator() {
     };
 
     const calcCircle = () => {
-      if(h1 !== null && k1 !== null && r1 !== null){
+      if(h1 !== "" && k1 !== "" && r1 !== ""){
         const sq = r1 * r1;
         let equation = `(x-${h1})² + (y-${k1})² = ${sq}`;
         setResult(equation);
