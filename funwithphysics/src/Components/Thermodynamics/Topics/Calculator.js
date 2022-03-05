@@ -148,7 +148,7 @@ function Calculator() {
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Initial Dimension</Form.Label>
+            <Form.Label>Initial Dimension (d<sub>0</sub>)</Form.Label>
             <Form.Control
               placeholder= "Enter the initial value of dimension" 
               value={initial === null ? "" : initial}
@@ -161,7 +161,7 @@ function Calculator() {
           
 
           <Form.Group className="mb-4">
-            <Form.Label>Expansion Coefficient</Form.Label>
+            <Form.Label>Expansion Coefficient (ξ)</Form.Label>
             <Form.Control
               placeholder= "Enter the Expansion Coefficient" 
               value={coefficient === null ? "" : coefficient}
@@ -173,7 +173,7 @@ function Calculator() {
           </Form.Group>
           
           <Form.Group className="mb-4">
-            <Form.Label>Initial Temperature</Form.Label>
+            <Form.Label>Initial Temperature (T<sub>1</sub>)</Form.Label>
             <Form.Control
               placeholder= "Enter the Initial Temperature" 
               value={T1 === null ? "" : T1}
@@ -185,7 +185,7 @@ function Calculator() {
           </Form.Group>
 
           <Form.Group className="mb-4">
-            <Form.Label>Final Temperature</Form.Label>
+            <Form.Label>Final Temperature (T<sub>2</sub>)</Form.Label>
             <Form.Control
               placeholder= "Enter the Final Temperature" 
               value={T2 === null ? "" : T2}
@@ -197,7 +197,7 @@ function Calculator() {
           </Form.Group>
 
           <Form.Group className="mb-4">
-          <Form.Label>Final Dimension</Form.Label>
+          <Form.Label>Final Dimension (d<sub>f</sub>)</Form.Label>
             <Form.Control
               disabled="true"
               type="number"
@@ -1334,6 +1334,9 @@ function Calculator() {
         break;
       case "Third law":
         currentCall = CalculatorThirdLaw();
+        break;
+      case "Thermal Expansion":
+        currentCall = ThermalExpansion();
         break;
       default:
         break;
