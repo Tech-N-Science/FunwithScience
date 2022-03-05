@@ -19,7 +19,7 @@ const Footer = () => {
             <div className="content">
               <div className="center-bottom">
                 <div className="">
-                  <Link to="/">
+                  <Link to="/about">
                     <span className="fas fa-user"></span>
                   </Link>
                   <span className="text">About Us</span>

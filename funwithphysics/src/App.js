@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./index.css";
 import reducer, { initialstate } from "./reducer";
+import Aboutus from "./Components/Aboutus/Aboutus"
 import FPassword from "./Components/Forgot_Password/fpassword";
 import RPassword from "./Components/Forgot_Password/resetpassword";
 import Navbar from "./Components/Navbar/Navbar";
@@ -136,7 +137,7 @@ const App = () => {
                     </div>
                   }
                 >
-                  <Home />
+                  <Aboutus />
                 </Suspense>
               </>
             }

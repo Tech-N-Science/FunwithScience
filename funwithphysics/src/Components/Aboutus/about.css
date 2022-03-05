@@ -1,0 +1,13 @@
+.about{
+  text-align: center;
+}
+p{
+  font-size: 22px;
+}
+h3{
+  color: blue;
+}
+.about-img{
+  width: 25%;
+  text-align: center;
+}
