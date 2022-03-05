@@ -63,22 +63,19 @@ export default function Thermodynamics() {
       {
         topic: "Thermal Expansion",
         details:
-          "Thermal expansion is defined as change in the dimensions(length/area/volume) of a body due to changes in temperature. It can be expressed as the fractional change in length or area or volume per unit change in temperature.",
-        formula: ['For linear Expansion:  L',<sub>f</sub>,'=L',<sub>0</sub>,'(1+@(T',<sub>2</sub>,'-T',<sub>1</sub>,'))',
-                  <br/>,'For Areal Expansion:  A',<sub>f</sub>,'=A',<sub>0</sub>,'(1+β(T',<sub>2</sub>,'-T',<sub>1</sub>,'))',
-                <br/>,'For Volumetric Expansion:  V',<sub>f</sub>,'=V',<sub>0</sub>,'(1+γ(T',<sub>2</sub>,'-T',<sub>1</sub>,'))'],
+          "Thermal expansion is defined as change in the dimensions(length/area/volume) of a body due to changes in temperature.When solids, liquids and gases are subjected to change in temperature, there is some change in their dimensions.It can be expressed as the fractional change in length or area or volume per unit change in temperature.If The expansion can occurs in length ,it is called Linear Expansion.If The expansion occurs in Area ,it is called Areal Expansion and if it occurs in volume ,it is called Volume Expansion.One of its main applications is: Thermal expansion is the basic principle that a thermometer works on.",
+        formula: ['For Thermal Expansion:  d',<sub>f</sub>,'=d',<sub>0</sub>,'(1+ξ(T',<sub>2</sub>,'-T',<sub>1</sub>,'))',
+                 ],
         process:
           ["To find the change in dimensions of a material due to temperature changes, we make use of the above formuale where the terms are described as follows:",
-          <br/>, 'L',<sub>f</sub>,'  is the final length',
-          <br/>, 'L',<sub>0</sub>,'  is the initial length',
-          <br/>, 'A',<sub>f</sub>,'  is the final area',
-          <br/>, 'A',<sub>0</sub>,'  is the initial area',
-          <br/>, 'V',<sub>f</sub>,'  is the final volume',
-          <br/>, 'V',<sub>0</sub>,'  is the initial volume',
-          <br/>, 'T',<sub>2</sub>,'  is the final temperature',
-          <br/>, 'T',<sub>1</sub>,'  is the initial temperature'],
-        siunit: ['For linear expansion:  m' ,<br/>,'For areal expansion:  m',<sup>2</sup>,<br/>,'For volume expansion:  m',<sup>3</sup>],
-        dimension:['For linear expansion: L ' ,<br/>,'For areal expansion:  L',<sup>2</sup>,<br/>,'For volume expansion:  L',<sup>3</sup>],
+          <br/>, 'd',<sub>f</sub>,'  is the final dimension',
+          <br/>, 'd',<sub>0</sub>,'  is the initial dimension',
+          <br/>, 'ξ','  is the expansion coefficient',
+          <br/>, 'T1 is the initial temperature',
+          <br/>, 'T2 is the initial temperature'],
+          
+        siunit: [<br/>,'For linear expansion:  m' ,<br/>,'For areal expansion:  m',<sup>2</sup>,<br/>,'For volume expansion:  m',<sup>3</sup>],
+        dimension:[<br/>,'For linear expansion: L ' ,<br/>,'For areal expansion:  L',<sup>2</sup>,<br/>,'For volume expansion:  L',<sup>3</sup>],
       },
       
       ];

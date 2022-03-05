@@ -77,7 +77,7 @@ function Calculator() {
       {
         topic: "Thermal Expansion",
         details:
-          "Thermal expansion is defined as change in the dimensions(length/area/volume) of a body due to changes in temperature. It can be expressed as the fractional change in length or area or volume per unit change in temperature.",
+          "Thermal expansion is defined as change in the dimensions(length/area/volume) of a body due to changes in temperature.When solids, liquids and gases are subjected to change in temperature, there is some change in their dimensions.It can be expressed as the fractional change in length or area or volume per unit change in temperature.If The expansion can occurs in length ,it is called Linear Expansion.If The expansion occurs in Area ,it is called Areal Expansion and if it occurs in volume ,it is called Volume Expansion.One of its main applications is: Thermal expansion is the basic principle that a thermometer works on.",
         formula: ['For Thermal Expansion:  d',<sub>f</sub>,'=d',<sub>0</sub>,'(1+ξ(T',<sub>2</sub>,'-T',<sub>1</sub>,'))',
                  ],
         process:
@@ -103,14 +103,12 @@ function Calculator() {
   //Thermal Expansion
   const ThermalExpansion = () => {
     const [result, setResult] = useState(null);
-    const [choice, setChoice] = useState("LinearExpansion");
     const [initial, setInitial] = useState(null);
     const [coefficient, setCoefficient] = useState(null);
     const [T1, setT1] = useState(null);
     const [T2, setT2] = useState(null);
     function reset() {
       setResult(null);
-      setChoice(null);
       setInitial(null);
       setCoefficient(null);
       setT1(null);
@@ -152,38 +150,44 @@ function Calculator() {
           <Form.Group className="mb-4">
             <Form.Label>Initial Dimension</Form.Label>
             <Form.Control
+              placeholder= "Enter the initial value of dimension" 
+              value={initial === null ? "" : initial}
+              type="number"
               onChange={(e) => {
                 setInitial(Number(e.target.value));
               }}
-              type="number"
-              value={initial === null ? "" : initial}
             />
           </Form.Group>
+          
+
           <Form.Group className="mb-4">
             <Form.Label>Expansion Coefficient</Form.Label>
             <Form.Control
+              placeholder= "Enter the Expansion Coefficient" 
+              value={coefficient === null ? "" : coefficient}
+              type="number"
               onChange={(e) => {
                 setCoefficient(Number(e.target.value));
               }}
-              type="number"
-              
-              value={coefficient === null ? "" : coefficient}
             />
           </Form.Group>
+          
           <Form.Group className="mb-4">
             <Form.Label>Initial Temperature</Form.Label>
             <Form.Control
-               value={T1 === null ? "" : T1}
+              placeholder= "Enter the Initial Temperature" 
+              value={T1 === null ? "" : T1}
               type="number"
               onChange={(e) => {
                 setT1(Number(e.target.value));
               }}
-             
             />
           </Form.Group>
+
           <Form.Group className="mb-4">
             <Form.Label>Final Temperature</Form.Label>
             <Form.Control
+              placeholder= "Enter the Final Temperature" 
               value={T2 === null ? "" : T2}
               type="number"
               onChange={(e) => {
@@ -193,10 +197,11 @@ function Calculator() {
           </Form.Group>
 
           <Form.Group className="mb-4">
+          <Form.Label>Final Dimension</Form.Label>
             <Form.Control
               disabled="true"
               type="number"
-              placeholder={result === null ? "Result" : result}
+              placeholder={result === null ? "Final Dimension" : result}
             />
           </Form.Group>
         </Form>
