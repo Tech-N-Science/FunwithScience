@@ -71,6 +71,7 @@ export const SI = {
   ExpansionCoeff:" K⁻¹","Expansion_Coeff":" K⁻¹",
   SimplePendulum:"sec",
   Viscosity: "pascal-second",
+  'Volume Flow Rate': "m³/s",
   k:"N/m",
   Rateofdeformation: ""
 };
