@@ -1576,15 +1576,40 @@ function Calculator() {
   };
   //Hyperbola
   const Hyperbola = () => {
-    const [v11, setV11] = useState(null);
-    const [v21, setV21] = useState(null);
-    const [v31, setV31] = useState(null);
-    const [v41, setV41] = useState(null);
-    const [c11, setC11] = useState(null);
-    const [c21, setC21] = useState(null);
-    const [c31, setC31] = useState(null);
-    const [c41, setC41] = useState(null);
+    const [v11, setV11] = useState("");
+    const [v21, setV21] = useState("");
+    const [v31, setV31] = useState("");
+    const [v41, setV41] = useState("");
+    const [c11, setC11] = useState("");
+    const [c21, setC21] = useState("");
+    const [c31, setC31] = useState("");
+    const [c41, setC41] = useState("");
+    const [h,setH] = useState("");
+    const [k,setK] = useState("");
+    const [a,setA] = useState("");
+    const [b,setB] = useState("");
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
+
+    const givenValues = {
+      h_:h,
+      a_:a,
+      k_:k,
+      b:b,
+    };
+
+    const insertValues = `(x-${h})²/${a}² - (y-${k})²/${b}² = 1`;
+
+    const givenValues2 = {
+      h_:h,
+      a_:a,
+      k_:k,
+      b:b,
+    };
+    const insertValues2 = `(y-${k})²/${a}² - (x-${h})²/${b}² = 1`;
+
     const reset = () => {
       setV11("");
       setV21("");
@@ -1594,43 +1619,75 @@ function Calculator() {
       setC21("");
       setC31("");
       setC41("");
+      setA("");
+      setB("");
+      setH("");
+      setK("");
 
       setResult(null);
+      setShowSolution(false);
+      setShowSolution2(false);
     };
+
     const calcHyperbola = () => {
-      // Converting the values into integers.
-      let V11, V21, V31, V41, C11, C21, C31, C41;
-      [V11, V21, V31, V41, C11, C21, C31, C41] = [
-        v11,
-        v21,
-        v31,
-        v41,
-        c11,
-        c21,
-        c31,
-        c41,
-      ].map((varr) => parseInt(varr));
-      let major_xaxis = false;
-      const [h, k] = [(V11 + V31) / 2, (V21 + V41) / 2];
-      if (V21 === 0 && V41 === 0 && C21 === 0 && C41 === 0) {
-        major_xaxis = true;
-      }
-      const a = major_xaxis ? Math.abs(V11) : (V11 - V31) / 2;
-      const c = major_xaxis ? Math.abs(C11) : C31 - h;
-      const [aSquare, cSquare] = [a * a, c * c];
-      const bSquare = cSquare - aSquare;
-      let equation = [
-        `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${aSquare} - (y${
-          k >= 0 ? "-" : "+"
-        }${k < 0 ? -k : k})²/${bSquare} = 1`,
-        `(y${k >= 0 ? "-" : "+"}${k < 0 ? -k : k})²/${aSquare} - (x${
-          h >= 0 ? "-" : "+"
-        }${h < 0 ? -h : h})²/${bSquare} = 1`,
-      ];
-      setResult(equation);
+      if(v11 !== "" && v21 !== "" && v31 !== "" && v41 !== "" && c11 !== "" && c21 !== "" && c31 !== "" && c41 !== ""){
+        // Converting the values into integers.
+        let V11, V21, V31, V41, C11, C21, C31, C41;
+        [V11, V21, V31, V41, C11, C21, C31, C41] = [
+          v11,
+          v21,
+          v31,
+          v41,
+          c11,
+          c21,
+          c31,
+          c41,
+        ].map((varr) => parseInt(varr));
+        let major_xaxis = false;
+        const [h, k] = [(V11 + V31) / 2, (V21 + V41) / 2];
+        if (V21 === 0 && V41 === 0 && C21 === 0 && C41 === 0) {
+          major_xaxis = true;
+        }
+        const a = major_xaxis ? Math.abs(V11) : (V11 - V31) / 2;
+        const c = major_xaxis ? Math.abs(C11) : C31 - h;
+        const [aSquare, cSquare] = [a * a, c * c];
+        const bSquare = cSquare - aSquare;
+        let tempb = Math.sqrt(bSquare);
+        setA(a);
+        setB(tempb);
+        setH(h);
+        setK(k);
+        let equation = [
+          `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${aSquare} - (y${
+            k >= 0 ? "-" : "+"
+          }${k < 0 ? -k : k})²/${bSquare} = 1`,
+          `(y${k >= 0 ? "-" : "+"}${k < 0 ? -k : k})²/${aSquare} - (x${
+            h >= 0 ? "-" : "+"
+          }${h < 0 ? -h : h})²/${bSquare} = 1`,
+        ];
+        setResult(equation);
+        setShowSolution(true);
+        setShowSolution2(true);
+      }          
+      else{
+        setShowModal(true);
+      }       
     };
     return (
-      <>
+      <>        
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
@@ -1760,6 +1817,32 @@ function Calculator() {
               </form>
             </div>
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(x-h)²/a² - (y-k)²/b² = 1"
+                toFind="Standard Form1"
+                insertValues={insertValues}
+                result={result[0]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
+          {showSolution2 ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues2}
+                formula="(y-k)²/a² - (x-h)²/b² = 1"
+                toFind="Standard Form2"
+                insertValues={insertValues2}
+                result={result[1]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <div className="input-group mb-4">
             <Form.Group className="mr-3" id="r1">
