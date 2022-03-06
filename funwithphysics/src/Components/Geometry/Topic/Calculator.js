@@ -1631,7 +1631,6 @@ function Calculator() {
       setC31("");
       setC41("");
       setA("");
-
       setResult(null);
       setShowSolution(false);
       setShowSolution2(false);
