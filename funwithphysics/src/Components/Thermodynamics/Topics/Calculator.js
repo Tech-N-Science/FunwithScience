@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../../PysicsStyles/physicscalculator.css'
+import "../../PysicsStyles/physicscalculator.css";
 import { Form, Button, Modal } from "react-bootstrap";
 
 import { Helmet } from "react-helmet";
@@ -10,7 +10,7 @@ import Solution from "../../Solution/Solution";
 import { useParams } from "react-router-dom";
 
 function Calculator() {
-  let {topic} = useParams();
+  let { topic } = useParams();
   // topics_data
   const Topics = [
     {
@@ -73,32 +73,66 @@ function Calculator() {
       siunit: "Entropy: Joules per kelvin",
       dimension: "Entropy: [M L² K/ T²]",
     },
-    
-      {
-        topic: "Thermal Expansion",
-        details:
-          "Thermal expansion is defined as change in the dimensions(length/area/volume) of a body due to changes in temperature.When solids, liquids and gases are subjected to change in temperature, there is some change in their dimensions.It can be expressed as the fractional change in length or area or volume per unit change in temperature.If The expansion can occurs in length ,it is called Linear Expansion.If The expansion occurs in Area ,it is called Areal Expansion and if it occurs in volume ,it is called Volume Expansion.One of its main applications is: Thermal expansion is the basic principle that a thermometer works on.",
-        formula: ['For Thermal Expansion:  d',<sub>f</sub>,'=d',<sub>0</sub>,'(1+ξ(T',<sub>2</sub>,'-T',<sub>1</sub>,'))',
-                 ],
-        process:
-          ["To find the change in dimensions of a material due to temperature changes, we make use of the above formuale where the terms are described as follows:",
-          <br/>, 'd',<sub>f</sub>,'  is the final dimension',
-          <br/>, 'd',<sub>0</sub>,'  is the initial dimension',
-          <br/>, 'ξ','  is the expansion coefficient',
-          <br/>, 'T1 is the initial temperature',
-          <br/>, 'T2 is the final temperature'],
-          
-        siunit: [<br/>,'For linear expansion:  m' ,<br/>,'For areal expansion:  m',<sup>2</sup>,<br/>,'For volume expansion:  m',<sup>3</sup>],
-        dimension:[<br/>,'For linear expansion: L ' ,<br/>,'For areal expansion:  L',<sup>2</sup>,<br/>,'For volume expansion:  L',<sup>3</sup>],
-      },
+
+    {
+      topic: "Thermal Expansion",
+      details:
+        "Thermal expansion is defined as change in the dimensions(length/area/volume) of a body due to changes in temperature.When solids, liquids and gases are subjected to change in temperature, there is some change in their dimensions.It can be expressed as the fractional change in length or area or volume per unit change in temperature.If The expansion can occurs in length ,it is called Linear Expansion.If The expansion occurs in Area ,it is called Areal Expansion and if it occurs in volume ,it is called Volume Expansion.One of its main applications is: Thermal expansion is the basic principle that a thermometer works on.",
+      formula: [
+        "For Thermal Expansion:  d",
+        <sub>f</sub>,
+        "=d",
+        <sub>0</sub>,
+        "(1+ξ(T",
+        <sub>2</sub>,
+        "-T",
+        <sub>1</sub>,
+        "))",
+      ],
+      process: [
+        "To find the change in dimensions of a material due to temperature changes, we make use of the above formuale where the terms are described as follows:",
+        <br />,
+        "d",
+        <sub>f</sub>,
+        "  is the final dimension",
+        <br />,
+        "d",
+        <sub>0</sub>,
+        "  is the initial dimension",
+        <br />,
+        "ξ",
+        "  is the expansion coefficient",
+        <br />,
+        "T1 is the initial temperature",
+        <br />,
+        "T2 is the final temperature",
+      ],
+
+      siunit: [
+        <br />,
+        "For linear expansion:  m",
+        <br />,
+        "For areal expansion:  m",
+        <sup>2</sup>,
+        <br />,
+        "For volume expansion:  m",
+        <sup>3</sup>,
+      ],
+      dimension: [
+        <br />,
+        "For linear expansion: L ",
+        <br />,
+        "For areal expansion:  L",
+        <sup>2</sup>,
+        <br />,
+        "For volume expansion:  L",
+        <sup>3</sup>,
+      ],
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
-
-
-
-
 
   //Thermal Expansion
   const ThermalExpansion = () => {
@@ -120,10 +154,12 @@ function Calculator() {
       setT1(null);
       setT2(null);
       setResult(null);
-    }
+    };
     const calcResult = () => {
-      setResult(initial + coefficient * (T2 - T1));
-    }
+      setResult(
+        parseFloat(initial) * (1 + parseFloat(coefficient) * (T2 - T1))
+      );
+    };
     return (
       <>
         <Form>
@@ -148,9 +184,11 @@ function Calculator() {
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Initial Dimension (d<sub>0</sub>)</Form.Label>
+            <Form.Label>
+              Initial Dimension (d<sub>0</sub>)
+            </Form.Label>
             <Form.Control
-              placeholder= "Enter the initial value of dimension" 
+              placeholder="Enter the initial value of dimension"
               value={initial === null ? "" : initial}
               type="number"
               onChange={(e) => {
@@ -158,12 +196,11 @@ function Calculator() {
               }}
             />
           </Form.Group>
-          
 
           <Form.Group className="mb-4">
             <Form.Label>Expansion Coefficient (ξ)</Form.Label>
             <Form.Control
-              placeholder= "Enter the Expansion Coefficient" 
+              placeholder="Enter the Expansion Coefficient"
               value={coefficient === null ? "" : coefficient}
               type="number"
               onChange={(e) => {
@@ -171,11 +208,13 @@ function Calculator() {
               }}
             />
           </Form.Group>
-          
+
           <Form.Group className="mb-4">
-            <Form.Label>Initial Temperature (T<sub>1</sub>)</Form.Label>
+            <Form.Label>
+              Initial Temperature (T<sub>1</sub>)
+            </Form.Label>
             <Form.Control
-              placeholder= "Enter the Initial Temperature" 
+              placeholder="Enter the Initial Temperature"
               value={T1 === null ? "" : T1}
               type="number"
               onChange={(e) => {
@@ -185,9 +224,11 @@ function Calculator() {
           </Form.Group>
 
           <Form.Group className="mb-4">
-            <Form.Label>Final Temperature (T<sub>2</sub>)</Form.Label>
+            <Form.Label>
+              Final Temperature (T<sub>2</sub>)
+            </Form.Label>
             <Form.Control
-              placeholder= "Enter the Final Temperature" 
+              placeholder="Enter the Final Temperature"
               value={T2 === null ? "" : T2}
               type="number"
               onChange={(e) => {
@@ -197,7 +238,9 @@ function Calculator() {
           </Form.Group>
 
           <Form.Group className="mb-4">
-          <Form.Label>Final Dimension (d<sub>f</sub>)</Form.Label>
+            <Form.Label>
+              Final Dimension (d<sub>f</sub>)
+            </Form.Label>
             <Form.Control
               disabled="true"
               type="number"
@@ -216,14 +259,7 @@ function Calculator() {
         </div>
       </>
     );
-  }
-
-
-
-
-
-
-
+  };
 
   //Third law of thermodynamics
   function CalculatorThirdLaw() {
