@@ -208,23 +208,58 @@ function FluidCalculator() {
 
   // Volume flow rate calculator
   function CalculatorVolumeflowrate() {
-    const [result, setResult] = useState(null);
-    const [area, setArea] = useState(null);
-    const [velocity, setVelocity] = useState(null);
+    const [result, setResult] = useState("");
+    const [area, setArea] = useState("");
+    const [velocity, setVelocity] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      Area: area,
+      Velocity: velocity,
+    };
+
+    const insertValues = `${area}${SI["Area"]} * ${velocity}${SI["Velocity"]}`;
 
     const handleClick = () => {
-      let res = area * velocity;
-      setResult(res);
+      if (area !== "" && velocity !== "") {
+        let res = area * velocity;
+        setShowSolution(true);
+        setResult(res);
+      } else {
+        setShowSolution(false);
+        setShowModal(true);
+      }
     };
 
-    const handleReset = () => {
-      setResult(null);
-      setArea(null);
-      setVelocity(null);
+    const resetForm = () => {
+      setArea("");
+      setVelocity("");
+      setShowSolution(false);
+      setResult("");
     };
+
+    // const handleReset = () => {
+    //   setResult(null);
+    //   setArea(null);
+    //   setVelocity(null);
+    // };
 
     return (
       <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="area">
             <Form.Label> Area (in m²)</Form.Label>
@@ -242,7 +277,19 @@ function FluidCalculator() {
               placeholder="Enter the velocity of fluid at a point"
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="volumeflowrate">
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Area * Velocity"
+                toFind="Volume Flow Rate"
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+          <Form.Group className="mb-3" controlId="VolumeFlowRate">
             <Form.Label>Volume flow rate</Form.Label>
             <Form.Control
               readOnly
@@ -258,7 +305,7 @@ function FluidCalculator() {
               Calculate
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button variant="dark" onClick={handleReset} type="reset">
+            <Button variant="dark" onClick={resetForm} type="reset">
               Reset
             </Button>
           </div>
