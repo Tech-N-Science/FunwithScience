@@ -68,6 +68,16 @@ function Calculator() {
       siunit: "Relative Length: metres",
       dimension: "Relative Length : L",
     },
+    {
+      topic: "Mass Variation",
+      details:
+        "Mass is a function of the velocity of the body . It increases with increasing velocity  . Relativistic Mass can be find by using formula  m = m0/ (√1-v²/c²) . If v tends to c and m tends to infinite no material particle can have a velocity equal or greater than c. At ordinary velocity  v<<c v²/c² is neglected. Thus m = m0.",
+      formula: "Relative Mass = m0 /√(1 - v²/c²)",
+      process:
+        "To find the relativistic mass we need to know the value of speed of object (v) and rest mass of the object(m0) where  the value of speed of light is 3x10⁸m/s",
+      siunit: "Mass: kg",
+      dimension: "Mass: M",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
@@ -708,7 +718,123 @@ function Calculator() {
       </>
     );
   };
+//Relativistic Mass
+  const RelativeMASSCalculator = () => {
+    const [mass, setMass] = useState("");
+    const [velocity, setVelocity] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+  
+  
+    const constants = ["c"];
+  
+      const givenValues = {
+        mass: mass,
+        velocity:velocity,
+      };
+    const insertValues = `${mass}${SI["mass"]} / (√(1-((${velocity}${SI["velocity"]})²/(${constant["c"]}))²)`;
 
+    const reset = () => {
+      setShowSolution(false);
+      setMass("");
+      setVelocity("");
+      setResult("");
+    };
+    const c = 3 * Math.pow(10, 8);
+
+    const calcResult = () => {
+      let res;
+      if(mass!=="" && velocity!=="")
+      {
+        let vel = Math.sqrt(1 - Math.pow(velocity, 2) / Math.pow(c, 2));
+      res = parseFloat(mass / vel);
+      setResult(res);
+      setShowSolution(true);
+    }
+      else {
+        setShowModal(true);
+      }
+    };
+    return (
+      <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal.Header>
+          Please Enter all values to get Proper answer
+        </Modal.Header>
+        <Modal.Footer>
+          <Button
+            onClick={() => setShowModal(false)}
+            class="btn btn-primary btn-sm"
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label> Mass (m₀)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setMass(e.target.value);
+              }}
+              placeholder="Enter the mass of body"
+              value={mass === "" ? "" : mass}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label> Velocity (v)</Form.Label>
+            <Form.Control
+              type="number"
+              onChange={(e) => {
+                setVelocity(e.target.value);
+              }}
+              placeholder="Enter the value of velocity"
+              value={velocity === "" ? "" : velocity}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label> Speed of light (c)</Form.Label>
+            <Form.Control
+              readOnly
+              // type="number"
+              placeholder={"3 * 10⁸ m/s"}
+            />
+          </Form.Group>
+          {showSolution? 
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="m₀ / √(1- v²/c²)"
+                toFind="relative mass"
+                insertValues={insertValues}
+                result={result}
+                constants={constants}
+              />
+            </Form.Group>
+           : null }
+          <Form.Group className="mb-4">
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={result === "" ? "Result" : `${result} kg`}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    );
+  };
+  // Relativistic Mass
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -727,6 +853,9 @@ function Calculator() {
         break;
       case "Length Contraction":
         currentCall = LengthContractionCalculator();
+        break;
+        case "Mass Variation":
+        currentCall = RelativeMASSCalculator();
         break;
       default:
         break;
