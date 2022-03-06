@@ -59,6 +59,7 @@ const Calculator = () => {
       topic: "Flux",
       details: "...",
     },
+    
     {
       topic: "Gauss Law",
       details:
@@ -148,6 +149,61 @@ const Calculator = () => {
     {
       topic: "Magnetic field",
       details: "....",
+    },
+    {
+      topic: "Series and Parallel Circuits",
+      details: "...",
+    },
+  ];
+
+  const seriesandparallel_data = [
+    {
+      topic: "Equivalent Resistance",
+      formula: [
+        "Series: R₁ + R₂",
+        <br/>, 
+        "Parallel: R₁*R₂/(R₁ + R₂)",
+      ],
+      siunit: "Ohm",
+      dimension: "[M L² T⁻³ I⁻²]",
+      process: [
+      "1) Series: When the two resistors (R₁ and R₂) are in series, the equivalent resistance (R) = R₁ + R₂.",
+      <br />,
+      "2) Parallel: When the two resistors (R₁ and R₂) are in parallel, the equivalent resistance (R) = R₁*R₂ / (R₁ + R₂).",
+          ],
+      details: `Equivalent resistance is defined as the total resistance between any two nodes in a circuit which contains resistors connected in series or parallel between those two nodes.`,
+    },
+    {
+      topic: "Equivalent Capacitance",
+      formula: [
+        "Series: C₁*C₂/(C₁ + C₂)",
+        <br/>, 
+        "Parallel: C₁ + C₂",
+      ],
+      siunit: "Farad (F)",
+      dimension: "[M⁻¹ L⁻² T⁴ I²]",
+      process: [
+      "1) Series: When the two capacitors (C₁ and C₂) are in series, the equivalent capacitance (C) = C₁*C₂/(C₁ + C₂).",
+      <br />,
+      "2) Parallel: When the two capacitors(C₁ and C₂) are in parallel, the equivalent capacitance (C) = C₁ + C₂.",
+          ],
+      details: `Equivalent capacitance is defined as the total capacitance between any two nodes in a circuit which contains capacitors connected in series or parallel between those two nodes.`,
+    },
+    {
+      topic: "Equivalent Inductance",
+      formula: [
+        "Series: L₁ + L₂",
+        <br/>, 
+        "Parallel: L₁*L₂/(L₁ + L₂)",
+      ],
+      siunit: "Henry (H)",
+      dimension: "[M L² T⁻² A⁻²]",
+      process: [
+      "1) Series: When the two inductors (L₁ and L₂) are in series, the equivalent inductance (L) = L₁ + L₂.",
+      <br />,
+      "2) Parallel: When the two inductors (L₁ and L₂) are in parallel, the equivalent inductance (L) = L₁*L₂ / (L₁ + L₂).",
+          ],
+      details: `Equivalent inductance is defined as the total inductance between any two nodes in a circuit which contains inductors connected in series or parallel between those two nodes.`,
     },
   ];
   //Flux data
@@ -828,6 +884,8 @@ const Calculator = () => {
       </>
     );
   };
+  
+
 
   //Time period
   const Timeperiod = () => {
@@ -2040,7 +2098,42 @@ const Calculator = () => {
         </div>
       </div>
     );
-  } else {
+  } else if (details.topic === "Series and Parallel Circuits") { //intermediate page
+    return (
+      <div className="mech__main">
+        <div className="mech__header">
+          <h1>Series and Parallel Circuits</h1>
+        </div>
+        <div className="mech__topics-card">
+          {seriesandparallel_data.map((data) => (
+            <React.Fragment key={data.topic}>
+              <Link
+                to={`/electromagnetism/calc/series_and_parallel/${data.topic}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Card
+                  className="a"
+                  key={data.topic}
+                  style={{
+                    width: "18rem",
+                    color: "black",
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  <Card.Body>
+                    <div> {data.topic}</div>
+                  </Card.Body>
+                  
+                </Card>
+              </Link>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  else {
     return (
       <React.Fragment>
         <Navbar />

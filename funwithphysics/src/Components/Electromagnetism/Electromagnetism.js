@@ -60,6 +60,8 @@ export default function Electromagnetism() {
       topic: "Flux",
       details: "...",
     },
+    
+
     {
       topic: "Gauss Law",
       details:
@@ -150,6 +152,11 @@ export default function Electromagnetism() {
       topic: "Magnetic field",
       details: "....",
     },
+    {
+      topic: "Series and Parallel Circuits",
+      details: "...",
+    },
+    
   ];
 
   return (
