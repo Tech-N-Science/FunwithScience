@@ -317,6 +317,8 @@ function FluidCalculator() {
     const [velocity1, setVelocity1] = useState(null);
     const [velocity2, setVelocity2] = useState(null);
     const [choice, setChoice] = useState("area");
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     function handleChange(e) {
       setChoice(e.target.value);
@@ -326,19 +328,40 @@ function FluidCalculator() {
 
     const calcResult = () => {
       let res;
-      if (choice === "area") {
-        res = (area2 * velocity1) / velocity2;
-        console.log(area1);
-        console.log(velocity1);
-        console.log(velocity2);
-      } else if (choice === "velocity") {
-        res = (area1 * velocity1) / area2;
+      if (choice === "area" && area1 !== null && velocity1 !== null && velocity2 !== null) {
+        res = (area1 * velocity1) / velocity2;
+        setResult(res);
+        setShowSolution(true);
       }
-      console.log(res);
-      setResult(res);
+      else if (choice === "velocity" && velocity1 !== null && area1 !== null && area2 !== null) {
+        res = (area1 * velocity1) / area2;
+        setResult(res);
+        setShowSolution(true);
+      }
+      else{
+        setShowModal(true);
+      }
     };
 
+    const givenValues1 = {
+      Area1: area1,
+      Velocity1: velocity1,
+      Velocity2: velocity2
+    };
+
+    const givenValues2 = {
+      Area1: area1,
+      Area2: area2,
+      Velocity1: velocity1
+    };
+
+    const insertValues1 = ` (${area1}${SI["Area1"]} * ${velocity1}${SI["Velocity1"]}) / ${velocity2}${SI["Velocity2"]}`;
+
+    const insertValues2 = ` (${area1}${SI["Area1"]} * ${velocity1}${SI["Velocity1"]}) / ${area2}${SI["Area2"]}`;
+
     function reset() {
+      setShowModal(false);
+      setShowSolution(false);
       setResult(null);
       setArea1(null);
       setArea2(null);
@@ -369,6 +392,19 @@ function FluidCalculator() {
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -419,6 +455,17 @@ function FluidCalculator() {
               }
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={choice === "area" ? givenValues1 : givenValues2}
+                formula={choice === "area" ? "(Area1*Velocity1)/Velocity2": "(Area1*Velocity1)/Area2"}
+                toFind={choice === "area" ? "Area2" : "Velocity2"}
+                insertValues={choice === "area" ? insertValues1 : insertValues2}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
