@@ -870,7 +870,6 @@ function Calculator() {
     const [c3, setC3] = useState("");
     const [c4, setC4] = useState("");
     const [a, setA] = useState(null);
-    const [b, setB] = useState(null);
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
@@ -884,10 +883,12 @@ function Calculator() {
       c1:c1,      
       c2:c2,      
       c3:c3,      
-      c4:c4,      
+      c4:c4,
+      h_:"(V1 + V3) / 2",
+      k_:"(V2 + V4) / 2",      
     };
 
-    const insertValues = `(x-((${v1} + ${v3})/2 ))²/${a}² + (y-((${v2} + ${v4})/2 ))²/${b}² = 1  `;
+    const insertValues = `(x-((${v1>0 ?v1:`(${v1})`} + ${v3>0 ?v3:`(${v3})`})/2 ))²/[(${v4>0 ?v4:`(${v4})`} - ${v2>0 ?v2:`(${v2})`}) / 2]² + (y-((${v2>0 ?v2:`(${v2})`} + ${v4})/2 ))²/[(${a})² - (${c4} - [(${v2>0 ?v2:`(${v2})`} + ${v4>0 ?v4:`(${v4})`}) / 2])² ] = 1  `;
 
     const givenValues2 = {
       vertice1:v1,
@@ -898,9 +899,11 @@ function Calculator() {
       c2:c2,      
       c3:c3,      
       c4:c4,      
+      h_:"(V1 + V3) / 2",
+      k_:"(V2 + V4) / 2",    
     };
 
-    const insertValues2 = `(x-((${v1} + ${v3})/2 ))²/${b}² + (y-((${v2} + ${v4})/2 ))²/${a}² = 1  `;
+    const insertValues2 = `(x-((${v1>0 ?v1:`(${v1})`} + ${v3>0 ?v3:`(${v3})`})/2 ))²/[(${a})² - (${c4} - [(${v2>0 ?v2:`(${v2})`} + ${v4>0 ?v4:`(${v4})`}) / 2])² ] + (y-((${v2>0 ?v2:`(${v2})`} + ${v4>0 ?v4:`(${v4})`})/2 ))²/[(${v4>0 ?v4:`(${v4})`} - ${v2>0 ?v2:`(${v2})`}) / 2]² = 1  `;
 
     const reset = () => {
       setV1("");
@@ -916,14 +919,13 @@ function Calculator() {
       setShowSolution(false);
       setShowSolution2(false);
       setA(null);
-      setB(null);
     };
     const calcEllipse = () => {
 
       if(v1!== "" && v2!== "" && v3!== "" && v4!== "" && c1!== "" && c2!== "" && c3!== "" && c4 !== "" ){
         // Converting the values into integers.
-        let V1, V2, V3, V4, C1, C2, C4;
-        [V1, V2, V3, V4, C1, C2, C4] = [v1, v2, v3, v4, c1, c2, c3, c4].map(
+        let V1, V2, V3, V4, C1, C2, C3, C4;
+        [V1, V2, V3, V4, C1, C2, C3, C4] = [v1, v2, v3, v4, c1, c2, c3, c4].map(
           (varr) => parseInt(varr)
         );
         let major_xaxis = false;
@@ -932,11 +934,11 @@ function Calculator() {
           major_xaxis = true;
         }
         const a = major_xaxis ? Math.abs(V1) : (V4 - V2) / 2;
-        const c = major_xaxis ? Math.abs(C1) : C4 - k;
+        const c = major_xaxis ? Math.abs(C1) : (C4 - k);
         const [aSquare, cSquare] = [a * a, c * c];
         const bSquare = aSquare - cSquare;
-        setA(aSquare);
-        setB(bSquare);
+        let tempA = Math.sqrt(aSquare);
+        setA(tempA);
         let equation = [
           `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${aSquare} + (y${
             k >= 0 ? "-" : "+"
