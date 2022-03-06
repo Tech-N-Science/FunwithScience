@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button , Modal } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import "./Calculator.css";
 import geometry_pair from "../../../Images/geometry_pair.png";
 import geometry_tan from "../../../Images/geometry_tan.webp";
 import { useParams } from "react-router-dom";
+import Solution from "../../Solution/Solution";
+
 var Fraction = require("fractional").Fraction;
 
 function Calculator() {
@@ -229,13 +231,25 @@ function Calculator() {
     const [y1, setY1] = useState(null);
     const [y2, setY2] = useState(null);
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      x1: x1,
+      y1: y1,
+      x2: x2,
+      y2: y2,
+    };
+
+    const insertValues = `(${y2} - ${y1})x + (${x1} - ${x2})y - (${x1} * ${y2}) + (${x2} * ${y1})`;
+
     const reset = () => {
       setX1("");
       setX2("");
       setY1("");
       setY2("");
-
       setResult(null);
+      setShowSolution(false);
     };
 
     const suby = y2 - y1;
@@ -243,13 +257,33 @@ function Calculator() {
     const mul1 = x1 * y2;
     const mul2 = x2 * y1;
     const mul = mul1 - mul2;
-    const calcStraightLine = () => {
-      let equation = `(${suby}x) + (${subx}y) - (${mul}) = 0`;
-      setResult(equation);
+
+    const calcStraightLine = () => {      
+      if(x1 !== null && x2 !== null && y1 !== null && y2 !== null) {
+        let equation = `(${suby}x) + (${subx}y) - (${mul}) = 0`;
+        setResult(equation);
+        setShowSolution(true);
+      }    
+      else{
+        setShowModal(true);
+      } 
     };
 
     return (
-      <>
+      <>  
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
@@ -318,6 +352,19 @@ function Calculator() {
               </form>
             </div>
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(y2 - y1)x + (x1 - x2)y - (x1 * y2) + (x2 * y1)"
+                toFind="Straight Line Equation"
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-4">
             <Form.Control
@@ -455,28 +502,73 @@ function Calculator() {
     const [k, setK] = useState(null);
     const [x, setX] = useState(null);
     const [y, setY] = useState(null);
+    const [a, setA] = useState("");
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
+
+    const givenValues = {
+      a_: a,
+      y: y,
+      k_: k,
+      h: h,
+    };
+
+    const insertValues = `${a} (x - ${h})² + ${k}`;
+
+    const givenValues2 = {
+      a_: a,
+      y: y,
+      k_: k,
+      h: h,
+    };
+
+    const insertValues2 = `${a} (y - ${k})² + ${h}`;
+
     const reset = () => {
       setH("");
       setK("");
       setX("");
       setY("");
-
       setResult(null);
+      setShowSolution(false);
+      setShowSolution2(false);
     };
 
     const calcParabola = () => {
-      const nume = y - k;
-      const denome = (x - h) * (x - h);
-      const a = new Fraction(nume / denome);
-      let equation = [
-        `y=${a.toString()}(x-${h})² + ${k}`,
-        `x=${a.toString()}(y-${k})² + ${h}`,
-      ];
-      setResult(equation);
+      if(h !== null && k !== null && x !== null && y !== null){
+        const nume = y - k;
+        const denome = (x - h) * (x - h);
+        const a = new Fraction(nume / denome);
+        setA(a.toString());
+        let equation = [
+          `y=${a.toString()}(x-${h})² + ${k}`,
+          `x=${a.toString()}(y-${k})² + ${h}`,
+        ];
+        setResult(equation);
+        setShowSolution(true);
+        setShowSolution2(true);
+      }    
+      else{
+        setShowModal(true);
+      } 
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
@@ -541,6 +633,32 @@ function Calculator() {
               </form>
             </div>
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="a * (x - h)² + k"
+                toFind="Standard Form1"
+                insertValues={insertValues}
+                result={result[0]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
+          {showSolution2 ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues2}
+                formula="a * (y - k)² + h"
+                toFind="Standard Form2"
+                insertValues={insertValues2}
+                result={result[1]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <div className="input-group mb-4">
             <Form.Group className="mr-3" id="r1">
@@ -743,15 +861,47 @@ function Calculator() {
 
   //Ellipse
   const Ellipse = () => {
-    const [v1, setV1] = useState(null);
-    const [v2, setV2] = useState(null);
-    const [v3, setV3] = useState(null);
-    const [v4, setV4] = useState(null);
-    const [c1, setC1] = useState(null);
-    const [c2, setC2] = useState(null);
-    const [c3, setC3] = useState(null);
-    const [c4, setC4] = useState(null);
+    const [v1, setV1] = useState("");
+    const [v2, setV2] = useState("");
+    const [v3, setV3] = useState("");
+    const [v4, setV4] = useState("");
+    const [c1, setC1] = useState("");
+    const [c2, setC2] = useState("");
+    const [c3, setC3] = useState("");
+    const [c4, setC4] = useState("");
+    const [a, setA] = useState(null);
+    const [b, setB] = useState(null);
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
+
+    const givenValues = {
+      vertice1:v1,
+      vertice2:v2,      
+      vertice3:v3,      
+      vertice4:v4,
+      c1:c1,      
+      c2:c2,      
+      c3:c3,      
+      c4:c4,      
+    };
+
+    const insertValues = `(x-((${v1} + ${v3})/2 ))²/${a}² + (y-((${v2} + ${v4})/2 ))²/${b}² = 1  `;
+
+    const givenValues2 = {
+      vertice1:v1,
+      vertice2:v2,      
+      vertice3:v3,      
+      vertice4:v4,
+      c1:c1,      
+      c2:c2,      
+      c3:c3,      
+      c4:c4,      
+    };
+
+    const insertValues2 = `(x-((${v1} + ${v3})/2 ))²/${b}² + (y-((${v2} + ${v4})/2 ))²/${a}² = 1  `;
+
     const reset = () => {
       setV1("");
       setV2("");
@@ -763,35 +913,62 @@ function Calculator() {
       setC4("");
 
       setResult(null);
+      setShowSolution(false);
+      setShowSolution2(false);
+      setA(null);
+      setB(null);
     };
     const calcEllipse = () => {
-      // Converting the values into integers.
-      let V1, V2, V3, V4, C1, C2, C4;
-      [V1, V2, V3, V4, C1, C2, C4] = [v1, v2, v3, v4, c1, c2, c3, c4].map(
-        (varr) => parseInt(varr)
-      );
-      let major_xaxis = false;
-      const [h, k] = [(V1 + V3) / 2, (V2 + V4) / 2];
-      if (V2 === 0 && V4 === 0 && C2 === 0 && C4 === 0) {
-        major_xaxis = true;
-      }
-      const a = major_xaxis ? Math.abs(V1) : (V4 - V2) / 2;
-      const c = major_xaxis ? Math.abs(C1) : C4 - k;
-      const [aSquare, cSquare] = [a * a, c * c];
-      const bSquare = aSquare - cSquare;
 
-      let equation = [
-        `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${aSquare} + (y${
-          k >= 0 ? "-" : "+"
-        }${k < 0 ? -k : k})²/${bSquare} = 1`,
-        `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${bSquare} + (y${
-          k >= 0 ? "-" : "+"
-        }${k < 0 ? -k : k})²/${aSquare} = 1`,
-      ];
-      setResult(equation);
+      if(v1!== "" && v2!== "" && v3!== "" && v4!== "" && c1!== "" && c2!== "" && c3!== "" && c4 !== "" ){
+        // Converting the values into integers.
+        let V1, V2, V3, V4, C1, C2, C4;
+        [V1, V2, V3, V4, C1, C2, C4] = [v1, v2, v3, v4, c1, c2, c3, c4].map(
+          (varr) => parseInt(varr)
+        );
+        let major_xaxis = false;
+        const [h, k] = [(V1 + V3) / 2, (V2 + V4) / 2];
+        if (V2 === 0 && V4 === 0 && C2 === 0 && C4 === 0) {
+          major_xaxis = true;
+        }
+        const a = major_xaxis ? Math.abs(V1) : (V4 - V2) / 2;
+        const c = major_xaxis ? Math.abs(C1) : C4 - k;
+        const [aSquare, cSquare] = [a * a, c * c];
+        const bSquare = aSquare - cSquare;
+        setA(aSquare);
+        setB(bSquare);
+        let equation = [
+          `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${aSquare} + (y${
+            k >= 0 ? "-" : "+"
+          }${k < 0 ? -k : k})²/${bSquare} = 1`,
+          `(x${h >= 0 ? "-" : "+"}${h < 0 ? -h : h})²/${bSquare} + (y${
+            k >= 0 ? "-" : "+"
+          }${k < 0 ? -k : k})²/${aSquare} = 1`,
+        ];
+        setResult(equation);
+        setShowSolution(true);
+        setShowSolution2(true);
+      } 
+      else{
+        setShowModal(true);
+      }
+      
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
@@ -921,6 +1098,32 @@ function Calculator() {
               </form>
             </div>
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(x-h)²/a² + (y-k)²/b² = 1"
+                toFind="Standard Form1"
+                insertValues={insertValues}
+                result={result[0]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
+          {showSolution2 ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues2}
+                formula="(x-h)²/b² + (y-k)²/a² = 1"
+                toFind="Standard Form2"
+                insertValues={insertValues2}
+                result={result[1]}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <div className="input-group mb-4">
             <Form.Group className="mr-3" id="r1">
@@ -1092,25 +1295,56 @@ function Calculator() {
   //Circle
   const Circle = () => {
     const [h1, setH1] = useState("");
-    const [k1, setK1] = useState(null);
-    const [r1, setR1] = useState(null);
+    const [k1, setK1] = useState("");
+    const [r1, setR1] = useState("");
     const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+
+    const givenValues = {
+      h_:h1,
+      k_:k1,
+      r_:r1,     
+    };
+
+    const insertValues = `(x-${h1})² + (y-${k1})² = ${r1}²`;
+
     const reset = () => {
       setH1("");
       setK1("");
       setR1("");
 
       setResult(null);
+      setShowSolution(false);
     };
 
     const calcCircle = () => {
-      const sq = r1 * r1;
-      let equation = `(x-${h1})² + (y-${k1})² = ${sq}`;
-      setResult(equation);
+      if(h1 !== "" && k1 !== "" && r1 !== ""){
+        const sq = r1 * r1;
+        let equation = `(x-${h1})² + (y-${k1})² = ${sq}`;
+        setResult(equation);
+        setShowSolution(true);
+      } 
+      else{
+        setShowModal(true);
+      }
     };
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
@@ -1164,6 +1398,19 @@ function Calculator() {
               </form>
             </div>
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(x-h)² + (y-k)² = r²"
+                toFind="Standard Form"
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-4">
             <Form.Label>

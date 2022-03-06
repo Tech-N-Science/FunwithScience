@@ -105,7 +105,9 @@ export function LearnMore() {
             </div>
           </li>
         </ul>
+        
       </article>
+      <hr id="line"></hr>
       <p className="FAQ">Frequently Asked Questions</p>
       <div className="faq fade-in-transition">
         <input id="faq-a" type="checkbox" />
