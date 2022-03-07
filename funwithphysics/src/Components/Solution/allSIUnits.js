@@ -79,8 +79,6 @@ export const SI = {
   Density:"kg m⁻³",
   Height1:"m",
   Height2:"m",
-  Velocity1:"m/s",
-  Velocity2:"m/s",
   Pressure1:"Pascal",
   Pressure2:"Pascal",
   Gravity:"m/s²",
