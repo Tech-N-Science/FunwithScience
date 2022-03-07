@@ -36,6 +36,7 @@ import MathMCQ from "./Components/MathMCQ/MathMCQ";
 import Quest from "./Components/MathMCQ/Singlequestion";
 import { hydrate, render } from "react-dom";
 import FluxCalculator from "./Components/Electromagnetism/Topics/FluxCalculator";
+import SeriesAndParallelCalc from "./Components/Electromagnetism/Topics/SeriesAndParallel";
 import Relativity from "./Components/Relativity/Relativity";
 import Calrelativity from "./Components/Relativity/Topics/Calculator";
 import AtomicPhysics from "./Components/Atomic_Physics/AtomicPhysics";
@@ -483,6 +484,11 @@ const App = () => {
             exact
             path="/electromagnetism/calc/Flux/:topic"
             element={<FluxCalculator />}
+          />
+          <Route
+            exact
+            path="/electromagnetism/calc/series_and_parallel/:topic"
+            element={<SeriesAndParallelCalc />}
           />
           <Route
             exact
