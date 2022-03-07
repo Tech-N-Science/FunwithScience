@@ -72,6 +72,17 @@ export const SI = {
   SimplePendulum:"sec",
   Viscosity: "pascal-second",
   'Volume Flow Rate': "m³/s",
+  'Final Pressure (P₂)':"Pascal",
+  'Final Velocity (V₂)':"m/s",
+  'Final Height (h₂)':"m",
   k:"N/m",
+  Density:"kg m⁻³",
+  Height1:"m",
+  Height2:"m",
+  Velocity1:"m/s",
+  Velocity2:"m/s",
+  Pressure1:"Pascal",
+  Pressure2:"Pascal",
+  Gravity:"m/s²",
   Rateofdeformation: ""
 };
