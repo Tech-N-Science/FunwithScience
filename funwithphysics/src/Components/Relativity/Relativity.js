@@ -68,6 +68,16 @@ export default function Relativity() {
       siunit: "Relative Length: metres",
       dimension: "Relative Length : L",
     },
+     {
+      topic: "Mass Variation",
+      details:
+        "Mass is a function of the velocity of the body . It increases with increasing velocity  . Relativistic Mass can be find by using formula  m = m0/ (√1-v²/c²) . If v tends to c and m tends to infinite no material particle can have a velocity equal or greater than c. At ordinary velocity  v<<c v²/c² is neglected. Thus m = m0.",
+      formula: "Relative Mass = m0 /√(1 - v²/c²)",
+      process:
+        "To find the relativistic mass we need to know the value of speed of object (v) and rest mass of the object(m0) where  the value of speed of light is 3x10⁸m/s",
+      siunit: "Mass: kg",
+      dimension: "Mass: M",
+    },
   ];
 
   return (
