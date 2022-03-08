@@ -25,6 +25,16 @@ const PhysicsQuiz = () => {
     },
     {
       questionText:
+        "dimension of plank's constant h is",
+      answerOptions: [
+        { answerText: "[ML^2T^-1]", isCorrect: false },
+        { answerText: "[ML^3T^-1]", isCorrect: false },
+        { answerText: "[ML^2T^-1]", isCorrect: true },
+        { answerText: "[M^0L^2T^-1]", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
         "On heating a pure silicon circular disc with a circular hole at the centre, the diameter of the hole: ",
       answerOptions: [
         { answerText: "will expand", isCorrect: false },
