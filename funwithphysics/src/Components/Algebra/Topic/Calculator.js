@@ -455,11 +455,58 @@ function Calculator() {
   const SetsAndRelation = () => {
     const [a, setA] = useState(null);
     const [b, setB] = useState(null);
+    const [newA, setNewA] = useState(null);
+    const [newB, setNewB] = useState(null);
     const [union, setUnion] = useState(null);
+    const [newUnion, setNewUnion] = useState(null);
     const [intersection, setIntersection] = useState(null);
+    const [newIntersection, setNewIntersection] = useState(null);
     const [relations, setRelations] = useState(null);
     const [onlyA, setOnlyA] = useState(null);
     const [onlyB, setOnlyB] = useState(null);
+    const [onlyNewA, setNewOnlyA] = useState(null);
+    const [onlyNewB, setNewOnlyB] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolutionUnion, setShowSolutionUnion] = useState(false);
+    const [showSolutionIntersection, setShowSolutionIntersection] = useState(false);
+    const [showSolutionOnlyA, setShowSolutionOnlyA] = useState(false);
+    const [showSolutionOnlyB, setShowSolutionOnlyB] = useState(false);
+    const [showSolutionRelations, setShowSolutionRelations] = useState(false);
+
+    const givenValuesUnion = {
+      a_: newA,
+      b: newB,
+    };
+
+    const insertValuesUnion = `All Elements of ${a} and ${b}`;
+
+    const givenValuesIntersection = {
+      a_: newA,
+      b: newB,
+    };
+
+    const insertValuesIntersection = `Set of all the elements in set ${a} that are also present in set ${b}`;
+
+    const givenValuesOnlyA = {
+      a_: newA,
+      b: newB,
+    };
+
+    const insertValuesOnlyA = `Elements in ${a} but not in ${b}`;
+
+    const givenValuesOnlyB = {
+      a_: newA,
+      b: newB,
+    };
+
+    const insertValuesOnlyB = `Elements in ${b} but not in ${a}`;
+
+    const givenValuesRelations = {
+      a_: newA,
+      b: newB,
+    };
+    const insertValuesRelations = `2 ^ (${a !== null ? a.length : 0} * ${b !== null ? b.length : 0})`;
+
     function reset() {
       setA(null);
       setB(null);
@@ -468,67 +515,103 @@ function Calculator() {
       setUnion(null);
       setIntersection(null);
       setRelations(null);
+      setShowSolutionUnion(false);
+      setShowSolutionIntersection(false);
+      setShowSolutionOnlyA(false);      
+      setShowSolutionOnlyB(false);     
+      setShowSolutionRelations(false);
     }
+
     const calcResult = () => {
-      var tempintersection = [];
-      console.log(a);
-      console.log(b);
-      for (var i = 0; i < a.length; i++) {
-        var found = false;
-        for (var j = 0; j < b.length; j++) {
-          if (b[j] === a[i]) {
-            found = true;
-            break;
+      if(a !== null && b !== null){
+        var tempintersection = [];
+        for (var i = 0; i < a.length; i++) {
+          var found = false;
+          for (var j = 0; j < b.length; j++) {
+            if (b[j] === a[i]) {
+              found = true;
+              break;
+            }
           }
+          if (found) tempintersection.push(a[i]);
         }
-        if (found) tempintersection.push(a[i]);
-      }
-      setIntersection(tempintersection);
+        setIntersection(tempintersection);
 
-      var tempunion = [];
-      for (let i = 0; i < a.length; i++) tempunion.push(a[i]);
-      for (let i = 0; i < b.length; i++) {
-        let found = false;
-        for (let j = 0; j < a.length; j++) {
-          if (a[j] === b[i]) {
-            found = true;
-            break;
+        setNewIntersection(tempintersection.toLocaleString('en-US'))
+        setShowSolutionIntersection(true);
+  
+        var tempunion = [];
+        for (let i = 0; i < a.length; i++) tempunion.push(a[i]);
+        for (let i = 0; i < b.length; i++) {
+          let found = false;
+          for (let j = 0; j < a.length; j++) {
+            if (a[j] === b[i]) {
+              found = true;
+              break;
+            }
           }
+          if (!found) tempunion.push(b[i]);
         }
-        if (!found) tempunion.push(b[i]);
-      }
-      setUnion(tempunion);
-
-      var aonly = [];
-      for (let i = 0; i < a.length; i++) {
-        var found1 = false;
-        for (let j = 0; j < b.length; j++) {
-          if (b[j] === a[i]) {
-            found1 = true;
-            break;
+        setUnion(tempunion);
+        
+        setNewUnion(tempunion.toLocaleString('en-US'));
+        setShowSolutionUnion(true);
+  
+        var aonly = [];
+        for (let i = 0; i < a.length; i++) {
+          var found1 = false;
+          for (let j = 0; j < b.length; j++) {
+            if (b[j] === a[i]) {
+              found1 = true;
+              break;
+            }
           }
+          if (!found1) aonly.push(a[i]);
         }
-        if (!found1) aonly.push(a[i]);
-      }
-      setOnlyA(aonly);
-
-      var bonly = [];
-      for (let i = 0; i < b.length; i++) {
-        var found2 = false;
-        for (let j = 0; j < a.length; j++) {
-          if (b[i] === a[j]) {
-            found2 = true;
-            break;
+        setOnlyA(aonly);
+        
+        setNewOnlyA(aonly.toLocaleString('en-US'));
+        setShowSolutionOnlyA(true);
+  
+        var bonly = [];
+        for (let i = 0; i < b.length; i++) {
+          var found2 = false;
+          for (let j = 0; j < a.length; j++) {
+            if (b[i] === a[j]) {
+              found2 = true;
+              break;
+            }
           }
+          if (!found2) bonly.push(b[i]);
         }
-        if (!found2) bonly.push(b[i]);
-      }
-      setOnlyB(bonly);
+        setOnlyB(bonly);
+        setNewOnlyB(bonly.toLocaleString('en-US'));
+        setShowSolutionOnlyB(true);
+  
+        setRelations(Math.pow(2, a.length * b.length));
+        setShowSolutionRelations(true);
 
-      setRelations(Math.pow(2, a.length * b.length));
+      }
+      else{
+        setShowModal(true);
+      }
+      
     };
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
@@ -540,7 +623,10 @@ function Calculator() {
           <Form.Group className="mb-4">
             <Form.Label>Enter the elements of Set A</Form.Label>
             <Form.Control
-              onChange={(e) => setA(e.target.value.split(","))}
+              onChange={(e) => {
+                setA(e.target.value.split(","));
+                setNewA(e.target.value);
+              }}
               type="text"
               value={a == null ? "" : a}
             />
@@ -548,11 +634,28 @@ function Calculator() {
           <Form.Group className="mb-4">
             <Form.Label>Enter the elements of Set B</Form.Label>
             <Form.Control
-              onChange={(e) => setB(e.target.value.split(","))}
+              onChange={(e) => {
+                setB(e.target.value.split(","));
+                setNewB(e.target.value);
+              }}
               type="text"
               value={b == null ? "" : b}
             />
           </Form.Group>
+
+          {showSolutionUnion ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesUnion}
+                formula="All Elements of A and B Set"
+                toFind="Union"
+                insertValues={insertValuesUnion}
+                result={newUnion}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
           <Form.Group className="mb-4">
             <Form.Label>Union of A and B</Form.Label>
             <Form.Control
@@ -561,6 +664,20 @@ function Calculator() {
               value={union == null ? "" : union}
             />
           </Form.Group>
+
+          {showSolutionIntersection ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesIntersection}
+                formula="Set of all the elements in set A that are also present in set B"
+                toFind="Intersection"
+                insertValues={insertValuesIntersection}
+                result={newIntersection}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
           <Form.Group className="mb-4">
             <Form.Label>Intersection of A and B</Form.Label>
             <Form.Control
@@ -569,6 +686,20 @@ function Calculator() {
               value={intersection == null ? "" : intersection}
             />
           </Form.Group>
+
+          {showSolutionRelations ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesRelations}
+                formula="2 ^ (Length of A set * Length of set B)"
+                toFind="Relations from A to B"
+                insertValues={insertValuesRelations}
+                result={relations}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
           <Form.Group className="mb-4">
             <Form.Label>
               Total Number of Different Relations from A to B
@@ -580,6 +711,19 @@ function Calculator() {
             />
           </Form.Group>
 
+          {showSolutionOnlyA ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesOnlyA}
+                formula="Elements of set A but not in B"
+                toFind="A - B"
+                insertValues={insertValuesOnlyA}
+                result={onlyNewA}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
           <Form.Group className="mb-4">
             <Form.Label>Elements in A but not in B</Form.Label>
             <Form.Control
@@ -588,6 +732,20 @@ function Calculator() {
               value={onlyA == null ? "" : onlyA}
             />
           </Form.Group>
+
+          {showSolutionOnlyB ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesOnlyB}
+                formula="Elements of set B but not in A"
+                toFind="B - A"
+                insertValues={insertValuesOnlyB}
+                result={onlyNewB}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
           <Form.Group className="mb-4">
             <Form.Label>Elements in B but not in A</Form.Label>
             <Form.Control
@@ -2140,16 +2298,41 @@ function Calculator() {
     const [x2, setx2] = useState(null);
     const [result, setResult] = useState(null);
     const [equation, setEquation] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showSolutionImaginary, setShowSolutionImaginary] = useState(false);
+    const [showSolutionEquation, setShowSolutionEquation] = useState(false);
+
+    const givenValues = {
+      a_:a,
+      b:b,
+      c:c,     
+    };
+
+    const insertValues = `(${b<0? -b : `-${b}`} + √${b}² - (4 * ${a>0 ?a:`(${a})`} * ${c>0 ?c:`(${c})`})) / 2 * ${a>0 ?a:`(${a})`} and (${b<0? -b : `-${b}`} - √${b}² - (4 * ${a>0 ?a:`(${a})`} * ${c>0 ?c:`(${c})`})) / 2 * ${a>0 ?a:`(${a})`}`;
+
+    const insertValuesImaginary = `√${b}² - (4 * ${a>0 ?a:`(${a})`} * ${c>0 ?c:`(${c})`}) < 0`;
+
+    const givenValuesEquation = {
+      root1:x1,
+      root2:x2,    
+    };
+
+    const insertValuesEquation = `x² + (${x1>0 ?x1:`(${x1})`} + ${x2>0 ?x2:`(${x2})`})x + (${x1>0 ?x1:`(${x1})`} * ${x2>0 ?x2:`(${x2})`})`;
+
     const reset = () => {
       seta(null);
       setb(null);
       setc(null);
       setResult(null);
+      setShowSolution(false);
+      setShowSolutionImaginary(false);
     };
     const reset2 = () => {
       setx1(null);
-      setx1(null);
+      setx2(null);
       setEquation(null);
+      setShowSolutionEquation(false);
     };
     function discriminant(A, B, C) {
       const D = B * B - 4 * A * C;
@@ -2158,41 +2341,68 @@ function Calculator() {
       return 1;
     }
     const calcQuadratic = () => {
-      if (a === 0) {
-        setResult("Value of a cannot be zero.");
-        return;
-      }
-      const isValid = discriminant(a, b, c);
-      console.log(isValid);
-      if (!isValid) {
-        setResult("Roots are imaginary.");
-      } else {
-        let d = b * b - 4 * a * c;
-        d = Math.sqrt(d);
-        let x1 = (-b + d) / (2 * a);
-        let x2 = (-b - d) / (2 * a);
-        console.log(x1, x2);
-        setResult("Roots are " + x1 + " and " + x2);
-      }
+      if(a !== null && b !== null && c !== null){
+        if (a === 0) {
+          setResult("Value of a cannot be zero.");
+          return;
+        }
+        const isValid = discriminant(a, b, c);
+        console.log(isValid);
+        if (!isValid) {
+          setShowSolutionImaginary(true);
+          setResult("Roots are imaginary.");
+        } 
+        else {
+          let d = b * b - 4 * a * c;
+          d = Math.sqrt(d);
+          let x1 = (-b + d) / (2 * a);
+          let x2 = (-b - d) / (2 * a);
+          console.log(x1, x2);
+          setResult("Roots are " + x1 + " and " + x2);
+          setShowSolution(true);
+        }
+      } 
+      else{
+        setShowModal(true);
+      }      
     };
 
     const generateEquation = () => {
-      let sum = parseFloat(x1) + parseFloat(x2);
-      sum = sum * -1;
-      let product = parseFloat(x1) * parseFloat(x2);
-      // console.log(sum,product);
-      const eq =
-        "x^2" +
-        (sum > 0 ? "+" : "") +
-        sum +
-        "x" +
-        (product > 0 ? "+" : "") +
-        product;
-      setEquation("Equation for the provided roots is " + eq);
+      if(x1 !== null && x2 !== null){
+        let sum = parseFloat(x1) + parseFloat(x2);
+        sum = sum * -1;
+        let product = parseFloat(x1) * parseFloat(x2);
+        // console.log(sum,product);
+        const eq =
+          "x²" +
+          (sum > 0 ? "+" : "") +
+          sum +
+          "x" +
+          (product > 0 ? "+" : "") +
+          product;
+        setEquation("Equation for the provided roots is " + eq);
+        setShowSolutionEquation(true);
+      }
+      else{
+        setShowModal(true);
+      }       
     };
 
     return (
       <>
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
@@ -2231,6 +2441,32 @@ function Calculator() {
               value={c === null ? "" : c}
             />
           </Form.Group>
+
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(-b + √b²-4ac)/2a and (-b - √b²-4ac)/2a"
+                toFind="Roots of Quardratic Equation"
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+
+          {showSolutionImaginary ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="d = √b²-4ac"
+                toFind="Roots of Quardratic Equation"
+                insertValues={insertValuesImaginary}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
 
           <Form.Group className="mb-4">
             <Form.Control
@@ -2284,6 +2520,18 @@ function Calculator() {
               value={x2 === null ? "" : x2}
             />
           </Form.Group>
+          {showSolutionEquation ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesEquation}
+                formula="ax² + bx + c"
+                toFind="General Quadratic Equation"
+                insertValues={insertValuesEquation}
+                result={equation}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
