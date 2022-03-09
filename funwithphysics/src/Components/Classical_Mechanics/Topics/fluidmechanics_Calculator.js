@@ -847,68 +847,123 @@ function FluidCalculator() {
   // Bernoulli's equation calculator
   const CalculatorBernoulliequation = () => {
     const [choice, setChoice] = useState("pressure");
-    const [pressure1, setPressure1] = useState(null);
-    const [velocity1, setVelocity1] = useState(null);
-    const [height1, setHeight1] = useState(null);
-    const [pressure2, setPressure2] = useState(null);
-    const [velocity2, setVelocity2] = useState(null);
-    const [height2, setHeight2] = useState(null);
-    const [gravity, setGravity] = useState(null);
-    const [density, setDensity] = useState(null);
-    const [result, setResult] = useState(null);
+    const [pressure1, setPressure1] = useState("");
+    const [velocity1, setVelocity1] = useState("");
+    const [height1, setHeight1] = useState("");
+    const [pressure2, setPressure2] = useState("");
+    const [velocity2, setVelocity2] = useState("");
+    const [height2, setHeight2] = useState("");
+    const [gravity, setGravity] = useState("");
+    const [density, setDensity] = useState("");
+    const [result, setResult] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
 
     const calcResult = () => {
       let res;
       if (choice === "pressure") {
-        let r1 = 0.5 * density * velocity1 * velocity1;
-        let r2 = density * gravity * height1;
-        let r3 = 0.5 * density * velocity2 * velocity2;
-        let r4 = density * gravity * height2;
-        res =
+
+        if (density !== "" && velocity1 !== "" && velocity2 !== "" && height1 !== "" && height2 !== "" && gravity !== "") {
+          let r1 = 0.5 * density * velocity1 * velocity1;
+          let r2 = density * gravity * height1;
+          let r3 = 0.5 * density * velocity2 * velocity2;
+          let r4 = density * gravity * height2;
+          res =
           parseFloat(pressure1) +
           parseFloat(r1) +
           parseFloat(r2) -
           parseFloat(r3) -
           parseFloat(r4);
+          setShowSolution(true);
+          setResult(res);
+        } else {
+          setShowModal(true);
+        }
       }
       if (choice === "height") {
-        let r1 = (pressure1 - pressure2) / (density * gravity);
-        let r2 = (0.5 * velocity1 * velocity1) / gravity;
-        let r3 = (0.5 * velocity2 * velocity2) / gravity;
-        res =
-          parseFloat(r1) +
-          parseFloat(r2) +
-          parseFloat(height1) -
-          parseFloat(r3);
+
+          if (density !== "" && velocity1 !== "" && velocity2 !== "" && pressure2 !== "" && pressure1 !== "" && gravity !== "") {
+            let r1 = (pressure1 - pressure2) / (density * gravity);
+            let r2 = (0.5 * velocity1 * velocity1) / gravity;
+            let r3 = (0.5 * velocity2 * velocity2) / gravity;
+            res =
+              parseFloat(r1) +
+              parseFloat(r2) +
+              parseFloat(height1) -
+              parseFloat(r3);
+            setShowSolution(true);
+            setResult(res);
+          } else {
+            setShowModal(true);
+          }
       }
       if (choice === "velocity") {
-        let r1 = (2 * (pressure1 - pressure2)) / density;
-        let r2 = 2 * gravity * (height1 - height2);
-        let r3 = velocity1 * velocity1;
-        let r4 = parseFloat(r1) + parseFloat(r2) + parseFloat(r3);
-        res = Math.sqrt(r4);
+        if (density !== "" && velocity1 !== "" && height2 !== "" && pressure2 !== "" && pressure1 !== "" && gravity !== "") {
+          let r1 = (2 * (pressure1 - pressure2)) / density;
+          let r2 = 2 * gravity * (height1 - height2);
+          let r3 = velocity1 * velocity1;
+          let r4 = parseFloat(r1) + parseFloat(r2) + parseFloat(r3);
+          res = Math.sqrt(r4);
+          setShowSolution(true);
+          setResult(res);
+        } else {
+          setShowSolution(false);
+          setShowModal(true);
+        }
+
       }
-      setResult(res);
     };
 
-    const reset = () => {
-      setPressure1(null);
-      setPressure2(null);
-      setVelocity2(null);
-      setVelocity1(null);
-      setDensity(null);
-      setHeight1(null);
-      setHeight2(null);
-      setGravity(null);
-      setResult(null);
+    // const reset = () => {
+    //   setPressure1(null);
+    //   setPressure2(null);
+    //   setVelocity2(null);
+    //   setVelocity1(null);
+    //   setDensity(null);
+    //   setHeight1(null);
+    //   setHeight2(null);
+    //   setGravity(null);
+    //   setResult(null);
+    // };
+
+    const resetForm = () => {
+      setPressure1("");
+      setPressure2("");
+      setVelocity2("");
+      setVelocity1("");
+      setDensity("");
+      setHeight1("");
+      setHeight2("");
+      setGravity("");
+      setResult("");
+      setShowSolution(false);
+      setResult("");
     };
 
     const handleChange = (e) => {
       setChoice(e.target.value);
-      reset();
+      resetForm();
     };
+
+    let givenValues;
+    let insertValues;
+    let toFindChoice;
+    let choiceFormula;
+
     const choiceData = () => {
-      if (choice === "pressure")
+      if (choice === "pressure"){
+        givenValues = {
+          Pressure1: pressure1,
+          Density: density,
+          Height1: height1,
+          Velocity1: velocity1,
+          Height2: height2,
+          Velocity2: velocity2,
+          Gravity: gravity,
+        };
+        toFindChoice = "Final Pressure (P₂)";
+        choiceFormula = "P₁ + 1/2ρ(V₁² - V₂²) + ρg(h₁ - h₂)";
+        insertValues = ` ${pressure1}${SI["Pressure"]} + (1/2 * ${density}${SI["Density"]} * (${velocity1}${SI["Velocity"]}² - ${velocity2}${SI["Velocity"]}² )) + (${density}${SI["Density"]} * ${gravity}${SI["Gravity"]} * (${height1}${SI["Length"]} - ${height2}${SI["Length"]} )) `;
         return {
           name: "Pressure",
           mainunit: "pascal",
@@ -940,8 +995,21 @@ function FluidCalculator() {
             setVelocity2,
             setGravity,
           ],
-        };
+        };}
       if (choice === "velocity")
+      {
+        givenValues = {
+          Pressure1: pressure1,
+          Density: density,
+          Height1: height1,
+          Velocity1: velocity1,
+          Height2: height2,
+          Pressure2: pressure2,
+          Gravity: gravity,
+        };
+        toFindChoice = "Final Velocity (V₂)";
+        choiceFormula = "(2 * ρ *((P₁ - P₂) + 1/2ρV₁² + ρg(h₁ - h₂)))¹ᐟ²";
+        insertValues = ` (2 * ${density}${SI["Density"]} *((${pressure1}${SI["Pressure"]}) - ${pressure2}${SI["Pressure"]}) + (1/2 * ${density}${SI["Density"]} * ${velocity1}${SI["Velocity"]}²) + (${density}${SI["Density"]} * ${gravity}${SI["Gravity"]} * (${height1}${SI["Length"]} - ${height2}${SI["Length"]} )))¹ᐟ² `;
         return {
           name: "Velocity",
           mainunit: "m/s",
@@ -974,7 +1042,21 @@ function FluidCalculator() {
             setGravity,
           ],
         };
+      }
       if (choice === "height")
+      {
+        givenValues = {
+          Pressure1: pressure1,
+          Density: density,
+          Height1: height1,
+          Velocity1: velocity1,
+          Pressure2: pressure2,
+          Velocity2: velocity2,
+          Gravity: gravity,
+        };
+        toFindChoice = "Final Height (h₂)";
+        choiceFormula = "((P₁ - P₂) + 1/2ρ(V₁² - V₂²) + ρgh₁)/ρg";
+        insertValues = ` ((${pressure1}${SI["Pressure"]} - ${pressure2}${SI["Pressure"]}) + (1/2 * ${density}${SI["Density"]} * (${velocity1}${SI["Velocity"]}² - ${velocity2}${SI["Velocity"]}² )) + (${density}${SI["Density"]} * ${gravity}${SI["Gravity"]} * ${height1}${SI["Length"]}))/(${density}${SI["Density"]} * ${gravity}${SI["Gravity"]}) `;
         return {
           name: "Height",
           mainunit: "m",
@@ -1007,9 +1089,23 @@ function FluidCalculator() {
             setGravity,
           ],
         };
+      }
     };
     return (
-      <>
+      <React.Fragment>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -1109,6 +1205,18 @@ function FluidCalculator() {
               }
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula={choiceFormula}
+                toFind={toFindChoice}
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
@@ -1126,11 +1234,11 @@ function FluidCalculator() {
             Calculate
           </Button>
           &nbsp;&nbsp;&nbsp;
-          <Button variant="dark" onClick={() => reset()} type="reset">
+          <Button variant="dark" onClick={() => resetForm()} type="reset">
             Reset
           </Button>
         </div>
-      </>
+      </React.Fragment>
     );
   };
   // Adding Calculators together
