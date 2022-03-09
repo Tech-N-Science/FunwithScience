@@ -91,6 +91,7 @@ function RotationCalculator() {
       } else {
         setShowModal(true);
       }
+    };
 
     return (
       <React.Fragment>
