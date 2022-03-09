@@ -1190,7 +1190,6 @@ function Calculator() {
                     toFind={choiceData().name}
                     insertValues={insertValues1}
                     result={result}
-                    // constants={constants}
                   />
                 </Form.Group>
               ) : null}
@@ -1203,7 +1202,6 @@ function Calculator() {
                     toFind={choiceData().name}
                     insertValues={insertValues2}
                     result={result}
-                    // constants={constants}
                   />
                 </Form.Group>
               ) : null}
@@ -1226,7 +1224,6 @@ function Calculator() {
                     toFind= "sum of numbers"
                     insertValues={insertSumValues1}
                     result={sum}
-                    // constants={constants}
                   />
                 </Form.Group>
               ) : null}
@@ -1239,7 +1236,6 @@ function Calculator() {
                     toFind= "sum of numbers"
                     insertValues={insertSumValues2}
                     result={sum}
-                    // constants={constants}
                   />
                 </Form.Group>
               ) : null}
