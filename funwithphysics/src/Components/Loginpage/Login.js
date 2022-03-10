@@ -43,6 +43,8 @@ function Login() {
         }
       });
   }
+
+  const [visible, setVisible] = useState(false);
   return (
     <div>
       <div className="login">
@@ -83,8 +85,8 @@ function Login() {
                 <i className="fas fa-key"></i>
               </span>
               <input
-                type="password"
-                className="forminput"
+                type={!visible ? "password" : "text"}
+                className="forminput password"
                 name="pass"
                 placeholder="Password"
                 required
@@ -93,6 +95,9 @@ function Login() {
                   setpass(e.target.value);
                 }}
               />
+              <span onClick={() => setVisible(!visible)}>
+                <i className={!visible ? "fas fa-eye-slash" : "fas fa-eye"}></i>
+              </span>
             </div>
             <div>
               <input

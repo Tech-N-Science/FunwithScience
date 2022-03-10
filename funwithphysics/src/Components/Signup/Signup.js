@@ -5,7 +5,6 @@ import ImageLoad from "../imageLoad";
 import axios from "axios";
 
 export default class Signup extends Component {
-
   constructor(props) {
     super(props);
     this.onChangeUsername = this.onChangeUsername.bind(this);
@@ -18,8 +17,8 @@ export default class Signup extends Component {
       username: "",
       email: "",
       pass: "",
+      visible: false,
     };
-    
   }
 
   onChangeUsername(e) {
@@ -115,14 +114,26 @@ export default class Signup extends Component {
                   <i className="fas fa-key"></i>
                 </span>
                 <input
-                  type="password"
-                  className="forminput"
+                  type={!this.state.visible ? "password" : "text"}
+                  className="forminput password"
                   name="pass"
                   placeholder="Password"
                   required
                   value={this.state.pass}
                   onChange={this.onChangePassword}
                 />
+                <span
+                  onClick={() =>
+                    this.setState({ visible: !this.state.visible })
+                  }
+                  className="togglebtn"
+                >
+                  <i
+                    className={
+                      !this.state.visible ? "fas fa-eye-slash" : "fas fa-eye"
+                    }
+                  ></i>
+                </span>
               </div>
               <button type="submit" className="btn btn-primary signupbtn">
                 Register

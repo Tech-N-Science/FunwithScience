@@ -166,3 +166,10 @@ figure {
     margin-top: -25px;
   }
 }
+.togglebtn {
+  display: inline-block;
+}
+
+.password {
+  width: 230px;
+}
