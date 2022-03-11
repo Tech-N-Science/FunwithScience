@@ -24,7 +24,7 @@ export const data = [
       },
       {
         answerText:
-          "D)  8",
+          "D)  3",
         isCorrect: false,
       },
     ],
@@ -50,7 +50,7 @@ export const data = [
         isCorrect: false,
       },
       {
-        answerText: "D)  7",
+        answerText: "D)  -3",
         isCorrect: true,
       },
     ],
@@ -58,5 +58,5 @@ export const data = [
     image: "",
   },
   // Similarily add more questions
-  
+
 ];
