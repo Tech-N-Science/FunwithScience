@@ -32,6 +32,14 @@ function Calculator() {
       dimension: "L¹ ",
     },
     {
+      topic: "Critical Angle",
+      formula: "θ = sin⁻¹(n₂/n₁) ",
+      siunit: "degree",
+      process: `θ = sin⁻¹(n₂/n₁)  where 'θ' is the Critical Angle, 'n₁' is the refractive index of the first media through which light propagates (the "incidental medium"), and 'n₂' is the index of the other medium, and we can simply get the angle by plugging these numbers into the equation.`,
+      details: `Critical angle is  the greatest angle at which a ray of light, travelling in one transparent medium, can strike the boundary between that medium and another medium of lower refractive index without being totally reflected within the first medium.At any angle of incidence greater than the critical angle, the light cannot pass through the surface – it is all reflected. `,
+      dimension: "M⁰ L⁰ T⁰",
+    },
+    {
       topic: "Refraction at Spherical Surface",
       formula: [
         "n",
@@ -106,6 +114,70 @@ function Calculator() {
 
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
+
+
+
+  //Crtical Angle calculator
+  const CriticalAngle = () => {
+    const [n1, setN1] = useState(null);
+    const [n2, setN2] = useState(null);
+    const [result, setResult] = useState(null);
+    const calcResult=()=>{
+      setResult(Number(57.29578*Math.asin(n2/n1)));
+    }
+    function reset()
+    {
+      setN1("");
+      setN2("");
+      setResult("");
+    }
+    return (
+      <>
+        <Form>
+          <Form.Group className="mb-4">
+            <Form.Label>Refractive Index of Incident Medium(Denser Medium)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of n1"
+              onChange={(e) => setN1(Number(e.target.value))}
+              value={n1 === "" ? "Refractive Index of Rarer Medium" : n1}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Refractive Index of Refractive Medium(Rarer Medium)</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter the value of n2"
+              onChange={(e) => setN2(Number(e.target.value))}
+              value={n2 === "" ? "Refractive Index of Denser Medium" : n2}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+          <Form.Label>Critical Angle</Form.Label>
+            <Form.Control
+              disabled="true"
+              type="number"
+              placeholder={result === null ? "Critical Angle" : result}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+      </>
+    )
+  }
+
+
+
+
+
 
   //Refractive index calculator
   const RefractiveIndex = () => {
@@ -233,7 +305,7 @@ function Calculator() {
                     toFind="Angle of Refraction sin(r)"
                     insertValues={insertValues2}
                     result={result}
-                    // constants={constants}
+                  // constants={constants}
                   />
                 </Form.Group>
               ) : null}
@@ -288,7 +360,7 @@ function Calculator() {
                     toFind="Refractive Index (μ)"
                     insertValues={insertValues1}
                     result={result2}
-                    // constants={constants}
+                  // constants={constants}
                   />
                 </Form.Group>
               ) : null}
@@ -392,7 +464,7 @@ function Calculator() {
                 toFind="Brewster's angle"
                 insertValues={insertValues}
                 result={result}
-                // constants={constants}
+              // constants={constants}
               />
             </Form.Group>
           ) : null}
@@ -997,6 +1069,9 @@ function Calculator() {
         break;
       case "Mirror Formula":
         currentCall = MirrorFormula();
+        break;
+       case "Critical Angle":
+        currentCall=CriticalAngle();
         break;
       case "Lens Formula":
         currentCall = LensFormula();

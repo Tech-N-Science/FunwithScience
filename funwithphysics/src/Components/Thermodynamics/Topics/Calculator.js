@@ -1224,9 +1224,9 @@ function Calculator() {
             </Form.Text>
           </Form.Group>
           {choice === "p" ||
-          choice === "v" ||
-          choice === "t" ||
-          choice === "u" ? (
+            choice === "v" ||
+            choice === "t" ||
+            choice === "u" ? (
             <>
               <Form.Group className="mb-4">
                 <Form.Label>{choiceData().quantities[0]}</Form.Label>

@@ -64,6 +64,14 @@ export default function Photonics() {
       dimension: "L¹",
     },
     {
+      topic: "Critical Angle",
+      formula: "θ = sin⁻¹(n₂/n₁) ",
+      siunit: "degree",
+      process: `θ = sin⁻¹(n₂/n₁)"  where 'θ' is the Critical Angle, 'n₁' is the refractive index of the first media through which light propagates (the "incidental medium"), and 'n₂' is the index of the other medium, and we can simply get the angle by plugging these numbers into the equation.`,
+      details: `Critical angle is  the greatest angle at which a ray of light, travelling in one transparent medium, can strike the boundary between that medium and another medium of lower refractive index without being totally reflected within the first medium.At any angle of incidence greater than the critical angle, the light cannot pass through the surface – it is all reflected. `,
+      dimension: "M⁰ L⁰ T⁰",
+    },
+    {
       topic: "Refractive Index",
       formula: "μ = sin(i) / sin(r), where i is the Angle of Incidence and r is the Angle of Refraction",
       siunit: "No unit",

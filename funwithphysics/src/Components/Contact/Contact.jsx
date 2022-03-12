@@ -17,23 +17,30 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name && message && email) {
-      axios
-        .post("https://technscience.com/funwithscience_backend/sendemail.php", {
-          name,
-          email,
-          message,
-        })
-        .then((res) => {
-          if (res.data === 1) {
-            alert("Message sent Successfully");
-            setname("");
-            setemail("");
-            setmessage("");
-          } else {
-            alert("Some error occured");
-          }
-          console.log(res.data);
-        });
+
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+      {
+        axios
+          .post("https://technscience.com/funwithscience_backend/sendemail.php", {
+            name,
+            email,
+            message,
+          })
+          .then((res) => {
+            if (res.data === 1) {
+              alert("Message sent Successfully");
+              setname("");
+              setemail("");
+              setmessage("");
+            } else {
+              alert("Some error occured");
+            }
+            console.log(res.data);
+          });
+      }
+      else{
+        alert("You have entered an invalid email address!");
+      }
     } else {
       alert("Please fill the form properly");
     }
