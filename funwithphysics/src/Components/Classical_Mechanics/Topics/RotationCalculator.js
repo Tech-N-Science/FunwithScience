@@ -114,7 +114,7 @@ function RotationCalculator() {
             <Form.Control
               onChange={(e) => setForce(e.target.value)}
               type="number"
-              placeholder="Enter Moment Of Inertia of the object"
+              placeholder="Enter Force applied to an object in newtons"
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="displacement">
@@ -122,7 +122,7 @@ function RotationCalculator() {
             <Form.Control
               onChange={(e) => setDisp(e.target.value)}
               type="number"
-              placeholder="Enter Angular Acceleration possessed by the object"
+              placeholder="Enter displacement in metre"
             />
           </Form.Group>
           {showSolution ? (
@@ -214,7 +214,7 @@ function RotationCalculator() {
             <Form.Control
               onChange={(e) => setForce(e.target.value)}
               type="number"
-              placeholder="Enter Force applied to an object in newtons"
+              placeholder="Enter torque generated due to applied force"
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="displacement">
@@ -222,7 +222,7 @@ function RotationCalculator() {
             <Form.Control
               onChange={(e) => setDisp(e.target.value)}
               type="number"
-              placeholder="Enter displacement in metre"
+              placeholder="Enter angular displacement about axis of rotation"
             />
           </Form.Group>
           {showSolution ? (
