@@ -75,6 +75,66 @@ const PhysicsQuiz = () => {
     },
     {
       questionText:
+        "A capacitor of capacitance C is charged to a potential difference V. The flux of the electric field through a closed surface enclosing the capacitor is ",
+      answerOptions: [
+        { answerText: "CV/ ε0", isCorrect: false },
+        { answerText: "2CV/ ε0", isCorrect: false },
+        { answerText: "0", isCorrect: true },
+        { answerText: "CV/ 2ε0", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "A moving charge produces ",
+      answerOptions: [
+        { answerText: "Only electric field", isCorrect: false },
+        { answerText: "Only magnetic field", isCorrect: false },
+        { answerText: "Both electric and magnetic field", isCorrect: true },
+        { answerText: "Neither electric and magnetic field", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "X-rays in 1895 was discovered by ",
+      answerOptions: [
+        { answerText: "Einstein", isCorrect: false },
+        { answerText: "Röntgen", isCorrect: true },
+        { answerText: "Faraday", isCorrect: false },
+        { answerText: "Archimedes", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "Which of the following is a pentavalent impuity added while forming an extrinsic semiconductor ? ",
+      answerOptions: [
+        { answerText: "Boron", isCorrect: false },
+        { answerText: "Arsenic", isCorrect: true },
+        { answerText: "Indium", isCorrect: false },
+        { answerText: "Gallium", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "In a radioactive decay neither the atomic number nor the mass number changes. Which of the following particles is emitted in the decay? ",
+      answerOptions: [
+        { answerText: "Photon", isCorrect: true },
+        { answerText: "Electron", isCorrect: false },
+        { answerText: "Proton", isCorrect: false },
+        { answerText: "Neutron", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "The optical phenomena, twinkling of stars, is due to ",
+      answerOptions: [
+        { answerText: "Atmospheric reflection", isCorrect: false },
+        { answerText: "Total reflection", isCorrect: false },
+        { answerText: "Atmospheric refraction", isCorrect: true },
+        { answerText: "Total refraction", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
         "Which of the following quantities is zero on an average for the molecules of an ideal gas in equilibrium? ",
       answerOptions: [
         { answerText: "Kinetic Energy", isCorrect: false },
