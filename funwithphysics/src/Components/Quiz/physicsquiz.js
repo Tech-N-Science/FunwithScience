@@ -35,6 +35,36 @@ const PhysicsQuiz = () => {
     },
     {
       questionText:
+        "The internal energy of an ideal gas decreases by the same amount as the work done by the system. ",
+      answerOptions: [
+        { answerText: "The process must be adiabatic", isCorrect: true },
+        { answerText: "The process must be isobaric", isCorrect: false },
+        { answerText: "The temperature must increase", isCorrect: false },
+        { answerText: "The process must be isothermal", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "A hot liquid is kept in a big room. The logarithm of the numerical value of the temperature difference between the liquid and the room is plotted against time. The plot will be very nearly ",
+      answerOptions: [
+        { answerText: "A straight line", isCorrect: true },
+        { answerText: "A circular arc", isCorrect: false },
+        { answerText: "A parabola", isCorrect: false },
+        { answerText: "An ellipse", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "If a body is charged by rubbing it, its weight ",
+      answerOptions: [
+        { answerText: "Remains precisely constant", isCorrect: false },
+        { answerText: "Increase slightly", isCorrect: false },
+        { answerText: "Decrease slightly", isCorrect: false },
+        { answerText: "May increase slightly or decrease slightly", isCorrect: true },
+      ],
+    },
+    {
+      questionText:
         "On heating a pure silicon circular disc with a circular hole at the centre, the diameter of the hole: ",
       answerOptions: [
         { answerText: "will expand", isCorrect: false },
