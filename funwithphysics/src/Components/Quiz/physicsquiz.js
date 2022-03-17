@@ -44,6 +44,16 @@ const PhysicsQuiz = () => {
       ],
     },
     {
+      questionText:
+        "Which of the following quantities is zero on an average for the molecules of an ideal gas in equilibrium? ",
+      answerOptions: [
+        { answerText: "Kinetic Energy", isCorrect: false },
+        { answerText: "Momentum", isCorrect: true },
+        { answerText: "Density", isCorrect: false },
+        { answerText: "Speed", isCorrect: false },
+      ],
+    },
+    {
       questionText: "Who gave the Theory of Relativity? ",
       answerOptions: [
         { answerText: "Isaac Newton", isCorrect: false },
