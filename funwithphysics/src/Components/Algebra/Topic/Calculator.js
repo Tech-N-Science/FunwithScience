@@ -41,6 +41,89 @@ function Calculator() {
       ],
     },
     {
+      topic: "Mathematical Induction",
+      details: [
+        `A proof by mathematical induction is a powerful method that is used to prove that a conjecture (theory, proposition, speculation, belief, statement, formula, etc...) is true for all cases.
+      Just because a conjecture is true for many examples does not mean it will be for all cases.`,
+      <br />,
+      <br />,
+      `Mathematical induction is a mathematical proof technique. It is essentially used to prove that a statement P(n) holds for every natural number n = 0, 1, 2, 3, ... ; that is, the overall statement is a sequence of infinitely many cases P(0), P(1), P(2), P(3)`,
+      <br />,
+      <br />,
+      `The simplest and most common form of mathematical induction infers that a statement involving a natural number n (that is, an integer n ≥ 0 or 1) holds for all values of n. The proof consists of two steps:
+
+      The initial or base case: prove that the statement holds for 0, or 1.
+      The induction step, inductive step, or step case: prove that for every n, if the statement holds for n, then it holds for n + 1. In other words, assume that the statement holds for some arbitrary natural number n, and prove that the statement holds for n + 1.
+      The hypothesis in the inductive step, that the statement holds for a particular n, is called the induction hypothesis or inductive hypothesis. To prove the inductive step, one assumes the induction hypothesis for n and then uses this assumption to prove that the statement holds for n + 1.
+      
+      Authors who prefer to define natural numbers to begin at 0 use that value in the base case; those who define natural numbers to begin at 1 use that value.`,
+      <br />,
+      <br />
+      ],
+      formula: [
+        `In order to show that the conjecture is true for all cases, we can prove it by mathematical induction as outlined below.`,
+      <br />,
+      <br />,
+      `Important notes and explanations about a proof by mathematical induction`,
+      <br />,
+      <img src="https://www.basic-mathematics.com/images/proof-by-mathematical-induction.png" alt="" />,
+      <br />
+      ],
+      process: [
+        `In 1., you are trying to show that the conjecture is true for specific values. You are free to do this test with just one value or fifty values of your choice or more.
+      However, showing it is true for one million values or more still does not prove it will be true for all values. This is a very important observation!`,
+      <br />,
+      <br />,      
+      `In 2., since you have already shown that the conjecture is true for one or more values, it is logical to suppose or assume it is true for n = k or generally speaking.
+      We usually use the assumption that we make here to complete or prove 3.`,
+      <br />,
+      <br />,
+      `In 3., you finally show it is true for any values. Notice that 2. did not show it is true for any values.`,
+      <br />],
+      example1: [
+        <b>Example1:</b>,
+        `Sum of consecutive natural numbers`,
+        "Mathematical induction can be used to prove the following statement P(n) for all natural numbers n.",
+        <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f71f7909df7374df61735ad6b1fbccdb11f0a5d2" alt="" />,
+        <br />,
+        `Proposition. For any n belong to Natural numbers,`,
+        <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9bf0be7dc58fe4f2239432f8c455b43c81fc1915" alt="" />,
+        <br />,
+        <br />,
+        `Proof. Let P(n) be the statement `,
+        <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9bf0be7dc58fe4f2239432f8c455b43c81fc1915" alt="" />,
+        `We give a proof by induction on n.`,
+        <br />,
+        `Base case: Show that the statement holds for the smallest natural number n = 0.`,
+         <br />,
+        `P(0) is clearly true: `,
+        <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e6362a08a500f5fb6a222d694977f624f1b6a01f" alt="" />,
+         <br />,
+         `Inductive step: Show that for any k ≥ 0, if P(k) holds, then P(k + 1) also holds.`,
+         <br />,
+         `Assume the induction hypothesis that for a particular k, the single case n = k holds, meaning P(k) is true:`,
+         <br />,
+         <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f8836d7410f8647a0e47edb087a580dd312f1694" alt="" />,
+         <br />,
+         `It follows that:`,
+         <br />,
+         <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/233e4ed7ce920229cc241e45ecd575a2ad38f6d8" alt="" />,
+         <br />,
+         `Algebraically, the right hand side simplifies as:`,
+         <br />,
+         <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c8f7aa8426ee8017ea5146530412c0e80efe19ce" alt="" />,
+         <br />,
+         `Equating the extreme left hand and right hand sides, we deduce that:`,
+         <br />,
+         <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/42f873071efcd5268ae0aee53954dbb5ca5f5c58" alt="" />,
+         <br />,
+         `That is, the statement P(k + 1) also holds true, establishing the inductive step.
+
+         Conclusion: Since both the base case and the inductive step have been proved as true, by mathematical induction the statement P(n) holds for every natural number n.`,
+         <br />
+      ],
+    },
+    {
       topic: "Permutation And Combination",
       details: [
         `A permutation of a set is a loosely defined organisation of its members into a sequence or linear order, or a rearranging of its elements if the set is already sorted.
@@ -2289,6 +2372,7 @@ function Calculator() {
       </>
     );
   };
+  
   //Quadratic Equation Calculator
   const QuadraticEquation = () => {
     const [a, seta] = useState(null);
@@ -3015,6 +3099,108 @@ function Calculator() {
     );
   };
 
+  const MathematicalInduction = () => {
+    const [x, setx] = useState(null);
+    const [p, setp] = useState(null);
+    const [result, setResult] = useState(null);
+    const [sum1, setsum1] = useState(null);
+    const [sum2, setsum2] = useState(null);
+
+    const reset = () => {
+      setx(null);
+      setp(null);
+      setResult(null);
+      
+    }
+
+    const calcresult = () => {
+      if(x >= -1 && x!=0  && p>=1){
+      setsum1(Math.pow((1 + x),p));
+      setsum2(1 + p*x);
+      if(sum1 >= sum2){
+         setResult(sum1 + ">=" + sum2);
+      }else{
+      setResult(sum1 + " Not greater than " + sum2);
+      }
+      }else{
+        setResult(sum1 + " and " + sum2 + " has inappropriate values i.e x<-1 or x=0 or p<1");
+      }
+    }
+
+    return (
+      <div>
+      <div>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                Enter x value and power in mathematical induction calculator to prove the Bernoulli's inequality for any function.
+                Bernoulli's equation (1 + x)^p ≥ 1 + px
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>
+              Value of x for (1+x)^p.
+            </Form.Label>
+            <Form.Control
+              onChange={(e) => setx(e.target.value)}
+              type="number"
+              placeholder={"Enter the value of x"}
+              value={x === null ? "" : x}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>
+              Value of p for (1+x)^p.
+            </Form.Label>
+            <Form.Control
+              onChange={(e) => setp(e.target.value)}
+              type="number"
+              placeholder={"Enter the value of p"}
+              value={p === null ? "" : p}
+            />
+          </Form.Group>
+          </Form>
+          <div className="button-custom-grp">
+              <Button variant="primary" onClick={calcresult}>
+                Calculate
+              </Button>
+              &nbsp;&nbsp;&nbsp;
+              <Button
+                variant="dark"
+                onClick={() => reset()}
+                type="reset"
+              >
+                Reset
+              </Button>
+            </div>
+            <Form>
+            <Form.Group className="mb-3">
+                <Form.Label>
+                Bernoulli's inequality for given value is :
+                </Form.Label>
+                {
+                  <div className="binomial_result">
+                    <p>
+                      {" "}
+                      <strong>
+                        {result === null ? "Result" : result}
+                      </strong>{" "}
+                    </p>
+                  </div>
+                }
+              </Form.Group>
+            </Form>
+      </div>
+      </div>
+    );
+  
+  };
+
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -3045,6 +3231,9 @@ function Calculator() {
         break;
       case "Binomial":
         currentCall = Binomial();
+        break;
+      case "Mathematical Induction":
+        currentCall = MathematicalInduction();
         break;
       default:
         break;
