@@ -1,7 +1,7 @@
 export const Data = [
   {
     question: 'What is this website for??',
-    answer: 'This website is to make your physics easy. Just enter the values into the formula and you will get the answer with the procedure.',
+    answer: 'This website is to make your physics more easy. Just enter the values into the formula and you will get the answer with the procedure,Isn't Amazing?.',
     key: "0"
   },
   {
@@ -10,8 +10,8 @@ export const Data = [
     key: "1"
   },
   {
-    question: ' How to contact us?',
-    answer: 'on the navbar click on contact us and then write your queries or follow us on our social media handles.',
+    question: ' How to Contact Us?',
+    answer: 'On the navbar click on Contact Us tab and then write us your queries or follow us on our social media handles given under section "Connect with us".',
     key: "2"
   }
 ];
