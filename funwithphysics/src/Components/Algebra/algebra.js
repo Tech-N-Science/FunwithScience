@@ -49,20 +49,23 @@ export default function Algebra() {
     },
     {
       topic: "Mathematical Induction",
-      details: [`A proof by mathematical induction is a powerful method that is used to prove that a conjecture (theory, proposition, speculation, belief, statement, formula, etc...) is true for all cases.
-      Just because a conjecture is true for many examples does not mean it will be for all cases.`,
+      details: [`Mathematical Induction is a technique to prove the given statement/Formula (p(n)) is true for every possible value of the variable in the statement that is based on any specified set of values for example a set of all natural numbers N.`,
       <br />,
       <br />,
-      `Mathematical induction is a mathematical proof technique. It is essentially used to prove that a statement P(n) holds for every natural number n = 0, 1, 2, 3, ... ; that is, the overall statement is a sequence of infinitely many cases P(0), P(1), P(2), P(3)`,
+      `It is a two step process.`,
+      <br />,
+      `1) Base step :- It is the foremost and the most basic step. It proves that the statement is true for an initial step for example x=y where y is a natural number is true for x=1.`,
+      <br />,
+      `2) Inductive step :- It proves that if the statement is true for nth iteration (nth value) then the formula is true of (n+1)th iteration also. The hypothesis in the inductive step, that the statement holds for a particular n, is called the induction hypothesis or inductive hypothesis. To prove the inductive step, one assumes the induction hypothesis for n and then uses this assumption to prove that the statement holds for n + 1.`,
       <br />,
       <br />,
-      `The simplest and most common form of mathematical induction infers that a statement involving a natural number n (that is, an integer n ≥ 0 or 1) holds for all values of n. The proof consists of two steps:
-
-      The initial or base case: prove that the statement holds for 0, or 1.
-      The induction step, inductive step, or step case: prove that for every n, if the statement holds for n, then it holds for n + 1. In other words, assume that the statement holds for some arbitrary natural number n, and prove that the statement holds for n + 1.
-      The hypothesis in the inductive step, that the statement holds for a particular n, is called the induction hypothesis or inductive hypothesis. To prove the inductive step, one assumes the induction hypothesis for n and then uses this assumption to prove that the statement holds for n + 1.
-      
-      Authors who prefer to define natural numbers to begin at 0 use that value in the base case; those who define natural numbers to begin at 1 use that value.`,
+      `Also there is another type of Induction technique called "STRONG INDUCTION" which is used to prove propositional function, P(n) is true for all positive integers, n`,
+      <br />,
+      `It is also a two step process.`,
+      <br />,
+      `1) Base step :- It proves the initial base case i.e the propositional function p(n) is true for the least positive integer 1. i.e. p(1) is true.`,
+      <br />,
+      `2) Inductive step :- It uses the conditional rule of "if this then that" rule. It says that if (p(1) ∩ p(2) ∩ p(3) .... ∩ p(k)) is true for values upto k then p(k+1) is also true where k belong to the set of positive integers. `,
       <br />,
       <br />
 
