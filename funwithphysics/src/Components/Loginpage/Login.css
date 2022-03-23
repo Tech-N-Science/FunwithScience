@@ -180,3 +180,10 @@ figure {
     margin-left: -70px;
   }
 }
+.togglebtn {
+  display: inline-block;
+}
+
+.password {
+  width: 230px;
+}

@@ -141,7 +141,7 @@ function RotationCalculator() {
             <Form.Control
               readOnly
               type="number"
-              placeholder={result === "" ? "Result" : result + " Joules "}
+              placeholder={result === "" ? "Result" : result + " joules "}
             />
             <Form.Text className="text-muted">
               Enter the above values to Calculate.
@@ -214,7 +214,7 @@ function RotationCalculator() {
             <Form.Control
               onChange={(e) => setForce(e.target.value)}
               type="number"
-              placeholder="Enter Force applied to an object in newtons"
+              placeholder="Enter torque generated due to applied force"
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="displacement">
@@ -222,7 +222,7 @@ function RotationCalculator() {
             <Form.Control
               onChange={(e) => setDisp(e.target.value)}
               type="number"
-              placeholder="Enter displacement in metre"
+              placeholder="Enter angular displacement about axis of rotation"
             />
           </Form.Group>
           {showSolution ? (
