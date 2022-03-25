@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Quiz.css";
 
 
@@ -108,7 +109,7 @@ const MathsQuiz = () => {
  }
 
 
-
+ let navigate = useNavigate();
 
   return (
     <div className="quiz">
@@ -116,11 +117,18 @@ const MathsQuiz = () => {
           
       
         {showScore ? (
+          <>
           <div className="quiz-section">
           <div className="score-section">
-            You scored {score} out of {questions.length}
+            <p>You scored {score} out of {questions.length}</p>
+            <button onClick={()=>{navigate("/mathsquiz")}} className="score-to-home">Play Again</button>
           </div>
+       
+
+
           </div>
+        
+          </>
         ) : (
           <div className="cardWithTimer">
             <div className="timerFrame">

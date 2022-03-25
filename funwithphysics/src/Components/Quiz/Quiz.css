@@ -55,6 +55,8 @@
   display: flex;
   font-size: 24px;
   align-items: center;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .responsive{
@@ -109,6 +111,13 @@ button {
   align-items: center;
   border: 5px solid #234668;
   cursor: pointer;
+}
+.score-to-home{
+width: 60%;
+padding: 10px 15px;
+padding-right: 20px;
+justify-content: center;
+border: 5px solid #234668;
 }
 
 .correct {
