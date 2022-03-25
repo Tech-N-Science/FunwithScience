@@ -49,6 +49,36 @@ export default function Algebra() {
     },
     {
       topic: "Mathematical Induction",
+      details: [`Mathematical Induction is a technique to prove the given statement/Formula (p(n)) is true for every possible value of the variable in the statement that is based on any specified set of values for example a set of all natural numbers N.`,
+      <br />,
+      <br />,
+      `It is a two step process.`,
+      <br />,
+      `1) Base step :- It is the foremost and the most basic step. It proves that the statement is true for an initial step for example x=y where y is a natural number is true for x=1.`,
+      <br />,
+      `2) Inductive step :- It proves that if the statement is true for nth iteration (nth value) then the formula is true of (n+1)th iteration also. The hypothesis in the inductive step, that the statement holds for a particular n, is called the induction hypothesis or inductive hypothesis. To prove the inductive step, one assumes the induction hypothesis for n and then uses this assumption to prove that the statement holds for n + 1.`,
+      <br />,
+      <br />,
+      `Also there is another type of Induction technique called "STRONG INDUCTION" which is used to prove propositional function, P(n) is true for all positive integers, n`,
+      <br />,
+      `It is also a two step process.`,
+      <br />,
+      `1) Base step :- It proves the initial base case i.e the propositional function p(n) is true for the least positive integer 1. i.e. p(1) is true.`,
+      <br />,
+      `2) Inductive step :- It uses the conditional rule of "if this then that" rule. It says that if (p(1) ∩ p(2) ∩ p(3) .... ∩ p(k)) is true for values upto k then p(k+1) is also true where k belong to the set of positive integers. `,
+      <br />,
+      <br />
+
+
+      ],
+      formula: [`In order to show that the conjecture is true for all cases, we can prove it by mathematical induction as outlined below.`,
+      <br />,
+      <br />,
+      `Important notes and explanations about a proof by mathematical induction`,
+      <br />,
+      <img src="https://www.basic-mathematics.com/images/proof-by-mathematical-induction.png" alt="" />,
+      <br />
+      ],
     },
     {
       topic: "Probability",
