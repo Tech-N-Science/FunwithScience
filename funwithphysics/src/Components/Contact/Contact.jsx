@@ -1,3 +1,5 @@
+/* DISABLE ESLINT WARNINGS */
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import "./Contact.css";
 import Navbar from "../Navbar/Navbar";
@@ -11,9 +13,11 @@ export default function Contact() {
   const [name, setname] = useState();
   const [message, setmessage] = useState();
   const [email, setemail] = useState();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name && message && email) {

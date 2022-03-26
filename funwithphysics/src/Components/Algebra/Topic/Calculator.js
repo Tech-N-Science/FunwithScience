@@ -3117,7 +3117,7 @@ function Calculator() {
     }
 
     const calcresult = () => {
-      if(x >= -1 && x!=0  && p>=1){
+      if(x >= -1 && x !== 0  && p >= 1){
       setsum1(Math.pow((1 + x),p));
       setsum2(1 + p*x);
       if(sum1 >= sum2){
