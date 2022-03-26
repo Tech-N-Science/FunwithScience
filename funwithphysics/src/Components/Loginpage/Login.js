@@ -11,7 +11,7 @@ import ImageLoad from "../imageLoad";
 function Login() {
   const { dispatch } = useContext(Context);
   const history = useNavigate();
-  const btnLogin = useRef(null);
+  const loginBtn = useRef(null);
 
   const [inputValues, setInputValues] = useState({
     email: "",
@@ -42,30 +42,30 @@ function Login() {
       setRemember("");
     }
 
-    let animationState = 0; //Defines which will be the current innerText of "btnLogin"
+    let animationState = 0; //Defines which will be the current innerText of "loginBtn"
 
-    //Function that will change the innerText of "btnLogin" every 200ms
-    let LoginBtnTextAnimation = setInterval(() => {
+    //Function that will change the innerText of "loginBtn" every 200ms
+    let loginBtnTextAnimation = setInterval(() => {
       switch (animationState) {
         //If the current value of "animationState" is 0
         case 0:
-          btnLogin.current.innerText = "Logging in"; //Sets the innerText of "btnLogin" as "Logging in."
+          loginBtn.current.innerText = "Logging in"; //Sets the innerText of "loginBtn" as "Logging in."
           return animationState++; //Add +1 to "animationState"
 
         //If the current value of "animationState" is 1
         case 1:
-          btnLogin.current.innerText = "Logging in."; //Sets the innerText of "btnLogin" as "Logging in."
+          loginBtn.current.innerText = "Logging in."; //Sets the innerText of "loginBtn" as "Logging in."
           return animationState++; //Add +1 to "animationState"
 
         //If the current value of "animationState" is 2
         case 2:
-          btnLogin.current.innerText = "Logging in..";
+          loginBtn.current.innerText = "Logging in..";
           return animationState++;
 
         //If the current value of "animationState" is neither 0, 1 nor 2
         default:
-          btnLogin.current.innerText = "Logging in...";
-          return (animationState = 0); //Reset the value of animationState and restarts the animation
+          loginBtn.current.innerText = "Logging in...";
+          return (animationState = 0); //Reset the value of animationState and restart the animation
       }
     }, 200);
 
@@ -99,10 +99,10 @@ function Login() {
             break;
         }
 
-        clearInterval(LoginBtnTextAnimation);
+        clearInterval(loginBtnTextAnimation);
 
-        if (btnLogin.current === null) return;
-        btnLogin.current.innerText = "Login";
+        if (loginBtn.current === null) return;
+        loginBtn.current.innerText = "Login";
       });
   };
 
@@ -173,7 +173,7 @@ function Login() {
             </div>
             <button
               type="submit"
-              ref={btnLogin}
+              ref={loginBtn}
               onClick={onSubmit}
               className="btn btn-primary loginbtn"
             >
