@@ -45,7 +45,6 @@ const Navbar = () => {
       type: 'Logout',
     });
     localStorage.setItem('user', null);
-    console.log(user);
   };
   return (
     <React.Fragment>
