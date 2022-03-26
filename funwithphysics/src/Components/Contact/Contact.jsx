@@ -1,6 +1,6 @@
 /* DISABLE ESLINT WARNINGS */
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Contact.css";
 import Navbar from "../Navbar/Navbar";
 import { Helmet } from "react-helmet";
@@ -10,9 +10,22 @@ import axios from "axios";
 
 
 export default function Contact() {
-  const [name, setname] = useState();
-  const [message, setmessage] = useState();
-  const [email, setemail] = useState();
+  const sendBtn = useRef(null);
+
+  const [inputValues, setInputValues] = useState({
+    name: "", message: "", email: ""
+  });
+
+  const {name, message, email} = inputValues;
+
+  const handleInputChange = (e) => {
+    const {name, value} = e.target;
+
+    setInputValues({
+      ...inputValues,
+      [name]: value
+    });
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,10 +33,39 @@ export default function Contact() {
   
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (name && message && email) {
 
       if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
       {
+
+        let animationState = 0; //Defines which will be the current innerText of "sendBtn"
+
+        //Function that will change the innerText of "sendBtn" every 200ms
+        let sendBtnTextAnimation = setInterval(() => {
+          switch (animationState) {
+            //If the current value of "animationState" is 0
+            case 0:
+              sendBtn.current.innerText = "Sending"; //Sets the innerText of "sendBtn" as "Logging in."
+              return animationState++; //Add +1 to "animationState"
+    
+            //If the current value of "animationState" is 1
+            case 1:
+              sendBtn.current.innerText = "Sending."; //Sets the innerText of "sendBtn" as "Logging in."
+              return animationState++; //Add +1 to "animationState"
+    
+            //If the current value of "animationState" is 2
+            case 2:
+              sendBtn.current.innerText = "Sending..";
+              return animationState++;
+    
+            //If the current value of "animationState" is neither 0, 1 nor 2
+            default:
+              sendBtn.current.innerText = "Sending...";
+              return (animationState = 0); //Reset the value of animationState and restart the animation
+          }
+        }, 200);
+
         axios
           .post("https://technscience.com/funwithscience_backend/sendemail.php", {
             name,
@@ -33,13 +75,14 @@ export default function Contact() {
           .then((res) => {
             if (res.data === 1) {
               alert("Message sent Successfully");
-              setname("");
-              setemail("");
-              setmessage("");
+              setInputValues({
+                name: "", email: "", message: ""
+              });
             } else {
               alert("Some error occured");
             }
-            console.log(res.data);
+            clearInterval(sendBtnTextAnimation);
+            sendBtn.current.innerText = "Send"
           });
       }
       else{
@@ -91,31 +134,28 @@ export default function Contact() {
         <div className="contactForm">
           <h2>Name</h2>
           <input
+            name="name"
             type="text"
             placeholder="Enter your name"
-            onChange={(e) => {
-              setname(e.target.value);
-            }}
-            value={name}
+            onChange={handleInputChange}
+            value={inputValues.name}
           />
           <h2>Email</h2>
           <input
+            name="email"
             type="email"
             placeholder="Enter your email"
-            value={email}
-            onChange={(e) => {
-              setemail(e.target.value);
-            }}
+            onChange={handleInputChange}
+            value={inputValues.email}
           />
           <h2>Message</h2>
           <textarea
+            name="message"
             placeholder="Enter your message"
-            value={message}
-            onChange={(e) => {
-              setmessage(e.target.value);
-            }}
+            onChange={handleInputChange}
+            value={inputValues.message}
           />
-          <div className="contactBTN" onClick={handleSubmit}>
+          <div ref={sendBtn} className="contactBTN" onClick={handleSubmit}>
             Send
           </div>
         </div>
