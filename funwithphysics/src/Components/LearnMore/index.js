@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import blackboardSvg from "../../Images/blackboard-svg.svg";
+import physicssvg from "../../Images/physics-svg.svg"
+import chemsvg from "../../Images/chemistry-svg.svg"
+import mathsvg from "../../Images/maths-svg.svg"
 // eslint-disable-next-line
 import { Link } from "react-router-dom";
 import "./styles.css";
@@ -53,7 +56,7 @@ export function LearnMore() {
           <li className="science fade-in-transition topic-card">
             <p>Maths</p>
             <small className="topic science-topic">Science</small>
-            <img src={blackboardSvg} alt="Icon" />
+            <img src={mathsvg} alt="Icon" />
             <div className="dropdown">
               <Link className="plus" to="/">
                 <span className="explore-btn">
@@ -71,7 +74,7 @@ export function LearnMore() {
           <li className="science fade-in-transition topic-card">
             <p>Physics</p>
             <small className="topic science-topic">Science</small>
-            <img src={blackboardSvg} alt="Icon" />
+            <img src={physicssvg} alt="Icon" />
             <div className="dropdown">
               <Link className="plus" to="/">
                 <span className="explore-btn">
@@ -89,7 +92,7 @@ export function LearnMore() {
           <li className="science fade-in-transition topic-card">
             <p>Chemistry</p>
             <small className="topic science-topic">Science</small>
-            <img src={blackboardSvg} alt="Icon" />
+            <img src={chemsvg} alt="Icon" />
             <div className="dropdown">
               <Link className="plus" to="/">
                 <span className="explore-btn">
