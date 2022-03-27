@@ -25,12 +25,122 @@ const PhysicsQuiz = () => {
     },
     {
       questionText:
+        "dimension of plank's constant h is",
+      answerOptions: [
+        { answerText: "[ML^2T^-1]", isCorrect: false },
+        { answerText: "[ML^3T^-1]", isCorrect: false },
+        { answerText: "[ML^2T^-1]", isCorrect: true },
+        { answerText: "[M^0L^2T^-1]", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "The internal energy of an ideal gas decreases by the same amount as the work done by the system. ",
+      answerOptions: [
+        { answerText: "The process must be adiabatic", isCorrect: true },
+        { answerText: "The process must be isobaric", isCorrect: false },
+        { answerText: "The temperature must increase", isCorrect: false },
+        { answerText: "The process must be isothermal", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "If a body is charged by rubbing it, its weight ",
+      answerOptions: [
+        { answerText: "Remains precisely constant", isCorrect: false },
+        { answerText: "Increase slightly", isCorrect: false },
+        { answerText: "Decrease slightly", isCorrect: false },
+        { answerText: "May increase slightly or decrease slightly", isCorrect: true },
+      ],
+    },
+    {
+      questionText:
+        "A hot liquid is kept in a big room. The logarithm of the numerical value of the temperature difference between the liquid and the room is plotted against time. The plot will be very nearly ",
+      answerOptions: [
+        { answerText: "A straight line", isCorrect: true },
+        { answerText: "A circular arc", isCorrect: false },
+        { answerText: "A parabola", isCorrect: false },
+        { answerText: "An ellipse", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
         "On heating a pure silicon circular disc with a circular hole at the centre, the diameter of the hole: ",
       answerOptions: [
         { answerText: "will expand", isCorrect: false },
         { answerText: "will contract", isCorrect: true },
         { answerText: "will remain constant", isCorrect: false },
         { answerText: "may expand or contract", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "A capacitor of capacitance C is charged to a potential difference V. The flux of the electric field through a closed surface enclosing the capacitor is ",
+      answerOptions: [
+        { answerText: "CV/ ε0", isCorrect: false },
+        { answerText: "2CV/ ε0", isCorrect: false },
+        { answerText: "0", isCorrect: true },
+        { answerText: "CV/ 2ε0", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "A moving charge produces ",
+      answerOptions: [
+        { answerText: "Only electric field", isCorrect: false },
+        { answerText: "Only magnetic field", isCorrect: false },
+        { answerText: "Both electric and magnetic field", isCorrect: true },
+        { answerText: "Neither electric and magnetic field", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "X-rays in 1895 was discovered by ",
+      answerOptions: [
+        { answerText: "Einstein", isCorrect: false },
+        { answerText: "Röntgen", isCorrect: true },
+        { answerText: "Faraday", isCorrect: false },
+        { answerText: "Archimedes", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "Which of the following is a pentavalent impuity added while forming an extrinsic semiconductor ? ",
+      answerOptions: [
+        { answerText: "Boron", isCorrect: false },
+        { answerText: "Arsenic", isCorrect: true },
+        { answerText: "Indium", isCorrect: false },
+        { answerText: "Gallium", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "In a radioactive decay neither the atomic number nor the mass number changes. Which of the following particles is emitted in the decay? ",
+      answerOptions: [
+        { answerText: "Photon", isCorrect: true },
+        { answerText: "Electron", isCorrect: false },
+        { answerText: "Proton", isCorrect: false },
+        { answerText: "Neutron", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "The optical phenomena, twinkling of stars, is due to ",
+      answerOptions: [
+        { answerText: "Atmospheric reflection", isCorrect: false },
+        { answerText: "Total reflection", isCorrect: false },
+        { answerText: "Atmospheric refraction", isCorrect: true },
+        { answerText: "Total refraction", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "Which of the following quantities is zero on an average for the molecules of an ideal gas in equilibrium? ",
+      answerOptions: [
+        { answerText: "Kinetic Energy", isCorrect: false },
+        { answerText: "Momentum", isCorrect: true },
+        { answerText: "Density", isCorrect: false },
+        { answerText: "Speed", isCorrect: false },
       ],
     },
     {
