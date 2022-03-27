@@ -10,6 +10,7 @@ export default class Signup extends Component {
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChangeConfirmPassword = this.onChangeConfirmPassword.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     console.log(this.props);
     console.log(props);
@@ -17,7 +18,9 @@ export default class Signup extends Component {
       username: "",
       email: "",
       pass: "",
-      visible: false,
+      confirmPass: "",
+      passwordVisible: false,
+      confirmPasswordVisible: false,
     };
   }
 
@@ -30,6 +33,9 @@ export default class Signup extends Component {
   onChangePassword(e) {
     this.setState({ pass: e.target.value });
   }
+  onChangeConfirmPassword(e) {
+    this.setState({ confirmPass: e.target.value });
+  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -37,28 +43,34 @@ export default class Signup extends Component {
       username: this.state.username,
       email: this.state.email,
       pass: this.state.pass,
+      confirmPass: this.state.confirmPass,
     };
 
-    axios
-      .post("https://technscience.com/funwithscience_backend/insert.php", ob)
-      .then((res) => {
-        if (res.data === 1) {
-          alert(" Registered Successfully");
-          this.setState({
-            username: "",
-            email: "",
-            pass: "",
-          });
-          this.props.history("/login");
-        } else if (res.data === 2) {
-          alert("Username already exists");
-        } else if (res.data === 0) {
-          alert("Email already exists");
-        } else {
-          alert("Some error occured");
-        }
-        console.log(res.data);
-      });
+    if (this.state.pass !== this.state.confirmPass) {
+      alert("Password didn't match");
+    } else {
+      axios
+        .post("https://technscience.com/funwithscience_backend/insert.php", ob)
+        .then((res) => {
+          if (res.data === 1) {
+            alert(" Registered Successfully");
+            this.setState({
+              username: "",
+              email: "",
+              pass: "",
+              confirmPass: "",
+            });
+            this.props.history("/login");
+          } else if (res.data === 2) {
+            alert("Username already exists");
+          } else if (res.data === 0) {
+            alert("Email already exists");
+          } else {
+            alert("Some error occured");
+          }
+          console.log(res.data);
+        });
+    }
   }
   render() {
     return (
@@ -114,7 +126,7 @@ export default class Signup extends Component {
                   <i className="fas fa-key"></i>
                 </span>
                 <input
-                  type={!this.state.visible ? "password" : "text"}
+                  type={!this.state.passwordVisible ? "password" : "text"}
                   className="forminput password"
                   name="pass"
                   placeholder="Password"
@@ -124,13 +136,50 @@ export default class Signup extends Component {
                 />
                 <span
                   onClick={() =>
-                    this.setState({ visible: !this.state.visible })
+                    this.setState({
+                      passwordVisible: !this.state.passwordVisible,
+                    })
                   }
                   className="togglebtn"
                 >
                   <i
                     className={
-                      !this.state.visible ? "fas fa-eye-slash" : "fas fa-eye"
+                      !this.state.passwordVisible
+                        ? "fas fa-eye-slash"
+                        : "fas fa-eye"
+                    }
+                  ></i>
+                </span>
+              </div>
+              <div className="signdiv">
+                <span>
+                  <i className="fas fa-key"></i>
+                </span>
+                <input
+                  type={
+                    !this.state.confirmPasswordVisible ? "password" : "text"
+                  }
+                  className="forminput password"
+                  name="confirmPass"
+                  placeholder="Confirm Password"
+                  required
+                  value={this.state.confirmPass}
+                  onChange={this.onChangeConfirmPassword}
+                />
+                <span
+                  onClick={() =>
+                    this.setState({
+                      confirmPasswordVisible:
+                        !this.state.confirmPasswordVisible,
+                    })
+                  }
+                  className="togglebtn"
+                >
+                  <i
+                    className={
+                      !this.state.confirmPasswordVisible
+                        ? "fas fa-eye-slash"
+                        : "fas fa-eye"
                     }
                   ></i>
                 </span>
