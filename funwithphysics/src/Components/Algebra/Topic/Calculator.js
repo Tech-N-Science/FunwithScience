@@ -107,24 +107,27 @@ function Calculator() {
          `Assume the induction hypothesis that for a particular k, the single case n = k holds, meaning P(k) is true:`,
          <br />,
          <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f8836d7410f8647a0e47edb087a580dd312f1694" alt="" />,
-         <br />,
-         `It follows that:`,
-         <br />,
-         <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/233e4ed7ce920229cc241e45ecd575a2ad38f6d8" alt="" />,
-         <br />,
-         `Algebraically, the right hand side simplifies as:`,
-         <br />,
-         <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c8f7aa8426ee8017ea5146530412c0e80efe19ce" alt="" />,
-         <br />,
-         `Equating the extreme left hand and right hand sides, we deduce that:`,
-         <br />,
-         <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/42f873071efcd5268ae0aee53954dbb5ca5f5c58" alt="" />,
-         <br />,
-         `That is, the statement P(k + 1) also holds true, establishing the inductive step.
-
-         Conclusion: Since both the base case and the inductive step have been proved as true, by mathematical induction the statement P(n) holds for every natural number n.`,
          <br />
       ],
+      example2: [<br />,
+      `It follows that:`,
+      <br />,
+      <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/233e4ed7ce920229cc241e45ecd575a2ad38f6d8" alt="" />,
+      <br />,
+      `Algebraically, the right hand side simplifies as:`,
+      <br />,
+      <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c8f7aa8426ee8017ea5146530412c0e80efe19ce" alt="" />,
+      <br />,
+      `Equating the extreme left hand and right hand sides, we deduce that:`,
+      <br />,
+      <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/42f873071efcd5268ae0aee53954dbb5ca5f5c58" alt="" />,
+      <br />,
+      `That is, the statement P(k + 1) also holds true, establishing the inductive step.
+
+      Conclusion: Since both the base case and the inductive step have been proved as true, by mathematical induction the statement P(n) holds for every natural number n.`,
+      <br />,      
+      <br />,
+    ],
     },
     {
       topic: "Permutation And Combination",
@@ -3103,8 +3106,8 @@ function Calculator() {
   };
 
   const MathematicalInduction = () => {
-    const [x, setx] = useState(null);
-    const [p, setp] = useState(null);
+    const [x, setx] = useState(x);
+    const [p, setp] = useState(p);
     const [result, setResult] = useState(null);
     const [sum1, setsum1] = useState(null);
     const [sum2, setsum2] = useState(null);
@@ -3117,16 +3120,16 @@ function Calculator() {
     }
 
     const calcresult = () => {
-      if(x >= -1 && x!=0  && p>=1){
       setsum1(Math.pow((1 + x),p));
       setsum2(1 + p*x);
+      if(x >= -1 && x!=0  && p>=1){
       if(sum1 >= sum2){
          setResult(sum1 + ">=" + sum2);
       }else{
       setResult(sum1 + " Not greater than " + sum2);
       }
       }else{
-        setResult(sum1 + " and " + sum2 + " has inappropriate values i.e x<-1 or x=0 or p<1");
+        setResult("X and P" + " has inappropriate values i.e x<-1 or x=0 or p<=0");
       }
     }
 
@@ -3140,6 +3143,8 @@ function Calculator() {
                 {" "}
                 Enter x value and power in mathematical induction calculator to prove the Bernoulli's inequality for any function.
                 Bernoulli's equation (1 + x)^p ≥ 1 + px
+                <br/>
+                Note:- [x{">"}=-1 and x!=0 and p{">"}0]
               </strong>
               <br />
             </Form.Text>
@@ -3191,6 +3196,38 @@ function Calculator() {
                       {" "}
                       <strong>
                         {result === null ? "Result" : result}
+                      </strong>{" "}
+                    </p>
+                  </div>
+                }
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>
+                PLEASE ENTER CORRECT VALUES OF X AND P TO UNDERSTAND THE STEPS
+                Steps:
+                </Form.Label>
+                {
+                  <div className="binomial_result">
+                    <p>
+                      {" "}
+                      <strong>
+                        {"1. Base Case: For p=1, 1+x=1+"+x+" = " + Number(1+Number(x)) +" so the inequality holds as the (1+x)^p is greater than or equal to 1+px"}
+                        <br />
+                        {"2. Induction Assumption: Assume that for some integer k≥1, (1+x)"}<sup>k</sup> {"≥1+kx. So let k=2"}
+                        <br/>
+                        {"so,"}
+                        <br />
+                        {"(1+"+x+")"}<sup>2</sup>{">=1+2*"+x}
+                        <br />
+                        {"(1+"+x+")(1+"+x+")"}<sup>2</sup>{">= (1+"+x+")(1+2*"+x+")"}
+                        <br />
+                        {"(1+"+x+")"}<sup>2+1</sup>{">= 1+(2+1)"+x+"+2*"+x}<sup>2</sup>
+                        <br />
+                        {"1+(2+1)"+x+"+2*"+x}<sup>2</sup>{" > 1+(2+1)"+x}
+                        <br />
+                        {"Since 2*"+x}<sup>2</sup>{">0"}
+                        <br />
+                        {"==> (1+"+x+")"}<sup>2+1</sup>{" >= 1+(2+1)"+x}
                       </strong>{" "}
                     </p>
                   </div>
