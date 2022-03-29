@@ -174,6 +174,7 @@ If you have any doubts, please let us know in the comments.
   <td>
     <a href="https://jwoc.tech/"><img src="jwoc.png" width="17%"/></a>
     <a href="https://diversion.tech/"><img src="diversion.png" width="17%"/></a>
+    <a href="https://gssoc.girlscript.tech/"><img src="gssoc.png" width="17%"/></a>
   </td>
     </tr>
 </table>
