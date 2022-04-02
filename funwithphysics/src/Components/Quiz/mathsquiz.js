@@ -25,7 +25,7 @@ const MathsQuiz = () => {
     },
     {
       questionText:
-        "The value of loga b logb c logc a is",
+        "The value of logₐb log₆c log꜀a is",
       answerOptions: [
         { answerText: " 2", isCorrect: false },
         { answerText: " 1", isCorrect: true},
@@ -35,7 +35,7 @@ const MathsQuiz = () => {
     },
     {
       questionText:
-        "The remainder when 38^15 is divided by 13 is",
+        "The remainder when 38¹⁵ is divided by 13 is",
       answerOptions: [
         { answerText: " 12", isCorrect: true },
         { answerText: " 1", isCorrect: false},
@@ -45,7 +45,7 @@ const MathsQuiz = () => {
     },
     {
       questionText:
-        "The order and the degree of the differential equation of all tangent lines to the parabola x^2=4y is ",
+        "The order and the degree of the differential equation of all tangent lines to the parabola x²=4y is ",
       answerOptions: [
         { answerText: " 1,4", isCorrect: false },
         { answerText: " 1,3", isCorrect: false},
