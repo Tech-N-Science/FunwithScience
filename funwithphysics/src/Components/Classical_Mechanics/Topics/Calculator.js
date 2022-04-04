@@ -19,9 +19,9 @@ function Calculator() {
       process:
         "For an object to move along a curved circular path, the direction of its velocity must change. It is because at each point on the circular path tangent will give the direction. A change in velocity will cause the acceleration which will not be in the same direction as the velocity. Therefore for an object to move along a circular path, there must be an acceleration that will always be perpendicular to the velocity.",
       siunit:
-        "Circumference: m ,  Velocity: m/s ,  Time: s ,        Radial Acc: m/s² , Radial Acc: rad/s",
+        "Circumference: m ,  Velocity: m/s ,  Time: s ,        Radial Acc: m/s² , Angular velocity: rad/s",
       dimension:
-        "Circumference: L , Velocity: L/T , Time: T, Radial Acc: L/T² , Radial Acc: 1/T",
+        "Circumference: L , Velocity: L/T , Time: T, Radial Acc: L/T² , Angular velocity: 1/T",
     },
     {
       topic: "Collision",
@@ -1790,12 +1790,82 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
   function CalculatorCircularMotion() {
     const [result, setResult] = useState("");
     const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
 
     const [radius, setRadius] = useState("");
     const [time, setTime] = useState("");
     const [pi, setPi] = useState(Math.PI);
     const [velocity, setVelocity] = useState("");
     const [choice, setChoice] = useState("circumference");
+    
+    const calcResult = () => {
+      let res;
+      if (choice === "circumference" && radius !== "") {
+        res = 2 * Math.PI * radius;
+        setShowSolution(true);
+        setResult(res + ` ${SI["length"]} `);
+      }
+      else if (choice === "velocity" && radius !== "" && time !== "") {
+        res = parseFloat(2 * Math.PI * radius) / parseFloat(time);
+        setShowSolution(true);
+        setResult(res);
+      } 
+      else if (choice === "time" && radius !== "" && velocity !== "") {
+        res = parseFloat(2 * Math.PI * radius) / parseFloat(velocity);
+        setShowSolution(true);
+        setResult(res);
+      }
+      else if (choice === "rad" && radius !== "" && velocity !== "") {
+        let x = velocity * velocity;
+        res = x / radius;
+
+        setShowSolution(true);
+        setResult(res + ` ${SI["acceleration"]}`);
+      } 
+      else if (choice === "omega" && time !== "") {
+        res = (2 * Math.PI) / time;
+        setShowSolution(true);
+        setResult(res + ` rad/s`);
+      }
+      else {
+        setShowModal(true);
+      }
+      // setResult(res);
+    };
+
+    const givenValues = () => {
+      if (choice === "circumference")
+        return {
+      Radius: radius,
+    };
+    else if( choice === "velocity")
+    return{
+      Radius : radius,
+      Time : time,
+    };
+    else if( choice === "time")
+    return{
+      Radius : radius,
+      Velocity : velocity,
+    };
+    else if( choice === "rad")
+    return{
+      Radius : radius,
+      Velocity : velocity,
+    };
+    else //omega
+    return{
+      Time : time,
+    }
+    };
+    
+    function reset() {
+      setResult("");
+      setRadius("");
+      setTime("");
+      setVelocity("");
+      setShowSolution(false);
+    }
     function handleChange(e) {
       console.log(e.target.value);
       setResult("");
@@ -1805,34 +1875,26 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
       setChoice(e.target.value);
       choiceData();
     }
-    const calcResult = () => {
-      let res;
-      if (choice === "circumference") res = 2 * Math.PI * radius;
-      else if (choice === "velocity") {
-        res = parseFloat(2 * Math.PI * radius) / parseFloat(time);
-      } else if (choice === "time")
-        res = parseFloat(2 * Math.PI * radius) / parseFloat(velocity);
-      else if (choice === "rad") {
-        let x = velocity * velocity;
-        res = x / radius;
-      } else if (choice === "omega") {
-        res = (2 * Math.PI) / time;
-      }
-
-      setResult(res);
-    };
-    function reset() {
-      setResult("");
-      setRadius("");
-      setTime("");
-      setVelocity("");
+    const insertValues = () => {
+      if (choice === "circumference") 
+        return `2 * ${Math.PI} * ${radius} ${SI["length"]}`;
+      else if (choice === "velocity")
+      return `(2 * ${Math.PI} * ${radius} ${SI["length"]}) / ${time} ${SI["time"]}`;
+      else if(choice === "time")
+      return `(2 * ${Math.PI} * ${radius} ${SI["length"]}) / ${velocity} ${SI["velocity"]}`;
+      else if(choice === "rad")
+      return `(${velocity} ${SI["velocity"]} * ${velocity} ${SI["velocity"]}) / ${radius} ${SI["length"]}`;
+      else
+      return `(2 * ${Math.PI}) / ${time} ${SI["time"]}`;
     }
+
     const choiceData = () => {
       if (choice === "circumference")
         return {
           name: "Circumference",
           mainunit: "m",
           quantities: ["Radius", "Pi"],
+          formula : "2 * pi * radius",
           subunits: ["m", "NaN"],
           setters: [setRadius, setPi],
           getters: [radius, pi],
@@ -1843,6 +1905,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
           name: "Velocity",
           mainunit: "m/s",
           quantities: ["Radius", "Time"],
+          formula : "(2 * pi * radius) / time",
           subunits: ["m", "s"],
           setters: [setRadius, setTime],
           getters: [radius, time],
@@ -1852,6 +1915,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
           name: "Time",
           mainunit: "s",
           quantities: ["Radius", "Velocity"],
+          formula : "(2 * pi * radius) / velocity",
           subunits: ["m", "m/s"],
           setters: [setRadius, setVelocity],
           getters: [radius, velocity],
@@ -1861,6 +1925,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
           name: "Radial Acceleration",
           mainunit: "m",
           quantities: ["Velocity", "Radius"],
+          formula : "(velocity * velocity) / radius",
           subunits: ["m/s", "m"],
           setters: [setVelocity, setRadius],
           getters: [velocity, radius],
@@ -1870,6 +1935,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
           name: "Angular Velocity",
           mainunit: "rad/s",
           quantities: ["Time", "Pi"],
+          formula : " (2 * pi * radius) / time",
           subunits: ["s", "NaN"],
           setters: [setTime, setPi],
           getters: [time, pi],
@@ -1947,6 +2013,17 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
               disabled={choiceData().disable}
             />
           </Form.Group>
+          {showSolution ? (
+          <Form.Group className="mb-3" controlId="acceleration">
+            <Solution
+              givenValues={givenValues()}
+              formula={choiceData().formula}
+              toFind={choiceData().name}
+              insertValues={insertValues()}
+              result={result}
+            />
+          </Form.Group>
+        ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
