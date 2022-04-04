@@ -2655,7 +2655,7 @@ function Calculator() {
       setSum(null);
     };
 
-    const calcBinomial = () => {
+    const calcBinomial = () =>{     
       let term = Math.pow(a, n);
       let results = [];
       results.push(term);
@@ -2668,7 +2668,45 @@ function Calculator() {
       setResult(results);
       setSum(sum1);
       // console.log(sum);
+    }
+
+    // EVALUATING BINOMIAL EXPANSION FOR FOUR KNOWN VARIABLES
+
+    const [inputA, setInputA] = useState(null);
+    const [inputB, setInputB] = useState(null);
+    const [inputX, setInputX] = useState(null);
+    const [inputY, setInputY] = useState(null);
+    const [inputN, setInputN] = useState(null);
+    const [result2, setResult2] = useState(null);
+    const [sum2, setSum2] = useState(null);
+    const reset2 = () => {
+      setInputA(null);
+      setInputB(null);
+      setInputX(null);
+      setInputY(null);
+      setInputN(null);
+      setResult2(null);
+      setSum2(null);
     };
+
+    const calcBinomial2 = () =>{    
+      let a = inputA * inputX;
+      let x = inputB * inputY ;
+      let n = inputN * 1;
+      let term = Math.pow(a, n);
+      let results = [];
+      results.push(term);
+      let sum1 = term;
+      for (var i = 1; i <= n; i++) {
+        term = (term * x * (n - i + 1)) / (i * a);
+        sum1 = sum1 + term;
+        results.push(" + " + term);
+      }
+      setResult2(results);
+      setSum2(sum1);
+      // console.log(sum);
+    }
+
 
     const [xValue, setXValue] = useState(null);
     const [yValue, setYValue] = useState(null);
@@ -2772,10 +2810,10 @@ function Calculator() {
     }
 
     const calcBinomialExp = () => {
-      const answer = Binomial_Sigma(xValue, yValue, expo);
-      console.log(Binomial_Sigma(xValue, yValue, expo));
-      setResultExp(answer);
-      console.log(answer);
+        const answer = Binomial_Sigma(xValue, yValue, expo);
+        console.log(Binomial_Sigma(xValue, yValue, expo));
+        setResultExp(answer);
+        console.log(answer);
     };
 
     return (
@@ -2941,6 +2979,121 @@ function Calculator() {
               <Button
                 variant="dark"
                 onClick={() => resetExpression()}
+                type="reset"
+              >
+                Reset
+              </Button>
+            </div>
+          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+
+          {/* BINOMIAL EXPANSION OF FORM (ax +by)^n given values of a,b,x and y */}
+
+          <div>
+            <Form>
+              <Form.Group className="mb-4" controlId="text">
+                <Form.Text className="text">
+                  <strong>
+                    {" "}
+                    To find the Binomial Expansion of the form (ax + by)
+                    <sup>n</sup> given the values of a, x, b and y. Enter the following values
+                  </strong>
+                  <br />
+                </Form.Text>
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>
+                  Value of a from the expression (ax + by)<sup>n</sup>
+                </Form.Label>
+                <Form.Control
+                  onChange={(e) => setInputA(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of a"}
+                  value={inputA === null ? "" : inputA}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>
+                  Value of x from the expression (ax + by)<sup>n</sup>
+                </Form.Label>
+                <Form.Control
+                  onChange={(e) => setInputX(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of x"}
+                  value={inputX === null ? "" : inputX}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>
+                  Value of b from the expression (ax + by)<sup>n</sup>
+                </Form.Label>
+                <Form.Control
+                  onChange={(e) => setInputB(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of b"}
+                  value={inputB === null ? "" : inputB}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>
+                  Value of y from the expression (ax + by)<sup>n</sup>
+                </Form.Label>
+                <Form.Control
+                  onChange={(e) => setInputY(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of y"}
+                  value={inputY === null ? "" : inputY}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>
+                  Value of n from the expression (ax + by)<sup>n</sup>
+                </Form.Label>
+                <Form.Control
+                  onChange={(e) => setInputN(e.target.value)}
+                  type="number"
+                  placeholder={"Enter the value of n"}
+                  value={inputN === null ? "" : inputN}
+                />
+              </Form.Group>
+              <br />
+              <Form.Group className="mb-3">
+                <Form.Label>
+                  Binomial Expansion of the expression (ax + by)<sup>n</sup>
+                </Form.Label>
+                {
+                  <div className="binomial_result">
+                    {result2 === null || sum2 === null ? (
+                      <p>
+                        <strong>Result</strong>
+                      </p>
+                    ) : (
+                      <p>
+                        {" "}
+                        <strong>
+                          {" "}
+                          Terms of the binomial expansion (n+1): {result2}
+                          <br /> <br /> Sum of all the terms: {sum2}
+                        </strong>{" "}
+                      </p>
+                    )}
+                  </div>
+                }
+              </Form.Group>
+            </Form>
+            <br />
+            <br />
+            <div className="button-custom-grp">
+              <Button variant="primary" onClick={calcBinomial2}>
+                Calculate
+              </Button>
+              &nbsp;&nbsp;&nbsp;
+              <Button
+                variant="dark"
+                onClick={() => reset2()}
                 type="reset"
               >
                 Reset
