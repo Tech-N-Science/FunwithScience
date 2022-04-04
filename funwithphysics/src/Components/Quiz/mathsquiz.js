@@ -25,6 +25,66 @@ const MathsQuiz = () => {
     },
     {
       questionText:
+        "The value of logₐb log₆c log꜀a is",
+      answerOptions: [
+        { answerText: " 2", isCorrect: false },
+        { answerText: " 1", isCorrect: true},
+        { answerText: " 3", isCorrect: false },
+        { answerText: " 4", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "The remainder when 38¹⁵ is divided by 13 is",
+      answerOptions: [
+        { answerText: " 12", isCorrect: true },
+        { answerText: " 1", isCorrect: false},
+        { answerText: " 11", isCorrect: false },
+        { answerText: " 5", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "The order and the degree of the differential equation of all tangent lines to the parabola x²=4y is ",
+      answerOptions: [
+        { answerText: " 1,4", isCorrect: false },
+        { answerText: " 1,3", isCorrect: false},
+        { answerText: " 2,2", isCorrect: false },
+        { answerText: " 2,1", isCorrect: true},
+      ],
+    },
+    {
+      questionText:
+        "A line AB in three-dimensional space makes angle 45° and 120° with the positive x-axis and the positive y-axis respectively. If AB makes an acute angle θ with the positive z-axis, then θ equals",
+      answerOptions: [
+        { answerText: " 30°", isCorrect: false },
+        { answerText: "45° ", isCorrect: false},
+        { answerText: "60°", isCorrect: true },
+        { answerText: "75° ", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "Let W denote the words in the English dictionary. Define the relation R by :R={(x,y) ∈ W*W  the words x and y  have atleast one letter in common }. Then R is",
+      answerOptions: [
+        { answerText: " reflexive, symmetric and non transitive", isCorrect: true },
+        { answerText: " reflexive, symmetric and transitive", isCorrect: false},
+        { answerText: " reflexive, not symmetric and transitive", isCorrect: false },
+        { answerText: " not reflexive, symmetric and transitive", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
+        "If in a triangle ABC, the altitudes from the vertices A, B, C on opposite sides are in H.P.Then sin A, sin B, sin C are in ",
+      answerOptions: [
+        { answerText: " G.P.", isCorrect: false },
+        { answerText: " A.P.", isCorrect: true},
+        { answerText: " Arithmetic Geometric Progression", isCorrect: false },
+        { answerText: " H.P.", isCorrect: false },
+      ],
+    },
+    {
+      questionText:
         " The sum of the reciprocals of Rehman’s ages 3 years ago and 5 years from now is 1/3. The present age of Rehman is: ",
       answerOptions: [
         { answerText: "7", isCorrect: true },
