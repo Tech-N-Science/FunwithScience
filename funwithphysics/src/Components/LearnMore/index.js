@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import blackboardSvg from "../../Images/blackboard-svg.svg";
 import physicssvg from "../../Images/physics-svg.svg"
 import chemsvg from "../../Images/chemistry-svg.svg"
 import mathsvg from "../../Images/maths-svg.svg"
@@ -61,7 +60,7 @@ export function LearnMore() {
               <Link className="plus" to="/">
                 <span className="explore-btn">
                   Explore
-                  <i class="fa fa-compass add-icon" aria-hidden="true"></i>
+                  <i className="fa fa-compass add-icon" aria-hidden="true"></i>
                   </span>
               </Link>
               <div className="dropdown-content">
@@ -79,7 +78,7 @@ export function LearnMore() {
               <Link className="plus" to="/">
                 <span className="explore-btn">
                   Explore
-                  <i class="fa fa-compass add-icon" aria-hidden="true"></i>
+                  <i className="fa fa-compass add-icon" aria-hidden="true"></i>
                   </span>
               </Link>
               <div className="dropdown-content">
@@ -97,7 +96,7 @@ export function LearnMore() {
               <Link className="plus" to="/">
                 <span className="explore-btn">
                   Explore
-                  <i class="fa fa-compass add-icon" aria-hidden="true"></i>
+                  <i className="fa fa-compass add-icon" aria-hidden="true"></i>
                   </span>
               </Link>
               <div className="dropdown-content">
@@ -114,7 +113,7 @@ export function LearnMore() {
       <p className="FAQ">Frequently Asked Questions</p>
       <div className="faq fade-in-transition">
         <input id="faq-a" type="checkbox" />
-        <label for="faq-a">
+        <label htmlFor="faq-a">
           <p className="faq-heading">What is this Website for?</p>
           <div className="faq-arrow"></div>
           <p className="faq-text">
@@ -123,7 +122,7 @@ export function LearnMore() {
           </p>
         </label>
         <input id="faq-b" type="checkbox" />
-        <label for="faq-b">
+        <label htmlFor="faq-b">
           <p className="faq-heading">How to use this Website?</p>
           <div className="faq-arrow"></div>
           <p className="faq-text">
@@ -133,7 +132,7 @@ export function LearnMore() {
           </p>
         </label>
         <input id="faq-c" type="checkbox" />
-        <label for="faq-c">
+        <label htmlFor="faq-c">
           <p className="faq-heading">How to contact us?</p>
           <div className="faq-arrow"></div>
           <p className="faq-text">
