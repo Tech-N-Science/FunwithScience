@@ -930,8 +930,8 @@ function Calculator() {
 
       if(v1!== "" && v2!== "" && v3!== "" && v4!== "" && c1!== "" && c2!== "" && c3!== "" && c4 !== "" ){
         // Converting the values into integers.
-        let V1, V2, V3, V4, C1, C2, C3, C4;
-        [V1, V2, V3, V4, C1, C2, C3, C4] = [v1, v2, v3, v4, c1, c2, c3, c4].map(
+        let V1, V2, V3, V4, C1, C2, C4;
+        [V1, V2, V3, V4, C1, C2, C4] = [v1, v2, v3, v4, c1, c2, c4].map(
           (varr) => parseInt(varr)
         );
         let major_xaxis = false;
