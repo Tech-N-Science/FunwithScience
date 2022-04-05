@@ -1399,8 +1399,11 @@ function Calculator() {
       var y;
       if (choice === "Power"){
            res = Math.pow(x, n);
-            y= x.repeat(n)
-            y= y.split("").join(" x ");
+           var x_ = `${x} `
+            y= x_.repeat(n);
+            y= y.split(" ").join(" x ");
+            y= y.slice(0,-2);
+            // console.log(y)
             y= `${y} = ${res}`
       }
       else if (choice === "SquareRoot"){
