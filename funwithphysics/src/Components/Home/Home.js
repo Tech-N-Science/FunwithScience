@@ -36,7 +36,7 @@ const bookReaderStyle = {
   const handleScroll = () => {
     const position = window.pageYOffset
     //console.log(position)
-    if (position === 0)
+    if (position == 0)
       backToTopRef.current.style.display = 'none'
     else backToTopRef.current.style.display = 'block'
   }
