@@ -1358,6 +1358,7 @@ function Calculator() {
   //Exponential Calculator
   const Exponents = () => {
     const [result, setResult] = useState(null);
+    const [explanation, setExplanation] = useState(null);
     const [choice, setChoice] = useState("Power");
     const [choiceData, setChoiceData] = useState({
       name: "Power",
@@ -1395,20 +1396,39 @@ function Calculator() {
 
     const calcResult = () => {
       let res = 1;
-      if (choice === "Power") res = Math.pow(x, n);
-      else if (choice === "SquareRoot") res = Math.sqrt(x);
-      else res = Math.cbrt(x);
+      var y;
+      if (choice === "Power"){
+           res = Math.pow(x, n);
+           var x_ = `${x} `
+            y= x_.repeat(n);
+            y= y.split(" ").join(" x ");
+            y= y.slice(0,-2);
+            // console.log(y)
+            y= `${y} = ${res}`
+      }
+      else if (choice === "SquareRoot"){
+        res = Math.sqrt(x);
+        y= `b  x b = ${x} \n Therefore, b =${res}`
+      } 
+      else {
+        res = Math.cbrt(x);
+        y = `b  x b x b = ${x} \n Therefore, b =${res}`
+      }
 
       setResult(res);
+      setExplanation(y);
     };
 
     const handleChange = (e) => {
       reset();
+      setResult(null);
+      setExplanation(null)
       setChoice(e.target.value);
     };
 
     function reset() {
       setResult(null);
+      setExplanation(null)
       setX(null);
       if (choice === "Power") setN(null);
     }
@@ -1439,7 +1459,11 @@ function Calculator() {
           <Form.Group className="mb-4">
             <Form.Label>{choiceData.quantities[0]}</Form.Label>
             <Form.Control
-              onChange={(e) => setX(e.target.value)}
+              onChange={(e) => {
+                setResult(null)
+                setExplanation(null)
+                setX(e.target.value)
+              }}
               type="number"
               placeholder={"Enter the Base"}
               value={x === null ? "" : x}
@@ -1448,19 +1472,42 @@ function Calculator() {
           <Form.Group className="mb-4">
             <Form.Label>{choiceData.quantities[1]}</Form.Label>
             <Form.Control
-              onChange={(e) => setN(e.target.value)}
+              onChange={(e) => {
+                setResult(null)
+                setExplanation(null)
+                setN(e.target.value)
+              }}
               type="number"
               placeholder={"Enter the Exponent"}
               value={n === null ? "" : n}
               disabled={choiceData.disabled}
             />
           </Form.Group>
+
           <Form.Group className="mb-4">
-            <Form.Control
-              readOnly
-              type="number"
-              placeholder={result === null ? "Result" : result + " "}
-            />
+          <Form.Label>Result</Form.Label>
+            {
+                  <div className="binomial_result">
+                    {result === null  ? (
+                      <p>
+                        <strong>Result</strong>
+                      </p>
+                    ) : (
+                      <p>
+                        {" "}
+                        <strong>
+                          {" "}
+                          {choice ==="Power" ? <><span>{x}</span><sup>{n}</sup></> : null }
+                          {choice ==="SquareRoot" ? <span>&radic;{x}</span>  : null }
+                          {choice ==="CubeRoot" ?<span>&#8731;{x} </span> : null }= {result}
+                        </strong>{" "}
+
+                         <br />
+                         <strong>Explanation: {explanation}</strong> 
+                      </p>
+                    )}
+                  </div>
+                }
           </Form.Group>
         </Form>
         <div className="button-custom-grp">
