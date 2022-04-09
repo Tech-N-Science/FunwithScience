@@ -21,14 +21,14 @@ const Footer = () => {
                 <div className="">
                   <Link to="/">
                     <span className="fas fa-user"></span>
+                    <span className="text">About Us</span>
                   </Link>
-                  <span className="text">About Us</span>
                 </div>
                 <div className="contact">
                   <Link to="/contact">
                     <span className="fas fa-comments"></span>
+                    <span className="text">Contact</span>
                   </Link>
-                  <span className="text">Contact</span>
                 </div>
               </div>
             </div>
@@ -80,13 +80,10 @@ const Footer = () => {
               </div>
 
               <div className="email">
-                <Link
-                  to={{ pathname: "mailto:support@technscience.com" }}
-                  target="_blank"
-                >
+                <a href="mailto:support@technscience.com" target="_blank">
                   <span className="fas fa-envelope"></span>
-                </Link>
-                <span className="text">support@technscience.com</span>
+                  <span className="text">support@technscience.com</span>
+                </a>
               </div>
             </div>
           </div>
