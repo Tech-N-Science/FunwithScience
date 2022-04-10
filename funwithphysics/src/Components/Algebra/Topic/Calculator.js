@@ -1714,22 +1714,55 @@ function Calculator() {
       stddeviation: "",
       variance: "",
     };
-    const [number, setNum] = useState(0);
+    const [number, setNum] = useState(null);
     const [statData, setStatData] = useState(statOBJ);
+    const [newSort, setNewSort] = useState(null);
+   const [showSolutionSort, setShowSolutionSort] = useState(false);
+   const [showSolutionCount, setShowSolutionCount] = useState(false);
+   const [showSolutionSum, setShowSolutionSum] = useState(false);
+   const [showSolutionSmallest, setShowSolutionSmallest] = useState(false);
+   const [showSolutionLargest, setShowSolutionLargest] = useState(false);
+   const [showSolutionMean, setShowSolutionMean] = useState(false);
+   const [showSolutionMedian, setShowSolutionMedian] = useState(false);
+   const [showSolutionMode, setShowSolutionMode] = useState(false);
+   const [showSolutionStddeviation, setShowSolutionStddeviation] = useState(false);
+   const [showSolutionVariance, setShowSolutionVariance] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
-    const calcStat = () => {
-      numArr = number.split(/[\s,]+/);
+    const givenValues={Numbers: number}
+    const insertValuesSort=`Ascending order of ${givenValues.Numbers}`;
+    const insertValuesCount=`Count number of ${givenValues.Numbers}`;
+    const insertValuesSum=`Sum of ${givenValues.Numbers}`;
+    const insertValuesSmallest=`Least item of ${givenValues.Numbers}`;
+    const insertValuesLargest=`Greatest item of ${givenValues.Numbers}`;
+    const insertValuesMean=`${statData.sum} / ${statData.count}`
+    const insertValuesMedian=`Item at position ${Math.floor(statData.count/2)+1}`
+    const insertValuesMode=`Items of ${givenValues.Numbers} that occurs frequently`;
+    const insertValuesStddeviation=`√ (Σ(x - ${statData.mean}) ²) / ${statData.count}`
+  
+    const insertValuesVariance=`(${statData.stddeviation}) ²`
+  
+    const calcStat = () => {if(number !== null){
+    numArr = number.split(/[\s,]+/);
       numArr = numArr.sort();
       statOBJ.sort = numArr; //sorted numbers
+      setNewSort(statOBJ.sort.toLocaleString('en-US'));
+
+      setShowSolutionSort(true);
       statOBJ.count = numArr.length; //Number of items
+      setShowSolutionCount(true);
       statOBJ.smallest = numArr[1];
       numArr.map((item, index) => {
         statOBJ.sum += Number(item); //Sum of all items
         return <></>;
       });
+      setShowSolutionSum(true);
       statOBJ.largest = numArr[statOBJ.count - 1]; //largest of all items
+      setShowSolutionLargest(true);
       statOBJ.smallest = numArr[0]; //smalles of all items
+      setShowSolutionSmallest(true);
       statOBJ.mean = (statOBJ.sum / statOBJ.count).toFixed(2); //mean or average of all
+      setShowSolutionMean(true);
       let med = 0;
       if (statOBJ.count % 2 === 0) {
         med = statOBJ.count / 2;
@@ -1737,6 +1770,7 @@ function Calculator() {
         med = (statOBJ.count + 1) / 2;
       }
       statOBJ.median = numArr[med - 1]; //median of all items
+      setShowSolutionMedian(true);
       let repeatCount = 1;
       let modeIndex = 0;
       let maxRepeat = 0;
@@ -1752,6 +1786,7 @@ function Calculator() {
         }
       }
       statOBJ.mode = numArr[modeIndex]; //mode of all items
+      setShowSolutionMode(true);
 
       let stddevnum = 0;
       for (let i = 0; i < numArr.length; i++) {
@@ -1762,15 +1797,35 @@ function Calculator() {
         statOBJ.variance = stddevnum / numArr.length;
       } else {
         statOBJ.stddeviation = Math.sqrt((-1 * stddevnum) / numArr.length);
+  
         statOBJ.variance = (-1 * stddevnum) / numArr.length;
-      }
+        
+      }      setShowSolutionStddeviation(true);
+      setShowSolutionVariance(true);
+       setStatData(statOBJ);
+}
+      else
+     { setShowModal(true);
+    }
     };
 
     const resetStat = () => {
-      setNum(0);
+      setNum(null);
     };
     return (
-      <>
+      <><Modal show={showModal} class="modal-dialog modal-dialog-centered">
+      <Modal.Header>
+        Please enter the numbers to get correct answer.
+      </Modal.Header>
+      <Modal.Footer>
+        <Button
+          onClick={() => setShowModal(false)}
+          class="btn btn-primary btn-sm"
+        >
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="text">
             <Form.Text className="text">
@@ -1779,7 +1834,7 @@ function Calculator() {
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Enter numbers sparated by a space or comma</Form.Label>
+            <Form.Label>Enter numbers separated by a space or comma</Form.Label>
             <Form.Control
               onChange={(e) => setNum(e.target.value)}
               type="text"
@@ -1787,6 +1842,18 @@ function Calculator() {
               value={number === 0 ? "" : number}
             />
           </Form.Group>
+          {showSolutionSort ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Numbers in ascending order"
+                toFind="Sorted Items"
+                insertValues={insertValuesSort}
+                result={newSort}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>Sorted Data</Form.Label>
             <Form.Control
@@ -1799,6 +1866,18 @@ function Calculator() {
               }
             />
           </Form.Group>
+          {showSolutionCount ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Count"
+                toFind="Total Number Of Items"
+                insertValues={insertValuesCount}
+                result={statData.count}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>Total number of items</Form.Label>
             <Form.Control
@@ -1807,6 +1886,18 @@ function Calculator() {
               placeholder={statData.count === 0 ? "Count" : statData.count}
             />
           </Form.Group>
+          {showSolutionSum ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Add the items"
+                toFind="Sum Of Items"
+                insertValues={insertValuesSum}
+                result={statData.sum}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>Sum of all the items</Form.Label>
             <Form.Control
@@ -1815,6 +1906,18 @@ function Calculator() {
               placeholder={statData.sum === 0 ? "Sum" : statData.sum}
             />
           </Form.Group>
+          {showSolutionSmallest ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Least item"
+                toFind="Smallest Item"
+                insertValues={insertValuesSmallest}
+                result={statData.smallest}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>Smallest of all the items</Form.Label>
             <Form.Control
@@ -1825,6 +1928,18 @@ function Calculator() {
               }
             />
           </Form.Group>
+          {showSolutionLargest ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Greatest item"
+                toFind="Largest Item"
+                insertValues={insertValuesLargest}
+                result={statData.largest}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>Largest of all the items</Form.Label>
             <Form.Control
@@ -1835,6 +1950,18 @@ function Calculator() {
               }
             />
           </Form.Group>
+          {showSolutionMean ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Sum of all items/ Total no. of items"
+                toFind="Mean"
+                insertValues={insertValuesMean}
+                result={statData.mean}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>Mean(average) of all the items</Form.Label>
             <Form.Control
@@ -1843,6 +1970,18 @@ function Calculator() {
               placeholder={statData.mean === 0 ? "Mean" : statData.mean}
             />
           </Form.Group>
+          {showSolutionMedian ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Middle number in sorted array"
+                toFind="Median"
+                insertValues={insertValuesMedian}
+                result={statData.median}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>Median of all the items</Form.Label>
             <Form.Control
@@ -1851,6 +1990,18 @@ function Calculator() {
               placeholder={statData.median === 0 ? "Median" : statData.median}
             />
           </Form.Group>
+          {showSolutionMode ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="Item that appears most frequently"
+                toFind="Mode"
+                insertValues={insertValuesMode}
+                result={statData.mode}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>Mode of all the items</Form.Label>
             <Form.Control
@@ -1859,6 +2010,18 @@ function Calculator() {
               placeholder={statData.mode === 0 ? "Mode" : statData.mode}
             />
           </Form.Group>
+          {showSolutionStddeviation ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="	√ (Σ(x - Mean)²) / N-1"
+                toFind="Standard Deviation"
+                insertValues={insertValuesStddeviation}
+                result={statData.stddeviation.toFixed(2)}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>Standard deviation</Form.Label>
             <Form.Control
@@ -1871,6 +2034,18 @@ function Calculator() {
               }
             />
           </Form.Group>
+          {showSolutionVariance ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="(Σ(x - Mean)²) / N-1 or (Standard Deviation)²"
+                toFind="Variance"
+                insertValues={insertValuesVariance}
+                result={statData.variance.toFixed(2)}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>Variance</Form.Label>
             <Form.Control
@@ -1889,7 +2064,7 @@ function Calculator() {
             variant="primary"
             onClick={() => {
               calcStat();
-              setStatData(statOBJ);
+            
             }}
           >
             Calculate
