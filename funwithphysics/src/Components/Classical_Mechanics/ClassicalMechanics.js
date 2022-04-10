@@ -22,9 +22,9 @@ export default function ClassicalMechanics() {
       process:
         "For an object to move along a curved circular path, the direction of its velocity must change. It is because at each point on the circular path tangent will give the direction. A change in velocity will cause the acceleration which will not be in the same direction as the velocity. Therefore for an object to move along a circular path, there must be an acceleration that will always be perpendicular to the velocity.",
       siunit:
-        "Circumference: m ,  Velocity: m/s ,  Time: s ,        Radial Acc: m/s² , Radial Acc: rad/s",
+        "Circumference: m ,  Velocity: m/s ,  Time: s ,        Radial Acc: m/s² , Angular velocity: rad/s",
       dimension:
-        "Circumference: L , Velocity: L/T , Time: T, Radial Acc: L/T² , Radial Acc: 1/T",
+        "Circumference: L , Velocity: L/T , Time: T, Radial Acc: L/T² , Angular velocity: 1/T",
     },
     {
       topic: "Collision",
