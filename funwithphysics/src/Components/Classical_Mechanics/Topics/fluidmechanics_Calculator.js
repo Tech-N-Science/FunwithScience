@@ -676,8 +676,19 @@ function FluidCalculator() {
     const [pressurediff, setPressurediff] = useState(null);
     const [choice, setChoice] = useState("pressure");
     const [pi, setPi] = useState(Math.PI);
-
-    function handleChange(e) {
+    const [showModal, setShowModal] = useState(false);
+    const [showSolutionPressure, setShowSolutionPressure] = useState(false);
+    const [showSolutionFlowrate, setShowSolutionFlowrate] = useState(false);
+    const givenValuesPressure={viscosity: viscosity,length:length,
+      flowrate:flowrate,radius:radius
+    }
+    const givenValuesFlowrate={viscosity: viscosity,length:length,
+      pressure_difference:pressurediff,radius:radius
+    }
+   const insertValuesPressure=`(8* ${viscosity} * ${length}*${flowrate})/ π* ${radius}⁴`
+   const insertValuesFlowrate=`(${pressurediff} *π *${radius}⁴)/ 8 * ${viscosity}* ${length}`
+  
+   function handleChange(e) {
       setChoice(e.target.value);
       choiceData();
     }
@@ -685,13 +696,25 @@ function FluidCalculator() {
     const calcResult = () => {
       let res;
       if (choice === "pressure") {
+        if(viscosity ===null || length===null|| flowrate===null||radius===null)
+      
+          { setShowModal(true);
+         }
+         else{
         res =
           (8 * viscosity * length * flowrate) / (Math.PI * Math.pow(radius, 4));
-      } else if (choice === "flowrate") {
+          setShowSolutionPressure(true);
+          setShowSolutionFlowrate(false); } }
+      else if (choice === "flowrate") {  if(viscosity ===null || length===null|| pressurediff===null||radius===null)
+      
+        { setShowModal(true);
+       }else{
         res =
           (pressurediff * Math.PI * Math.pow(radius, 4)) /
           (8 * viscosity * length);
-      }
+          setShowSolutionFlowrate(true);
+          setShowSolutionPressure(false);
+      }}
       setResult(res);
     };
 
@@ -735,10 +758,23 @@ function FluidCalculator() {
           setters: [setViscosity, setLength, setPressurediff, setRadius, setPi],
           getters: [viscosity, length, pressurediff, radius, pi],
         };
+       
     };
 
     return (
-      <>
+      <><Modal show={showModal} class="modal-dialog modal-dialog-centered">
+      <Modal.Header>
+        Please enter the numbers to get correct answer.
+      </Modal.Header>
+      <Modal.Footer>
+        <Button
+          onClick={() => setShowModal(false)}
+          class="btn btn-primary btn-sm"
+        >
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -819,6 +855,30 @@ function FluidCalculator() {
               }
             />
           </Form.Group>
+          {showSolutionPressure ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesPressure}
+                formula="Δp = 8μLQ/πR⁴"
+                toFind="Pressure Difference"
+                insertValues={insertValuesPressure}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
+           {showSolutionFlowrate ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValuesFlowrate}
+                formula="Q =ΔpπR⁴/8μL"
+                toFind="Volumetric Flow Rate"
+                insertValues={insertValuesFlowrate}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Control
               readOnly
