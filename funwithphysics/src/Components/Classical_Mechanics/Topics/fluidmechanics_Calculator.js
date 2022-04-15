@@ -702,7 +702,7 @@ function FluidCalculator() {
          }
          else{
         res =
-          (8 * viscosity * length * flowrate) / (Math.PI * Math.pow(radius, 4));
+          (8 * viscosity * length * flowrate) / (Math.PI * Math.pow(radius, 4)) + " pascal" ;
           setShowSolutionPressure(true);
           setShowSolutionFlowrate(false); } }
       else if (choice === "flowrate") {  if(viscosity ===null || length===null|| pressurediff===null||radius===null)
@@ -711,7 +711,7 @@ function FluidCalculator() {
        }else{
         res =
           (pressurediff * Math.PI * Math.pow(radius, 4)) /
-          (8 * viscosity * length);
+          (8 * viscosity * length) + " m³/s";
           setShowSolutionFlowrate(true);
           setShowSolutionPressure(false);
       }}
@@ -731,7 +731,7 @@ function FluidCalculator() {
       if (choice === "pressure")
         return {
           name: "Pressure",
-          mainunit: "pascal",
+          mainunit: " ",
           quantities: [
             "Viscosity of fluid",
             "Length of pipe",
@@ -746,7 +746,7 @@ function FluidCalculator() {
       else if (choice === "flowrate")
         return {
           name: "Volumetric flow Rate",
-          mainunit: "m³/s",
+          mainunit: " ",
           quantities: [
             "Viscosity of fluid",
             "Length of pipe",
