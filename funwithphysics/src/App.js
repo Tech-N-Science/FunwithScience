@@ -132,7 +132,11 @@ const App = () => {
             path="/about"
             element={
                 <Suspense
-                  
+                fallback={
+                  <div className="loadingdiv">
+                    <img className="loadingimg" src={Loadingimg} alt="" />
+                  </div>
+                }
                 >
                   <Home/>
                 </Suspense>

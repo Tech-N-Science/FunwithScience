@@ -80,7 +80,7 @@ const Footer = () => {
               </div>
 
               <div className="email">
-                <a href="mailto:support@technscience.com" target="_blank">
+                <a rel="noopener noreferrer" href="mailto:support@technscience.com" target="_blank">
                   <span className="fas fa-envelope"></span>
                   <span className="text">support@technscience.com</span>
                 </a>
