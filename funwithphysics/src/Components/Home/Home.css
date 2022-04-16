@@ -7,6 +7,9 @@
   background: linear-gradient(#2c2b30, #dbd3f0);
   border-radius: 40px;
 }
+#title{
+  color:white;
+}
 
 /*---Banner---*/
 
@@ -103,7 +106,7 @@ h2 {
 }
 
 @media (max-width: 600px) {
-  .banner {
+  .banner{
     /* padding-top: 25vh; */
   }
 }

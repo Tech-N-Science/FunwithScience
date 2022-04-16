@@ -152,12 +152,12 @@
 }
 .nav-logo span{
   font-family: 'Noto Sans HK', sans-serif;
-  color:rgb(0, 0, 0);
+  color:white;
   transition: 0.2s;
 }
 .nav-logo span span{
   font-family: 'Noto Sans HK', sans-serif;
-  color:rgb(0, 0, 0);
+  color:white;
   transition: 0.2s;
   margin: 5px;
 }

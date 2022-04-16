@@ -49,7 +49,7 @@ const Navbar = () => {
   };
   return (
     <React.Fragment>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light pt-3' style = {{position:'sticky',top:'0',zIndex:'3'}}>
+      <nav className='navbar navbar-expand-lg navbar-dark bg-dark pt-3' style = {{position:'sticky',top:'0',zIndex:'3'}}>
         <p className='navbar-brand'>
           <button
             className='navbar-toggler'
@@ -66,7 +66,7 @@ const Navbar = () => {
           </button>
           <NavLink to="/" className='nav-logo'>
             <img src={logo}  alt='logo' height='10%' width='10%' />
-            <span>&ensp; Tech<span>N</span>Science</span>
+            <span color='white'>&ensp; Tech<span>N</span>Science</span>
           </NavLink>
         </p>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>

@@ -1,3 +1,5 @@
+
+   
 import { Routes, Route } from "react-router-dom";
 import "./index.css";
 import reducer, { initialstate } from "./reducer";
@@ -129,18 +131,16 @@ const App = () => {
             exact
             path="/about"
             element={
-              <>
                 <Suspense
-                  fallback={
-                    <div className="loadingdiv">
-                      <img className="loadingimg" src={Loadingimg} alt="" />
-                    </div>
-                  }
+                  
                 >
-                  <Home />
+                  <Home/>
                 </Suspense>
-              </>
-            }
+              }
+               
+               
+              
+            
           ></Route>
           <Route
             exact

@@ -54,7 +54,7 @@ const bookReaderStyle = {
     <React.Fragment>
       <Navbar />
       <Helmet>
-        <title>Fun With Science - Tech N Science </title>
+        <title >Fun With Science - Tech N Science </title>
         <meta
           name='description'
           content='We at Tech N Science try to bring all sciences under one roof by providing JEE level questions and also calculators for different science formulas.'
