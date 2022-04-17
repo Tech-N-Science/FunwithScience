@@ -1367,6 +1367,7 @@ function Calculator() {
     });
     const [x, setX] = useState(null);
     const [n, setN] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
       if (choice === "Power") {
@@ -1397,7 +1398,7 @@ function Calculator() {
     const calcResult = () => {
       let res = 1;
       var y;
-      if (choice === "Power"){
+      if (choice === "Power" && x!==null && n!==null ){
            res = Math.pow(x, n);
            var x_ = `${x} `
             y= x_.repeat(n);
@@ -1406,11 +1407,23 @@ function Calculator() {
             // console.log(y)
             y= `${y} = ${res}`
       }
-      else if (choice === "SquareRoot"){
+      else if(choice === "Power" && (x===null || n===null) ){
+        setShowModal(true);
+        return
+      }
+      else if (choice === "SquareRoot" && x!==null){
         res = Math.sqrt(x);
         y= `b  x b = ${x} \n Therefore, b =${res}`
       } 
-      else {
+      else if(choice === "SquareRoot" && x===null  ){
+        setShowModal(true);
+        return
+      }
+      else if(choice === "CubeRoot" && x===null){
+        setShowModal(true);
+        return
+      }
+      else{
         res = Math.cbrt(x);
         y = `b  x b x b = ${x} \n Therefore, b =${res}`
       }
@@ -1424,6 +1437,8 @@ function Calculator() {
       setResult(null);
       setExplanation(null)
       setChoice(e.target.value);
+      if (e.target.value === "Power") setN(null);
+     
     };
 
     function reset() {
@@ -1435,6 +1450,20 @@ function Calculator() {
 
     return (
       <>
+      {/* error modal for incomplete values */}
+      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
