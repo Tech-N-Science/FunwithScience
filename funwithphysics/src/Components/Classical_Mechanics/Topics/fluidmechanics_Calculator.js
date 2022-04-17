@@ -725,6 +725,8 @@ function FluidCalculator() {
       setFlowrate(null);
       setRadius(null);
       setPressurediff(null);
+      setShowSolutionFlowrate(false);
+      setShowSolutionPressure(false);
     }
 
     const choiceData = () => {
