@@ -37,8 +37,8 @@ const bookReaderStyle = {
     const position = window.pageYOffset
     //console.log(position)
     if (position === 0)
-      backToTopRef.current.style.display = 'none'
-    else backToTopRef.current.style.display = 'block'
+    backToTopRef.current!==null&&(backToTopRef.current.style.display = 'none')
+    else backToTopRef.current!==null&&(backToTopRef.current.style.display = 'block')
   }
 
   useEffect(() => {
