@@ -679,16 +679,22 @@ function FluidCalculator() {
     const [showModal, setShowModal] = useState(false);
     const [showSolutionPressure, setShowSolutionPressure] = useState(false);
     const [showSolutionFlowrate, setShowSolutionFlowrate] = useState(false);
-    const givenValuesPressure={viscosity: viscosity,length:length,
-      flowrate:flowrate,radius:radius
-    }
-    const givenValuesFlowrate={viscosity: viscosity,length:length,
-      pressure_difference:pressurediff,radius:radius
-    }
-   const insertValuesPressure=`(8* ${viscosity} * ${length}*${flowrate})/ π* ${radius}⁴`
-   const insertValuesFlowrate=`(${pressurediff} *π *${radius}⁴)/ 8 * ${viscosity}* ${length}`
-  
-   function handleChange(e) {
+    const givenValuesPressure = {
+      viscosity: viscosity,
+      length: length,
+      flowrate: flowrate,
+      radius: radius,
+    };
+    const givenValuesFlowrate = {
+      viscosity: viscosity,
+      length: length,
+      pressure_difference: pressurediff,
+      radius: radius,
+    };
+    const insertValuesPressure = `(8* ${viscosity} * ${length}*${flowrate})/ π* ${radius}⁴`;
+    const insertValuesFlowrate = `(${pressurediff} *π *${radius}⁴)/ 8 * ${viscosity}* ${length}`;
+
+    function handleChange(e) {
       setChoice(e.target.value);
       choiceData();
     }
@@ -696,25 +702,38 @@ function FluidCalculator() {
     const calcResult = () => {
       let res;
       if (choice === "pressure") {
-        if(viscosity ===null || length===null|| flowrate===null||radius===null)
-      
-          { setShowModal(true);
-         }
-         else{
-        res =
-          (8 * viscosity * length * flowrate) / (Math.PI * Math.pow(radius, 4)) + " pascal" ;
+        if (
+          viscosity === null ||
+          length === null ||
+          flowrate === null ||
+          radius === null
+        ) {
+          setShowModal(true);
+        } else {
+          res =
+            (8 * viscosity * length * flowrate) /
+              (Math.PI * Math.pow(radius, 4)) +
+            " pascal";
           setShowSolutionPressure(true);
-          setShowSolutionFlowrate(false); } }
-      else if (choice === "flowrate") {  if(viscosity ===null || length===null|| pressurediff===null||radius===null)
-      
-        { setShowModal(true);
-       }else{
-        res =
-          (pressurediff * Math.PI * Math.pow(radius, 4)) /
-          (8 * viscosity * length) + " m³/s";
+          setShowSolutionFlowrate(false);
+        }
+      } else if (choice === "flowrate") {
+        if (
+          viscosity === null ||
+          length === null ||
+          pressurediff === null ||
+          radius === null
+        ) {
+          setShowModal(true);
+        } else {
+          res =
+            (pressurediff * Math.PI * Math.pow(radius, 4)) /
+              (8 * viscosity * length) +
+            " m³/s";
           setShowSolutionFlowrate(true);
           setShowSolutionPressure(false);
-      }}
+        }
+      }
       setResult(res);
     };
 
@@ -758,23 +777,23 @@ function FluidCalculator() {
           setters: [setViscosity, setLength, setPressurediff, setRadius, setPi],
           getters: [viscosity, length, pressurediff, radius, pi],
         };
-       
     };
 
     return (
-      <><Modal show={showModal} class="modal-dialog modal-dialog-centered">
-      <Modal.Header>
-        Please enter the numbers to get correct answer.
-      </Modal.Header>
-      <Modal.Footer>
-        <Button
-          onClick={() => setShowModal(false)}
-          class="btn btn-primary btn-sm"
-        >
-          Close
-        </Button>
-      </Modal.Footer>
-    </Modal>
+      <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please enter the numbers to get correct answer.
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           {/* dropdown */}
           <Form.Group className="mb-4" controlId="choice">
@@ -844,15 +863,9 @@ function FluidCalculator() {
             <Form.Label>{choiceData().quantities[4]}</Form.Label>
             <Form.Control
               onChange={(e) => choiceData().setters[4](e.target.value)}
+              readOnly
               type="number"
-              placeholder={
-                choiceData().subunits[4] === "NaN"
-                  ? "No Unit"
-                  : "Enter in " + choiceData().subunits[4]
-              }
-              readOnly={
-                choiceData().getters[4] === null ? "" : choiceData().getters[4]
-              }
+              placeholder={choiceData().getters[4]}
             />
           </Form.Group>
           {showSolutionPressure ? (
@@ -867,7 +880,7 @@ function FluidCalculator() {
               />
             </Form.Group>
           ) : null}
-           {showSolutionFlowrate ? (
+          {showSolutionFlowrate ? (
             <Form.Group className="mb-3" controlId="acceleration">
               <Solution
                 givenValues={givenValuesFlowrate}
@@ -922,18 +935,24 @@ function FluidCalculator() {
     const calcResult = () => {
       let res;
       if (choice === "pressure") {
-
-        if (density !== "" && velocity1 !== "" && velocity2 !== "" && height1 !== "" && height2 !== "" && gravity !== "") {
+        if (
+          density !== "" &&
+          velocity1 !== "" &&
+          velocity2 !== "" &&
+          height1 !== "" &&
+          height2 !== "" &&
+          gravity !== ""
+        ) {
           let r1 = 0.5 * density * velocity1 * velocity1;
           let r2 = density * gravity * height1;
           let r3 = 0.5 * density * velocity2 * velocity2;
           let r4 = density * gravity * height2;
           res =
-          parseFloat(pressure1) +
-          parseFloat(r1) +
-          parseFloat(r2) -
-          parseFloat(r3) -
-          parseFloat(r4);
+            parseFloat(pressure1) +
+            parseFloat(r1) +
+            parseFloat(r2) -
+            parseFloat(r3) -
+            parseFloat(r4);
           setShowSolution(true);
           setResult(res);
         } else {
@@ -941,24 +960,37 @@ function FluidCalculator() {
         }
       }
       if (choice === "height") {
-
-          if (density !== "" && velocity1 !== "" && velocity2 !== "" && pressure2 !== "" && pressure1 !== "" && gravity !== "") {
-            let r1 = (pressure1 - pressure2) / (density * gravity);
-            let r2 = (0.5 * velocity1 * velocity1) / gravity;
-            let r3 = (0.5 * velocity2 * velocity2) / gravity;
-            res =
-              parseFloat(r1) +
-              parseFloat(r2) +
-              parseFloat(height1) -
-              parseFloat(r3);
-            setShowSolution(true);
-            setResult(res);
-          } else {
-            setShowModal(true);
-          }
+        if (
+          density !== "" &&
+          velocity1 !== "" &&
+          velocity2 !== "" &&
+          pressure2 !== "" &&
+          pressure1 !== "" &&
+          gravity !== ""
+        ) {
+          let r1 = (pressure1 - pressure2) / (density * gravity);
+          let r2 = (0.5 * velocity1 * velocity1) / gravity;
+          let r3 = (0.5 * velocity2 * velocity2) / gravity;
+          res =
+            parseFloat(r1) +
+            parseFloat(r2) +
+            parseFloat(height1) -
+            parseFloat(r3);
+          setShowSolution(true);
+          setResult(res);
+        } else {
+          setShowModal(true);
+        }
       }
       if (choice === "velocity") {
-        if (density !== "" && velocity1 !== "" && height2 !== "" && pressure2 !== "" && pressure1 !== "" && gravity !== "") {
+        if (
+          density !== "" &&
+          velocity1 !== "" &&
+          height2 !== "" &&
+          pressure2 !== "" &&
+          pressure1 !== "" &&
+          gravity !== ""
+        ) {
           let r1 = (2 * (pressure1 - pressure2)) / density;
           let r2 = 2 * gravity * (height1 - height2);
           let r3 = velocity1 * velocity1;
@@ -970,7 +1002,6 @@ function FluidCalculator() {
           setShowSolution(false);
           setShowModal(true);
         }
-
       }
     };
 
@@ -1011,7 +1042,7 @@ function FluidCalculator() {
     let choiceFormula;
 
     const choiceData = () => {
-      if (choice === "pressure"){
+      if (choice === "pressure") {
         givenValues = {
           Pressure1: pressure1,
           Density: density,
@@ -1055,9 +1086,9 @@ function FluidCalculator() {
             setVelocity2,
             setGravity,
           ],
-        };}
-      if (choice === "velocity")
-      {
+        };
+      }
+      if (choice === "velocity") {
         givenValues = {
           Pressure1: pressure1,
           Density: density,
@@ -1103,8 +1134,7 @@ function FluidCalculator() {
           ],
         };
       }
-      if (choice === "height")
-      {
+      if (choice === "height") {
         givenValues = {
           Pressure1: pressure1,
           Density: density,
