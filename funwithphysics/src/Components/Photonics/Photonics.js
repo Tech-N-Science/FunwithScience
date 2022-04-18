@@ -93,7 +93,7 @@ export default function Photonics() {
       formula: "I₁ = I₀cos²θ",
       siunit: "candela (cd)",
       process: `"I₁ = I₀cos²θ" This equation is known as Malus law, where 'θ' is the angle between the plane of the polarizer and the transmission axes of the analyzer, 'I₀' is the initial intensity of the plane-polarized light, and we can simply get the final intensity of the plane-polarized light passes through analyzer with the help of the equation.`,
-      details: `The law of malus states that the intensity of a plane-polarized light that passes through an analyzer varies as the square of the cosine of the angle between the plane of the polarizer and the transmission axes of the analyzer.`,
+      details: `The Malus law states that the intensity of a beam of plane-polarized light passing through an analyzer varies as the square of the cosine of the angle between the transmission axes of the analyzer and the plane of the polarizer.`,
       dimension: "M⁰ L⁰ T⁰ ",
     },
   ];
