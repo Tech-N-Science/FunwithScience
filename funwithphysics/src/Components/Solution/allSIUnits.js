@@ -83,5 +83,7 @@ export const SI = {
   Pressure1:"Pascal",
   Pressure2:"Pascal",
   Gravity:"m/s²",
-  Rateofdeformation: ""
+  Rateofdeformation: "",
+  "Angle between polarizer and analyzer (θ)" : "°",
+  "Final Intensity I₁" : "cd", I0:"cd", I1:"cd"
 };

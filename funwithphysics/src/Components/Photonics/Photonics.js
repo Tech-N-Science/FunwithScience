@@ -88,6 +88,14 @@ export default function Photonics() {
       details: `The change in direction or bending of a light wave passing from one transparent medium to another caused by the change in wave’s speed is the Refraction.The laws of refraction hold good at every point on the spherical surface.The study of refraction at single spherical surface paves way to the understanding of thin lenses which consist of two surfaces of which one or both must be spherical.`,
       dimension: "L¹"
     },
+    {
+      topic: "Malus Law",
+      formula: "I₁ = I₀cos²θ",
+      siunit: "candela (cd)",
+      process: `"I₁ = I₀cos²θ" This equation is known as Malus law, where 'θ' is the angle between the plane of the polarizer and the transmission axes of the analyzer, 'I₀' is the initial intensity of the plane-polarized light, and we can simply get the final intensity of the plane-polarized light passes through analyzer with the help of the equation.`,
+      details: `The Malus law states that the intensity of a beam of plane-polarized light passing through an analyzer varies as the square of the cosine of the angle between the transmission axes of the analyzer and the plane of the polarizer.`,
+      dimension: "M⁰ L⁰ T⁰ ",
+    },
   ];
 
   return (

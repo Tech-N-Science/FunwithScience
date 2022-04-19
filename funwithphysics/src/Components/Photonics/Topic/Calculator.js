@@ -110,6 +110,14 @@ function Calculator() {
       the ratio of sine of angle of Incidence to the sine of angle of Refraction.Snell's Law describes how light bends when traveling from one medium to the next.`,
       dimension: "NA ",
     },
+    {
+      topic: "Malus Law",
+      formula: "I₁ = I₀cos²θ",
+      siunit: "candela (cd)",
+      process: `"I₁ = I₀cos²θ" This equation is known as Malus law, where 'θ' is the angle between the plane of the polarizer and the transmission axes of the analyzer, 'I₀' is the initial intensity of the plane-polarized light, and we can simply get the final intensity of the plane-polarized light passes through analyzer with the help of the equation.`,
+      details: `The Malus law states that the intensity of a beam of plane-polarized light passing through an analyzer varies as the square of the cosine of the angle between the transmission axes of the analyzer and the plane of the polarizer.`,
+      dimension: "M⁰ L⁰ T⁰ ",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
@@ -122,11 +130,10 @@ function Calculator() {
     const [n1, setN1] = useState(null);
     const [n2, setN2] = useState(null);
     const [result, setResult] = useState(null);
-    const calcResult=()=>{
-      setResult(Number(57.29578*Math.asin(n2/n1)));
+    const calcResult = () => {
+      setResult(Number(57.29578 * Math.asin(n2 / n1)));
     }
-    function reset()
-    {
+    function reset() {
       setN1("");
       setN2("");
       setResult("");
@@ -153,7 +160,7 @@ function Calculator() {
             />
           </Form.Group>
           <Form.Group className="mb-4">
-          <Form.Label>Critical Angle</Form.Label>
+            <Form.Label>Critical Angle</Form.Label>
             <Form.Control
               disabled="true"
               type="number"
@@ -1057,6 +1064,237 @@ function Calculator() {
     );
   };
 
+  //Malus Law calculator
+  const MalusLaw = () => {
+    const [I0, setI0] = useState(null);
+    const [Theta, setTheta] = useState(null);
+    const [I1, setI1] = useState(null);
+    const [result, setResult] = useState(null);
+    const [result2, setResult2] = useState(null);
+    const [choice, setChoice] = useState("Final-Intensity");
+    const [showSolution1, setShowSolution1] = useState(false);
+    const [showSolution2, setShowSolution2] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
+    const roundToTwo = (num) => {
+      return +(Math.round(num + "e+2") + "e-2");
+    }
+
+    const givenValues1 = {
+      I0: I0,
+      Theta: Theta,
+    };
+
+    const insertValues1 = `${I0}cos²(${Theta})`;
+
+    const givenValues2 = {
+      I0: I0,
+      I1: I1,
+    };
+
+    const insertValues2 = `cos⁻¹((${I1} / ${I0})½)`;
+
+    function reset() {
+      setResult(null);
+      setI0(null);
+      setTheta(null);
+      setResult2(null);
+      setI1(null);
+      setShowSolution1(false);
+      setShowSolution2(false);
+    }
+    const handleChange = (e) => {
+      setChoice(e.target.value);
+      reset();
+    };
+    const calcResult = () => {
+      setResult(null);
+      setShowSolution1(false);
+      if (I0 !== null && Theta !== null && I0 !== "" && Theta !== "") {
+        if (I0 < 0)
+          alert(
+            "Please Enter valid values for Initial intensity and angle between the plane of the polarizer and the transmission axes of the analyzer"
+          );
+        else {
+          var final_intensity = Math.pow((Math.cos(Theta * 0.01745329)), 2) * I0;
+          setShowSolution1(true);
+          setResult(roundToTwo(final_intensity));
+        }
+      } else {
+        setShowModal(true);
+      }
+    };
+    const calcResult2 = () => {
+      setResult2(null);
+      setShowSolution2(false);
+      if (I1 !== null && I0 !== null && I1 !== "" && I0 !== "") {
+        if (I1 < 0 || I0 < 0)
+          alert(
+            "Please Enter valid values for Initial intensity and Final intensity of light"
+          );
+        else {
+          var angle_value = Math.acos(Math.pow((I1 / I0), 1 / 2)) * 57.2957795131;
+          setShowSolution2(true);
+          setResult2(roundToTwo(angle_value));
+        }
+      } else {
+        setShowModal(true);
+      }
+    };
+    return (
+      <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        <Form.Group className="mb-4" controlId="choice">
+          <Form.Label>Select the type of calculation</Form.Label>
+          <Form.Control
+            as="select"
+            className="select-custom-res"
+            onChange={(e) => handleChange(e)}
+          >
+            <option value="Final-Intensity">Final Intensity</option>
+            <option value="Angle-between-polarizer-and-analyzer">Angle between polarizer and analyzer</option>
+          </Form.Control>
+        </Form.Group>
+        {choice === "Final-Intensity" && (
+          <>
+            <Form>
+              <Form.Group className="mb-4">
+                <Form.Label>Initial Intensity</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter the initial intensity of light in candela"
+                  onChange={(e) => {
+                    setI0(e.target.value);
+                    setResult(null);
+                    setShowSolution1(false);
+                  }}
+                  value={I0 === null ? "" : I0}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Angle between polarizer and analyzer</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter the value of Angle between polarizer and analyzer in degree"
+                  onChange={(e) => {
+                    setTheta(e.target.value);
+                    setResult(null);
+                    setShowSolution1(false);
+                  }}
+                  value={Theta === null ? "" : Theta}
+                />
+              </Form.Group>
+
+              {showSolution1 ? (
+                <Form.Group className="mb-3" controlId="acceleration">
+                  <Solution
+                    givenValues={givenValues1}
+                    formula="I₀cos²θ"
+                    toFind="Final Intensity I₁"
+                    insertValues={insertValues1}
+                    result={result}
+                  />
+                </Form.Group>
+              ) : null}
+
+              <Form.Group className="mb-4">
+                <Form.Label>Final Intensity</Form.Label>
+                <Form.Control
+                  readOnly
+                  type="number"
+                  placeholder={result === null ? "Result" : result + " cd"}
+                />
+              </Form.Group>
+            </Form>
+            <div className="button-custom-grp">
+              <Button variant="primary" onClick={calcResult}>
+                Calculate
+              </Button>
+
+              <Button variant="dark" onClick={() => reset()} type="reset">
+                Reset
+              </Button>
+            </div>
+          </>
+        )}
+        {choice === "Angle-between-polarizer-and-analyzer" && (
+          <>
+            <Form>
+              <Form.Group className="mb-4">
+                <Form.Label>Final Intensity</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter the Final intensity of light in candela"
+                  onChange={(e) => {
+                    setI1(e.target.value);
+                    setResult2(null);
+                    setShowSolution2(false);
+                  }}
+                  value={I1 === null ? "" : I1}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Initial Intensity</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter the Initial intensity of light in candela"
+                  onChange={(e) => {
+                    setI0(e.target.value);
+                    setResult2(null);
+                    setShowSolution2(false);
+                  }}
+                  value={I0 === null ? "" : I0}
+                />
+              </Form.Group>
+
+              {showSolution2 ? (
+                <Form.Group className="mb-3" controlId="acceleration">
+                  <Solution
+                    givenValues={givenValues2}
+                    formula="cos⁻¹((I₁ / I₀)½)"
+                    toFind="Angle between polarizer and analyzer (θ)"
+                    insertValues={insertValues2}
+                    result={result2}
+                  />
+                </Form.Group>
+              ) : null}
+
+              <Form.Group className="mb-4">
+                <Form.Label>Angle between polarizer and analyzer</Form.Label>
+                <Form.Control
+                  readOnly
+                  type="number"
+                  placeholder={result2 === null ? "Result" : result2 + "°"}
+                />
+              </Form.Group>
+            </Form>
+            <div className="button-custom-grp">
+              <Button variant="primary" onClick={calcResult2}>
+                Calculate
+              </Button>
+
+              <Button variant="dark" onClick={() => reset()} type="reset">
+                Reset
+              </Button>
+            </div>
+          </>
+        )}
+      </>
+    );
+  };
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -1070,8 +1308,8 @@ function Calculator() {
       case "Mirror Formula":
         currentCall = MirrorFormula();
         break;
-       case "Critical Angle":
-        currentCall=CriticalAngle();
+      case "Critical Angle":
+        currentCall = CriticalAngle();
         break;
       case "Lens Formula":
         currentCall = LensFormula();
@@ -1087,6 +1325,9 @@ function Calculator() {
         break;
       case "Power of Lens":
         currentCall = PowerLens();
+        break;
+      case "Malus Law":
+        currentCall = MalusLaw();
         break;
       default:
         break;
