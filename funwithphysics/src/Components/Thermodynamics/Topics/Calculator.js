@@ -139,29 +139,69 @@ function Calculator() {
     const [result, setResult] = useState(null);
     const [initial, setInitial] = useState(null);
     const [coefficient, setCoefficient] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showSolution, setShowSolution] = useState(false);
+    const [choice, setChoice] = useState("LinearExpansion");
     const [T1, setT1] = useState(null);
     const [T2, setT2] = useState(null);
+    let unit;
+    if(choice==="LinearExpansion"){unit= initial + "m";}
+   else if(choice==="ArealExpansion"){unit= initial +"m²";}
+    else{unit= initial + "m³";}
+    const givenValues = {
+      initial_dimension: unit,
+      coefficient:coefficient,
+      T1:`${T1}K`,
+     T2: `${T2}K`
+    };
+    const insertValues= ` ${initial}( 1+ ${coefficient} (${T2} - ${T1}))`;
+
     function reset() {
       setResult(null);
       setInitial(null);
       setCoefficient(null);
+      setShowSolution(false);
       setT1(null);
       setT2(null);
     }
-    const handleChange = () => {
+    const handleChange = (e) => { setChoice(e.target.value);
       setInitial(null);
       setCoefficient(null);
+      setShowSolution(false);
       setT1(null);
       setT2(null);
       setResult(null);
     };
-    const calcResult = () => {
-      setResult(
-        parseFloat(initial) * (1 + parseFloat(coefficient) * (T2 - T1))
-      );
+    const calcResult = () => {let res;
+        if (
+      initial === null ||
+      coefficient === null ||
+      T2 === null ||
+      T1 === null){
+        setShowModal(true);
+      } else {if(choice=== "LinearExpansion")
+    { res=parseFloat(initial) * (1 + parseFloat(coefficient) * (T2 - T1))+ "m";}
+       else if(choice=== "ArealExpansion")
+    { res=parseFloat(initial) * (1 + parseFloat(coefficient) * (T2 - T1))+ "m²";}
+        else
+        {  res=parseFloat(initial) * (1 + parseFloat(coefficient) * (T2 - T1))+ "m³";}
+setResult(res);
+      setShowSolution(true);}
     };
     return (
-      <>
+      <> <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+      <Modal.Header>
+        Please enter the values to get correct answer.
+      </Modal.Header>
+      <Modal.Footer>
+        <Button
+          onClick={() => setShowModal(false)}
+          class="btn btn-primary btn-sm"
+        >
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
         <Form>
           <Form.Group className="mb-4" controlId="choice">
             <Form.Label>Select the type of calculation</Form.Label>
@@ -236,7 +276,18 @@ function Calculator() {
               }}
             />
           </Form.Group>
-
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="df=d0(1+ξ(T2-T1))"
+                toFind="Final Dimension"
+                insertValues={insertValues}
+                result={result}
+                // constants={constants}
+              />
+            </Form.Group>
+          ) : null}
           <Form.Group className="mb-4">
             <Form.Label>
               Final Dimension (d<sub>f</sub>)
