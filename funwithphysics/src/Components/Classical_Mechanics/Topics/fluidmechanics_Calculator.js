@@ -20,7 +20,7 @@ function FluidCalculator() {
                      A fluid's density is defined as its mass per unit volume.`,
       formula: "ρ = m/V",
       process:
-        "In general, liquids are less dense than solids and gases are less dense than liquids. This is due to the fact that solids have densely packed particles, liquids are materials where particles can slide around one another, and gases have particles that are free to move all over the place. Density is denoted by symbol ρ (rho) and the unit of mass density is (kg/m3).",
+        "In general, liquids are less dense than solids and gases are less dense than liquids. This is due to the fact that solids have densely packed particles, liquids are materials where particles can slide around one another, and gases have particles that are free to move all over the place. Density is denoted by symbol ρ (rho) and the unit of mass density is (kg/m3). It is calculated by mass(m) upon volume(V).",
       siunit: "kg m⁻³",
       dimension: "M L⁻³",
     },
@@ -88,38 +88,101 @@ function FluidCalculator() {
     const [result, setResult] = useState(null);
     const [mass, setMass] = useState(null);
     const [vol, setVol] = useState(null);
+    const [showSolution, setShowSolution] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
+    const roundToTwo = (num) => {
+      return +(Math.round(num + "e+2") + "e-2");
+    }
+
+    const givenValues = {
+      mass: mass,
+      volume: vol,
+    };
+
+    const insertValues = `${mass}/${vol}`;
 
     const handleClick = () => {
-      let res = mass / vol;
-      setResult(res);
+      setResult(null);
+      setShowSolution(false);
+      if (mass !== null && vol !== null) {
+        if(mass < 0 || vol < 0){
+          alert(
+            "Please Enter valid values for Mass and Volume."
+          );
+        }
+        else{
+          let res = mass / vol;
+          setShowSolution(true);
+          setResult(roundToTwo(res));
+        }
+      } else {
+        setShowModal(true);
+      }      
     };
 
     const handleReset = () => {
       setResult(null);
       setMass(null);
       setVol(null);
+      setShowSolution(false);
     };
 
     return (
       <React.Fragment>
         {/* <Navbar/> */}
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowModal(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Form>
           <Form.Group className="mb-3" controlId="mass">
             <Form.Label> Mass (in kgs)</Form.Label>
             <Form.Control
-              onChange={(e) => setMass(e.target.value)}
+              onChange={(e) => {
+                setMass(e.target.value);
+                setResult(null);
+                setShowSolution(false);
+              }}
               type="number"
               placeholder="Enter mass of the object"
+              value={mass === null ? "" : mass}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="volume">
             <Form.Label> Volume (in m³)</Form.Label>
             <Form.Control
-              onChange={(e) => setVol(e.target.value)}
+              onChange={(e) => {
+                setVol(e.target.value)
+                setResult(null);
+                setShowSolution(false);
+              }}
               type="number"
               placeholder="Enter volume of the object"
+              value={vol === null ? "" : vol}
             />
           </Form.Group>
+          {showSolution ? (
+            <Form.Group className="mb-3" controlId="acceleration">
+              <Solution
+                givenValues={givenValues}
+                formula="m/V"
+                toFind="Density ρ"
+                insertValues={insertValues}
+                result={result}
+              />
+            </Form.Group>
+          ) : null}
+
           <Form.Group className="mb-3" controlId="density">
             <Form.Label>Density</Form.Label>
             <Form.Control
