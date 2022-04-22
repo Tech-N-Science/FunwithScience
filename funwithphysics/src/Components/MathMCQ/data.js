@@ -56,32 +56,6 @@ export const data = [
   {
     id: 3,
     type: "mcq",
-    question: "Roots of the equation x^n -1 = 0 where n belongs to Integers",
-    topic: "Complex Numbers",
-    answer: [
-      {
-        answerText: "A) form a regular polygon of unit circum-radius ",
-        isCorrect: false,
-      },
-      {
-        answerText: "B) lie on a circle",
-        isCorrect: false,
-      },
-      {
-        answerText: "C) are non-collinear",
-        isCorrect: false,
-      },
-      {
-        answerText: "D) A & B",
-        isCorrect: true,
-      },
-    ],
-    difficulty: "Easy",
-    image: "",
-  },
-  {
-    id: 3,
-    type: "mcq",
     question:
       "If |z| < 4, then | iz +3 – 4i| is less than ",
     topic: "Complex Numbers",
@@ -92,16 +66,19 @@ export const data = [
         isCorrect: false,
       },
       {
+        answerText: "B)  5",
         answerText:
           "B)  5",
         isCorrect: false,
       },
       {
+        answerText: "C)  6",
         answerText:
           "C)  6",
         isCorrect: false,
       },
       {
+        answerText: "D)  7",
         answerText:
           "D)  9",
         isCorrect: true,
@@ -330,3 +307,5 @@ export const data = [
 
 ]
 //Similarly add more questions
+
+//branch-MathQuestionsUpdated
