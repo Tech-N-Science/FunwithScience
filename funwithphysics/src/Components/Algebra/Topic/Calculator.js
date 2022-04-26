@@ -2686,9 +2686,13 @@ function Calculator() {
         }
         const isValid = discriminant(a, b, c);
         console.log(isValid);
-        if (!isValid) {
+        if (!isValid) {let d= (-b)/(2*a);
+        let e= Math.sqrt((Math.abs(b * b - 4 * a * c)))/(2*a);
+        let x1= d + " + " + e + " i";
+        let x2= d + " - " + e + " i";
           setShowSolutionImaginary(true);
-          setResult("Roots are imaginary.");
+          setShowSolution(false);
+          setResult("Complex roots are "+ x1 + " and " + x2);
         } 
         else {
           let d = b * b - 4 * a * c;
@@ -2698,6 +2702,7 @@ function Calculator() {
           console.log(x1, x2);
           setResult("Roots are " + x1 + " and " + x2);
           setShowSolution(true);
+          setShowSolutionImaginary(false);
         }
       } 
       else{
@@ -2785,7 +2790,7 @@ function Calculator() {
               <Solution
                 givenValues={givenValues}
                 formula="(-b + √b²-4ac)/2a and (-b - √b²-4ac)/2a"
-                toFind="Roots of Quardratic Equation"
+                toFind="Roots of Quadratic Equation"
                 insertValues={insertValues}
                 result={result}
                 // constants={constants}
@@ -2798,7 +2803,7 @@ function Calculator() {
               <Solution
                 givenValues={givenValues}
                 formula="d = √b²-4ac"
-                toFind="Roots of Quardratic Equation"
+                toFind="Roots of Quadratic Equation"
                 insertValues={insertValuesImaginary}
                 result={result}
                 // constants={constants}
@@ -2835,7 +2840,7 @@ function Calculator() {
             <Form.Text className="text">
               <strong>
                 {" "}
-                Generate the quadraic equation by providing the roots.
+                Generate the quadratic equation by providing the roots.
               </strong>
               <br />
             </Form.Text>
