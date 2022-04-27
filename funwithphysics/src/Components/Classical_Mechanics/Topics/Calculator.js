@@ -481,7 +481,7 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
                  A fluid's density is defined as its mass per unit volume.`,
       formula: "ρ = m/V",
       process:
-        "In general, liquids are less dense than solids and gases are less dense than liquids. This is due to the fact that solids have densely packed particles, liquids are materials where particles can slide around one another, and gases have particles that are free to move all over the place. Density is denoted by symbol ρ (rho) and the unit of mass density is (kg/m3).",
+        "In general, liquids are less dense than solids and gases are less dense than liquids. This is due to the fact that solids have densely packed particles, liquids are materials where particles can slide around one another, and gases have particles that are free to move all over the place. Density is denoted by symbol ρ (rho) and the unit of mass density is (kg/m3). It is calculated by mass(m) upon volume(V).",
       siunit: "kg m⁻³",
       dimension: "M L⁻³",
     },

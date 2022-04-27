@@ -78,6 +78,7 @@ export const SI = {
   'Final Height (h₂)':"m",
   k:"N/m",
   Density:"kg m⁻³",
+  "Density ρ": "kg m⁻³",
   Height1:"m",
   Height2:"m",
   Pressure1:"Pascal",
