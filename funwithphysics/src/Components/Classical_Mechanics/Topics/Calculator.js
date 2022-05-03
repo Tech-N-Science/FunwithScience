@@ -2077,19 +2077,22 @@ const [showModal, setShowModal] = useState(false);
 
 const calcResult = () => {
 let res;
-if (choice === "parallel" && k1 !==null && k2!==null) {
+if (
+ k1 === null ||
+  k2 === null){
+    setShowModal(true);
+  }
+  else{
+if (choice === "parallel") {
   res = Number(k1) + Number(k2);
-  setShowSolution(true);
 }
-else if (choice === "series" && k1 !==null && k2!==null) {
+else if (choice === "series") {
   res = (Number(k1) * Number(k2)) / (Number(k1) + Number(k2));
-  setShowSolution(true);
+ 
 }
-
-else {
-  setShowModal(true);
-}
+  }
 setResult(res + SI["k"]);
+setShowSolution(true);
 };
 
 const givenValues = () => {
