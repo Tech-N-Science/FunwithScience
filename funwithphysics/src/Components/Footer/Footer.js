@@ -54,15 +54,12 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      to={{
-                        pathname:
-                          "https://www.linkedin.com/company/tech-n-science",
-                      }}
+                    <a href=
+                          "https://www.linkedin.com/company/tech-n-science"
                       target="_blank"
                     >
                       <span className="fab fa-linkedin-in"></span>
-                    </Link>
+                    </a>
                   </li>
                 </div>
               </div>
