@@ -166,6 +166,24 @@ export default function ClassicalMechanics() {
       details: "....",
     },
     {
+      topic: "Springs Combination",
+      details: [
+        <h3>Parallel Combined Springs</h3>,
+        "When the same springs are connected in parallel, then it is referred to as a parallel connection. Displacement on each spring is the same.But restoring force is different" , <br/>,
+        <h3>Serial Combined Springs</h3>,
+        "When the same springs are connected in series, then it is referred to as a series connection. Restoring force on each spring is the same.But displacement is different"
+      ],
+      formula: ["For Parallel, Spring Constant(k)= k₁ + k₂", <br />, "For Series, Spring Constant(k)= k₁*k₂/(k₁ + k₂)"],
+      siunit: "N/m",
+      dimension: "[M/T²]",
+      process:
+      [
+        "1) Parallel: When the two springs (k₁ and k₂) are in parallel, the equivalent spring constant (k) = k₁ + k₂.",
+        <br />,
+        "2) Series: When the two springs (R₁ and R₂) are in series, the equivalent spring constant (k) = k₁*k₂/(k₁ + k₂).",
+            ],
+    },
+    {
       topic: "Stress and Strain",
       details: [
         <h3>Stress</h3>,
