@@ -163,6 +163,24 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
       details: "....",
     },
     {
+      topic: "Springs Combination",
+      details: [
+        <h3>Parallel Combined Springs</h3>,
+        "When the same springs are connected in parallel, then it is referred to as a parallel connection. Displacement on each spring is the same.But restoring force is different" , <br/>,
+        <h3>Serial Combined Springs</h3>,
+        "When the same springs are connected in series, then it is referred to as a series connection. Restoring force on each spring is the same.But displacement is different"
+      ],
+      formula: ["For Parallel, Spring Constant(k)= k₁ + k₂", <br />, "For Series, Spring Constant(k)= k₁*k₂/(k₁ + k₂)"],
+      siunit: "N/m",
+      dimension: "[M/T²]",
+      process:
+      [
+        "1) Parallel: When the two springs (k₁ and k₂) are in parallel, the equivalent spring constant (k) = k₁ + k₂.",
+        <br />,
+        "2) Series: When the two springs (R₁ and R₂) are in series, the equivalent spring constant (k) = k₁*k₂/(k₁ + k₂).",
+            ],
+    },
+    {
       topic: "Stress and Strain",
       details: [
         <h3>Stress</h3>,
@@ -2046,7 +2064,181 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
       </>
     );
   }
+//Springs Combination
 
+const CalculatorSpringsCombination = () => {
+  const [choice, setChoice] = useState("parallel");
+  const [k1, setk1] = useState(null);
+  const [k2, setk2] = useState(null);
+  const [result, setResult] = useState(null);
+  const [showSolution, setShowSolution] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  
+  const calcResult = () => {
+  let res;
+  if (
+   k1 === null ||
+    k2 === null){setShowSolution(false);
+      setShowModal(true);
+      
+    }
+    else{
+  if (choice === "parallel") {
+    res = Number(k1) + Number(k2);
+  }
+  else if (choice === "series") {
+    res = (Number(k1) * Number(k2)) / (Number(k1) + Number(k2));
+  
+  }
+  setResult(res + SI["k"]);
+  setShowSolution(true); }
+
+  };
+  
+  const givenValues = () => {
+  if (choice === "parallel")
+    return {
+  k1 : k1 + SI["k"],
+  k2 : k2 + SI["k"],
+  };
+  else
+  return {
+  k1 : k1 + SI["k"],
+  k2 : k2 + SI["k"],
+  }
+  };
+  
+  const reset = () => {
+  setk1(null);
+  setk2(null);
+  setResult(null);
+  setShowSolution(false);
+  };
+  
+  const handleChange = (e) => {
+  setChoice(e.target.value);
+  setk1(null);
+  setk2(null);
+  // setVoltage(null);
+  };
+  
+  const insertValues = () => {
+  if (choice === "parallel")
+    return `${k1}${SI["k"]} + ${k2}${SI["k"]}`;
+  // else if(choice === "current")
+  // return `${voltage}${SI["voltage"]} / ${resistance}${SI["Resistance"]}`;
+  else
+  return `(${k1}${SI["k"]} * ${k2}${SI["k"]}) / (${k1}${SI["k"]} + ${k2}${SI["k"]})`;
+  }
+  
+  const choiceData = () => {
+  if (choice === "parallel")
+    return {
+      name: "Equivalent spring constant, k",
+      mainunit: "N/m",
+      formula: "k₁ + k₂",
+      quantities: ["Spring Constant k₁", "Spring Constant k₂"],
+      subunits: ["N/m", "N/m"],
+      getters: [k1, k2],
+      setters: [setk1, setk2],
+    };
+  if (choice === "series")
+    return {
+      name: "Equivalent spring constant, k",
+      mainunit: "N/m",
+      formula: "k₁*k₂ / (k₁ + k₂)",
+      quantities: ["Spring Constant k₁", "Spring Constant k₂"],
+      subunits: ["N/m", "N/m"],
+      getters: [k1, k2],
+      setters: [setk1, setk2],
+    };
+  };
+  return (
+  <>
+  <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+      <Modal.Header >Please enter all values to get proper answer</Modal.Header>
+      <Modal.Footer><Button onClick={()=>setShowModal(false)} class="btn btn-primary btn-sm">Close</Button></Modal.Footer>
+    </Modal>
+    {/* <Navbar/> */}
+    <Form>
+      {/* dropdown */}
+      <Form.Group className="mb-4" controlId="choice">
+        <Form.Label>Select the type of connection</Form.Label>
+        <Form.Control
+          as="select"
+          className="select-custom-res"
+          onChange={(e) => {
+            handleChange(e);
+          }}
+        >
+  
+          <option value="parallel">Parallel</option>
+          <option value="series">Series</option>
+        </Form.Control>
+      </Form.Group>
+  
+      <Form.Group className="mb-4">
+        <Form.Label>{choiceData().quantities[0]}</Form.Label>
+        <Form.Control
+          onChange={(e) => choiceData().setters[0](e.target.value)}
+          type="number"
+          placeholder={"Enter in " + choiceData().subunits[0]}
+          value={
+            choiceData().getters[0] === null ? "" : choiceData().getters[0]
+          }
+        />
+      </Form.Group>
+  
+      <Form.Group className="mb-4">
+        <Form.Label>{choiceData().quantities[1]}</Form.Label>
+        <Form.Control
+          onChange={(e) => choiceData().setters[1](e.target.value)}
+          type="number"
+          placeholder={
+            choiceData().subunits[1] === "NaN"
+              ? "No Unit"
+              : "Enter in " + choiceData().subunits[1]
+          }
+          value={
+            choiceData().getters[1] === null ? "" : choiceData().getters[1]
+          }
+        />
+      </Form.Group>
+      {showSolution ? (
+      <Form.Group className="mb-3" controlId="acceleration">
+        <Solution
+          givenValues={givenValues()}
+          formula={choiceData().formula}
+          toFind={choiceData().name}
+          insertValues={insertValues()}
+          result={result}
+        />
+      </Form.Group>
+    ) : null}
+      <Form.Group className="mb-4">
+        <Form.Control
+          readOnly
+          type="number"
+          placeholder={
+            result === null
+              ? "Result"
+              : result + " "
+          }
+        />
+      </Form.Group>
+    </Form>
+    <div className="button-custom-grp">
+      <Button variant="primary" onClick={calcResult}>
+        Calculate
+      </Button>
+      &nbsp;&nbsp;&nbsp;
+      <Button variant="dark" onClick={() => reset()} type="reset">
+        Reset
+      </Button>
+    </div>
+  </>
+  );
+  };
   //Stress and Strain
   function Stress_Strain_calc() {
     const [result, setResult] = useState("");
@@ -2259,6 +2451,9 @@ Surface of an object is microscopically irreguler, thats why, when any two objec
       case "Circular Motion":
         currentCall = CalculatorCircularMotion();
         break;
+        case "Springs Combination":
+          currentCall = CalculatorSpringsCombination();
+          break;  
       case "Stress and Strain":
         currentCall = Stress_Strain_calc();
         break;
