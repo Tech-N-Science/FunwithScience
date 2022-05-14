@@ -32,6 +32,12 @@
   background-color: #f3f7f7;
   border-radius: 5px;
 }
+
+.filter-box > h5{
+  padding: 10px;
+}
+
+
 .filter-box > div {
   display: flex;
   width: 100%;
@@ -39,9 +45,17 @@
   font-size: 1.5rem;
   padding: 5px;
   font-weight: bold;
-  background-color: #afafaf;
+  background-color: #007bff;
   border-radius: 5px;
+  padding: 10px;
+
 }
+
+
+.filter-box > div > span {
+  color: white;
+}
+
 .cancel {
   display: none;
   cursor: pointer;
