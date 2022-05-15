@@ -67,6 +67,7 @@
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 18px;
+  margin-left: 10px;
 }
 
 .container input {
@@ -88,11 +89,11 @@
 }
 
 .container:hover input ~ .checkmark {
-  background-color: rgba(114, 112, 112, 0.979);
+  background-color: #007bff;
 }
 
 .container input:checked ~ .checkmark {
-  background-color: #000000;
+  background-color: #007bff;
 }
 
 .checkmark:after {

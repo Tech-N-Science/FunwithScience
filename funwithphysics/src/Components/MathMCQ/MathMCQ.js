@@ -192,7 +192,7 @@ const NumMCQ = () => {
           </div>
           <div className="filter-box" ref={filterref}>
             <div>
-              <span>Apply filter :</span>
+              <span>Filters</span>
               <span className="cancel" onClick={handlecross}>
                 <i className="fas fa-times"></i>
               </span>
