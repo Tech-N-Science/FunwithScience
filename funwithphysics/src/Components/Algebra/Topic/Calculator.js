@@ -1818,18 +1818,22 @@ function Calculator() {
       setShowSolutionMode(true);
 
       let stddevnum = 0;
+    
       for (let i = 0; i < numArr.length; i++) {
-        stddevnum += (numArr[i] - statOBJ.mean) ** 2;
+        stddevnum += Math.pow(numArr[i] - statOBJ.mean, 2);
       }
+      // console.log(stddevnum);
       if (stddevnum > 0) {
-        statOBJ.stddeviation = Math.sqrt(stddevnum / numArr.length);
-        statOBJ.variance = stddevnum / numArr.length;
+        statOBJ.stddeviation = Math.sqrt(stddevnum / (numArr.length - 1));
+        statOBJ.variance = Math.pow(statOBJ.stddeviation, 2);
+        // console.log(statOBJ.stddeviation);
+        // console.log(statOBJ.variance);
       } else {
         statOBJ.stddeviation = Math.sqrt((-1 * stddevnum) / numArr.length);
-  
+
         statOBJ.variance = (-1 * stddevnum) / numArr.length;
-        
-      }      setShowSolutionStddeviation(true);
+      }
+      setShowSolutionStddeviation(true);
       setShowSolutionVariance(true);
        setStatData(statOBJ);
 }
