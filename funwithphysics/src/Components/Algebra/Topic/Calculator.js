@@ -1754,7 +1754,7 @@ function Calculator() {
       smallest: 0,
       mean: 0,
       median: 0,
-      mode: 0,
+      mode: [],
       stddeviation: "",
       variance: "",
     };
@@ -1768,6 +1768,7 @@ function Calculator() {
     const [showSolutionLargest, setShowSolutionLargest] = useState(false);
     const [showSolutionMean, setShowSolutionMean] = useState(false);
     const [showSolutionMedian, setShowSolutionMedian] = useState(false);
+    const [newmode, setNewmode] = useState(null);
     const [showSolutionMode, setShowSolutionMode] = useState(false);
     const [showSolutionStddeviation, setShowSolutionStddeviation] =
       useState(false);
@@ -1792,7 +1793,7 @@ function Calculator() {
     const calcStat = () => {
       if (number != null) {
         numArr = number.split(/[\s,]+/);
-        numArr.sort( (a, b)=> a-b);
+        numArr.sort((a, b) => a - b);
         console.log(numArr);
         statOBJ.sort = numArr; //sorted numbers
         setNewSort(statOBJ.sort.toLocaleString("en-US"));
@@ -1820,23 +1821,41 @@ function Calculator() {
         }
         statOBJ.median = numArr[med - 1]; //median of all items
         setShowSolutionMedian(true);
-        let repeatCount = 1;
-        let modeIndex = 0;
-        let maxRepeat = 0;
-        for (let i = 0; i < numArr.length; i++) {
-          if (numArr[i] === numArr[i + 1]) {
-            repeatCount = repeatCount + 1;
-            if (repeatCount > maxRepeat) {
-              maxRepeat = repeatCount;
-              modeIndex = i;
-            }
-          } else {
-            repeatCount = 0;
+
+        {
+          {
+            console.log(mode(numArr));
           }
         }
-        statOBJ.mode = numArr[modeIndex]; //mode of all items
-        setShowSolutionMode(true);
 
+        function mode(numArr) {
+          let modes = [],
+            count = [],
+            i,
+            number,
+            maxIndex = 0;
+
+          for (i = 0; i < numArr.length; i += 1) {
+            number = numArr[i];
+            count[number] = (count[number] || 0) + 1;
+            if (count[number] > maxIndex) {
+              maxIndex = count[number];
+            }
+          }
+
+          for (i in count)
+            if (count.hasOwnProperty(i)) {
+              if (count[i] === maxIndex) {
+                modes.push(Number(i));
+              }
+            }
+
+          return modes;
+        }
+
+        statOBJ.mode = mode(numArr); //mode of all items
+        setNewmode(statOBJ.mode.toLocaleString("en-US"));
+        setShowSolutionMode(true);
         let stddevnum = 0;
 
         for (let i = 0; i < numArr.length; i++) {
@@ -2050,7 +2069,7 @@ function Calculator() {
                 formula="Item that appears most frequently"
                 toFind="Mode"
                 insertValues={insertValuesMode}
-                result={statData.mode}
+                result={newmode}
                 // constants={constants}
               />
             </Form.Group>
