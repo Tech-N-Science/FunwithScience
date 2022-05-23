@@ -40,6 +40,8 @@
   .Calculator__formula {
     grid-area: formula;
     font-family: math;
+    margin-top: 150px;
+    
   }
   .Calculator__example {
     grid-area: example;
@@ -70,6 +72,10 @@
     width: 37.5em;
     font-size: 1.2rem;
     padding-right: 2vh;
+  }
+  .Calculator__topic
+  {
+    margin-bottom: -300px;
   }
   
   @media only screen and (max-width: 992px) {

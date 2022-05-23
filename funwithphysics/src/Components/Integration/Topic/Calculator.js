@@ -18,11 +18,37 @@ function Calculator() {
         <br />,
         "1. f(a) exists (i.e. f(a) has a finite value)",
         <br />,
-        "2. Limx→a f(x) exists (i.e. the right-hand limit = left-hand limit, and both are finite)",
+        "2. Lim",
+        <sub>x→a</sub>,
+         "f(x) exists (i.e. the right-hand limit = left-hand limit, and both are finite)",
         <br />,
-        "3. Limx→a f(x) = f(a)",
+        "3. Lim",
+        <sub>x→a</sub>,
+        " f(x) = f(a)",
       ],
-      formula: "Prove LHS = RHS",
+      formula: 
+      [
+        "If f(x) is continuous at x = a then,",
+        <br/>,
+        "Lim",
+        <sub>
+          x→a
+        </sub>,
+        "f(x) = f(a)",
+        <br/>,
+        "Lim",
+        <sub>
+          x→a<sup>-</sup>
+        </sub>,
+        "f(x) = f(a)",
+        <br/>,
+        "Lim",
+        <sub>
+          x→a<sup>+</sup>
+        </sub>,
+        "f(x) = f(a)",
+        <br/>,
+      ],
       process: [
         "The function f(x) is said to be continuous in the interval I = [x1,x2] if the three conditions mentioned above are satisfied for every point in the interval I.",
         <br />,
@@ -446,7 +472,7 @@ function Calculator() {
         </Helmet>
 
         <div className="Calculator__header">
-          <h1>{details.topic}</h1>
+          <h1 className="Calculator__topic">{details.topic}</h1>
         </div>
         <div className="Calculator__details">
           <p>{details.details}</p>
