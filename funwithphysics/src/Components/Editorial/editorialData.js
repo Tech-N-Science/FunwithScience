@@ -1,132 +1,27 @@
+// contains editorial of all types question
+// each editorial has a type ==> physics or math or ...
+// each editorial has the same id of the question
+//the content of the editorial is in a markdown format
 export const editorialData = [
   {
     type: "math",
     id: 0,
     // content is markdown format string
     content: `
-    # Hello, *world*!
-    # A demo of \`react-markdown\`
-
-    \`react-markdown\` is a markdown component for React.
-    
-    👉 Changes are re-rendered as you type.
-    
-    👈 Try writing some markdown on the left.
-    
-    ## Overview
-    
-    * Follows [CommonMark](https://commonmark.org)
-    * Optionally follows [GitHub Flavored Markdown](https://github.github.com/gfm/)
-    * Renders actual React elements instead of using \`dangerouslySetInnerHTML\`
-    * Lets you define your own components (to render \`MyHeading\` instead of \`h1\`)
-    * Has a lot of plugins
-    
-    ## Table of contents
-    
-    Here is an example of a plugin in action
-    ([\`remark-toc\`](https://github.com/remarkjs/remark-toc)).
-    This section is replaced by an actual table of contents.
-    
-    ## Syntax highlighting
-    
-    Here is an example of a plugin to highlight code:
-    [\`rehype-highlight\`](https://github.com/rehypejs/rehype-highlight).
-    
-    \`\`\`js
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import ReactMarkdown from 'react-markdown'
-    import rehypeHighlight from 'rehype-highlight'
-    
-    ReactDOM.render(
-      <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{'# Your markdown here'}</ReactMarkdown>,
-      document.querySelector('#content')
-    )
-    \`\`\`
-    
-    Pretty neat, eh?
-    
-    ## GitHub flavored markdown (GFM)
-    
-    For GFM, you can *also* use a plugin:
-    [\`remark-gfm\`](https://github.com/remarkjs/react-markdown#use).
-    It adds support for GitHub-specific extensions to the language:
-    tables, strikethrough, tasklists, and literal URLs.
-    
-    These features **do not work by default**.
-    👆 Use the toggle above to add the plugin.
-    
-    | Feature    | Support              |
-    | ---------: | :------------------- |
-    | CommonMark | 100%                 |
-    | GFM        | 100% w/ \`remark-gfm\` |
-    
-    ~~strikethrough~~
-    
-    * [ ] task list
-    * [x] checked item
-    
-    https://example.com
-    
-    ## HTML in markdown
-    
-    ⚠️ HTML in markdown is quite unsafe, but if you want to support it, you can
-    use [\`rehype-raw\`](https://github.com/rehypejs/rehype-raw).
-    You should probably combine it with
-    [\`rehype-sanitize\`](https://github.com/rehypejs/rehype-sanitize).
-    
-    <blockquote>
-      👆 Use the toggle above to add the plugin.
-    </blockquote>
-    
-    ## Components
-    
-    You can pass components to change things:
-    
-    \`\`\`js
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import ReactMarkdown from 'react-markdown'
-    import MyFancyRule from './components/my-fancy-rule.js'
-    
-    ReactDOM.render(
-      <ReactMarkdown
-        components={{
-          // Use h2s instead of h1s
-          h1: 'h2',
-          // Use a component instead of hrs
-          hr: ({node, ...props}) => <MyFancyRule {...props} />
-        }}
-      >
-        # Your markdown here
-      </ReactMarkdown>,
-      document.querySelector('#content')
-    )
-    \`\`\`
-    
-    ## More info?
-    
-    Much more info is available in the
-    [readme on GitHub](https://github.com/remarkjs/react-markdown)!
-    
-    ***
-    
-    A component by [Espen Hovlandsdal](https://espen.codes/)
+    ## We know, ![](//tex.z-dn.net/?f=%5Cunderline%7B%5Cboxed%7B%5Cpink%7Bcos90%3D0%7D%7D%7D)
+    ### thus,
+    ### =cos0°×cos1× cos2°× cos3°....×cos89°× 0=0
        `,
   },
   {
-    type: "physics",
+    type: "math",
     id: 1,
     content: `
-    # Hello, *world*!
-    # A demo of \`react-markdown\`
-    ## Overview
-    * Follows [CommonMark](https://commonmark.org)
-    * Optionally follows [GitHub Flavored Markdown](https://github.github.com/gfm/)
-    * Renders actual React elements instead of using \`dangerouslySetInnerHTML\`
-    * Lets you define your own components (to render \`MyHeading\` instead of \`h1\`)
-    * Has a lot of plugins
+    # Clearly, roots are 1, α, α2 , . . . αn-1 , where α\=cos2πn+isin2πn .
+    ## The distance of the complex numbers represented by these roots from origin is 1 
+    ## i.e. all these points lie on a circle.
+    ###    ⇒ They are non-collinear.
+    ###    ⇒ They form a regular polygon of unit circum-radius
     `,
   },
 ];
-

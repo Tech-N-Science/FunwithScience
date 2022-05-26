@@ -1,8 +1,7 @@
 import React from "react";
 import "./Editorial.css";
 import { editorialData } from "./editorialData";
-import { Helmet } from "react-helmet";
-import Navbar from "./../Navbar/Navbar";
+import Navbar from "../Navbar/Navbar";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 const Editorial = () => {
@@ -59,6 +58,7 @@ const Editorial = () => {
         Question
       </span>
       <span className="editorial-btn">Editorial</span>
+      {/* TODO handle this after adding Discussion Forum */}
       <span className="editorial-btn"> Discussion Forum</span>
       <div className="editorial-container">
         <div className="question">
