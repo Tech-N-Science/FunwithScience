@@ -126,14 +126,7 @@ const Singlequestion = () => {
         <br />
         <br />
         <span className="editorial-btn"> Question</span>
-        <Link
-          to={{
-            pathname: `/MathQuestion/${type}/${id}/editorial`,
-          }}
-          state={{ question: quest }}
-        >
-          <span className="editorial-btn">Editorial</span>
-        </Link>
+        <span className="editorial-btn"> Editorial</span>
         <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">
@@ -185,9 +178,7 @@ const Singlequestion = () => {
               </button>
               <button className="next-btn" onClick={handleOptions}>
                 <Link
-                  to={`/MathQuestion/mcq/${
-                    id + 1 < mcqAll.length ? id + 1 : 0
-                  }`}
+                  to={`/MathQuestion/mcq/${id + 1 < mcqAll.length ? id + 1 : 0}`}
                 >
                   {" "}
                   Next
