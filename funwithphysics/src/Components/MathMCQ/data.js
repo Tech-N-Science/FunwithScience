@@ -2,30 +2,27 @@ export const data = [
   {
     id: 1,
     type: "mcq",
-    question:"The value of cos 0°. cos 1°. cos 2°. cos 3°… cos 89° cos 90° is",
+    question: "The value of cos 0°. cos 1°. cos 2°. cos 3°… cos 89° cos 90° is",
     topic: "Trignometry",
+    difficulty: "Easy",
     answer: [
       {
-        answerText:
-          "A)  1",
+        answerText: "A)  1",
         isCorrect: false,
       },
       {
-        answerText:
-          "B)  -1",
+        answerText: "B)  -1",
         isCorrect: false,
       },
       {
-        answerText:
-          "C)  0",
+        answerText: "C)  0",
         isCorrect: true,
       },
       {
-        answerText:
-          "D)  1/2",
+        answerText: "D)  1/2",
         isCorrect: false,
       },
-    ]
+    ],
   },
   {
     id: 2,
@@ -56,31 +53,26 @@ export const data = [
   {
     id: 3,
     type: "mcq",
-    question:
-      "If |z| < 4, then | iz +3 – 4i| is less than ",
+    question: "If |z| < 4, then | iz +3 – 4i| is less than ",
     topic: "Complex Numbers",
     answer: [
       {
-        answerText:
-          "A)  4",
+        answerText: "A)  4",
         isCorrect: false,
       },
       {
         answerText: "B)  5",
-        answerText:
-          "B)  5",
+        answerText: "B)  5",
         isCorrect: false,
       },
       {
         answerText: "C)  6",
-        answerText:
-          "C)  6",
+        answerText: "C)  6",
         isCorrect: false,
       },
       {
         answerText: "D)  7",
-        answerText:
-          "D)  9",
+        answerText: "D)  9",
         isCorrect: true,
       },
     ],
@@ -90,28 +82,23 @@ export const data = [
   {
     id: 4,
     type: "mcq",
-    question:
-      "If y sin 45° cos 45° = tan2 45° – cos2 30°, then y = …",
+    question: "If y sin 45° cos 45° = tan2 45° – cos2 30°, then y = …",
     topic: "Trignometry",
     answer: [
       {
-        answerText:
-          "A)  -1/2",
+        answerText: "A)  -1/2",
         isCorrect: false,
       },
       {
-        answerText:
-          "B)  1/2",
+        answerText: "B)  1/2",
         isCorrect: true,
       },
       {
-        answerText:
-          "C)  2",
+        answerText: "C)  2",
         isCorrect: false,
       },
       {
-        answerText:
-          "D)  -2",
+        answerText: "D)  -2",
         isCorrect: false,
       },
     ],
@@ -126,23 +113,19 @@ export const data = [
     topic: "Complex Numbers",
     answer: [
       {
-        answerText:
-          "A)  0",
+        answerText: "A)  0",
         isCorrect: false,
       },
       {
-        answerText:
-          "B)  1",
+        answerText: "B)  1",
         isCorrect: true,
       },
       {
-        answerText:
-          "C)  2",
+        answerText: "C)  2",
         isCorrect: false,
       },
       {
-        answerText:
-          "D)  None of these",
+        answerText: "D)  None of these",
         isCorrect: false,
       },
     ],
@@ -152,28 +135,23 @@ export const data = [
   {
     id: 6,
     type: "mcq",
-    question:
-      "If sin θ + sin² θ = 1, then cos² θ + cos4 θ = ..",
+    question: "If sin θ + sin² θ = 1, then cos² θ + cos4 θ = ..",
     topic: "Trignometry",
     answer: [
       {
-        answerText:
-          "A)  -1",
+        answerText: "A)  -1",
         isCorrect: false,
       },
       {
-        answerText:
-          "B)  0",
+        answerText: "B)  0",
         isCorrect: false,
       },
       {
-        answerText:
-          "C)  1",
+        answerText: "C)  1",
         isCorrect: true,
       },
       {
-        answerText:
-          "D)  2",
+        answerText: "D)  2",
         isCorrect: false,
       },
     ],
@@ -188,23 +166,19 @@ export const data = [
     topic: "Complex Numbers",
     answer: [
       {
-        answerText:
-          "A)  an ellipse ",
+        answerText: "A)  an ellipse ",
         isCorrect: false,
       },
       {
-        answerText:
-          "B)  a circle",
+        answerText: "B)  a circle",
         isCorrect: false,
       },
       {
-        answerText:
-          "C)  a line-segment",
+        answerText: "C)  a line-segment",
         isCorrect: true,
       },
       {
-        answerText:
-          "D)  None of these ",
+        answerText: "D)  None of these ",
         isCorrect: false,
       },
     ],
@@ -219,23 +193,19 @@ export const data = [
     topic: "Quadratic Equations",
     answer: [
       {
-        answerText:
-          "A)  -3",
+        answerText: "A)  -3",
         isCorrect: false,
       },
       {
-        answerText:
-          "B)  -1/5",
+        answerText: "B)  -1/5",
         isCorrect: true,
       },
       {
-        answerText:
-          "C)  -3/5",
+        answerText: "C)  -3/5",
         isCorrect: false,
       },
       {
-        answerText:
-          "D)  None of these",
+        answerText: "D)  None of these",
         isCorrect: false,
       },
     ],
@@ -250,23 +220,19 @@ export const data = [
     topic: "Complex Numbers",
     answer: [
       {
-        answerText:
-          "A)  circle",
+        answerText: "A)  circle",
         isCorrect: false,
       },
       {
-        answerText:
-          "B)  parabola",
+        answerText: "B)  parabola",
         isCorrect: false,
       },
       {
-        answerText:
-          "C)  line",
+        answerText: "C)  line",
         isCorrect: true,
       },
       {
-        answerText:
-          "D)  ellipse",
+        answerText: "D)  ellipse",
         isCorrect: false,
       },
     ],
@@ -276,36 +242,30 @@ export const data = [
   {
     id: 10,
     type: "mcq",
-    question:
-      "The number of real solutions of the equations e^x= x is",
+    question: "The number of real solutions of the equations e^x= x is",
     topic: "Quadratic Equations",
     answer: [
       {
-        answerText:
-          "A)  0",
+        answerText: "A)  0",
         isCorrect: true,
       },
       {
-        answerText:
-          "B)  1",
+        answerText: "B)  1",
         isCorrect: false,
       },
       {
-        answerText:
-          "C)  2",
+        answerText: "C)  2",
         isCorrect: false,
       },
       {
-        answerText:
-          "D)  Infinite",
+        answerText: "D)  Infinite",
         isCorrect: false,
       },
     ],
     difficulty: "Medium",
     image: "",
   },
-
-]
+];
 //Similarly add more questions
 
 //branch-MathQuestionsUpdated
