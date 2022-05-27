@@ -34,6 +34,7 @@ import NumMCQ from "./Components/NumMCQ/NumMCQ";
 import Singlequestion from "./Components/NumMCQ/Singlequestion";
 import MathMCQ from "./Components/MathMCQ/MathMCQ";
 import Quest from "./Components/MathMCQ/Singlequestion";
+import Editorial from "./Components/Editorial/Editorial";
 import { hydrate, render } from "react-dom";
 import FluxCalculator from "./Components/Electromagnetism/Topics/FluxCalculator";
 import SeriesAndParallelCalc from "./Components/Electromagnetism/Topics/SeriesAndParallel";
@@ -443,13 +444,13 @@ const App = () => {
               </>
             }
           ></Route>
-           <Route
+          <Route
             exact
             path="/mathsquiz"
             element={
               <>
                 <Navbar />
-                <MathsQuiz/>
+                <MathsQuiz />
               </>
             }
           ></Route>
@@ -543,7 +544,16 @@ const App = () => {
             path="/MathQuestion/:type/:id"
             element={<Quest />}
           ></Route>
-
+          <Route
+            exact
+            path="/MathQuestion/:type/:id/editorial"
+            element={<Editorial />}
+          ></Route>
+          <Route
+            exact
+            path="/question/:type/:id/editorial"
+            element={<Editorial />}
+          ></Route>
           <Route
             exact
             path="/integration/calc/:topic"
