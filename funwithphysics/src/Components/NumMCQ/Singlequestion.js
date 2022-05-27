@@ -126,7 +126,14 @@ const Singlequestion = () => {
         <br />
         <br />
         <span className="editorial-btn"> Question</span>
-        <span className="editorial-btn"> Editorial</span>
+        <Link
+          to={{
+            pathname: `/question/${type}/${id}/editorial`,
+          }}
+          state={{ question: quest }}
+        >
+          <span className="editorial-btn">Editorial</span>
+        </Link>
         <span className="editorial-btn"> Discussion Forum</span>
         <div className="singlequestion">
           <div className="maincontent">

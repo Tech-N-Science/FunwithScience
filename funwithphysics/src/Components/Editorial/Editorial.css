@@ -1,0 +1,57 @@
+.editorial-container {
+  margin: 5%;
+  box-shadow: #3fbfdc 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.editorial-container .editorial-content {
+  margin: 5%;
+  padding-bottom: 10%;
+}
+.editorial-container .question {
+  margin-left: 3%;
+}
+.editorial-container .question h3 {
+  padding-top: 2%;
+}
+
+.editorial-container .editorial-content .no-editorial h3 {
+  color: #484848;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 7px;
+  cursor: pointer;
+}
+.editorial-container .editorial-content .no-editorial h3 span {
+  margin-left: 20%;
+  transition: 0.5s linear;
+}
+.editorial-container
+  .editorial-content
+  .no-editorial
+  h3:hover
+  span:nth-child(1) {
+  margin-right: 5px;
+}
+.editorial-container
+  .editorial-content
+  .no-editorial
+  h3:hover
+  span:nth-child(1):after {
+  content: "'";
+}
+.editorial-container
+  .editorial-content
+  .no-editorial
+  h3:hover
+  span:nth-child(2) {
+  margin-left: 30px;
+}
+.editorial-container .editorial-content .no-editorial h3:hover span {
+  color: rgba(255, 0, 0, 0.5);
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.184), 0 0 20px rgba(255, 0, 0, 0.184),
+    0 0 40px rgba(255, 0, 0, 0.184);
+}
