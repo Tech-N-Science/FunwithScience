@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react";
 import "./MathMCQ.css";
 import Singlecard from "./Card";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { data } from "./data";
 import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
@@ -11,20 +11,28 @@ const NumMCQ = () => {
   const cardref = useRef();
   const filterref = useRef();
   const btnref = useRef();
-  const {searchTerm,setsearchTerm,typ,settyp,settop,top,difficult,setdifficult}=useContext(Context)
+  const {
+    searchTerm,
+    setsearchTerm,
+    typ,
+    settyp,
+    settop,
+    top,
+    difficult,
+    setdifficult,
+  } = useContext(Context);
   const dif = ["easy", "medium", "hard"];
   var tflag = 0;
   var dflag = 0;
   var vflag = 0;
   useEffect(() => {
-    document.querySelectorAll("input").forEach((e)=>{
-      if(e.type==="checkbox")
-      {
-        if(searchTerm.includes(e.value.toLowerCase())){
-          e.checked=true;
+    document.querySelectorAll("input").forEach((e) => {
+      if (e.type === "checkbox") {
+        if (searchTerm.includes(e.value.toLowerCase())) {
+          e.checked = true;
         }
       }
-    })
+    });
   }, [searchTerm]);
   function handleClick(e) {
     tflag = 0;
@@ -155,7 +163,7 @@ const NumMCQ = () => {
                   typ &&
                   searchTerm.includes(value.type.toLowerCase())
                 ) {
-                    return value;
+                  return value;
                 } else if (searchTerm.includes(value.topic.toLowerCase())) {
                   return value;
                 } else if (
@@ -263,7 +271,7 @@ const NumMCQ = () => {
               <span className="checkmark"></span>
             </label>
             <label className="container">
-            Topic2
+              Topic2
               <input type="hidden" name="Topic2" value="false" />
               <input
                 type="checkbox"
@@ -273,7 +281,7 @@ const NumMCQ = () => {
               <span className="checkmark"></span>
             </label>
             <label className="container">
-             Topic3
+              Topic3
               <input type="hidden" name="Topic3" value="false" />
               <input
                 type="checkbox"
@@ -297,7 +305,7 @@ const NumMCQ = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </React.Fragment>
   );
 };
