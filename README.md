@@ -1,6 +1,6 @@
 # Fun With Science
 
-Are you bored solving the questions using the tough physics formulas?? 😩
+Are you bored of solving the questions using the tough physics formulas?? 😩
 Are you bored of long calculations?? 😩
 Then here is a solution to your problems. 😃
 This project is a Physics calculator where the user just needs to enter the values and the project calculates the result using the formula.
@@ -50,7 +50,7 @@ Also join the discord channel for discussion **https://discord.gg/UfhRBpbQXN**
 
 # How to Contribute
 
-If you think that you can add a new feature or want to fix a bug, we invite you to contribute to FunwithPhysics and make this project better. To start contributing, follow the below instructions:
+If you think that you can add a new feature or want to fix a bug, we invite you to contribute to FunwithPhysics and make this project even better. To start contributing, follow the below instructions:
 
 1. Create a folder at your desire location (usually at your desktop).
 
@@ -135,7 +135,7 @@ git push -u origin <your_branch_name>
 18. Click on `Create pull request`.
 
 Congratulations🎉, you have made a PR to the FunwithPhysics.
-Wait for your submission to be accepted and your PR to be merged by a maintainer.
+Wait for your submission to be accepted and your PR to be merged by the maintainer.
 
 # How to run the webpage on your local system
 
