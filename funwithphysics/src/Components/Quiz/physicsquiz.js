@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Quiz.css";
 
-
 const PhysicsQuiz = () => {
   const questions = [
     {
@@ -24,8 +23,7 @@ const PhysicsQuiz = () => {
       ],
     },
     {
-      questionText:
-        "dimension of plank's constant h is",
+      questionText: "dimension of plank's constant h is",
       answerOptions: [
         { answerText: "[ML^2T^-1]", isCorrect: false },
         { answerText: "[ML^3T^-1]", isCorrect: false },
@@ -44,13 +42,15 @@ const PhysicsQuiz = () => {
       ],
     },
     {
-      questionText:
-        "If a body is charged by rubbing it, its weight ",
+      questionText: "If a body is charged by rubbing it, its weight ",
       answerOptions: [
         { answerText: "Remains precisely constant", isCorrect: false },
         { answerText: "Increase slightly", isCorrect: false },
         { answerText: "Decrease slightly", isCorrect: false },
-        { answerText: "May increase slightly or decrease slightly", isCorrect: true },
+        {
+          answerText: "May increase slightly or decrease slightly",
+          isCorrect: true,
+        },
       ],
     },
     {
@@ -84,8 +84,7 @@ const PhysicsQuiz = () => {
       ],
     },
     {
-      questionText:
-        "A moving charge produces ",
+      questionText: "A moving charge produces ",
       answerOptions: [
         { answerText: "Only electric field", isCorrect: false },
         { answerText: "Only magnetic field", isCorrect: false },
@@ -94,8 +93,7 @@ const PhysicsQuiz = () => {
       ],
     },
     {
-      questionText:
-        "X-rays in 1895 was discovered by ",
+      questionText: "X-rays in 1895 was discovered by ",
       answerOptions: [
         { answerText: "Einstein", isCorrect: false },
         { answerText: "Röntgen", isCorrect: true },
@@ -124,8 +122,7 @@ const PhysicsQuiz = () => {
       ],
     },
     {
-      questionText:
-        "The optical phenomena, twinkling of stars, is due to ",
+      questionText: "The optical phenomena, twinkling of stars, is due to ",
       answerOptions: [
         { answerText: "Atmospheric reflection", isCorrect: false },
         { answerText: "Total reflection", isCorrect: false },
@@ -152,128 +149,130 @@ const PhysicsQuiz = () => {
         { answerText: "Galileo Galilei", isCorrect: false },
       ],
     },
-  ];  
+  ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [showAns, setshowAns] = useState(false);
   const [score, setScore] = useState(0);
   const [index, setIndex] = useState(-1);
-  var [selected,setSelected]=useState(false);
+  var [selected, setSelected] = useState(false);
   const [timeOut, setTimeOut] = useState(false);
 
   console.log(timeOut); //Added only for removing the warning this can be removed later when this variable is geeting used somewhere
-
 
   const handleQuestion = () => {
     setshowAns(false);
     setSelected(false);
     setIndex(-1);
     const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length ) {
+    if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      setShowScore(true); 
+      setShowScore(true);
     }
   };
 
   const handleAnswerOptionClick = (isCorrect, index) => {
-   
     setSelected(true);
-    if(selected)
-    setScore(score);
+    if (selected) setScore(score);
     else if (isCorrect && !selected) {
       setScore(score + 1);
-    }
-    else 
-    setIndex(index);
-    
+    } else setIndex(index);
+
     setshowAns(true);
 
-    setTimeout(handleQuestion,1500);
+    setTimeout(handleQuestion, 1500);
   };
 
- function Timer({ setTimeOut, questionNumber }) {
+  function Timer({ setTimeOut, questionNumber }) {
+    const [timer, setTimer] = useState(10);
 
-   const [timer, setTimer]= useState(10);
+    useEffect(() => {
+      if (timer === 0) {
+        handleQuestion();
+        return setTimeout(true);
+      }
+      const interval = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
 
-   useEffect(() => {
-     
-     if (timer === 0) 
-    { handleQuestion();
-         return setTimeout(true);
-   }
-     const interval = setInterval(() => {
-       setTimer((prev) => prev - 1);
-     }, 1000);
-  
-     return () => clearInterval(interval);
-   
-   }, [timer, setTimeOut]);
+      return () => clearInterval(interval);
+    }, [timer, setTimeOut]);
 
-   useEffect(() => {
-      setTimer(10); 
-  }, [questionNumber]);
+    useEffect(() => {
+      setTimer(10);
+    }, [questionNumber]);
     return timer;
- }
-
-
-
+  }
 
   return (
-    <div className="quiz">
-      <h1>Quiz</h1>
+    <>
+      <Helmet>
+        <title>PhysicsQuiz</title>
+        <meta name="description" content="Physics Quiz" />
+        <meta
+          name="keywords"
+          content="Algebra, calculator, Algebra calculator, physics, Tech n science, technscience, tech and science,quiz,physicsquiz, physics quiz"
+        />
+      </Helmet>
+      <div className="quiz">
+        <h1>Quiz</h1>
         {showScore ? (
           <div className="quiz-section">
-          <div className="score-section">
-            You scored {score} out of {questions.length}
-          </div>
+            <div className="score-section">
+              You scored {score} out of {questions.length}
+            </div>
           </div>
         ) : (
           <div className="cardWithTimer">
             <div className="timerFrame">
-             <div className="timer">
-              <Timer setTimeOut={setTimeOut} questionNumber={currentQuestion} />
-             </div>
-            </div>
-      <div className="quiz-section">
-          <div className="responsive">
-            <div className="question-section">
-              <div className="question-count">
-                <span>Question {currentQuestion + 1}</span><span id = "total">/{questions.length}</span>
-              </div>
-              <div className="question-text">
-                {questions[currentQuestion].questionText}
+              <div className="timer">
+                <Timer
+                  setTimeOut={setTimeOut}
+                  questionNumber={currentQuestion}
+                />
               </div>
             </div>
-            <div className="answer-section">
-              {questions[currentQuestion].answerOptions.map(
-                (answerOption, ind) => (
-                  <button
-                    className={
-                      showAns
-                        ? answerOption.isCorrect
-                          ? "correct"
-                          : ind === index
-                          ? "incorrect"
-                          : null
-                        : null
-                    }
-                    onClick={() =>
-                      handleAnswerOptionClick(answerOption.isCorrect, ind)
-                    }
-                  >
-                    {answerOption.answerText}
-                  </button>
-                )
-              )}
+            <div className="quiz-section">
+              <div className="responsive">
+                <div className="question-section">
+                  <div className="question-count">
+                    <span>Question {currentQuestion + 1}</span>
+                    <span id="total">/{questions.length}</span>
+                  </div>
+                  <div className="question-text">
+                    {questions[currentQuestion].questionText}
+                  </div>
+                </div>
+                <div className="answer-section">
+                  {questions[currentQuestion].answerOptions.map(
+                    (answerOption, ind) => (
+                      <button
+                        className={
+                          showAns
+                            ? answerOption.isCorrect
+                              ? "correct"
+                              : ind === index
+                              ? "incorrect"
+                              : null
+                            : null
+                        }
+                        onClick={() =>
+                          handleAnswerOptionClick(answerOption.isCorrect, ind)
+                        }
+                      >
+                        {answerOption.answerText}
+                      </button>
+                    )
+                  )}
+                </div>
+              </div>
             </div>
           </div>
-          </div>
-           </div>
         )}
-      
-    </div>
+      </div>
+    </>
   );
 };
 
