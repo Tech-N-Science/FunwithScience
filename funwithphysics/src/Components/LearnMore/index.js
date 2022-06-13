@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import physicssvg from "../../Images/physics-svg.svg"
-import chemsvg from "../../Images/chemistry-svg.svg"
-import mathsvg from "../../Images/maths-svg.svg"
+import physicssvg from "../../Images/physics-svg.svg";
+import chemsvg from "../../Images/chemistry-svg.svg";
+import mathsvg from "../../Images/maths-svg.svg";
 // eslint-disable-next-line
 import { Link } from "react-router-dom";
 import "./styles.css";
+import GoogleAds from "../GoogleAds";
 
 export function LearnMore() {
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
@@ -61,7 +62,7 @@ export function LearnMore() {
                 <span className="explore-btn">
                   Explore
                   <i className="fa fa-compass add-icon" aria-hidden="true"></i>
-                  </span>
+                </span>
               </Link>
               <div className="dropdown-content">
                 <Link to="/maths">Calculator</Link>
@@ -79,7 +80,7 @@ export function LearnMore() {
                 <span className="explore-btn">
                   Explore
                   <i className="fa fa-compass add-icon" aria-hidden="true"></i>
-                  </span>
+                </span>
               </Link>
               <div className="dropdown-content">
                 <Link to="/physics">Calculator</Link>
@@ -97,7 +98,7 @@ export function LearnMore() {
                 <span className="explore-btn">
                   Explore
                   <i className="fa fa-compass add-icon" aria-hidden="true"></i>
-                  </span>
+                </span>
               </Link>
               <div className="dropdown-content">
                 <Link to="/">Calculator</Link>
@@ -107,7 +108,10 @@ export function LearnMore() {
             </div>
           </li>
         </ul>
-        
+        <div className="ad-class">
+          {/* add your slot id  */}
+          <GoogleAds slot="3201757144" />
+        </div>
       </article>
       <hr id="line"></hr>
       <p className="FAQ">Frequently Asked Questions</p>

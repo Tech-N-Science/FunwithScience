@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Quiz.css";
+import { Helmet } from "react-helmet";
 
 const MathsQuiz = () => {
   const questions = [
