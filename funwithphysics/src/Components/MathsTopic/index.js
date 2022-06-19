@@ -148,7 +148,7 @@ function MathsTopic() {
 						</MathsTopicItem> */}
             <div className="ad-class">
               {/* add your slot id  */}
-              <GoogleAds slot="3201757144" />
+              <GoogleAds slot="2585121883" />
             </div>
           </div>
         </div>
