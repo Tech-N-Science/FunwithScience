@@ -7,6 +7,7 @@ import integration from "../../Images/integration.jpg";
 import "./styles.css";
 import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
+import GoogleAds from "../GoogleAds";
 
 function MathsTopicItem(props) {
   return (
@@ -92,6 +93,7 @@ function MathsTopic() {
                 </a>
               </p>
             </MathsTopicItem>
+
             <MathsTopicItem
               name="Geometry"
               link="/geometry"
@@ -144,6 +146,10 @@ function MathsTopic() {
 							<p>Differentiation is a process, in Maths, where we find the instantaneous rate of change in function based on one of its variables. </p>
 						    <p id="credit">Image by <a href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2820682">Gerd Altmann</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2820682">Pixabay</a></p>
 						</MathsTopicItem> */}
+            <div className="ad-class">
+              {/* add your slot id  */}
+              <GoogleAds slot="3201757144" />
+            </div>
           </div>
         </div>
       </div>

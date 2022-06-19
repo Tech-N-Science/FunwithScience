@@ -108,9 +108,13 @@ export function LearnMore() {
             </div>
           </li>
         </ul>
+        {/*<div className="ad-class">
+          {/* add your slot id  
+          <GoogleAds slot="3201757144" />
+        </div>*/}
         <div className="ad-class">
           {/* add your slot id  */}
-          <GoogleAds slot="3201757144" />
+          <GoogleAds slot="7753973497" />
         </div>
       </article>
       <hr id="line"></hr>

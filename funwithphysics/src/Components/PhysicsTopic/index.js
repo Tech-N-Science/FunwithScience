@@ -11,6 +11,7 @@ import statistical from "../../Images/statistical.webp";
 import "./styles.css";
 import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
+import GoogleAds from "../GoogleAds";
 
 function PhysicsTopicItem(props) {
   return (
@@ -60,7 +61,7 @@ function PhysicsTopic() {
               link="/classicalmechanics"
               icon="icon-shop"
               image={classicalMechanics}
-              onClick  = {()=>window.scrollTo(0, 0)}
+              onClick={() => window.scrollTo(0, 0)}
             >
               <p>
                 Classical mechanics is a theory that describes the motion of
@@ -144,6 +145,7 @@ function PhysicsTopic() {
                 </a>
               </p>
             </PhysicsTopicItem>
+
             <PhysicsTopicItem
               name="Atomic physics"
               link="/atomic"
@@ -215,9 +217,7 @@ function PhysicsTopic() {
               link="/statistical"
               icon="icon-world"
               image={statistical}
-            
             >
-           
               <p>
                 General Measurements is a mathematical framework that applies
                 statistical methods and probability theory to large assemblies
