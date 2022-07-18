@@ -126,15 +126,17 @@ const MathsQuiz = () => {
         <h1>Quiz</h1>
 
         {showScore ? (
-          <div>
-            <div className="quiz-section">
-              <div className="score-section">
+          <div className="quiz-section">
+            <div className="score-section">
+              <div className="score-text">
                 You scored {score} out of {questions.length}
               </div>
+              <div className="play-again-btn">
+                <button onClick={()=>replay()} class="btn btn-success">
+                  Play Again
+                </button>
+              </div>
             </div>
-            <button onClick={()=>replay()} class="btn btn-success col-2 mt-4">
-             Play Again
-            </button>
           </div>
         ) : (
           <div className="cardWithTimer">
