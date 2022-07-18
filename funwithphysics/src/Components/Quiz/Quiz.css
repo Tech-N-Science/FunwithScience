@@ -55,6 +55,11 @@
   display: flex;
   font-size: 24px;
   align-items: center;
+  flex-direction: column;
+}
+
+.play-again-btn{
+  margin-top: 60px;
 }
 
 .responsive{

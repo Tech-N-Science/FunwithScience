@@ -160,6 +160,16 @@ const PhysicsQuiz = () => {
   var [selected, setSelected] = useState(false);
   const [timeOut, setTimeOut] = useState(false);
 
+  const replay = () => {
+    setCurrentQuestion(0)
+    setShowScore(false)
+    setshowAns(false)
+    setScore(0)
+    setIndex(-1)
+    setSelected(false)
+    setTimeOut(false)
+  }
+  
   console.log(timeOut); //Added only for removing the warning this can be removed later when this variable is geeting used somewhere
 
   const handleQuestion = () => {
@@ -222,7 +232,14 @@ const PhysicsQuiz = () => {
         {showScore ? (
           <div className="quiz-section">
             <div className="score-section">
-              You scored {score} out of {questions.length}
+              <div className="score-text">
+                You scored {score} out of {questions.length}
+              </div>
+              <div className="play-again-btn">
+                <button onClick={()=>replay()} class="btn btn-success">
+                  Play Again
+                </button>
+              </div>
             </div>
           </div>
         ) : (
