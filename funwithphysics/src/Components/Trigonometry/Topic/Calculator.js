@@ -114,26 +114,35 @@ function Calculator() {
   const TrigonometricFunctions = () => {
     const [result, setResult] = useState(null);
     const [choice, setChoice] = useState("sin");
+    const [unit, setUnit] = useState("degree");
     const [value, setValue] = useState(null);
     function handleChange(e) {
       reset();
       setChoice(e.target.value);
       choiceData();
     }
+
+    function handleUnitChange(e) {
+      reset();
+      setUnit(e.target.value);
+    }
+
     const CalTrigonometryFunctions = () => {
       let res;
+      // Converting value to radians, if unit is degree
+      const expression = unit === "degree"? (value * Math.PI) / 180 : value;
       if (choice === "sin") {
-        res = Math.sin((value * Math.PI) / 180);
+        res = Math.sin(expression);
       } else if (choice === "cos") {
-        res = Math.cos((value * Math.PI) / 180);
+        res = Math.cos(expression);
       } else if (choice === "tan") {
-        res = Math.tan((value * Math.PI) / 180);
+        res = Math.tan(expression);
       } else if (choice === "cosec") {
-        res = Math.cosec((value * Math.PI) / 180);
+        res = Math.cosec(expression);
       } else if (choice === "sec") {
-        res = Math.sec((value * Math.PI) / 180);
+        res = Math.sec(expression);
       } else if (choice === "cot") {
-        res = Math.cot((value * Math.PI) / 180);
+        res = Math.cot(expression);
       }
       setResult(res);
     };
@@ -196,12 +205,23 @@ function Calculator() {
               <br />
             </Form.Text>
           </Form.Group>
+          <Form.Group className="mb-4" controlId="choice">
+            <Form.Label>Select unit</Form.Label>
+            <Form.Control
+              as="select"
+              className="select-custom-res"
+              onChange={(e) => handleUnitChange(e)}
+            >
+              <option value="degree">degree</option>
+              <option value="radian">radian</option>
+            </Form.Control>
+          </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Value of θ </Form.Label>
+            <Form.Label>Value of θ (in {unit})</Form.Label>
             <Form.Control
               onChange={(e) => setValue(e.target.value)}
               type="number"
-              placeholder={"Enter the value of θ"}
+              placeholder={`Enter the value of θ (in ${unit})`}
               value={value === null ? "" : value}
             />
           </Form.Group>
