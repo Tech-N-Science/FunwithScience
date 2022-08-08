@@ -6,6 +6,8 @@ import { LearnMore } from "../LearnMore";
 import { Helmet } from "react-helmet";
 import Navbar from "../Navbar/Navbar";
 import { Context } from "../../App";
+import AboutUsImage from "../../Images/AboutUs-svg.svg";  
+import BrushStroke from "../../Images/brushStroke.png"
 
 const Home = () => {
 
@@ -96,6 +98,33 @@ const bookReaderStyle = {
           </div>
         </div>
       </div>
+
+      {/* About Us Section */}
+      <div>
+        <h3 className="aboutus-header" id="aboutus">
+          About Us
+        </h3>
+        <center>
+          <hr className="aboutus-underline" />
+        </center>
+        <div className="aboutus-container">
+          <div className="aboutus-text-container">
+            <img src={BrushStroke} alt="bg" className="aboutus-textbg-image" />
+            <h4 className="about-us-txt">
+            Welcome to Tech N Science! A place for all science enthusiasts to explore.
+            We, over here at Tech N Science, strive to provide you with various solutions 
+            regarding advanced maths and science problems.
+            From Calculus to Thermodynamics to Periodic Elements and much more. 
+            From Calculations to quizzes to trivias your one-stop solution for all.
+            </h4>
+          </div>
+          <div>
+            <img src={AboutUsImage} alt="about-us" className="aboutus-image" />
+          </div>
+        </div>
+      </div>
+      {/* End of About Us Section */}
+
       <div>
         <h3 className='learn-header' id='learn'>
           Learn

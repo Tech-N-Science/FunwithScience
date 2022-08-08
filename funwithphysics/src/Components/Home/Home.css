@@ -400,3 +400,99 @@ h2 {
       display: flex;
     justify-content: center;
 }
+
+/* Start: CSS styling for About Us section */
+
+.aboutus-header {
+  text-align: center;
+  padding: 5px;
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+.aboutus-underline {
+  width: 10%;
+  border: 0.2px solid red;
+}
+
+.aboutus-container {
+  display: flex;
+  margin: 2rem 10rem;
+  align-items: center;
+}
+
+.aboutus-text-container {
+  margin-right: 5rem;
+  left: -14rem;
+  position: relative;
+  font-style: oblique;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+}
+
+.about-us-txt{
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.aboutus-textbg-image{
+  height: 28rem;
+    width: 62rem;
+}
+
+.aboutus-cta {
+  text-shadow: 2px 2px 4px #A9A9A9;
+  font-size: 40px;
+  color:rgb(24, 54, 121);
+}
+
+.aboutus-image {
+  width: 29rem;
+  height: 17rem;
+  margin-left: -22rem;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(1000%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Styling for Small Laptops, Tablets and Mobiles */
+
+@media (max-width: 1075px) {
+  .aboutus-container {
+    flex-direction: column;
+    margin: 2rem 2rem !important;
+  }
+  .aboutus-text-container {
+    margin: 0 !important;
+    margin-bottom: 2rem !important;
+  }
+  .about-us-txt {
+    font-size: 18px;
+    left: 49rem;
+  }
+  .aboutus-cta {
+    font-size: 24px !important;
+  }
+  .aboutus-image {
+    width: 22rem !important;
+    height: 15rem !important;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+    margin-left: -2rem;
+    margin-top: -5rem;
+  }
+  .aboutus-textbg-image{
+    height: 27rem;
+    width: 38rem;
+    margin-left: 31rem;
+  }
+} 
+
+/* End: CSS Styling for About Us section */
