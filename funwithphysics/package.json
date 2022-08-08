@@ -56,9 +56,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "ssoc-2022",
-  "main": "index.js",
-  "author": "",
-  "license": "ISC"
+  }
 }
