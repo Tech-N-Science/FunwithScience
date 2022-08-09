@@ -3967,7 +3967,7 @@ function Calculator() {
               }
               operations.push(
                 <>
-                  ⇒ R{c + 1} = R{a + 1} *{" "}
+                  ⇒ R{c + 1} = R{c + 1} - R{a + 1} *{" "}
                   {denom == 1 ? (
                     num
                   ) : (
