@@ -580,21 +580,23 @@ function Calculator() {
         <br />,
         <div className="matrix">
           <table>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>7</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>9</td>
-              <td>11</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>7</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>9</td>
+                <td>11</td>
+              </tr>
+            </tbody>
           </table>
         </div>,
         <br />,
@@ -608,21 +610,23 @@ function Calculator() {
         <br />,
         <div className="matrix">
           <table>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>3</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>3</td>
-              <td>2</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>3</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>3</td>
+                <td>2</td>
+              </tr>
+            </tbody>
           </table>
         </div>,
       ],
@@ -634,21 +638,23 @@ function Calculator() {
         <br />,
         <div className="matrix">
           <table>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>3</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>0</td>
-              <td>-2</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>3</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>-2</td>
+              </tr>
+            </tbody>
           </table>
         </div>,
         <br />,
@@ -3881,22 +3887,24 @@ function Calculator() {
         const converToTable = () => {
           return (
             <table>
-              {copy.map((row, idx) => (
-                <tr>
-                  {idx == 0 && <td rowSpan={dim}> {posSign ? "+" : "-"}</td>}
-                  {row.map((val) => (
-                    <td>
-                      {val[1] == 1 ? (
-                        val[0]
-                      ) : (
-                        <>
-                          <sup>{val[0]}</sup>&frasl;<sub>{val[1]}</sub>
-                        </>
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              ))}
+              <tbody>
+                {copy.map((row, idx) => (
+                  <tr>
+                    {idx == 0 && <td rowSpan={dim}> {posSign ? "+" : "-"}</td>}
+                    {row.map((val) => (
+                      <td>
+                        {val[1] == 1 ? (
+                          val[0]
+                        ) : (
+                          <>
+                            <sup>{val[0]}</sup>&frasl;<sub>{val[1]}</sub>
+                          </>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
             </table>
           );
         };
@@ -4091,24 +4099,26 @@ function Calculator() {
           <Modal.Body>
             <center>
               <table>
-                {value.map((field, i) => (
-                  <tr>
-                    {field.map((col, j) => (
-                      <td>
-                        <Form>
-                          <Form.Control
-                            onChange={(e) => {
-                              handleChange(i, j, e);
-                            }}
-                            type="number"
-                            placeholder={"Enter value"}
-                            value={value[i][j] === null ? "" : value[i][j]}
-                          />
-                        </Form>
-                      </td>
-                    ))}
-                  </tr>
-                ))}
+                <tbody>
+                  {value.map((field, i) => (
+                    <tr>
+                      {field.map((col, j) => (
+                        <td>
+                          <Form>
+                            <Form.Control
+                              onChange={(e) => {
+                                handleChange(i, j, e);
+                              }}
+                              type="number"
+                              placeholder={"Enter value"}
+                              value={value[i][j] === null ? "" : value[i][j]}
+                            />
+                          </Form>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             </center>
           </Modal.Body>
