@@ -563,16 +563,16 @@ function Calculator() {
     {
       topic: "Determinants",
       details:
-        "Determinants are the scalar quantities obtained by the sum of products of the elements of a square matrix and their cofactors according to a prescribed rule. They help to find the adjoint, inverse of a matrix. Further to solve the linear equations through the matrix inversion method we need to apply this concept. The cross-product of two vectors is remembered easily through the calculation of determinants.",
+        "A determinant is a scalar value which is obtained using a square matrix. Determinants are used to find adjoint and inverse of a matrix. Other important uses include solving linear equations and capturing linear transformations effects. It is mainly calculated by adding the product of elements and their co-factors.",
       formula: "",
       process: [
-        "1. Set the matrix (must be square)",
+        "1. Set a sqaure matrix.",
         <br />,
         <br />,
-        "2. Reduce this matrix to row echelon form using elementary row operations so that all the elements below diagonal are zero.",
+        "2. Convert the square matrix to row canonical form or a upper triangular form. To do so, one must use elementary row operations.",
         <br />,
         <br />,
-        "3. Multiply the main diagonal elements of the matrix - determinant is calculated.",
+        "3. The final result is calculated by multiplying the main diagonal elements of the matrix.",
       ],
       example1: [
         "Let the given sqaure matrix be : ",

@@ -46,7 +46,7 @@ export default function Algebra() {
     {
       topic: "Determinants",
       details:
-        "Determinants are the scalar quantities obtained by the sum of products of the elements of a square matrix and their cofactors according to a prescribed rule. They help to find the adjoint, inverse of a matrix. Further to solve the linear equations through the matrix inversion method we need to apply this concept. The cross-product of two vectors is remembered easily through the calculation of determinants.",
+        "A determinant is a scalar value which is obtained using a square matrix. Determinants are used to find adjoint and inverse of a matrix. Other important uses include solving linear equations and capturing linear transformations effects. It is mainly calculated by adding the product of elements and their co-factors.",
     },
     {
       topic: "Mathematical Induction",
