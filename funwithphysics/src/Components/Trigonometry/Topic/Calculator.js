@@ -114,23 +114,18 @@ function Calculator() {
   const TrigonometricFunctions = () => {
     const [result, setResult] = useState(null);
     const [choice, setChoice] = useState("sin");
-    const [unit, setUnit] = useState("degree");
-    const [value, setValue] = useState(null);
+    const [degreeValue, setDegreeValue] = useState(null);
+    const [radianValue, setRadianValue] = useState(null);
     function handleChange(e) {
       reset();
       setChoice(e.target.value);
       choiceData();
     }
 
-    function handleUnitChange(e) {
-      reset();
-      setUnit(e.target.value);
-    }
-
     const CalTrigonometryFunctions = () => {
       let res;
-      // Converting value to radians, if unit is degree
-      const expression = unit === "degree"? (value * Math.PI) / 180 : value;
+      // Converting angle from degrees to radians
+      const expression = (degreeValue * Math.PI) / 180;
       if (choice === "sin") {
         res = Math.sin(expression);
       } else if (choice === "cos") {
@@ -144,11 +139,13 @@ function Calculator() {
       } else if (choice === "cot") {
         res = Math.cot(expression);
       }
+      setRadianValue(expression);
       setResult(res);
     };
     function reset() {
       setResult(null);
-      setValue(null);
+      setDegreeValue(null);
+      setRadianValue(null);
     }
     const choiceData = () => {
       if (choice === "sin")
@@ -205,24 +202,21 @@ function Calculator() {
               <br />
             </Form.Text>
           </Form.Group>
-          <Form.Group className="mb-4" controlId="choice">
-            <Form.Label>Select unit</Form.Label>
+          <Form.Group className="mb-4">
+            <Form.Label>Value of θ (in degrees)</Form.Label>
             <Form.Control
-              as="select"
-              className="select-custom-res"
-              onChange={(e) => handleUnitChange(e)}
-            >
-              <option value="degree">degree</option>
-              <option value="radian">radian</option>
-            </Form.Control>
+              onChange={(e) => setDegreeValue(e.target.value)}
+              type="number"
+              placeholder="Enter the value of θ (in degrees)"
+              value={degreeValue === null ? "" : degreeValue}
+            />
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Value of θ (in {unit})</Form.Label>
+            <Form.Label>Value of θ (in radians)</Form.Label>
             <Form.Control
-              onChange={(e) => setValue(e.target.value)}
+              readOnly
               type="number"
-              placeholder={`Enter the value of θ (in ${unit})`}
-              value={value === null ? "" : value}
+              placeholder={radianValue === null ? "Value of θ (in radians)" : radianValue}
             />
           </Form.Group>
           <Form.Group className="mb-4">
