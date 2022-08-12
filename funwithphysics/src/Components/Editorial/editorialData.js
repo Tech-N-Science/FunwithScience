@@ -46,4 +46,70 @@ export const editorialData = [
     ## Therefore, the other two sides of the triangle are 12cm and 5cm.
     `,
   },
+  {
+    type: "physics",
+    id: 8,
+    content: `
+    ### The net charge on the capacitor is always zero because the two plates have the charges +Q and -Q,
+    ### When we say that the charge on the capacitor is Q, we consider the magnitude of the charge.
+    ## Hence the net flux through the closed surface, enclosing the capacitor is zero. [ϕ=Q/ε0=0] gauss's theorem.
+    `,
+  },
+  {
+    type: "physics",
+    id: 9,
+    content: `
+    ### A charge that is moving in a magnetic field experiences a force perpendicular to its own velocity and to the magnetic field.
+    ### So, moving charge will generate a magnetic field.
+    ### Electric field originate from electric charge, or from time-varing magnetic field.
+    ### So, moving charge will generate a electric field.
+    ### Hence, a moving charge produces an electric as well as magnetic field.
+    `,
+  },
+  {
+    type: "physics",
+    id: 10,
+    content: `
+    ### W.C. Röntgen reported the discovery of X-rays in December 1895 after seven weeks of assiduous work during which he had studied the properties of this new type of radiation able to go through screens of notable thickness. He named them X-rays to underline the fact that their nature was unknown.
+    `,
+  },
+  {
+    type: "physics",
+    id: 11,
+    content: `
+    ### Arsenic (As) is a pentavalent impurity. An n-type semiconductor is formed when germanium is doped with pentavalent impurity.
+    `,
+  },
+  {
+    type: "physics",
+    id: 12,
+    content: `
+    ### The atomic number and mass number of a nucleus is defined as the number of protons and the sume of number of protons and neutrons present in the nucleus, respectively. Since in the decay, neither the automic number nor the mass number chnage, it cannot be a beta-decay (release of electron, proton or neutron).
+    ## Hence, the particle emitted can only be a photon.
+    `,
+  },
+  {
+    type: "physics",
+    id: 13,
+    content: `
+    ### When light rays from a distant star pass through the earth's atmosphere, they change their direction continuously due to the varying optical density of the atmosphere. Also the changing physical conditions of the atmosphere affect the amount (brightness) of starlight entering our eyes. Thus, stars appear to twinkle in the night sky.
+    `,
+  },
+  {
+    type: "physics",
+    id: 14,
+    content: `
+    ### The molecules move in all possible directions in an ideal gas at equilibrium. Since momentum is a vector quantity for every direction of motion of the molecules, there exists an opposite direction of motion of the other.
+    ## Hence, the average momentum is zero for an ideal gas at equilibrium.
+    `,
+  },
+  {
+    type: "physics",
+    id: 15,
+    content: `
+    ### Albert Einstein, in his theory of special relativity, determined that the laws of physics are the same for all non-accelerating observers, and he showed that the speed of light within a vacuum is the same no matter the speed at which an observer travels.
+    ### As a result, he found that space and time were interwoven into a single continuum known as space-time. Events that occur at the same time for one observer could occur at different times for another.
+    `,
+  }
+  
 ];
