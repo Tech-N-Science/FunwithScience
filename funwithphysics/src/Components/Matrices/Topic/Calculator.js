@@ -114,6 +114,384 @@ function Calculator() {
         <center>⇒ Δ = 1 x 3 x (-2) = -6 </center>,
       ],
     },
+    {
+      topic: "Inverse of a Matrix",
+      details:
+        "The inverse of a matrix is another matrix which on multiplication with the given matrix gives the multiplicative identity. The matrix whose determinant is non-zero and for which the inverse matrix can be calculated is called an invertible matrix.",
+      formula: (
+        <>
+          A · A<sup>-1</sup> = A<sup>-1</sup>· A = I,
+          <br />
+          where I is an identity matrix{" "}
+        </>
+      ),
+      process: [
+        "We would be finding inverse of a matrix using Gauss-Jordan elimination method :",
+        <br />,
+        <br />,
+        "1) Set a square matrix. Append identity matrix of the same dimension to its right",
+        <br />,
+        "2) Reduce the matrix on the left to identity matrix using elementary row operations for the whole matrix",
+        <br />,
+        "3) Inverse of the matrix will be the matrix on the right",
+      ],
+      example1: [
+        "Let the given sqaure matrix be : ",
+        <br />,
+        <br />,
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>7</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>9</td>
+                <td>11</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        "1) Determinant of matrix, Δ = -6.  Δ ≠ 0, hence inverse exists.",
+        <br />,
+        <br />,
+        "2) Set the augmented matrix :",
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>7</td>
+                <td>10</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>9</td>
+                <td>11</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        "3) Make the element in the 1st col except 1st element 0",
+        <br />,
+        "⇒ R2 = R2 - 2 * R1",
+        <br />,
+        "⇒ R3 = R3 - 3 * R1",
+        <br />,
+        <br />,
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>3</td>
+                <td>4</td>
+                <td>-2</td>
+                <td>1</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>3</td>
+                <td>2</td>
+                <td>-3</td>
+                <td>0</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        "4) Make the pivot element of 2nd col 1",
+        <br />,
+        <>
+          ⇒ R2 = R2 * <sup>1</sup>&frasl;<sub>3</sub>
+        </>,
+        <br />,
+        <br />,
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>
+                  <sup>4</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>-2</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>3</td>
+                <td>2</td>
+                <td>-3</td>
+                <td>0</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+      ],
+      example2: [
+        "5) Make the element of 2nd col 0 except 2nd element",
+        <br />,
+        "⇒ R1 = R1 - 2 * R2",
+        <br />,
+        "⇒ R3 = R3 - 3 * R2",
+        <br />,
+        <br />,
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>7</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>-2</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>
+                  <sup>4</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>-2</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>-2</td>
+                <td>-1</td>
+                <td>-1</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        "6) Make the pivot element of 3nd col 1",
+        <br />,
+        <>
+          ⇒ R3 = R3 * <sup>-1</sup>&frasl;<sub>2</sub>
+        </>,
+        <br />,
+        <br />,
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>7</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>-2</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>
+                  <sup>4</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>-2</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>
+                  <sup>-1</sup>&frasl;<sub>2</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        "7) Make the element of 3rd col 0 except 3rd element",
+        <br />,
+        <>
+          ⇒ R1 = R1 - <sup>1</sup>&frasl;<sub>3</sub> * R3
+        </>,
+        <br />,
+        <>
+          ⇒ R2 = R2 - <sup>4</sup>&frasl;<sub>3</sub> * R3
+        </>,
+        <br />,
+        <br />,
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>
+                  <sup>13</sup>&frasl;<sub>6</sub>
+                </td>
+                <td>
+                  <sup>-5</sup>&frasl;<sub>6</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>6</sub>
+                </td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>
+                  <sup>-4</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>-1</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>2</sup>&frasl;<sub>3</sub>
+                </td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>
+                  <sup>-1</sup>&frasl;<sub>2</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        <center>
+          ⇒ Inverse of the given matrix :
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <sup>13</sup>&frasl;<sub>6</sub>
+                </td>
+                <td>
+                  <sup>-5</sup>&frasl;<sub>6</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>6</sub>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <sup>-4</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>-1</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>2</sup>&frasl;<sub>3</sub>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>
+                  <sup>-1</sup>&frasl;<sub>2</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </center>,
+      ],
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
@@ -615,12 +993,518 @@ function Calculator() {
     );
   };
 
+  const inverseCalculator = () => {
+    const [x, setx] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [showError, setShowError] = useState(false);
+    const [value, setValue] = useState([[]]);
+    const [fractions, setFractions] = useState([[[]]]);
+    const [givenMat, setMat] = useState([[[]]]);
+    const [answer, setAnswer] = useState(null);
+    const [result, setResult] = useState(null);
+
+    // scrolls to apt postion whenever our result gets updates
+    useEffect(() => {
+      console.log(ref.current);
+      var element = ref.current;
+      var header = document.getElementById("targetElement");
+      console.log(header);
+      var elementPosition = element.getBoundingClientRect().top;
+      var offsetPosition = elementPosition + window.pageYOffset;
+      window.scrollTo({
+        top: offsetPosition,
+      });
+    }, [answer]);
+
+    // adds proper suffix (th, nd, rd, st) tp the numbers
+    const addSuffix = (number) => {
+      if (number >= 11 && number <= 19) {
+        return "th";
+      }
+
+      if (number % 10 == 1) {
+        return "st";
+      }
+
+      if (number % 10 == 2) {
+        return "nd";
+      }
+
+      if (number % 10 == 3) {
+        return "rd";
+      }
+
+      return "th";
+    };
+
+    //resets everything to original state
+    const reset = () => {
+      setx(null);
+      setAnswer(null);
+      setResult(null);
+    };
+
+    //function to find highest common factor
+    const hcf = (x, y) => {
+      if (x % y == 0) {
+        return y;
+      }
+
+      return hcf(y, x % y);
+    };
+
+    //initialisation wrt to dimension added by user
+    const setMatrix = () => {
+      if (x == null || x === 0) {
+        setShowError(true);
+        return;
+      }
+
+      let dim = parseInt(x);
+      let bigDim = 2 * dim;
+      let board = Array(dim)
+        .fill(0)
+        .map((row) => new Array(dim).fill(null));
+      setValue(board);
+      let fracBoard = Array(dim)
+        .fill(0)
+        .map((row) =>
+          new Array(bigDim).fill(0).map((r) => new Array(2).fill(null))
+        );
+      let givMat = Array(dim)
+        .fill(0)
+        .map((row) =>
+          new Array(dim).fill(0).map((r) => new Array(2).fill(null))
+        );
+      setFractions(fracBoard);
+      setMat(givMat);
+      setShowModal(true);
+    };
+
+    const calculateResult = () => {
+      let dim = parseInt(x);
+      var isComplete = true;
+      var posSign = true;
+
+      const handleFractionChange = (row, column, num, denom) => {
+        let copy = [...fractions];
+        copy[row][column][0] = num;
+        copy[row][column][1] = denom;
+        setFractions(copy);
+      };
+
+      const handleMatChange = (row, col, num, denom) => {
+        let copy2 = [...givenMat];
+        copy2[row][col][0] = num;
+        copy2[row][col][1] = denom;
+        setFractions(copy2);
+      };
+
+      const algorithm = () => {
+        let copy = [...fractions];
+        let copy2 = [...givenMat];
+        let ans = [];
+        let dim = parseInt(x);
+
+        //row operation between two rows, where num and den denote numerator and denominator of the number we wish to multiply with row r1
+        const rowOperation = (r1, r2, num, den) => {
+          for (var c = 0; c < dim; c++) {
+            if (copy2[r1][c][0] === 0) {
+              continue;
+            }
+
+            var newNum1 = copy2[r1][c][0] * num;
+            var newDen1 = copy2[r1][c][1] * den;
+
+            var newNum2 = copy2[r2][c][0] * newDen1;
+            var newDen = copy2[r2][c][1] * newDen1;
+
+            newNum1 *= copy2[r2][c][1];
+
+            var newNum = newNum2 - newNum1;
+            if (newNum == 0) {
+              newDen = 1;
+            } else {
+              var Hcf = hcf(newNum, newDen);
+              newNum /= Hcf;
+              newDen /= Hcf;
+            }
+
+            var neg = false;
+            if (newNum < 0 && newDen < 0) {
+            } else if (newNum < 0 || newDen < 0) {
+              neg = true;
+            }
+
+            newNum = Math.abs(newNum);
+            newDen = Math.abs(newDen);
+
+            if (neg) {
+              newNum *= -1;
+            }
+
+            copy2[r2][c][0] = newNum;
+            copy2[r2][c][1] = newDen;
+          }
+        };
+
+        //swaps row of matrix
+        const swapRow = (r1, r2) => {
+          let row1 = copy[r1];
+          copy2[r1] = copy[r2];
+          copy2[r2] = row1;
+        };
+
+        const calculateDeterminant = () => {
+          for (let a = 0; a < dim; a++) {
+            var swap = false;
+            var newRow = -1;
+            if (copy2[a][a][0] === 0) {
+              for (let b = a + 1; b < dim; b++) {
+                if (copy2[b][a][0] != 0) {
+                  swap = true;
+                  newRow = b;
+                  break;
+                }
+              }
+            }
+
+            if (swap) {
+              swapRow(a, newRow);
+              posSign = !posSign;
+            }
+
+            for (let c = a + 1; c < dim; c++) {
+              if (copy2[c][a][0] != 0) {
+                // console.log(copy[c][a][0], copy[a][a][1]);
+                var num = copy2[c][a][0] * copy2[a][a][1];
+                var denom = copy2[c][a][1] * copy2[a][a][0];
+                var neg = false;
+                if (num < 0 && denom < 0) {
+                } else if (num < 0 || denom < 0) {
+                  neg = true;
+                }
+
+                num = Math.abs(num);
+                denom = Math.abs(denom);
+                var HCF = hcf(denom, num);
+                denom /= HCF;
+                num /= HCF;
+
+                if (neg) {
+                  num *= -1;
+                }
+                rowOperation(a, c, num, denom);
+              }
+            }
+          }
+
+          var resNum = posSign ? 1 : -1;
+          var resDen = 1;
+
+          for (let a = 0; a < dim; a++) {
+            resNum *= copy2[a][a][0];
+            resDen *= copy2[a][a][1];
+          }
+
+          if (resNum / resDen == 0) {
+            ans.push(
+              <h6>Determinant of matrix, Δ = 0, hence inverse doesn't exist</h6>
+            );
+            setResult(<h2>Inverse doesn't exist!</h2>);
+            setAnswer(ans);
+            return false;
+          } else {
+            ans.push(
+              <h6>
+                Determinant of matrix, Δ = {resNum / resDen}. Δ ≠ 0, hence
+                inverse exists
+              </h6>
+            );
+            return true;
+          }
+        };
+
+        const makeOriginalTable = () => {
+          return (
+            <table>
+              <tbody>
+                {givenMat.map((row, idx) => (
+                  <tr>
+                    {row.map((val) => (
+                      <td>
+                        {val[1] == 1 ? (
+                          val[0]
+                        ) : (
+                          <>
+                            <sup>{val[0]}</sup>&frasl;<sub>{val[1]}</sub>
+                          </>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          );
+        };
+
+        const converToTable = () => {
+          return (
+            <table>
+              <tbody>
+                {copy.map((row, idx) => (
+                  <tr>
+                    {row.map((val) => (
+                      <td>
+                        {val[1] == 1 ? (
+                          val[0]
+                        ) : (
+                          <>
+                            <sup>{val[0]}</sup>&frasl;<sub>{val[1]}</sub>
+                          </>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          );
+        };
+
+        ans.push(<h6>Given matrix : </h6>);
+        ans.push(makeOriginalTable());
+        ans.push(<br />);
+        ans.push(<br />);
+        if (!calculateDeterminant()) {
+          return;
+        }
+        ans.push(<br />);
+        ans.push(converToTable());
+        ans.push(<br />);
+
+        setResult(0);
+        setAnswer(ans);
+      };
+
+      //checking if all inputs are set, and calling relevant functions
+      for (var i = 0; i < dim; i++) {
+        for (var j = 0; j < dim; j++) {
+          if (value[i][j] === null) {
+            isComplete = false;
+            break;
+          }
+
+          var n = value[i][j].split(".");
+          var denominator = n.length == 1 ? 1 : Math.pow(10, n[1].length);
+          var numerator =
+            n.length == 1 ? parseInt(n[0]) : parseInt(n[0] + n[1]);
+          if (numerator == 0) {
+            denominator = 1;
+            numerator = 0;
+          } else {
+            var HCF = hcf(denominator, numerator);
+            denominator /= HCF;
+            numerator /= HCF;
+          }
+
+          handleMatChange(i, j, numerator, denominator);
+          handleFractionChange(i, j, numerator, denominator);
+        }
+      }
+
+      if (!isComplete) {
+        setShowError(true);
+        return;
+      }
+
+      for (var i = 0; i < dim; i++) {
+        for (var j = 0; j < dim; j++) {
+          if (i == j) {
+            handleFractionChange(i, j + dim, 1, 1);
+          } else {
+            handleFractionChange(i, j + dim, 0, 1);
+          }
+        }
+      }
+
+      algorithm();
+      setShowModal(false);
+    };
+
+    //creating table displayed to user to enter values
+    const makeTable = () => {
+      const handleChange = (row, column, event) => {
+        let copy = [...value];
+        copy[row][column] = event.target.value;
+        setValue(copy);
+      };
+
+      return (
+        <>
+          <Modal.Body>
+            <center>
+              <table>
+                <tbody>
+                  {value.map((field, i) => (
+                    <tr>
+                      {field.map((col, j) => (
+                        <td>
+                          <Form>
+                            <Form.Control
+                              onChange={(e) => {
+                                handleChange(i, j, e);
+                              }}
+                              type="number"
+                              placeholder={"Enter value"}
+                              value={value[i][j] === null ? "" : value[i][j]}
+                            />
+                          </Form>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </center>
+          </Modal.Body>
+          <Modal.Footer>
+            <center>
+              <div
+                style={{
+                  display: "flex",
+                }}
+              >
+                <Button variant="primary" onClick={calculateResult}>
+                  Calculate
+                </Button>
+                &nbsp;&nbsp;&nbsp;
+                <Button
+                  variant="dark"
+                  onClick={() => {
+                    setShowModal(false);
+                  }}
+                  type="reset"
+                >
+                  Close
+                </Button>
+              </div>
+            </center>
+          </Modal.Footer>
+        </>
+      );
+    };
+
+    //main UI component
+    return (
+      <div>
+        <Modal show={showError} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowError(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        <Modal
+          dialogClassName="myModal"
+          show={showModal}
+          class="modal-dialog modal-dialog-centered"
+          aria-labelledby="contained-modal-title-vcenter"
+          onHide={() => {
+            setShowModal(false);
+          }}
+          backdrop="static"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title style={{ minWidth: "80vw", textAlign: "center" }}>
+              Set Matrix
+            </Modal.Title>
+          </Modal.Header>
+          {showModal && makeTable()}
+        </Modal>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                Enter dimension of square matrix, and then set the matrix to
+                calculate its determinant.
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter dimension of the matrix</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                if (e.target.value == "" || e.target.value == "0") {
+                  setx(null);
+                } else {
+                  var isNumber = true;
+                  for (var ch in e.target.value) {
+                    if (e.target.value[ch] < "0" || e.target.value[ch] > "9") {
+                      isNumber = false;
+                      break;
+                    }
+                  }
+                  if (isNumber) {
+                    setx(e.target.value);
+                  }
+                }
+              }}
+              placeholder={"Enter dimension"}
+              min="0"
+              value={x === null ? "" : x}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={setMatrix}>
+            Set Matrix
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+        <div ref={ref}>
+          {answer != null ? (
+            <>
+              <br />
+              <br />
+              <h3>Solution</h3>
+              <br />
+              <center>
+                <h4>{result}</h4>
+                <br />
+                <br />
+                {answer}
+              </center>
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
     switch (key) {
       case "Determinants":
         currentCall = determinantCalculator();
+        break;
+      case "Inverse of a Matrix":
+        currentCall = inverseCalculator();
         break;
       default:
         break;

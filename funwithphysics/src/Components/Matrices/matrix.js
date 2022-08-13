@@ -12,6 +12,11 @@ export default function Matrices() {
       details:
         "A determinant is a scalar value which is obtained using a square matrix. Determinants are used to find adjoint and inverse of a matrix. Other important uses include solving linear equations and capturing linear transformations effects. It is mainly calculated by adding the product of elements and their co-factors.",
     },
+    {
+      topic: "Inverse of a Matrix",
+      details:
+        "The inverse of a matrix is another matrix which on multiplication with the given matrix gives the multiplicative identity. . The matrix whose determinant is non-zero and for which the inverse matrix can be calculated is called an invertible matrix.",
+    },
   ];
 
   return (
