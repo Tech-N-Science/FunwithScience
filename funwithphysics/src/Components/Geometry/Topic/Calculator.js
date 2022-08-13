@@ -435,10 +435,10 @@ function Calculator() {
               />
               <br />
               <br />
-              <Button onClick={plotGraph}>Plot Graph</Button>
-              <br />
-              <br />
               <div id="graph"></div>
+              <br />
+              <br />
+              <Button onClick={plotGraph}>Plot Graph</Button>
             </Form.Group>
           ) : null}
 
@@ -722,6 +722,7 @@ function Calculator() {
       setResult(null);
       setShowSolution(false);
       setShowSolution2(false);
+      setPlots(false);
     };
 
     const calcParabola = () => {
@@ -851,11 +852,13 @@ function Calculator() {
               />
               <br />
               <br />
-              <Button onClick={plotGraph}>Plot Graphs</Button>
               <div id="graphX"></div>
               <br />
               <br />
               <div id="graphY"></div>
+              <br />
+              <br />
+              <Button onClick={plotGraph}>Plot Graphs</Button>
             </Form.Group>
           ) : null}
           <div className="input-group mb-4">
@@ -1102,21 +1105,27 @@ function Calculator() {
       let b = (parseInt(v4) - parseInt(v2)) / 2;
       let c = (parseInt(v2) + parseInt(v4)) / 2;
 
-      var eqn = "sqrt(((1-((x-(";
-      eqn +=
+      let majorAxis = false;
+
+      if (v2 === 0 && v4 === 0 && c2 === 0 && c4 === 0) {
+        majorAxis = true;
+      }
+
+      const a_ = majorAxis ? Math.abs(v1) : (v4 - v2) / 2;
+      const c_ = majorAxis ? Math.abs(c1) : c4 - b;
+      const [aSquare, cSquare] = [a_ * a_, c_ * c_];
+      const bSquare = aSquare - cSquare;
+
+      var eqn =
+        "sqrt((1-((x-(" +
         a +
-        "))^2)/((" +
-        b +
-        ")^2)))*(((" +
-        b +
-        ")^2)-(" +
-        c4 +
-        "-(" +
-        c +
-        "))^2))+(" +
+        "))^2)/(" +
+        aSquare +
+        "))*(" +
+        bSquare +
+        "))+(" +
         c +
         ")";
-      console.log(eqn);
 
       var eqn2 = "-" + eqn;
 
@@ -1149,21 +1158,28 @@ function Calculator() {
       let a = (parseInt(v1) + parseInt(v3)) / 2;
       let b = (parseInt(v4) - parseInt(v2)) / 2;
       let c = (parseInt(v2) + parseInt(v4)) / 2;
-      var eqn = "sqrt((1-(((x-(";
-      eqn +=
+
+      let majorAxis = false;
+
+      if (v2 === 0 && v4 === 0 && c2 === 0 && c4 === 0) {
+        majorAxis = true;
+      }
+
+      const a_ = majorAxis ? Math.abs(v1) : (v4 - v2) / 2;
+      const c_ = majorAxis ? Math.abs(c1) : c4 - b;
+      const [aSquare, cSquare] = [a_ * a_, c_ * c_];
+      const bSquare = aSquare - cSquare;
+
+      var eqn =
+        "sqrt((1-((x-(" +
         a +
-        "))^2)/(((" +
-        b +
-        ")^2)-(" +
-        c4 +
-        "-(" +
-        c +
-        "))^2))*((" +
-        b +
-        ")^2)))+(" +
+        "))^2)/(" +
+        bSquare +
+        "))*(" +
+        aSquare +
+        "))+(" +
         c +
         ")";
-      console.log(eqn);
 
       var eqn2 = "-" + eqn;
 
@@ -1253,6 +1269,7 @@ function Calculator() {
       setC2("");
       setC3("");
       setC4("");
+      setPlots(false);
 
       setResult(null);
       setShowSolution(false);
@@ -1338,7 +1355,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setV1(e.target.value)}
                       value={v1}
@@ -1351,7 +1369,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setV2(e.target.value)}
                       value={v2}
@@ -1366,7 +1385,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={v3}
                       onChange={(e) => setV3(e.target.value)}
@@ -1379,7 +1399,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={v4}
                       onChange={(e) => setV4(e.target.value)}
@@ -1394,7 +1415,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setC1(e.target.value)}
                       value={c1}
@@ -1407,7 +1429,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setC2(e.target.value)}
                       value={c2}
@@ -1422,7 +1445,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={c3}
                       onChange={(e) => setC3(e.target.value)}
@@ -1435,7 +1459,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={c4}
                       onChange={(e) => setC4(e.target.value)}
@@ -1471,11 +1496,12 @@ function Calculator() {
               />
               <br />
               <br />
-              <Button onClick={plotGraph}>Plot Graphs</Button>
               <div id="graphX"></div>
               <br />
               <br />
               <div id="graphY"></div>
+              <br />
+              <Button onClick={plotGraph}>Plot Graphs</Button>{" "}
             </Form.Group>
           ) : null}
 
@@ -1654,6 +1680,54 @@ function Calculator() {
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
+    const [plots, setPlots] = useState(false);
+    const [w, h] = useWindowSize();
+
+    useEffect(
+      () => {
+        if (plots) {
+          plotGraph();
+        }
+      },
+      [w],
+      [h]
+    );
+
+    useEffect(() => {
+      if (showSolution && plots) {
+        plotGraph();
+      }
+    }, [result]);
+
+    const plotGraph = () => {
+      setPlots(true);
+
+      var eqn = "sqrt(((" + r1 + ")^2)-((x-(" + h1 + "))^2)) + (" + k1 + ")";
+      var eqn2 = "-" + eqn;
+      let width = w * 0.7;
+      let height = h * 0.5;
+
+      functionPlot({
+        target: "#graph",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: eqn,
+          },
+          {
+            fn: eqn2,
+          },
+        ],
+      });
+    };
 
     const givenValues = {
       h_: h1,
@@ -1667,6 +1741,7 @@ function Calculator() {
       setH1("");
       setK1("");
       setR1("");
+      setPlots(false);
 
       setResult(null);
       setShowSolution(false);
@@ -1718,7 +1793,8 @@ function Calculator() {
                     <label>h</label>
                     <input
                       name="h1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setH1(e.target.value)}
                       value={h1}
@@ -1729,7 +1805,8 @@ function Calculator() {
                     <label>k</label>
                     <input
                       name="k1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setK1(e.target.value)}
                       value={k1}
@@ -1742,6 +1819,8 @@ function Calculator() {
                     <label>r</label>
                     <input
                       name="r1"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={r1}
                       onChange={(e) => setR1(e.target.value)}
@@ -1762,6 +1841,12 @@ function Calculator() {
                 result={result}
                 // constants={constants}
               />
+              <br />
+              <br />
+              <div id="graph"></div>
+              <br />
+              <br />
+              <Button onClick={plotGraph}>Plot Graph</Button>
             </Form.Group>
           ) : null}
 
@@ -1942,6 +2027,116 @@ function Calculator() {
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
     const [showSolution2, setShowSolution2] = useState(false);
+    const [plots, setPlots] = useState(false);
+    const [W, H] = useWindowSize();
+
+    useEffect(
+      () => {
+        if (plots) {
+          plotGraph();
+        }
+      },
+      [W],
+      [H]
+    );
+
+    useEffect(() => {
+      if (showSolution && plots) {
+        plotGraph();
+      }
+    }, [result]);
+
+    const plotGraph = () => {
+      setPlots(true);
+      plotGraphX();
+      plotGraphY();
+    };
+
+    const plotGraphX = () => {
+      let a = (parseInt(v11) + parseInt(v31)) / 2;
+      let b = (parseInt(v41) - parseInt(v21)) / 2;
+      let c = (parseInt(v21) + parseInt(v41)) / 2;
+
+      let majorAxis = false;
+
+      if (v21 === 0 && v41 === 0 && c21 === 0 && c41 === 0) {
+        majorAxis = true;
+      }
+      const a_ = majorAxis ? Math.abs(v11) : (v11 - v31) / 2;
+      const c_ = majorAxis ? Math.abs(v11) : c31 - a;
+      const [aSquare, cSquare] = [a_ * a_, c_ * c_];
+      const bSquare = cSquare - aSquare;
+
+      var eqn = "sqrt(((((x-(";
+      eqn += a + "))^2)/((" + a_ + ")^2))-1)*((" + bSquare + ")))+(" + c + ")";
+      console.log(eqn);
+      var eqn2 = "-" + eqn;
+      let width = W * 0.7;
+      let height = H * 0.5;
+      functionPlot({
+        target: "#graphX",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: eqn,
+          },
+          {
+            fn: eqn2,
+          },
+        ],
+      });
+    };
+
+    const plotGraphY = () => {
+      let a = (parseInt(v11) + parseInt(v31)) / 2;
+      let b = (parseInt(v41) - parseInt(v21)) / 2;
+      let c = (parseInt(v21) + parseInt(v41)) / 2;
+
+      let majorAxis = false;
+
+      if (v21 === 0 && v41 === 0 && c21 === 0 && c41 === 0) {
+        majorAxis = true;
+      }
+      const a_ = majorAxis ? Math.abs(v11) : (v11 - v31) / 2;
+      const c_ = majorAxis ? Math.abs(v11) : c31 - a;
+      const [aSquare, cSquare] = [a_ * a_, c_ * c_];
+      const bSquare = cSquare - aSquare;
+
+      var eqn = "sqrt(((((x-(";
+      eqn += a + "))^2)/(" + bSquare + "))+1)*((" + aSquare + ")))+(" + c + ")";
+      console.log(eqn);
+      var eqn2 = "-" + eqn;
+      let width = W * 0.7;
+      let height = H * 0.5;
+      functionPlot({
+        target: "#graphY",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: eqn,
+          },
+          {
+            fn: eqn2,
+          },
+        ],
+      });
+    };
 
     const givenValues = {
       vertice1: v11,
@@ -2095,7 +2290,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setV11(e.target.value)}
                       value={v11}
@@ -2108,7 +2304,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setV21(e.target.value)}
                       value={v21}
@@ -2123,7 +2320,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={v31}
                       onChange={(e) => setV31(e.target.value)}
@@ -2136,7 +2334,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={v41}
                       onChange={(e) => setV41(e.target.value)}
@@ -2151,7 +2350,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setC11(e.target.value)}
                       value={c11}
@@ -2164,7 +2364,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setC21(e.target.value)}
                       value={c21}
@@ -2179,7 +2380,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={c31}
                       onChange={(e) => setC31(e.target.value)}
@@ -2192,7 +2394,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={c41}
                       onChange={(e) => setC41(e.target.value)}
@@ -2226,6 +2429,14 @@ function Calculator() {
                 result={result[1]}
                 // constants={constants}
               />
+              <br />
+              <br />
+              <div id="graphX"></div>
+              <br />
+              <br />
+              <div id="graphY"></div>
+              <br />
+              <Button onClick={plotGraph}>Plot Graphs</Button>
             </Form.Group>
           ) : null}
 
