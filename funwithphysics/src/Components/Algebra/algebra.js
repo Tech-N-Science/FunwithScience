@@ -44,11 +44,6 @@ export default function Algebra() {
         "The binomial theorem states the principle for expanding the algebraic expression (x + y)<sup>n</sup> and expresses it as a sum of the terms involving individual exponents of variables x and y.",
     },
     {
-      topic: "Determinants",
-      details:
-        "A determinant is a scalar value which is obtained using a square matrix. Determinants are used to find adjoint and inverse of a matrix. Other important uses include solving linear equations and capturing linear transformations effects. It is mainly calculated by adding the product of elements and their co-factors.",
-    },
-    {
       topic: "Mathematical Induction",
       details: [
         `Mathematical Induction is a technique to prove the given statement/Formula (p(n)) is true for every possible value of the variable in the statement that is based on any specified set of values for example a set of all natural numbers N.`,

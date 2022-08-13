@@ -4,6 +4,7 @@ import algebra from "../../Images/algebra.webp";
 import trigonometry from "../../Images/trigonometry.jpg";
 import geometry from "../../Images/geometry.webp";
 import integration from "../../Images/integration.jpg";
+import matrix from "../../Images/Matrix.png";
 import "./styles.css";
 import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
@@ -130,6 +131,28 @@ function MathsTopic() {
                 Integration is a method of determining the whole by adding the
                 parts. Differentiation is a method for calculating the
                 derivative of a function.
+              </p>
+              <p id="credit">
+                Photo by{" "}
+                <a href="https://unsplash.com/@jeswinthomas?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                  Jeswin Thomas
+                </a>{" "}
+                on{" "}
+                <a href="https://unsplash.com/s/photos/maths?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                  Unsplash
+                </a>
+              </p>
+            </MathsTopicItem>
+            <MathsTopicItem
+              name="Matrices"
+              link="/matrices"
+              icon="icon-home-outline"
+              image={matrix}
+            >
+              <p>
+                Matrices have wide range of applications in various branches
+                including mathematics. It is a set of numbers arranged in rows
+                and columns and thus represents a rectangular array{" "}
               </p>
               <p id="credit">
                 Photo by{" "}
