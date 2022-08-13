@@ -225,6 +225,7 @@ function Calculator() {
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
+  //function responsible for notifying change in dimensions of webpage
   function useWindowSize() {
     const [size, setSize] = useState([0, 0]);
     useLayoutEffect(() => {
@@ -250,6 +251,7 @@ function Calculator() {
     const [plots, setPlots] = useState(false);
     const [w, h] = useWindowSize();
 
+    //changes dimensions of graph, whenever dimenion of window changes
     useEffect(
       () => {
         if (plots) {
@@ -260,12 +262,14 @@ function Calculator() {
       [h]
     );
 
+    //re-plots graph when new equation calculated
     useEffect(() => {
       if (showSolution && plots) {
         plotGraph();
       }
     }, [result]);
 
+    //main-function responsible for plotting graph
     const plotGraph = () => {
       setPlots(true);
 
@@ -586,6 +590,7 @@ function Calculator() {
     const [plots, setPlots] = useState(false);
     const [W, H] = useWindowSize();
 
+    //changes dimensions of graph, whenever dimenion of window changes
     useEffect(
       () => {
         if (plots) {
@@ -596,18 +601,21 @@ function Calculator() {
       [H]
     );
 
+    //re-plots graph when new equation calculated
     useEffect(() => {
       if (showSolution && plots) {
         plotGraph();
       }
     }, [result]);
 
+    //plots graphs
     const plotGraph = () => {
       setPlots(true);
       plotGraphX();
       plotGraphY();
     };
 
+    //plots graph with y = 4ax^2 type equation
     const plotGraphX = () => {
       var eqn = "" + a + "*((x";
       if (h < 0 || h == 0) {
@@ -646,6 +654,7 @@ function Calculator() {
       });
     };
 
+    //plots graph with x = 4ay^2 type equation
     const plotGraphY = () => {
       var eqn = "sqrt" + "((x";
       if (h < 0 || h == 0) {
@@ -1078,6 +1087,7 @@ function Calculator() {
     const [plots, setPlots] = useState(false);
     const [W, H] = useWindowSize();
 
+    //changes dimensions of graph, whenever dimenion of window changes
     useEffect(
       () => {
         if (plots) {
@@ -1088,18 +1098,21 @@ function Calculator() {
       [H]
     );
 
+    //re-plots graph when new equation calculated
     useEffect(() => {
       if (showSolution && plots) {
         plotGraph();
       }
     }, [result]);
 
+    //plotd graph
     const plotGraph = () => {
       setPlots(true);
       plotGraphX();
       plotGraphY();
     };
 
+    //plots graph with eqn x^2/a^2 + y^2/b^2 = 1 type equation
     const plotGraphX = () => {
       let a = (parseInt(v1) + parseInt(v3)) / 2;
       let b = (parseInt(v4) - parseInt(v2)) / 2;
@@ -1154,6 +1167,7 @@ function Calculator() {
       });
     };
 
+    //plots graph with x^2/b^2 + y^2/a^2 = 1 type equation
     const plotGraphY = () => {
       let a = (parseInt(v1) + parseInt(v3)) / 2;
       let b = (parseInt(v4) - parseInt(v2)) / 2;
@@ -1683,22 +1697,25 @@ function Calculator() {
     const [plots, setPlots] = useState(false);
     const [w, h] = useWindowSize();
 
+    //changes dimensions of graph, whenever dimenion of window changes
     useEffect(
       () => {
         if (plots) {
           plotGraph();
         }
       },
-      [w],
-      [h]
+      [W],
+      [H]
     );
 
+    //re-plots graph when new equation calculated
     useEffect(() => {
       if (showSolution && plots) {
         plotGraph();
       }
     }, [result]);
 
+    //main function to plot circle
     const plotGraph = () => {
       setPlots(true);
 
@@ -2030,6 +2047,7 @@ function Calculator() {
     const [plots, setPlots] = useState(false);
     const [W, H] = useWindowSize();
 
+    //changes dimensions of graph, whenever dimenion of window changes
     useEffect(
       () => {
         if (plots) {
@@ -2040,18 +2058,21 @@ function Calculator() {
       [H]
     );
 
+    //re-plots graph when new equation calculated
     useEffect(() => {
       if (showSolution && plots) {
         plotGraph();
       }
     }, [result]);
 
+    //plots graph
     const plotGraph = () => {
       setPlots(true);
       plotGraphX();
       plotGraphY();
     };
 
+    //plots graph with eqn x^2/a^2 - y^2/b^2 = 1
     const plotGraphX = () => {
       let a = (parseInt(v11) + parseInt(v31)) / 2;
       let b = (parseInt(v41) - parseInt(v21)) / 2;
@@ -2095,6 +2116,7 @@ function Calculator() {
       });
     };
 
+    //plots graph with eqn y^2/a^2 - x^2/b^2 = 1
     const plotGraphY = () => {
       let a = (parseInt(v11) + parseInt(v31)) / 2;
       let b = (parseInt(v41) - parseInt(v21)) / 2;
