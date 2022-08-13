@@ -1105,21 +1105,57 @@ function Calculator() {
         let copy2 = [...givenMat];
         let ans = [];
         let dim = parseInt(x);
+        let bigDim = dim * 2;
 
-        //row operation between two rows, where num and den denote numerator and denominator of the number we wish to multiply with row r1
-        const rowOperation = (r1, r2, num, den) => {
-          for (var c = 0; c < dim; c++) {
-            if (copy2[r1][c][0] === 0) {
+        const mulRow = (mat, r1, num, den, DIM) => {
+          for (let c = 0; c < DIM; c++) {
+            if (mat[r1][c][0] === 0) {
               continue;
             }
 
-            var newNum1 = copy2[r1][c][0] * num;
-            var newDen1 = copy2[r1][c][1] * den;
+            var newNum = mat[r1][c][0] * num;
+            var newDen = mat[r1][c][1] * den;
 
-            var newNum2 = copy2[r2][c][0] * newDen1;
-            var newDen = copy2[r2][c][1] * newDen1;
+            if (newNum == 0) {
+              newDen = 1;
+            } else {
+              var Hcf = hcf(newNum, newDen);
+              newNum /= Hcf;
+              newDen /= Hcf;
+            }
 
-            newNum1 *= copy2[r2][c][1];
+            var neg = false;
+            if (newNum < 0 && newDen < 0) {
+            } else if (newNum < 0 || newDen < 0) {
+              neg = true;
+            }
+
+            newNum = Math.abs(newNum);
+            newDen = Math.abs(newDen);
+
+            if (neg) {
+              newNum *= -1;
+            }
+
+            mat[r1][c][0] = newNum;
+            mat[r1][c][1] = newDen;
+          }
+        };
+
+        //row operation between two rows, where num and den denote numerator and denominator of the number we wish to multiply with row r1
+        const rowOperation = (mat, r1, r2, num, den, DIM) => {
+          for (var c = 0; c < DIM; c++) {
+            if (mat[r1][c][0] === 0) {
+              continue;
+            }
+
+            var newNum1 = mat[r1][c][0] * num;
+            var newDen1 = mat[r1][c][1] * den;
+
+            var newNum2 = mat[r2][c][0] * newDen1;
+            var newDen = mat[r2][c][1] * newDen1;
+
+            newNum1 *= mat[r2][c][1];
 
             var newNum = newNum2 - newNum1;
             if (newNum == 0) {
@@ -1143,16 +1179,16 @@ function Calculator() {
               newNum *= -1;
             }
 
-            copy2[r2][c][0] = newNum;
-            copy2[r2][c][1] = newDen;
+            mat[r2][c][0] = newNum;
+            mat[r2][c][1] = newDen;
           }
         };
 
         //swaps row of matrix
-        const swapRow = (r1, r2) => {
-          let row1 = copy[r1];
-          copy2[r1] = copy[r2];
-          copy2[r2] = row1;
+        const swapRow = (mat, r1, r2) => {
+          let row1 = mat[r1];
+          mat[r1] = mat[r2];
+          mat[r2] = row1;
         };
 
         const calculateDeterminant = () => {
@@ -1170,7 +1206,7 @@ function Calculator() {
             }
 
             if (swap) {
-              swapRow(a, newRow);
+              swapRow(copy2, a, newRow);
               posSign = !posSign;
             }
 
@@ -1194,7 +1230,7 @@ function Calculator() {
                 if (neg) {
                   num *= -1;
                 }
-                rowOperation(a, c, num, denom);
+                rowOperation(copy2, a, c, num, denom, dim);
               }
             }
           }
@@ -1216,10 +1252,10 @@ function Calculator() {
             return false;
           } else {
             ans.push(
-              <h6>
+              <p>
                 Determinant of matrix, Δ = {resNum / resDen}. Δ ≠ 0, hence
                 inverse exists
-              </h6>
+              </p>
             );
             return true;
           }
@@ -1229,7 +1265,7 @@ function Calculator() {
           return (
             <table>
               <tbody>
-                {givenMat.map((row, idx) => (
+                {copy2.map((row, idx) => (
                   <tr>
                     {row.map((val) => (
                       <td>
@@ -1275,16 +1311,150 @@ function Calculator() {
 
         ans.push(<h6>Given matrix : </h6>);
         ans.push(makeOriginalTable());
-        ans.push(<br />);
-        ans.push(<br />);
         if (!calculateDeterminant()) {
           return;
         }
         ans.push(<br />);
+        ans.push(
+          <h6>Augment identity matrix to the right of the given matrix</h6>
+        );
         ans.push(converToTable());
         ans.push(<br />);
 
-        setResult(0);
+        for (let l = 0; l < dim; l++) {
+          const operations = [];
+          var swap = false;
+          var newRow = -1;
+          if (copy[l][l][0] === 0) {
+            for (let k = l + 1; k < dim; k++) {
+              if (copy[k][l][0] != 0) {
+                swap = true;
+                newRow = k;
+                break;
+              }
+            }
+          }
+
+          if (swap) {
+            swapRow(copy, l, newRow);
+            ans.push(
+              <h6>
+                Swapping row {l + 1} with row {newRow + 1}
+              </h6>
+            );
+            ans.push(converToTable());
+            ans.push(<br />);
+          }
+
+          if (copy[l][l][0] == 1 && copy[l][l][1] == 1) {
+          } else {
+            let n = copy[l][l][1];
+            let d = copy[l][l][0];
+
+            if (d < 0) {
+              n *= -1;
+              d *= -1;
+            }
+            mulRow(copy, l, n, d, bigDim);
+            ans.push(
+              <h6>
+                Multiplying row {l + 1} with{" "}
+                {d == 1 ? (
+                  <> {n} </>
+                ) : (
+                  <>
+                    <sup>{n}</sup>&frasl;<sub>{d}</sub>
+                  </>
+                )}
+              </h6>
+            );
+            ans.push(converToTable());
+            ans.push(<br />);
+          }
+
+          var rowOps = false;
+
+          for (let k = 0; k < dim; k++) {
+            if (k != l && copy[k][l][0] != 0) {
+              rowOps = true;
+
+              // console.log(copy[c][a][0], copy[a][a][1]);
+              var num = copy[k][l][0] * copy[l][l][1];
+              var denom = copy[k][l][1] * copy[l][l][0];
+              var neg = false;
+              if (num < 0 && denom < 0) {
+              } else if (num < 0 || denom < 0) {
+                neg = true;
+              }
+
+              num = Math.abs(num);
+              denom = Math.abs(denom);
+              var HCF = hcf(denom, num);
+              denom /= HCF;
+              num /= HCF;
+
+              if (neg) {
+                num *= -1;
+              }
+              operations.push(
+                <>
+                  ⇒ R{k + 1} = R{k + 1} - R{l + 1} *{" "}
+                  {denom == 1 ? (
+                    num
+                  ) : (
+                    <>
+                      {" "}
+                      <sup>{num}</sup>&frasl;<sub>{denom}</sub>
+                    </>
+                  )}
+                </>
+              );
+              rowOperation(copy, l, k, num, denom, bigDim);
+            }
+          }
+
+          if (rowOps) {
+            var suffix = addSuffix(l + 1);
+            ans.push(
+              <h6>
+                Eliminate elements in the {l + 1}
+                {suffix} column except the {l + 1}
+                {suffix} element
+              </h6>
+            );
+            for (var op in operations) {
+              ans.push(operations[op]);
+              ans.push(<br />);
+            }
+
+            ans.push(converToTable());
+            ans.push(<br />);
+          }
+        }
+
+        for (let m = 0; m < dim; m++) {
+          for (let n = 0; n < dim; n++) {
+            copy2[m][n][0] = copy[m][n + dim][0];
+            copy2[m][n][1] = copy[m][n + dim][1];
+          }
+        }
+
+        const displayFinal = () => {
+          return (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <h2 style={{ marginRight: "20px" }}>Inverse : </h2>
+              {makeOriginalTable()}
+            </div>
+          );
+        };
+
+        setResult(displayFinal);
         setAnswer(ans);
       };
 
