@@ -1704,8 +1704,8 @@ function Calculator() {
           plotGraph();
         }
       },
-      [W],
-      [H]
+      [w],
+      [h]
     );
 
     //re-plots graph when new equation calculated
