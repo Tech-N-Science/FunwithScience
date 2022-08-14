@@ -4,7 +4,7 @@ import algebra from "../../Images/algebra.webp";
 import trigonometry from "../../Images/trigonometry.jpg";
 import geometry from "../../Images/geometry.webp";
 import integration from "../../Images/integration.jpg";
-import matrix from "../../Images/Matrix.png";
+import matrix from "../../Images/Matrix.jpg";
 import "./styles.css";
 import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
@@ -156,13 +156,14 @@ function MathsTopic() {
               </p>
               <p id="credit">
                 Photo by{" "}
-                <a href="https://unsplash.com/@jeswinthomas?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-                  Jeswin Thomas
+                <a href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=63527">
+                  Gerd Altmann
                 </a>{" "}
                 on{" "}
-                <a href="https://unsplash.com/s/photos/maths?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-                  Unsplash
+                <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=63527">
+                  Pixabay
                 </a>
+                on{" "}
               </p>
             </MathsTopicItem>
             {/* <MathsTopicItem name="Differentiation" link="/" icon="icon-home-outline" image={diff2}>

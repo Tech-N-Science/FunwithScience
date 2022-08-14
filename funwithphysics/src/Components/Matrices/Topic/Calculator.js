@@ -117,7 +117,7 @@ function Calculator() {
     {
       topic: "Inverse of a Matrix",
       details:
-        "The inverse of a matrix is another matrix which on multiplication with the given matrix gives the multiplicative identity. The matrix whose determinant is non-zero and for which the inverse matrix can be calculated is called an invertible matrix.",
+        "The inverse of a matrix is another matrix which on multiplication with the given matrix gives the identity matrix i.e. the multiplicative identity. The inverse can be calculated for a matrix whose determinant is non-zero and is called an invertible matrix.",
       formula: (
         <>
           A · A<sup>-1</sup> = A<sup>-1</sup>· A = I,
@@ -129,11 +129,13 @@ function Calculator() {
         "We would be finding inverse of a matrix using Gauss-Jordan elimination method :",
         <br />,
         <br />,
-        "1) Set a square matrix. Append identity matrix of the same dimension to its right",
+        "1) Calculate determinant of the matrix, if it is 0, then inverse doesn't exist",
         <br />,
-        "2) Reduce the matrix on the left to identity matrix using elementary row operations for the whole matrix",
+        "2) Set a square matrix. Append identity matrix of the same dimension to its right",
         <br />,
-        "3) Inverse of the matrix will be the matrix on the right",
+        "3) Reduce the matrix on the left to identity matrix using elementary row operations on the whole augmented matrix",
+        <br />,
+        "4) Inverse of the matrix will be the matrix on the right",
       ],
       example1: [
         "Let the given sqaure matrix be : ",
@@ -1081,6 +1083,7 @@ function Calculator() {
       setShowModal(true);
     };
 
+    //calculating and displaying final resulr
     const calculateResult = () => {
       let dim = parseInt(x);
       var isComplete = true;
@@ -1107,6 +1110,7 @@ function Calculator() {
         let dim = parseInt(x);
         let bigDim = dim * 2;
 
+        //for multiplying row with a particular constant
         const mulRow = (mat, r1, num, den, DIM) => {
           for (let c = 0; c < DIM; c++) {
             if (mat[r1][c][0] === 0) {
@@ -1191,6 +1195,7 @@ function Calculator() {
           mat[r2] = row1;
         };
 
+        //function to calculate determinant
         const calculateDeterminant = () => {
           for (let a = 0; a < dim; a++) {
             var swap = false;
@@ -1261,6 +1266,7 @@ function Calculator() {
           }
         };
 
+        //converts original matrix to table
         const makeOriginalTable = () => {
           return (
             <table>
@@ -1285,6 +1291,7 @@ function Calculator() {
           );
         };
 
+        //converts matrices to tables
         const converToTable = () => {
           return (
             <table>
@@ -1321,6 +1328,7 @@ function Calculator() {
         ans.push(converToTable());
         ans.push(<br />);
 
+        //main for loop responsible for calling various functions
         for (let l = 0; l < dim; l++) {
           const operations = [];
           var swap = false;
@@ -1432,6 +1440,7 @@ function Calculator() {
           }
         }
 
+        //storing final inverse matrix
         for (let m = 0; m < dim; m++) {
           for (let n = 0; n < dim; n++) {
             copy2[m][n][0] = copy[m][n + dim][0];
@@ -1439,6 +1448,7 @@ function Calculator() {
           }
         }
 
+        //storing final result
         const displayFinal = () => {
           return (
             <div
