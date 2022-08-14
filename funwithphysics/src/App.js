@@ -60,6 +60,8 @@ import Trigonometry from "./Components/Trigonometry/trigonometry";
 import CalTrigonometryFunctions from "./Components/Trigonometry/Topic/Calculator";
 import CalHyperbola from "./Components/Geometry/Topic/Calculator";
 import ChemistryTopic from "./Components/ChemistryTopics/index";
+import PeriodicTable from "./Components/PeriodicTable/periodicTable";
+import Properties from "./Components/PeriodicTable/properties";
 
 const Home = lazy(() => {
   return Promise.all([
@@ -203,6 +205,21 @@ const App = () => {
                 <ClassicalMechanics />
               </>
             }
+          ></Route>
+          <Route
+            exact
+            path="/periodic/"
+            element={
+              <>
+                <Navbar />
+                <PeriodicTable />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/periodic/property/:index"
+            element={<Properties />}
           ></Route>
           <Route
             exact
