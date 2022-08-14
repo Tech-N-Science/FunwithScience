@@ -219,7 +219,12 @@ const App = () => {
           <Route
             exact
             path="/periodic/property/:index"
-            element={<Properties />}
+            element={
+              <>
+                <Navbar />
+                <Properties />
+              </>
+            }
           ></Route>
           <Route
             exact
