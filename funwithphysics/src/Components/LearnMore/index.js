@@ -101,7 +101,7 @@ export function LearnMore() {
                 </span>
               </Link>
               <div className="dropdown-content">
-                <Link to="/">Calculator</Link>
+                <Link to="/chemistry">Formula</Link>
                 <Link to="/">Questions</Link>
                 <Link to="/">Quiz</Link>
               </div>

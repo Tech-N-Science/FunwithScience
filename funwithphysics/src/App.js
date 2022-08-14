@@ -59,6 +59,7 @@ import CalContinuity from "./Components/Integration/Topic/Calculator";
 import Trigonometry from "./Components/Trigonometry/trigonometry";
 import CalTrigonometryFunctions from "./Components/Trigonometry/Topic/Calculator";
 import CalHyperbola from "./Components/Geometry/Topic/Calculator";
+import ChemistryTopic from "./Components/ChemistryTopics/index";
 
 const Home = lazy(() => {
   return Promise.all([
@@ -210,6 +211,16 @@ const App = () => {
               <>
                 <Navbar />
                 <Thermodynamics />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/chemistry"
+            element={
+              <>
+                <Navbar />
+                <ChemistryTopic />
               </>
             }
           ></Route>
