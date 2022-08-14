@@ -24,7 +24,7 @@ function MathsTopicItem(props) {
           content="physics, calculators, calculator, physics calculator, TechN Science, technscience, tech n science"
         />
       </Helmet>
-      <div className="col-xs-12 col-sm-6 col-md-3 text-center animate-box">
+      <div className="col-xs-12 col-sm-6 col-md-4 text-center animate-box">
         <Link style={{ color: "black" }} to={props.link} className="services">
           <span className="icon">
             {/* <i className={props.icon}></i> */}
