@@ -29,30 +29,42 @@ function Properties() {
       <div>
         <table>
           <tbody>
-            <tr>
-              <th>Appearance</th>
-              <td>{element.appearance}</td>
-            </tr>
-            <tr>
-              <th>Atomic Mass</th>
-              <td>{element.atomic_mass}</td>
-            </tr>
-            <tr>
-              <th>Density</th>
-              <td>{element.density}</td>
-            </tr>
-            <tr>
-              <th>Boil</th>
-              <td>{element.boil} K</td>
-            </tr>
-            <tr>
-              <th>Melt</th>
-              <td>{element.melt} K</td>
-            </tr>
-            <tr>
-              <th>Molar Heat</th>
-              <td>{element.molar_heat}</td>
-            </tr>
+            {element.appearance && (
+              <tr>
+                <th>Appearance</th>
+                <td>{element.appearance}</td>
+              </tr>
+            )}
+            {element.atomic_mass && (
+              <tr>
+                <th>Atomic Mass</th>
+                <td>{element.atomic_mass}</td>
+              </tr>
+            )}
+            {element.density && (
+              <tr>
+                <th>Density</th>
+                <td>{element.density}</td>
+              </tr>
+            )}
+            {element.boil && (
+              <tr>
+                <th>Boil</th>
+                <td>{element.boil} K</td>
+              </tr>
+            )}
+            {element.melt && (
+              <tr>
+                <th>Melt</th>
+                <td>{element.melt} K</td>
+              </tr>
+            )}
+            {element.molar_heat && (
+              <tr>
+                <th>Molar Heat</th>
+                <td>{element.molar_heat}</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
