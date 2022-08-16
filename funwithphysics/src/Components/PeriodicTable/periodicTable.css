@@ -157,6 +157,14 @@
     justify-content: center;
 }
 
+.heading h1 {
+    font-size: 5vw;
+}
+
+.heading p {
+    font-size: 0.8vw;
+}
+
 .category {
     align-self: flex-start;
     border-radius: 10px;
