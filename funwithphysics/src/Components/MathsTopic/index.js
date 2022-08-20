@@ -4,6 +4,7 @@ import algebra from "../../Images/algebra.webp";
 import trigonometry from "../../Images/trigonometry.jpg";
 import geometry from "../../Images/geometry.webp";
 import integration from "../../Images/integration.jpg";
+import matrix from "../../Images/Matrix.jpg";
 import "./styles.css";
 import { Helmet } from "react-helmet";
 import Footer from "../Footer/Footer";
@@ -23,7 +24,7 @@ function MathsTopicItem(props) {
           content="physics, calculators, calculator, physics calculator, TechN Science, technscience, tech n science"
         />
       </Helmet>
-      <div className="col-xs-12 col-sm-6 col-md-3 text-center animate-box">
+      <div className="col-xs-12 col-sm-6 col-md-4 text-center animate-box">
         <Link style={{ color: "black" }} to={props.link} className="services">
           <span className="icon">
             {/* <i className={props.icon}></i> */}
@@ -140,6 +141,29 @@ function MathsTopic() {
                 <a href="https://unsplash.com/s/photos/maths?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
                   Unsplash
                 </a>
+              </p>
+            </MathsTopicItem>
+            <MathsTopicItem
+              name="Matrices"
+              link="/matrices"
+              icon="icon-home-outline"
+              image={matrix}
+            >
+              <p>
+                Matrices have wide range of applications in various branches
+                including mathematics. It is a set of numbers arranged in rows
+                and columns and thus represents a rectangular array{" "}
+              </p>
+              <p id="credit">
+                Photo by{" "}
+                <a href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=63527">
+                  Gerd Altmann
+                </a>{" "}
+                on{" "}
+                <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=63527">
+                  Pixabay
+                </a>
+                on{" "}
               </p>
             </MathsTopicItem>
             {/* <MathsTopicItem name="Differentiation" link="/" icon="icon-home-outline" image={diff2}>
