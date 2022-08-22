@@ -494,6 +494,11 @@ function Calculator() {
         </center>,
       ],
     },
+    {
+      topic: "Matrix Multiplication",
+      details:
+        "Matrix multiplication is a type of binary operation, which takes two matrices and produces a single matrix. Product of two matrices is the dot product of the two matrices.",
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);

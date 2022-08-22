@@ -27,7 +27,7 @@ function Properties() {
       </div>
       <div className="summary">{element.summary}</div>
       <div>
-        <table>
+        <table className="properties-table">
           <tbody>
             {element.appearance && (
               <tr>
