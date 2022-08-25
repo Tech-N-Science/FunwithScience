@@ -83,6 +83,15 @@
   word-wrap: break-word;
 }
 
+.log_result {
+  width: 55%;
+  margin: auto;
+  padding: 10px 20px;
+  border: 1px solid gainsboro;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  word-wrap: break-word;
+}
+
 /* set-matrix modal and tables for determiant calculator */
 .myModal {
   width: 90vw;

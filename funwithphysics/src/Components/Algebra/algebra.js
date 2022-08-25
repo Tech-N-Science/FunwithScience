@@ -153,6 +153,29 @@ export default function Algebra() {
         "Using the formulae given and using the concept of Venn Diagram, we can easily find different sets out of 2 sets A and B depending on the condition.",
       ],
     },
+    {
+      topic: "Logarithm",
+      details: [
+        "A logarithm is defined as the power to which a number must be raised to get some other values. It is the most convenient way to express large numbers. A logarithm has various important properties that prove multiplication and division of logarithms can also be written in the form of logarithm of addition and subtraction.",
+        "The logarithm of a positive real number a with respect to base b, a positive real number not equal to 1[nb 1], is the exponent by which b must be raised to yield a.",
+        "In most cases, we always deal with two different types of logarithms, namely: Common Logarithm and Natural Logarithm",
+        "Logarithms are expressed as, m is the Logarithm of n to the base b if b",<sub>m</sub>,"= n, which can also be written as m = log",<sub>b</sub>,"n.",
+      ],
+      formula: [
+        "4",
+        <sup>3</sup>,
+        "= 64;",
+        <br></br>,
+        "hence 3 is the Logarithm of 64 to base 4 or",
+        <br></br>,
+        "3 = log",<sub>4</sub>,"64.",
+         <br></br>,
+         "Similarly, we know 10",<sup>3</sup>,"= 1000, then 3 = log",<sub>10</sub>,"1000",
+      ],
+      process: [
+        " The exponent or power to which a base must be raised to yield a given number.",
+      ],
+    },
   ];
 
   return (
