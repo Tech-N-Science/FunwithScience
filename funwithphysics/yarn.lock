@@ -11091,6 +11091,13 @@
     "history" "^5.2.0"
     "react-router" "6.2.1"
 
+"react-router-hash-link@^2.4.3":
+  "integrity" "sha512-NU7GWc265m92xh/aYD79Vr1W+zAIXDWp3L2YZOYP4rCqPnJ6LI6vh3+rKgkidtYijozHclaEQTAHaAaMWPVI4A=="
+  "resolved" "https://registry.npmjs.org/react-router-hash-link/-/react-router-hash-link-2.4.3.tgz"
+  "version" "2.4.3"
+  dependencies:
+    "prop-types" "^15.7.2"
+
 "react-router@^6.2.1", "react-router@6.2.1":
   "integrity" "sha512-2fG0udBtxou9lXtK97eJeET2ki5//UWfQSl1rlJ7quwe6jrktK9FCCc8dQb5QY6jAv3jua8bBQRhhDOM/kVRsg=="
   "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.2.1.tgz"
