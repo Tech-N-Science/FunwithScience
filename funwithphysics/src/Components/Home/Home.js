@@ -12,6 +12,7 @@ const Home = () => {
   const backToTopRef=useRef(null)
   const [loading, setloading] = useState(true);
   const { dispatch } = useContext(Context);
+  const [RoadMap,showRoadMap]=useState(false);
   useEffect(() => {
     setTimeout(() => {
       setloading(false);
@@ -40,6 +41,16 @@ const bookReaderStyle = {
     backToTopRef.current!==null&&(backToTopRef.current.style.display = 'none')
     else backToTopRef.current!==null&&(backToTopRef.current.style.display = 'block')
   }
+  function changeRoadMapState(){
+    if(RoadMap==true){
+      showRoadMap(false);
+    }else{
+      showRoadMap(true);
+      window.scrollTo(0,1050);
+    }
+  }
+  const l="}";
+  const r="{";
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -92,11 +103,65 @@ const bookReaderStyle = {
               {' '}
               Learn
               <i style={bookReaderStyle} className='fas fa-book-reader'></i>
-            </Button>
+            </Button>0
+            <button className="btn-exams" onClick={changeRoadMapState}>Competitive Exams</button>
           </div>
         </div>
       </div>
       <div>
+        {RoadMap && <div className="Roadmap">
+            <h1>RoadMap</h1>
+            <hr className="roadmap-underline"></hr>
+            <div className="Roadmap-title">
+              {/* Competitive Exam-1 */}
+              <div className="left-top-T">
+                <h5>Lorem ipsum dolor sit amet, </h5>
+                <h5>Lorem ipsum dolor sit amet, </h5>
+                <h5>Lorem ipsum dolor sit amet, </h5>
+              </div>
+              <h1  className="left-top-B">{l}</h1>
+              <h3 className="C1">Lorem Ipsum</h3>
+              <h1  className="right-B">{r}</h1>
+              
+              <div className="right-T">
+                <h5 >Lorem ipsum dolor sit amet, </h5>
+                <h5 >Lorem ipsum dolor sit amet, </h5>
+                <h5 >Lorem ipsum dolor sit amet, </h5>
+              </div>
+              {/* Competitive Exam-1 */}
+              <div className="left-T">
+                <h5>Lorem ipsum dolor sit amet, </h5>
+                <h5>Lorem ipsum dolor sit amet, </h5>
+                <h5>Lorem ipsum dolor sit amet, </h5>
+              </div>
+              <h1  className="left-B">{l}</h1>
+              <h3 className="C2">Lorem Ipsum</h3>
+              <h1  className="right-B">{r}</h1>
+              <div className="right-T">
+                <h5 >Lorem ipsum dolor sit amet, </h5>
+                <h5 >Lorem ipsum dolor sit amet, </h5>
+                <h5 >Lorem ipsum dolor sit amet, </h5>
+              </div>
+              {/* Competitive Exam-1 */}
+              <div className="left-T">
+                <h5>Lorem ipsum dolor sit amet, </h5>
+                <h5>Lorem ipsum dolor sit amet, </h5>
+                <h5>Lorem ipsum dolor sit amet, </h5>
+              </div>
+              <h1  className="left-B">{l}</h1>
+              <h3 className="C1">Lorem Ipsum</h3>
+              <h1  className="right-B">{r}</h1>
+              <div className="right-T">
+                <h5 >Lorem ipsum dolor sit amet, </h5>
+                <h5 >Lorem ipsum dolor sit amet, </h5>
+                <h5 >Lorem ipsum dolor sit amet, </h5>
+              </div>
+            </div>
+            
+            <img src="Images-public/svgs/Rocket.svg" className="svg-rocket"/>
+            <img src="Images-public/svgs/cloud.png" className="svg-cloud"/>
+          </div>
+        }
         <h3 className='learn-header' id='learn'>
           Learn
         </h3>
@@ -105,6 +170,7 @@ const bookReaderStyle = {
         </center>
       </div>
       <LearnMore />
+      
       <Footer />
       {/* <!-- Back to top button --> */}
 
