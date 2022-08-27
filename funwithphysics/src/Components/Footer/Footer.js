@@ -2,6 +2,7 @@ import React from "react";
 import "./Footer.css";
 import logo from "../../Images/Logo/logo.webp";
 import { NavLink } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBuilding, faEnvelope, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -40,7 +41,7 @@ const Footer = () => {
               <div className="col-xl-3 col-lg-2 col-md-6 footer-links">
                 <h4>Additional Links</h4>
                 <ul>
-                  <li><FontAwesomeIcon className="icon" icon={faAngleRight} /> <NavLink to="/about">About us</NavLink></li>
+                  <li><FontAwesomeIcon className="icon" icon={faAngleRight} /> <NavHashLink to="/#aboutus" >About us</NavHashLink></li>
                   <li><FontAwesomeIcon className="icon" icon={faAngleRight} /> <NavLink to="/contact">Contact us</NavLink></li>
                 </ul>
               </div>
