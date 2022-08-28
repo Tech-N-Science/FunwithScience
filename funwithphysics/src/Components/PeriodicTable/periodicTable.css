@@ -179,15 +179,15 @@
     max-width: 90vw;
 }
 
-table,
-th,
-td {
+.properties-table,
+.properties-table th,
+.properties-table td {
     border: 1px solid;
     text-align: center;
 }
 
 
-table {
+.properties-table {
     margin: auto;
     margin-top: 3vh;
     width: 90vw;
