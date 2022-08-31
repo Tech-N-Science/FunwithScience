@@ -81,7 +81,6 @@ h2 {
   width: 20vw;
   margin: 10% 40% ;
   position: absolute;
-  z-index: 5;
   color: #000;
 }
 .Roadmap-title>h3{
@@ -89,8 +88,20 @@ h2 {
   margin: 60% 0%;
   padding: 5% ;
 }
+.Roadmap-title>h3:active{
+  font-size:1.5rem;
+  width: 18vw;
+  margin-left: 5%;
+}
 .svg-rocket{
 
+}
+a{
+  color: #000;
+}
+a:hover{
+  color: blue;
+  text-decoration: none;
 }
 .svg-cloud{
   z-index: 10;
@@ -133,7 +144,13 @@ h2 {
 .left-top-T>h5{
   margin: 5% 0%;
   width: 30vw;
+  padding: 0.5% 0%;
   background-color: turquoise;
+}
+.left-top-T>h5:active{
+  font-size: 1.2rem;
+  width: 29vw;
+  margin-left: 2%;
 }
 .left-T{
   position: absolute;
@@ -142,8 +159,14 @@ h2 {
 }
 .left-T>h5{
   margin: 5% 0%;
+  padding: 0.5% 0%;
   width: 30vw;
   background-color: turquoise;
+}
+.left-T>h5:active{
+  font-size: 1.2rem;
+  width: 29vw;
+  margin-left: 2%;
 }
 .right-T{
   position: absolute;
@@ -153,7 +176,14 @@ h2 {
 .right-T>h5{
   margin: 5% 0%;
   width: 30vw;
+  padding: 0.5% 0%;
+
   background-color: turquoise;
+}
+.right-T>h5:active{
+  width: 29vw;
+  font-size: 1.2rem;
+  margin-left: 2%;
 }
 /*---Feature Section---*/
 
@@ -180,6 +210,11 @@ h2 {
   }
   .Roadmap>h1{
     margin-bottom: 2%;
+  }
+  .Roadmap-title>h3:active{
+    font-size:1.4rem;
+    width: 8vw;
+    margin-left:25%;
   }
   .roadmap-underline{
     width: 10vw;
@@ -220,6 +255,11 @@ h2 {
     right: 27rem;
     margin-top: 13%;
   }
+  .left-top-T>h5:active{
+    width: 18vw;
+    font-size: 1.2rem;
+    margin-left: 5%;
+  }
   .left-top-T>h5{
     width: 20vw;
   }
@@ -230,12 +270,22 @@ h2 {
   .left-T>h5{
     width: 20vw;
   }
+  .left-T>h5:active{
+    width: 18vw;
+    font-size: 1.2rem;
+    margin-left: 5%;
+  }
   .right-T{
     left:25rem;
     margin: -55% 0%;
   }
   .right-T>h5{
     width: 20vw;
+  }
+  .right-T>h5:active{
+    width: 18vw;
+    font-size: 1.2rem;
+    margin-left: 5%;
   }
 }
 @media screen and (max-width: 768px) {
