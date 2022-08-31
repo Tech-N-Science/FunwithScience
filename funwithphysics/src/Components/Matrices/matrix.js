@@ -17,6 +17,11 @@ export default function Matrices() {
       details:
         "The inverse of a matrix is another matrix which on multiplication with the given matrix gives the multiplicative identity. . The matrix whose determinant is non-zero and for which the inverse matrix can be calculated is called an invertible matrix.",
     },
+    {
+      topic: "Matrix Multiplication",
+      details:
+        "Matrix multiplication is a type of binary operation, which takes two matrices and produces a single matrix. Product of two matrices is the dot product of the two matrices",
+    },
   ];
 
   return (
