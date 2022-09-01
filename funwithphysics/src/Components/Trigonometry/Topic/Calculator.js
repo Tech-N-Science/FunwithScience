@@ -114,32 +114,38 @@ function Calculator() {
   const TrigonometricFunctions = () => {
     const [result, setResult] = useState(null);
     const [choice, setChoice] = useState("sin");
-    const [value, setValue] = useState(null);
+    const [degreeValue, setDegreeValue] = useState(null);
+    const [radianValue, setRadianValue] = useState(null);
     function handleChange(e) {
       reset();
       setChoice(e.target.value);
       choiceData();
     }
+
     const CalTrigonometryFunctions = () => {
       let res;
+      // Converting angle from degrees to radians
+      const expression = (degreeValue * Math.PI) / 180;
       if (choice === "sin") {
-        res = Math.sin((value * Math.PI) / 180);
+        res = Math.sin(expression);
       } else if (choice === "cos") {
-        res = Math.cos((value * Math.PI) / 180);
+        res = Math.cos(expression);
       } else if (choice === "tan") {
-        res = Math.tan((value * Math.PI) / 180);
+        res = Math.tan(expression);
       } else if (choice === "cosec") {
-        res = Math.cosec((value * Math.PI) / 180);
+        res = Math.cosec(expression);
       } else if (choice === "sec") {
-        res = Math.sec((value * Math.PI) / 180);
+        res = Math.sec(expression);
       } else if (choice === "cot") {
-        res = Math.cot((value * Math.PI) / 180);
+        res = Math.cot(expression);
       }
+      setRadianValue(expression);
       setResult(res);
     };
     function reset() {
       setResult(null);
-      setValue(null);
+      setDegreeValue(null);
+      setRadianValue(null);
     }
     const choiceData = () => {
       if (choice === "sin")
@@ -197,12 +203,20 @@ function Calculator() {
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-4">
-            <Form.Label>Value of θ </Form.Label>
+            <Form.Label>Value of θ (in degrees)</Form.Label>
             <Form.Control
-              onChange={(e) => setValue(e.target.value)}
+              onChange={(e) => setDegreeValue(e.target.value)}
               type="number"
-              placeholder={"Enter the value of θ"}
-              value={value === null ? "" : value}
+              placeholder="Enter the value of θ (in degrees)"
+              value={degreeValue === null ? "" : degreeValue}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Value of θ (in radians)</Form.Label>
+            <Form.Control
+              readOnly
+              type="number"
+              placeholder={radianValue === null ? "Value of θ (in radians)" : radianValue}
             />
           </Form.Group>
           <Form.Group className="mb-4">

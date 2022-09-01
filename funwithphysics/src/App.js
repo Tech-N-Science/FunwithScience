@@ -49,6 +49,8 @@ import CalcPhotonics from "./Components/Photonics/Topic/Calculator";
 import Contact from "./Components/Contact/Contact";
 import Algebra from "./Components/Algebra/algebra";
 import Geometry from "./Components/Geometry/geometry";
+import Matrices from "./Components/Matrices/matrix";
+import CalMatrix from "./Components/Matrices/Topic/Calculator";
 import Calpermutation from "./Components/Algebra/Topic/Calculator";
 import CalcComplexNumber from "./Components/Algebra/Topic/Calculator";
 import Calstraightline from "./Components/Geometry/Topic/Calculator";
@@ -59,7 +61,13 @@ import CalContinuity from "./Components/Integration/Topic/Calculator";
 import Trigonometry from "./Components/Trigonometry/trigonometry";
 import CalTrigonometryFunctions from "./Components/Trigonometry/Topic/Calculator";
 import CalHyperbola from "./Components/Geometry/Topic/Calculator";
+// MridulTi-Roadmap
 import RoadMap from "./Components/RoadMap/RoadMap";
+=======
+import ChemistryTopic from "./Components/ChemistryTopics/index";
+import PeriodicTable from "./Components/PeriodicTable/periodicTable";
+import Properties from "./Components/PeriodicTable/properties";
+// main
 
 const Home = lazy(() => {
   return Promise.all([
@@ -223,11 +231,41 @@ const App = () => {
           ></Route>
           <Route
             exact
+            path="/periodic/"
+            element={
+              <>
+                <Navbar />
+                <PeriodicTable />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/periodic/property/:index"
+            element={
+              <>
+                <Navbar />
+                <Properties />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
             path="/thermodynamics"
             element={
               <>
                 <Navbar />
                 <Thermodynamics />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/chemistry"
+            element={
+              <>
+                <Navbar />
+                <ChemistryTopic />
               </>
             }
           ></Route>
@@ -273,6 +311,16 @@ const App = () => {
           ></Route>
           <Route
             exact
+            path="/matrices"
+            element={
+              <>
+                <Navbar />
+                <Matrices />
+              </>
+            }
+          ></Route>
+          <Route
+            exact
             path="/integration"
             element={
               <>
@@ -306,6 +354,11 @@ const App = () => {
             exact
             path="/geometry/calc/:topic"
             element={<CalCircle />}
+          ></Route>
+          <Route
+            exact
+            path="/matrices/calc/:topic"
+            element={<CalMatrix />}
           ></Route>
           <Route
             exact

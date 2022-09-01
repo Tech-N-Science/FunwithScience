@@ -13,6 +13,7 @@
   row-gap: 1.5em;
   max-width: 100%;
 }
+
 .K_energy {
   background-color: white !important;
 }
@@ -41,6 +42,7 @@
   grid-area: formula;
   font-family: math;
 }
+
 .Calculator__example {
   grid-area: example;
   align-self: start;
@@ -72,19 +74,52 @@
   padding-right: 2vh;
 }
 
-.binomial_result{
-  width:55%;
- margin:auto;
+.binomial_result {
+  width: 55%;
+  margin: auto;
   padding: 10px 20px;
   border: 1px solid gainsboro;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   word-wrap: break-word;
 }
 
+.log_result {
+  width: 55%;
+  margin: auto;
+  padding: 10px 20px;
+  border: 1px solid gainsboro;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  word-wrap: break-word;
+}
+
+/* set-matrix modal and tables for determiant calculator */
+.myModal {
+  width: 90vw;
+  position: relative;
+  min-width: 90vw;
+}
+
+table {
+  border: 2px solid;
+}
+
+td {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+.matrix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 992px) {
   .Calculator__main {
     grid-template-columns: 1fr;
-    grid-template-areas: "header header" "details details" "formula formula " "process process "  "example example" "calc calc";
+    grid-template-areas: "header header""details details""formula formula ""process process ""example example""calc calc";
     row-gap: 3em;
   }
 
@@ -102,43 +137,50 @@
     margin: 0;
 
   }
+
   .Calculator__formula h3 {
     margin-left: -20px;
   }
 
-  .binomial_result{
-    width:85%;
+  .binomial_result {
+    width: 85%;
   }
 }
 
 /* Complex number calculator text box group */
 
-.complex-num-group{  
+.complex-num-group {
   width: 700px;
   display: flex;
   justify-content: space-between;
   margin: auto;
 }
 
-.group-txt{
-  width:10%;
-  margin:0 1%;
+.group-txt {
+  width: 10%;
+  margin: 0 1%;
 }
+
 
 @media only screen and (max-width: 668px) {
 
-  .complex-num-group{ 
-    width:fit-content;
+  .complex-num-group {
+    width: fit-content;
   }
-  .group-txt{
-    width:15%;
+
+  .group-txt {
+    width: 15%;
   }
-  .binomial_result{
-    width:95%;
+
+  .binomial_result {
+    width: 95%;
   }
 }
 
+
+
 @media only screen and (max-width: 668px) {
+
   .Calculator__header,
   .Calculator__details,
   .Calculator__formula,
@@ -146,26 +188,33 @@
   .Calculator__process {
     max-width: 100%;
   }
+
   .Calculator__main {
     padding: 1.5rem;
   }
+
   .Calculator__calc hr {
     max-width: 100%;
   }
+
   .Calculator__details,
   .Calculator__process p {
     text-align: justify;
   }
+
   .Calculator__process {
     padding: 1rem;
   }
+
   input {
     width: 100%;
   }
+
   .Calculator__calc hr {
     width: 100%;
     margin: 0px auto 0px auto;
   }
+
   .Calculator__calc form {
     padding: 1rem;
   }

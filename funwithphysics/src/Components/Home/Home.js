@@ -7,6 +7,8 @@ import { LearnMore } from "../LearnMore";
 import { Helmet } from "react-helmet";
 import Navbar from "../Navbar/Navbar";
 import { Context } from "../../App";
+import AboutUsImage from "../../Images/AboutUs-svg.svg";  
+import BrushStroke from "../../Images/brushStroke.png"
 
 const Home = () => {
 
@@ -94,11 +96,44 @@ const bookReaderStyle = {
               Learn
               <i style={bookReaderStyle} className='fas fa-book-reader'></i>
             </Button>
+// MridulTi-Roadmap
             <Button className="btn-exams"><Link to="/roadmap" className="btn-exam-link">Competitive Exams</Link></Button>
+=======
+// main
           </div>
         </div>
       </div>
+
+      {/* About Us Section */}
       <div>
+// MridulTi-Roadmap
+=======
+        <h3 className="aboutus-header" id="aboutus">
+          About Us
+        </h3>
+        <center>
+          <hr className="aboutus-underline" />
+        </center>
+        <div className="aboutus-container">
+          <div className="aboutus-text-container">
+            <img src={BrushStroke} alt="bg" className="aboutus-textbg-image" />
+            <h4 className="about-us-txt">
+            Welcome to Tech N Science! A place for all science enthusiasts to explore.
+            We, over here at Tech N Science, strive to provide you with various solutions 
+            regarding advanced maths and science problems.
+            From Calculus to Thermodynamics to Periodic Elements and much more. 
+            From Calculations to quizzes to trivias your one-stop solution for all.
+            </h4>
+          </div>
+          <div>
+            <img src={AboutUsImage} alt="about-us" className="aboutus-image" />
+          </div>
+        </div>
+      </div>
+      {/* End of About Us Section */}
+
+      <div>
+// main
         <h3 className='learn-header' id='learn'>
           Learn
         </h3>
@@ -107,7 +142,6 @@ const bookReaderStyle = {
         </center>
       </div>
       <LearnMore />
-      
       <Footer />
       {/* <!-- Back to top button --> */}
 

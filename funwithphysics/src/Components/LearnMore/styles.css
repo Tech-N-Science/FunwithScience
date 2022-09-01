@@ -193,10 +193,8 @@ a.plus:hover {
   width: 100%;
   margin: 0 auto;
   background: white;
-  border-radius: 4px;
   position: relative;
   top:10px;
-  border: 1px solid #e1e1e1;
 }
 .faq label {
   display: block;
@@ -205,9 +203,9 @@ a.plus:hover {
   cursor: pointer;
   height: 56px;
   padding-top: 1px;
-
   background-color: #fafafa;
-  border-bottom: 1px solid #e1e1e1;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
 }
 
 .faq input[type="checkbox"] {
@@ -243,7 +241,7 @@ a.plus:hover {
   display: block;
   background: rgba(255, 255, 255, 255) !important;
   color: #4f7351;
-  height: 169px;
+  height: 182px;
   transition: height 0.8s;
   -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
@@ -291,15 +289,13 @@ a.plus:hover {
     width: 1000px;
     margin: 0 auto;
     background: white;
-    border-radius: 4px;
     position: relative;
-    border: 1px solid #e1e1e1;
   }
   .faq input[type="checkbox"]:checked + label {
     display: block;
     background: rgba(255, 255, 255, 255) !important;
     color: #4f7351;
-    height: 100px;
+    height: 112px;
     transition: height 0.8s;
     -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }

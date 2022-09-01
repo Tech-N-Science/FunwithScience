@@ -1,0 +1,207 @@
+.wrapper {
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 2vw;
+    max-width: 100vw;
+}
+
+#periodic-table {
+    display: grid;
+    grid-template-columns: repeat(17, auto) 1fr;
+    align-items: baseline;
+}
+
+.element {
+    cursor: pointer;
+    width: 5vw;
+    height: 5vw;
+    padding: 2px;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.element:hover {
+    background: #000;
+    color: white;
+}
+
+.number {
+    float: left;
+    font-size: 1vw;
+    position: absolute;
+}
+
+.symbol {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5vw;
+    font-size: 2vw;
+}
+
+.element-name {
+    font-size: 0.8vw;
+    text-align: center;
+}
+
+/* Helium to the top right  */
+.element-2 {
+    grid-column-start: -2;
+}
+
+/* Boron & Alumunium to the right  */
+.element-5,
+.element-13 {
+    grid-column-start: 13;
+}
+
+/* Lanthinide & Actinoid split  */
+.element-58,
+.element-90 {
+    grid-column-start: 3;
+}
+
+/*119 element */
+.element-119 {
+    grid-column-start: -2;
+}
+
+.element-58 {
+    margin-top: 2vw;
+}
+
+/* Colors and design for different groups */
+.diatomic {
+    background: #ffffce;
+}
+
+.noble {
+    background: #ffe3c6;
+}
+
+.alkali {
+    background: #ffcdcb;
+}
+
+.alkaline {
+    background: #d3d3ff;
+}
+
+.transition {
+    background: #c4ddff;
+}
+
+.metalloid {
+    background: #e1eec8;
+}
+
+.polyatomic {
+    background: #a3d2d5;
+}
+
+
+.post-transition {
+    background: #d1ffca;
+}
+
+.unknown {
+    background: #ad87bd;
+}
+
+.lanthanide {
+    background: #c8ffff;
+}
+
+
+.actinide {
+    background: #cdffeb;
+}
+
+.linkk {
+    text-decoration: none;
+    color: black;
+}
+
+.activee {
+    text-decoration: none;
+    color: white;
+    background: #000;
+}
+
+.linkk:hover {
+
+    text-decoration: none;
+    color: white;
+}
+
+#item-box .symbol {
+    font-size: 5vw;
+}
+
+#item-box .number {
+    font-size: 1vw;
+}
+
+#item-box .element-name {
+    font-size: 1.5vw;
+}
+
+#item-box {
+    margin: auto;
+    margin-top: 3vh;
+    width: 10vw;
+}
+
+.item-name {
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+}
+
+.heading h1 {
+    font-size: 5vw;
+}
+
+.heading p {
+    font-size: 0.8vw;
+}
+
+.category {
+    align-self: flex-start;
+    border-radius: 10px;
+    padding: 0 20px;
+    margin-left: 5px;
+    position: relative;
+    top: -0.7vh;
+}
+
+.summary {
+    margin: auto;
+    max-width: 90vw;
+}
+
+
+.properties-table,
+.properties-table th,
+.properties-table td {
+    border: 1px solid;
+    text-align: center;
+}
+
+
+.properties-table {
+    margin: auto;
+    margin-top: 3vh;
+    width: 90vw;
+}
+
+@media (max-width: 375px) {
+    .wrapper {
+        width: 100vw;
+    }
+
+    .element {
+        border: 0;
+        width: 7vw;
+        height: 7vw;
+    }
+}

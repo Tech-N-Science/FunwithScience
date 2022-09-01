@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
@@ -11,6 +11,43 @@ function Calculator() {
   let { topic } = useParams();
   // topics_data
   const Topics = [
+    {
+      topic: "Logarithm",
+      details: [
+        "A logarithm is defined as the power to which a number must be raised to get some other values. It is the most convenient way to express large numbers. A logarithm has various important properties that prove multiplication and division of logarithms can also be written in the form of logarithm of addition and subtraction.",
+        "The logarithm of a positive real number a with respect to base b, a positive real number not equal to 1[nb 1], is the exponent by which b must be raised to yield a.",
+        "In most cases, we always deal with two different types of logarithms, namely: Common Logarithm and Natural Logarithm. ",
+        "Logarithms are expressed as, m is the Logarithm of n to the base b if b",<sub>m</sub>,"= n, which can also be written as m = log",<sub>b</sub>,"n.",
+      ],
+      formula: [
+       "4",
+       <sup>3</sup>,
+       "= 64;",
+       <br></br>,
+       "hence 3 is the Logarithm of 64 to base 4 or",
+       <br></br>,
+       "3 = log",<sub>4</sub>,"64.",
+        <br></br>,
+        "Similarly, we know 10",<sup>3</sup>,"= 1000, then 3 = log",<sub>10</sub>,"1000",
+      ],
+      process: [
+        " The exponent or power to which a base must be raised to yield a given number.",
+        <br></br>,
+        "The graph of log can be represented as:",
+        <br></br>,
+        <img src="https://www.mathwarehouse.com/logarithm/images/graphs/logarithm-equation-relationship-to-graph.webp"
+        alt="Graph for Logarithm"/>
+      ],
+      example1: [
+        "Convert 3",<sup>2</sup> , " = 9 into logarithmic form.",
+        <br></br>,
+        "Note that 3 is the base of the exponential form, and it will also be the base of the logarithmic form.",
+        <br></br>,
+        "Also note that the exponent, 2, will become the logarithm, while the 9 will become the argument.",
+        <br></br>,
+        "Therefore the logarithmic form is log",<sub>3</sub>,"9 = 2"
+      ],
+    },
     {
       topic: "Sets And Relations",
       details: [
@@ -564,6 +601,7 @@ function Calculator() {
 
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
+  const ref = useRef(null);
 
   //Sets and relation calulator
   const SetsAndRelation = () => {
@@ -1369,6 +1407,110 @@ function Calculator() {
       </>
     );
   };
+
+  //logarithmic Calculator
+  const Logarithm = () =>{
+    const [explanation, setExplanation] = useState(null);
+    const [result, setResult] = useState(null);
+    const[base, setbase] = useState(null);
+    const[value, setvalue] = useState(null);
+
+    useEffect(() => {}, [base, value, result]);
+
+    const calcResult = () =>{
+      let res = 0;
+      var y;
+      if(value !== null && base !== null){
+        res = Math.log(value) / Math.log(base);
+        y = `log(base)${base}(value)${value} = ${res}`;
+        console.log(res)
+      }
+      else{
+        alert("One or any field is empty.")
+      }
+      
+      setResult(res);
+      setExplanation(y);
+    };
+
+    function reset() {
+      setResult(null);
+      setExplanation(null);
+      setbase(null);
+      setvalue(null);
+    }
+
+    return(
+      <>
+      <Form>
+      <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                To find the Logarithm, Enter the following values
+              </strong>
+              <br />
+            </Form.Text>
+      </Form.Group>
+      <Form.Group className="mb-4">
+            <Form.Label>Select the base value</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                setResult(null);
+                setExplanation(null);
+                setbase(e.target.value);
+              }}
+              type="number"
+              placeholder={"Enter the Base value"}
+              value={base === null ? "" : base}
+            />
+      </Form.Group>
+      <Form.Group className="mb-4">
+            <Form.Label>Select the value</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                setResult(null);
+                setExplanation(null);
+                setvalue(e.target.value);
+              }}
+              type="number"
+              placeholder={"Enter the Value"}
+              value={value === null ? "" : value}
+            />
+      </Form.Group>
+      <Form.Group className="mb-4">
+      <Form.Label>Result</Form.Label>
+      {
+        <div className="log_result">
+          {result === null ? (
+                  <p>
+                    <strong>Result</strong>
+                  </p>
+                ) :(
+                  <p>
+                    {result}
+                    <br />
+                    <strong>Explanation: {explanation}</strong>
+                  </p>
+                )}
+        </div>
+      }
+      </Form.Group>
+      </Form>
+      <div className="button-custom-grp">
+          <Button variant="primary" onClick={calcResult}>
+            Calculate
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+      </div>
+      
+      </>
+
+    )
+
+  }
 
   //Exponential Calculator
   const Exponents = () => {
@@ -3671,6 +3813,9 @@ function Calculator() {
         break;
       case "Exponents":
         currentCall = Exponents();
+        break;
+      case "Logarithm":
+        currentCall = Logarithm();
         break;
       case "Sets And Relations":
         currentCall = SetsAndRelation();

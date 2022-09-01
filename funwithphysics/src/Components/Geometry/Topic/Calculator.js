@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Form, Button , Modal } from "react-bootstrap";
+import React, { useEffect, useState, useLayoutEffect } from "react";
+import { Form, Button, Modal } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import Navbar from "../../Navbar/Navbar";
 import "./Calculator.css";
@@ -7,6 +7,7 @@ import geometry_pair from "../../../Images/geometry_pair.png";
 import geometry_tan from "../../../Images/geometry_tan.webp";
 import { useParams } from "react-router-dom";
 import Solution from "../../Solution/Solution";
+import functionPlot from "function-plot";
 
 var Fraction = require("fractional").Fraction;
 
@@ -224,15 +225,87 @@ function Calculator() {
   const page = Topics.filter((data) => data.topic === topic);
   const details = page[0];
 
+  //function responsible for notifying change in dimensions of webpage
+  function useWindowSize() {
+    const [size, setSize] = useState([0, 0]);
+    useLayoutEffect(() => {
+      function updateSize() {
+        setSize([window.innerWidth, window.innerHeight]);
+      }
+      window.addEventListener("resize", updateSize);
+      updateSize();
+      return () => window.removeEventListener("resize", updateSize);
+    }, []);
+    return size;
+  }
+
   //Straight line
   const StraightLine = () => {
-    const [x1, setX1] = useState("");
+    const [x1, setX1] = useState(null);
     const [x2, setX2] = useState(null);
     const [y1, setY1] = useState(null);
     const [y2, setY2] = useState(null);
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
+    const [plots, setPlots] = useState(false);
+    const [w, h] = useWindowSize();
+
+    //changes dimensions of graph, whenever dimenion of window changes
+    useEffect(
+      () => {
+        if (plots) {
+          plotGraph();
+        }
+      },
+      [w],
+      [h]
+    );
+
+    //re-plots graph when new equation calculated
+    useEffect(() => {
+      if (showSolution && plots) {
+        plotGraph();
+      }
+    }, [result]);
+
+    //main-function responsible for plotting graph
+    const plotGraph = () => {
+      setPlots(true);
+
+      var eqn = (x1 * y2 - x2 * y1) / (x1 - x2);
+      var xCoff = (y1 - y2) / (x1 - x2);
+      var func = "x*" + xCoff;
+      if (eqn > 0) {
+        func += "+";
+      }
+      func += eqn;
+
+      if (x1 - x2 == 0) {
+        func = "0";
+      }
+
+      let width = w * 0.7;
+      let height = h * 0.5;
+
+      functionPlot({
+        target: "#graph",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: func,
+          },
+        ],
+      });
+    };
 
     const givenValues = {
       x1: x1,
@@ -248,6 +321,7 @@ function Calculator() {
       setX2("");
       setY1("");
       setY2("");
+      setPlots(false);
       setResult(null);
       setShowSolution(false);
     };
@@ -258,20 +332,19 @@ function Calculator() {
     const mul2 = x2 * y1;
     const mul = mul1 - mul2;
 
-    const calcStraightLine = () => {      
-      if(x1 !== null && x2 !== null && y1 !== null && y2 !== null) {
+    const calcStraightLine = () => {
+      if (x1 !== null && x2 !== null && y1 !== null && y2 !== null) {
         let equation = `(${suby}x) + (${subx}y) - (${mul}) = 0`;
         setResult(equation);
         setShowSolution(true);
-      }    
-      else{
+      } else {
         setShowModal(true);
-      } 
+      }
     };
 
     return (
-      <>  
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+      <>
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header>
             Please Enter all values to get Proper answer
           </Modal.Header>
@@ -302,7 +375,7 @@ function Calculator() {
                     </label>
                     <input
                       name="x1"
-                      type="text"
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setX1(e.target.value)}
                       value={x1}
@@ -315,7 +388,7 @@ function Calculator() {
                     </label>
                     <input
                       name="x2"
-                      type="text"
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setX2(e.target.value)}
                       value={x2}
@@ -330,6 +403,7 @@ function Calculator() {
                     </label>
                     <input
                       name="y1"
+                      type="number"
                       className="easynumeric"
                       value={y1}
                       onChange={(e) => setY1(e.target.value)}
@@ -342,7 +416,7 @@ function Calculator() {
                     </label>
                     <input
                       name="y2"
-                      type="text"
+                      type="number"
                       className="easynumeric"
                       value={y2}
                       onChange={(e) => setY2(e.target.value)}
@@ -363,6 +437,12 @@ function Calculator() {
                 result={result}
                 // constants={constants}
               />
+              <br />
+              <br />
+              <div id="graph"></div>
+              <br />
+              <br />
+              <Button onClick={plotGraph}>Plot Graph</Button>
             </Form.Group>
           ) : null}
 
@@ -507,6 +587,123 @@ function Calculator() {
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
     const [showSolution2, setShowSolution2] = useState(false);
+    const [plots, setPlots] = useState(false);
+    const [W, H] = useWindowSize();
+
+    //changes dimensions of graph, whenever dimenion of window changes
+    useEffect(
+      () => {
+        if (plots) {
+          plotGraph();
+        }
+      },
+      [W],
+      [H]
+    );
+
+    //re-plots graph when new equation calculated
+    useEffect(() => {
+      if (showSolution && plots) {
+        plotGraph();
+      }
+    }, [result]);
+
+    //plots graphs
+    const plotGraph = () => {
+      setPlots(true);
+      plotGraphX();
+      plotGraphY();
+    };
+
+    //plots graph with y = 4ax^2 type equation
+    const plotGraphX = () => {
+      var eqn = "" + a + "*((x";
+      if (h < 0 || h == 0) {
+        let temp = h * -1;
+        eqn += "+" + temp + ")^2)";
+      } else {
+        eqn += "-" + h + ")^2)";
+      }
+
+      if (k > 0 || k == 0) {
+        eqn += "+";
+      }
+
+      eqn += k;
+      console.log(eqn);
+
+      let width = W * 0.7;
+      let height = H * 0.5;
+
+      functionPlot({
+        target: "#graphX",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: eqn,
+          },
+        ],
+      });
+    };
+
+    //plots graph with x = 4ay^2 type equation
+    const plotGraphY = () => {
+      var eqn = "sqrt" + "((x";
+      if (h < 0 || h == 0) {
+        let temp = h * -1;
+        eqn += "+" + temp + ")";
+      } else {
+        let temp = h * -1;
+        eqn += temp + ")";
+      }
+
+      eqn += "/";
+      eqn += "(";
+      eqn += a;
+      eqn += "))";
+
+      if (k > 0 || k == 0) {
+        eqn += "+" + k;
+      } else {
+        eqn += k;
+      }
+
+      console.log(eqn);
+
+      let width = W * 0.7;
+      let height = H * 0.5;
+
+      var eqn2 = "-" + eqn;
+
+      functionPlot({
+        target: "#graphY",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: eqn,
+          },
+          {
+            fn: eqn2,
+          },
+        ],
+      });
+    };
 
     const givenValues = {
       a_: a,
@@ -534,10 +731,11 @@ function Calculator() {
       setResult(null);
       setShowSolution(false);
       setShowSolution2(false);
+      setPlots(false);
     };
 
     const calcParabola = () => {
-      if(h !== null && k !== null && x !== null && y !== null){
+      if (h !== null && k !== null && x !== null && y !== null) {
         const nume = y - k;
         const denome = (x - h) * (x - h);
         const a = new Fraction(nume / denome);
@@ -549,14 +747,13 @@ function Calculator() {
         setResult(equation);
         setShowSolution(true);
         setShowSolution2(true);
-      }    
-      else{
+      } else {
         setShowModal(true);
-      } 
+      }
     };
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header>
             Please Enter all values to get Proper answer
           </Modal.Header>
@@ -588,8 +785,9 @@ function Calculator() {
                   <div className="coordinate">
                     <label>h</label>
                     <input
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       name="x1"
-                      type="text"
                       className="easynumeric"
                       onChange={(e) => setH(e.target.value)}
                       value={h}
@@ -600,7 +798,8 @@ function Calculator() {
                     <label>k</label>
                     <input
                       name="x2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setK(e.target.value)}
                       value={k}
@@ -613,6 +812,8 @@ function Calculator() {
                     <label>x</label>
                     <input
                       name="y1"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={x}
                       onChange={(e) => setX(e.target.value)}
@@ -623,7 +824,8 @@ function Calculator() {
                     <label>y</label>
                     <input
                       name="y2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={y}
                       onChange={(e) => setY(e.target.value)}
@@ -657,9 +859,17 @@ function Calculator() {
                 result={result[1]}
                 // constants={constants}
               />
+              <br />
+              <br />
+              <div id="graphX"></div>
+              <br />
+              <br />
+              <div id="graphY"></div>
+              <br />
+              <br />
+              <Button onClick={plotGraph}>Plot Graphs</Button>
             </Form.Group>
           ) : null}
-
           <div className="input-group mb-4">
             <Form.Group className="mr-3" id="r1">
               <Form.Label>
@@ -874,42 +1084,195 @@ function Calculator() {
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
     const [showSolution2, setShowSolution2] = useState(false);
+    const [plots, setPlots] = useState(false);
+    const [W, H] = useWindowSize();
+
+    //changes dimensions of graph, whenever dimenion of window changes
+    useEffect(
+      () => {
+        if (plots) {
+          plotGraph();
+        }
+      },
+      [W],
+      [H]
+    );
+
+    //re-plots graph when new equation calculated
+    useEffect(() => {
+      if (showSolution && plots) {
+        plotGraph();
+      }
+    }, [result]);
+
+    //plotd graph
+    const plotGraph = () => {
+      setPlots(true);
+      plotGraphX();
+      plotGraphY();
+    };
+
+    //plots graph with eqn x^2/a^2 + y^2/b^2 = 1 type equation
+    const plotGraphX = () => {
+      let a = (parseInt(v1) + parseInt(v3)) / 2;
+      let b = (parseInt(v4) - parseInt(v2)) / 2;
+      let c = (parseInt(v2) + parseInt(v4)) / 2;
+
+      let majorAxis = false;
+
+      if (v2 === 0 && v4 === 0 && c2 === 0 && c4 === 0) {
+        majorAxis = true;
+      }
+
+      const a_ = majorAxis ? Math.abs(v1) : (v4 - v2) / 2;
+      const c_ = majorAxis ? Math.abs(c1) : c4 - b;
+      const [aSquare, cSquare] = [a_ * a_, c_ * c_];
+      const bSquare = aSquare - cSquare;
+
+      var eqn =
+        "sqrt((1-((x-(" +
+        a +
+        "))^2)/(" +
+        aSquare +
+        "))*(" +
+        bSquare +
+        "))+(" +
+        c +
+        ")";
+
+      var eqn2 = "-" + eqn;
+
+      let width = W * 0.7;
+      let height = H * 0.5;
+
+      functionPlot({
+        target: "#graphX",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: eqn,
+          },
+          {
+            fn: eqn2,
+          },
+        ],
+      });
+    };
+
+    //plots graph with x^2/b^2 + y^2/a^2 = 1 type equation
+    const plotGraphY = () => {
+      let a = (parseInt(v1) + parseInt(v3)) / 2;
+      let b = (parseInt(v4) - parseInt(v2)) / 2;
+      let c = (parseInt(v2) + parseInt(v4)) / 2;
+
+      let majorAxis = false;
+
+      if (v2 === 0 && v4 === 0 && c2 === 0 && c4 === 0) {
+        majorAxis = true;
+      }
+
+      const a_ = majorAxis ? Math.abs(v1) : (v4 - v2) / 2;
+      const c_ = majorAxis ? Math.abs(c1) : c4 - b;
+      const [aSquare, cSquare] = [a_ * a_, c_ * c_];
+      const bSquare = aSquare - cSquare;
+
+      var eqn =
+        "sqrt((1-((x-(" +
+        a +
+        "))^2)/(" +
+        bSquare +
+        "))*(" +
+        aSquare +
+        "))+(" +
+        c +
+        ")";
+
+      var eqn2 = "-" + eqn;
+
+      let width = W * 0.7;
+      let height = H * 0.5;
+
+      functionPlot({
+        target: "#graphY",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: eqn,
+          },
+          {
+            fn: eqn2,
+          },
+        ],
+      });
+    };
 
     const givenValues = {
-      vertice1:v1,
-      vertice2:v2,      
-      vertice3:v3,      
-      vertice4:v4,
-      c1:c1,      
-      c2:c2,      
-      c3:c3,      
-      c4:c4,
-      h_:"(V1 + V3) / 2",
-      k_:"(V2 + V4) / 2",
-      a_:"(V4 - V2) / 2",
-      c:"(C4 - k)",
-      b:"a² - c²",      
+      vertice1: v1,
+      vertice2: v2,
+      vertice3: v3,
+      vertice4: v4,
+      c1: c1,
+      c2: c2,
+      c3: c3,
+      c4: c4,
+      h_: "(V1 + V3) / 2",
+      k_: "(V2 + V4) / 2",
+      a_: "(V4 - V2) / 2",
+      c: "(C4 - k)",
+      b: "a² - c²",
     };
 
-    const insertValues = `(x-((${v1>0 ?v1:`(${v1})`} + ${v3>0 ?v3:`(${v3})`})/2 ))²/[(${v4>0 ?v4:`(${v4})`} - ${v2>0 ?v2:`(${v2})`}) / 2]² + (y-((${v2>0 ?v2:`(${v2})`} + ${v4})/2 ))²/[(${a})² - (${c4} - [(${v2>0 ?v2:`(${v2})`} + ${v4>0 ?v4:`(${v4})`}) / 2])² ] = 1  `;
+    const insertValues = `(x-((${v1 > 0 ? v1 : `(${v1})`} + ${
+      v3 > 0 ? v3 : `(${v3})`
+    })/2 ))²/[(${v4 > 0 ? v4 : `(${v4})`} - ${
+      v2 > 0 ? v2 : `(${v2})`
+    }) / 2]² + (y-((${
+      v2 > 0 ? v2 : `(${v2})`
+    } + ${v4})/2 ))²/[(${a})² - (${c4} - [(${v2 > 0 ? v2 : `(${v2})`} + ${
+      v4 > 0 ? v4 : `(${v4})`
+    }) / 2])² ] = 1  `;
 
     const givenValues2 = {
-      vertice1:v1,
-      vertice2:v2,      
-      vertice3:v3,      
-      vertice4:v4,
-      c1:c1,      
-      c2:c2,      
-      c3:c3,      
-      c4:c4,      
-      h_:"(V1 + V3) / 2",
-      k_:"(V2 + V4) / 2",
-      a_:"(V4 - V2) / 2",
-      c:"(C4 - k)",
-      b:"a² - c²",
+      vertice1: v1,
+      vertice2: v2,
+      vertice3: v3,
+      vertice4: v4,
+      c1: c1,
+      c2: c2,
+      c3: c3,
+      c4: c4,
+      h_: "(V1 + V3) / 2",
+      k_: "(V2 + V4) / 2",
+      a_: "(V4 - V2) / 2",
+      c: "(C4 - k)",
+      b: "a² - c²",
     };
 
-    const insertValues2 = `(x-((${v1>0 ?v1:`(${v1})`} + ${v3>0 ?v3:`(${v3})`})/2 ))²/[(${a})² - (${c4} - [(${v2>0 ?v2:`(${v2})`} + ${v4>0 ?v4:`(${v4})`}) / 2])² ] + (y-((${v2>0 ?v2:`(${v2})`} + ${v4>0 ?v4:`(${v4})`})/2 ))²/[(${v4>0 ?v4:`(${v4})`} - ${v2>0 ?v2:`(${v2})`}) / 2]² = 1  `;
+    const insertValues2 = `(x-((${v1 > 0 ? v1 : `(${v1})`} + ${
+      v3 > 0 ? v3 : `(${v3})`
+    })/2 ))²/[(${a})² - (${c4} - [(${v2 > 0 ? v2 : `(${v2})`} + ${
+      v4 > 0 ? v4 : `(${v4})`
+    }) / 2])² ] + (y-((${v2 > 0 ? v2 : `(${v2})`} + ${
+      v4 > 0 ? v4 : `(${v4})`
+    })/2 ))²/[(${v4 > 0 ? v4 : `(${v4})`} - ${
+      v2 > 0 ? v2 : `(${v2})`
+    }) / 2]² = 1  `;
 
     const reset = () => {
       setV1("");
@@ -920,6 +1283,7 @@ function Calculator() {
       setC2("");
       setC3("");
       setC4("");
+      setPlots(false);
 
       setResult(null);
       setShowSolution(false);
@@ -927,8 +1291,16 @@ function Calculator() {
       setA(null);
     };
     const calcEllipse = () => {
-
-      if(v1!== "" && v2!== "" && v3!== "" && v4!== "" && c1!== "" && c2!== "" && c3!== "" && c4 !== "" ){
+      if (
+        v1 !== "" &&
+        v2 !== "" &&
+        v3 !== "" &&
+        v4 !== "" &&
+        c1 !== "" &&
+        c2 !== "" &&
+        c3 !== "" &&
+        c4 !== ""
+      ) {
         // Converting the values into integers.
         let V1, V2, V3, V4, C1, C2, C4;
         [V1, V2, V3, V4, C1, C2, C4] = [v1, v2, v3, v4, c1, c2, c4].map(
@@ -940,7 +1312,7 @@ function Calculator() {
           major_xaxis = true;
         }
         const a = major_xaxis ? Math.abs(V1) : (V4 - V2) / 2;
-        const c = major_xaxis ? Math.abs(C1) : (C4 - k);
+        const c = major_xaxis ? Math.abs(C1) : C4 - k;
         const [aSquare, cSquare] = [a * a, c * c];
         const bSquare = aSquare - cSquare;
         let tempA = Math.sqrt(aSquare);
@@ -956,15 +1328,13 @@ function Calculator() {
         setResult(equation);
         setShowSolution(true);
         setShowSolution2(true);
-      } 
-      else{
+      } else {
         setShowModal(true);
       }
-      
     };
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header>
             Please Enter all values to get Proper answer
           </Modal.Header>
@@ -999,7 +1369,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setV1(e.target.value)}
                       value={v1}
@@ -1012,7 +1383,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setV2(e.target.value)}
                       value={v2}
@@ -1027,7 +1399,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={v3}
                       onChange={(e) => setV3(e.target.value)}
@@ -1040,7 +1413,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={v4}
                       onChange={(e) => setV4(e.target.value)}
@@ -1055,7 +1429,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setC1(e.target.value)}
                       value={c1}
@@ -1068,7 +1443,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setC2(e.target.value)}
                       value={c2}
@@ -1083,7 +1459,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={c3}
                       onChange={(e) => setC3(e.target.value)}
@@ -1096,7 +1473,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={c4}
                       onChange={(e) => setC4(e.target.value)}
@@ -1130,6 +1508,14 @@ function Calculator() {
                 result={result[1]}
                 // constants={constants}
               />
+              <br />
+              <br />
+              <div id="graphX"></div>
+              <br />
+              <br />
+              <div id="graphY"></div>
+              <br />
+              <Button onClick={plotGraph}>Plot Graphs</Button>{" "}
             </Form.Group>
           ) : null}
 
@@ -1308,11 +1694,62 @@ function Calculator() {
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
+    const [plots, setPlots] = useState(false);
+    const [w, h] = useWindowSize();
+
+    //changes dimensions of graph, whenever dimenion of window changes
+    useEffect(
+      () => {
+        if (plots) {
+          plotGraph();
+        }
+      },
+      [w],
+      [h]
+    );
+
+    //re-plots graph when new equation calculated
+    useEffect(() => {
+      if (showSolution && plots) {
+        plotGraph();
+      }
+    }, [result]);
+
+    //main function to plot circle
+    const plotGraph = () => {
+      setPlots(true);
+
+      var eqn = "sqrt(((" + r1 + ")^2)-((x-(" + h1 + "))^2)) + (" + k1 + ")";
+      var eqn2 = "-" + eqn;
+      let width = w * 0.7;
+      let height = h * 0.5;
+
+      functionPlot({
+        target: "#graph",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: eqn,
+          },
+          {
+            fn: eqn2,
+          },
+        ],
+      });
+    };
 
     const givenValues = {
-      h_:h1,
-      k_:k1,
-      r_:r1,     
+      h_: h1,
+      k_: k1,
+      r_: r1,
     };
 
     const insertValues = `(x-${h1})² + (y-${k1})² = ${r1}²`;
@@ -1321,26 +1758,26 @@ function Calculator() {
       setH1("");
       setK1("");
       setR1("");
+      setPlots(false);
 
       setResult(null);
       setShowSolution(false);
     };
 
     const calcCircle = () => {
-      if(h1 !== "" && k1 !== "" && r1 !== ""){
+      if (h1 !== "" && k1 !== "" && r1 !== "") {
         const sq = r1 * r1;
         let equation = `(x-${h1})² + (y-${k1})² = ${sq}`;
         setResult(equation);
         setShowSolution(true);
-      } 
-      else{
+      } else {
         setShowModal(true);
       }
     };
 
     return (
       <>
-      <Modal show={showModal} class="modal-dialog modal-dialog-centered">
+        <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header>
             Please Enter all values to get Proper answer
           </Modal.Header>
@@ -1373,7 +1810,8 @@ function Calculator() {
                     <label>h</label>
                     <input
                       name="h1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setH1(e.target.value)}
                       value={h1}
@@ -1384,7 +1822,8 @@ function Calculator() {
                     <label>k</label>
                     <input
                       name="k1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setK1(e.target.value)}
                       value={k1}
@@ -1397,6 +1836,8 @@ function Calculator() {
                     <label>r</label>
                     <input
                       name="r1"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={r1}
                       onChange={(e) => setR1(e.target.value)}
@@ -1417,6 +1858,12 @@ function Calculator() {
                 result={result}
                 // constants={constants}
               />
+              <br />
+              <br />
+              <div id="graph"></div>
+              <br />
+              <br />
+              <Button onClick={plotGraph}>Plot Graph</Button>
             </Form.Group>
           ) : null}
 
@@ -1592,46 +2039,177 @@ function Calculator() {
     const [c21, setC21] = useState("");
     const [c31, setC31] = useState("");
     const [c41, setC41] = useState("");
-    const [a,setA] = useState("");
+    const [a, setA] = useState("");
     const [result, setResult] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
     const [showSolution2, setShowSolution2] = useState(false);
+    const [plots, setPlots] = useState(false);
+    const [W, H] = useWindowSize();
+
+    //changes dimensions of graph, whenever dimenion of window changes
+    useEffect(
+      () => {
+        if (plots) {
+          plotGraph();
+        }
+      },
+      [W],
+      [H]
+    );
+
+    //re-plots graph when new equation calculated
+    useEffect(() => {
+      if (showSolution && plots) {
+        plotGraph();
+      }
+    }, [result]);
+
+    //plots graph
+    const plotGraph = () => {
+      setPlots(true);
+      plotGraphX();
+      plotGraphY();
+    };
+
+    //plots graph with eqn x^2/a^2 - y^2/b^2 = 1
+    const plotGraphX = () => {
+      let a = (parseInt(v11) + parseInt(v31)) / 2;
+      let b = (parseInt(v41) - parseInt(v21)) / 2;
+      let c = (parseInt(v21) + parseInt(v41)) / 2;
+
+      let majorAxis = false;
+
+      if (v21 === 0 && v41 === 0 && c21 === 0 && c41 === 0) {
+        majorAxis = true;
+      }
+      const a_ = majorAxis ? Math.abs(v11) : (v11 - v31) / 2;
+      const c_ = majorAxis ? Math.abs(v11) : c31 - a;
+      const [aSquare, cSquare] = [a_ * a_, c_ * c_];
+      const bSquare = cSquare - aSquare;
+
+      var eqn = "sqrt(((((x-(";
+      eqn += a + "))^2)/((" + a_ + ")^2))-1)*((" + bSquare + ")))+(" + c + ")";
+      console.log(eqn);
+      var eqn2 = "-" + eqn;
+      let width = W * 0.7;
+      let height = H * 0.5;
+      functionPlot({
+        target: "#graphX",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: eqn,
+          },
+          {
+            fn: eqn2,
+          },
+        ],
+      });
+    };
+
+    //plots graph with eqn y^2/a^2 - x^2/b^2 = 1
+    const plotGraphY = () => {
+      let a = (parseInt(v11) + parseInt(v31)) / 2;
+      let b = (parseInt(v41) - parseInt(v21)) / 2;
+      let c = (parseInt(v21) + parseInt(v41)) / 2;
+
+      let majorAxis = false;
+
+      if (v21 === 0 && v41 === 0 && c21 === 0 && c41 === 0) {
+        majorAxis = true;
+      }
+      const a_ = majorAxis ? Math.abs(v11) : (v11 - v31) / 2;
+      const c_ = majorAxis ? Math.abs(v11) : c31 - a;
+      const [aSquare, cSquare] = [a_ * a_, c_ * c_];
+      const bSquare = cSquare - aSquare;
+
+      var eqn = "sqrt(((((x-(";
+      eqn += a + "))^2)/(" + bSquare + "))+1)*((" + aSquare + ")))+(" + c + ")";
+      console.log(eqn);
+      var eqn2 = "-" + eqn;
+      let width = W * 0.7;
+      let height = H * 0.5;
+      functionPlot({
+        target: "#graphY",
+        width,
+        height,
+        xAxis: {
+          label: "x - axis",
+        },
+        yAxis: {
+          label: "y - axis",
+        },
+        grid: true,
+        data: [
+          {
+            fn: eqn,
+          },
+          {
+            fn: eqn2,
+          },
+        ],
+      });
+    };
 
     const givenValues = {
-      vertice1:v11,
-      vertice2:v21,      
-      vertice3:v31,      
-      vertice4:v41,
-      c1:c11,      
-      c2:c21,      
-      c3:c31,      
-      c4:c41,  
-      h_:"(V1 + V3) / 2",
-      k_:"(V2 + V4) / 2",
-      a_:"(V4 - V2) / 2",
-      c:"(C4 - k)",
-      b:"a² - c²", 
+      vertice1: v11,
+      vertice2: v21,
+      vertice3: v31,
+      vertice4: v41,
+      c1: c11,
+      c2: c21,
+      c3: c31,
+      c4: c41,
+      h_: "(V1 + V3) / 2",
+      k_: "(V2 + V4) / 2",
+      a_: "(V4 - V2) / 2",
+      c: "(C4 - k)",
+      b: "a² - c²",
     };
 
-    const insertValues = `(x-((${v11>0 ?v11:`(${v11})`} + ${v31>0 ?v31:`(${v31})`})/2 ))²/[(${v41>0 ?v41:`(${v41})`} - ${v21>0 ?v21:`(${v21})`}) / 2]² - (y-((${v21>0 ?v21:`(${v21})`} + ${v41})/2 ))²/[(${a})² - (${c41} - [(${v21>0 ?v21:`(${v21})`} + ${v41>0 ?v41:`(${v41})`}) / 2])² ] = 1  `;
+    const insertValues = `(x-((${v11 > 0 ? v11 : `(${v11})`} + ${
+      v31 > 0 ? v31 : `(${v31})`
+    })/2 ))²/[(${v41 > 0 ? v41 : `(${v41})`} - ${
+      v21 > 0 ? v21 : `(${v21})`
+    }) / 2]² - (y-((${
+      v21 > 0 ? v21 : `(${v21})`
+    } + ${v41})/2 ))²/[(${a})² - (${c41} - [(${v21 > 0 ? v21 : `(${v21})`} + ${
+      v41 > 0 ? v41 : `(${v41})`
+    }) / 2])² ] = 1  `;
 
     const givenValues2 = {
-      vertice1:v11,
-      vertice2:v21,      
-      vertice3:v31,      
-      vertice4:v41,
-      c1:c11,      
-      c2:c21,      
-      c3:c31,      
-      c4:c41, 
-      h_:"(V1 + V3) / 2",
-      k_:"(V2 + V4) / 2",
-      a_:"(V4 - V2) / 2",
-      c:"(C4 - k)",
-      b:"a² - c²", 
+      vertice1: v11,
+      vertice2: v21,
+      vertice3: v31,
+      vertice4: v41,
+      c1: c11,
+      c2: c21,
+      c3: c31,
+      c4: c41,
+      h_: "(V1 + V3) / 2",
+      k_: "(V2 + V4) / 2",
+      a_: "(V4 - V2) / 2",
+      c: "(C4 - k)",
+      b: "a² - c²",
     };
-    const insertValues2 = `(y-((${v21>0 ?v21:`(${v21})`} + ${v41})/2 ))² / [(${a})² - (${c41} - [(${v21>0 ?v21:`(${v21})`} + ${v41>0 ?v41:`(${v41})`}) / 2])² ] - (x-((${v11>0 ?v11:`(${v11})`} + ${v31>0 ?v31:`(${v31})`})/2 ))²/[(${v41>0 ?v41:`(${v41})`} - ${v21>0 ?v21:`(${v21})`}) / 2]² = 1  `;
+    const insertValues2 = `(y-((${
+      v21 > 0 ? v21 : `(${v21})`
+    } + ${v41})/2 ))² / [(${a})² - (${c41} - [(${
+      v21 > 0 ? v21 : `(${v21})`
+    } + ${v41 > 0 ? v41 : `(${v41})`}) / 2])² ] - (x-((${
+      v11 > 0 ? v11 : `(${v11})`
+    } + ${v31 > 0 ? v31 : `(${v31})`})/2 ))²/[(${
+      v41 > 0 ? v41 : `(${v41})`
+    } - ${v21 > 0 ? v21 : `(${v21})`}) / 2]² = 1  `;
 
     const reset = () => {
       setV11("");
@@ -1649,7 +2227,16 @@ function Calculator() {
     };
 
     const calcHyperbola = () => {
-      if(v11 !== "" && v21 !== "" && v31 !== "" && v41 !== "" && c11 !== "" && c21 !== "" && c31 !== "" && c41 !== ""){
+      if (
+        v11 !== "" &&
+        v21 !== "" &&
+        v31 !== "" &&
+        v41 !== "" &&
+        c11 !== "" &&
+        c21 !== "" &&
+        c31 !== "" &&
+        c41 !== ""
+      ) {
         // Converting the values into integers.
         let V11, V21, V31, V41, C11, C21, C31, C41;
         [V11, V21, V31, V41, C11, C21, C31, C41] = [
@@ -1684,13 +2271,12 @@ function Calculator() {
         setResult(equation);
         setShowSolution(true);
         setShowSolution2(true);
-      }          
-      else{
+      } else {
         setShowModal(true);
-      }       
+      }
     };
     return (
-      <>        
+      <>
         <Modal show={showModal} class="modal-dialog modal-dialog-centered">
           <Modal.Header>
             Please Enter all values to get Proper answer
@@ -1726,7 +2312,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setV11(e.target.value)}
                       value={v11}
@@ -1739,7 +2326,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setV21(e.target.value)}
                       value={v21}
@@ -1754,7 +2342,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={v31}
                       onChange={(e) => setV31(e.target.value)}
@@ -1767,7 +2356,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={v41}
                       onChange={(e) => setV41(e.target.value)}
@@ -1782,7 +2372,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setC11(e.target.value)}
                       value={c11}
@@ -1795,7 +2386,8 @@ function Calculator() {
                     </label>
                     <input
                       name="x2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       onChange={(e) => setC21(e.target.value)}
                       value={c21}
@@ -1810,7 +2402,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y1"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={c31}
                       onChange={(e) => setC31(e.target.value)}
@@ -1823,7 +2416,8 @@ function Calculator() {
                     </label>
                     <input
                       name="y2"
-                      type="text"
+                      style={{ marginLeft: "10px" }}
+                      type="number"
                       className="easynumeric"
                       value={c41}
                       onChange={(e) => setC41(e.target.value)}
@@ -1857,6 +2451,14 @@ function Calculator() {
                 result={result[1]}
                 // constants={constants}
               />
+              <br />
+              <br />
+              <div id="graphX"></div>
+              <br />
+              <br />
+              <div id="graphY"></div>
+              <br />
+              <Button onClick={plotGraph}>Plot Graphs</Button>
             </Form.Group>
           ) : null}
 

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 import './Navbar.css';
 import { Data } from '../FAQ/Data';
 import { IconContext } from 'react-icons';
@@ -74,9 +75,9 @@ const Navbar = () => {
             <NavLink to='/' className='nav-item'>
               <span className='nav-link' >Home</span>
             </NavLink>
-            <NavLink to='/about' className='nav-item'>
+            <NavHashLink to='/#aboutus' className='nav-item'>
               <span className='nav-link'>About</span>
-            </NavLink>
+            </NavHashLink>
             {!state.user && (user === 'null' || !user) ? (
               <React.Fragment>
                 <NavLink to='/Signup' className='nav-item'>
