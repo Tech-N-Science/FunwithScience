@@ -659,6 +659,119 @@ function Calculator() {
         </div>,
       ],
     },
+    {
+      topic: "Transpose of a Matrix",
+      details:
+        "Transpose is an operation on a matrix, which flips a matrix along its diagonal. The row gets changes into columns and column into rows.",
+      formula: "",
+      process: [
+        "1. Set a matrix.",
+        <br />,
+        <br />,
+        "2. Interchange row with columns, that is every [i, j] element of new matrix contains value of [j, i] of the original one.",
+        <br />,
+        <br />,
+        "3. The final result is obtained, and the dimension of new matrix is changed from m x n to n x m.",
+      ],
+      example1: [
+        "Q1) Find the transpose of given matrix : ",
+        <br />,
+        <br />,
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>7</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>9</td>
+                <td>11</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        "Dimension of transposed matrix will be 3 x 3.",
+        <br />,
+        "⇒ Interchanging rows with columns : ",
+        <br />,
+        <br />,
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>7</td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>10</td>
+                <td>11</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+      ],
+      example2: [
+        "Q2) Find the transpose of given matrix : ",
+        <br />,
+        <br />,
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>5</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>9</td>
+                <td>11</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        "Dimension of transposed matrix will be 3 x 2.",
+        <br />,
+        "⇒ Interchanging rows with columns : ",
+        <br />,
+        <br />,
+        <div className="matrix">
+          <table>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>11</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+      ],
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
@@ -2582,6 +2695,371 @@ function Calculator() {
     );
   };
 
+  const transposeCalculator = () => {
+    const [showError, setShowError] = useState(false);
+    const [row, setRow] = useState(null);
+    const [col, setCol] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [mat, setMat] = useState([[]]);
+    const [fractions, setFractions] = useState([[[]]]);
+    const [answer, setAnswer] = useState(null);
+    const [result, setResult] = useState(null);
+    const [firstTime, setFirstTime] = useState(true);
+
+    //resets value to initial value
+    const reset = () => {
+      setRow(null);
+      setCol(null);
+      setAnswer(null);
+      setResult(null);
+    };
+
+    //scrolls to result when result gets updated
+    useEffect(() => {
+      if (firstTime) {
+        setFirstTime(false);
+        return;
+      }
+
+      console.log(ref.current);
+      var element = ref.current;
+      var header = document.getElementById("targetElement");
+      console.log(header);
+      var elementPosition = element.getBoundingClientRect().top;
+      var offsetPosition = elementPosition + window.pageYOffset;
+      window.scrollTo({
+        top: offsetPosition,
+      });
+    }, [answer]);
+
+    //function to find highest common factor
+    const hcf = (x, y) => {
+      if (x % y == 0) {
+        return y;
+      }
+
+      return hcf(y, x % y);
+    };
+
+    // function to set initial table
+    const setMatrix = () => {
+      if (row == null || row == 0 || col == null || col == 0) {
+        setShowError(true);
+        return;
+      }
+
+      let dim1 = parseInt(row);
+      let dim2 = parseInt(col);
+
+      let board = Array(dim1)
+        .fill(0)
+        .map((row) => new Array(dim2).fill(null));
+      setMat(board);
+      let fracBoard = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+      setFractions(fracBoard);
+      setShowModal(true);
+    };
+
+    // function to create table to take input and call final function to calculate result
+    const makeTable = () => {
+      const handleChange = (row, column, event) => {
+        let copy = [...mat];
+        copy[row][column] = event.target.value;
+        setMat(copy);
+      };
+
+      return (
+        <>
+          <Modal.Body>
+            <center>
+              <table>
+                <tbody>
+                  {mat.map((field, i) => (
+                    <tr>
+                      {mat[0].map((col, j) => (
+                        <td>
+                          <Form>
+                            <Form.Control
+                              onChange={(e) => {
+                                handleChange(i, j, e);
+                              }}
+                              type="number"
+                              placeholder={"Enter value"}
+                              value={mat[i][j] === null ? "" : mat[i][j]}
+                            />
+                          </Form>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </center>
+          </Modal.Body>
+          <Modal.Footer>
+            <center>
+              <div
+                style={{
+                  display: "flex",
+                }}
+              >
+                <Button variant="primary" onClick={calculateResult}>
+                  Calculate
+                </Button>
+                &nbsp;&nbsp;&nbsp;
+                <Button
+                  variant="dark"
+                  onClick={() => {
+                    setShowModal(false);
+                  }}
+                  type="reset"
+                >
+                  Close
+                </Button>
+              </div>
+            </center>
+          </Modal.Footer>
+        </>
+      );
+    };
+
+    // final function to calculate result
+    const calculateResult = () => {
+      let dim1 = parseInt(row);
+      let dim2 = parseInt(col);
+      let isComplete = true;
+
+      //storing user input as fractions
+      const handleFractionChange = (row, column, num, denom) => {
+        let copy = [...fractions];
+        copy[row][column][0] = num;
+        copy[row][column][1] = denom;
+        setFractions(copy);
+      };
+
+      //major algorithm
+      const algorithm = () => {
+        let ans = [];
+        const converToTable = (matrix) => {
+          return (
+            <table>
+              <tbody>
+                {matrix.map((r, idx) => (
+                  <tr>
+                    {r.map((val) => (
+                      <td>
+                        {val[1] == 1 ? (
+                          val[0]
+                        ) : (
+                          <>
+                            <sup>{val[0]}</sup>&frasl;<sub>{val[1]}</sub>
+                          </>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          );
+        };
+
+        ans.push(<h6>Given matrix </h6>);
+        ans.push(converToTable(fractions));
+        ans.push(<br />);
+        ans.push(
+          <>
+            Dimensions of transposed matrix will be {dim2} x {dim1}
+            <br />
+            <br />⇒ Interchanging rows with columns
+            <br />
+            <br />
+          </>
+        );
+
+        let fracBoard = Array(dim2)
+          .fill(0)
+          .map((row) =>
+            new Array(dim1).fill(0).map((r) => new Array(2).fill(null))
+          );
+
+        for (let a = 0; a < dim1; a++) {
+          for (let b = 0; b < dim2; b++) {
+            fracBoard[b][a][0] = fractions[a][b][0];
+            fracBoard[b][a][1] = fractions[a][b][1];
+          }
+        }
+
+        ans.push(converToTable(fracBoard));
+        setResult(converToTable(fracBoard));
+        setAnswer(ans);
+      };
+
+      //checking if all inputs are set, and calling relevant functions
+      for (var i = 0; i < dim1; i++) {
+        for (var j = 0; j < dim2; j++) {
+          if (mat[i][j] === null) {
+            isComplete = false;
+            break;
+          }
+
+          var n = mat[i][j].split(".");
+          var denominator = n.length == 1 ? 1 : Math.pow(10, n[1].length);
+          var numerator =
+            n.length == 1 ? parseInt(n[0]) : parseInt(n[0] + n[1]);
+          if (numerator == 0) {
+            denominator = 1;
+            numerator = 0;
+          } else if (numerator > 0) {
+            var HCF = hcf(denominator, numerator);
+            denominator /= HCF;
+            numerator /= HCF;
+          } else {
+            var HCF = hcf(denominator, numerator * -1);
+            denominator /= HCF;
+            numerator /= HCF;
+          }
+
+          handleFractionChange(i, j, numerator, denominator);
+        }
+      }
+
+      if (!isComplete) {
+        setShowError(true);
+        return;
+      }
+      algorithm();
+      setShowModal(false);
+    };
+
+    //main UI componenet
+    return (
+      <div>
+        <Modal show={showError} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowError(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        <Modal
+          dialogClassName="myModal"
+          show={showModal}
+          class="modal-dialog modal-dialog-centered"
+          aria-labelledby="contained-modal-title-vcenter"
+          onHide={() => {
+            setShowModal(false);
+          }}
+          backdrop="static"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title style={{ minWidth: "80vw", textAlign: "center" }}>
+              Set Matrix
+            </Modal.Title>
+          </Modal.Header>
+          {showModal && makeTable()}
+        </Modal>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                Enter dimensions of the matrix, and then set the matrix to
+                calculate the transpose.
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter number of rows for the matrix</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                if (e.target.value == "" || e.target.value == "0") {
+                  setRow(null);
+                } else {
+                  var isNumber = true;
+                  for (var ch in e.target.value) {
+                    if (e.target.value[ch] < "0" || e.target.value[ch] > "9") {
+                      isNumber = false;
+                      break;
+                    }
+                  }
+                  if (isNumber) {
+                    setRow(e.target.value);
+                  }
+                }
+              }}
+              placeholder={"Enter dimension"}
+              min="0"
+              value={row === null ? "" : row}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter number of columns for the matrix</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                if (e.target.value == "" || e.target.value == "0") {
+                  setCol(null);
+                } else {
+                  var isNumber = true;
+                  for (var ch in e.target.value) {
+                    if (e.target.value[ch] < "0" || e.target.value[ch] > "9") {
+                      isNumber = false;
+                      break;
+                    }
+                  }
+                  if (isNumber) {
+                    setCol(e.target.value);
+                  }
+                }
+              }}
+              placeholder={"Enter dimension"}
+              min="0"
+              value={col === null ? "" : col}
+            />
+          </Form.Group>
+        </Form>
+        <div className="button-custom-grp">
+          <Button variant="primary" onClick={setMatrix}>
+            Set Matrix
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button variant="dark" onClick={() => reset()} type="reset">
+            Reset
+          </Button>
+        </div>
+        <div ref={ref}>
+          {answer != null ? (
+            <>
+              <br />
+              <br />
+              <h3>Solution</h3>
+              <br />
+              <center>
+                <h4>{result}</h4>
+                <br />
+                <br />
+                {answer}
+              </center>
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -2595,6 +3073,8 @@ function Calculator() {
       case "Matrix Multiplication":
         currentCall = matrixMultiplicationCalculator();
         break;
+      case "Transpose of a Matrix":
+        currentCall = transposeCalculator();
       default:
         break;
     }
