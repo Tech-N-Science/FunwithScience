@@ -22,6 +22,11 @@ export default function Matrices() {
       details:
         "Matrix multiplication is a type of binary operation, which takes two matrices and produces a single matrix. Product of two matrices is the dot product of the two matrices",
     },
+    {
+      topic: "Transpose of a Matrix",
+      details:
+        "Transpose is an operation on a matrix, which flips a matrix along its diagonal. The row gets changes into columns and column into rows",
+    },
   ];
 
   return (
