@@ -27,6 +27,11 @@ export default function Matrices() {
       details:
         "Transpose is an operation on a matrix, which flips a matrix along its diagonal. The row gets changes into columns and column into rows",
     },
+    {
+      topic: "Addition Or Subtraction on Matrices",
+      details:
+        "Addition/Subtraction is a binary operation on matrices. It takes two matrices of same size and produces a single matrix by adding/subracting the corresponding elements in the matrices.",
+    },
   ];
 
   return (

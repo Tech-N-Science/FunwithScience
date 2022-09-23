@@ -772,6 +772,211 @@ function Calculator() {
         </div>,
       ],
     },
+    {
+      topic: "Addition Or Subtraction on Matrices",
+      details:
+        "Addition/Subtraction is a binary operation on matrices. It takes two matrices of same size and produces a single matrix by adding/subracting the corresponding elements in the matrices.",
+      formula: "",
+      process: [
+        "1. Enter dimensions of the matrices. Only matrices of same dimensions can be added or subtracted.",
+        <br />,
+        "2. Set the matrices.",
+        <br />,
+        "3. Add or subtract the corresponding elements of the matrices, and achieve the resultant matrix.",
+      ],
+      example1: [
+        "Add given two matrices : ",
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p>A = </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>3</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style={{ marginLeft: "50px" }}>B = </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>10</td>
+                <td>2</td>
+                <td>18</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>1</td>
+                <td>7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p> ={">"} </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>1 + 10</td>
+                <td>3 + 2</td>
+                <td>6 + 18</td>
+              </tr>
+              <tr>
+                <td>2 + 3</td>
+                <td>4 + 1</td>
+                <td>5 + 7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p> ={">"} </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>11</td>
+                <td>5</td>
+                <td>24</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>5</td>
+                <td>12</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+      ],
+      example2: [
+        "Add given two matrices : ",
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p>A = </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>
+                  {" "}
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>3</td>
+                <td>
+                  <sup>5</sup>&frasl;<sub>2</sub>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <sup>2</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>4</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p style={{ marginLeft: "50px" }}>B = </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>
+                  <sup>3</sup>&frasl;<sub>4</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>5</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p> ={">"} </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>
+                  {" "}
+                  <sup>1</sup>&frasl;<sub>2</sub> + <sup>3</sup>&frasl;
+                  <sub>4</sub>
+                </td>
+                <td>
+                  3 + <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>
+                  <sup>5</sup>&frasl;<sub>2</sub> + 10
+                </td>
+              </tr>
+              <tr>
+                <td>2 + 5</td>
+                <td>
+                  <sup>2</sup>&frasl;<sub>3</sub> + <sup>1</sup>&frasl;
+                  <sub>5</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>4</sub> + <sup>1</sup>&frasl;
+                  <sub>2</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p> ={">"} </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>
+                  {" "}
+                  <sup>5</sup>&frasl;<sub>4</sub>
+                </td>
+                <td>
+                  <sup>7</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>
+                  <sup>25</sup>&frasl;<sub>2</sub>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>
+                  <sup>13</sup>&frasl;<sub>15</sub>
+                </td>
+                <td>
+                  <sup>3</sup>&frasl;<sub>4</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+      ],
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
@@ -3075,6 +3280,8 @@ function Calculator() {
         break;
       case "Transpose of a Matrix":
         currentCall = transposeCalculator();
+      case "Addition Or Subtraction on Matrices":
+
       default:
         break;
     }
