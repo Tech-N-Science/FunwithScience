@@ -3265,6 +3265,514 @@ function Calculator() {
     );
   };
 
+  const addSubCalculator = () => {
+    const [showError, setShowError] = useState(false);
+    const [r, setR] = useState(null);
+    const [c, setC] = useState(null);
+    const [board1, setBoard1] = useState([[]]);
+    const [board2, setBoard2] = useState([[]]);
+    const [showModal1, setShowModal1] = useState(false);
+    const [showModal2, setShowModal2] = useState(false);
+    const [mat1, setMat1] = useState([[[]]]);
+    const [mat2, setMat2] = useState([[[]]]);
+    const [display, setDisplay] = useState(false);
+    const [fracMat1, setFracMat1] = useState([[[]]]);
+    const [fracMat2, setFracMat2] = useState([[[]]]);
+
+    // function to find highest common factor
+    const hcf = (x, y) => {
+      if (x % y == 0) {
+        return y;
+      }
+
+      return hcf(y, x % y);
+    };
+
+    //initialises matrix 1 with specified dimensions
+    const setMatrices = () => {
+      if (r == null || r == 0 || c == null || c == 0) {
+        setShowError(true);
+        return;
+      }
+
+      let dim1 = parseInt(r);
+      let dim2 = parseInt(c);
+      // console.log(dim1, dim2);
+      let b1 = Array(dim1)
+        .fill(0)
+        .map((row) => new Array(dim2).fill(null));
+      let b2 = Array(dim1)
+        .fill(0)
+        .map((row) => new Array(dim2).fill(null));
+      setBoard1(b1);
+      setBoard2(b2);
+
+      let f1 = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+
+      let f2 = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+
+      setFracMat1(f1);
+      setFracMat2(f2);
+
+      setShowModal1(true);
+    };
+
+    const setMatrix1 = () => {
+      let dim1 = parseInt(r);
+      let dim2 = parseInt(c);
+
+      let copy = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+      const handleFractionChange = (row, column, num, denom) => {
+        copy[row][column][0] = num;
+        copy[row][column][1] = denom;
+      };
+
+      let isComplete = true;
+
+      for (var i = 0; i < dim1; i++) {
+        for (var j = 0; j < dim2; j++) {
+          if (board1[i][j] === null) {
+            isComplete = false;
+            break;
+          }
+
+          var n = board1[i][j].split(".");
+          var denominator = n.length == 1 ? 1 : Math.pow(10, n[1].length);
+          var numerator =
+            n.length == 1 ? parseInt(n[0]) : parseInt(n[0] + n[1]);
+          if (numerator == 0) {
+            denominator = 1;
+            numerator = 0;
+          } else {
+            if (numerator < 0) {
+              var HCF = hcf(denominator, numerator * -1);
+              denominator /= HCF;
+              numerator /= HCF;
+            } else {
+              var HCF = hcf(denominator, numerator);
+              denominator /= HCF;
+              numerator /= HCF;
+            }
+          }
+
+          handleFractionChange(i, j, numerator, denominator);
+        }
+      }
+
+      if (!isComplete) {
+        setShowError(true);
+      } else {
+        setFracMat1(copy);
+        setShowModal1(false);
+        setShowModal2(true);
+      }
+    };
+
+    const setMatrix2 = () => {
+      let dim1 = parseInt(r);
+      let dim2 = parseInt(c);
+
+      let copy = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+      const handleFractionChange = (row, column, num, denom) => {
+        copy[row][column][0] = num;
+        copy[row][column][1] = denom;
+      };
+
+      let isComplete = true;
+
+      for (var i = 0; i < dim1; i++) {
+        for (var j = 0; j < dim2; j++) {
+          if (board2[i][j] === null) {
+            isComplete = false;
+            break;
+          }
+
+          var n = board2[i][j].split(".");
+          var denominator = n.length == 1 ? 1 : Math.pow(10, n[1].length);
+          var numerator =
+            n.length == 1 ? parseInt(n[0]) : parseInt(n[0] + n[1]);
+          if (numerator == 0) {
+            denominator = 1;
+            numerator = 0;
+          } else {
+            if (numerator < 0) {
+              var HCF = hcf(denominator, numerator * -1);
+              denominator /= HCF;
+              numerator /= HCF;
+            } else {
+              var HCF = hcf(denominator, numerator);
+              denominator /= HCF;
+              numerator /= HCF;
+            }
+          }
+
+          handleFractionChange(i, j, numerator, denominator);
+        }
+      }
+
+      if (!isComplete) {
+        setShowError(true);
+      } else {
+        setFracMat2(copy);
+        setShowModal2(false);
+        setDisplay(true);
+        setMat1(fracMat1);
+        setMat2(copy);
+      }
+    };
+
+    const matrix1ModalBody1 = () => {
+      const handleChange = (row, column, event) => {
+        let copy = [...board1];
+        copy[row][column] = event.target.value;
+        setBoard1(copy);
+        console.log(board1);
+        console.log(board2);
+      };
+
+      return (
+        <>
+          <Modal.Body>
+            <center>
+              <table>
+                <tbody>
+                  {board1.map((field, i) => (
+                    <tr>
+                      {board1[0].map((col, j) => (
+                        <td>
+                          <Form>
+                            <Form.Control
+                              onChange={(e) => {
+                                handleChange(i, j, e);
+                              }}
+                              type="number"
+                              placeholder={"Enter value"}
+                              value={board1[i][j] === null ? "" : board1[i][j]}
+                            />
+                          </Form>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </center>
+          </Modal.Body>
+          <Modal.Footer>
+            <center>
+              <div
+                style={{
+                  display: "flex",
+                }}
+              >
+                <Button variant="primary" onClick={setMatrix1}>
+                  Continue
+                </Button>
+                &nbsp;&nbsp;&nbsp;
+                <Button
+                  variant="dark"
+                  onClick={() => {
+                    setShowModal1(false);
+                  }}
+                  type="reset"
+                >
+                  Close
+                </Button>
+              </div>
+            </center>
+          </Modal.Footer>
+        </>
+      );
+    };
+
+    const matrixModalBody2 = () => {
+      const handleChange = (row, column, event) => {
+        let copy = [...board2];
+        copy[row][column] = event.target.value;
+        setBoard2(copy);
+      };
+
+      return (
+        <>
+          <Modal.Body>
+            <center>
+              <table>
+                <tbody>
+                  {board2.map((field, i) => (
+                    <tr>
+                      {board2[0].map((col, j) => (
+                        <td>
+                          <Form>
+                            <Form.Control
+                              onChange={(e) => {
+                                handleChange(i, j, e);
+                              }}
+                              type="number"
+                              placeholder={"Enter value"}
+                              value={board2[i][j] === null ? "" : board2[i][j]}
+                            />
+                          </Form>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </center>
+          </Modal.Body>
+          <Modal.Footer>
+            <center>
+              <div
+                style={{
+                  display: "flex",
+                }}
+              >
+                <Button variant="primary" onClick={setMatrix2}>
+                  Continue
+                </Button>
+                &nbsp;&nbsp;&nbsp;
+                <Button
+                  variant="dark"
+                  onClick={() => {
+                    setShowModal2(false);
+                  }}
+                  type="reset"
+                >
+                  Close
+                </Button>
+              </div>
+            </center>
+          </Modal.Footer>
+        </>
+      );
+    };
+
+    //function to create cutomised table from the given matrix
+    const createTable = (matrix) => {
+      return (
+        <table>
+          <tbody>
+            {matrix.map((row, i) => (
+              <tr>
+                {row.map((val, j) => (
+                  <td>
+                    {val[1] == 1 ? (
+                      val[0]
+                    ) : (
+                      <>
+                        <sup>{val[0]}</sup>&frasl;<sub>{val[1]}</sub>
+                      </>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    };
+
+    const addMatrices = () => {
+      if (!display) {
+        setShowError(true);
+        return;
+      }
+    };
+
+    const subMatrices = () => {
+      if (!display) {
+        setShowError(true);
+        return;
+      }
+    };
+
+    //main UI component
+    return (
+      <div>
+        <Modal show={showError} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowError(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        <Modal
+          dialogClassName="myModal"
+          show={showModal1}
+          class="modal-dialog modal-dialog-centered"
+          aria-labelledby="contained-modal-title-vcenter"
+          onHide={() => {
+            setShowModal1(false);
+          }}
+          backdrop="static"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title style={{ minWidth: "80vw", textAlign: "center" }}>
+              Set Matrix 1
+            </Modal.Title>
+          </Modal.Header>
+          {showModal1 && matrix1ModalBody1()}
+        </Modal>
+        <Modal
+          dialogClassName="myModal"
+          show={showModal2}
+          class="modal-dialog modal-dialog-centered"
+          aria-labelledby="contained-modal-title-vcenter"
+          onHide={() => {
+            setShowModal2(false);
+          }}
+          backdrop="static"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title style={{ minWidth: "80vw", textAlign: "center" }}>
+              Set Matrix 2
+            </Modal.Title>
+          </Modal.Header>
+          {showModal2 && matrixModalBody2()}
+        </Modal>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                Enter dimensions of then matrices, and then set the matrices and
+                perform Addition/Subtraction on them.
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter number of rows the matrices</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                if (e.target.value == "" || e.target.value == "0") {
+                  setR(null);
+                } else {
+                  var isNumber = true;
+                  for (var ch in e.target.value) {
+                    if (e.target.value[ch] < "0" || e.target.value[ch] > "9") {
+                      isNumber = false;
+                      break;
+                    }
+                  }
+                  if (isNumber) {
+                    setR(e.target.value);
+                  }
+                }
+              }}
+              placeholder={"Enter dimension"}
+              min="0"
+              value={r === null ? "" : r}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter number of columns for the matrices</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                if (e.target.value == "" || e.target.value == "0") {
+                  setC(null);
+                } else {
+                  var isNumber = true;
+                  for (var ch in e.target.value) {
+                    if (e.target.value[ch] < "0" || e.target.value[ch] > "9") {
+                      isNumber = false;
+                      break;
+                    }
+                  }
+                  if (isNumber) {
+                    setC(e.target.value);
+                  }
+                }
+              }}
+              placeholder={"Enter dimension"}
+              min="0"
+              value={c === null ? "" : c}
+            />
+          </Form.Group>
+          <div
+            className="button-custom-grp"
+            style={{ justifyContent: "center" }}
+          >
+            <Button variant="primary" onClick={setMatrices}>
+              Set Matrices
+            </Button>
+          </div>
+          <br />
+          {display && (
+            <>
+              <center>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <p style={{ marginRight: "20px" }}>A = </p>
+                  {createTable(mat1)}
+                </div>
+              </center>
+              <br />
+              <br />
+              <center>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <p style={{ marginRight: "20px" }}>B = </p>
+                  {createTable(mat2)}
+                </div>
+              </center>
+            </>
+          )}
+          <br />
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={addMatrices}>
+              +
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="primary" onClick={subMatrices}>
+              -
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button
+              variant="dark"
+              // onClick={() => reset()}
+              type="reset"
+            >
+              Reset
+            </Button>
+          </div>
+        </Form>
+      </div>
+    );
+  };
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -3281,7 +3789,7 @@ function Calculator() {
       case "Transpose of a Matrix":
         currentCall = transposeCalculator();
       case "Addition Or Subtraction on Matrices":
-
+        currentCall = addSubCalculator();
       default:
         break;
     }
