@@ -2588,7 +2588,7 @@ function Calculator() {
         </h6>
       );
 
-      //mai for loop responisble for multiplication
+      //main for loop responisble for multiplication
       for (let i = 0; i < row1; i++) {
         for (let j = 0; j < col2; j++) {
           let num = 0;
@@ -2876,26 +2876,28 @@ function Calculator() {
             Reset
           </Button>
         </div>
-        <div ref={ref}>
-          {answer != null ? (
-            <>
-              <br />
-              <br />
-              <h3>Solution</h3>
-              {result && (
-                <>
-                  <h4>{result}</h4>
-                  <br />
-                  <br />{" "}
-                </>
-              )}
-              <br />
-              <center>{answer}</center>
-            </>
-          ) : (
-            <></>
-          )}
-        </div>
+        <center>
+          <div ref={ref}>
+            {answer != null ? (
+              <>
+                <br />
+                <br />
+                <h3>Solution</h3>
+                {result && (
+                  <>
+                    <h4>{result}</h4>
+                    <br />
+                    <br />{" "}
+                  </>
+                )}
+                <br />
+                <center>{answer}</center>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+        </center>
       </div>
     );
   };
@@ -3278,6 +3280,9 @@ function Calculator() {
     const [display, setDisplay] = useState(false);
     const [fracMat1, setFracMat1] = useState([[[]]]);
     const [fracMat2, setFracMat2] = useState([[[]]]);
+    const [answer, setAnswer] = useState(null);
+    const [result, setResult] = useState(null);
+    const [firstTime, setFirstTime] = useState(true);
 
     // function to find highest common factor
     const hcf = (x, y) => {
@@ -3288,7 +3293,42 @@ function Calculator() {
       return hcf(y, x % y);
     };
 
-    //initialises matrix 1 with specified dimensions
+    // scrolls to apt postion whenever our result gets updates
+    useEffect(() => {
+      if (firstTime) {
+        setFirstTime(false);
+        return;
+      }
+      console.log(ref.current);
+      var element = ref.current;
+      var header = document.getElementById("targetElement");
+      console.log(header);
+      var elementPosition = element.getBoundingClientRect().top;
+      var offsetPosition = elementPosition + window.pageYOffset;
+      window.scrollTo({
+        top: offsetPosition,
+      });
+    }, [answer]);
+
+    //resets everything to original state
+    const reset = () => {
+      setResult(null);
+      setAnswer(null);
+      setShowError(false);
+      setR(null);
+      setC(null);
+      setBoard1([[]]);
+      setBoard2([[]]);
+      setShowModal1(false);
+      setShowModal2(false);
+      setMat1([[[]]]);
+      setMat2([[[]]]);
+      setDisplay(false);
+      setFracMat1([[[]]]);
+      setFracMat2([[[]]]);
+    };
+
+    //initialises matrices with specified dimensions
     const setMatrices = () => {
       if (r == null || r == 0 || c == null || c == 0) {
         setShowError(true);
@@ -3325,6 +3365,7 @@ function Calculator() {
       setShowModal1(true);
     };
 
+    //checks if values of matrices 1 are set and converts values to fractions
     const setMatrix1 = () => {
       let dim1 = parseInt(r);
       let dim2 = parseInt(c);
@@ -3380,6 +3421,7 @@ function Calculator() {
       }
     };
 
+    //checks if values of matrices 2 are set and converts values to fractions
     const setMatrix2 = () => {
       let dim1 = parseInt(r);
       let dim2 = parseInt(c);
@@ -3437,6 +3479,7 @@ function Calculator() {
       }
     };
 
+    //modal to set values for matrix1
     const matrix1ModalBody1 = () => {
       const handleChange = (row, column, event) => {
         let copy = [...board1];
@@ -3501,6 +3544,7 @@ function Calculator() {
       );
     };
 
+    //modal to set values for matrix2
     const matrixModalBody2 = () => {
       const handleChange = (row, column, event) => {
         let copy = [...board2];
@@ -3544,7 +3588,7 @@ function Calculator() {
                 }}
               >
                 <Button variant="primary" onClick={setMatrix2}>
-                  Continue
+                  Set
                 </Button>
                 &nbsp;&nbsp;&nbsp;
                 <Button
@@ -3563,7 +3607,7 @@ function Calculator() {
       );
     };
 
-    //function to create cutomised table from the given matrix
+    //function to create  table from the given matrix
     const createTable = (matrix) => {
       return (
         <table>
@@ -3588,18 +3632,300 @@ function Calculator() {
       );
     };
 
+    //function to add two matrices
     const addMatrices = () => {
       if (!display) {
         setShowError(true);
         return;
       }
+
+      let dim1 = mat1.length;
+      let dim2 = mat1[0].length;
+
+      let fracBoard = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+
+      //function carries out addition of two fractions
+      const addition = (num1, den1, num2, den2) => {
+        var HCF = hcf(den1, den2);
+        var lcm = (den1 * den2) / HCF;
+
+        num1 *= lcm / den1;
+        num2 *= lcm / den2;
+
+        let newNum = num1 + num2;
+        let newDen = lcm;
+
+        if (newNum == 0) {
+          newDen = 1;
+        }
+
+        return [newNum, newDen];
+      };
+
+      //function to create table showing addition
+      const createAddTable = (f1, f2) => {
+        return (
+          <table>
+            <tbody>
+              {f1.map((row, i) => (
+                <tr>
+                  {row.map((val, j) => (
+                    <td>
+                      {f1[i][j][1] == 1 ? (
+                        f1[i][j][0]
+                      ) : (
+                        <>
+                          <sup>{f1[i][j][0]}</sup>&frasl;
+                          <sub>{f1[i][j][1]}</sub>
+                        </>
+                      )}
+                      {f2[i][j][0] < 0 ? <> + ( </> : <> + </>}
+                      {f2[i][j][1] == 1 ? (
+                        f2[i][j][0]
+                      ) : (
+                        <>
+                          <sup>{f2[i][j][0]}</sup>&frasl;
+                          <sub>{f2[i][j][1]}</sub>
+                        </>
+                      )}
+                      {f2[i][j][0] < 0 ? <> ) </> : <> </>}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        );
+      };
+
+      //main function performing addition
+      for (let i = 0; i < dim1; i++) {
+        for (let j = 0; j < dim2; j++) {
+          let temp = addition(
+            mat1[i][j][0],
+            mat1[i][j][1],
+            mat2[i][j][0],
+            mat2[i][j][1]
+          );
+
+          let num = temp[0];
+          let den = temp[1];
+
+          if (num == 0) {
+            num = 0;
+            den = 1;
+          } else if (num < 0) {
+            let HCF = hcf(den, num * -1);
+            den /= HCF;
+            num /= HCF;
+          } else {
+            let HCF = hcf(den, num);
+            den /= HCF;
+            num /= HCF;
+          }
+
+          fracBoard[i][j][0] = num;
+          fracBoard[i][j][1] = den;
+        }
+      }
+
+      let ans = [];
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}>A = </p>
+          {createTable(mat1)}
+          <p style={{ marginLeft: "50px", marginRight: "20px" }}>B = </p>
+          {createTable(mat2)}
+        </div>
+      );
+      ans.push(<br />);
+      ans.push(<br />);
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}> ={">"} </p>
+          {createAddTable(mat1, mat2)}
+        </div>
+      );
+      ans.push(<br />);
+      ans.push(<br />);
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}> ={">"} </p>
+          {createTable(fracBoard)}
+        </div>
+      );
+      setAnswer(ans);
+      setResult(createTable(fracBoard));
     };
 
+    //function to subtract two matrices
     const subMatrices = () => {
       if (!display) {
         setShowError(true);
         return;
       }
+
+      let dim1 = mat1.length;
+      let dim2 = mat1[0].length;
+
+      let fracBoard = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+
+      //function carries out subtraction of two fractions
+      const subtraction = (num1, den1, num2, den2) => {
+        var HCF = hcf(den1, den2);
+        var lcm = (den1 * den2) / HCF;
+
+        num1 *= lcm / den1;
+        num2 *= lcm / den2;
+
+        let newNum = num1 - num2;
+        let newDen = lcm;
+
+        if (newNum == 0) {
+          newDen = 1;
+        }
+
+        return [newNum, newDen];
+      };
+
+      //function to create table showing subtraction
+      const createSubTable = (f1, f2) => {
+        return (
+          <table>
+            <tbody>
+              {f1.map((row, i) => (
+                <tr>
+                  {row.map((val, j) => (
+                    <td>
+                      {f1[i][j][1] == 1 ? (
+                        f1[i][j][0]
+                      ) : (
+                        <>
+                          <sup>{f1[i][j][0]}</sup>&frasl;
+                          <sub>{f1[i][j][1]}</sub>
+                        </>
+                      )}
+                      {f2[i][j][0] < 0 ? <> - ( </> : <> - </>}
+                      {f2[i][j][1] == 1 ? (
+                        f2[i][j][0]
+                      ) : (
+                        <>
+                          <sup>{f2[i][j][0]}</sup>&frasl;
+                          <sub>{f2[i][j][1]}</sub>
+                        </>
+                      )}
+                      {f2[i][j][0] < 0 ? <> ) </> : <> </>}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        );
+      };
+
+      //main function performing subtraction
+      for (let i = 0; i < dim1; i++) {
+        for (let j = 0; j < dim2; j++) {
+          let temp = subtraction(
+            mat1[i][j][0],
+            mat1[i][j][1],
+            mat2[i][j][0],
+            mat2[i][j][1]
+          );
+
+          let num = temp[0];
+          let den = temp[1];
+
+          if (num == 0) {
+            num = 0;
+            den = 1;
+          } else if (num < 0) {
+            let HCF = hcf(den, num * -1);
+            den /= HCF;
+            num /= HCF;
+          } else {
+            let HCF = hcf(den, num);
+            den /= HCF;
+            num /= HCF;
+          }
+
+          fracBoard[i][j][0] = num;
+          fracBoard[i][j][1] = den;
+        }
+      }
+
+      let ans = [];
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}>A = </p>
+          {createTable(mat1)}
+          <p style={{ marginLeft: "50px", marginRight: "20px" }}>B = </p>
+          {createTable(mat2)}
+        </div>
+      );
+      ans.push(<br />);
+      ans.push(<br />);
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}> ={">"} </p>
+          {createSubTable(mat1, mat2)}
+        </div>
+      );
+      ans.push(<br />);
+      ans.push(<br />);
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}> ={">"} </p>
+          {createTable(fracBoard)}
+        </div>
+      );
+      setAnswer(ans);
+      setResult(createTable(fracBoard));
     };
 
     //main UI component
@@ -3760,15 +4086,34 @@ function Calculator() {
               -
             </Button>
             &nbsp;&nbsp;&nbsp;
-            <Button
-              variant="dark"
-              // onClick={() => reset()}
-              type="reset"
-            >
+            <Button variant="dark" onClick={() => reset()} type="reset">
               Reset
             </Button>
           </div>
         </Form>
+        <div ref={ref}>
+          {answer != null ? (
+            <>
+              <br />
+              <br />
+              <h3>Solution</h3>
+              {result && (
+                <>
+                  <center>
+                    {" "}
+                    <h4>{result}</h4>
+                  </center>
+                  <br />
+                  <br />{" "}
+                </>
+              )}
+              <br />
+              <center>{answer}</center>
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     );
   };
