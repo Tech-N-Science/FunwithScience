@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Quiz.css";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
 const MathsQuiz = () => {
@@ -135,6 +136,9 @@ const MathsQuiz = () => {
                 <button onClick={()=>replay()} class="btn btn-success">
                   Play Again
                 </button>
+                <Link to='/'>
+                  <button className="btn btn-primary" style={{ margin: '20px 0px' }}>Home</button>
+                </Link>      
               </div>
             </div>
           </div>
