@@ -772,6 +772,211 @@ function Calculator() {
         </div>,
       ],
     },
+    {
+      topic: "Addition Or Subtraction on Matrices",
+      details:
+        "Addition/Subtraction is a binary operation on matrices. It takes two matrices of same size and produces a single matrix by adding/subracting the corresponding elements in the matrices.",
+      formula: "",
+      process: [
+        "1. Enter dimensions of the matrices. Only matrices of same dimensions can be added or subtracted.",
+        <br />,
+        "2. Set the matrices.",
+        <br />,
+        "3. Add or subtract the corresponding elements of the matrices, and achieve the resultant matrix.",
+      ],
+      example1: [
+        "Add given two matrices : ",
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p>A = </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>3</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style={{ marginLeft: "50px" }}>B = </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>10</td>
+                <td>2</td>
+                <td>18</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>1</td>
+                <td>7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p> ={">"} </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>1 + 10</td>
+                <td>3 + 2</td>
+                <td>6 + 18</td>
+              </tr>
+              <tr>
+                <td>2 + 3</td>
+                <td>4 + 1</td>
+                <td>5 + 7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p> ={">"} </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>11</td>
+                <td>5</td>
+                <td>24</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>5</td>
+                <td>12</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+      ],
+      example2: [
+        "Add given two matrices : ",
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p>A = </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>
+                  {" "}
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>3</td>
+                <td>
+                  <sup>5</sup>&frasl;<sub>2</sub>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <sup>2</sup>&frasl;<sub>3</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>4</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p style={{ marginLeft: "50px" }}>B = </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>
+                  <sup>3</sup>&frasl;<sub>4</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>5</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p> ={">"} </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>
+                  {" "}
+                  <sup>1</sup>&frasl;<sub>2</sub> + <sup>3</sup>&frasl;
+                  <sub>4</sub>
+                </td>
+                <td>
+                  3 + <sup>1</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>
+                  <sup>5</sup>&frasl;<sub>2</sub> + 10
+                </td>
+              </tr>
+              <tr>
+                <td>2 + 5</td>
+                <td>
+                  <sup>2</sup>&frasl;<sub>3</sub> + <sup>1</sup>&frasl;
+                  <sub>5</sub>
+                </td>
+                <td>
+                  <sup>1</sup>&frasl;<sub>4</sub> + <sup>1</sup>&frasl;
+                  <sub>2</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+        <br />,
+        <br />,
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p> ={">"} </p>
+          <table style={{ marginLeft: "20px" }}>
+            <tbody>
+              <tr>
+                <td>
+                  {" "}
+                  <sup>5</sup>&frasl;<sub>4</sub>
+                </td>
+                <td>
+                  <sup>7</sup>&frasl;<sub>2</sub>
+                </td>
+                <td>
+                  <sup>25</sup>&frasl;<sub>2</sub>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>
+                  <sup>13</sup>&frasl;<sub>15</sub>
+                </td>
+                <td>
+                  <sup>3</sup>&frasl;<sub>4</sub>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>,
+      ],
+    },
   ];
 
   const page = Topics.filter((data) => data.topic === topic);
@@ -2383,7 +2588,7 @@ function Calculator() {
         </h6>
       );
 
-      //mai for loop responisble for multiplication
+      //main for loop responisble for multiplication
       for (let i = 0; i < row1; i++) {
         for (let j = 0; j < col2; j++) {
           let num = 0;
@@ -2671,26 +2876,28 @@ function Calculator() {
             Reset
           </Button>
         </div>
-        <div ref={ref}>
-          {answer != null ? (
-            <>
-              <br />
-              <br />
-              <h3>Solution</h3>
-              {result && (
-                <>
-                  <h4>{result}</h4>
-                  <br />
-                  <br />{" "}
-                </>
-              )}
-              <br />
-              <center>{answer}</center>
-            </>
-          ) : (
-            <></>
-          )}
-        </div>
+        <center>
+          <div ref={ref}>
+            {answer != null ? (
+              <>
+                <br />
+                <br />
+                <h3>Solution</h3>
+                {result && (
+                  <>
+                    <h4>{result}</h4>
+                    <br />
+                    <br />{" "}
+                  </>
+                )}
+                <br />
+                <center>{answer}</center>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+        </center>
       </div>
     );
   };
@@ -3060,6 +3267,857 @@ function Calculator() {
     );
   };
 
+  const addSubCalculator = () => {
+    const [showError, setShowError] = useState(false);
+    const [r, setR] = useState(null);
+    const [c, setC] = useState(null);
+    const [board1, setBoard1] = useState([[]]);
+    const [board2, setBoard2] = useState([[]]);
+    const [showModal1, setShowModal1] = useState(false);
+    const [showModal2, setShowModal2] = useState(false);
+    const [mat1, setMat1] = useState([[[]]]);
+    const [mat2, setMat2] = useState([[[]]]);
+    const [display, setDisplay] = useState(false);
+    const [fracMat1, setFracMat1] = useState([[[]]]);
+    const [fracMat2, setFracMat2] = useState([[[]]]);
+    const [answer, setAnswer] = useState(null);
+    const [result, setResult] = useState(null);
+    const [firstTime, setFirstTime] = useState(true);
+
+    // function to find highest common factor
+    const hcf = (x, y) => {
+      if (x % y == 0) {
+        return y;
+      }
+
+      return hcf(y, x % y);
+    };
+
+    // scrolls to apt postion whenever our result gets updates
+    useEffect(() => {
+      if (firstTime) {
+        setFirstTime(false);
+        return;
+      }
+      console.log(ref.current);
+      var element = ref.current;
+      var header = document.getElementById("targetElement");
+      console.log(header);
+      var elementPosition = element.getBoundingClientRect().top;
+      var offsetPosition = elementPosition + window.pageYOffset;
+      window.scrollTo({
+        top: offsetPosition,
+      });
+    }, [answer]);
+
+    //resets everything to original state
+    const reset = () => {
+      setResult(null);
+      setAnswer(null);
+      setShowError(false);
+      setR(null);
+      setC(null);
+      setBoard1([[]]);
+      setBoard2([[]]);
+      setShowModal1(false);
+      setShowModal2(false);
+      setMat1([[[]]]);
+      setMat2([[[]]]);
+      setDisplay(false);
+      setFracMat1([[[]]]);
+      setFracMat2([[[]]]);
+    };
+
+    //initialises matrices with specified dimensions
+    const setMatrices = () => {
+      if (r == null || r == 0 || c == null || c == 0) {
+        setShowError(true);
+        return;
+      }
+
+      let dim1 = parseInt(r);
+      let dim2 = parseInt(c);
+      // console.log(dim1, dim2);
+      let b1 = Array(dim1)
+        .fill(0)
+        .map((row) => new Array(dim2).fill(null));
+      let b2 = Array(dim1)
+        .fill(0)
+        .map((row) => new Array(dim2).fill(null));
+      setBoard1(b1);
+      setBoard2(b2);
+
+      let f1 = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+
+      let f2 = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+
+      setFracMat1(f1);
+      setFracMat2(f2);
+
+      setShowModal1(true);
+    };
+
+    //checks if values of matrices 1 are set and converts values to fractions
+    const setMatrix1 = () => {
+      let dim1 = parseInt(r);
+      let dim2 = parseInt(c);
+
+      let copy = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+      const handleFractionChange = (row, column, num, denom) => {
+        copy[row][column][0] = num;
+        copy[row][column][1] = denom;
+      };
+
+      let isComplete = true;
+
+      for (var i = 0; i < dim1; i++) {
+        for (var j = 0; j < dim2; j++) {
+          if (board1[i][j] === null) {
+            isComplete = false;
+            break;
+          }
+
+          var n = board1[i][j].split(".");
+          var denominator = n.length == 1 ? 1 : Math.pow(10, n[1].length);
+          var numerator =
+            n.length == 1 ? parseInt(n[0]) : parseInt(n[0] + n[1]);
+          if (numerator == 0) {
+            denominator = 1;
+            numerator = 0;
+          } else {
+            if (numerator < 0) {
+              var HCF = hcf(denominator, numerator * -1);
+              denominator /= HCF;
+              numerator /= HCF;
+            } else {
+              var HCF = hcf(denominator, numerator);
+              denominator /= HCF;
+              numerator /= HCF;
+            }
+          }
+
+          handleFractionChange(i, j, numerator, denominator);
+        }
+      }
+
+      if (!isComplete) {
+        setShowError(true);
+      } else {
+        setFracMat1(copy);
+        setShowModal1(false);
+        setShowModal2(true);
+      }
+    };
+
+    //checks if values of matrices 2 are set and converts values to fractions
+    const setMatrix2 = () => {
+      let dim1 = parseInt(r);
+      let dim2 = parseInt(c);
+
+      let copy = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+      const handleFractionChange = (row, column, num, denom) => {
+        copy[row][column][0] = num;
+        copy[row][column][1] = denom;
+      };
+
+      let isComplete = true;
+
+      for (var i = 0; i < dim1; i++) {
+        for (var j = 0; j < dim2; j++) {
+          if (board2[i][j] === null) {
+            isComplete = false;
+            break;
+          }
+
+          var n = board2[i][j].split(".");
+          var denominator = n.length == 1 ? 1 : Math.pow(10, n[1].length);
+          var numerator =
+            n.length == 1 ? parseInt(n[0]) : parseInt(n[0] + n[1]);
+          if (numerator == 0) {
+            denominator = 1;
+            numerator = 0;
+          } else {
+            if (numerator < 0) {
+              var HCF = hcf(denominator, numerator * -1);
+              denominator /= HCF;
+              numerator /= HCF;
+            } else {
+              var HCF = hcf(denominator, numerator);
+              denominator /= HCF;
+              numerator /= HCF;
+            }
+          }
+
+          handleFractionChange(i, j, numerator, denominator);
+        }
+      }
+
+      if (!isComplete) {
+        setShowError(true);
+      } else {
+        setFracMat2(copy);
+        setShowModal2(false);
+        setDisplay(true);
+        setMat1(fracMat1);
+        setMat2(copy);
+      }
+    };
+
+    //modal to set values for matrix1
+    const matrix1ModalBody1 = () => {
+      const handleChange = (row, column, event) => {
+        let copy = [...board1];
+        copy[row][column] = event.target.value;
+        setBoard1(copy);
+        console.log(board1);
+        console.log(board2);
+      };
+
+      return (
+        <>
+          <Modal.Body>
+            <center>
+              <table>
+                <tbody>
+                  {board1.map((field, i) => (
+                    <tr>
+                      {board1[0].map((col, j) => (
+                        <td>
+                          <Form>
+                            <Form.Control
+                              onChange={(e) => {
+                                handleChange(i, j, e);
+                              }}
+                              type="number"
+                              placeholder={"Enter value"}
+                              value={board1[i][j] === null ? "" : board1[i][j]}
+                            />
+                          </Form>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </center>
+          </Modal.Body>
+          <Modal.Footer>
+            <center>
+              <div
+                style={{
+                  display: "flex",
+                }}
+              >
+                <Button variant="primary" onClick={setMatrix1}>
+                  Continue
+                </Button>
+                &nbsp;&nbsp;&nbsp;
+                <Button
+                  variant="dark"
+                  onClick={() => {
+                    setShowModal1(false);
+                  }}
+                  type="reset"
+                >
+                  Close
+                </Button>
+              </div>
+            </center>
+          </Modal.Footer>
+        </>
+      );
+    };
+
+    //modal to set values for matrix2
+    const matrixModalBody2 = () => {
+      const handleChange = (row, column, event) => {
+        let copy = [...board2];
+        copy[row][column] = event.target.value;
+        setBoard2(copy);
+      };
+
+      return (
+        <>
+          <Modal.Body>
+            <center>
+              <table>
+                <tbody>
+                  {board2.map((field, i) => (
+                    <tr>
+                      {board2[0].map((col, j) => (
+                        <td>
+                          <Form>
+                            <Form.Control
+                              onChange={(e) => {
+                                handleChange(i, j, e);
+                              }}
+                              type="number"
+                              placeholder={"Enter value"}
+                              value={board2[i][j] === null ? "" : board2[i][j]}
+                            />
+                          </Form>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </center>
+          </Modal.Body>
+          <Modal.Footer>
+            <center>
+              <div
+                style={{
+                  display: "flex",
+                }}
+              >
+                <Button variant="primary" onClick={setMatrix2}>
+                  Set
+                </Button>
+                &nbsp;&nbsp;&nbsp;
+                <Button
+                  variant="dark"
+                  onClick={() => {
+                    setShowModal2(false);
+                  }}
+                  type="reset"
+                >
+                  Close
+                </Button>
+              </div>
+            </center>
+          </Modal.Footer>
+        </>
+      );
+    };
+
+    //function to create  table from the given matrix
+    const createTable = (matrix) => {
+      return (
+        <table>
+          <tbody>
+            {matrix.map((row, i) => (
+              <tr>
+                {row.map((val, j) => (
+                  <td>
+                    {val[1] == 1 ? (
+                      val[0]
+                    ) : (
+                      <>
+                        <sup>{val[0]}</sup>&frasl;<sub>{val[1]}</sub>
+                      </>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    };
+
+    //function to add two matrices
+    const addMatrices = () => {
+      if (!display) {
+        setShowError(true);
+        return;
+      }
+
+      let dim1 = mat1.length;
+      let dim2 = mat1[0].length;
+
+      let fracBoard = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+
+      //function carries out addition of two fractions
+      const addition = (num1, den1, num2, den2) => {
+        var HCF = hcf(den1, den2);
+        var lcm = (den1 * den2) / HCF;
+
+        num1 *= lcm / den1;
+        num2 *= lcm / den2;
+
+        let newNum = num1 + num2;
+        let newDen = lcm;
+
+        if (newNum == 0) {
+          newDen = 1;
+        }
+
+        return [newNum, newDen];
+      };
+
+      //function to create table showing addition
+      const createAddTable = (f1, f2) => {
+        return (
+          <table>
+            <tbody>
+              {f1.map((row, i) => (
+                <tr>
+                  {row.map((val, j) => (
+                    <td>
+                      {f1[i][j][1] == 1 ? (
+                        f1[i][j][0]
+                      ) : (
+                        <>
+                          <sup>{f1[i][j][0]}</sup>&frasl;
+                          <sub>{f1[i][j][1]}</sub>
+                        </>
+                      )}
+                      {f2[i][j][0] < 0 ? <> + ( </> : <> + </>}
+                      {f2[i][j][1] == 1 ? (
+                        f2[i][j][0]
+                      ) : (
+                        <>
+                          <sup>{f2[i][j][0]}</sup>&frasl;
+                          <sub>{f2[i][j][1]}</sub>
+                        </>
+                      )}
+                      {f2[i][j][0] < 0 ? <> ) </> : <> </>}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        );
+      };
+
+      //main function performing addition
+      for (let i = 0; i < dim1; i++) {
+        for (let j = 0; j < dim2; j++) {
+          let temp = addition(
+            mat1[i][j][0],
+            mat1[i][j][1],
+            mat2[i][j][0],
+            mat2[i][j][1]
+          );
+
+          let num = temp[0];
+          let den = temp[1];
+
+          if (num == 0) {
+            num = 0;
+            den = 1;
+          } else if (num < 0) {
+            let HCF = hcf(den, num * -1);
+            den /= HCF;
+            num /= HCF;
+          } else {
+            let HCF = hcf(den, num);
+            den /= HCF;
+            num /= HCF;
+          }
+
+          fracBoard[i][j][0] = num;
+          fracBoard[i][j][1] = den;
+        }
+      }
+
+      let ans = [];
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}>A = </p>
+          {createTable(mat1)}
+          <p style={{ marginLeft: "50px", marginRight: "20px" }}>B = </p>
+          {createTable(mat2)}
+        </div>
+      );
+      ans.push(<br />);
+      ans.push(<br />);
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}> ={">"} </p>
+          {createAddTable(mat1, mat2)}
+        </div>
+      );
+      ans.push(<br />);
+      ans.push(<br />);
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}> ={">"} </p>
+          {createTable(fracBoard)}
+        </div>
+      );
+      setAnswer(ans);
+      setResult(createTable(fracBoard));
+    };
+
+    //function to subtract two matrices
+    const subMatrices = () => {
+      if (!display) {
+        setShowError(true);
+        return;
+      }
+
+      let dim1 = mat1.length;
+      let dim2 = mat1[0].length;
+
+      let fracBoard = Array(dim1)
+        .fill(0)
+        .map((row) =>
+          new Array(dim2).fill(0).map((r) => new Array(2).fill(null))
+        );
+
+      //function carries out subtraction of two fractions
+      const subtraction = (num1, den1, num2, den2) => {
+        var HCF = hcf(den1, den2);
+        var lcm = (den1 * den2) / HCF;
+
+        num1 *= lcm / den1;
+        num2 *= lcm / den2;
+
+        let newNum = num1 - num2;
+        let newDen = lcm;
+
+        if (newNum == 0) {
+          newDen = 1;
+        }
+
+        return [newNum, newDen];
+      };
+
+      //function to create table showing subtraction
+      const createSubTable = (f1, f2) => {
+        return (
+          <table>
+            <tbody>
+              {f1.map((row, i) => (
+                <tr>
+                  {row.map((val, j) => (
+                    <td>
+                      {f1[i][j][1] == 1 ? (
+                        f1[i][j][0]
+                      ) : (
+                        <>
+                          <sup>{f1[i][j][0]}</sup>&frasl;
+                          <sub>{f1[i][j][1]}</sub>
+                        </>
+                      )}
+                      {f2[i][j][0] < 0 ? <> - ( </> : <> - </>}
+                      {f2[i][j][1] == 1 ? (
+                        f2[i][j][0]
+                      ) : (
+                        <>
+                          <sup>{f2[i][j][0]}</sup>&frasl;
+                          <sub>{f2[i][j][1]}</sub>
+                        </>
+                      )}
+                      {f2[i][j][0] < 0 ? <> ) </> : <> </>}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        );
+      };
+
+      //main function performing subtraction
+      for (let i = 0; i < dim1; i++) {
+        for (let j = 0; j < dim2; j++) {
+          let temp = subtraction(
+            mat1[i][j][0],
+            mat1[i][j][1],
+            mat2[i][j][0],
+            mat2[i][j][1]
+          );
+
+          let num = temp[0];
+          let den = temp[1];
+
+          if (num == 0) {
+            num = 0;
+            den = 1;
+          } else if (num < 0) {
+            let HCF = hcf(den, num * -1);
+            den /= HCF;
+            num /= HCF;
+          } else {
+            let HCF = hcf(den, num);
+            den /= HCF;
+            num /= HCF;
+          }
+
+          fracBoard[i][j][0] = num;
+          fracBoard[i][j][1] = den;
+        }
+      }
+
+      let ans = [];
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}>A = </p>
+          {createTable(mat1)}
+          <p style={{ marginLeft: "50px", marginRight: "20px" }}>B = </p>
+          {createTable(mat2)}
+        </div>
+      );
+      ans.push(<br />);
+      ans.push(<br />);
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}> ={">"} </p>
+          {createSubTable(mat1, mat2)}
+        </div>
+      );
+      ans.push(<br />);
+      ans.push(<br />);
+      ans.push(
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ marginRight: "20px" }}> ={">"} </p>
+          {createTable(fracBoard)}
+        </div>
+      );
+      setAnswer(ans);
+      setResult(createTable(fracBoard));
+    };
+
+    //main UI component
+    return (
+      <div>
+        <Modal show={showError} class="modal-dialog modal-dialog-centered">
+          <Modal.Header>
+            Please Enter all values to get Proper answer
+          </Modal.Header>
+          <Modal.Footer>
+            <Button
+              onClick={() => setShowError(false)}
+              class="btn btn-primary btn-sm"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        <Modal
+          dialogClassName="myModal"
+          show={showModal1}
+          class="modal-dialog modal-dialog-centered"
+          aria-labelledby="contained-modal-title-vcenter"
+          onHide={() => {
+            setShowModal1(false);
+          }}
+          backdrop="static"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title style={{ minWidth: "80vw", textAlign: "center" }}>
+              Set Matrix 1
+            </Modal.Title>
+          </Modal.Header>
+          {showModal1 && matrix1ModalBody1()}
+        </Modal>
+        <Modal
+          dialogClassName="myModal"
+          show={showModal2}
+          class="modal-dialog modal-dialog-centered"
+          aria-labelledby="contained-modal-title-vcenter"
+          onHide={() => {
+            setShowModal2(false);
+          }}
+          backdrop="static"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title style={{ minWidth: "80vw", textAlign: "center" }}>
+              Set Matrix 2
+            </Modal.Title>
+          </Modal.Header>
+          {showModal2 && matrixModalBody2()}
+        </Modal>
+        <Form>
+          <Form.Group className="mb-4" controlId="text">
+            <Form.Text className="text">
+              <strong>
+                {" "}
+                Enter dimensions of then matrices, and then set the matrices and
+                perform Addition/Subtraction on them.
+              </strong>
+              <br />
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter number of rows the matrices</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                if (e.target.value == "" || e.target.value == "0") {
+                  setR(null);
+                } else {
+                  var isNumber = true;
+                  for (var ch in e.target.value) {
+                    if (e.target.value[ch] < "0" || e.target.value[ch] > "9") {
+                      isNumber = false;
+                      break;
+                    }
+                  }
+                  if (isNumber) {
+                    setR(e.target.value);
+                  }
+                }
+              }}
+              placeholder={"Enter dimension"}
+              min="0"
+              value={r === null ? "" : r}
+            />
+          </Form.Group>
+          <Form.Group className="mb-4">
+            <Form.Label>Enter number of columns for the matrices</Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                if (e.target.value == "" || e.target.value == "0") {
+                  setC(null);
+                } else {
+                  var isNumber = true;
+                  for (var ch in e.target.value) {
+                    if (e.target.value[ch] < "0" || e.target.value[ch] > "9") {
+                      isNumber = false;
+                      break;
+                    }
+                  }
+                  if (isNumber) {
+                    setC(e.target.value);
+                  }
+                }
+              }}
+              placeholder={"Enter dimension"}
+              min="0"
+              value={c === null ? "" : c}
+            />
+          </Form.Group>
+          <div
+            className="button-custom-grp"
+            style={{ justifyContent: "center" }}
+          >
+            <Button variant="primary" onClick={setMatrices}>
+              Set Matrices
+            </Button>
+          </div>
+          <br />
+          {display && (
+            <>
+              <center>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <p style={{ marginRight: "20px" }}>A = </p>
+                  {createTable(mat1)}
+                </div>
+              </center>
+              <br />
+              <br />
+              <center>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <p style={{ marginRight: "20px" }}>B = </p>
+                  {createTable(mat2)}
+                </div>
+              </center>
+            </>
+          )}
+          <br />
+          <div className="button-custom-grp">
+            <Button variant="primary" onClick={addMatrices}>
+              +
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="primary" onClick={subMatrices}>
+              -
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button variant="dark" onClick={() => reset()} type="reset">
+              Reset
+            </Button>
+          </div>
+        </Form>
+        <div ref={ref}>
+          {answer != null ? (
+            <>
+              <br />
+              <br />
+              <h3>Solution</h3>
+              {result && (
+                <>
+                  <center>
+                    {" "}
+                    <h4>{result}</h4>
+                  </center>
+                  <br />
+                  <br />{" "}
+                </>
+              )}
+              <br />
+              <center>{answer}</center>
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   //adding the calculators togather
   function calC(key) {
     let currentCall;
@@ -3075,6 +4133,8 @@ function Calculator() {
         break;
       case "Transpose of a Matrix":
         currentCall = transposeCalculator();
+      case "Addition Or Subtraction on Matrices":
+        currentCall = addSubCalculator();
       default:
         break;
     }
