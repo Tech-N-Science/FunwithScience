@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Quiz.css";
 import { Helmet } from "react-helmet";
 
@@ -239,6 +240,9 @@ const PhysicsQuiz = () => {
                 <button onClick={()=>replay()} class="btn btn-success">
                   Play Again
                 </button>
+                <Link to='/' >
+                  <button className="btn btn-primary" style={{ margin: '20px 0px' }}>Home</button>
+                </Link>
               </div>
             </div>
           </div>
