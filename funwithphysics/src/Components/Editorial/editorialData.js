@@ -26,31 +26,36 @@ export const editorialData = [
   },
   {
     type: "physics",
-    id: 1,
+    id: 0,
     content: `
     # The magnitude of resultant R of two vectors A and B is given by: R² = A² + B² + 2 ABCos(θ), where θ is angle between them.
     ## Here A = 5 units and B = 3 units.
-    ## We know Cos(θ) has maximum value 1 which is at θ = 0⁰.
-    ###    ⇒ R² = 5² + 3² + 2×3×5× Cos(0⁰) .
+    ## We know Cos(θ) has maximum value 1 which is at θ = 0⁰ and Cos(θ) has value -1 at 180⁰.
+    ###  For θ = 0⁰  ⇒ R² = 5² + 3² + 2×3×5× Cos(0⁰) .
     ###    ⇒ R² = 25 + 9 + 2×3×5×1 = 64 .
     ###    ⇒ R = √64 = 8.
+    ###  For θ = 180⁰  ⇒ R² = 5² + 3² + 2×3×5× Cos(0⁰) .
+    ###    ⇒ R² = 25 + 9 - 2×3×5×1 = 4 .
+    ###    ⇒ R = √4 = 2.
     `,
   },
   {
     type: "physics",
-    id: 2,
+    id: 1,
     content: `
     # Multiplication of a vector A ⃗ by a scalar k is simply = kA ⃗.
     ##  Lets Multiply vector A ⃗ by scalar k = 1.5.
     ## A ⃗ .B ⃗ = .
     ###    ⇒ kA ⃗ = 1.5×A ⃗ =1.5×(10i ̂-8j ̂ ) .
     ###    ⇒ kA ⃗ = 15i ̂-12j ̂  = B ⃗.
-    ### It is correct to say that B ⃗=kA ⃗ .
+    ###   OR
+    ###    ⇒ k = B ⃗/A ⃗.
+    ### It is correct to say that B ⃗=kA ⃗ and B ⃗/A ⃗ =k.
     `,
   },
   {
     type: "physics",
-    id: 3,
+    id: 2,
     content: `
     # Scalar Product of Two Vectors A ⃗ and B ⃗ is given by A.B = A₁×B₁ + A₂×B₂.
     ## Here A ⃗ = A₁i ̂  + A₂j ̂  +A₃k ̂  and B ⃗ = B₁i ̂ + B₂j ̂ +B₃k ̂ .
@@ -61,7 +66,7 @@ export const editorialData = [
   },
   {
     type: "physics",
-    id: 4,
+    id: 3,
     content: `
     # Using Newton's Third Equation of Motion (v)²=(v₀)²​+2.a.Δx.
     ## Velocity by which ball is thrown vertically up from the top of a tower be v₀.
@@ -86,7 +91,7 @@ export const editorialData = [
   },
   {
     type: "physics",
-    id: 5,
+    id: 4,
     content: `
     ## Let Equal distance = sm, time for first period be T₁ s. 
     ##     ⇒s = 3×T₁ m.
@@ -104,7 +109,7 @@ export const editorialData = [
   },
   {
     type: "physics",
-    id: 8,
+    id: 7,
     content: `
     # Equation of Motion of a Particle is give x =sin (ωt+φ) .
     ## Particle is give x₁ =sin (ωt+φ).
@@ -126,7 +131,7 @@ export const editorialData = [
 
   {
     type: "physics",
-    id: 22,
+    id: 21,
     content: `
     # .
     ## Velocity of the man vₘ running with  is 10i ̂  
@@ -136,17 +141,18 @@ export const editorialData = [
     ###    ⇒  tan30° = 10/v
     ###    ⇒  v = 10√3
     ### we gat vᵣ = 10i ̂ -10√3j ̂  
-    ### magnitude we get v = √(10² + (10√3)²) = 20
+    ### V₍ᵣ,m₎ = 10√3 km/hr. Option(B) correct.
+    ### magnitude we get V₍ᵣ,g₎ = 20 km/hr = √(10² + (10√3)²) = 20 km/hr, option(D) correct.
 
     `,
   },
   {
     type: "physics",
-    id: 23,
+    id: 22,
     content: `
-    # If the tension in the cable of the elevator is the same as the weight of the elevator,
-    ## it means that the net force on the system is zero.
-    ## Therefore, the net acceleration of the system will also be zero.
+    # Tension in the cable of the elevator is equal to weight of the elevator,
+    ##  Implies net force on the system is zero.
+    ## Net acceleration of the system will = 0.
     ###    ⇒ elevator is moving up or down with uniform speed. 
     ###    ⇒ Option C & D are correct.
     
@@ -154,7 +160,7 @@ export const editorialData = [
   },
   {
     type: "physics",
-    id: 27,
+    id: 26,
     content: `
     # we have,  .
     ## T−mg=ma   ⇒  T=m(g+a)
@@ -166,13 +172,15 @@ export const editorialData = [
   },
   {
     type: "physics",
-    id: 33,
+    id: 32,
     content: `
-    # The person applies F constantly in a fixed direction .
-    ## Keeping the particle in constant circular motion of radius r and uniform speed v, some other force whose resultant varies in magnitude and direction also act on the particle
-    ## 
+    # The person exert Force F constantly in a fixed direction .
+    ## Particle in constant circular motion of radius r and uniform speed v, 
+    ###    ⇒ Other force whose resultant varies in magnitude and direction also act on the particle.
+    ###    ⇒ Option(B) correct.
     ###    ⇒ The resultant of F and other force has to have constant magnitude  but varying direction.
     ###    ⇒ The magnitude and direction of the other force has to change from point to point on circle.
+    ###    ⇒ Option(D) correct.
 
     `,
   },
