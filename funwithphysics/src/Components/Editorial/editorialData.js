@@ -50,7 +50,8 @@ export const editorialData = [
     ###    ⇒ kA ⃗ = 15i ̂-12j ̂  = B ⃗.
     ###   OR
     ###    ⇒ k = B ⃗/A ⃗.
-    ### It is correct to say that B ⃗=kA ⃗ and B ⃗/A ⃗ =k.
+    ### It is correct to say that B ⃗=kA ⃗ .
+    ### But vector division is not possible so B ⃗/A ⃗ =k is not correct.
     `,
   },
   {
@@ -185,16 +186,3 @@ export const editorialData = [
     `,
   },
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
