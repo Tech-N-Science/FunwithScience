@@ -167,7 +167,7 @@ If you have any doubts, please let us know in the comments.
     <tr>
 	<td>
     <a href="https://devincept.com/" ><img src="https://user-images.githubusercontent.com/56088741/123548852-1ef59d00-d784-11eb-8e39-255e0c3e97d5.gif" width="35%" ></a>
-    <a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" width="25%"/></a>
+    <a href="https://hacktoberfest.digitalocean.com/"><img src="https://hacktoberfest.appwrite.io/hacktoberfest.svg" width="25%"/></a>
     <a href="https://winterofcode.com/"><img src="winter of code.png" width="35%"/></a>
 	</td>
   </tr>
@@ -175,6 +175,7 @@ If you have any doubts, please let us know in the comments.
     <a href="https://jwoc.tech/"><img src="jwoc.png" width="17%"/></a>
     <a href="https://diversion.tech/"><img src="diversion.png" width="17%"/></a>
     <a href="https://gssoc.girlscript.tech/"><img src="gssoc.png" width="17%"/></a>
+    <a href="https://ssoc.devfolio.co/"><img src="https://ssoc.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2Fc1573e1780a9481e97869fcd6fbb07fa%2Fassets%2Ffavicon%2F270.png&w=1440&q=75" width="17%"/></a>
   </td>
     </tr>
 </table>
