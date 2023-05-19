@@ -49,4 +49,18 @@ if($num == 1){
 }else {
   echo "0";
 }
+// Set the cookie when the user logs in
+$expiration_time = time() + 86400; // 24 hours in seconds
+setcookie('logout_cookie', 'true', $expiration_time);
+// Check for the presence of the logout cookie
+if (isset($_COOKIE['logout_cookie'])) {
+  // Perform logout actions here
+  // For example, destroy the session and redirect the user to the login page
+  session_start(); // Start the session if not already started
+  session_destroy(); // Destroy the session
+  // Redirect the user to the login page
+  header('Location: login.php');
+  exit();
+}
+
 ?>
