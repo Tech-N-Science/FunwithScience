@@ -12,6 +12,8 @@ import { Context } from '../../App';
 const Navbar = () => {
   const { state, dispatch } = useContext(Context);
   const [clicked, setClicked] = useState(false);
+
+  const [navbarclass, setNavbarclass] = useState(false);
   const user = localStorage.getItem('user');
   const toggle = (index) => {
     if (clicked === index) {
@@ -21,12 +23,12 @@ const Navbar = () => {
     setClicked(index);
   };
 
-    useEffect(() => {
-    
-        window.scrollTo(0, 0);
-       
-     
-    }, []);
+  useEffect(() => {
+
+    window.scrollTo(0, 0);
+
+
+  }, []);
 
 
   const menuBtnRef = useRef(null);
@@ -39,7 +41,9 @@ const Navbar = () => {
       menuBtnRef.current.classList.remove('open');
       setMenuOpen(false);
     }
+
   };
+
 
   const handlelogout = () => {
     dispatch({
@@ -48,9 +52,29 @@ const Navbar = () => {
     localStorage.setItem('user', null);
     console.log(user);
   };
+  useEffect(() => {
+    const handelScroll = () => {
+      const cur_position = window.pageYOffset;
+      console.log(cur_position)
+      if (cur_position > 0) {
+        setNavbarclass(true)
+      }
+      else {
+        setNavbarclass(false)
+      }
+
+    }
+
+    window.addEventListener('scroll', handelScroll);
+
+    return (() => {
+      window.removeEventListener('scroll', handelScroll)
+    })
+  }, [])
+
   return (
     <React.Fragment>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light pt-3' style = {{position:'sticky',top:'0',zIndex:'3'}}>
+      <nav className={`navbar navbar-expand-lg navbar-light  pt-3 ${navbarclass ? 'scrolled' : ''}`} style={{ position: 'sticky', top: '0', zIndex: '3' }}>
         <p className='navbar-brand'>
           <button
             className='navbar-toggler'
@@ -66,12 +90,12 @@ const Navbar = () => {
             </div>
           </button>
           <NavLink to="/" className='nav-logo'>
-            <img src={logo}  alt='logo' height='10%' width='10%' />
+            <img src={logo} alt='logo' height='10%' width='10%' />
             <span>&ensp; Tech<span>N</span>Science</span>
           </NavLink>
         </p>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-          <ul style={{ fontSize: '20px',alignItems:'center',marginBottom:'9px' }} className='navbar-nav ml-auto mr-5'>
+          <ul style={{ fontSize: '20px', alignItems: 'center', marginBottom: '9px' }} className='navbar-nav ml-auto mr-5'>
             <NavLink to='/' className='nav-item'>
               <span className='nav-link' >Home</span>
             </NavLink>
